@@ -1,0 +1,477 @@
+{
+  "vendors": [
+    {
+      "id": "cube",
+      "aliases": [
+        "Cube Cloud",
+        "Cube Core",
+        "Cube.js",
+        "Cube Analytics Chat"
+      ],
+      "askData": [
+        {
+          "name": "Analytics Chat",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI",
+            "REST API"
+          ],
+          "output": "semantic model query",
+          "reads": "The agent queries the Cube semantic model and follows its access control and security context.",
+          "u": "https://docs.cube.dev/docs/explore-analyze/analytics-chat.md"
+        }
+      ]
+    },
+    {
+      "id": "dbt",
+      "aliases": [
+        "dbt Labs",
+        "dbt Cloud",
+        "dbt platform",
+        "dbt Semantic Layer",
+        "MetricFlow",
+        "dbt Copilot",
+        "dbt Wizard",
+        "dbt Core"
+      ],
+      "askData": [
+        {
+          "name": "dbt Wizard",
+          "status": "Preview",
+          "since": "",
+          "surfaces": [
+            "UI",
+            "CLI",
+            "MCP"
+          ],
+          "output": "answer only",
+          "reads": "The agent reads project lineage, documentation, tests, and semantic definitions. Explore mode answers questions about production data.",
+          "u": "https://docs.getdbt.com/docs/platform/wizard-platform"
+        },
+        {
+          "name": "dbt MCP text_to_sql tool",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "MCP"
+          ],
+          "output": "SQL",
+          "reads": "The tool generates SQL from natural language and uses dbt project context. It uses the dbt Copilot action allotment.",
+          "u": "https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools"
+        }
+      ]
+    },
+    {
+      "id": "honeydew",
+      "aliases": [
+        "Honeydew AI"
+      ],
+      "askData": [
+        {
+          "name": "Deep Analysis",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "Slack",
+            "Teams",
+            "GraphQL API",
+            "MCP"
+          ],
+          "output": "SQL",
+          "reads": "The agent queries the entities, attributes, and metrics of its domain. The semantic compiler writes the SQL.",
+          "u": "https://honeydew.ai/docs/integration/context-layer/deep-analysis.md"
+        }
+      ]
+    },
+    {
+      "id": "looker",
+      "aliases": [
+        "LookML",
+        "Google Looker",
+        "Looker (Google Cloud core)",
+        "Looker (original)"
+      ],
+      "askData": [
+        {
+          "name": "Conversational Analytics in Looker",
+          "status": "GA",
+          "since": "2025-11",
+          "surfaces": [
+            "UI",
+            "REST API",
+            "Embed"
+          ],
+          "output": "LookML query",
+          "reads": "The agent queries up to five Explores. It reads agent instructions and verified queries.",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
+        }
+      ]
+    },
+    {
+      "id": "malloy",
+      "aliases": [
+        "Malloy Publisher"
+      ],
+      "askData": []
+    },
+    {
+      "id": "wrenai",
+      "aliases": [
+        "Wren AI",
+        "WrenAI",
+        "Wren Engine",
+        "Wren AI Cloud"
+      ],
+      "askData": [
+        {
+          "name": "Wren AI Cloud GenBI",
+          "status": "GA",
+          "since": "2024-10",
+          "surfaces": [
+            "UI",
+            "REST API"
+          ],
+          "output": "SQL",
+          "reads": "The text-to-SQL engine reads the MDL semantic model with metric definitions, joins, and worked examples.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
+        }
+      ]
+    },
+    {
+      "id": "superset",
+      "aliases": [
+        "Apache Superset"
+      ],
+      "askData": []
+    },
+    {
+      "id": "domo",
+      "aliases": [
+        "Domo AI",
+        "Domo AI Chat",
+        "DomoGPT"
+      ],
+      "askData": [
+        {
+          "name": "AI Chat",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "answer only",
+          "reads": "The feature queries each DataSet the user selects. It also reads Documents and the Knowledge Base.",
+          "u": "https://www.domo.com/docs/s/article/AI-Chat-v2.md"
+        }
+      ]
+    },
+    {
+      "id": "cognos",
+      "aliases": [
+        "IBM Cognos",
+        "Cognos Analytics",
+        "IBM Cognos Analytics"
+      ],
+      "askData": [
+        {
+          "name": "Cognos Analytics AI Assistant",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "answer only",
+          "reads": "The assistant answers questions from governed data in certified data models. Release 12.1.3 adds reporting agents.",
+          "u": "https://www.ibm.com/products/cognos-analytics"
+        }
+      ]
+    },
+    {
+      "id": "metabase",
+      "aliases": [
+        "Metabot",
+        "Metabase Cloud"
+      ],
+      "askData": [
+        {
+          "name": "Metabot",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI",
+            "Slack"
+          ],
+          "output": "SQL",
+          "reads": "Metabot searches tables, metrics, models, questions, and dashboards. It also reads the glossary.",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/metabot.md"
+        }
+      ]
+    },
+    {
+      "id": "oracleanalytics",
+      "aliases": [
+        "Oracle Analytics Cloud",
+        "OAC",
+        "Oracle Analytics Server",
+        "OAS",
+        "Oracle BI",
+        "OBIEE"
+      ],
+      "askData": [
+        {
+          "name": "Oracle Analytics AI Assistant",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "answer only",
+          "reads": "The assistant reads indexed datasets and subject areas. Synonyms in the index improve results.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/oracle-analytics-ai-assistant.html"
+        }
+      ]
+    },
+    {
+      "id": "qlik",
+      "aliases": [
+        "Qlik Sense",
+        "Qlik Cloud",
+        "Qlik Answers"
+      ],
+      "askData": [
+        {
+          "name": "Qlik Answers",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI",
+            "MCP"
+          ],
+          "output": "answer only",
+          "reads": "Qlik Answers indexes apps. It reads the data model, the logical model, and master items.",
+          "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikAnswers/working-with-apps-in-qlik-answers.htm"
+        }
+      ]
+    },
+    {
+      "id": "businessobjects",
+      "aliases": [
+        "BO",
+        "BOBJ",
+        "SAP BI",
+        "SAP BusinessObjects",
+        "BusinessObjects BI"
+      ],
+      "askData": []
+    },
+    {
+      "id": "sigma",
+      "aliases": [
+        "Sigma Computing",
+        "Sigma Assistant",
+        "Ask Sigma"
+      ],
+      "askData": [
+        {
+          "name": "Sigma Assistant",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "answer only",
+          "reads": "The assistant answers from data sources that an admin selects. These include published data models.",
+          "u": "https://help.sigmacomputing.com/docs/ask-natural-language-queries-with-assistant.md"
+        }
+      ]
+    },
+    {
+      "id": "strategy",
+      "aliases": [
+        "MicroStrategy",
+        "Strategy One",
+        "Mosaic"
+      ],
+      "askData": [
+        {
+          "name": "Agents on AI-enabled Mosaic models",
+          "status": "GA",
+          "since": "2025-12",
+          "surfaces": [
+            "UI",
+            "MCP"
+          ],
+          "output": "answer only",
+          "reads": "The agent finds the relevant data model. It answers from the metrics and relationships in that model.",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_agent_from_model.htm"
+        }
+      ]
+    },
+    {
+      "id": "tableau",
+      "aliases": [
+        "Tableau Next",
+        "Tableau Pulse",
+        "Tableau Cloud",
+        "Salesforce"
+      ],
+      "askData": [
+        {
+          "name": "Tableau Agent in Pulse",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "answer only",
+          "reads": "The agent answers from Tableau Pulse metrics and pre-computed insights. It needs Tableau+ or the Try AI setting.",
+          "u": "https://help.tableau.com/current/online/en-us/pulse_intro.htm"
+        },
+        {
+          "name": "Concierge: Analytics Q&A",
+          "status": "Unverified",
+          "since": "",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "answer only",
+          "reads": "The agent answers questions about Tableau Semantics data models in Tableau Next.",
+          "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
+        }
+      ]
+    },
+    {
+      "id": "thoughtspot",
+      "aliases": [
+        "Spotter",
+        "Sage",
+        "Ask Sage",
+        "ThoughtSpot Cloud",
+        "SpotterModel"
+      ],
+      "askData": [
+        {
+          "name": "Spotter",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI",
+            "REST API",
+            "SDK",
+            "MCP"
+          ],
+          "output": "TML search tokens",
+          "reads": "Spotter reads business context from the data Model. It uses relational search over that Model.",
+          "u": "https://developers.thoughtspot.com/docs/spotter-agent-conversation-apis"
+        }
+      ]
+    },
+    {
+      "id": "alation",
+      "aliases": [
+        "Alation Data Catalog",
+        "Alation Cloud Service",
+        "Alation Agent Studio"
+      ],
+      "askData": [
+        {
+          "name": "Chat with Data Product",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "SQL",
+          "reads": "The chat reads the data product and its Document Hubs content. It runs under the user database credentials.",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ChatWithDataProduct.md"
+        }
+      ]
+    },
+    {
+      "id": "atlan",
+      "aliases": [
+        "Atlan AI",
+        "Atlan Data Catalog"
+      ],
+      "askData": [
+        {
+          "name": "Conversational AI",
+          "status": "Unverified",
+          "since": "",
+          "surfaces": [
+            "UI",
+            "Slack",
+            "Teams"
+          ],
+          "output": "SQL",
+          "reads": "The chat writes SQL from catalog metadata, lineage, and glossary terms. The admin enables it in Labs.",
+          "u": "https://docs.atlan.com/llms/platform/conversational-ai/use-conversational-ai/llms.txt"
+        }
+      ]
+    },
+    {
+      "id": "collibra",
+      "aliases": [
+        "Collibra Data Intelligence Platform",
+        "Collibra Maestro",
+        "Collibra AI Copilot"
+      ],
+      "askData": []
+    },
+    {
+      "id": "datahub",
+      "aliases": [
+        "Acryl",
+        "DataHub Cloud"
+      ],
+      "askData": [
+        {
+          "name": "Ask DataHub",
+          "status": "Preview",
+          "since": "",
+          "surfaces": [
+            "UI",
+            "Slack",
+            "Teams",
+            "Chrome extension"
+          ],
+          "output": "SQL",
+          "reads": "The assistant reads the metadata graph and Context Documents. It drafts first SQL queries.",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/ask-datahub"
+        },
+        {
+          "name": "Analytics Agent",
+          "status": "Unverified",
+          "since": "2026-04",
+          "surfaces": [
+            "UI",
+            "CLI"
+          ],
+          "output": "SQL",
+          "reads": "The agent searches DataHub for context. It writes SQL, runs the SQL, and renders a chart.",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/analytics-agent"
+        }
+      ]
+    },
+    {
+      "id": "openmetadata",
+      "aliases": [
+        "Collate"
+      ],
+      "askData": [
+        {
+          "name": "Collate AI Chat",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "SQL",
+          "reads": "The chat reads glossary terms, lineage, table schemas, and profiler data. It runs read-only SQL.",
+          "u": "https://docs.getcollate.io/ai-2-0/collate-ai/collate-ai-chat.md"
+        }
+      ]
+    }
+  ]
+}
