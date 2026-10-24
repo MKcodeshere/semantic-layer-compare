@@ -1,0 +1,1090 @@
+{
+ "vendors": [
+  {
+   "id": "unity-catalog",
+   "name": "Unity Catalog",
+   "category": "catalog",
+   "partOf": "databricks",
+   "aliases": [
+    "Databricks Unity Catalog",
+    "UC",
+    "Unity Catalog OSS",
+    "Unity Catalog Business Semantics",
+    "Unity Catalog semantics"
+   ],
+   "tagline": "Databricks governance catalog for tables, metric views, models and MCP services, with an open source edition.",
+   "verdict": "native",
+   "verdictNote": "Unity Catalog stores metric views as governed objects, adds tags, domains and AI comments, and serves them to agents through governed MCP services.",
+   "artifacts": [
+    {
+     "name": "Unity Catalog metric views",
+     "kind": "metric-view",
+     "status": "GA",
+     "since": "2026-04",
+     "format": "SQL DDL (CREATE VIEW ... WITH METRICS) or YAML 1.1; Catalog Explorer editor",
+     "url": "https://docs.databricks.com/aws/en/uc-semantics/metric-views"
+    },
+    {
+     "name": "Tags and governed tags",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "SQL, UI, REST API; governed tags enforce allowed keys and values",
+     "url": "https://docs.databricks.com/aws/en/database-objects/tags"
+    },
+    {
+     "name": "AI-generated comments",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2024-06",
+     "format": "Catalog Explorer; the owner reviews each draft before saving",
+     "url": "https://docs.databricks.com/aws/en/comments/ai-comments"
+    },
+    {
+     "name": "Pages (governed business definitions)",
+     "kind": "glossary",
+     "status": "Preview",
+     "since": "",
+     "format": "UI; Beta, enabled by an account admin",
+     "url": "https://docs.databricks.com/aws/en/uc-semantics/pages"
+    },
+    {
+     "name": "Domains and subdomains",
+     "kind": "glossary",
+     "status": "Unverified",
+     "since": "",
+     "format": "UI; governed tags place assets in a domain. No stage label in docs",
+     "url": "https://docs.databricks.com/aws/en/uc-semantics/domains"
+    },
+    {
+     "name": "Certified and deprecated flags",
+     "kind": "annotations",
+     "status": "Unverified",
+     "since": "",
+     "format": "System tag system.certification_status. No stage label in docs",
+     "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/certify-deprecate-data"
+    },
+    {
+     "name": "Data Classification",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2026-04",
+     "format": "Agentic scan that applies sensitivity tags to tables",
+     "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-classification"
+    },
+    {
+     "name": "Lineage and lineage system tables",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Column-level lineage in UI and REST API; system.access.table_lineage and column_lineage",
+     "url": "https://docs.databricks.com/aws/en/admin/system-tables/lineage"
+    },
+    {
+     "name": "Databricks-provided MCPs (Genie One MCP and others)",
+     "kind": "mcp",
+     "status": "GA",
+     "since": "2026-09",
+     "format": "Each MCP is a Unity Catalog securable behind Unity Gateway; some servers need the Unity Gateway beta",
+     "url": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services"
+    },
+    {
+     "name": "Unity Catalog OSS metric views",
+     "kind": "metric-view",
+     "status": "Unverified",
+     "since": "",
+     "format": "Open source server; metric view YAML stored through REST API and Spark. No stage label",
+     "url": "https://docs.unitycatalog.io/explanation/views-and-metric-views.md"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 3,
+     "n": "Metric views hold measures as Unity Catalog securables. Standard privileges apply. Open source Unity Catalog also stores metric view YAML.",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views"
+    },
+    "dimensions": {
+     "l": 3,
+     "n": "Metric views declare dimensions as fields, with a join list. The docs do not describe hierarchies or time grains.",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/create/"
+    },
+    "relationships": {
+     "l": 3,
+     "n": "Metric view YAML declares joins and join cardinality. The catalog itself does not expose a separate relationship object.",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/create/"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "Comments, tags, and metric view synonyms are readable by agents. Pages add authoritative term definitions but are Beta.",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/pages"
+    },
+    "verifiedQueries": {
+     "l": 1,
+     "n": "Example SQL and trusted assets live in Genie Agents, not in the catalog. The catalog supplies certification flags only.",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/certify-deprecate-data"
+    },
+    "nl2sql": {
+     "l": 1,
+     "n": "Genie One answers questions with Unity Catalog semantics. It is a separate Databricks product, not a catalog feature.",
+     "u": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services"
+    },
+    "ontology": {
+     "l": 2,
+     "n": "Domains and Pages form the human-modeled layer of Genie Ontology. Pages are Beta. No user-defined object or link types.",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query language. Lineage is a graph in the UI and API, but users cannot run graph queries on business data.",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-lineage"
+    },
+    "vector": {
+     "l": 1,
+     "n": "Vector search is a separate Databricks product that uses Unity Catalog governance. The catalog search is not documented as semantic search.",
+     "u": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services"
+    },
+    "mcp": {
+     "l": 3,
+     "n": "Databricks-provided MCPs are Unity Catalog securables. The Genie One MCP is GA. The SQL MCP needs the Unity Gateway beta.",
+     "u": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services"
+    },
+    "governance": {
+     "l": 3,
+     "n": "Grants, ABAC row filters and column masks, certification tags, audit logs, and lineage apply to tables and metric views.",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/abac/"
+    },
+    "openStandard": {
+     "l": 3,
+     "n": "Open source Unity Catalog is Apache 2.0 with an OpenAPI spec. Databricks also exposes an Iceberg REST catalog endpoint.",
+     "u": "https://docs.databricks.com/aws/en/external-access/iceberg"
+    },
+    "aiDescriptions": {
+     "l": 3,
+     "n": "Catalog Explorer drafts comments for catalogs, schemas, tables, columns, functions, models and volumes. Saving runs ALTER, which can disrupt jobs.",
+     "u": "https://docs.databricks.com/aws/en/comments/ai-comments"
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "COMMENT ON, ALTER TABLE ... ALTER COLUMN and SET TAGS write metadata in SQL. REST API and SDKs also work. No file import tool.",
+     "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-comment"
+    },
+    "autoClassify": {
+     "l": 3,
+     "n": "Data Classification tags sensitive data on a schedule. Scanning views is Beta. Tags feed ABAC policies.",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-classification"
+    },
+    "sampleValues": {
+     "l": 1,
+     "n": "Value matching and sampling are Genie Agents features. The catalog does not sample values for AI.",
+     "u": "https://docs.databricks.com/aws/en/genie-agents/tune-quality"
+    },
+    "queryHistory": {
+     "l": 1,
+     "n": "Genie suggests example queries from workspace query history. The catalog itself only records lineage from queries.",
+     "u": "https://docs.databricks.com/aws/en/genie-agents/set-up"
+    },
+    "lineage": {
+     "l": 3,
+     "n": "Automatic column-level lineage across workspaces, a lineage API, external lineage, and system tables with a one-year rolling window.",
+     "u": "https://docs.databricks.com/aws/en/admin/system-tables/lineage"
+    },
+    "evals": {
+     "l": 1,
+     "n": "Genie benchmarks score a Genie Agent against reference SQL. This is a Genie feature, not a catalog feature.",
+     "u": "https://docs.databricks.com/aws/en/genie-agents/monitor"
+    }
+   },
+   "offers": [
+    "Metric views are governed catalog objects with standard grants, so agents see only what the caller can see.",
+    "Governed tags, domains, certification flags and Pages give an agent machine-readable trust and business meaning.",
+    "Catalog Explorer drafts AI comments for tables and columns that an owner can review and save.",
+    "Lineage system tables let an agent or a script query upstream and downstream tables with SQL.",
+    "Databricks-provided MCPs run under Unity Catalog permissions and grants.",
+    "The open source edition serves Iceberg REST clients and stores metric view definitions."
+   ],
+   "gaps": [
+    "Pages are Beta, and the docs show no stage label for domains or certification flags.",
+    "The catalog does not store verified question and SQL pairs. Genie Agents hold them.",
+    "Natural language SQL, value sampling and evals belong to Genie, which is a separate product from the catalog.",
+    "The open source edition lists no AI comments, tags, lineage, or MCP server in its docs index.",
+    "AI comments need human review, and the docs warn against using them to detect PII."
+   ],
+   "fillWith": [
+    "Genie Agents",
+    "Atlan",
+    "Collibra",
+    "Alation",
+    "dbt Semantic Layer",
+    "Cube"
+   ],
+   "nl2sqlPath": "Define metrics as metric views and add comments, tags and certification flags. Then connect the agent through the Genie One MCP server so it reads those definitions under the caller's permissions. Use the SQL MCP only for queries you already wrote.",
+   "snippet": {
+    "lang": "sql",
+    "title": "Create a metric view in Unity Catalog",
+    "code": "CREATE OR REPLACE VIEW orders_metric_view WITH METRICS LANGUAGE YAML AS\n$$\nversion: 1.1\ncomment: \"Orders KPIs for sales analysis\"\nsource: samples.tpch.orders\nfields:\n  - name: Order Month\n    expr: DATE_TRUNC('MONTH', source.o_orderdate)\n    comment: 'Month of order'\nmeasures:\n  - name: Order Count\n    expr: COUNT(1)\n    comment: 'Total number of orders'\n$$",
+    "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/create/"
+   },
+   "askData": [
+    {
+     "name": "Genie One",
+     "status": "GA",
+     "since": "2026-06",
+     "surfaces": [
+      "UI",
+      "MCP"
+     ],
+     "output": "SQL",
+     "reads": "Genie Ontology, metric views, Pages, certified assets, table and column comments in Unity Catalog.",
+     "u": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services"
+    }
+   ],
+   "enrichHowTo": "Open Catalog Explorer, generate AI comments for each table and column, and review them. For scripted writes, run ALTER TABLE ... ALTER COLUMN ... COMMENT and SET TAGS in one statement for each table. Certify trusted assets with the system.certification_status tag.",
+   "bulkSnippet": {
+    "lang": "sql",
+    "code": "ALTER TABLE main.sales.orders\n  ALTER COLUMN o_custkey COMMENT 'Customer key',\n  ALTER COLUMN o_orderdate COMMENT 'Date the order was placed';\nALTER TABLE main.sales.orders SET TAGS ('system.certification_status' = 'certified');",
+    "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-alter-table-manage-column"
+   },
+   "sources": [
+    {
+     "t": "What is Unity Catalog?",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog"
+    },
+    {
+     "t": "Unity Catalog semantics",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/"
+    },
+    {
+     "t": "Unity Catalog metric views",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views"
+    },
+    {
+     "t": "Create a metric view",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/create/"
+    },
+    {
+     "t": "Pages",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/pages"
+    },
+    {
+     "t": "Domains and subdomains",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/domains"
+    },
+    {
+     "t": "Apply tags to Unity Catalog securable objects",
+     "u": "https://docs.databricks.com/aws/en/database-objects/tags"
+    },
+    {
+     "t": "Flag data as certified or deprecated",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/certify-deprecate-data"
+    },
+    {
+     "t": "AI-generated comments",
+     "u": "https://docs.databricks.com/aws/en/comments/ai-comments"
+    },
+    {
+     "t": "Data Classification",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-classification"
+    },
+    {
+     "t": "Lineage in Unity Catalog",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-lineage"
+    },
+    {
+     "t": "Lineage system tables reference",
+     "u": "https://docs.databricks.com/aws/en/admin/system-tables/lineage"
+    },
+    {
+     "t": "Databricks-provided MCPs",
+     "u": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services"
+    },
+    {
+     "t": "MCPs overview",
+     "u": "https://docs.databricks.com/aws/en/agents/mcp-tools/"
+    },
+    {
+     "t": "Attribute-based access control",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/abac/"
+    },
+    {
+     "t": "Access Databricks tables from Iceberg clients",
+     "u": "https://docs.databricks.com/aws/en/external-access/iceberg"
+    },
+    {
+     "t": "COMMENT ON",
+     "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-comment"
+    },
+    {
+     "t": "Unity Catalog OSS docs index",
+     "u": "https://docs.unitycatalog.io/llms.txt"
+    },
+    {
+     "t": "Unity Catalog OSS README",
+     "u": "https://raw.githubusercontent.com/unitycatalog/unitycatalog/main/README.md"
+    },
+    {
+     "t": "Unity Catalog OSS roadmap",
+     "u": "https://raw.githubusercontent.com/unitycatalog/unitycatalog/main/roadmap.md"
+    }
+   ],
+   "verified": "2026-10-24"
+  },
+  {
+   "id": "horizon",
+   "name": "Snowflake Horizon Catalog",
+   "category": "catalog",
+   "partOf": "snowflake",
+   "aliases": [
+    "Horizon",
+    "Horizon Catalog",
+    "Horizon Context",
+    "Snowflake Horizon",
+    "Snowflake Data Catalog"
+   ],
+   "tagline": "Snowflake built-in catalog for discovery, semantic views, lineage, governance and an Iceberg REST endpoint.",
+   "verdict": "native",
+   "verdictNote": "Horizon Catalog stores semantic views as schema objects and adds tags, descriptions, classification and lineage that Cortex and MCP clients read.",
+   "artifacts": [
+    {
+     "name": "Semantic views",
+     "kind": "semantic-model",
+     "status": "GA",
+     "since": "2025",
+     "format": "SQL DDL (CREATE SEMANTIC VIEW) or YAML; schema-level objects with grants and tags",
+     "url": "https://docs.snowflake.com/en/user-guide/views-semantic/overview"
+    },
+    {
+     "name": "Semantic View Autopilot",
+     "kind": "nl2sql",
+     "status": "GA",
+     "since": "",
+     "format": "Snowsight wizard that drafts tables, relationships and metrics",
+     "url": "https://docs.snowflake.com/en/user-guide/views-semantic/autopilot"
+    },
+    {
+     "name": "Auto-generated descriptions (AI_GENERATE_TABLE_DESC)",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2025-09",
+     "format": "Stored procedure and Snowsight; optional sample data",
+     "url": "https://docs.snowflake.com/en/user-guide/sql-cortex-descriptions"
+    },
+    {
+     "name": "Object tagging and Snowflake-provided tags",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "SQL; tags inherit and propagate. SNOWFLAKE.TAGS.CERTIFICATION_STATUS marks trusted assets",
+     "url": "https://docs.snowflake.com/en/user-guide/object-tagging/introduction"
+    },
+    {
+     "name": "Sensitive data classification",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2025-08",
+     "format": "Classification profiles and Trust Center; Enterprise Edition",
+     "url": "https://docs.snowflake.com/en/user-guide/classify-intro"
+    },
+    {
+     "name": "Data lineage and GET_LINEAGE",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Snowsight graph and SNOWFLAKE.CORE.GET_LINEAGE; Enterprise Edition",
+     "url": "https://docs.snowflake.com/en/sql-reference/functions/get_lineage-snowflake-core"
+    },
+    {
+     "name": "Metadata connectors",
+     "kind": "annotations",
+     "status": "Preview",
+     "since": "",
+     "format": "Collect schemas, query logs and dashboards from PostgreSQL, SQL Server, Tableau, Power BI and dbt",
+     "url": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+    },
+    {
+     "name": "Horizon Iceberg REST Catalog API",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Iceberg REST endpoint for Snowflake-managed Iceberg tables; vended credentials",
+     "url": "https://docs.snowflake.com/en/user-guide/tables-iceberg-use-external-query-engine"
+    },
+    {
+     "name": "Catalog-linked databases",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Sync Iceberg tables from an external Iceberg REST catalog, such as AWS Glue",
+     "url": "https://docs.snowflake.com/en/user-guide/tables-iceberg-catalog-linked-database"
+    },
+    {
+     "name": "Snowflake-managed MCP server",
+     "kind": "mcp",
+     "status": "GA",
+     "since": "2025-11",
+     "format": "Tools for Cortex Analyst, Cortex Search, Cortex Agents and SQL; RBAC per tool",
+     "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 3,
+     "n": "Semantic views define metrics, including derived metrics, as schema objects with grants.",
+     "u": "https://docs.snowflake.com/en/user-guide/views-semantic/overview"
+    },
+    "dimensions": {
+     "l": 3,
+     "n": "Semantic views declare dimensions and facts on logical tables.",
+     "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+    },
+    "relationships": {
+     "l": 3,
+     "n": "CREATE SEMANTIC VIEW has a RELATIONSHIPS clause that declares joins between logical tables.",
+     "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "Semantic views take synonyms, comments, and the AI_SQL_GENERATION instruction text. Tags and table comments add more context.",
+     "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+    },
+    "verifiedQueries": {
+     "l": 3,
+     "n": "The AI_VERIFIED_QUERIES clause stores question and SQL pairs inside the semantic view.",
+     "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+    },
+    "nl2sql": {
+     "l": 1,
+     "n": "Cortex Analyst and Cortex Agents answer questions against semantic views. They are Snowflake AI products, not catalog features.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+    },
+    "ontology": {
+     "l": 0,
+     "n": "No object, link or action model. Semantic views, tags and certification status are the closest features.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+    },
+    "graph": {
+     "l": 0,
+     "n": "The catalog has a lineage graph in Snowsight. No graph query language for business data was found in the docs.",
+     "u": "https://docs.snowflake.com/en/user-guide/ui-snowsight-lineage"
+    },
+    "vector": {
+     "l": 1,
+     "n": "Cortex Search is a separate service that a semantic view can use. Universal Search is not described as vector search in the docs.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+    },
+    "mcp": {
+     "l": 3,
+     "n": "The managed MCP server is GA and exposes Cortex Analyst on semantic views. The docs list no catalog-only search tool.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+    },
+    "governance": {
+     "l": 3,
+     "n": "Masking and row access policies apply to every caller. Tags, certification status, classification, and lineage cover semantic views.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon"
+    },
+    "openStandard": {
+     "l": 3,
+     "n": "Horizon exposes an Iceberg REST Catalog API built on Apache Polaris. Semantic view YAML import is separate.",
+     "u": "https://docs.snowflake.com/en/user-guide/tables-iceberg-access-using-external-query-engine-snowflake-horizon"
+    },
+    "aiDescriptions": {
+     "l": 3,
+     "n": "AI_GENERATE_TABLE_DESC drafts table and column descriptions, optionally from sample data. Snowsight has a matching UI path.",
+     "u": "https://docs.snowflake.com/en/user-guide/sql-cortex-descriptions"
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "One ALTER TABLE ... ALTER statement sets comments on many columns. SET TAG and tag propagation scale tags. No file import tool.",
+     "u": "https://docs.snowflake.com/en/sql-reference/sql/alter-table-column"
+    },
+    "autoClassify": {
+     "l": 3,
+     "n": "Classification profiles tag sensitive columns automatically. The feature needs Enterprise Edition.",
+     "u": "https://docs.snowflake.com/en/user-guide/classify-intro"
+    },
+    "sampleValues": {
+     "l": 3,
+     "n": "Semantic view dimensions accept SAMPLE_VALUES and IS_ENUM. Authors write the values; Snowflake does not sample them for you.",
+     "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl"
+    },
+    "queryHistory": {
+     "l": 3,
+     "n": "Horizon Context collects query history and popularity. Autopilot uses query history to suggest relationships and verified queries.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+    },
+    "lineage": {
+     "l": 3,
+     "n": "Column-level lineage from Snowflake, external databases, BI tools, and OpenLineage feeds. GET_LINEAGE accepts the SEMANTIC_VIEW domain.",
+     "u": "https://docs.snowflake.com/en/sql-reference/functions/get_lineage-snowflake-core"
+    },
+    "evals": {
+     "l": 1,
+     "n": "Cortex Analyst evaluations run a semantic view against verified queries. They are an AI product feature, not a catalog feature.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst-evaluations"
+    }
+   },
+   "offers": [
+    "Semantic views are schema objects, so grants, tags, sharing and lineage apply to them.",
+    "AI_GENERATE_TABLE_DESC writes table and column descriptions from metadata and sample data.",
+    "The SNOWFLAKE.TAGS.CERTIFICATION_STATUS tag gives agents a fixed trust signal for CERTIFIED and DEPRECATED assets.",
+    "The Horizon Iceberg REST Catalog API lets Spark and other engines read Snowflake-managed Iceberg tables under Snowflake roles.",
+    "Catalog-linked databases pull in Iceberg tables from an external Iceberg REST catalog, such as AWS Glue.",
+    "Column-level lineage covers Snowflake objects and OpenLineage feeds, and GET_LINEAGE returns it in SQL."
+   ],
+   "gaps": [
+    "Metadata connectors for PostgreSQL, SQL Server, Tableau, Power BI and dbt are Preview.",
+    "The docs describe no business glossary object. Teams use tags and semantic view comments.",
+    "Writes through the Horizon Iceberg REST API and access to externally managed Iceberg tables are Preview in the release notes.",
+    "Lineage, tagging, and classification need Enterprise Edition or higher.",
+    "No ontology layer with objects, links or actions."
+   ],
+   "fillWith": [
+    "Atlan",
+    "Collibra",
+    "Alation",
+    "DataHub",
+    "dbt Semantic Layer",
+    "Cube"
+   ],
+   "nl2sqlPath": "Create a semantic view over certified tables, add synonyms, comments and verified queries, and tag it. Then give agents access through the Snowflake-managed MCP server so Cortex Analyst reads the view under the caller's role.",
+   "snippet": {
+    "lang": "sql",
+    "title": "Create a semantic view with a synonym and a verified query clause",
+    "code": "CREATE SEMANTIC VIEW tpch_rev_analysis\n  TABLES (\n    orders AS SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS\n      PRIMARY KEY (o_orderkey)\n      WITH SYNONYMS ('sales orders')\n      COMMENT = 'All orders table for the sales domain',\n    customers AS SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER\n      PRIMARY KEY (c_custkey)\n  )\n  RELATIONSHIPS (\n    orders_to_customers AS orders (o_custkey) REFERENCES customers\n  )\n  METRICS (\n    orders.order_count AS COUNT(orders.o_orderkey)\n  );",
+    "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+   },
+   "askData": [
+    {
+     "name": "Cortex Analyst",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "REST API",
+      "MCP"
+     ],
+     "output": "SQL",
+     "reads": "Semantic view metrics, dimensions, relationships, synonyms, comments, and verified queries.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+    },
+    {
+     "name": "Cortex Agents",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "MCP"
+     ],
+     "output": "SQL",
+     "reads": "Semantic views as tools. The agent generates SQL against the physical tables from the view definition.",
+     "u": "https://docs.snowflake.com/en/user-guide/views-semantic/overview"
+    }
+   ],
+   "enrichHowTo": "Run CALL AI_GENERATE_TABLE_DESC on each table to draft descriptions, review them, and apply them with ALTER TABLE ... ALTER (column COMMENT ...). Set the CERTIFICATION_STATUS tag on trusted tables. Build a semantic view over those tables.",
+   "bulkSnippet": {
+    "lang": "sql",
+    "code": "ALTER TABLE t1 ALTER (\n  c1 COMMENT 'Customer key',\n  c5 COMMENT '50 character column'\n);\nALTER TABLE t1 SET TAG SNOWFLAKE.TAGS.CERTIFICATION_STATUS = 'CERTIFIED';",
+    "u": "https://docs.snowflake.com/en/sql-reference/sql/alter-table-column"
+   },
+   "sources": [
+    {
+     "t": "Snowflake Horizon Catalog",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon"
+    },
+    {
+     "t": "Horizon Context",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+    },
+    {
+     "t": "Overview of semantic views",
+     "u": "https://docs.snowflake.com/en/user-guide/views-semantic/overview"
+    },
+    {
+     "t": "CREATE SEMANTIC VIEW",
+     "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+    },
+    {
+     "t": "Semantic View Autopilot",
+     "u": "https://docs.snowflake.com/en/user-guide/views-semantic/autopilot"
+    },
+    {
+     "t": "Generate object descriptions with SQL",
+     "u": "https://docs.snowflake.com/en/user-guide/sql-cortex-descriptions"
+    },
+    {
+     "t": "Introduction to object tagging",
+     "u": "https://docs.snowflake.com/en/user-guide/object-tagging/introduction"
+    },
+    {
+     "t": "Sensitive data classification",
+     "u": "https://docs.snowflake.com/en/user-guide/classify-intro"
+    },
+    {
+     "t": "Data lineage",
+     "u": "https://docs.snowflake.com/en/user-guide/ui-snowsight-lineage"
+    },
+    {
+     "t": "GET_LINEAGE",
+     "u": "https://docs.snowflake.com/en/sql-reference/functions/get_lineage-snowflake-core"
+    },
+    {
+     "t": "Use an external query engine with Iceberg tables",
+     "u": "https://docs.snowflake.com/en/user-guide/tables-iceberg-use-external-query-engine"
+    },
+    {
+     "t": "Access Iceberg tables with an external engine through Horizon",
+     "u": "https://docs.snowflake.com/en/user-guide/tables-iceberg-access-using-external-query-engine-snowflake-horizon"
+    },
+    {
+     "t": "Aug 18, 2026 release note: externally managed Iceberg tables through Horizon",
+     "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-08-18-externally-managed-iceberg-tables-horizon-irc-preview"
+    },
+    {
+     "t": "Catalog-linked database for Iceberg tables",
+     "u": "https://docs.snowflake.com/en/user-guide/tables-iceberg-catalog-linked-database"
+    },
+    {
+     "t": "Snowflake-managed MCP server",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+    },
+    {
+     "t": "ALTER TABLE ... COLUMN",
+     "u": "https://docs.snowflake.com/en/sql-reference/sql/alter-table-column"
+    },
+    {
+     "t": "Data Governance in Snowflake",
+     "u": "https://docs.snowflake.com/en/guides-overview-govern.md"
+    }
+   ],
+   "verified": "2026-10-24"
+  },
+  {
+   "id": "sagemaker-catalog",
+   "name": "Amazon SageMaker Catalog and AWS Glue Data Catalog",
+   "category": "catalog",
+   "partOf": "redshift",
+   "aliases": [
+    "Amazon SageMaker Catalog",
+    "SageMaker Unified Studio catalog",
+    "Amazon DataZone",
+    "DataZone",
+    "AWS Glue Data Catalog",
+    "Glue Data Catalog",
+    "SageMaker Data Catalog"
+   ],
+   "tagline": "AWS business catalog with glossary, data products and lineage, on top of the Glue technical catalog.",
+   "verdict": "partial",
+   "verdictNote": "SageMaker Catalog gives descriptions, glossary terms, metadata forms and lineage to agents, but it holds no governed metric or join definitions.",
+   "artifacts": [
+    {
+     "name": "SageMaker Catalog business glossary and metadata forms",
+     "kind": "glossary",
+     "status": "GA",
+     "since": "",
+     "format": "Console and DataZone API (CreateGlossary, CreateGlossaryTerm); terms hold synonyms and related terms",
+     "url": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateGlossaryTerm.html"
+    },
+    {
+     "name": "AI recommendations for names, descriptions and glossary terms",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Amazon Bedrock; console and StartMetadataGenerationRun API; limited Regions and quotas",
+     "url": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
+    },
+    {
+     "name": "Data products",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Group assets with metadata and one access request; CreateDataProduct API",
+     "url": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/data-products.html"
+    },
+    {
+     "name": "Data lineage",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2024-12",
+     "format": "OpenLineage compatible; automatic capture from Glue, Redshift and Spark; PostLineageEvent API",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2024/12/data-lineage-amazon-datazone-next-generation-sagemaker/"
+    },
+    {
+     "name": "Asset metadata export",
+     "kind": "annotations",
+     "status": "Unverified",
+     "since": "",
+     "format": "Daily export of catalog assets to an Iceberg table in S3 Tables; PutDataExportConfiguration API. No stage label",
+     "url": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/export-asset-metadata.html"
+    },
+    {
+     "name": "AI classification with glossary terms (PII, PHI)",
+     "kind": "annotations",
+     "status": "Unverified",
+     "since": "2026-03",
+     "format": "Bedrock model suggests glossary terms at publish time. Blog only; no stage label",
+     "url": "https://aws.amazon.com/blogs/big-data/automating-data-classification-in-amazon-sagemaker-catalog-using-an-ai-agent/"
+    },
+    {
+     "name": "AWS Glue Data Catalog",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Technical metadata store; crawlers, Glue APIs, SearchTables, Iceberg REST endpoint",
+     "url": "https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html"
+    },
+    {
+     "name": "Glue Iceberg REST endpoint",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Iceberg REST spec v1 and v2 at glue.<region>.amazonaws.com/iceberg",
+     "url": "https://docs.aws.amazon.com/glue/latest/dg/connect-glu-iceberg-rest.html"
+    },
+    {
+     "name": "Lake Formation tag-based access control (LF-Tags)",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "LF-Tags on Data Catalog resources grant permissions by attribute",
+     "url": "https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html"
+    },
+    {
+     "name": "SageMaker Data Agent",
+     "kind": "nl2sql",
+     "status": "Unverified",
+     "since": "2026-06",
+     "format": "Notebooks and Query Editor; reads SageMaker Catalog business context. No stage label in the announcement",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-sagemaker-data-agent-bdc/"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 0,
+     "n": "No governed metric object in the catalog. Glossary terms and metadata forms can describe a metric in text only.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html"
+    },
+    "dimensions": {
+     "l": 0,
+     "n": "No dimension object. Glossary terms attach to assets and columns, but they define no hierarchies or grains.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html"
+    },
+    "relationships": {
+     "l": 0,
+     "n": "No declared join or relationship object. Glossary terms can relate to other terms, which is not a data join.",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateGlossaryTerm.html"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "Glossary terms hold definitions, synonyms and related terms. Assets carry business names, descriptions, README text and metadata forms.",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateGlossaryTerm.html"
+    },
+    "verifiedQueries": {
+     "l": 0,
+     "n": "The catalog stores no question and SQL pairs. Redshift Q generative SQL custom context holds them instead.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html"
+    },
+    "nl2sql": {
+     "l": 1,
+     "n": "SageMaker Data Agent reads catalog business context to write SQL and Python. It is a separate product and has no stage label.",
+     "u": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-sagemaker-data-agent-bdc/"
+    },
+    "ontology": {
+     "l": 1,
+     "n": "Glossaries with related terms and metadata forms approximate business concepts. No object, link or action model.",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateGlossaryTerm.html"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query language in the catalog. Lineage shows as a graph in the UI. Neptune is a separate service.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/datazone-data-lineage.html"
+    },
+    "vector": {
+     "l": 0,
+     "n": "No vector or semantic search feature found in the catalog docs.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html"
+    },
+    "mcp": {
+     "l": 0,
+     "n": "AWS documents no first-party MCP server for SageMaker Catalog. The AWS Data Processing MCP server manages Glue Data Catalog databases and tables.",
+     "u": "https://raw.githubusercontent.com/awslabs/mcp/main/src/aws-dataprocessing-mcp-server/README.md"
+    },
+    "governance": {
+     "l": 3,
+     "n": "Publish and subscribe workflow, fine-grained access control, Lake Formation LF-Tags on Glue resources, and OpenLineage compatible lineage.",
+     "u": "https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html"
+    },
+    "openStandard": {
+     "l": 2,
+     "n": "Lineage accepts OpenLineage events, and Glue offers an Iceberg REST endpoint. No open semantic spec such as OSI.",
+     "u": "https://docs.aws.amazon.com/glue/latest/dg/connect-glu-iceberg-rest.html"
+    },
+    "aiDescriptions": {
+     "l": 3,
+     "n": "Bedrock drafts business names, descriptions and glossary terms for Glue and custom assets. Reviewers accept or reject. Region limits and quotas apply.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "StartMetadataGenerationRun and glossary, asset and data product APIs run in bulk. Glue UpdateTable sets table and column comments.",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_StartMetadataGenerationRun.html"
+    },
+    "autoClassify": {
+     "l": 2,
+     "n": "A Bedrock agent suggests glossary terms, including PII and PHI, from schema at publish time. Only a blog describes it.",
+     "u": "https://aws.amazon.com/blogs/big-data/automating-data-classification-in-amazon-sagemaker-catalog-using-an-ai-agent/"
+    },
+    "sampleValues": {
+     "l": 0,
+     "n": "No sample value or entity matching feature found in the catalog docs.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
+    },
+    "queryHistory": {
+     "l": 0,
+     "n": "The catalog does not mine query history to suggest joins or metrics. Redshift Query Editor v2 uses history separately.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html"
+    },
+    "lineage": {
+     "l": 3,
+     "n": "Column-level lineage from Glue, Redshift and Spark. It is OpenLineage compatible and has a PostLineageEvent API.",
+     "u": "https://aws.amazon.com/about-aws/whats-new/2024/12/data-lineage-amazon-datazone-next-generation-sagemaker/"
+    },
+    "evals": {
+     "l": 0,
+     "n": "No NL-to-SQL evaluation tooling in the catalog. A catalog export lets you query description coverage with SQL.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/export-asset-metadata.html"
+    }
+   },
+   "offers": [
+    "A business glossary with terms, synonyms and related terms that you can link to assets and columns.",
+    "Bedrock drafts business names, descriptions and glossary terms for catalog assets.",
+    "Data products group assets with metadata and one access request path.",
+    "OpenLineage compatible lineage with a PostLineageEvent API for jobs outside AWS.",
+    "Daily export of asset metadata to an Iceberg table that SQL, Athena or an agent can query.",
+    "The Glue Data Catalog serves Iceberg REST clients and supports LF-Tags for attribute-based access."
+   ],
+   "gaps": [
+    "No governed metric, dimension or join object. Business meaning stays in text fields.",
+    "AWS documents no first-party MCP server for the catalog.",
+    "AI recommendations cover limited Regions and have quotas. The default quota is 10,000 description runs a month.",
+    "No stored question and SQL pairs, sample value matching or query history mining in the catalog.",
+    "AI glossary classification for PII and PHI appears only in an AWS blog."
+   ],
+   "fillWith": [
+    "Atlan",
+    "Collibra",
+    "Alation",
+    "Redshift Q generative SQL custom context",
+    "dbt Semantic Layer",
+    "Cube"
+   ],
+   "nl2sqlPath": "Keep descriptions, glossary terms and lineage in SageMaker Catalog and build metrics in a separate layer such as dbt or Cube. Pass the catalog business context and curated question and SQL pairs to your agent, for example through Redshift custom context.",
+   "snippet": {
+    "lang": "bash",
+    "title": "Start AI generation of descriptions and names for an asset",
+    "code": "aws datazone start-metadata-generation-run \\\n  --domain-identifier dzd_example123 \\\n  --owning-project-identifier prj_example123 \\\n  --types BUSINESS_DESCRIPTIONS BUSINESS_NAMES \\\n  --target '{\"identifier\":\"asset_example123\",\"type\":\"ASSET\"}'",
+    "u": "https://docs.aws.amazon.com/cli/latest/reference/datazone/start-metadata-generation-run.html"
+   },
+   "askData": [
+    {
+     "name": "SageMaker Data Agent",
+     "status": "Unverified",
+     "since": "2026-06",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "Glossary terms, custom metadata forms, asset summaries and README text in SageMaker Catalog.",
+     "u": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-sagemaker-data-agent-bdc/"
+    }
+   ],
+   "enrichHowTo": "Call the DataZone StartMetadataGenerationRun API for each Glue table asset with types BUSINESS_DESCRIPTIONS, BUSINESS_NAMES and BUSINESS_GLOSSARY_ASSOCIATIONS. Review the drafts in the project, then publish the assets. Create glossary terms first, because the AI suggests only existing terms.",
+   "bulkSnippet": {
+    "lang": "bash",
+    "code": "aws datazone start-metadata-generation-run \\\n  --domain-identifier dzd_example123 \\\n  --owning-project-identifier prj_example123 \\\n  --types BUSINESS_DESCRIPTIONS BUSINESS_GLOSSARY_ASSOCIATIONS \\\n  --target '{\"identifier\":\"asset_example123\",\"type\":\"ASSET\"}'",
+    "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_StartMetadataGenerationRun.html"
+   },
+   "sources": [
+    {
+     "t": "Catalog in IDC-based domains",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html"
+    },
+    {
+     "t": "AI recommendations in SageMaker Unified Studio",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
+    },
+    {
+     "t": "Data products",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/data-products.html"
+    },
+    {
+     "t": "Data lineage in SageMaker Unified Studio",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/datazone-data-lineage.html"
+    },
+    {
+     "t": "Data lineage GA announcement, Dec 2024",
+     "u": "https://aws.amazon.com/about-aws/whats-new/2024/12/data-lineage-amazon-datazone-next-generation-sagemaker/"
+    },
+    {
+     "t": "Exporting asset metadata",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/export-asset-metadata.html"
+    },
+    {
+     "t": "Automating data classification in SageMaker Catalog",
+     "u": "https://aws.amazon.com/blogs/big-data/automating-data-classification-in-amazon-sagemaker-catalog-using-an-ai-agent/"
+    },
+    {
+     "t": "SageMaker Data Agent business context announcement, Jun 2026",
+     "u": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-sagemaker-data-agent-bdc/"
+    },
+    {
+     "t": "StartMetadataGenerationRun API",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_StartMetadataGenerationRun.html"
+    },
+    {
+     "t": "CreateGlossaryTerm API",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateGlossaryTerm.html"
+    },
+    {
+     "t": "CreateDataProduct API",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateDataProduct.html"
+    },
+    {
+     "t": "PostLineageEvent API",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_PostLineageEvent.html"
+    },
+    {
+     "t": "AWS CLI start-metadata-generation-run",
+     "u": "https://docs.aws.amazon.com/cli/latest/reference/datazone/start-metadata-generation-run.html"
+    },
+    {
+     "t": "Data discovery and cataloging in AWS Glue",
+     "u": "https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html"
+    },
+    {
+     "t": "Glue Iceberg REST endpoint",
+     "u": "https://docs.aws.amazon.com/glue/latest/dg/connect-glu-iceberg-rest.html"
+    },
+    {
+     "t": "Glue SearchTables API",
+     "u": "https://docs.aws.amazon.com/glue/latest/webapi/API_SearchTables.html"
+    },
+    {
+     "t": "Lake Formation tag-based access control",
+     "u": "https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html"
+    },
+    {
+     "t": "AWS Data Processing MCP server",
+     "u": "https://raw.githubusercontent.com/awslabs/mcp/main/src/aws-dataprocessing-mcp-server/README.md"
+    }
+   ],
+   "verified": "2026-10-24"
+  }
+ ],
+ "notes": [
+  {
+   "topic": "Open source Unity Catalog",
+   "text": "Open source Unity Catalog (unitycatalog.io) is an Apache 2.0 server with an OpenAPI spec and an Iceberg REST API. Its docs list metric view tutorials but no AI comments, lineage or MCP server. The README calls it a Linux Foundation AI and Data sandbox project.",
+   "sources": [
+    {
+     "t": "Unity Catalog OSS docs index",
+     "u": "https://docs.unitycatalog.io/llms.txt"
+    },
+    {
+     "t": "Unity Catalog OSS README",
+     "u": "https://raw.githubusercontent.com/unitycatalog/unitycatalog/main/README.md"
+    },
+    {
+     "t": "Unity Catalog OSS home",
+     "u": "https://unitycatalog.io/"
+    }
+   ]
+  },
+  {
+   "topic": "Unity Catalog semantics",
+   "text": "Databricks groups metric views, domains, Pages and certification flags as Unity Catalog semantics. Genie One uses them as the human-modeled layer of Genie Ontology. Pages are Beta.",
+   "sources": [
+    {
+     "t": "Unity Catalog semantics",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/"
+    },
+    {
+     "t": "Pages",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/pages"
+    }
+   ]
+  },
+  {
+   "topic": "Unity Catalog MCP",
+   "text": "Databricks-provided MCPs are Unity Catalog securables under system.ai, and Unity Gateway governs calls. The Genie One MCP is GA. The SQL, sandbox and web search MCPs need the Unity Gateway beta.",
+   "sources": [
+    {
+     "t": "Databricks-provided MCPs",
+     "u": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services"
+    }
+   ]
+  },
+  {
+   "topic": "Horizon Catalog scope",
+   "text": "Snowflake describes Horizon Catalog as the agentic catalog, with Horizon Context as its governed context layer. Context collects, enriches and activates metadata for people, BI tools and agents.",
+   "sources": [
+    {
+     "t": "Snowflake Horizon Catalog",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon"
+    },
+    {
+     "t": "Horizon Context",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+    }
+   ]
+  },
+  {
+   "topic": "Horizon Iceberg REST status",
+   "text": "The docs mark external engine access to Snowflake-managed Iceberg tables as GA. Write support (Mar 2026) and externally managed tables through Horizon (Aug 2026) have Preview release notes.",
+   "sources": [
+    {
+     "t": "Use an external query engine",
+     "u": "https://docs.snowflake.com/en/user-guide/tables-iceberg-use-external-query-engine"
+    },
+    {
+     "t": "Aug 18, 2026 release note",
+     "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-08-18-externally-managed-iceberg-tables-horizon-irc-preview"
+    }
+   ]
+  },
+  {
+   "topic": "Horizon external catalog federation",
+   "text": "A catalog-linked database connects Snowflake to an external Iceberg REST catalog and syncs its tables. Snowflake names AWS Glue and Azure OneLake as examples.",
+   "sources": [
+    {
+     "t": "Catalog-linked database",
+     "u": "https://docs.snowflake.com/en/user-guide/tables-iceberg-catalog-linked-database"
+    },
+    {
+     "t": "Snowflake Horizon Catalog",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon"
+    }
+   ]
+  },
+  {
+   "topic": "SageMaker Catalog naming",
+   "text": "SageMaker Catalog is built on Amazon DataZone, and the DataZone API reference still documents its APIs. The Glue Data Catalog is a separate technical metadata store that SageMaker Catalog reads.",
+   "sources": [
+    {
+     "t": "What is Amazon DataZone?",
+     "u": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html"
+    },
+    {
+     "t": "Catalog in IDC-based domains",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html"
+    }
+   ]
+  },
+  {
+   "topic": "SageMaker Catalog and agents",
+   "text": "AWS announced in June 2026 that SageMaker Data Agent reads catalog glossary terms, metadata forms and README text. The announcement says the business context can sync from Collibra, Atlan and Alation.",
+   "sources": [
+    {
+     "t": "SageMaker Data Agent announcement",
+     "u": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-sagemaker-data-agent-bdc/"
+    }
+   ]
+  }
+ ]
+}

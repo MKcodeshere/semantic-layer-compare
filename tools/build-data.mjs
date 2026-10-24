@@ -64,8 +64,11 @@ const problems = [];
 const vendors = [];
 const notes = [];
 const all = readdirSync(researchDir).filter((f) => f.endsWith('.json')).sort();
-const files = all.filter((f) => !f.startsWith('enrich-'));
+const isData = (f) => !f.startsWith('enrich-') && !f.startsWith('overlay-') && !f.startsWith('factcheck-');
+const files = all.filter(isData);
 const enrichFiles = all.filter((f) => f.startsWith('enrich-'));
+const overlayFiles = all.filter((f) => f.startsWith('overlay-'));
+const ASK_STATUS = ['GA', 'Preview', 'Announced', 'Deprecated', 'Unverified'];
 const catIds = new Set(CATEGORIES.map((c) => c.id));
 
 for (const file of files) {
@@ -97,6 +100,8 @@ for (const file of files) {
     v.offers ??= [];
     v.gaps ??= [];
     v.fillWith ??= [];
+    v.aliases ??= [];
+    v.askData ??= null;
     vendors.push(v);
   }
 }
@@ -125,6 +130,31 @@ for (const file of enrichFiles) {
     for (const s of e.sources ?? []) if (!seen.has(s.u)) { v.sources.push(s); seen.add(s.u); }
   }
 }
+for (const file of overlayFiles) {
+  let doc;
+  try {
+    doc = JSON.parse(readFileSync(join(researchDir, file), 'utf8'));
+  } catch (e) {
+    problems.push(`${file}: invalid JSON (${e.message})`);
+    continue;
+  }
+  for (const raw of doc.vendors ?? []) {
+    const o = deepScrub(raw);
+    const v = vendors.find((x) => x.id === o.id);
+    if (!v) { problems.push(`${file}:${o.id}: no base vendor with this id`); continue; }
+    if (Array.isArray(o.aliases)) v.aliases = [...new Set([...v.aliases, ...o.aliases])];
+    if (Array.isArray(o.askData)) v.askData = o.askData;
+  }
+}
+for (const v of vendors) {
+  if (v.askData === null) problems.push(`${v.id}: askData not researched yet`);
+  for (const a of v.askData ?? []) {
+    if (!ASK_STATUS.includes(a.status)) problems.push(`${v.id}: askData "${a.name}" bad status "${a.status}"`);
+    if (!a.u) problems.push(`${v.id}: askData "${a.name}" has no source url`);
+  }
+  if (v.partOf && !vendors.some((x) => x.id === v.partOf)) problems.push(`${v.id}: partOf "${v.partOf}" is not a vendor id`);
+}
+
 const unchecked = vendors.map((v) => [v.id, CAPS.filter((c) => v.caps[c.key].l === null).map((c) => c.key)]).filter(([, ks]) => ks.length);
 if (unchecked.length) problems.push(`not checked yet (${unchecked.reduce((n, [, ks]) => n + ks.length, 0)} cells):\n    ${unchecked.map(([id, ks]) => `${id}: ${ks.join(', ')}`).join('\n    ')}`);
 
@@ -138,6 +168,7 @@ for (const v of vendors) {
   for (const c of Object.values(v.caps)) c.u && urls.add(c.u);
   v.snippet?.u && urls.add(v.snippet.u);
   v.bulkSnippet?.u && urls.add(v.bulkSnippet.u);
+  for (const a of v.askData ?? []) a.u && urls.add(a.u);
 }
 for (const n of notes) for (const s of n.sources ?? []) s.u && urls.add(s.u);
 writeFileSync(join(root, 'research/urls.txt'), [...urls].sort().join('\n') + '\n');
@@ -146,6 +177,6 @@ const SL = { built: new Date().toISOString().slice(0, 10), capGroups: CAP_GROUPS
 writeFileSync(join(root, 'site/data.js'), `window.SL = ${JSON.stringify(SL, null, 1)};\n`);
 
 const byCat = CATEGORIES.map((c) => `${c.id}=${vendors.filter((v) => v.category === c.id).length}`).join(' ');
-console.log(`files=${files.length}+${enrichFiles.length} enrich vendors=${vendors.length} notes=${notes.length} urls=${urls.size}`);
+console.log(`files=${files.length}+${enrichFiles.length}+${overlayFiles.length} overlay vendors=${vendors.length} notes=${notes.length} urls=${urls.size}`);
 console.log(byCat);
 console.log(problems.length ? `PROBLEMS (${problems.length}):\n  ${problems.join('\n  ')}` : 'no shape problems');
