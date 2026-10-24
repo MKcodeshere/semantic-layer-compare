@@ -1,0 +1,291 @@
+{
+  "vendors": [
+    {
+      "id": "purview",
+      "name": "Microsoft Purview Unified Catalog",
+      "category": "catalog",
+      "partOf": "fabric",
+      "aliases": ["Microsoft Purview", "Purview Data Catalog", "Purview Data Map", "Azure Purview", "Purview Data Governance", "Unified Catalog"],
+      "tagline": "Microsoft governance catalog with glossary, data products, classification, lineage and data quality.",
+      "verdict": "partial",
+      "verdictNote": "Unified Catalog holds glossary terms, data products, classification and lineage, but it has no metric objects, no NL-to-SQL, and no MCP server that we found.",
+      "artifacts": [
+        { "name": "Unified Catalog (governance domains, data products, critical data elements)", "kind": "annotations", "status": "GA", "since": "", "format": "UI; governance domains hold data products, terms and critical data elements", "url": "https://learn.microsoft.com/en-us/purview/unified-catalog" },
+        { "name": "Business glossary terms", "kind": "glossary", "status": "GA", "since": "", "format": "UI and API; synonyms, acronyms, related terms and custom attributes; CSV bulk import is Preview", "url": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms-create-manage" },
+        { "name": "Data products", "kind": "annotations", "status": "GA", "since": "", "format": "UI and API; group data assets with a description, owners and an access policy", "url": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-products" },
+        { "name": "Data Map classification", "kind": "annotations", "status": "GA", "since": "", "format": "Scan-time classification; more than 200 built-in classifications and custom classifications", "url": "https://learn.microsoft.com/en-us/purview/data-map-classification" },
+        { "name": "Unified Catalog API", "kind": "annotations", "status": "Preview", "since": "2025-09", "format": "REST; version 2026-03-20-preview covers domains, terms, data products, data assets and columns", "url": "https://learn.microsoft.com/en-us/rest/api/purview/unified-catalog-api-overview" },
+        { "name": "Natural language data product search", "kind": "vector", "status": "Preview", "since": "", "format": "UI; English, French and Spanish; ranks data products from metadata", "url": "https://learn.microsoft.com/en-us/purview/unified-catalog-responsible-ai-faq" },
+        { "name": "OneLake catalog (Fabric)", "kind": "annotations", "status": "GA", "since": "", "format": "Fabric UI with Explore, Govern and Secure tabs; Catalog Search REST API is Preview", "url": "https://learn.microsoft.com/en-us/fabric/governance/onelake-catalog-overview" }
+      ],
+      "caps": {
+        "metrics": { "l": 0, "n": "No metric objects. Terms and critical data elements hold text definitions only. Power BI semantic models hold the measures.", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms-create-manage" },
+        "dimensions": { "l": 0, "n": "No dimension or hierarchy objects for query use. Terms can have a parent term in a hierarchy.", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms-create-manage" },
+        "relationships": { "l": 1, "n": "Terms, data products and assets link to each other. The catalog holds no join paths for SQL.", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms-create-manage" },
+        "synonyms": { "l": 3, "n": "Terms have definitions up to 10,000 characters, synonyms, acronyms, related terms and custom attributes. Link them to assets and columns.", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms-create-manage" },
+        "verifiedQueries": { "l": 0, "n": "No verified question and SQL pairs. Data product descriptions can hold usage examples as text.", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-products" },
+        "nl2sql": { "l": 0, "n": "No NL-to-SQL in the catalog. Natural language search finds data products only. Fabric Copilot features are separate products.", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-responsible-ai-faq" },
+        "ontology": { "l": 1, "n": "Governance domains, data products, terms and critical data elements model business concepts. No object, link or action model.", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-products" },
+        "graph": { "l": 0, "n": "No graph query language in the catalog. Lineage shows as a graph in the UI only.", "u": "https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage" },
+        "vector": { "l": 2, "n": "Natural language search over data products uses Azure OpenAI embedding models. Preview, three languages.", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-responsible-ai-faq" },
+        "mcp": { "l": 0, "n": "No first-party MCP server for Unified Catalog found. Agents can call the preview Unified Catalog REST API instead.", "u": "https://learn.microsoft.com/en-us/rest/api/purview/unified-catalog-api-overview" },
+        "governance": { "l": 3, "n": "Data product access policies with approval, classification, sensitivity labels, data quality scores and lineage.", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-products" },
+        "openStandard": { "l": 1, "n": "Preview REST API and preview CSV import. No open semantic standard such as OSI found.", "u": "https://learn.microsoft.com/en-us/rest/api/purview/unified-catalog-api-overview" },
+        "aiDescriptions": { "l": 0, "n": "No AI description writer in the docs. AI features are data asset suggestions, rule suggestions and search, all Preview.", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-responsible-ai-faq" },
+        "bulkMetadata": { "l": 2, "n": "CSV import of glossary terms and bulk data product creation are Preview. The REST API is Preview and covers GA features only.", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms-create-manage" },
+        "autoClassify": { "l": 3, "n": "Scans classify assets with more than 200 built-in classifications. You can add custom classifications.", "u": "https://learn.microsoft.com/en-us/purview/data-map-classification" },
+        "sampleValues": { "l": 0, "n": "No sample value feature for NL-to-SQL found. Data profiling exists inside data quality scans.", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-quality" },
+        "queryHistory": { "l": 0, "n": "No mining of query history to suggest joins, metrics or examples found.", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog" },
+        "lineage": { "l": 3, "n": "Entity and column lineage from supported sources. A Fabric tenant scan brings in metadata and lineage for Fabric items.", "u": "https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant" },
+        "evals": { "l": 0, "n": "No NL-to-SQL test tooling in the catalog. Data quality rules test data, not AI answers.", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-quality" }
+      },
+      "offers": [
+        "Glossary terms with definitions, synonyms and acronyms that link to assets and columns.",
+        "Data products that group assets under a use case description, owners and an access policy.",
+        "Automatic classification during scans, with more than 200 built-in classifications.",
+        "Lineage and data quality scores for scanned assets, including Fabric items.",
+        "A preview REST API for domains, terms, data products, data assets and columns."
+      ],
+      "gaps": [
+        "No metric or dimension objects. An NL-to-SQL agent cannot read governed measures here.",
+        "No MCP server for Unified Catalog found. Agents must use the preview REST API.",
+        "No AI writer for table or column descriptions found in the docs.",
+        "The REST API covers GA features only, so preview features such as bulk import have no API."
+      ],
+      "fillWith": ["Power BI semantic models", "dbt Semantic Layer", "Cube"],
+      "nl2sqlPath": "Use Purview for glossary terms, classification, lineage and access policy. Keep metrics and joins in a Power BI semantic model or another semantic layer. Read glossary terms from the Unified Catalog API and add them to the agent prompt.",
+      "snippet": { "lang": "other", "title": "", "code": "", "u": "" },
+      "enrichHowTo": "Write column and table descriptions at the source or in the Fabric item, then scan the source. For glossary terms, upload a CSV file in a governance domain, which is Preview. The upload creates terms but cannot edit them.",
+      "bulkSnippet": { "lang": "bash", "code": "", "u": "" },
+      "askData": [],
+      "sources": [
+        { "t": "Learn about Microsoft Purview Unified Catalog", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog" },
+        { "t": "Create and manage glossary terms in Unified Catalog", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms-create-manage" },
+        { "t": "Data products in Unified Catalog", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-products" },
+        { "t": "Unified Catalog API (Public Preview)", "u": "https://learn.microsoft.com/en-us/rest/api/purview/unified-catalog-api-overview" },
+        { "t": "Application card: Microsoft Purview Unified Catalog", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-responsible-ai-faq" },
+        { "t": "Data classification in Data Map", "u": "https://learn.microsoft.com/en-us/purview/data-map-classification" },
+        { "t": "Overview of data quality in Unified Catalog", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-quality" },
+        { "t": "Data lineage in classic Data Catalog", "u": "https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage" },
+        { "t": "Connect to your Microsoft Fabric tenant in the same tenant as Purview", "u": "https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant" },
+        { "t": "OneLake catalog overview", "u": "https://learn.microsoft.com/en-us/fabric/governance/onelake-catalog-overview" },
+        { "t": "Catalog - Search (Fabric REST API)", "u": "https://learn.microsoft.com/rest/api/fabric/core/catalog/search" },
+        { "t": "What's new in Microsoft Purview", "u": "https://learn.microsoft.com/en-us/purview/whats-new" }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "knowledge-catalog",
+      "name": "Google Cloud Knowledge Catalog",
+      "category": "catalog",
+      "partOf": "bigquery",
+      "aliases": ["Dataplex Universal Catalog", "Dataplex Catalog", "Dataplex", "BigQuery universal catalog"],
+      "tagline": "Google Cloud metadata catalog with glossary, AI insights, lineage, data products and an MCP server.",
+      "verdict": "partial",
+      "verdictNote": "Knowledge Catalog gives agents glossary terms, profiles, joins, lineage and a lookupContext call over MCP, but it holds no native metric definitions.",
+      "artifacts": [
+        { "name": "Knowledge Catalog remote MCP server", "kind": "mcp", "status": "GA", "since": "2025-09", "format": "Remote MCP; /mcp has search_entries, lookup_context and lookup_entry; /mcp/data-products is Preview; OAuth with IAM", "url": "https://docs.cloud.google.com/knowledge-catalog/docs/use-remote-mcp" },
+        { "name": "lookupContext", "kind": "annotations", "status": "Preview", "since": "2026-06", "format": "REST and MCP; returns YAML, XML or JSON context for an asset, with terms, joins, profile and quality", "url": "https://docs.cloud.google.com/knowledge-catalog/docs/retrieve-data-context" },
+        { "name": "Business glossary", "kind": "glossary", "status": "GA", "since": "", "format": "UI and API; categories, terms, synonyms, related terms and links to assets and columns", "url": "https://docs.cloud.google.com/knowledge-catalog/docs/manage-glossaries" },
+        { "name": "Data insights", "kind": "annotations", "status": "GA", "since": "2024-08", "format": "Gemini writes table and column descriptions, sample queries and relationship graphs; publishing to the catalog is Preview", "url": "https://docs.cloud.google.com/knowledge-catalog/docs/data-insights-structured-data" },
+        { "name": "Natural language search", "kind": "vector", "status": "GA", "since": "2025-12", "format": "UI and API; semantic search over catalog entries", "url": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" },
+        { "name": "Data products", "kind": "annotations", "status": "GA", "since": "2026-05", "format": "UI and API; package assets with access groups and approval workflows", "url": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" },
+        { "name": "Data lineage remote MCP server", "kind": "mcp", "status": "Preview", "since": "2026-05", "format": "Remote MCP; queries lineage graphs upstream and downstream", "url": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" }
+      ],
+      "caps": {
+        "metrics": { "l": 1, "n": "No native metric objects. dbt metadata import is GA, and MetricFlow import was Preview in August 2026.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" },
+        "dimensions": { "l": 1, "n": "The catalog ingests Looker dimensions and measures as entries. It does not define dimensions itself.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/overview" },
+        "relationships": { "l": 2, "n": "Link discovery between assets is Preview. lookupContext returns joins mined from query logs and data insights.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/retrieve-data-context" },
+        "synonyms": { "l": 3, "n": "Glossary terms have synonyms and related terms. A guidelines aspect holds extra agent context on assets.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/manage-glossaries" },
+        "verifiedQueries": { "l": 2, "n": "Published data insights store suggested queries and questions as reusable aspects. Publishing is Preview.", "u": "https://docs.cloud.google.com/bigquery/docs/generate-table-insights" },
+        "nl2sql": { "l": 1, "n": "The catalog does not answer questions. BigQuery data agents read its glossary terms, up to 10 per table.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/manage-glossaries" },
+        "ontology": { "l": 1, "n": "Glossaries, aspects and data domains (Preview) add business meaning. No object, link or action model.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" },
+        "graph": { "l": 0, "n": "No graph query in the catalog. It indexes BigQuery Graph metadata for search, which is Preview.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" },
+        "vector": { "l": 3, "n": "Natural language search over catalog entries is GA. Gemini powers the semantic search.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" },
+        "mcp": { "l": 3, "n": "Remote server at dataplex.googleapis.com/mcp. The data products endpoint is Preview. The docs show no stage for the main endpoint.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/reference/mcp" },
+        "governance": { "l": 3, "n": "lookupContext returns only assets that the caller can access under IAM. Data products add access approval.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/retrieve-data-context" },
+        "openStandard": { "l": 3, "n": "MCP, bulk metadata export and import, and dbt import are GA. No OSI support found.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" },
+        "aiDescriptions": { "l": 2, "n": "Gemini writes table and column descriptions. Generate and publish to the catalog is Preview.", "u": "https://docs.cloud.google.com/bigquery/docs/generate-table-insights" },
+        "bulkMetadata": { "l": 3, "n": "Metadata import jobs, aspect-only import and bulk export to Cloud Storage are GA.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" },
+        "autoClassify": { "l": 1, "n": "Sensitive Data Protection is a separate product. It sends inspection results to the catalog as aspects.", "u": "https://docs.cloud.google.com/dlp/docs/send-profiles-to-dataplex" },
+        "sampleValues": { "l": 3, "n": "Data profile scans give distinct counts, null ratios and sample values. lookupContext returns them to agents.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/retrieve-data-context" },
+        "queryHistory": { "l": 2, "n": "Gemini reads query logs to suggest descriptions and joins. lookupContext is Preview and relationship discovery is Preview.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/overview" },
+        "lineage": { "l": 3, "n": "Column-level lineage for BigQuery jobs is GA. Dataproc column lineage is GA. Lineage MCP server is Preview.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" },
+        "evals": { "l": 0, "n": "No NL-to-SQL test tooling found in the Knowledge Catalog docs.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" }
+      },
+      "offers": [
+        "lookupContext returns schema, terms, joins, profile and quality for an asset in one call, over REST or MCP.",
+        "Remote MCP server with search_entries, lookup_context and lookup_entry tools, secured by OAuth and IAM.",
+        "Business glossary with synonyms and related terms that link to assets and columns.",
+        "Gemini data insights write descriptions and sample queries, and can publish them to the catalog.",
+        "Column-level lineage, data profiles and data quality results as catalog metadata."
+      ],
+      "gaps": [
+        "No native metric or dimension definitions. Metrics come from Looker, dbt or BigQuery views.",
+        "lookupContext and publishing of data insights are Preview.",
+        "A BigQuery data agent reads at most 10 glossary terms for each table.",
+        "No NL-to-SQL test tooling found. Teams must build their own evaluation set."
+      ],
+      "fillWith": ["Looker semantic layer", "dbt Semantic Layer", "Cube"],
+      "nl2sqlPath": "Add glossary terms and table descriptions in Knowledge Catalog, then give your agent the MCP server or lookupContext. Keep metric definitions in Looker, dbt or BigQuery views. Use BigQuery data agents if you want a first-party chat.",
+      "snippet": {
+        "lang": "other",
+        "title": "List the tools of the Knowledge Catalog MCP server",
+        "code": "curl --location 'https://dataplex.googleapis.com/mcp' \\\n--header 'content-type: application/json' \\\n--header 'accept: application/json, text/event-stream' \\\n--data '{\n  \"method\": \"tools/list\",\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1\n}'",
+        "u": "https://docs.cloud.google.com/knowledge-catalog/docs/reference/mcp"
+      },
+      "enrichHowTo": "In BigQuery Studio, open a table, select Insights, and select Generate and publish (Preview). Gemini writes table and column descriptions into the catalog. For scale, set catalog_publishing_enabled to true in a DATA_DOCUMENTATION scan, or run a metadata import job.",
+      "bulkSnippet": { "lang": "bash", "code": "", "u": "" },
+      "askData": [],
+      "sources": [
+        { "t": "Knowledge Catalog release notes", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" },
+        { "t": "Knowledge Catalog overview", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/overview" },
+        { "t": "Use the Knowledge Catalog remote MCP server", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/use-remote-mcp" },
+        { "t": "MCP Reference: dataplex.googleapis.com", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/reference/mcp" },
+        { "t": "Retrieve context for data assets", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/retrieve-data-context" },
+        { "t": "Manage a business glossary", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/manage-glossaries" },
+        { "t": "About data insights for structured data", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/data-insights-structured-data" },
+        { "t": "Generate table insights", "u": "https://docs.cloud.google.com/bigquery/docs/generate-table-insights" },
+        { "t": "Tag tables based on insights from data profiles", "u": "https://docs.cloud.google.com/dlp/docs/send-profiles-to-dataplex" }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "denodo-catalog",
+      "name": "Denodo Data Catalog (Data Marketplace)",
+      "category": "catalog",
+      "partOf": "denodo",
+      "aliases": ["Denodo Data Marketplace", "Denodo Data Catalog", "Data Marketplace", "Denodo Assistant"],
+      "tagline": "Denodo catalog for views with descriptions, tags, categories, lineage and an AI chatbot.",
+      "verdict": "partial",
+      "verdictNote": "The Data Marketplace gives LLMs view descriptions, tags, sample data and lineage, and it has an NL query feature, but it is a paid bundle and metric views are new.",
+      "artifacts": [
+        { "name": "Data Marketplace (formerly Data Catalog)", "kind": "annotations", "status": "GA", "since": "2025-09", "format": "Web UI; renamed from Data Catalog in Denodo 9.3; categories, tags, descriptions and custom properties", "url": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/introduction/introduction" },
+        { "name": "Assisted Query", "kind": "nl2sql", "status": "GA", "since": "2025-09", "format": "UI on each view; creates VQL from plain language; Enterprise Plus bundle", "url": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/assisted_query" },
+        { "name": "Denodo Assistant Chatbot with Deep Query", "kind": "agent", "status": "GA", "since": "2026-03", "format": "UI; LLM plus metadata vector database; Enterprise Plus bundle", "url": "https://community.denodo.com/docs/html/browse/9.4/en/vdp/data_catalog/chatbot/chatbot" },
+        { "name": "Denodo Assistant (description and tag suggestions)", "kind": "agent", "status": "GA", "since": "2024-11", "format": "Design Studio; suggests descriptions for views and columns, and tags since 9.3", "url": "https://www.denodo.com/en/press-release/2024-11-20/denodo-platform-91-brings-new-advanced-ai-capabilities-and-enhanced-data-lakehouse-performance" },
+        { "name": "Metric Views", "kind": "metric-view", "status": "GA", "since": "", "format": "Virtual DataPort view type in Denodo 9.5; the Marketplace has a page and Assisted Query for them", "url": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_5" },
+        { "name": "Denodo MCP Server", "kind": "mcp", "status": "GA", "since": "", "format": "DenodoConnect download; read-only; metadata resources, semantic search and VQL tools; Basic or OAuth 2.0", "url": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20MCP%20Server%20-%20User%20Manual" },
+        { "name": "Denodo AI SDK", "kind": "agent", "status": "GA", "since": "2024-11", "format": "Open source Apache license; getMetadata fills a vector store; answerQuestion endpoint", "url": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20AI%20SDK%20-%20User%20Manual" }
+      ],
+      "caps": {
+        "metrics": { "l": 3, "n": "Denodo 9.5 Metric Views declare metrics on views. The Marketplace has a metric view page.", "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_5" },
+        "dimensions": { "l": 3, "n": "Assisted Query marks each metric view field as a dimension or a metric.", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/assisted_query" },
+        "relationships": { "l": 3, "n": "Associations between views show in a relationships pill. Assisted Query sends the direct associations to the LLM.", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/views" },
+        "synonyms": { "l": 3, "n": "Assisted Query sends view and field descriptions, logical names, tags and custom properties to the LLM.", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/assisted_query" },
+        "verifiedQueries": { "l": 0, "n": "Users save and share queries. The docs do not say the AI uses them as examples.", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/index" },
+        "nl2sql": { "l": 3, "n": "Assisted Query writes VQL from plain language. The chatbot adds Deep Query. Both need Enterprise Plus.", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/assisted_query" },
+        "ontology": { "l": 1, "n": "Domains, categories, tags and custom properties add business meaning. No object, link or action model found.", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/introduction/introduction" },
+        "graph": { "l": 0, "n": "No graph query language. The 360 Graph view only draws usage and lineage.", "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_5" },
+        "vector": { "l": 3, "n": "The Marketplace stores metadata in a vector database for similarity search and RAG. You supply the database.", "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_3" },
+        "mcp": { "l": 3, "n": "Denodo MCP Server is a separate DenodoConnect download. It offers semantic metadata search and VQL tools.", "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20MCP%20Server%20-%20User%20Manual" },
+        "governance": { "l": 3, "n": "The Marketplace enforces Denodo roles and permissions. The AI SDK runs questions with the end user's credentials.", "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20AI%20SDK%20-%20User%20Manual" },
+        "openStandard": { "l": 1, "n": "Export of catalog metadata to JSON, open source AI SDK and MCP. No OSI support found.", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/administration/import_export/import_export" },
+        "aiDescriptions": { "l": 3, "n": "Denodo Assistant suggests view and column descriptions, and tags since Denodo 9.3.", "u": "https://www.denodo.com/en/press-release/2024-11-20/denodo-platform-91-brings-new-advanced-ai-capabilities-and-enhanced-data-lakehouse-performance" },
+        "bulkMetadata": { "l": 3, "n": "Export and import of categories, tags, custom properties and saved queries as JSON in a zip file.", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/administration/import_export/import_export" },
+        "autoClassify": { "l": 0, "n": "The Assistant suggests tags. No PII or sensitivity classifier found.", "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_3" },
+        "sampleValues": { "l": 3, "n": "Assisted Query can send sample data to the LLM. The AI SDK samples rows per view with examples_per_table.", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/assisted_query" },
+        "queryHistory": { "l": 0, "n": "The Marketplace shows usage statistics. No mining of history to suggest joins or metrics found.", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/views" },
+        "lineage": { "l": 3, "n": "A data lineage pill shows the field path from sources to the view. 360 Graph shows downstream use.", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/views" },
+        "evals": { "l": 0, "n": "No NL-to-SQL test tooling found. The AI SDK has a feedback setting that is off by default.", "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20AI%20SDK%20-%20User%20Manual" }
+      },
+      "offers": [
+        "Descriptions, tags, categories and custom properties on views, which Assisted Query sends to the LLM.",
+        "Assisted Query and a chatbot with Deep Query that create VQL from plain language.",
+        "Metric Views in Denodo 9.5 for governed KPIs, with a page and Assisted Query in the Marketplace.",
+        "Denodo AI SDK that fills a vector store from catalog metadata and answers questions.",
+        "Denodo MCP Server with semantic metadata search and VQL tools."
+      ],
+      "gaps": [
+        "Assisted Query and the chatbot need the Enterprise Plus subscription bundle.",
+        "The chatbot needs your own LLM and a vector database.",
+        "No automatic PII classification and no query history mining found.",
+        "The Data Catalog name is gone. Older guides and search results still use it."
+      ],
+      "fillWith": ["Cube", "dbt Semantic Layer"],
+      "nl2sqlPath": "Write view and field descriptions and tags in Design Studio, with Denodo Assistant suggestions. Then use Assisted Query for users, or connect an agent through the Denodo AI SDK or the Denodo MCP Server. Add Metric Views for KPIs.",
+      "snippet": { "lang": "other", "title": "", "code": "", "u": "" },
+      "enrichHowTo": "In Design Studio, use Denodo Assistant to suggest view and column descriptions and tags, then review them. Move categories and tags between servers with Administration, Import / Export in the Data Marketplace. Then run getMetadata in the AI SDK to refresh the vector store.",
+      "bulkSnippet": { "lang": "bash", "code": "", "u": "" },
+      "askData": [
+        { "name": "Assisted Query", "status": "GA", "since": "2025-09", "surfaces": ["UI"], "output": "SQL", "reads": "View and field descriptions, logical names, tags, custom properties, associations and optional sample data.", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/assisted_query" },
+        { "name": "Denodo Assistant Chatbot with Deep Query", "status": "GA", "since": "2026-03", "surfaces": ["UI"], "output": "answer only", "reads": "Metadata in a vector database, and data values. Deep Query plans multi-step analysis.", "u": "https://community.denodo.com/docs/html/browse/9.4/en/vdp/data_catalog/chatbot/chatbot" },
+        { "name": "Denodo Assistant in the VQL Shell", "status": "GA", "since": "2025-09", "surfaces": ["UI"], "output": "SQL", "reads": "View metadata and custom instructions. It writes and runs a query from plain language.", "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_3" }
+      ],
+      "sources": [
+        { "t": "Data Marketplace Guide: Introduction", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/introduction/introduction" },
+        { "t": "Data Marketplace Guide: Views", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/views" },
+        { "t": "Data Marketplace Guide: Assisted Query", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/assisted_query" },
+        { "t": "Data Marketplace Guide: Denodo Assistant Chatbot", "u": "https://community.denodo.com/docs/html/browse/9.4/en/vdp/data_catalog/chatbot/chatbot" },
+        { "t": "Data Marketplace Guide: Import and Export Data Marketplace Metadata", "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/administration/import_export/import_export" },
+        { "t": "What Is New in Denodo 9.5", "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_5" },
+        { "t": "What Is New in Denodo 9.4", "u": "https://community.denodo.com/docs/html/browse/9.4/en/platform/new_features/what_is_new_9_4" },
+        { "t": "What Is New in Denodo 9.3", "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_3" },
+        { "t": "Denodo AI SDK User Manual", "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20AI%20SDK%20-%20User%20Manual" },
+        { "t": "Denodo MCP Server User Manual", "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20MCP%20Server%20-%20User%20Manual" },
+        { "t": "Denodo Platform 9.1 press release", "u": "https://www.denodo.com/en/press-release/2024-11-20/denodo-platform-91-brings-new-advanced-ai-capabilities-and-enhanced-data-lakehouse-performance" }
+      ],
+      "verified": "2026-10-24"
+    }
+  ],
+  "notes": [
+    {
+      "topic": "Purview and the OneLake catalog",
+      "text": "OneLake catalog is the Fabric catalog with Explore, Govern and Secure tabs. Purview scans a Fabric tenant and brings in metadata and lineage for Fabric items. Purview covers the whole data estate and adds governance domains, glossary terms and data products.",
+      "sources": [
+        { "t": "OneLake catalog overview", "u": "https://learn.microsoft.com/en-us/fabric/governance/onelake-catalog-overview" },
+        { "t": "Connect to your Microsoft Fabric tenant in the same tenant as Purview", "u": "https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant" }
+      ]
+    },
+    {
+      "topic": "OneLake catalog for agents",
+      "text": "The Fabric Catalog Search REST API finds catalog entries across workspaces. It is in Preview and returns metadata only. It does not give access to item data.",
+      "sources": [
+        { "t": "Catalog - Search (Fabric REST API)", "u": "https://learn.microsoft.com/rest/api/fabric/core/catalog/search" }
+      ]
+    },
+    {
+      "topic": "Purview AI features",
+      "text": "Unified Catalog lists three AI features: natural language data product search, data asset suggestions, and data quality rule suggestions. All three are Preview. The docs do not list an AI description writer.",
+      "sources": [
+        { "t": "Application card: Microsoft Purview Unified Catalog", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-responsible-ai-faq" }
+      ]
+    },
+    {
+      "topic": "Knowledge Catalog rename",
+      "text": "Dataplex Universal Catalog became Knowledge Catalog on 2026-04-10. The API, client library, CLI and IAM names did not change. Dataplex Catalog was called BigQuery universal catalog in April 2025.",
+      "sources": [
+        { "t": "Knowledge Catalog release notes", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" }
+      ]
+    },
+    {
+      "topic": "Knowledge Catalog context for agents",
+      "text": "The lookupContext method returns schema, business terms, joins from query logs, data profile and quality results in one call. It filters results by the caller's IAM permissions. It is in Preview.",
+      "sources": [
+        { "t": "Retrieve context for data assets", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/retrieve-data-context" }
+      ]
+    },
+    {
+      "topic": "Knowledge Catalog glossary in BigQuery data agents",
+      "text": "A BigQuery data agent imports at most 10 glossary terms for each table. Google advises that you also write table and column descriptions.",
+      "sources": [
+        { "t": "Manage a business glossary", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/manage-glossaries" }
+      ]
+    },
+    {
+      "topic": "Denodo Data Catalog rename",
+      "text": "Denodo renamed the Data Catalog to Data Marketplace in version 9.3. Version 9.5 renamed Reference Lineage to 360 Graph. Old guides still use the old names.",
+      "sources": [
+        { "t": "What Is New in Denodo 9.4", "u": "https://community.denodo.com/docs/html/browse/9.4/en/platform/new_features/what_is_new_9_4" },
+        { "t": "What Is New in Denodo 9.5", "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_5" }
+      ]
+    },
+    {
+      "topic": "Denodo AI SDK and catalog metadata",
+      "text": "The AI SDK connects to the Data Marketplace to read view metadata. The getMetadata endpoint vectorizes descriptions and sample data into a vector store. The answerQuestion endpoint then runs with the end user's credentials.",
+      "sources": [
+        { "t": "Denodo AI SDK User Manual", "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20AI%20SDK%20-%20User%20Manual" }
+      ]
+    }
+  ]
+}

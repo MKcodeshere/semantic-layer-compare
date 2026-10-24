@@ -1,834 +1,834 @@
 {
- "vendors": [
-  {
-   "id": "ibm-watsonx-data",
-   "name": "IBM watsonx.data",
-   "category": "lakehouse",
-   "aliases": [
-    "watsonx.data",
-    "IBM watsonx.data intelligence",
-    "watsonx.data integration",
-    "IBM Knowledge Catalog",
-    "IBM Data Intelligence",
-    "IBM Db2 Genius Hub",
-    "watsonx BI"
-   ],
-   "tagline": "IBM open lakehouse. A separate governance product adds glossary, text-to-SQL, and MCP.",
-   "verdict": "partial",
-   "verdictNote": "The lakehouse has no semantic model, but watsonx.data intelligence adds a glossary, enrichment, text-to-SQL, and an MCP server, and watsonx BI adds a metrics catalog.",
-   "artifacts": [
+  "vendors": [
     {
-     "name": "watsonx.data intelligence MCP server (managed)",
-     "kind": "mcp",
-     "status": "Preview",
-     "since": "2026-03",
-     "format": "Remote MCP endpoint with API key; IBM calls it tech preview; Software edition planned for June 2026",
-     "url": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+      "id": "ibm-watsonx-data",
+      "name": "IBM watsonx.data",
+      "category": "lakehouse",
+      "aliases": [
+        "watsonx.data",
+        "IBM watsonx.data intelligence",
+        "watsonx.data integration",
+        "IBM Knowledge Catalog",
+        "IBM Data Intelligence",
+        "IBM Db2 Genius Hub",
+        "watsonx BI"
+      ],
+      "tagline": "IBM open lakehouse. A separate governance product adds glossary, text-to-SQL, and MCP.",
+      "verdict": "partial",
+      "verdictNote": "The lakehouse has no semantic model, but watsonx.data intelligence adds a glossary, enrichment, text-to-SQL, and an MCP server, and watsonx BI adds a metrics catalog.",
+      "artifacts": [
+        {
+          "name": "watsonx.data intelligence MCP server (managed)",
+          "kind": "mcp",
+          "status": "Preview",
+          "since": "2026-03",
+          "format": "Remote MCP endpoint with API key; IBM calls it tech preview; Software edition planned for June 2026",
+          "url": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+        },
+        {
+          "name": "Data Intelligence MCP server (open source)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2025-09",
+          "format": "Python package on PyPI; stdio or HTTP; SaaS or Cloud Pak for Data 5.2.1 and later",
+          "url": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/README.md"
+        },
+        {
+          "name": "watsonx.data MCP server (managed, SaaS)",
+          "kind": "mcp",
+          "status": "Unverified",
+          "since": "2026-04",
+          "format": "Remote MCP for engines, catalogs, SQL and Spark; IBM gives no stage label",
+          "url": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2026/04/28/watsonxdata-mcp-server"
+        },
+        {
+          "name": "Text2SQL in watsonx.data intelligence",
+          "kind": "nl2sql",
+          "status": "Unverified",
+          "since": "2025-08",
+          "format": "UI and MCP tools; container must be enabled for text-to-SQL; no stage label found",
+          "url": "https://www.ibm.com/new/announcements/ibm-launches-ai-powered-text2sql-to-democratize-and-accelerate-data-access"
+        },
+        {
+          "name": "Metadata enrichment and business glossary",
+          "kind": "glossary",
+          "status": "GA",
+          "since": "",
+          "format": "UI, MCP tools, CSV import; AI-generated names, descriptions and term assignments",
+          "url": "https://community.ibm.com/community/user/blogs/gupta-neeru/2024/06/24/enrich-your-metadata-using-foundation-models-and-g"
+        },
+        {
+          "name": "watsonx BI metrics catalog",
+          "kind": "semantic-model",
+          "status": "Unverified",
+          "since": "2025-07",
+          "format": "UI; metrics and business concepts; separate product from watsonx.data",
+          "url": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
+        },
+        {
+          "name": "Milvus vector database in watsonx.data",
+          "kind": "vector",
+          "status": "GA",
+          "since": "2024-05",
+          "format": "Managed Milvus service in the console",
+          "url": "https://www.ibm.com/blog/announcements/watsonx-data-think"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 1,
+          "n": "The metrics catalog is in watsonx BI, a separate product. watsonx.data itself holds no metric objects.",
+          "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
+        },
+        "dimensions": {
+          "l": 1,
+          "n": "watsonx BI models business concepts and metrics. The lakehouse has no dimension or hierarchy objects.",
+          "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Metadata enrichment runs primary key and foreign key analysis. The semantic model tool returns foreign keys to the text-to-SQL agent.",
+          "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Glossary terms and AI-generated descriptions attach to assets. The MCP server returns them to agents.",
+          "u": "https://community.ibm.com/community/user/blogs/gupta-neeru/2024/06/24/enrich-your-metadata-using-foundation-models-and-g"
+        },
+        "verifiedQueries": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "nl2sql": {
+          "l": 2,
+          "n": "Text2SQL launched in 2025. Docs and sources show no stage label, so the level stays at 2.",
+          "u": "https://www.ibm.com/new/announcements/ibm-launches-ai-powered-text2sql-to-democratize-and-accelerate-data-access"
+        },
+        "ontology": {
+          "l": 1,
+          "n": "Glossary terms, classifications, data classes, and data products. No object, link, or action model was found.",
+          "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
+        },
+        "graph": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "vector": {
+          "l": 3,
+          "n": "Managed Milvus ships in watsonx.data. Enrichment also vectorizes metadata for text-to-SQL.",
+          "u": "https://www.ibm.com/blog/announcements/watsonx-data-think"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "An open-source server on PyPI covers glossary, lineage, enrichment and text-to-SQL. A managed endpoint is in tech preview.",
+          "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/README.md"
+        },
+        "governance": {
+          "l": 3,
+          "n": "MCP calls use the caller's permissions. IBM says masking and protection rules apply at query time.",
+          "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+        },
+        "openStandard": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "aiDescriptions": {
+          "l": 3,
+          "n": "Gen AI enrichment drafts table names, column names, descriptions, glossary terms, and term assignments.",
+          "u": "https://community.ibm.com/community/user/blogs/gupta-neeru/2024/06/24/enrich-your-metadata-using-foundation-models-and-g"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "MCP tools import glossary CSV files and run enrichment jobs. Enrichment also runs from the UI.",
+          "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
+        },
+        "autoClassify": {
+          "l": 3,
+          "n": "Enrichment assigns data classes and classifications. An MCP tool applies sensitivity labels to assets.",
+          "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+        },
+        "sampleValues": {
+          "l": 2,
+          "n": "The semantic model tool returns profiling data and sample values when they exist. It depends on the text-to-SQL feature.",
+          "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 3,
+          "n": "The catalog gives upstream and downstream lineage graphs through MCP. Column-level depth is not confirmed in the sources.",
+          "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+        },
+        "evals": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        }
+      },
+      "enrichHowTo": "Run a metadata enrichment job in watsonx.data intelligence on the target tables. It drafts names, descriptions, and glossary term assignments with an LLM. Then import business terms in bulk with the glossary CSV import tool and enable the project for text-to-SQL.",
+      "bulkSnippet": {
+        "lang": "json",
+        "code": "{\n \"tool\": \"import_glossary_from_csv\",\n \"prompt\": \"Validate this CSV before importing: <CSV content>\",\n \"note\": \"Set validate_only to check the format. Then run the import again to write the terms.\"\n}",
+        "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
+      },
+      "offers": [
+        "Glossary, classifications, and data classes in watsonx.data intelligence give an agent business meaning for columns.",
+        "Gen AI enrichment drafts names, descriptions, and term assignments, and vectorizes metadata for text-to-SQL.",
+        "An open-source MCP server exposes search, lineage, quality, glossary, and text-to-SQL tools to any MCP client.",
+        "Text-to-SQL tools read a semantic model with keys, foreign keys, profiling data, and sample values.",
+        "Milvus runs as a service in watsonx.data for vector search."
+      ],
+      "gaps": [
+        "The lakehouse has no declared metric or dimension objects. Metrics sit in watsonx BI, a separate product.",
+        "The managed MCP endpoint is in tech preview. Some text-to-SQL tools do not work in the AWS US East region.",
+        "No verified question and SQL pair feature was found in the sources read.",
+        "Key IBM docs pages return 403 to scripts, so stage labels are hard to confirm."
+      ],
+      "fillWith": [
+        "Cube",
+        "dbt Semantic Layer",
+        "Open Semantic Interchange tools"
+      ],
+      "nl2sqlPath": "Enrich the tables in watsonx.data intelligence and assign glossary terms. Enable the project for text-to-SQL. Then connect your agent through the open-source MCP server so it reads the semantic model before it writes SQL.",
+      "snippet": {
+        "lang": "json",
+        "title": "Connect an MCP client to the managed watsonx.data intelligence endpoint",
+        "code": "{\n \"mcpServers\": {\n  \"watsonx-di\": {\n   \"command\": \"npx\",\n   \"args\": [\n    \"mcp-remote\",\n    \"https://api.dataplatform.cloud.ibm.com/semantic_agents/public/v1/mcp_server/mcp\",\n    \"--header\",\n    \"x-api-key:<your-api-key>\"\n   ]\n  }\n }\n}",
+        "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+      },
+      "askData": [
+        {
+          "name": "Text2SQL in watsonx.data intelligence",
+          "status": "Unverified",
+          "since": "2025-08",
+          "surfaces": [
+            "UI",
+            "MCP"
+          ],
+          "output": "SQL",
+          "reads": "Enriched asset descriptions, glossary terms, vectorized metadata, keys, foreign keys, profiling data, and sample values.",
+          "u": "https://www.ibm.com/new/announcements/ibm-launches-ai-powered-text2sql-to-democratize-and-accelerate-data-access"
+        },
+        {
+          "name": "watsonx BI",
+          "status": "Unverified",
+          "since": "2025-07",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "SQL",
+          "reads": "The metrics catalog, business concepts, display names, descriptions, and business terms.",
+          "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
+        },
+        {
+          "name": "Db2 Genius Hub Text-to-SQL Agent",
+          "status": "Unverified",
+          "since": "2026-04",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "SQL",
+          "reads": "Db2 schema context, table relationships, and the conversation so far.",
+          "u": "https://community.ibm.com/community/user/blogs/aditya-patil/2026/04/15/text2sql-db2-ai-assistant"
+        }
+      ],
+      "sources": [
+        {
+          "t": "From Chat to Action: watsonx.data intelligence MCP Server (IBM Community)",
+          "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+        },
+        {
+          "t": "watsonx.data MCP Server (IBM Community)",
+          "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2026/04/28/watsonxdata-mcp-server"
+        },
+        {
+          "t": "IBM Data Intelligence MCP server README",
+          "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/README.md"
+        },
+        {
+          "t": "IBM Data Intelligence MCP server tools reference",
+          "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
+        },
+        {
+          "t": "IBM launches AI-powered Text2SQL",
+          "u": "https://www.ibm.com/new/announcements/ibm-launches-ai-powered-text2sql-to-democratize-and-accelerate-data-access"
+        },
+        {
+          "t": "IBM watsonx BI (IBM Community)",
+          "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
+        },
+        {
+          "t": "watsonx.data at Think 2024 (IBM blog)",
+          "u": "https://www.ibm.com/blog/announcements/watsonx-data-think"
+        },
+        {
+          "t": "Enrich your metadata using generative AI (IBM Community)",
+          "u": "https://community.ibm.com/community/user/blogs/gupta-neeru/2024/06/24/enrich-your-metadata-using-foundation-models-and-g"
+        },
+        {
+          "t": "Text-2-SQL in Db2 Genius Hub (IBM Community)",
+          "u": "https://community.ibm.com/community/user/blogs/aditya-patil/2026/04/15/text2sql-db2-ai-assistant"
+        }
+      ],
+      "verified": "2026-10-24"
     },
     {
-     "name": "Data Intelligence MCP server (open source)",
-     "kind": "mcp",
-     "status": "GA",
-     "since": "2025-09",
-     "format": "Python package on PyPI; stdio or HTTP; SaaS or Cloud Pak for Data 5.2.1 and later",
-     "url": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/README.md"
+      "id": "cloudera",
+      "name": "Cloudera",
+      "category": "lakehouse",
+      "aliases": [
+        "Cloudera Data Platform",
+        "CDP",
+        "Cloudera Data Warehouse",
+        "CDW",
+        "Cloudera Data Explorer",
+        "Hue",
+        "Cloudera Data Lineage",
+        "Octopai",
+        "Cloudera Anywhere Cloud"
+      ],
+      "tagline": "Hybrid data platform with Impala, Hive, Iceberg, a catalog, and a Hue SQL assistant.",
+      "verdict": "none",
+      "verdictNote": "No semantic layer or metric model was found. The SQL AI Assistant reads table metadata and three sample rows, and an Iceberg MCP server gives raw SQL access.",
+      "artifacts": [
+        {
+          "name": "SQL AI Assistant in Cloudera Data Explorer (Hue)",
+          "kind": "nl2sql",
+          "status": "Unverified",
+          "since": "2024-01",
+          "format": "UI; admin picks an LLM host; launched as tech preview, current docs show no stage label",
+          "url": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-ai-generate-sql-natural-language.html"
+        },
+        {
+          "name": "AI visual in Cloudera Data Visualization",
+          "kind": "nl2sql",
+          "status": "Unverified",
+          "since": "",
+          "format": "UI; admin enables it under AI Settings; version 7 docs said technical preview, version 8 docs show no label",
+          "url": "https://docs.cloudera.com/data-visualization/8/howto-visuals/topics/viz-visual-ai-assistant.html"
+        },
+        {
+          "name": "Cloudera Iceberg MCP server (via Impala)",
+          "kind": "mcp",
+          "status": "Preview",
+          "since": "2025",
+          "format": "Open-source Python server; tools execute_query and get_schema; read-only",
+          "url": "https://raw.githubusercontent.com/cloudera/iceberg-mcp-server/main/README.md"
+        },
+        {
+          "name": "Cloudera Semantic Search",
+          "kind": "vector",
+          "status": "Preview",
+          "since": "2026-05",
+          "format": "Vector database service on OpenSearch; docs call it a technical preview",
+          "url": "https://docs.cloudera.com/runtime/7.3.2/css-overview/css-overview.pdf"
+        },
+        {
+          "name": "Atlas glossary, tags and business metadata",
+          "kind": "glossary",
+          "status": "GA",
+          "since": "",
+          "format": "UI, CSV import, Atlas REST API",
+          "url": "https://docs.cloudera.com/runtime/7.1.1/atlas-managing-business-terms-with-glossaries/topics/atlas-terms-bulk-import.html"
+        },
+        {
+          "name": "Cloudera Data Lineage (formerly Octopai)",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "2024-11",
+          "format": "Lineage platform with connectors; acquired from Octopai",
+          "url": "https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 0,
+          "n": "No governed metric objects found. Teams define metrics in BI tools or SQL views.",
+          "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-sql-ai-assistant-setup.html"
+        },
+        "dimensions": {
+          "l": 0,
+          "n": "No dimension or hierarchy objects found in the lakehouse docs read.",
+          "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-sql-ai-assistant-setup.html"
+        },
+        "relationships": {
+          "l": 1,
+          "n": "The SQL AI Assistant sends keys and constraints from the schema. Atlas holds no declared join model for AI.",
+          "u": "https://www.cloudera.com/blog/technical/setting-up-and-getting-started-with-cloudera-s-new-sql-ai-assist.html"
+        },
+        "synonyms": {
+          "l": 1,
+          "n": "Atlas glossary terms and business metadata exist. No doc says the SQL AI Assistant reads them.",
+          "u": "https://docs.cloudera.com/runtime/7.1.1/atlas-managing-business-terms-with-glossaries/topics/atlas-terms-bulk-import.html"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "No verified query feature found in the SQL AI Assistant or Data Visualization docs.",
+          "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-sql-ai-assistant-setup.html"
+        },
+        "nl2sql": {
+          "l": 2,
+          "n": "SQL AI Assistant launched as tech preview in 2024. Current docs show no stage label, so the level stays at 2.",
+          "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-ai-generate-sql-natural-language.html"
+        },
+        "ontology": {
+          "l": 1,
+          "n": "Atlas glossary and classifications only. No object, link, or action model was found.",
+          "u": "https://docs.cloudera.com/data-catalog/1.5.5/core-concepts/topics/dc-atlas-tags-overview.html"
+        },
+        "graph": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "vector": {
+          "l": 2,
+          "n": "Cloudera Semantic Search offers vector and lexical search on OpenSearch. Docs call it a technical preview.",
+          "u": "https://docs.cloudera.com/runtime/7.3.2/css-overview/css-overview.pdf"
+        },
+        "mcp": {
+          "l": 2,
+          "n": "The Iceberg MCP server for Impala is in preview. It gives execute_query and get_schema, read-only.",
+          "u": "https://raw.githubusercontent.com/cloudera/iceberg-mcp-server/main/README.md"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Cloudera says its MCP servers keep SDX policies. The assistant shares only data the signed-in user can see.",
+          "u": "https://www.cloudera.com/blog/technical/bringing-context-to-genai-with-cloudera-mpc-servers.html"
+        },
+        "openStandard": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "aiDescriptions": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "Atlas imports glossary terms and business metadata in bulk from CSV or XLS. The Atlas REST API also writes tags.",
+          "u": "https://docs.cloudera.com/runtime/7.1.1/atlas-managing-business-terms-with-glossaries/topics/atlas-terms-bulk-import.html"
+        },
+        "autoClassify": {
+          "l": 3,
+          "n": "Data Catalog profilers apply Atlas tags automatically. The Data Compliance and Cluster Sensitivity profilers do this.",
+          "u": "https://docs.cloudera.com/data-catalog/1.5.5/core-concepts/topics/dc-atlas-tags-overview.html"
+        },
+        "sampleValues": {
+          "l": 2,
+          "n": "The SQL AI Assistant sends three sample rows per table to the LLM. It does not match literals to values.",
+          "u": "https://www.cloudera.com/blog/technical/setting-up-and-getting-started-with-cloudera-s-new-sql-ai-assist.html"
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 3,
+          "n": "Cloudera Data Lineage (Octopai) adds lineage for Spark, Hive, Impala, Databricks, and Snowflake. Column-level depth is not confirmed.",
+          "u": "https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html"
+        },
+        "evals": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        }
+      },
+      "enrichHowTo": "Write descriptions into the table with SQL comments in Hive or Impala, then import glossary terms and business metadata through the Atlas CSV import. Apply tags in bulk with the Atlas bulk classification REST endpoint. The SQL AI Assistant does not document a way to read glossary terms.",
+      "bulkSnippet": {
+        "lang": "",
+        "code": "",
+        "u": ""
+      },
+      "offers": [
+        "The SQL AI Assistant in Hue writes, edits, fixes, and explains Hive and Impala SQL from a prompt.",
+        "The assistant uses RAG. It sends table names, column types, keys, partitions, constraints, and three sample rows to the LLM.",
+        "An open-source Iceberg MCP server lets agents list tables and run read-only SQL on Impala.",
+        "Atlas gives tags, glossary, and business metadata. Octopai-based Cloudera Data Lineage gives cross-system lineage.",
+        "Cloudera Semantic Search gives vector and keyword search for RAG, in technical preview."
+      ],
+      "gaps": [
+        "No semantic model, metric definitions, or declared join paths exist for AI to read.",
+        "The assistant cannot exclude chosen tables from its context, according to the 2024 launch blog.",
+        "The MCP server and Semantic Search are in preview. The MCP server gives only two tools.",
+        "No evals, verified queries, or query history mining were found in the docs read."
+      ],
+      "fillWith": [
+        "Cube",
+        "dbt Semantic Layer",
+        "AtScale"
+      ],
+      "nl2sqlPath": "Use the Iceberg MCP server so an agent reads the schema and runs read-only SQL on Impala. Put a semantic layer such as Cube or dbt on top, because Cloudera has none. Keep descriptions in table comments and the Atlas glossary.",
+      "snippet": {
+        "lang": "json",
+        "title": "Connect Claude Desktop to the Cloudera Iceberg MCP server",
+        "code": "{\n \"mcpServers\": {\n  \"iceberg-mcp-server\": {\n   \"command\": \"uvx\",\n   \"args\": [\n    \"--from\",\n    \"git+https://github.com/cloudera/iceberg-mcp-server@main\",\n    \"run-server\"\n   ],\n   \"env\": {\n    \"IMPALA_HOST\": \"coordinator-default-impala.example.com\",\n    \"IMPALA_PORT\": \"443\",\n    \"IMPALA_USER\": \"username\",\n    \"IMPALA_PASSWORD\": \"password\",\n    \"IMPALA_DATABASE\": \"default\"\n   }\n  }\n }\n}",
+        "u": "https://raw.githubusercontent.com/cloudera/iceberg-mcp-server/main/README.md"
+      },
+      "askData": [
+        {
+          "name": "SQL AI Assistant",
+          "status": "Unverified",
+          "since": "2024-01",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "SQL",
+          "reads": "Table names, column names and types, keys, partitions, constraints, and three sample rows per table.",
+          "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-ai-generate-sql-natural-language.html"
+        },
+        {
+          "name": "AI visual in Cloudera Data Visualization",
+          "status": "Unverified",
+          "since": "",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "SQL",
+          "reads": "The dataset behind the visual. The similarity search mode needs a vectorized dataset.",
+          "u": "https://docs.cloudera.com/data-visualization/8/howto-visuals/topics/viz-create-ai-visual.html"
+        }
+      ],
+      "sources": [
+        {
+          "t": "Generating SQL from natural language in Cloudera Data Explorer (Hue)",
+          "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-ai-generate-sql-natural-language.html"
+        },
+        {
+          "t": "Setting up the Hue SQL AI Assistant",
+          "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-sql-ai-assistant-setup.html"
+        },
+        {
+          "t": "Getting started with Cloudera SQL AI Assistant (blog)",
+          "u": "https://www.cloudera.com/blog/technical/setting-up-and-getting-started-with-cloudera-s-new-sql-ai-assist.html"
+        },
+        {
+          "t": "Bringing Context to GenAI with MCP Servers (Cloudera blog)",
+          "u": "https://www.cloudera.com/blog/technical/bringing-context-to-genai-with-cloudera-mpc-servers.html"
+        },
+        {
+          "t": "Cloudera Iceberg MCP server (GitHub)",
+          "u": "https://raw.githubusercontent.com/cloudera/iceberg-mcp-server/main/README.md"
+        },
+        {
+          "t": "Cloudera Octopai release notes, January 2026",
+          "u": "https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html"
+        },
+        {
+          "t": "Cloudera Semantic Search overview",
+          "u": "https://docs.cloudera.com/runtime/7.3.2/css-overview/css-overview.pdf"
+        },
+        {
+          "t": "AI visual in Cloudera Data Visualization 8",
+          "u": "https://docs.cloudera.com/data-visualization/8/howto-visuals/topics/viz-visual-ai-assistant.html"
+        },
+        {
+          "t": "Importing glossary terms in bulk (Atlas)",
+          "u": "https://docs.cloudera.com/runtime/7.1.1/atlas-managing-business-terms-with-glossaries/topics/atlas-terms-bulk-import.html"
+        },
+        {
+          "t": "Atlas tags in Cloudera Data Catalog",
+          "u": "https://docs.cloudera.com/data-catalog/1.5.5/core-concepts/topics/dc-atlas-tags-overview.html"
+        },
+        {
+          "t": "Cloudera to acquire Octopai (press release)",
+          "u": "https://www.aap.com.au/aapreleases/globenewswire9273697/"
+        }
+      ],
+      "verified": "2026-10-24"
     },
     {
-     "name": "watsonx.data MCP server (managed, SaaS)",
-     "kind": "mcp",
-     "status": "Unverified",
-     "since": "2026-04",
-     "format": "Remote MCP for engines, catalogs, SQL and Spark; IBM gives no stage label",
-     "url": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2026/04/28/watsonxdata-mcp-server"
-    },
-    {
-     "name": "Text2SQL in watsonx.data intelligence",
-     "kind": "nl2sql",
-     "status": "Unverified",
-     "since": "2025-08",
-     "format": "UI and MCP tools; container must be enabled for text-to-SQL; no stage label found",
-     "url": "https://www.ibm.com/new/announcements/ibm-launches-ai-powered-text2sql-to-democratize-and-accelerate-data-access"
-    },
-    {
-     "name": "Metadata enrichment and business glossary",
-     "kind": "glossary",
-     "status": "GA",
-     "since": "",
-     "format": "UI, MCP tools, CSV import; AI-generated names, descriptions and term assignments",
-     "url": "https://community.ibm.com/community/user/blogs/gupta-neeru/2024/06/24/enrich-your-metadata-using-foundation-models-and-g"
-    },
-    {
-     "name": "watsonx BI metrics catalog",
-     "kind": "semantic-model",
-     "status": "Unverified",
-     "since": "2025-07",
-     "format": "UI; metrics and business concepts; separate product from watsonx.data",
-     "url": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
-    },
-    {
-     "name": "Milvus vector database in watsonx.data",
-     "kind": "vector",
-     "status": "GA",
-     "since": "2024-05",
-     "format": "Managed Milvus service in the console",
-     "url": "https://www.ibm.com/blog/announcements/watsonx-data-think"
+      "id": "startree",
+      "name": "StarTree",
+      "category": "realtime-olap",
+      "aliases": [
+        "StarTree Cloud",
+        "Apache Pinot",
+        "Pinot",
+        "CosmiQ",
+        "StarTree MCP Server"
+      ],
+      "tagline": "Managed Apache Pinot for real-time analytics, with an AI agent and Spaces.",
+      "verdict": "partial",
+      "verdictNote": "CosmiQ Spaces hold descriptions, rules, joins, and verified queries for Pinot tables, but Spaces are a proprietary text context and not a typed metric model.",
+      "artifacts": [
+        {
+          "name": "CosmiQ Spaces",
+          "kind": "semantic-model",
+          "status": "Unverified",
+          "since": "",
+          "format": "UI editor and REST API; descriptions, synonyms, rules, joins, query policy, verified queries; docs show no stage label",
+          "url": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        },
+        {
+          "name": "CosmiQ conversational analytics agent",
+          "kind": "agent",
+          "status": "Unverified",
+          "since": "",
+          "format": "Chat UI, REST API, and a text_to_sql MCP tool; runs Claude on AWS Bedrock",
+          "url": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        },
+        {
+          "name": "StarTree MCP Server for Apache Pinot",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2025-05",
+          "format": "Hosted at mcp.<domain>/mcp with OAuth; open-source base mcp-pinot; install through StarTree",
+          "url": "https://docs.startree.ai/corecapabilities/ai/mcp/overview.md"
+        },
+        {
+          "name": "Vector index",
+          "kind": "vector",
+          "status": "GA",
+          "since": "",
+          "format": "Table index config; approximate nearest neighbor search",
+          "url": "https://docs.startree.ai/corecapabilities/manage-data/indexes/vector-index.md"
+        },
+        {
+          "name": "Native Vector Auto Embedding",
+          "kind": "vector",
+          "status": "Announced",
+          "since": "",
+          "format": "Docs say coming soon",
+          "url": "https://docs.startree.ai/corecapabilities/ai/overview.md"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 2,
+          "n": "A Space holds canonical metric definitions as plain-text business rules. They are not typed metric objects.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        },
+        "dimensions": {
+          "l": 2,
+          "n": "Spaces store column descriptions, sample values, and time formats. No hierarchy or time grain objects were found.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        },
+        "relationships": {
+          "l": 2,
+          "n": "A Space lists explicit join paths between tables so the agent does not guess.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        },
+        "synonyms": {
+          "l": 2,
+          "n": "Bootstrap and the editor store column descriptions and synonyms. The agent reads them in its prompt.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        },
+        "verifiedQueries": {
+          "l": 2,
+          "n": "Spaces keep question and SQL pairs. Matching uses token overlap and embedding similarity.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        },
+        "nl2sql": {
+          "l": 2,
+          "n": "CosmiQ writes and runs Pinot SQL from plain English. The docs show no stage label.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "No entity, link, or action model in the CosmiQ or MCP docs read. Teams use Spaces.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        },
+        "graph": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "vector": {
+          "l": 3,
+          "n": "Pinot vector index supports similarity search in StarTree Cloud. Auto embedding is announced, not shipped.",
+          "u": "https://docs.startree.ai/corecapabilities/manage-data/indexes/vector-index.md"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "The hosted MCP server lists tables, reads table details, and runs SELECT queries. StarTree installs it for you.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/mcp/overview.md"
+        },
+        "governance": {
+          "l": 2,
+          "n": "Space policy sets read-only mode, row limits, timeouts, and do_not_use columns. Docs do not say Spaces inherit row security.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "Spaces are a StarTree format with no export spec found. The MCP server follows the open MCP protocol.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        },
+        "aiDescriptions": {
+          "l": 2,
+          "n": "Bootstrap samples live data and drafts column descriptions, synonyms, rules, and starter verified queries with an LLM.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        },
+        "bulkMetadata": {
+          "l": 2,
+          "n": "The PATCH Spaces endpoint edits tables, rules, joins, policy, and verified queries through the API.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md"
+        },
+        "autoClassify": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": 2,
+          "n": "Bootstrap reads distinct counts, ranges, and sample values for low-cardinality columns and stores them in the Space.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "The Query Analyzer mines slow queries for tuning advice. No doc says it builds semantic context.",
+          "u": "https://docs.startree.ai/llms.txt"
+        },
+        "lineage": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "evals": {
+          "l": 2,
+          "n": "Thumbs up and down ratings feed a suggestions endpoint that proposes verified queries. No benchmark tool was found.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md"
+        }
+      },
+      "enrichHowTo": "Call POST /api/bootstrap/space on the Pinot tables. It drafts descriptions, synonyms, joins, rules, and starter verified queries. Review the draft, then edit it with PATCH /api/spaces/{id}.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "curl -X PATCH \"https://<cosmiq-host>/api/spaces/<id>\" \\\n  -H \"Authorization: Bearer <token>\" \\\n  -H \"Content-Type: application/json\" \\\n  -d @space-edits.json",
+        "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md"
+      },
+      "offers": [
+        "Spaces give the agent column descriptions, synonyms, business rules, join paths, and verified queries for each Pinot table.",
+        "Bootstrap drafts a Space from table schema, config, and sampled live data, so teams review instead of write.",
+        "Query policy sets read-only mode, row limits, timeouts, and columns the agent must not select.",
+        "CosmiQ exposes a text_to_sql MCP tool, and the StarTree MCP server exposes read-only Pinot tools.",
+        "Pinot has a vector index for similarity search next to real-time analytics."
+      ],
+      "gaps": [
+        "Spaces are free text rules, not typed metrics or dimensions, and no export format was found.",
+        "CosmiQ docs show no stage label and no launch date. It runs on Claude through AWS Bedrock.",
+        "The StarTree MCP server is installed through StarTree, and the custom context and guardrails features were listed as coming soon.",
+        "No lineage, classification, or catalog feature was found in the docs read."
+      ],
+      "fillWith": [
+        "Cube",
+        "dbt Semantic Layer"
+      ],
+      "nl2sqlPath": "Bootstrap a Space for the Pinot tables and review the draft rules and joins. Add verified queries for the questions people ask most. Then call CosmiQ through its text_to_sql MCP tool or the REST API.",
+      "snippet": {
+        "lang": "json",
+        "title": "Add the CosmiQ text_to_sql tool to an MCP client",
+        "code": "{\n \"mcpServers\": {\n  \"cosmiq\": {\n   \"type\": \"http\",\n   \"url\": \"http://<cosmiq-host>/mcp\"\n  }\n }\n}",
+        "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/usage.md"
+      },
+      "askData": [
+        {
+          "name": "CosmiQ",
+          "status": "Unverified",
+          "since": "",
+          "surfaces": [
+            "UI",
+            "REST API",
+            "MCP"
+          ],
+          "output": "SQL",
+          "reads": "The Space: column descriptions, synonyms, sample values, business rules, join paths, query policy, and verified queries.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        }
+      ],
+      "sources": [
+        {
+          "t": "CosmiQ overview (StarTree docs)",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        },
+        {
+          "t": "CosmiQ API reference",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md"
+        },
+        {
+          "t": "How to use CosmiQ",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/usage.md"
+        },
+        {
+          "t": "StarTree MCP Server overview",
+          "u": "https://docs.startree.ai/corecapabilities/ai/mcp/overview.md"
+        },
+        {
+          "t": "AI-Powered Analytics at StarTree",
+          "u": "https://docs.startree.ai/corecapabilities/ai/overview.md"
+        },
+        {
+          "t": "Vector index (StarTree docs)",
+          "u": "https://docs.startree.ai/corecapabilities/manage-data/indexes/vector-index.md"
+        },
+        {
+          "t": "Introducing StarTree's MCP Server for Apache Pinot",
+          "u": "https://startree.ai/resources/startree-mcp-server-for-apache-pinot/"
+        }
+      ],
+      "verified": "2026-10-24"
     }
-   ],
-   "caps": {
-    "metrics": {
-     "l": 1,
-     "n": "The metrics catalog is in watsonx BI, a separate product. watsonx.data itself holds no metric objects.",
-     "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
+  ],
+  "notes": [
+    {
+      "topic": "IBM has three separate products",
+      "text": "The lakehouse is watsonx.data. Governance, glossary, text-to-SQL, and the MCP server are in watsonx.data intelligence. Metrics are in watsonx BI. The page treats them as one vendor.",
+      "sources": [
+        {
+          "t": "watsonx.data intelligence MCP server",
+          "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+        },
+        {
+          "t": "IBM watsonx BI",
+          "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
+        }
+      ]
     },
-    "dimensions": {
-     "l": 1,
-     "n": "watsonx BI models business concepts and metrics. The lakehouse has no dimension or hierarchy objects.",
-     "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
+    {
+      "topic": "IBM MCP servers",
+      "text": "IBM has two managed MCP servers. One is for watsonx.data intelligence metadata, in tech preview. One is for watsonx.data engines and queries, in SaaS 2.3.2.",
+      "sources": [
+        {
+          "t": "watsonx.data intelligence MCP server",
+          "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+        },
+        {
+          "t": "watsonx.data MCP Server",
+          "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2026/04/28/watsonxdata-mcp-server"
+        }
+      ]
     },
-    "relationships": {
-     "l": 3,
-     "n": "Metadata enrichment runs primary key and foreign key analysis. The semantic model tool returns foreign keys to the text-to-SQL agent.",
-     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
+    {
+      "topic": "Cloudera rename",
+      "text": "Octopai became Cloudera Data Lineage. Cloudera announced the acquisition in November 2024. Hue is now called Cloudera Data Explorer in recent docs.",
+      "sources": [
+        {
+          "t": "Cloudera Octopai release notes",
+          "u": "https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html"
+        },
+        {
+          "t": "Cloudera to acquire Octopai",
+          "u": "https://www.aap.com.au/aapreleases/globenewswire9273697/"
+        }
+      ]
     },
-    "synonyms": {
-     "l": 3,
-     "n": "Glossary terms and AI-generated descriptions attach to assets. The MCP server returns them to agents.",
-     "u": "https://community.ibm.com/community/user/blogs/gupta-neeru/2024/06/24/enrich-your-metadata-using-foundation-models-and-g"
-    },
-    "verifiedQueries": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
-    },
-    "nl2sql": {
-     "l": 2,
-     "n": "Text2SQL launched in 2025. Docs and sources show no stage label, so the level stays at 2.",
-     "u": "https://www.ibm.com/new/announcements/ibm-launches-ai-powered-text2sql-to-democratize-and-accelerate-data-access"
-    },
-    "ontology": {
-     "l": 1,
-     "n": "Glossary terms, classifications, data classes, and data products. No object, link, or action model was found.",
-     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
-    },
-    "graph": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
-    },
-    "vector": {
-     "l": 3,
-     "n": "Managed Milvus ships in watsonx.data. Enrichment also vectorizes metadata for text-to-SQL.",
-     "u": "https://www.ibm.com/blog/announcements/watsonx-data-think"
-    },
-    "mcp": {
-     "l": 3,
-     "n": "An open-source server on PyPI covers glossary, lineage, enrichment and text-to-SQL. A managed endpoint is in tech preview.",
-     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/README.md"
-    },
-    "governance": {
-     "l": 3,
-     "n": "MCP calls use the caller's permissions. IBM says masking and protection rules apply at query time.",
-     "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
-    },
-    "openStandard": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
-    },
-    "aiDescriptions": {
-     "l": 3,
-     "n": "Gen AI enrichment drafts table names, column names, descriptions, glossary terms, and term assignments.",
-     "u": "https://community.ibm.com/community/user/blogs/gupta-neeru/2024/06/24/enrich-your-metadata-using-foundation-models-and-g"
-    },
-    "bulkMetadata": {
-     "l": 3,
-     "n": "MCP tools import glossary CSV files and run enrichment jobs. Enrichment also runs from the UI.",
-     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
-    },
-    "autoClassify": {
-     "l": 3,
-     "n": "Enrichment assigns data classes and classifications. An MCP tool applies sensitivity labels to assets.",
-     "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
-    },
-    "sampleValues": {
-     "l": 2,
-     "n": "The semantic model tool returns profiling data and sample values when they exist. It depends on the text-to-SQL feature.",
-     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
-    },
-    "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
-    },
-    "lineage": {
-     "l": 3,
-     "n": "The catalog gives upstream and downstream lineage graphs through MCP. Column-level depth is not confirmed in the sources.",
-     "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
-    },
-    "evals": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+    {
+      "topic": "StarTree CosmiQ",
+      "text": "CosmiQ is a Claude-based agent with a Space as its semantic layer. The docs give no stage label or launch date.",
+      "sources": [
+        {
+          "t": "CosmiQ overview",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+        }
+      ]
     }
-   },
-   "enrichHowTo": "Run a metadata enrichment job in watsonx.data intelligence on the target tables. It drafts names, descriptions, and glossary term assignments with an LLM. Then import business terms in bulk with the glossary CSV import tool and enable the project for text-to-SQL.",
-   "bulkSnippet": {
-    "lang": "json",
-    "code": "{\n \"tool\": \"import_glossary_from_csv\",\n \"prompt\": \"Validate this CSV before importing: <CSV content>\",\n \"note\": \"Set validate_only to check the format. Then run the import again to write the terms.\"\n}",
-    "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
-   },
-   "offers": [
-    "Glossary, classifications, and data classes in watsonx.data intelligence give an agent business meaning for columns.",
-    "Gen AI enrichment drafts names, descriptions, and term assignments, and vectorizes metadata for text-to-SQL.",
-    "An open-source MCP server exposes search, lineage, quality, glossary, and text-to-SQL tools to any MCP client.",
-    "Text-to-SQL tools read a semantic model with keys, foreign keys, profiling data, and sample values.",
-    "Milvus runs as a service in watsonx.data for vector search."
-   ],
-   "gaps": [
-    "The lakehouse has no declared metric or dimension objects. Metrics sit in watsonx BI, a separate product.",
-    "The managed MCP endpoint is in tech preview. Some text-to-SQL tools do not work in the AWS US East region.",
-    "No verified question and SQL pair feature was found in the sources read.",
-    "Key IBM docs pages return 403 to scripts, so stage labels are hard to confirm."
-   ],
-   "fillWith": [
-    "Cube",
-    "dbt Semantic Layer",
-    "Open Semantic Interchange tools"
-   ],
-   "nl2sqlPath": "Enrich the tables in watsonx.data intelligence and assign glossary terms. Enable the project for text-to-SQL. Then connect your agent through the open-source MCP server so it reads the semantic model before it writes SQL.",
-   "snippet": {
-    "lang": "json",
-    "title": "Connect an MCP client to the managed watsonx.data intelligence endpoint",
-    "code": "{\n \"mcpServers\": {\n  \"watsonx-di\": {\n   \"command\": \"npx\",\n   \"args\": [\n    \"mcp-remote\",\n    \"https://api.dataplatform.cloud.ibm.com/semantic_agents/public/v1/mcp_server/mcp\",\n    \"--header\",\n    \"x-api-key:<your-api-key>\"\n   ]\n  }\n }\n}",
-    "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
-   },
-   "askData": [
-    {
-     "name": "Text2SQL in watsonx.data intelligence",
-     "status": "Unverified",
-     "since": "2025-08",
-     "surfaces": [
-      "UI",
-      "MCP"
-     ],
-     "output": "SQL",
-     "reads": "Enriched asset descriptions, glossary terms, vectorized metadata, keys, foreign keys, profiling data, and sample values.",
-     "u": "https://www.ibm.com/new/announcements/ibm-launches-ai-powered-text2sql-to-democratize-and-accelerate-data-access"
-    },
-    {
-     "name": "watsonx BI",
-     "status": "Unverified",
-     "since": "2025-07",
-     "surfaces": [
-      "UI"
-     ],
-     "output": "SQL",
-     "reads": "The metrics catalog, business concepts, display names, descriptions, and business terms.",
-     "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
-    },
-    {
-     "name": "Db2 Genius Hub Text-to-SQL Agent",
-     "status": "Unverified",
-     "since": "2026-04",
-     "surfaces": [
-      "UI"
-     ],
-     "output": "SQL",
-     "reads": "Db2 schema context, table relationships, and the conversation so far.",
-     "u": "https://community.ibm.com/community/user/blogs/aditya-patil/2026/04/15/text2sql-db2-ai-assistant"
-    }
-   ],
-   "sources": [
-    {
-     "t": "From Chat to Action: watsonx.data intelligence MCP Server (IBM Community)",
-     "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
-    },
-    {
-     "t": "watsonx.data MCP Server (IBM Community)",
-     "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2026/04/28/watsonxdata-mcp-server"
-    },
-    {
-     "t": "IBM Data Intelligence MCP server README",
-     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/README.md"
-    },
-    {
-     "t": "IBM Data Intelligence MCP server tools reference",
-     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
-    },
-    {
-     "t": "IBM launches AI-powered Text2SQL",
-     "u": "https://www.ibm.com/new/announcements/ibm-launches-ai-powered-text2sql-to-democratize-and-accelerate-data-access"
-    },
-    {
-     "t": "IBM watsonx BI (IBM Community)",
-     "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
-    },
-    {
-     "t": "watsonx.data at Think 2024 (IBM blog)",
-     "u": "https://www.ibm.com/blog/announcements/watsonx-data-think"
-    },
-    {
-     "t": "Enrich your metadata using generative AI (IBM Community)",
-     "u": "https://community.ibm.com/community/user/blogs/gupta-neeru/2024/06/24/enrich-your-metadata-using-foundation-models-and-g"
-    },
-    {
-     "t": "Text-2-SQL in Db2 Genius Hub (IBM Community)",
-     "u": "https://community.ibm.com/community/user/blogs/aditya-patil/2026/04/15/text2sql-db2-ai-assistant"
-    }
-   ],
-   "verified": "2026-10-24"
-  },
-  {
-   "id": "cloudera",
-   "name": "Cloudera",
-   "category": "lakehouse",
-   "aliases": [
-    "Cloudera Data Platform",
-    "CDP",
-    "Cloudera Data Warehouse",
-    "CDW",
-    "Cloudera Data Explorer",
-    "Hue",
-    "Cloudera Data Lineage",
-    "Octopai",
-    "Cloudera Anywhere Cloud"
-   ],
-   "tagline": "Hybrid data platform with Impala, Hive, Iceberg, a catalog, and a Hue SQL assistant.",
-   "verdict": "none",
-   "verdictNote": "No semantic layer or metric model was found. The SQL AI Assistant reads table metadata and three sample rows, and an Iceberg MCP server gives raw SQL access.",
-   "artifacts": [
-    {
-     "name": "SQL AI Assistant in Cloudera Data Explorer (Hue)",
-     "kind": "nl2sql",
-     "status": "Unverified",
-     "since": "2024-01",
-     "format": "UI; admin picks an LLM host; launched as tech preview, current docs show no stage label",
-     "url": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-ai-generate-sql-natural-language.html"
-    },
-    {
-     "name": "AI visual in Cloudera Data Visualization",
-     "kind": "nl2sql",
-     "status": "Unverified",
-     "since": "",
-     "format": "UI; admin enables it under AI Settings; version 7 docs said technical preview, version 8 docs show no label",
-     "url": "https://docs.cloudera.com/data-visualization/8/howto-visuals/topics/viz-visual-ai-assistant.html"
-    },
-    {
-     "name": "Cloudera Iceberg MCP server (via Impala)",
-     "kind": "mcp",
-     "status": "Preview",
-     "since": "2025",
-     "format": "Open-source Python server; tools execute_query and get_schema; read-only",
-     "url": "https://raw.githubusercontent.com/cloudera/iceberg-mcp-server/main/README.md"
-    },
-    {
-     "name": "Cloudera Semantic Search",
-     "kind": "vector",
-     "status": "Preview",
-     "since": "2026-05",
-     "format": "Vector database service on OpenSearch; docs call it a technical preview",
-     "url": "https://docs.cloudera.com/runtime/7.3.2/css-overview/css-overview.pdf"
-    },
-    {
-     "name": "Atlas glossary, tags and business metadata",
-     "kind": "glossary",
-     "status": "GA",
-     "since": "",
-     "format": "UI, CSV import, Atlas REST API",
-     "url": "https://docs.cloudera.com/runtime/7.1.1/atlas-managing-business-terms-with-glossaries/topics/atlas-terms-bulk-import.html"
-    },
-    {
-     "name": "Cloudera Data Lineage (formerly Octopai)",
-     "kind": "annotations",
-     "status": "GA",
-     "since": "2024-11",
-     "format": "Lineage platform with connectors; acquired from Octopai",
-     "url": "https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html"
-    }
-   ],
-   "caps": {
-    "metrics": {
-     "l": 0,
-     "n": "No governed metric objects found. Teams define metrics in BI tools or SQL views.",
-     "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-sql-ai-assistant-setup.html"
-    },
-    "dimensions": {
-     "l": 0,
-     "n": "No dimension or hierarchy objects found in the lakehouse docs read.",
-     "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-sql-ai-assistant-setup.html"
-    },
-    "relationships": {
-     "l": 1,
-     "n": "The SQL AI Assistant sends keys and constraints from the schema. Atlas holds no declared join model for AI.",
-     "u": "https://www.cloudera.com/blog/technical/setting-up-and-getting-started-with-cloudera-s-new-sql-ai-assist.html"
-    },
-    "synonyms": {
-     "l": 1,
-     "n": "Atlas glossary terms and business metadata exist. No doc says the SQL AI Assistant reads them.",
-     "u": "https://docs.cloudera.com/runtime/7.1.1/atlas-managing-business-terms-with-glossaries/topics/atlas-terms-bulk-import.html"
-    },
-    "verifiedQueries": {
-     "l": 0,
-     "n": "No verified query feature found in the SQL AI Assistant or Data Visualization docs.",
-     "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-sql-ai-assistant-setup.html"
-    },
-    "nl2sql": {
-     "l": 2,
-     "n": "SQL AI Assistant launched as tech preview in 2024. Current docs show no stage label, so the level stays at 2.",
-     "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-ai-generate-sql-natural-language.html"
-    },
-    "ontology": {
-     "l": 1,
-     "n": "Atlas glossary and classifications only. No object, link, or action model was found.",
-     "u": "https://docs.cloudera.com/data-catalog/1.5.5/core-concepts/topics/dc-atlas-tags-overview.html"
-    },
-    "graph": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
-    },
-    "vector": {
-     "l": 2,
-     "n": "Cloudera Semantic Search offers vector and lexical search on OpenSearch. Docs call it a technical preview.",
-     "u": "https://docs.cloudera.com/runtime/7.3.2/css-overview/css-overview.pdf"
-    },
-    "mcp": {
-     "l": 2,
-     "n": "The Iceberg MCP server for Impala is in preview. It gives execute_query and get_schema, read-only.",
-     "u": "https://raw.githubusercontent.com/cloudera/iceberg-mcp-server/main/README.md"
-    },
-    "governance": {
-     "l": 3,
-     "n": "Cloudera says its MCP servers keep SDX policies. The assistant shares only data the signed-in user can see.",
-     "u": "https://www.cloudera.com/blog/technical/bringing-context-to-genai-with-cloudera-mpc-servers.html"
-    },
-    "openStandard": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
-    },
-    "aiDescriptions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
-    },
-    "bulkMetadata": {
-     "l": 3,
-     "n": "Atlas imports glossary terms and business metadata in bulk from CSV or XLS. The Atlas REST API also writes tags.",
-     "u": "https://docs.cloudera.com/runtime/7.1.1/atlas-managing-business-terms-with-glossaries/topics/atlas-terms-bulk-import.html"
-    },
-    "autoClassify": {
-     "l": 3,
-     "n": "Data Catalog profilers apply Atlas tags automatically. The Data Compliance and Cluster Sensitivity profilers do this.",
-     "u": "https://docs.cloudera.com/data-catalog/1.5.5/core-concepts/topics/dc-atlas-tags-overview.html"
-    },
-    "sampleValues": {
-     "l": 2,
-     "n": "The SQL AI Assistant sends three sample rows per table to the LLM. It does not match literals to values.",
-     "u": "https://www.cloudera.com/blog/technical/setting-up-and-getting-started-with-cloudera-s-new-sql-ai-assist.html"
-    },
-    "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
-    },
-    "lineage": {
-     "l": 3,
-     "n": "Cloudera Data Lineage (Octopai) adds lineage for Spark, Hive, Impala, Databricks, and Snowflake. Column-level depth is not confirmed.",
-     "u": "https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html"
-    },
-    "evals": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
-    }
-   },
-   "enrichHowTo": "Write descriptions into the table with SQL comments in Hive or Impala, then import glossary terms and business metadata through the Atlas CSV import. Apply tags in bulk with the Atlas bulk classification REST endpoint. The SQL AI Assistant does not document a way to read glossary terms.",
-   "bulkSnippet": {
-    "lang": "bash",
-    "code": "curl -u \"$USER:$PASS\" -X POST \"$ATLAS_URL/api/atlas/v2/entity/bulk/classification\" \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"classification\":{\"typeName\":\"PII\"},\"entityGuids\":[\"<guid1>\",\"<guid2>\"]}'",
-    "u": "https://community.cloudera.com/t5/Support-Questions/REST-API-for-assigning-tag-to-an-entity/m-p/183828"
-   },
-   "offers": [
-    "The SQL AI Assistant in Hue writes, edits, fixes, and explains Hive and Impala SQL from a prompt.",
-    "The assistant uses RAG. It sends table names, column types, keys, partitions, constraints, and three sample rows to the LLM.",
-    "An open-source Iceberg MCP server lets agents list tables and run read-only SQL on Impala.",
-    "Atlas gives tags, glossary, and business metadata. Octopai-based Cloudera Data Lineage gives cross-system lineage.",
-    "Cloudera Semantic Search gives vector and keyword search for RAG, in technical preview."
-   ],
-   "gaps": [
-    "No semantic model, metric definitions, or declared join paths exist for AI to read.",
-    "The assistant cannot exclude chosen tables from its context, according to the 2024 launch blog.",
-    "The MCP server and Semantic Search are in preview. The MCP server gives only two tools.",
-    "No evals, verified queries, or query history mining were found in the docs read."
-   ],
-   "fillWith": [
-    "Cube",
-    "dbt Semantic Layer",
-    "AtScale"
-   ],
-   "nl2sqlPath": "Use the Iceberg MCP server so an agent reads the schema and runs read-only SQL on Impala. Put a semantic layer such as Cube or dbt on top, because Cloudera has none. Keep descriptions in table comments and the Atlas glossary.",
-   "snippet": {
-    "lang": "json",
-    "title": "Connect Claude Desktop to the Cloudera Iceberg MCP server",
-    "code": "{\n \"mcpServers\": {\n  \"iceberg-mcp-server\": {\n   \"command\": \"uvx\",\n   \"args\": [\n    \"--from\",\n    \"git+https://github.com/cloudera/iceberg-mcp-server@main\",\n    \"run-server\"\n   ],\n   \"env\": {\n    \"IMPALA_HOST\": \"coordinator-default-impala.example.com\",\n    \"IMPALA_PORT\": \"443\",\n    \"IMPALA_USER\": \"username\",\n    \"IMPALA_PASSWORD\": \"password\",\n    \"IMPALA_DATABASE\": \"default\"\n   }\n  }\n }\n}",
-    "u": "https://raw.githubusercontent.com/cloudera/iceberg-mcp-server/main/README.md"
-   },
-   "askData": [
-    {
-     "name": "SQL AI Assistant",
-     "status": "Unverified",
-     "since": "2024-01",
-     "surfaces": [
-      "UI"
-     ],
-     "output": "SQL",
-     "reads": "Table names, column names and types, keys, partitions, constraints, and three sample rows per table.",
-     "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-ai-generate-sql-natural-language.html"
-    },
-    {
-     "name": "AI visual in Cloudera Data Visualization",
-     "status": "Unverified",
-     "since": "",
-     "surfaces": [
-      "UI"
-     ],
-     "output": "SQL",
-     "reads": "The dataset behind the visual. The similarity search mode needs a vectorized dataset.",
-     "u": "https://docs.cloudera.com/data-visualization/8/howto-visuals/topics/viz-create-ai-visual.html"
-    }
-   ],
-   "sources": [
-    {
-     "t": "Generating SQL from natural language in Cloudera Data Explorer (Hue)",
-     "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-ai-generate-sql-natural-language.html"
-    },
-    {
-     "t": "Setting up the Hue SQL AI Assistant",
-     "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-sql-ai-assistant-setup.html"
-    },
-    {
-     "t": "Getting started with Cloudera SQL AI Assistant (blog)",
-     "u": "https://www.cloudera.com/blog/technical/setting-up-and-getting-started-with-cloudera-s-new-sql-ai-assist.html"
-    },
-    {
-     "t": "Bringing Context to GenAI with MCP Servers (Cloudera blog)",
-     "u": "https://www.cloudera.com/blog/technical/bringing-context-to-genai-with-cloudera-mpc-servers.html"
-    },
-    {
-     "t": "Cloudera Iceberg MCP server (GitHub)",
-     "u": "https://raw.githubusercontent.com/cloudera/iceberg-mcp-server/main/README.md"
-    },
-    {
-     "t": "Cloudera Octopai release notes, January 2026",
-     "u": "https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html"
-    },
-    {
-     "t": "Cloudera Semantic Search overview",
-     "u": "https://docs.cloudera.com/runtime/7.3.2/css-overview/css-overview.pdf"
-    },
-    {
-     "t": "AI visual in Cloudera Data Visualization 8",
-     "u": "https://docs.cloudera.com/data-visualization/8/howto-visuals/topics/viz-visual-ai-assistant.html"
-    },
-    {
-     "t": "Importing glossary terms in bulk (Atlas)",
-     "u": "https://docs.cloudera.com/runtime/7.1.1/atlas-managing-business-terms-with-glossaries/topics/atlas-terms-bulk-import.html"
-    },
-    {
-     "t": "Atlas tags in Cloudera Data Catalog",
-     "u": "https://docs.cloudera.com/data-catalog/1.5.5/core-concepts/topics/dc-atlas-tags-overview.html"
-    },
-    {
-     "t": "Cloudera to acquire Octopai (press release)",
-     "u": "https://www.aap.com.au/aapreleases/globenewswire9273697/"
-    }
-   ],
-   "verified": "2026-10-24"
-  },
-  {
-   "id": "startree",
-   "name": "StarTree",
-   "category": "realtime-olap",
-   "aliases": [
-    "StarTree Cloud",
-    "Apache Pinot",
-    "Pinot",
-    "CosmiQ",
-    "StarTree MCP Server"
-   ],
-   "tagline": "Managed Apache Pinot for real-time analytics, with an AI agent and Spaces.",
-   "verdict": "partial",
-   "verdictNote": "CosmiQ Spaces hold descriptions, rules, joins, and verified queries for Pinot tables, but Spaces are a proprietary text context and not a typed metric model.",
-   "artifacts": [
-    {
-     "name": "CosmiQ Spaces",
-     "kind": "semantic-model",
-     "status": "Unverified",
-     "since": "",
-     "format": "UI editor and REST API; descriptions, synonyms, rules, joins, query policy, verified queries; docs show no stage label",
-     "url": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    },
-    {
-     "name": "CosmiQ conversational analytics agent",
-     "kind": "agent",
-     "status": "Unverified",
-     "since": "",
-     "format": "Chat UI, REST API, and a text_to_sql MCP tool; runs Claude on AWS Bedrock",
-     "url": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    },
-    {
-     "name": "StarTree MCP Server for Apache Pinot",
-     "kind": "mcp",
-     "status": "GA",
-     "since": "2025-05",
-     "format": "Hosted at mcp.<domain>/mcp with OAuth; open-source base mcp-pinot; install through StarTree",
-     "url": "https://docs.startree.ai/corecapabilities/ai/mcp/overview.md"
-    },
-    {
-     "name": "Vector index",
-     "kind": "vector",
-     "status": "GA",
-     "since": "",
-     "format": "Table index config; approximate nearest neighbor search",
-     "url": "https://docs.startree.ai/corecapabilities/manage-data/indexes/vector-index.md"
-    },
-    {
-     "name": "Native Vector Auto Embedding",
-     "kind": "vector",
-     "status": "Announced",
-     "since": "",
-     "format": "Docs say coming soon",
-     "url": "https://docs.startree.ai/corecapabilities/ai/overview.md"
-    }
-   ],
-   "caps": {
-    "metrics": {
-     "l": 2,
-     "n": "A Space holds canonical metric definitions as plain-text business rules. They are not typed metric objects.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    },
-    "dimensions": {
-     "l": 2,
-     "n": "Spaces store column descriptions, sample values, and time formats. No hierarchy or time grain objects were found.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    },
-    "relationships": {
-     "l": 2,
-     "n": "A Space lists explicit join paths between tables so the agent does not guess.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    },
-    "synonyms": {
-     "l": 2,
-     "n": "Bootstrap and the editor store column descriptions and synonyms. The agent reads them in its prompt.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    },
-    "verifiedQueries": {
-     "l": 2,
-     "n": "Spaces keep question and SQL pairs. Matching uses token overlap and embedding similarity.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    },
-    "nl2sql": {
-     "l": 2,
-     "n": "CosmiQ writes and runs Pinot SQL from plain English. The docs show no stage label.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    },
-    "ontology": {
-     "l": 0,
-     "n": "No entity, link, or action model in the CosmiQ or MCP docs read. Teams use Spaces.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    },
-    "graph": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
-    },
-    "vector": {
-     "l": 3,
-     "n": "Pinot vector index supports similarity search in StarTree Cloud. Auto embedding is announced, not shipped.",
-     "u": "https://docs.startree.ai/corecapabilities/manage-data/indexes/vector-index.md"
-    },
-    "mcp": {
-     "l": 3,
-     "n": "The hosted MCP server lists tables, reads table details, and runs SELECT queries. StarTree installs it for you.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/mcp/overview.md"
-    },
-    "governance": {
-     "l": 2,
-     "n": "Space policy sets read-only mode, row limits, timeouts, and do_not_use columns. Docs do not say Spaces inherit row security.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    },
-    "openStandard": {
-     "l": 0,
-     "n": "Spaces are a StarTree format with no export spec found. The MCP server follows the open MCP protocol.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    },
-    "aiDescriptions": {
-     "l": 2,
-     "n": "Bootstrap samples live data and drafts column descriptions, synonyms, rules, and starter verified queries with an LLM.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    },
-    "bulkMetadata": {
-     "l": 2,
-     "n": "The PATCH Spaces endpoint edits tables, rules, joins, policy, and verified queries through the API.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md"
-    },
-    "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
-    },
-    "sampleValues": {
-     "l": 2,
-     "n": "Bootstrap reads distinct counts, ranges, and sample values for low-cardinality columns and stores them in the Space.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    },
-    "queryHistory": {
-     "l": 0,
-     "n": "The Query Analyzer mines slow queries for tuning advice. No doc says it builds semantic context.",
-     "u": "https://docs.startree.ai/llms.txt"
-    },
-    "lineage": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
-    },
-    "evals": {
-     "l": 2,
-     "n": "Thumbs up and down ratings feed a suggestions endpoint that proposes verified queries. No benchmark tool was found.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md"
-    }
-   },
-   "enrichHowTo": "Call POST /api/bootstrap/space on the Pinot tables. It drafts descriptions, synonyms, joins, rules, and starter verified queries. Review the draft, then edit it with PATCH /api/spaces/{id}.",
-   "bulkSnippet": {
-    "lang": "bash",
-    "code": "curl -X PATCH \"https://<cosmiq-host>/api/spaces/<id>\" \\\n  -H \"Authorization: Bearer <token>\" \\\n  -H \"Content-Type: application/json\" \\\n  -d @space-edits.json",
-    "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md"
-   },
-   "offers": [
-    "Spaces give the agent column descriptions, synonyms, business rules, join paths, and verified queries for each Pinot table.",
-    "Bootstrap drafts a Space from table schema, config, and sampled live data, so teams review instead of write.",
-    "Query policy sets read-only mode, row limits, timeouts, and columns the agent must not select.",
-    "CosmiQ exposes a text_to_sql MCP tool, and the StarTree MCP server exposes read-only Pinot tools.",
-    "Pinot has a vector index for similarity search next to real-time analytics."
-   ],
-   "gaps": [
-    "Spaces are free text rules, not typed metrics or dimensions, and no export format was found.",
-    "CosmiQ docs show no stage label and no launch date. It runs on Claude through AWS Bedrock.",
-    "The StarTree MCP server is installed through StarTree, and the custom context and guardrails features were listed as coming soon.",
-    "No lineage, classification, or catalog feature was found in the docs read."
-   ],
-   "fillWith": [
-    "Cube",
-    "dbt Semantic Layer"
-   ],
-   "nl2sqlPath": "Bootstrap a Space for the Pinot tables and review the draft rules and joins. Add verified queries for the questions people ask most. Then call CosmiQ through its text_to_sql MCP tool or the REST API.",
-   "snippet": {
-    "lang": "json",
-    "title": "Add the CosmiQ text_to_sql tool to an MCP client",
-    "code": "{\n \"mcpServers\": {\n  \"cosmiq\": {\n   \"type\": \"http\",\n   \"url\": \"http://<cosmiq-host>/mcp\"\n  }\n }\n}",
-    "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/usage.md"
-   },
-   "askData": [
-    {
-     "name": "CosmiQ",
-     "status": "Unverified",
-     "since": "",
-     "surfaces": [
-      "UI",
-      "REST API",
-      "MCP"
-     ],
-     "output": "SQL",
-     "reads": "The Space: column descriptions, synonyms, sample values, business rules, join paths, query policy, and verified queries.",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    }
-   ],
-   "sources": [
-    {
-     "t": "CosmiQ overview (StarTree docs)",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    },
-    {
-     "t": "CosmiQ API reference",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md"
-    },
-    {
-     "t": "How to use CosmiQ",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/usage.md"
-    },
-    {
-     "t": "StarTree MCP Server overview",
-     "u": "https://docs.startree.ai/corecapabilities/ai/mcp/overview.md"
-    },
-    {
-     "t": "AI-Powered Analytics at StarTree",
-     "u": "https://docs.startree.ai/corecapabilities/ai/overview.md"
-    },
-    {
-     "t": "Vector index (StarTree docs)",
-     "u": "https://docs.startree.ai/corecapabilities/manage-data/indexes/vector-index.md"
-    },
-    {
-     "t": "Introducing StarTree's MCP Server for Apache Pinot",
-     "u": "https://startree.ai/resources/startree-mcp-server-for-apache-pinot/"
-    }
-   ],
-   "verified": "2026-10-24"
-  }
- ],
- "notes": [
-  {
-   "topic": "IBM has three separate products",
-   "text": "The lakehouse is watsonx.data. Governance, glossary, text-to-SQL, and the MCP server are in watsonx.data intelligence. Metrics are in watsonx BI. The page treats them as one vendor.",
-   "sources": [
-    {
-     "t": "watsonx.data intelligence MCP server",
-     "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
-    },
-    {
-     "t": "IBM watsonx BI",
-     "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
-    }
-   ]
-  },
-  {
-   "topic": "IBM MCP servers",
-   "text": "IBM has two managed MCP servers. One is for watsonx.data intelligence metadata, in tech preview. One is for watsonx.data engines and queries, in SaaS 2.3.2.",
-   "sources": [
-    {
-     "t": "watsonx.data intelligence MCP server",
-     "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
-    },
-    {
-     "t": "watsonx.data MCP Server",
-     "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2026/04/28/watsonxdata-mcp-server"
-    }
-   ]
-  },
-  {
-   "topic": "Cloudera rename",
-   "text": "Octopai became Cloudera Data Lineage. Cloudera announced the acquisition in November 2024. Hue is now called Cloudera Data Explorer in recent docs.",
-   "sources": [
-    {
-     "t": "Cloudera Octopai release notes",
-     "u": "https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html"
-    },
-    {
-     "t": "Cloudera to acquire Octopai",
-     "u": "https://www.aap.com.au/aapreleases/globenewswire9273697/"
-    }
-   ]
-  },
-  {
-   "topic": "StarTree CosmiQ",
-   "text": "CosmiQ is a Claude-based agent with a Space as its semantic layer. The docs give no stage label or launch date.",
-   "sources": [
-    {
-     "t": "CosmiQ overview",
-     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
-    }
-   ]
-  }
- ]
+  ]
 }
