@@ -15,6 +15,7 @@
   --display: 'IBM Plex Sans Condensed', 'Arial Narrow', system-ui, sans-serif;
   --body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --t3: #c3e2e5; --t2: #ddedee; --t1: #eef3f3;
   --r: 6px;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
@@ -22,12 +23,14 @@
   --accent: #4db5bf; --accent-ink: #0d1415; --accent-soft: #123639;
   --l3: #4db5bf; --l2: #2a7880; --l1: #6c7d7f; --l0: #253739;
   --ga: #4db5bf; --preview: #e0a33a; --announced: #a99be6; --deprecated: #e57373; --unverified: #879799;
+  --t3: #1d5258; --t2: #183e42; --t1: #19292b;
   color-scheme: dark; } }
 :root[data-theme="dark"] {
   --paper: #0d1415; --sheet: #142022; --ink: #e3ebeb; --ink2: #b3c1c2; --muted: #879799; --rule: #253739; --rule2: #36494b;
   --accent: #4db5bf; --accent-ink: #0d1415; --accent-soft: #123639;
   --l3: #4db5bf; --l2: #2a7880; --l1: #6c7d7f; --l0: #253739;
   --ga: #4db5bf; --preview: #e0a33a; --announced: #a99be6; --deprecated: #e57373; --unverified: #879799;
+  --t3: #1d5258; --t2: #183e42; --t1: #19292b;
   color-scheme: dark; }
 
 * { box-sizing: border-box; }
@@ -59,10 +62,10 @@ header.top .wrap { display: flex; align-items: center; gap: 16px; padding-block:
 .variants button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
 
 /* Hero */
-.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: end; padding-block: 36px 22px; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px 48px; align-items: end; padding-block: 26px 18px; }
 .eyebrow { font: 500 12px var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
 .hero h1 { font: 700 clamp(30px, 4vw, 46px)/1.04 var(--display); letter-spacing: -0.02em; margin: 0 0 12px; text-wrap: balance; max-width: 22ch; }
-.hero p.lede { margin: 0; max-width: 62ch; color: var(--ink2); font-size: 16px; }
+.hero p.lede { margin: 0; max-width: 70ch; color: var(--ink2); font-size: 15px; }
 .facts { display: grid; grid-template-columns: repeat(3, auto); border: 1px solid var(--rule); border-radius: var(--r); background: var(--sheet); }
 .facts div { padding: 10px 16px; }
 .facts div + div { border-left: 1px solid var(--rule); }
@@ -188,6 +191,52 @@ table.grid thead th:first-child { writing-mode: horizontal-tb; transform: none; 
 table.grid td button { border: 0; background: none; padding: 2px; cursor: pointer; }
 table.grid tr.cat th { font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); background: var(--paper); }
 
+
+/* Capability matrix: a heatmap. Cell tint and mark shape both encode the level. */
+.mtools { display: flex; flex-wrap: wrap; gap: 10px 16px; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.mtools .controls { min-width: 0; }
+.chip .cnt { font: 500 11px var(--mono); color: inherit; opacity: 0.7; margin-left: 2px; }
+.mxwrap { overflow: auto; max-height: 78vh; border: 1px solid var(--rule); border-radius: var(--r); background: var(--sheet); }
+table.mx { border-collapse: separate; border-spacing: 0; font-size: 13px; }
+table.mx.all { width: 100%; }
+table.mx th, table.mx td { border-bottom: 1px solid var(--rule); }
+table.mx thead th { position: sticky; background: var(--sheet); z-index: 2; }
+table.mx tr.gh th { top: 0; height: 34px; border-bottom: 1px solid var(--rule2); font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding: 0 8px; text-align: left; white-space: nowrap; }
+table.mx tr.gh th + th { border-left: 1px solid var(--rule2); }
+table.mx.all tr.gh th { white-space: normal; line-height: 1.2; }
+table.mx tr.gh button { all: unset; cursor: pointer; display: block; padding: 8px 0; color: var(--ink2); }
+table.mx tr.gh button:hover, table.mx tr.gh button:focus-visible { color: var(--accent); text-decoration: underline; }
+table.mx tr.gh .back { color: var(--accent); margin-left: 8px; text-transform: none; letter-spacing: 0; }
+table.mx tr.ch th { top: 34px; font: 500 11.5px var(--body); color: var(--ink2); vertical-align: bottom; padding: 8px 6px; border-bottom: 1px solid var(--rule2); }
+table.mx.all tr.ch th { height: 118px; writing-mode: vertical-rl; transform: rotate(180deg); text-align: left; padding: 8px 2px; white-space: nowrap; }
+table.mx.wide tr.ch th { text-align: left; min-width: 190px; max-width: 260px; white-space: normal; }
+table.mx .cl { display: block; font-weight: 600; color: var(--ink); }
+table.mx .cd { display: block; margin-top: 3px; font-weight: 400; color: var(--muted); line-height: 1.35; }
+table.mx th.corner, table.mx th.sch { top: 0; left: 0; z-index: 4; text-align: left; vertical-align: bottom; padding: 8px 12px; font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--rule2); }
+table.mx th.sch { left: auto; z-index: 2; min-width: 72px; }
+table.mx tbody th { position: sticky; left: 0; z-index: 1; background: var(--sheet); text-align: left; padding: 0; min-width: 210px; max-width: 240px; border-right: 1px solid var(--rule); }
+table.mx .rh { all: unset; display: block; padding: 7px 12px; cursor: pointer; font-weight: 600; font-size: 13.5px; line-height: 1.25; }
+table.mx .rh small { display: block; font: 11px var(--mono); color: var(--muted); font-weight: 400; margin-top: 2px; }
+table.mx .rh:hover, table.mx .rh:focus-visible { color: var(--accent); }
+table.mx tr.cat th { position: sticky; left: 0; background: var(--paper); font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding: 14px 12px 6px; text-align: left; }
+table.mx tr.cat th span { font-weight: 400; margin-left: 4px; }
+table.mx td.mc { padding: 0; text-align: center; border-left: 1px solid var(--sheet); }
+table.mx td.mc button { all: unset; box-sizing: border-box; display: flex; width: 100%; min-height: 40px; align-items: center; justify-content: center; gap: 8px; cursor: pointer; padding: 6px 8px; }
+table.mx.all td.mc button { min-width: 34px; }
+table.mx td.mc button:hover, table.mx td.mc button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+table.mx.wide td.mc { text-align: left; vertical-align: top; }
+table.mx.wide td.mc button { justify-content: flex-start; align-items: flex-start; }
+table.mx.wide td.mc button .lv { margin-top: 2px; }
+table.mx td.txt { padding: 8px; text-align: left; vertical-align: top; }
+table.mx td.txt button { padding: 0; min-height: 0; }
+table.mx .cn { font-size: 12.5px; line-height: 1.4; color: var(--ink2); text-align: left; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+table.mx .cn b { color: var(--ink); font-weight: 600; }
+table.mx td.sc { font: 600 15px var(--display); color: var(--ink); padding: 8px 10px; text-align: left; vertical-align: top; white-space: nowrap; }
+table.mx td.sc small { font: 11px var(--mono); color: var(--muted); }
+.dim { color: var(--muted); }
+.t3 { background: var(--t3); } .t2 { background: var(--t2); } .t1 { background: var(--t1); } .t0 { background: transparent; } .tx { background: var(--hatch); }
+@media (max-width: 520px) { table.mx tbody th { min-width: 150px; max-width: 160px; } table.mx.wide tr.ch th { min-width: 170px; } }
+
 /* Drawer */
 .scrim { position: fixed; inset: 0; background: rgb(0 0 0 / 0.35); opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 30; }
 .scrim.open { opacity: 1; pointer-events: auto; }
@@ -238,16 +287,11 @@ footer.end p { margin: 0 0 6px; }
 </style>
 
 <header class="top gut"><div class="wrap">
-  <a class="brand" href="#ask"><b>Semantic Context Index</b><span id="built"></span></a>
-  <div class="variants" role="group" aria-label="Page variation">
-    <button type="button" data-variant="1">1 Ask</button>
-    <button type="button" data-variant="2">2 Index</button>
-    <button type="button" data-variant="3">3 Stack</button>
-  </div>
+  <a class="brand" href="#matrix"><b>Semantic Context Index</b></a>
   <div class="find">
-    <label class="sr" for="q">Find a product</label>
+    <label class="sr" for="q">Search products</label>
     <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
-    <input id="q" type="search" placeholder="Find a product, for example Azure, BigQuery, Purview" autocomplete="off">
+    <input id="q" type="search" placeholder="Search products, for example Azure, BigQuery, Purview" autocomplete="off">
   </div>
 </div></header>
 
@@ -265,9 +309,9 @@ footer.end p { margin: 0 0 6px; }
 <main class="gut"><div class="wrap" id="view"></div></main>
 
 <footer class="end gut"><div class="wrap">
-  <div><h4>Method</h4><p>Research agents read the vendor documentation, release notes, and official blogs. A separate agent checked the high-risk claims and a random sample of cells against primary sources.</p></div>
-  <div><h4>Levels</h4><p>Native GA means the vendor ships the feature and the docs show no preview label. Native preview means the docs show a preview or beta label. Partner or DIY means you need another product or your own code. Not checked means that the research did not find a primary source.</p></div>
-  <div><h4>Corrections</h4><p>Each entry has a source link. If an entry is wrong, open an issue with the correct source at <a href="https://github.com/MKcodeshere/semantic-layer-compare/issues" target="_blank" rel="noopener">github.com/MKcodeshere/semantic-layer-compare</a>.</p></div>
+  <div><h4>Method</h4><p>Research agents read the vendor documentation, release notes, and official engineering blogs. An independent agent verified the high-risk claims and a random sample of cells against primary sources.</p></div>
+  <div><h4>Levels</h4><p><b>Native, GA:</b> the vendor supplies the feature, and the documentation shows no preview label. <b>Native, preview:</b> the documentation shows a preview or beta label. <b>Partner or custom build:</b> the feature needs a different product or custom code. <b>Not available:</b> the documentation does not include the feature. <b>Not verified:</b> no primary source was found.</p></div>
+  <div><h4>Corrections</h4><p>Each cell links to its source. To report an error, open an issue and attach the correct primary source at <a href="https://github.com/MKcodeshere/semantic-layer-compare/issues" target="_blank" rel="noopener">github.com/MKcodeshere/semantic-layer-compare</a>.</p></div>
 </div></footer>
 
 <div class="scrim" id="scrim"></div>
@@ -281,48 +325,41 @@ const $ = (s, r = document) => r.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
 
-const LV = { 3: 'Native, GA', 2: 'Native, preview', 1: 'Partner or DIY', 0: 'None' };
+const LV = { 3: 'Native, GA', 2: 'Native, preview', 1: 'Partner or custom build', 0: 'Not available' };
 const lvClass = (l) => (l === null || l === undefined ? 'lx' : 'l' + l);
-const lvName = (l) => LV[l] ?? 'Not checked';
+const lvName = (l) => LV[l] ?? 'Not verified';
 const mark = (l) => `<i class="lv ${lvClass(l)}" title="${esc(lvName(l))}" aria-label="${esc(lvName(l))}"></i>`;
 const stamp = (s) => `<span class="stamp st-${esc(s || 'Unverified')}">${esc(s || 'Unverified')}</span>`;
 const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return u; } };
 const catOf = (id) => SL.categories.find((c) => c.id === id) || { id, label: id, group: 'data' };
 const vendorById = (id) => SL.vendors.find((v) => v.id === id);
 const shortName = (v) => v.name;
-const VERDICT = { native: 'Native layer', partial: 'Partial', none: 'Bring your own' };
+const VERDICT = { native: 'Native semantic layer', partial: 'Partial', none: 'External layer required' };
 const STATUS_ORDER = { GA: 0, Preview: 1, Announced: 2, Unverified: 3, Deprecated: 4 };
 
-const VARIANTS = {
-  1: { view: 'ask', eyebrow: 'Natural language query',
-       h1: 'Which data products answer questions in plain language?',
-       lede: 'This index lists the natural language query features of each data product. Each entry shows the release status, the query language that the feature writes, and the context that the feature reads.' },
-  2: { view: 'products', eyebrow: 'Semantic context for AI agents',
-       h1: 'Find the semantic context that each data product gives to an AI agent.',
-       lede: 'The index checks 19 capabilities in each product, from metric definitions to AI-generated column descriptions. Each cell has a source link and a release status.' },
-  3: { view: 'stack', eyebrow: 'Stack check',
-       h1: 'Select your stack. See what your AI agent can read.',
-       lede: 'Select a data platform, a BI tool, a semantic layer, and a catalog. The index shows the capabilities that your stack has and the capabilities that you must add.' },
+const HERO = {
+  eyebrow: 'Reference',
+  h1: 'Semantic context and NLQ capability matrix',
+  lede: 'A capability matrix for ' + SL.vendors.length + ' data products. The matrix shows the semantic context that each product supplies to AI agents, and the natural language query (NLQ) features of each product. Each cell has a release status and a link to the vendor source.',
 };
 const VIEWS = [
-  { id: 'ask', label: 'Ask your data' },
-  { id: 'products', label: 'Products' },
-  { id: 'stack', label: 'Stack check' },
+  { id: 'matrix', label: 'Capability matrix' },
+  { id: 'nlq', label: 'NLQ features' },
+  { id: 'stack', label: 'Stack coverage' },
   { id: 'compare', label: 'Compare' },
-  { id: 'catalogs', label: 'Catalogs' },
-  { id: 'grid', label: 'Grid' },
+  { id: 'catalogs', label: 'Data catalogs' },
+  { id: 'cards', label: 'Product cards' },
 ];
 
 const state = {
-  variant: +(store.get('sci-variant') || 1),
   view: null,
+  grp: 'all', mcat: 'all', msort: 'cat',
   q: '',
   askOut: 'all', askGA: false, askApi: false,
   cat: 'all',
   compare: ['snowflake', 'databricks', 'bigquery', 'fabric'],
   stack: { data: 'snowflake', sem: '', bi: 'tableau', cat: '' },
 };
-if (!VARIANTS[state.variant]) state.variant = 1;
 
 const matches = (v) => {
   if (!state.q) return true;
@@ -340,21 +377,16 @@ const byCat = (list) => {
 
 /* Header facts */
 const askCount = SL.vendors.filter((v) => (v.askData || []).length).length;
-$('#built').textContent = 'Checked ' + SL.built;
 $('#facts').innerHTML = [
   [SL.vendors.length, 'products'],
-  [askCount, 'ask in plain language'],
+  [askCount, 'with an NLQ feature'],
   [SL.caps.length, 'capabilities'],
 ].map(([n, l]) => `<div><b class="num">${n}</b><span>${esc(l)}</span></div>`).join('');
 
-function setVariant(n) {
-  state.variant = n; store.set('sci-variant', String(n));
-  const V = VARIANTS[n];
-  $('#eyebrow').textContent = V.eyebrow; $('#h1').textContent = V.h1; $('#lede').textContent = V.lede;
-  document.querySelectorAll('[data-variant]').forEach((b) => b.setAttribute('aria-pressed', String(+b.dataset.variant === n)));
-  const order = [V.view, ...VIEWS.map((x) => x.id).filter((x) => x !== V.view)];
-  $('#tabs').innerHTML = order.map((id) => { const x = VIEWS.find((y) => y.id === id); return `<button role="tab" type="button" data-view="${id}">${esc(x.label)}</button>`; }).join('');
-}
+$('#eyebrow').textContent = HERO.eyebrow + ' \u00b7 checked ' + SL.built;
+$('#h1').textContent = HERO.h1;
+$('#lede').textContent = HERO.lede;
+$('#tabs').innerHTML = VIEWS.map((x) => `<button role="tab" type="button" data-view="${x.id}">${esc(x.label)}</button>`).join('');
 function setView(id, push = true) {
   state.view = id;
   document.querySelectorAll('[data-view]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.view === id)));
@@ -375,25 +407,25 @@ function viewAsk() {
   const none = SL.vendors.filter(matches).filter((v) => Array.isArray(v.askData) && !v.askData.length);
   const pending = SL.vendors.filter(matches).filter((v) => !Array.isArray(v.askData));
   return `
-  <div class="viewhead"><div><h2>Ask your data</h2><p>These features take a question in natural language and return a query or an answer. The list shows first-party features only.</p></div>
+  <div class="viewhead"><div><h2>Natural language query (NLQ) features</h2><p>This table lists first-party features that convert a natural language question into a query or an answer. Partner features are not included.</p></div>
     <div class="controls">
-      <select class="sel" id="askOut" aria-label="Query language"><option value="all">All query languages</option>${outs.map((o) => `<option ${state.askOut === o ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select>
+      <select class="sel" id="askOut" aria-label="Output type"><option value="all">All output types</option>${outs.map((o) => `<option ${state.askOut === o ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select>
       <button class="chip" type="button" id="askGA" aria-pressed="${state.askGA}">GA only</button>
-      <button class="chip" type="button" id="askApi" aria-pressed="${state.askApi}">API, SDK or MCP access</button>
+      <button class="chip" type="button" id="askApi" aria-pressed="${state.askApi}">Programmatic access only</button>
     </div></div>
   ${shown.length ? `<div class="asklist" role="table">
-    <div class="askrow head" role="row"><span>Product</span><span>Feature</span><span>Status</span><span>Writes</span><span>Access</span><span>Context that it reads</span></div>
+    <div class="askrow head" role="row"><span>Product</span><span>Feature</span><span>Release status</span><span>Output</span><span>Access</span><span>Context input</span></div>
     ${shown.map(({ v, a }) => `<div class="askrow" role="row">
       <div class="prodcell"><button class="prod" type="button" data-open="${v.id}">${esc(shortName(v))}</button><span class="cat">${esc(catOf(v.category).label)}</span></div>
       <div class="feat"><span class="lbl">Feature</span>${a.u ? `<a href="${esc(a.u)}" target="_blank" rel="noopener">${esc(a.name)}</a>` : esc(a.name)}</div>
       <div class="stcell">${stamp(a.status)}${a.since ? ` <span class="mono num" style="font-size:11.5px;color:var(--muted)">${esc(a.since)}</span>` : ''}</div>
-      <div><span class="lbl">Writes</span><span class="tag">${esc(a.output || 'Not stated')}</span></div>
+      <div><span class="lbl">Output</span><span class="tag">${esc(a.output || 'Not stated')}</span></div>
       <div class="surf"><span class="lbl">Access</span>${(a.surfaces || []).map((s) => `<span class="tag">${esc(s)}</span>`).join('')}</div>
-      <div class="reads"><span class="lbl">Reads</span>${esc(a.reads || '')}</div>
+      <div class="reads"><span class="lbl">Context input</span>${esc(a.reads || '')}</div>
     </div>`).join('')}
-  </div>` : `<div class="empty">No feature matches the filters. Clear a filter or change the search text.</div>`}
-  ${none.length ? `<h3 class="group-h" style="margin-top:28px">No first-party feature (${none.length})</h3><p style="color:var(--ink2);margin:0">${none.map((v) => `<button class="prod chip" type="button" data-open="${v.id}">${esc(shortName(v))}</button>`).join(' ')}</p>` : ''}
-  ${pending.length ? `<h3 class="group-h" style="margin-top:22px">Not checked yet (${pending.length})</h3><p style="color:var(--ink2);margin:0">${pending.map((v) => `<button class="prod chip" type="button" data-open="${v.id}">${esc(shortName(v))}</button>`).join(' ')}</p>` : ''}`;
+  </div>` : `<div class="empty">No feature agrees with the filters. Remove a filter or change the search text.</div>`}
+  ${none.length ? `<h3 class="group-h" style="margin-top:28px">No first-party NLQ feature (${none.length})</h3><p style="color:var(--ink2);margin:0">${none.map((v) => `<button class="prod chip" type="button" data-open="${v.id}">${esc(shortName(v))}</button>`).join(' ')}</p>` : ''}
+  ${pending.length ? `<h3 class="group-h" style="margin-top:22px">Not verified (${pending.length})</h3><p style="color:var(--ink2);margin:0">${pending.map((v) => `<button class="prod chip" type="button" data-open="${v.id}">${esc(shortName(v))}</button>`).join(' ')}</p>` : ''}`;
 }
 
 /* ---------- Products view ---------- */
@@ -406,17 +438,17 @@ function card(v) {
     <div class="h"><div><h3>${esc(shortName(v))}</h3><div class="sub">${esc(catOf(v.category).label)}${v.partOf ? ' &#183; part of ' + esc(shortName(vendorById(v.partOf) || { name: v.partOf })) : ''}</div></div><span class="verdict ${v.verdict}">${esc(VERDICT[v.verdict])}</span></div>
     <p>${esc(v.tagline)}</p>
     <div class="strips">${strips(v)}</div>
-    <div class="askline">${ask.length ? ask.slice(0, 2).map((a) => `${stamp(a.status)} <span>${esc(a.name)}</span>`).join(' ') : `<span style="color:var(--muted)">No first-party natural language query</span>`}</div>
+    <div class="askline">${ask.length ? ask.slice(0, 2).map((a) => `${stamp(a.status)} <span>${esc(a.name)}</span>`).join(' ') : `<span style="color:var(--muted)">No first-party NLQ feature</span>`}</div>
     <button class="cmpbtn" type="button" data-cmp="${v.id}" aria-pressed="${state.compare.includes(v.id)}">${state.compare.includes(v.id) ? 'In compare' : 'Add to compare'}</button>
   </div>`;
 }
 function viewProducts() {
   const cats = byCat(SL.vendors);
   const list = SL.vendors.filter(matches).filter((v) => state.cat === 'all' || v.category === state.cat);
-  return `<div class="viewhead"><div><h2>Products</h2><p>Each card shows 19 capabilities in 5 groups. Select a card to see the evidence and the source for each capability.</p></div>
+  return `<div class="viewhead"><div><h2>Product cards</h2><p>Each card shows the 19 capabilities in 5 groups. Select a card to open the evidence and the source for each capability.</p></div>
     <div class="legend">${[3, 2, 1, 0, null].map((l) => `<span>${mark(l)}${esc(lvName(l))}</span>`).join('')}</div></div>
   <div class="controls" style="margin-bottom:16px"><button class="chip" type="button" data-cat="all" aria-pressed="${state.cat === 'all'}">All ${SL.vendors.length}</button>${cats.map(([c, vs]) => `<button class="chip" type="button" data-cat="${c.id}" aria-pressed="${state.cat === c.id}">${esc(c.label)} ${vs.length}</button>`).join('')}</div>
-  ${list.length ? byCat(list).map(([c, vs]) => `<h3 class="group-h">${esc(c.label)}</h3><div class="cards">${vs.map(card).join('')}</div>`).join('') : '<div class="empty">No product matches the search text.</div>'}`;
+  ${list.length ? byCat(list).map(([c, vs]) => `<h3 class="group-h">${esc(c.label)}</h3><div class="cards">${vs.map(card).join('')}</div>`).join('') : '<div class="empty">No product agrees with the search text.</div>'}`;
 }
 
 /* ---------- Stack check ---------- */
@@ -436,20 +468,20 @@ function viewStack() {
     return { c, best, who, have };
   });
   const n = (f) => rows.filter(f).length;
-  return `<div class="viewhead"><div><h2>Stack check</h2><p>The table shows the highest level in your stack for each capability, and the product that gives it. A red edge marks a capability that no product in the stack gives.</p></div></div>
+  return `<div class="viewhead"><div><h2>Stack coverage</h2><p>Select the products in your stack. The table shows the highest level for each capability and the product that supplies it. A red bar identifies a capability that is not available in the stack.</p></div></div>
   <div class="stackpick">
     <label>Data platform<select class="sel" id="stk-data">${opt(data, state.stack.data)}</select></label>
     <label>Semantic layer<select class="sel" id="stk-sem">${opt(sem, state.stack.sem, 'None')}</select></label>
     <label>BI tool<select class="sel" id="stk-bi">${opt(bi, state.stack.bi, 'None')}</select></label>
-    <label>Catalog or graph<select class="sel" id="stk-cat">${opt(cat, state.stack.cat, 'None')}</select></label>
+    <label>Catalog or knowledge graph<select class="sel" id="stk-cat">${opt(cat, state.stack.cat, 'None')}</select></label>
   </div>
   <div class="stacksum">
-    <div class="sumbox"><b class="num">${n((r) => r.best === 3)}</b><span>native and GA</span></div>
-    <div class="sumbox"><b class="num">${n((r) => r.best === 2)}</b><span>native, in preview</span></div>
-    <div class="sumbox"><b class="num">${n((r) => r.best === 1)}</b><span>need a partner or your own code</span></div>
-    <div class="sumbox"><b class="num">${n((r) => r.best === 0)}</b><span>missing in this stack</span></div>
+    <div class="sumbox"><b class="num">${n((r) => r.best === 3)}</b><span>native, GA</span></div>
+    <div class="sumbox"><b class="num">${n((r) => r.best === 2)}</b><span>native, preview</span></div>
+    <div class="sumbox"><b class="num">${n((r) => r.best === 1)}</b><span>partner or custom build</span></div>
+    <div class="sumbox"><b class="num">${n((r) => r.best === 0)}</b><span>not available in this stack</span></div>
   </div>
-  <div class="tblwrap"><table class="stk"><thead><tr><th>Capability</th><th>Best level</th><th>Given by</th>${picked.map((v) => `<th>${esc(shortName(v))}</th>`).join('')}</tr></thead><tbody>
+  <div class="tblwrap"><table class="stk"><thead><tr><th>Capability</th><th>Highest level</th><th>Supplied by</th>${picked.map((v) => `<th>${esc(shortName(v))}</th>`).join('')}</tr></thead><tbody>
   ${rows.map((r) => `<tr class="${r.best === 0 ? 'gap' : ''}"><td><b>${esc(r.c.label)}</b><div class="who">${esc(r.c.long)}</div></td><td>${mark(r.best)} ${esc(lvName(r.best))}</td><td class="who">${esc(r.who.join(', ') || '')}</td>${r.have.map((h) => `<td><button class="cmpbtn" style="border:0;padding:0" type="button" data-open="${h.v.id}" data-focus="${r.c.key}" aria-label="${esc(shortName(h.v))}: ${esc(r.c.label)}">${mark(h.l)}</button></td>`).join('')}</tr>`).join('')}
   </tbody></table></div>`;
 }
@@ -463,16 +495,16 @@ function viewCompare() {
     SL.caps.filter((c) => c.group === g.id).map((c) => {
       const ls = vs.map((v) => v.caps[c.key].l);
       const diff = new Set(ls.map(String)).size > 1;
-      return `<div class="cmprow ${diff ? 'diff' : ''}" style="grid-template-columns:${cols}"><div class="k">${esc(c.label)}<small>${esc(c.long)}</small></div>${vs.map((v) => { const x = v.caps[c.key]; return `<div class="v">${mark(x.l)}<span>${esc(x.n)}${x.u ? ` <a href="${esc(x.u)}" target="_blank" rel="noopener" class="mono" style="font-size:11.5px">${esc(host(x.u))}</a>` : ''}</span></div>`; }).join('')}</div>`;
+      return `<div class="cmprow ${diff ? 'diff' : ''}" style="grid-template-columns:${cols}"><div class="k">${esc(c.label)}<small>${esc(c.long)}</small></div>${vs.map((v) => { const x = v.caps[c.key]; return `<div class="v">${mark(x.l)}<span>${esc(noteOf(x))}${x.u ? ` <a href="${esc(x.u)}" target="_blank" rel="noopener" class="mono" style="font-size:11.5px">${esc(host(x.u))}</a>` : ''}</span></div>`; }).join('')}</div>`;
     }).join('')).join('');
-  return `<div class="viewhead"><div><h2>Compare</h2><p>Compare up to 4 products. A teal edge marks a capability where the products are different.</p></div>
+  return `<div class="viewhead"><div><h2>Side-by-side comparison</h2><p>Select up to 4 products. A teal bar identifies a capability with different levels.</p></div>
     <div class="controls"><select class="sel" id="cmpAdd" style="width:min(320px, 100%)" aria-label="Add a product"><option value="">Add a product</option>${all.filter((v) => !state.compare.includes(v.id)).map((v) => `<option value="${v.id}">${esc(shortName(v))}</option>`).join('')}</select>
     ${vs.map((v) => `<button class="chip" type="button" data-rm="${v.id}" aria-label="Remove ${esc(shortName(v))}">${esc(shortName(v))} &#215;</button>`).join('')}</div></div>
   ${vs.length ? `<div class="tblwrap"><div class="cmpgrid">
     <div class="cmprow head" style="grid-template-columns:${cols}"><div>Capability</div>${vs.map((v) => `<div>${esc(shortName(v))}<div class="mono" style="font:12px var(--mono);color:var(--muted)">${esc(VERDICT[v.verdict])}</div></div>`).join('')}</div>
-    <div class="cmprow grp" style="grid-template-columns:${cols}"><div style="grid-column:1/-1">Ask your data</div></div>
-    <div class="cmprow" style="grid-template-columns:${cols}"><div class="k">Natural language query<small>First-party features</small></div>${vs.map((v) => `<div class="v"><span>${(v.askData || []).length ? v.askData.map((a) => `${stamp(a.status)} ${esc(a.name)}`).join('<br>') : 'None'}</span></div>`).join('')}</div>
-    ${rowsHtml}</div></div>` : '<div class="empty">Add a product to start a comparison.</div>'}`;
+    <div class="cmprow grp" style="grid-template-columns:${cols}"><div style="grid-column:1/-1">Natural language query</div></div>
+    <div class="cmprow" style="grid-template-columns:${cols}"><div class="k">NLQ features<small>First-party features only</small></div>${vs.map((v) => `<div class="v"><span>${(v.askData || []).length ? v.askData.map((a) => `${stamp(a.status)} ${esc(a.name)}`).join('<br>') : 'None'}</span></div>`).join('')}</div>
+    ${rowsHtml}</div></div>` : '<div class="empty">Add a product to start the comparison.</div>'}`;
 }
 
 /* ---------- Catalogs ---------- */
@@ -488,22 +520,77 @@ function viewCatalogs() {
   const cats = SL.vendors.filter((v) => v.category === 'catalog').filter(matches);
   const built = cats.filter((v) => v.partOf).sort((a, b) => shortName(a).localeCompare(shortName(b)));
   const alone = cats.filter((v) => !v.partOf).sort((a, b) => shortName(a).localeCompare(shortName(b)));
-  return `<div class="viewhead"><div><h2>Catalogs</h2><p>A catalog holds the descriptions, glossary terms, tags, and lineage that an agent reads. Some catalogs are a part of a data platform. Other catalogs connect to many platforms.</p></div>
+  return `<div class="viewhead"><div><h2>Data catalogs</h2><p>A catalog stores the descriptions, glossary terms, tags, and lineage that an agent reads. A platform catalog is part of one data platform. A standalone catalog connects to many platforms.</p></div>
     <div class="legend">${[3, 2, 1, 0, null].map((l) => `<span>${mark(l)}${esc(lvName(l))}</span>`).join('')}</div></div>
   <div class="lanes">
-    <section class="lane"><h3>Built into a data platform (${built.length})</h3><p>Use these when most of your data is on one platform. The catalog shares the security model of the platform.</p>${built.map(catCard).join('') || '<div class="empty">No platform catalog matches the search text.</div>'}</section>
-    <section class="lane"><h3>Standalone (${alone.length})</h3><p>Use these when your data is on many platforms. These catalogs connect to many sources and BI tools.</p>${alone.map(catCard).join('') || '<div class="empty">No standalone catalog matches the search text.</div>'}</section>
+    <section class="lane"><h3>Platform catalogs (${built.length})</h3><p>Use a platform catalog when most data is on one platform. The catalog uses the security model of that platform.</p>${built.map(catCard).join('') || '<div class="empty">No platform catalog agrees with the search text.</div>'}</section>
+    <section class="lane"><h3>Standalone catalogs (${alone.length})</h3><p>Use a standalone catalog when data is on many platforms. These catalogs connect to many sources and BI tools.</p>${alone.map(catCard).join('') || '<div class="empty">No standalone catalog agrees with the search text.</div>'}</section>
   </div>`;
 }
 
 /* ---------- Grid ---------- */
-function viewGrid() {
-  const list = SL.vendors.filter(matches);
-  return `<div class="viewhead"><div><h2>Grid</h2><p>All products and all capabilities in one table. Select a cell to see the evidence.</p></div>
+/* ---------- Capability matrix ---------- */
+const NLQ_LEVEL = { GA: 3, Preview: 2, Announced: null, Unverified: null, Deprecated: 0, None: 0 };
+const nlqBest = (v) => {
+  if (!Array.isArray(v.askData)) return null;
+  if (!v.askData.length) return { status: 'None' };
+  return [...v.askData].sort((x, y) => (STATUS_ORDER[x.status] ?? 9) - (STATUS_ORDER[y.status] ?? 9))[0];
+};
+const nlqLevel = (v) => { const b = nlqBest(v); return b ? NLQ_LEVEL[b.status] ?? null : null; };
+const progAccess = (v) => (v.askData || []).some((a) => (a.surfaces || []).some((x) => /api|mcp|sdk|sql function/i.test(x)));
+const MGROUPS = () => [
+  { id: 'nlq', label: 'Natural language query', short: 'NLQ', cols: [
+    { key: 'nlq', label: 'NLQ feature', long: 'Release status of the most mature first-party NLQ feature' },
+    { key: 'nlq-out', label: 'Output', long: 'Query language or answer type that the feature generates' },
+    { key: 'nlq-api', label: 'Programmatic access', long: 'API, SDK, SQL function or MCP access to the NLQ feature' },
+  ] },
+  ...SL.capGroups.map((g) => ({ id: g.id, label: g.label, cols: SL.caps.filter((c) => c.group === g.id) })),
+];
+const noteOf = (x) => (x.l === null || x.l === undefined ? 'Not verified. No primary source was found.' : x.n);
+const cellLevel = (v, key) => (key === 'nlq' ? nlqLevel(v) : v.caps[key]?.l);
+function mcell(v, col, wide) {
+  if (col.key === 'nlq-out') { const outs = [...new Set((v.askData || []).map((a) => a.output).filter(Boolean))]; return `<td class="mc txt">${outs.length ? outs.map((o) => `<span class="tag">${esc(o)}</span>`).join(' ') : '<span class="dim">None</span>'}</td>`; }
+  if (col.key === 'nlq-api') { const ok = progAccess(v); return `<td class="mc ${ok ? 't3' : 't0'} txt"><button type="button" data-open="${v.id}">${ok ? 'Yes' : '<span class="dim">No</span>'}</button></td>`; }
+  if (col.key === 'nlq') {
+    const b = nlqBest(v); const l = nlqLevel(v);
+    const label = !b ? 'Not verified' : b.status === 'None' ? 'Not available' : b.status;
+    return `<td class="mc ${'t' + (l ?? 'x')}${wide ? ' txt' : ''}"><button type="button" data-open="${v.id}" aria-label="${esc(shortName(v))}: NLQ, ${esc(label)}">${mark(l)}${wide && b && b.name ? `<span class="cn"><b>${esc(b.name)}</b> ${stamp(b.status)}</span>` : ''}</button></td>`;
+  }
+  const x = v.caps[col.key];
+  return `<td class="mc ${'t' + (x.l ?? 'x')}${wide ? ' txt' : ''}"><button type="button" data-open="${v.id}" data-focus="${col.key}" aria-label="${esc(shortName(v))}: ${esc(col.label)}, ${esc(lvName(x.l))}">${mark(x.l)}${wide ? `<span class="cn">${esc(noteOf(x))}</span>` : ''}</button></td>`;
+}
+function viewMatrix() {
+  const groups = MGROUPS();
+  const sel = state.grp === 'all' ? groups : groups.filter((g) => g.id === state.grp);
+  const wide = state.grp !== 'all';
+  const cols = sel.flatMap((g) => (wide ? g.cols : g.id === 'nlq' ? g.cols.slice(0, 1) : g.cols));
+  const capCols = cols.filter((c) => !c.key.startsWith('nlq-'));
+  const score = (v) => capCols.reduce((n, c) => n + (cellLevel(v, c.key) ?? 0), 0);
+  const ga = (v) => capCols.filter((c) => cellLevel(v, c.key) === 3).length;
+  let list = SL.vendors.filter(matches).filter((v) => state.mcat === 'all' || v.category === state.mcat);
+  const cats = byCat(SL.vendors);
+  const rowsHtml = (vs) => vs.map((v) => `<tr><th scope="row"><button type="button" class="rh" data-open="${v.id}">${esc(shortName(v))}<small>${esc(catOf(v.category).label)}</small></button></th>${wide ? `<td class="mc sc num">${ga(v)}<small> of ${capCols.length}</small></td>` : ''}${cols.map((c) => mcell(v, c, wide)).join('')}</tr>`).join('');
+  let body;
+  if (state.msort === 'score') { list = [...list].sort((a, b) => score(b) - score(a) || shortName(a).localeCompare(shortName(b))); body = rowsHtml(list); }
+  else body = byCat(list).map(([c, vs]) => `<tr class="cat"><th scope="rowgroup" colspan="${cols.length + 1 + (wide ? 1 : 0)}">${esc(c.label)} <span>${vs.length}</span></th></tr>` + rowsHtml(vs)).join('');
+  const total = groups.reduce((n, g) => n + (g.id === 'nlq' ? 1 : g.cols.length), 0);
+  return `<div class="viewhead"><div><h2>Capability matrix</h2><p>Select a capability group to show only its columns, with the definition of each capability and the finding for each product. Select a cell to open the evidence and the source.</p></div>
     <div class="legend">${[3, 2, 1, 0, null].map((l) => `<span>${mark(l)}${esc(lvName(l))}</span>`).join('')}</div></div>
-  <div class="gridwrap"><table class="grid"><thead><tr><th>Product</th>${SL.caps.map((c) => `<th title="${esc(c.long)}">${esc(c.label)}</th>`).join('')}</tr></thead><tbody>
-  ${byCat(list).map(([c, vs]) => `<tr class="cat"><th colspan="${SL.caps.length + 1}">${esc(c.label)}</th></tr>` + vs.map((v) => `<tr><th data-open="${v.id}">${esc(shortName(v))}</th>${SL.caps.map((c) => `<td><button type="button" data-open="${v.id}" data-focus="${c.key}" aria-label="${esc(shortName(v))}: ${esc(c.label)}, ${esc(lvName(v.caps[c.key].l))}">${mark(v.caps[c.key].l)}</button></td>`).join('')}</tr>`).join('')).join('')}
-  </tbody></table></div>`;
+  <div class="mtools">
+    <div class="controls" role="group" aria-label="Capability group">
+      <button class="chip" type="button" data-grp="all" aria-pressed="${state.grp === 'all'}">All capabilities <span class="cnt">${total}</span></button>
+      ${groups.map((g) => `<button class="chip" type="button" data-grp="${g.id}" aria-pressed="${state.grp === g.id}">${esc(g.label)} <span class="cnt">${g.cols.length}</span></button>`).join('')}
+    </div>
+    <div class="controls">
+      <select class="sel" id="mcat" aria-label="Product type"><option value="all">All product types (${SL.vendors.length})</option>${cats.map(([c, vs]) => `<option value="${c.id}" ${state.mcat === c.id ? 'selected' : ''}>${esc(c.label)} (${vs.length})</option>`).join('')}</select>
+      <select class="sel" id="msort" aria-label="Row order"><option value="cat" ${state.msort === 'cat' ? 'selected' : ''}>Order by product type</option><option value="score" ${state.msort === 'score' ? 'selected' : ''}>Order by coverage${wide ? ' in this group' : ''}</option></select>
+    </div>
+  </div>
+  ${list.length ? `<div class="mxwrap"><table class="mx ${wide ? 'wide' : 'all'}">
+    <thead>
+      <tr class="gh"><th class="corner" rowspan="2">Product</th>${wide ? '<th class="sch" rowspan="2">Native, GA</th>' : ''}${sel.map((g) => { const n = wide ? g.cols.length : g.id === 'nlq' ? 1 : g.cols.length; return `<th colspan="${n}"><button type="button" data-grp="${wide ? 'all' : g.id}" title="${wide ? 'Show all capabilities' : 'Show only ' + esc(g.label)}">${esc(wide ? g.label : g.short || g.label)}${wide ? ' <span class="back">Show all</span>' : ''}</button></th>`; }).join('')}</tr>
+      <tr class="ch">${cols.map((c) => `<th scope="col" title="${esc(c.long)}"><span class="cl">${esc(wide ? c.label : c.short || c.label)}</span>${wide ? `<span class="cd">${esc(c.long)}</span>` : ''}</th>`).join('')}</tr>
+    </thead><tbody>${body}</tbody></table></div>` : '<div class="empty">No product agrees with the search text or the product type.</div>'}`;
 }
 
 /* ---------- Drawer ---------- */
@@ -513,20 +600,20 @@ function openDrawer(id, focus) {
   const d = $('#drawer');
   d.innerHTML = `<button class="close" type="button" id="dclose">Close</button>
     <h2>${esc(shortName(v))}</h2>
-    <div class="sub">${esc(catOf(v.category).label)}${parent ? ' &#183; part of ' + esc(shortName(parent)) : ''} &#183; checked ${esc(v.verified || SL.built)}</div>
+    <div class="sub">${esc(catOf(v.category).label)}${parent ? ' &#183; part of ' + esc(shortName(parent)) : ''} &#183; verified ${esc(v.verified || SL.built)}</div>
     <p style="margin:12px 0 0">${esc(v.tagline)}</p>
     <p style="margin:8px 0 0"><span class="verdict ${v.verdict}">${esc(VERDICT[v.verdict])}</span> <span style="color:var(--ink2)">${esc(v.verdictNote || '')}</span></p>
-    ${(v.aliases || []).length ? `<p class="sub" style="margin-top:8px">Also known as: ${v.aliases.map(esc).join(', ')}</p>` : ''}
-    <h3>Ask your data</h3>
-    ${(v.askData || []).length ? v.askData.map((a) => `<div class="dcap"><span></span><span class="k">${stamp(a.status)}</span><span class="n"><b>${a.u ? `<a href="${esc(a.u)}" target="_blank" rel="noopener" style="font:inherit">${esc(a.name)}</a>` : esc(a.name)}</b>. Writes ${esc(a.output || 'not stated')}. Access: ${esc((a.surfaces || []).join(', '))}. ${esc(a.reads || '')}</span></div>`).join('') : `<p style="color:var(--ink2);margin:0">${Array.isArray(v.askData) ? 'No first-party natural language query feature.' : 'Not checked yet.'}</p>`}
-    ${v.nl2sqlPath ? `<h3>Path to NL-to-SQL</h3><p style="margin:0;color:var(--ink2)">${esc(v.nl2sqlPath)}</p>` : ''}
+    ${(v.aliases || []).length ? `<p class="sub" style="margin-top:8px">Other names: ${v.aliases.map(esc).join(', ')}</p>` : ''}
+    <h3>Natural language query</h3>
+    ${(v.askData || []).length ? v.askData.map((a) => `<div class="dcap"><span></span><span class="k">${stamp(a.status)}</span><span class="n"><b>${a.u ? `<a href="${esc(a.u)}" target="_blank" rel="noopener" style="font:inherit">${esc(a.name)}</a>` : esc(a.name)}</b>. Output: ${esc(a.output || 'not stated')}. Access: ${esc((a.surfaces || []).join(', '))}. Context input: ${esc(a.reads || '')}</span></div>`).join('') : `<p style="color:var(--ink2);margin:0">${Array.isArray(v.askData) ? 'No first-party NLQ feature.' : 'Not verified.'}</p>`}
+    ${v.nl2sqlPath ? `<h3>Recommended path to NL-to-SQL</h3><p style="margin:0;color:var(--ink2)">${esc(v.nl2sqlPath)}</p>` : ''}
     <h3>Capabilities</h3>
-    ${SL.caps.map((c) => { const x = v.caps[c.key]; return `<div class="dcap ${c.key === focus ? 'focus' : ''}" id="dc-${c.key}">${mark(x.l)}<span class="k">${esc(c.label)}</span><span class="n">${esc(x.n)} ${x.u ? `<a href="${esc(x.u)}" target="_blank" rel="noopener">${esc(host(x.u))}</a>` : ''}</span></div>`; }).join('')}
-    ${(v.offers || []).length ? `<h3>What it gives you</h3><ul>${v.offers.map((o) => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
-    ${(v.gaps || []).length ? `<h3>What is missing</h3><ul>${v.gaps.map((o) => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
-    ${(v.fillWith || []).length ? `<h3>Teams add</h3><p style="margin:0;color:var(--ink2)">${v.fillWith.map(esc).join(', ')}</p>` : ''}
-    ${v.snippet?.code ? `<h3>${esc(v.snippet.title || 'Example')}</h3><pre>${esc(v.snippet.code)}</pre>${v.snippet.u ? `<p class="sub src" style="margin-top:6px">From <a href="${esc(v.snippet.u)}" target="_blank" rel="noopener">${esc(host(v.snippet.u))}</a></p>` : ''}` : ''}
-    ${v.enrichHowTo ? `<h3>Write descriptions at scale</h3><p style="margin:0 0 8px;color:var(--ink2)">${esc(v.enrichHowTo)}</p>` : ''}
+    ${SL.caps.map((c) => { const x = v.caps[c.key]; return `<div class="dcap ${c.key === focus ? 'focus' : ''}" id="dc-${c.key}">${mark(x.l)}<span class="k">${esc(c.label)}</span><span class="n">${esc(noteOf(x))} ${x.u ? `<a href="${esc(x.u)}" target="_blank" rel="noopener">${esc(host(x.u))}</a>` : ''}</span></div>`; }).join('')}
+    ${(v.offers || []).length ? `<h3>Supplied by the product</h3><ul>${v.offers.map((o) => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
+    ${(v.gaps || []).length ? `<h3>Limitations</h3><ul>${v.gaps.map((o) => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
+    ${(v.fillWith || []).length ? `<h3>Typical add-ons</h3><p style="margin:0;color:var(--ink2)">${v.fillWith.map(esc).join(', ')}</p>` : ''}
+    ${v.snippet?.code ? `<h3>${esc(v.snippet.title || 'Syntax example')}</h3><pre>${esc(v.snippet.code)}</pre>${v.snippet.u ? `<p class="sub src" style="margin-top:6px">Source: <a href="${esc(v.snippet.u)}" target="_blank" rel="noopener">${esc(host(v.snippet.u))}</a></p>` : ''}` : ''}
+    ${v.enrichHowTo ? `<h3>Bulk metadata</h3><p style="margin:0 0 8px;color:var(--ink2)">${esc(v.enrichHowTo)}</p>` : ''}
     ${v.bulkSnippet?.code ? `<pre>${esc(v.bulkSnippet.code)}</pre>` : ''}
     <h3>Sources (${(v.sources || []).length})</h3>
     <ul class="src">${(v.sources || []).map((s) => `<li><a href="${esc(s.u)}" target="_blank" rel="noopener">${esc(s.t || host(s.u))}</a></li>`).join('')}</ul>`;
@@ -537,12 +624,12 @@ function openDrawer(id, focus) {
 function closeDrawer() { $('#drawer').classList.remove('open'); $('#drawer').setAttribute('aria-hidden', 'true'); $('#scrim').classList.remove('open'); }
 
 /* ---------- Render and events ---------- */
-const RENDER = { ask: viewAsk, products: viewProducts, stack: viewStack, compare: viewCompare, catalogs: viewCatalogs, grid: viewGrid };
+const RENDER = { matrix: viewMatrix, nlq: viewAsk, cards: viewProducts, stack: viewStack, compare: viewCompare, catalogs: viewCatalogs };
 function render() { $('#view').innerHTML = RENDER[state.view](); }
 
 document.addEventListener('click', (e) => {
   const t = e.target;
-  const vb = t.closest('[data-variant]'); if (vb) { setVariant(+vb.dataset.variant); setView(VARIANTS[state.variant].view); return; }
+  const gb = t.closest('[data-grp]'); if (gb) { state.grp = gb.dataset.grp; render(); return; }
   const tb = t.closest('[data-view]'); if (tb) { setView(tb.dataset.view); return; }
   const cmp = t.closest('[data-cmp]'); if (cmp) { const id = cmp.dataset.cmp; state.compare = state.compare.includes(id) ? state.compare.filter((x) => x !== id) : [...state.compare, id].slice(-4); render(); return; }
   const rm = t.closest('[data-rm]'); if (rm) { state.compare = state.compare.filter((x) => x !== rm.dataset.rm); render(); return; }
@@ -559,19 +646,20 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('change', (e) => {
   const t = e.target;
   if (t.id === 'askOut') { state.askOut = t.value; render(); }
+  if (t.id === 'mcat') { state.mcat = t.value; render(); }
+  if (t.id === 'msort') { state.msort = t.value; render(); }
   if (t.id === 'cmpAdd' && t.value) { state.compare = [...state.compare, t.value].slice(-4); render(); }
   if (t.id.startsWith('stk-')) { state.stack[t.id.slice(4)] = t.value; render(); }
 });
-$('#q').addEventListener('input', (e) => { state.q = e.target.value.trim().toLowerCase(); if (state.view === 'stack' || state.view === 'compare') setView('products'); else render(); });
+$('#q').addEventListener('input', (e) => { state.q = e.target.value.trim().toLowerCase(); if (state.view === 'stack' || state.view === 'compare') setView('matrix'); else render(); });
 
 window.addEventListener('hashchange', () => {
   const x = location.hash.slice(1);
   if (RENDER[x] && x !== state.view) setView(x, false);
   else if (vendorById(x)) openDrawer(x);
 });
-setVariant(state.variant);
 const h = location.hash.slice(1);
 if (RENDER[h]) setView(h, false);
-else { setView(VARIANTS[state.variant].view, false); if (vendorById(h)) openDrawer(h); }
+else { setView('matrix', false); if (vendorById(h)) openDrawer(h); }
 })();
 </script>
