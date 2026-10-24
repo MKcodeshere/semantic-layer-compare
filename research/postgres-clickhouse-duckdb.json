@@ -4,9 +4,9 @@
       "id": "postgres",
       "name": "PostgreSQL",
       "category": "oltp",
-      "tagline": "Open-source relational database, the default OLTP store for application data.",
+      "tagline": "Postgres is an open-source relational database. It is the default OLTP store for application data.",
       "verdict": "none",
-      "verdictNote": "Core Postgres has only COMMENT ON and views; it has no metric, dimension, or semantic-model object.",
+      "verdictNote": "Core Postgres has only COMMENT ON and views. It has no metric, dimension or semantic-model object.",
       "artifacts": [
         {
           "name": "COMMENT ON (table and column comments)",
@@ -100,12 +100,12 @@
       "caps": {
         "metrics": {
           "l": 1,
-          "n": "No metric objects in core Postgres. Teams define metrics in Cube, dbt MetricFlow, or Wren AI MDL.",
+          "n": "Core Postgres has no metric objects. Teams define metrics in Cube, dbt MetricFlow or Wren AI MDL.",
           "u": "https://docs.getdbt.com/docs/build/about-metricflow"
         },
         "dimensions": {
           "l": 1,
-          "n": "No dimension or time-grain objects. Cube, MetricFlow, and Wren AI MDL declare them outside the database.",
+          "n": "There are no dimension or time-grain objects. Cube, MetricFlow and Wren AI MDL declare them outside the database.",
           "u": "https://docs.cube.dev/docs/data-modeling/overview"
         },
         "relationships": {
@@ -115,64 +115,64 @@
         },
         "synonyms": {
           "l": 3,
-          "n": "COMMENT ON stores free text on tables and columns. No synonym field. Every connected role can read comments.",
+          "n": "COMMENT ON stores free text on tables and columns. There is no synonym field. Every connected role can read comments.",
           "u": "https://www.postgresql.org/docs/current/sql-comment.html"
         },
         "verifiedQueries": {
           "l": 1,
-          "n": "No store in core Postgres. AlloyDB offers query blueprints and templates in Preview.",
+          "n": "Core Postgres has no store. AlloyDB offers query blueprints and templates in Preview.",
           "u": "https://docs.cloud.google.com/alloydb/docs/ai/data-agent-overview"
         },
         "nl2sql": {
           "l": 1,
-          "n": "None in core. AlloyDB QueryData is Preview (2026-04), alloydb_ai_nl is Pre-GA, Supabase Assistant is dashboard-only.",
+          "n": "Core has none. AlloyDB QueryData is Preview (2026-04). alloydb_ai_nl is Pre-GA. Supabase Assistant is dashboard-only.",
           "u": "https://cloud.google.com/blog/products/databases/introducing-querydata-for-near-100-percent-accurate-data-agents"
         },
         "ontology": {
           "l": 0,
-          "n": "None. Cube and Wren AI MDL model entities above tables, but these are semantic models, not ontologies.",
+          "n": "None. Cube and Wren AI MDL model entities above tables. These are semantic models, not ontologies.",
           "u": "https://github.com/Canner/WrenAI"
         },
         "graph": {
           "l": 1,
-          "n": "Apache AGE adds openCypher. SQL/PGQ was committed 2026-03-16, reverted 2026-09-07, and is absent from PostgreSQL 19.",
+          "n": "Apache AGE adds openCypher. SQL/PGQ was committed 2026-03-16 and reverted 2026-09-07. It is absent from PostgreSQL 19.",
           "u": "https://www.postgresql.org/message-id/E1x3f62-00000003sxF-0zQO@gemulon.postgresql.org"
         },
         "vector": {
           "l": 1,
-          "n": "pgvector extension: vector, halfvec, bit, and sparsevec types with HNSW and IVFFlat indexes. Not in core.",
+          "n": "The pgvector extension has vector, halfvec, bit and sparsevec types with HNSW and IVFFlat indexes. It is not in core.",
           "u": "https://github.com/pgvector/pgvector"
         },
         "mcp": {
           "l": 1,
-          "n": "No first-party server. Reference server archived 2025-05-29. Use Postgres MCP Pro, Supabase MCP, Neon MCP, or MCP Toolbox.",
+          "n": "There is no first-party server. The reference server was archived 2025-05-29. Use Postgres MCP Pro, Supabase MCP, Neon MCP or MCP Toolbox.",
           "u": "https://github.com/modelcontextprotocol/servers-archived"
         },
         "governance": {
           "l": 3,
-          "n": "Roles, GRANT, and row-level security apply to the agent role. Comments are visible to every connected role.",
+          "n": "Roles, GRANT and row-level security apply to the agent role. Comments are visible to every connected role.",
           "u": "https://www.postgresql.org/docs/current/ddl-rowsecurity.html"
         },
         "openStandard": {
           "l": 1,
-          "n": "No semantic spec in Postgres. MetricFlow (Apache-2.0) and the Wren AI engine (Apache-2.0) are open-source options.",
+          "n": "Postgres has no semantic spec. MetricFlow (Apache-2.0) and the Wren AI engine (Apache-2.0) are open-source options.",
           "u": "https://docs.getdbt.com/docs/build/about-metricflow"
         }
       },
       "offers": [
         "COMMENT ON stores free-text descriptions on tables and columns. Any connected role can read them.",
-        "Foreign keys, constraints, and information_schema give an agent declared join paths and types.",
-        "Roles, GRANT, and row-level security apply to every query an agent runs.",
-        "pgvector adds vector columns with HNSW and IVFFlat indexes for retrieval over data or metadata.",
+        "Foreign keys, constraints and information_schema give an agent declared join paths and types.",
+        "Roles, GRANT and row-level security apply to every query that an agent runs.",
+        "pgvector adds vector columns with HNSW and IVFFlat indexes. They support retrieval over data or metadata.",
         "Managed services add NL-to-SQL, for example AlloyDB QueryData (Preview, 2026-04) with context sets and query blueprints.",
-        "Several MCP servers exist: Postgres MCP Pro, Supabase MCP, Neon MCP, and Google MCP Toolbox for Databases."
+        "Several MCP servers exist: Postgres MCP Pro, Supabase MCP, Neon MCP and Google MCP Toolbox for Databases."
       ],
       "gaps": [
-        "No metric, dimension, or synonym objects. Business definitions live only in free-text comments.",
+        "Postgres has no metric, dimension or synonym objects. Business definitions live only in free-text comments.",
         "SQL/PGQ was committed 2026-03-16 and reverted 2026-09-07. PostgreSQL 19 ships without graph queries.",
-        "No first-party MCP server. The reference Postgres MCP server was archived on 2025-05-29.",
+        "There is no first-party MCP server. The reference Postgres MCP server was archived on 2025-05-29.",
         "Core has no NL-to-SQL. AlloyDB and Supabase features work only on those services.",
-        "Comments are visible to every connected role, so they cannot hold sensitive context."
+        "Comments are visible to every connected role. They cannot hold sensitive context."
       ],
       "fillWith": [
         "Cube",
@@ -183,7 +183,7 @@
         "Apache AGE",
         "pgvector"
       ],
-      "nl2sqlPath": "Put short COMMENT ON text on every table and column, then add a governed layer for metrics and joins: Cube, MetricFlow, or Wren AI MDL. Expose that layer to the agent through its MCP server or API, and run raw SQL only under a read-only role with row-level security. On Google Cloud, evaluate AlloyDB QueryData (Preview) for managed context sets and query blueprints.",
+      "nl2sqlPath": "Put short COMMENT ON text on every table and column. Then add a governed layer for metrics and joins: Cube, MetricFlow or Wren AI MDL. Expose that layer to the agent through its MCP server or API. Run raw SQL only under a read-only role with row-level security. On Google Cloud, evaluate AlloyDB QueryData (Preview) for managed context sets and query blueprints.",
       "snippet": {
         "lang": "sql",
         "title": "COMMENT ON as AI context, and the call that reads it back",
@@ -314,9 +314,9 @@
       "id": "clickhouse",
       "name": "ClickHouse",
       "category": "realtime-olap",
-      "tagline": "Open-source column-oriented database for real-time analytics, also sold as ClickHouse Cloud.",
+      "tagline": "ClickHouse is an open-source column-oriented database for real-time analytics. It is also sold as ClickHouse Cloud.",
       "verdict": "none",
-      "verdictNote": "No semantic layer object found in ClickHouse docs; context comes from column comments and external layers.",
+      "verdictNote": "The ClickHouse docs show no semantic layer object. Context comes from column comments and external layers.",
       "artifacts": [
         {
           "name": "Column COMMENT",
@@ -378,27 +378,27 @@
       "caps": {
         "metrics": {
           "l": 1,
-          "n": "No metric objects found in ClickHouse docs. Rill metrics views (Apache-2.0) and Cube define them over ClickHouse.",
+          "n": "The ClickHouse docs show no metric objects. Rill metrics views (Apache-2.0) and Cube define them over ClickHouse.",
           "u": "https://docs.rilldata.com/developers/build/metrics-view/what-are-metrics-views"
         },
         "dimensions": {
           "l": 1,
-          "n": "No dimension objects found. Rill metrics views declare dimensions and a timeseries column over a ClickHouse model.",
+          "n": "The docs show no dimension objects. Rill metrics views declare dimensions and a timeseries column over a ClickHouse model.",
           "u": "https://docs.rilldata.com/developers/build/metrics-view/what-are-metrics-views"
         },
         "relationships": {
           "l": 1,
-          "n": "No join-path objects found in docs. Cube and Wren AI MDL declare relationships over ClickHouse.",
+          "n": "The docs show no join-path objects. Cube and Wren AI MDL declare relationships over ClickHouse.",
           "u": "https://github.com/Canner/WrenAI"
         },
         "synonyms": {
           "l": 3,
-          "n": "Column COMMENT is native. Assistant docs list no custom-instruction field; Agents (Beta) take written instructions and memory.",
+          "n": "Column COMMENT is native. Assistant docs list no custom-instruction field. Agents (Beta) take written instructions and memory.",
           "u": "https://clickhouse.com/docs/sql-reference/statements/alter/column"
         },
         "verifiedQueries": {
           "l": 0,
-          "n": "No verified question-to-SQL store found. ClickHouse Agents (Beta) keep a prompt library and memory.",
+          "n": "The docs show no verified question-to-SQL store. ClickHouse Agents (Beta) keep a prompt library and memory.",
           "u": "https://clickhouse.com/docs/products/cloud/features/ai-ml/agents/index.md"
         },
         "nl2sql": {
@@ -408,22 +408,22 @@
         },
         "ontology": {
           "l": 0,
-          "n": "None. Rill, Cube, and Wren AI offer semantic models above tables, which are not ontologies.",
+          "n": "None. Rill, Cube and Wren AI offer semantic models above tables. These are not ontologies.",
           "u": ""
         },
         "graph": {
           "l": 0,
-          "n": "No graph query language found in the docs. Absence not proven.",
+          "n": "The docs show no graph query language. Absence is not proven.",
           "u": ""
         },
         "vector": {
           "l": 3,
-          "n": "HNSW vector similarity index, available in 25.8 and later. Docs give no beta label; quantized codec is experimental.",
+          "n": "The HNSW vector similarity index is available in 25.8 and later. The docs give no beta label. The quantized codec is experimental.",
           "u": "https://clickhouse.com/docs/engines/table-engines/mergetree-family/annindexes"
         },
         "mcp": {
           "l": 3,
-          "n": "Official mcp-clickhouse (Apache-2.0, read-only by default) and a Cloud remote MCP server with 13 read-only tools.",
+          "n": "Official mcp-clickhouse (Apache-2.0) is read-only by default. A Cloud remote MCP server has 13 read-only tools.",
           "u": "https://github.com/ClickHouse/mcp-clickhouse"
         },
         "governance": {
@@ -433,24 +433,24 @@
         },
         "openStandard": {
           "l": 1,
-          "n": "Rill (Apache-2.0), Boring Semantic Layer (MIT), and the Wren AI engine (Apache-2.0) are open-source options.",
+          "n": "Rill (Apache-2.0), Boring Semantic Layer (MIT) and the Wren AI engine (Apache-2.0) are open-source options.",
           "u": "https://github.com/rilldata/rill"
         }
       },
       "offers": [
-        "Column comments store descriptions. ClickHouse's agent post grounds LLMs with schema metadata, table comments, and a system prompt.",
-        "Official mcp-clickhouse server (Apache-2.0) is read-only by default with list_databases, list_tables, and run_query tools.",
-        "Cloud remote MCP server has 13 read-only tools, OAuth or API key access, and is enabled per service.",
-        "ClickHouse Agents (Public Beta, 2026-06): no-code builder with MCP tools, skills, memory, and scheduled chats.",
-        "HNSW vector similarity index, available in 25.8 and later, with L2, cosine, and dot product distance.",
-        "Agentic Data Stack (2026-03) combines LibreChat chat, ClickHouse data, and Langfuse tracing."
+        "Column comments store descriptions. ClickHouse's agent post grounds LLMs with schema metadata, table comments and a system prompt.",
+        "The official mcp-clickhouse server (Apache-2.0) is read-only by default. It has the tools list_databases, list_tables and run_query.",
+        "The Cloud remote MCP server has 13 read-only tools. It uses OAuth or API key access. Admins enable it per service.",
+        "ClickHouse Agents (Public Beta, 2026-06) is a no-code builder. It offers MCP tools, skills, memory and scheduled chats.",
+        "The HNSW vector similarity index is available in 25.8 and later. It supports L2, cosine and dot product distance.",
+        "The Agentic Data Stack (2026-03) combines LibreChat chat, ClickHouse data and Langfuse tracing."
       ],
       "gaps": [
-        "No native semantic layer found in the docs: no metric, dimension, or join objects.",
-        "No documented store for verified question-to-SQL pairs or business synonyms.",
+        "The docs show no native semantic layer: no metric, dimension or join objects.",
+        "The docs show no store for verified question-to-SQL pairs or business synonyms.",
         "Assistant docs do not describe custom instructions or semantic context inputs.",
-        "MetricFlow docs list no ClickHouse support. dbt's v2 adapter table shows ClickHouse as Private beta.",
-        "Vector index docs give no status label, and the quantized codec is experimental."
+        "MetricFlow docs list no ClickHouse support. The dbt v2 adapter table shows ClickHouse as Private beta.",
+        "Vector index docs give no status label. The quantized codec is experimental."
       ],
       "fillWith": [
         "Rill metrics views",
@@ -459,7 +459,7 @@
         "Wren AI",
         "dbt (transformations only)"
       ],
-      "nl2sqlPath": "Add column and table comments in ClickHouse. Define metrics and dimensions in a layer such as Rill metrics views, Cube, or Wren AI, and point the agent at that layer's MCP server or API. Use mcp-clickhouse with a least-privilege read-only user for direct SQL, or test ClickHouse Agents (Public Beta) with the Cloud remote MCP server.",
+      "nl2sqlPath": "Add column and table comments in ClickHouse. Define metrics and dimensions in a layer such as Rill metrics views, Cube or Wren AI. Point the agent at that layer's MCP server or API. For direct SQL, use mcp-clickhouse with a least-privilege read-only user. You can also test ClickHouse Agents (Public Beta) with the Cloud remote MCP server.",
       "snippet": {
         "lang": "yaml",
         "title": "Rill metrics view over a ClickHouse model (rill.yaml sets olap_connector: clickhouse)",
@@ -566,9 +566,9 @@
       "id": "duckdb",
       "name": "DuckDB / MotherDuck",
       "category": "embedded",
-      "tagline": "In-process analytical SQL engine, with MotherDuck as its managed cloud service.",
+      "tagline": "DuckDB is an in-process analytical SQL engine. MotherDuck is its managed cloud service.",
       "verdict": "partial",
-      "verdictNote": "No structured semantic layer, but MotherDuck Guides store metric definitions and join rules as markdown that agents read through MCP.",
+      "verdictNote": "DuckDB has no structured semantic layer. MotherDuck Guides store metric definitions and join rules as markdown. Agents read the Guides through MCP.",
       "artifacts": [
         {
           "name": "COMMENT ON (table and column comments)",
@@ -638,12 +638,12 @@
       "caps": {
         "metrics": {
           "l": 1,
-          "n": "No metric objects. Guides hold definitions as markdown. Boring Semantic Layer, Cube, or Rill define metrics as code.",
+          "n": "There are no metric objects. Guides hold definitions as markdown. Boring Semantic Layer, Cube or Rill define metrics as code.",
           "u": "https://motherduck.com/docs/key-tasks/guides/"
         },
         "dimensions": {
           "l": 1,
-          "n": "No dimension objects. Cube and Rill list DuckDB and MotherDuck as supported sources.",
+          "n": "There are no dimension objects. Cube and Rill list DuckDB and MotherDuck as supported sources.",
           "u": "https://docs.cube.dev/admin/connect-to-data/data-sources"
         },
         "relationships": {
@@ -653,32 +653,32 @@
         },
         "synonyms": {
           "l": 3,
-          "n": "COMMENT ON for tables and columns. Guides add user or organization markdown context. No synonym field.",
+          "n": "COMMENT ON works for tables and columns. Guides add user or organization markdown context. There is no synonym field.",
           "u": "https://motherduck.com/docs/key-tasks/ai-and-motherduck/building-analytics-agents"
         },
         "verifiedQueries": {
           "l": 0,
-          "n": "No verified-query store found. Guides can hold trusted tables and join restrictions as text.",
+          "n": "The docs show no verified-query store. Guides can hold trusted tables and join restrictions as text.",
           "u": "https://motherduck.com/docs/key-tasks/ai-and-motherduck/building-analytics-agents"
         },
         "nl2sql": {
           "l": 3,
-          "n": "prompt_sql, prompt_query, prompt_schema, prompt_fix_line run through Azure OpenAI. Docs give no status label.",
+          "n": "prompt_sql, prompt_query, prompt_schema and prompt_fix_line run through Azure OpenAI. The docs give no status label.",
           "u": "https://motherduck.com/docs/sql-reference/motherduck-sql-reference/ai-functions/sql-assistant/"
         },
         "ontology": {
           "l": 0,
-          "n": "None found.",
+          "n": "None. The docs show no ontology object.",
           "u": ""
         },
         "graph": {
           "l": 1,
-          "n": "DuckPGQ community extension adds SQL/PGQ. Its docs call it a research project and work in progress.",
+          "n": "The DuckPGQ community extension adds SQL/PGQ. Its docs call it a research project and work in progress.",
           "u": "https://duckdb.org/community_extensions/extensions/duckpgq.html"
         },
         "vector": {
           "l": 1,
-          "n": "vss extension has HNSW indexes; on-disk persistence is experimental and not advised for production.",
+          "n": "The vss extension has HNSW indexes. On-disk persistence is experimental and not advised for production.",
           "u": "https://duckdb.org/docs/2.0/core_extensions/vss.html"
         },
         "mcp": {
@@ -688,28 +688,28 @@
         },
         "governance": {
           "l": 0,
-          "n": "Guides have user or organization visibility. No row or column security or lineage for semantic context found in docs.",
+          "n": "Guides have user or organization visibility. The docs show no row or column security or lineage for semantic context.",
           "u": "https://motherduck.com/docs/key-tasks/guides/"
         },
         "openStandard": {
           "l": 1,
-          "n": "Boring Semantic Layer (MIT), Cube, Rill (Apache-2.0), and the Wren AI engine (Apache-2.0) are open-source options.",
+          "n": "Boring Semantic Layer (MIT), Cube, Rill (Apache-2.0) and the Wren AI engine (Apache-2.0) are open-source options.",
           "u": "https://github.com/boringdata/boring-semantic-layer"
         }
       },
       "offers": [
-        "COMMENT ON on tables and columns. MotherDuck advises one-sentence comments because agents read them on every schema introspection.",
-        "Guides: markdown with metric definitions, join conventions, and domain context, shared per user or per organization.",
-        "Remote MCP server at api.motherduck.com/mcp with SQL, schema, catalog search, Guides, Dives, and Flights tools.",
-        "SQL functions prompt_sql, prompt_query, prompt_schema, and prompt_fix_line generate, answer, describe, and fix SQL.",
-        "Local mcp-server-motherduck (MIT) reads DuckDB files, S3, and MotherDuck, and is read-only by default.",
+        "COMMENT ON works on tables and columns. MotherDuck advises one-sentence comments because agents read them on every schema introspection.",
+        "Guides are markdown with metric definitions, join conventions and domain context. Users or organizations share them.",
+        "The remote MCP server at api.motherduck.com/mcp has SQL, schema, catalog search, Guides, Dives and Flights tools.",
+        "The SQL functions prompt_sql, prompt_query, prompt_schema and prompt_fix_line generate, answer, describe and fix SQL.",
+        "The local mcp-server-motherduck (MIT) reads DuckDB files, S3 and MotherDuck. It is read-only by default.",
         "Community DuckPGQ adds SQL/PGQ graph queries. The core vss extension adds HNSW vector indexes (experimental)."
       ],
       "gaps": [
-        "No structured metric, dimension, or relationship objects. Guides hold definitions as free text.",
+        "There are no structured metric, dimension or relationship objects. Guides hold definitions as free text.",
         "DuckPGQ is a research project. vss HNSW persistence is experimental and not advised for production.",
-        "Docs for Guides, the remote MCP server, and prompt_* functions give no status label.",
-        "Read-only MCP mode alone is not enough for third-party access; the README advises service accounts or SaaS mode."
+        "Docs for Guides, the remote MCP server and the prompt_* functions give no status label.",
+        "Read-only MCP mode alone is not enough for third-party access. The README advises service accounts or SaaS mode."
       ],
       "fillWith": [
         "Boring Semantic Layer",
@@ -717,7 +717,7 @@
         "Rill metrics views",
         "Wren AI"
       ],
-      "nl2sqlPath": "Let the agent generate SQL. Add short COMMENT ON text, write Guides for metric definitions and join rules, and connect through the MotherDuck MCP server with a read-scaling token. Add Boring Semantic Layer, Cube, or Rill for governed metrics, and check generated SQL with try_bind() before it runs.",
+      "nl2sqlPath": "Let the agent generate SQL. Add short COMMENT ON text. Write Guides for metric definitions and join rules. Connect through the MotherDuck MCP server with a read-scaling token. Add Boring Semantic Layer, Cube or Rill for governed metrics. Check generated SQL with try_bind() before it runs.",
       "snippet": {
         "lang": "sql",
         "title": "MotherDuck: table and column comments, then generate SQL from a question",
@@ -800,12 +800,12 @@
   "notes": [
     {
       "topic": "Status convention used in this file",
-      "text": "Unverified in an artifact means the vendor docs give no status label for a hosted feature. Open-source projects with versioned releases and no pre-release marker are marked GA.",
+      "text": "Unverified in an artifact means that the vendor docs give no status label for a hosted feature. Open-source projects with versioned releases and no pre-release marker are marked GA.",
       "sources": []
     },
     {
       "topic": "SQL/PGQ is not in PostgreSQL 19",
-      "text": "Peter Eisentraut committed SQL/PGQ on 2026-03-16. After a pgsql-hackers thread, he reverted it from master and REL_19_STABLE on 2026-09-07. PostgreSQL 19 RC1 shipped on 2026-10-15 and its release notes do not mention property graphs; third-party posts expect PostgreSQL 20 at the earliest, which is not confirmed by the project.",
+      "text": "Peter Eisentraut committed SQL/PGQ on 2026-03-16. After a pgsql-hackers thread, he reverted it from master and REL_19_STABLE on 2026-09-07. PostgreSQL 19 RC1 shipped on 2026-10-15. Its release notes do not mention property graphs. Third-party posts expect PostgreSQL 20 at the earliest. The project does not confirm this.",
       "sources": [
         {
           "t": "Commit: SQL/PGQ, 2026-03-16",
@@ -831,7 +831,7 @@
     },
     {
       "topic": "PostgreSQL 19 release state",
-      "text": "On 2026-10-24 the PostgreSQL versioning page lists 18 as the newest release and shows a banner for PostgreSQL 19 RC 1 dated 2026-10-15. The beta 1 announcement of 2026-06 had listed SQL/PGQ as a headline feature before the revert.",
+      "text": "On 2026-10-24 the PostgreSQL versioning page lists 18 as the newest release. It shows a banner for PostgreSQL 19 RC 1 dated 2026-10-15. The beta 1 announcement of 2026-06 had listed SQL/PGQ as a headline feature before the revert.",
       "sources": [
         {
           "t": "PostgreSQL versioning policy page",
@@ -845,7 +845,7 @@
     },
     {
       "topic": "AlloyDB: alloydb_ai_nl versus QueryData",
-      "text": "alloydb_ai_nl is labeled Pre-GA, and Google docs now recommend QueryData for new text-to-SQL work. QueryData launched in Preview in April 2026 for AlloyDB, Cloud SQL (MySQL and PostgreSQL), and Spanner; its near-100% accuracy claim is a vendor claim with no published method.",
+      "text": "alloydb_ai_nl is labeled Pre-GA. Google docs now recommend QueryData for new text-to-SQL work. QueryData launched in Preview in April 2026 for AlloyDB, Cloud SQL (MySQL and PostgreSQL), and Spanner. Its near-100% accuracy claim is a vendor claim with no published method.",
       "sources": [
         {
           "t": "AlloyDB AI natural language overview",
@@ -863,7 +863,7 @@
     },
     {
       "topic": "Azure Database for PostgreSQL: azure_ai has no NL-to-SQL function",
-      "text": "The azure_ai extension went GA on 2024-05-21. Its docs list embeddings, azure_ai.generate, is_true, extract, and rank (marked Preview), plus Azure language and ML calls. No natural-language-to-SQL function appears in the docs.",
+      "text": "The azure_ai extension went GA on 2024-05-21. Its docs list embeddings, azure_ai.generate, is_true, extract, and rank (marked Preview). They also list Azure language and ML calls. No natural-language-to-SQL function appears in the docs.",
       "sources": [
         {
           "t": "azure_ai extension overview",
@@ -881,7 +881,7 @@
     },
     {
       "topic": "Postgres MCP landscape",
-      "text": "The reference Postgres MCP server was archived on 2025-05-29 with no security guarantees. Common replacements are Postgres MCP Pro (MIT), the hosted Supabase and Neon servers, and Google's MCP Toolbox for Databases (renamed from Gen AI Toolbox for Databases). Supabase and Neon docs both warn about prompt injection and broad permissions, and Neon advises development and testing use only.",
+      "text": "The reference Postgres MCP server was archived on 2025-05-29 with no security guarantees. Common replacements are Postgres MCP Pro (MIT), the hosted Supabase and Neon servers, and Google's MCP Toolbox for Databases. Google renamed it from Gen AI Toolbox for Databases. Supabase and Neon docs both warn about prompt injection and broad permissions. Neon advises development and testing use only.",
       "sources": [
         {
           "t": "Archived MCP reference servers",
@@ -907,7 +907,7 @@
     },
     {
       "topic": "Neon and Databricks",
-      "text": "Databricks announced on 2025-05-14 that it would acquire Neon. Whether the deal closed, and the Lakebase product facts, were not checked against Databricks sources. The Neon MCP docs still use the Neon name; they deprecate the /sse endpoint, which stops working on or after 2026-10-01.",
+      "text": "Databricks announced on 2025-05-14 that it would acquire Neon. This note does not confirm whether the deal closed. It does not confirm the Lakebase product facts. The Neon MCP docs still use the Neon name. They deprecate the /sse endpoint, which stops working on or after 2026-10-01.",
       "sources": [
         {
           "t": "Databricks press release",
@@ -921,7 +921,7 @@
     },
     {
       "topic": "pg_graphql is a GraphQL API, not a semantic layer",
-      "text": "pg_graphql builds a GraphQL schema from the SQL schema inside Postgres, derives relationships from foreign keys, and reads settings from SQL comment directives. The repo page showed no deprecation notice and no release version.",
+      "text": "pg_graphql builds a GraphQL schema from the SQL schema inside Postgres. It derives relationships from foreign keys. It reads settings from SQL comment directives. The repo page showed no deprecation notice and no release version.",
       "sources": [
         {
           "t": "pg_graphql README",
@@ -941,7 +941,7 @@
     },
     {
       "topic": "External semantic layers with Postgres",
-      "text": "Cube lists Postgres, ClickHouse, DuckDB, and MotherDuck as data sources, and MetricFlow (Apache-2.0) lists Postgres among its adapters with a dbt v1 caveat. The hosted dbt Semantic Layer needs a Starter, Enterprise, or Enterprise+ account and offers a dbt MCP server. Wren AI lists PostgreSQL, ClickHouse, and DuckDB; its engine is Apache-2.0 while some features are commercial.",
+      "text": "Cube lists Postgres, ClickHouse, DuckDB and MotherDuck as data sources. MetricFlow (Apache-2.0) lists Postgres among its adapters with a dbt v1 caveat. The hosted dbt Semantic Layer needs a Starter, Enterprise or Enterprise+ account. It offers a dbt MCP server. Wren AI lists PostgreSQL, ClickHouse and DuckDB. Its engine is Apache-2.0 and some features are commercial.",
       "sources": [
         {
           "t": "Cube docs: data sources",
@@ -963,7 +963,7 @@
     },
     {
       "topic": "ClickHouse has no native semantic layer (absence not proven)",
-      "text": "The Cloud AI/ML overview lists ClickHouse Agents, ClickHouse Assistant, and the remote MCP server; none is a semantic layer. The Agentic Data Stack post does not mention a semantic layer and says LLMs reach good SQL quality when grounded with schema metadata, table comments, and a system prompt. A negative finding from docs search cannot be fully proven.",
+      "text": "The Cloud AI/ML overview lists ClickHouse Agents, ClickHouse Assistant and the remote MCP server. None is a semantic layer. The Agentic Data Stack post does not mention a semantic layer. It says LLMs reach good SQL quality when grounded with schema metadata, table comments and a system prompt. A docs search cannot fully prove absence.",
       "sources": [
         {
           "t": "ClickHouse docs: Cloud AI/ML features",
@@ -977,7 +977,7 @@
     },
     {
       "topic": "ClickHouse naming: Ask AI, Assistant, Agents",
-      "text": "Current docs call the Cloud console panel ClickHouse Assistant, with Agent mode and Docs AI (Ask) mode. ClickHouse Agents is a separate product in Public Beta since 2026-06-03, with Scheduled Chats added 2026-10-19. A rename from an earlier Ask AI feature is not confirmed in any page reviewed.",
+      "text": "Current docs call the Cloud console panel ClickHouse Assistant, with Agent mode and Docs AI (Ask) mode. ClickHouse Agents is a separate product in Public Beta since 2026-06-03. Scheduled Chats were added 2026-10-19. No page confirms a rename from an earlier Ask AI feature.",
       "sources": [
         {
           "t": "ClickHouse docs: ClickHouse Assistant",
@@ -995,7 +995,7 @@
     },
     {
       "topic": "Agentic Data Stack and acquisitions",
-      "text": "The post by Dustin Healy (2026-03-03) names LibreChat, ClickHouse with its MCP server, and Langfuse. It states ClickHouse acquired Langfuse in January 2026. A LibreChat acquisition is implied only by a link slug and is not confirmed.",
+      "text": "The post by Dustin Healy (2026-03-03) names LibreChat, ClickHouse with its MCP server, and Langfuse. It states that ClickHouse acquired Langfuse in January 2026. Only a link slug implies a LibreChat acquisition. Nothing confirms it.",
       "sources": [
         {
           "t": "ClickHouse blog: The Agentic Data Stack",
@@ -1005,7 +1005,7 @@
     },
     {
       "topic": "ClickHouse MCP servers",
-      "text": "mcp-clickhouse 0.7.0 was released on 2026-09-21 (first release 2025-02-12, Apache-2.0). It is read-only by default; write and destructive operations need explicit environment flags, and the README says real enforcement comes from ClickHouse grants. The Cloud remote MCP server is at mcp.clickhouse.cloud/mcp with 13 read-only tools; its docs give no status label.",
+      "text": "mcp-clickhouse 0.7.0 was released on 2026-09-21 (first release 2025-02-12, Apache-2.0). It is read-only by default. Write and destructive operations need explicit environment flags. The README says real enforcement comes from ClickHouse grants. The Cloud remote MCP server is at mcp.clickhouse.cloud/mcp with 13 read-only tools. Its docs give no status label.",
       "sources": [
         {
           "t": "mcp-clickhouse README",
@@ -1023,7 +1023,7 @@
     },
     {
       "topic": "ClickHouse vector search status",
-      "text": "Docs state vector similarity indexes are available in 25.8 and later, with HNSW as the only method. The page gives no beta or GA label, and the quantized codec is marked experimental. The 2026 Cloud changelog lists index sharding in private preview (2026-04-25) and names vector search as a main beneficiary.",
+      "text": "Docs state vector similarity indexes are available in 25.8 and later, with HNSW as the only method. The page gives no beta or GA label. The quantized codec is marked experimental. The 2026 Cloud changelog lists index sharding in private preview (2026-04-25). It names vector search as a main beneficiary.",
       "sources": [
         {
           "t": "ClickHouse docs: Vector similarity indexes",
@@ -1037,7 +1037,7 @@
     },
     {
       "topic": "ClickHouse with dbt, Rill, Cube, Boring Semantic Layer",
-      "text": "dbt-clickhouse covers materializations, tests, and docs, but its page mentions no semantic layer; the MetricFlow page lists no ClickHouse adapter and the dbt v2 adapter table shows ClickHouse as Private beta. Rill uses ClickHouse as OLAP engine through a live connector (v22.7 or newer) but says modeling with ClickHouse is not officially supported and sits behind a feature flag. Boring Semantic Layer runs on Ibis, which has a ClickHouse backend, though the BSL README does not name ClickHouse.",
+      "text": "dbt-clickhouse covers materializations, tests and docs. Its page mentions no semantic layer. The MetricFlow page lists no ClickHouse adapter. The dbt v2 adapter table shows ClickHouse as Private beta. Rill uses ClickHouse as OLAP engine through a live connector (v22.7 or newer). Rill says modeling with ClickHouse is not officially supported and sits behind a feature flag. Boring Semantic Layer runs on Ibis, which has a ClickHouse backend. The BSL README does not name ClickHouse.",
       "sources": [
         {
           "t": "ClickHouse docs: dbt",
@@ -1067,7 +1067,7 @@
     },
     {
       "topic": "MotherDuck Guides as AI context",
-      "text": "Guides are markdown documents with a title, description, optional topic, content, and access level (user or organization). Agents read them through MCP tools such as get_query_guide, get_guide, list_guides, and search_catalog. The docs give no Preview or Beta label.",
+      "text": "Guides are markdown documents with a title, description, optional topic, content and access level (user or organization). Agents read them through MCP tools such as get_query_guide, get_guide, list_guides and search_catalog. The docs give no Preview or Beta label.",
       "sources": [
         {
           "t": "MotherDuck docs: Guides",
@@ -1085,7 +1085,7 @@
     },
     {
       "topic": "MotherDuck FixIt not confirmed",
-      "text": "The docs document prompt_fix_line for fixing SQL errors but do not mention a feature named FixIt. FixIt status is Unverified. The PROMPT function lists models such as gpt-4o-mini (default) and gpt-5 and has no status label.",
+      "text": "The docs document prompt_fix_line for fixing SQL errors. They do not mention a feature named FixIt. FixIt status is Unverified. The PROMPT function lists models such as gpt-4o-mini (default) and gpt-5. It has no status label.",
       "sources": [
         {
           "t": "MotherDuck docs: SQL assistant functions",
@@ -1099,7 +1099,7 @@
     },
     {
       "topic": "DuckPGQ and vss maturity",
-      "text": "DuckPGQ is a community extension described by its maintainers as a research project and work in progress; from DuckDB v2.0 a grammar setting is also required. The core vss extension is experimental, and the docs advise against on-disk HNSW indexes in production.",
+      "text": "DuckPGQ is a community extension. Its maintainers describe it as a research project and work in progress. From DuckDB v2.0 a grammar setting is also required. The core vss extension is experimental. The docs advise against on-disk HNSW indexes in production.",
       "sources": [
         {
           "t": "DuckDB community extension: duckpgq",
@@ -1117,7 +1117,7 @@
     },
     {
       "topic": "MotherDuck MCP servers",
-      "text": "The hosted remote server (api.motherduck.com/mcp) exposes read-only and read-write tools, so it is not read-only by default. The local server is MIT licensed and read-only by default, but its README says read-only mode alone is not enough for third-party access.",
+      "text": "The hosted remote server (api.motherduck.com/mcp) exposes read-only and read-write tools, so it is not read-only by default. The local server is MIT licensed and read-only by default. Its README says read-only mode alone is not enough for third-party access.",
       "sources": [
         {
           "t": "MotherDuck docs: MCP server reference",

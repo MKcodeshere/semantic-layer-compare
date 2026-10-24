@@ -4,9 +4,9 @@
       "id": "oracle",
       "name": "Oracle Database / Autonomous AI Database",
       "category": "oltp",
-      "tagline": "Converged database with analytic views, Select AI, SQL property graphs, vector search and an MCP server.",
+      "tagline": "Oracle is a converged database. It has analytic views, Select AI, SQL property graphs, vector search and an MCP server.",
       "verdict": "partial",
-      "verdictNote": "Analytic Views are an in-database semantic layer and Select AI reads comments, annotations and constraints, but Oracle docs do not show Select AI reading analytic view definitions.",
+      "verdictNote": "Analytic Views are an in-database semantic layer. Select AI reads comments, annotations and constraints. Oracle docs do not show Select AI reading analytic view definitions.",
       "artifacts": [
         {
           "name": "Analytic Views",
@@ -91,62 +91,62 @@
         },
         "synonyms": {
           "l": 3,
-          "n": "Profile attributes comments and annotations add table and column text to the prompt. Annotations need 26ai. No synonym list object.",
+          "n": "The profile attributes comments and annotations add table and column text to the prompt. Annotations need 26ai. There is no synonym list object.",
           "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/dbms-cloud-ai-package.html"
         },
         "verifiedQueries": {
           "l": 3,
-          "n": "DBMS_CLOUD_AI.FEEDBACK stores confirmed or corrected SQL in a per-profile vector index and sends similar ones as hints. 26ai only.",
+          "n": "DBMS_CLOUD_AI.FEEDBACK stores confirmed or corrected SQL in a per-profile vector index. It sends similar SQL as hints. This works on 26ai only.",
           "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/select-ai-feedback.html"
         },
         "nl2sql": {
           "l": 3,
-          "n": "Select AI generates, runs and explains SQL from a prompt (runsql, showsql, explainsql). Needs an AI profile and an LLM provider.",
+          "n": "Select AI generates, runs and explains SQL from a prompt (runsql, showsql, explainsql). It needs an AI profile and an LLM provider.",
           "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/select-ai.html"
         },
         "ontology": {
           "l": 0,
-          "n": "No object, link or action layer in the Select AI or analytic view docs. Teams combine analytic views with property graphs.",
+          "n": "The Select AI and analytic view docs show no object, link or action layer. Teams combine analytic views with property graphs.",
           "u": ""
         },
         "graph": {
           "l": 3,
-          "n": "Oracle AI Database 26ai supports SQL property graphs and the SQL/PGQ standard, with GraphRAG and graph algorithm packages.",
+          "n": "Oracle AI Database 26ai supports SQL property graphs and the SQL/PGQ standard. It has GraphRAG and graph algorithm packages.",
           "u": "https://docs.oracle.com/en/database/oracle/oracle-database/26/nfcoa/graph.html"
         },
         "vector": {
           "l": 3,
-          "n": "VECTOR data type introduced with 26ai. COMPATIBLE must be 23.4.0 or higher. ONNX embedding models can run in the database.",
+          "n": "The VECTOR data type was introduced with 26ai. COMPATIBLE must be 23.4.0 or higher. ONNX embedding models can run in the database.",
           "u": "https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/overview-ai-vector-search.html"
         },
         "mcp": {
           "l": 3,
-          "n": "Managed MCP server for Autonomous AI Database (Serverless, Dedicated Region, multicloud). Exposes custom and built-in Select AI Agent tools.",
+          "n": "The managed MCP server runs on Autonomous AI Database (Serverless, Dedicated Region, multicloud). It exposes custom and built-in Select AI Agent tools.",
           "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/about-mcp-server.html"
         },
         "governance": {
           "l": 3,
-          "n": "Oracle says MCP access honors RBAC, auditing, VPD and redaction. Grants on analytic views specifically are not covered by that page.",
+          "n": "Oracle says MCP access honors RBAC, auditing, VPD and redaction. That page does not cover grants on analytic views.",
           "u": "https://www.oracle.com/autonomous-database/mcp-server/"
         },
         "openStandard": {
           "l": 0,
-          "n": "Analytic view DDL is Oracle SQL. Oracle is listed as a participant in the Apache Ossie (OSI) working groups, but no Oracle converter is shown.",
+          "n": "Analytic view DDL is Oracle SQL. Oracle is listed as a participant in the Apache Ossie (OSI) working groups. No Oracle converter is shown.",
           "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
         }
       },
       "offers": [
-        "Analytic Views: measures, dimensions and hierarchies stored in the database and queried with SQL.",
-        "Select AI generates SQL from questions using table metadata, comments, annotations and foreign key constraints from an AI profile.",
-        "Select AI feedback stores corrected SQL and reuses it as hints for similar prompts (26ai).",
-        "Managed MCP server exposes Select AI Agent tools under database roles, VPD and auditing.",
+        "Analytic Views store measures, dimensions and hierarchies in the database. Users query them with SQL.",
+        "Select AI generates SQL from questions. It uses table metadata, comments, annotations and foreign key constraints from an AI profile.",
+        "Select AI feedback stores corrected SQL. It reuses the SQL as hints for similar prompts (26ai).",
+        "The managed MCP server exposes Select AI Agent tools under database roles, VPD and auditing.",
         "SQL property graphs (SQL/PGQ) and AI Vector Search run in the same engine as the data."
       ],
       "gaps": [
         "Oracle docs do not show Select AI reading analytic view definitions as semantic context.",
         "Annotations, feedback and several profile options need 26ai.",
-        "No ontology layer. Analytic view DDL is Oracle specific, with no Oracle converter listed for Apache Ossie.",
-        "The built-in MCP server is a feature of Autonomous AI Database, not of self-managed databases."
+        "There is no ontology layer. Analytic view DDL is Oracle specific. No Oracle converter is listed for Apache Ossie.",
+        "The built-in MCP server is a feature of Autonomous AI Database. Self-managed databases do not have it."
       ],
       "fillWith": [
         "Cube",
@@ -155,7 +155,7 @@
         "Oracle APEX review step",
         "Custom prompt examples"
       ],
-      "nl2sqlPath": "Add comments and annotations to tables and columns, create a Select AI profile with comments, annotations and constraints set to true, and limit it to a known object list. Record corrected SQL with DBMS_CLOUD_AI.FEEDBACK and expose tools through Select AI Agent and the MCP server. Test whether analytic views help generation before relying on them.",
+      "nl2sqlPath": "Add comments and annotations to tables and columns. Create a Select AI profile with comments, annotations and constraints set to true. Limit the profile to a known object list. Record corrected SQL with DBMS_CLOUD_AI.FEEDBACK. Expose tools through Select AI Agent and the MCP server. Test whether analytic views help generation before you rely on them.",
       "snippet": {
         "lang": "sql",
         "title": "Analytic view over a fact table with one time dimension, two measures and one calculated measure",
@@ -214,9 +214,9 @@
       "id": "teradata",
       "name": "Teradata Vantage / VantageCloud",
       "category": "mpp",
-      "tagline": "MPP analytics platform with an open-source MCP server and Enterprise Vector Store.",
+      "tagline": "Teradata is an MPP analytics platform. It has an open-source MCP server and Enterprise Vector Store.",
       "verdict": "partial",
-      "verdictNote": "Vantage has no native semantic model object, but Teradata's open-source MCP server adds YAML cubes, a glossary and predefined SQL tools that an agent can call.",
+      "verdictNote": "Vantage has no native semantic model object. Teradata's open-source MCP server adds YAML cubes, a glossary and predefined SQL tools. An agent can call these tools.",
       "artifacts": [
         {
           "name": "Teradata MCP Server (MIT license)",
@@ -270,12 +270,12 @@
       "caps": {
         "metrics": {
           "l": 1,
-          "n": "MCP server cubes declare measures with SQL expressions in YAML. Open-source add-on, not a Vantage object.",
+          "n": "MCP server cubes declare measures with SQL expressions in YAML. This is an open-source add-on, not a Vantage object.",
           "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/docs/server_guide/CUSTOMIZING.md"
         },
         "dimensions": {
           "l": 1,
-          "n": "MCP server cubes declare named dimensions with descriptions and SQL expressions. No hierarchy or time grain object.",
+          "n": "MCP server cubes declare named dimensions with descriptions and SQL expressions. There is no hierarchy or time grain object.",
           "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/docs/server_guide/CUSTOMIZING.md"
         },
         "relationships": {
@@ -295,52 +295,52 @@
         },
         "nl2sql": {
           "l": 1,
-          "n": "Teradata lists natural-language agentic analytics for AI Studio (GA Jul 2026) and announced Tera. No SQL generation docs found; MCP server route available.",
+          "n": "Teradata lists natural-language agentic analytics for AI Studio (GA Jul 2026) and announced Tera. No SQL generation docs exist. The MCP server route exists.",
           "u": "https://www.teradata.com/press-releases/2026/introducing-the-autonomous-knowledge-platform"
         },
         "ontology": {
           "l": 0,
-          "n": "No ontology or entity-model object in the MCP server docs or the 2026 platform releases.",
+          "n": "The MCP server docs and the 2026 platform releases show no ontology or entity-model object.",
           "u": ""
         },
         "graph": {
           "l": 1,
-          "n": "PageRank and shortest-path functions run in the separate Machine Learning Engine (SQL-GR). Function-based, not a graph query language.",
+          "n": "PageRank and shortest-path functions run in the separate Machine Learning Engine (SQL-GR). They are function-based, not a graph query language.",
           "u": "https://docs.teradata.com/r/Machine-Learning-Engine-Analytic-Function-Reference/February-2022/Graph-Analysis"
         },
         "vector": {
           "l": 3,
-          "n": "Enterprise Vector Store adds hybrid search, multimodal embeddings and up to 8K dimensions. Generally available from April 2026.",
+          "n": "Enterprise Vector Store adds hybrid search, multimodal embeddings and up to 8K dimensions. It is generally available from April 2026.",
           "u": "https://www.teradata.com/press-releases/2026/teradata-enables-ai-agents"
         },
         "mcp": {
           "l": 2,
-          "n": "First-party open-source MCP server (MIT). Versions are 0.x on PyPI and the repo states no GA or SLA.",
+          "n": "This is a first-party open-source MCP server (MIT). Versions are 0.x on PyPI. The repo states no GA or SLA.",
           "u": "https://pypi.org/pypi/teradata-mcp-server/json"
         },
         "governance": {
           "l": 2,
-          "n": "MCP server can run queries under each user's own database credentials, keeping existing RBAC and row-level security.",
+          "n": "The MCP server can run queries under each user's own database credentials. This keeps existing RBAC and row-level security.",
           "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/docs/server_guide/SECURITY.md"
         },
         "openStandard": {
           "l": 0,
-          "n": "Cube YAML is specific to the Teradata MCP server. Teradata is not named on the Apache Ossie pages read.",
+          "n": "Cube YAML is specific to the Teradata MCP server. The Apache Ossie pages do not name Teradata.",
           "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
         }
       },
       "offers": [
-        "Open-source MCP server with tool groups for queries, data quality, RAG, vector store, feature store and admin.",
+        "The open-source MCP server has tool groups for queries, data quality, RAG, vector store, feature store and admin.",
         "YAML defines cubes (measures, dimensions, joins), glossary terms, prompts and tools without Python code.",
-        "Cubes compile to SQL at run time and reject unknown dimension or measure names before the query is sent.",
-        "Enterprise Vector Store for vector and hybrid search, generally available from April 2026.",
-        "Per-user database credentials can be passed through, so existing permissions apply to tool calls."
+        "Cubes compile to SQL at run time. They reject unknown dimension or measure names before the query is sent.",
+        "Enterprise Vector Store offers vector and hybrid search. It is generally available from April 2026.",
+        "The server can pass through per-user database credentials. Existing permissions then apply to tool calls."
       ],
       "gaps": [
-        "No native semantic model object in Vantage with metrics, dimensions and joins. Cubes live in the MCP server only.",
-        "MCP server is 0.x software; the repo gives no SLA or GA statement.",
-        "No verified question-to-SQL store. Predefined tools and prompts are the nearest thing.",
-        "Tera natural-language workspace is not in the July 2026 availability list, and SQL generation docs were not found."
+        "Vantage has no native semantic model object with metrics, dimensions and joins. Cubes live in the MCP server only.",
+        "The MCP server is 0.x software. The repo gives no SLA or GA statement.",
+        "There is no verified question-to-SQL store. Predefined tools and prompts are the nearest thing.",
+        "The July 2026 availability list does not include the Tera natural-language workspace. The docs show no SQL generation for it."
       ],
       "fillWith": [
         "Cube",
@@ -349,7 +349,7 @@
         "Custom MCP YAML tools",
         "LangChain"
       ],
-      "nl2sqlPath": "Run the Teradata MCP server, define cubes, glossary terms and prompts in YAML, and let an agent call those tools instead of writing free SQL. Use an external semantic layer if you need governed metrics across many tools. Check Tera and AI Studio docs for your deployment before depending on them.",
+      "nl2sqlPath": "Run the Teradata MCP server. Define cubes, glossary terms and prompts in YAML. Let an agent call those tools instead of writing free SQL. Use an external semantic layer if you need governed metrics across many tools. Check the Tera and AI Studio docs for your deployment before you depend on them.",
       "snippet": {
         "lang": "yaml",
         "title": "Cube with a dimension and a measure in Teradata MCP server YAML",
@@ -404,7 +404,7 @@
   "notes": [
     {
       "topic": "Oracle and analytic views in Select AI",
-      "text": "Select AI docs list comments, annotations and constraints as prompt metadata. They do not mention analytic views, so whether Select AI uses analytic view definitions is unconfirmed.",
+      "text": "Select AI docs list comments, annotations and constraints as prompt metadata. They do not mention analytic views. Whether Select AI uses analytic view definitions is unconfirmed.",
       "sources": [
         {
           "t": "DBMS_CLOUD_AI package",
@@ -418,7 +418,7 @@
     },
     {
       "topic": "Oracle MCP server date",
-      "text": "Oracle's product page lists the MCP server GA announcement under December 2025. Docs cover Autonomous AI Database 26ai and 19c on Serverless, Dedicated Region and multicloud.",
+      "text": "Oracle's product page lists the MCP server GA announcement under December 2025. The docs cover Autonomous AI Database 26ai and 19c on Serverless, Dedicated Region and multicloud.",
       "sources": [
         {
           "t": "Autonomous AI Database MCP Server",
@@ -442,7 +442,7 @@
     },
     {
       "topic": "Teradata platform GA",
-      "text": "Teradata announced the Autonomous Knowledge Platform on 2026-05-07 and general availability on 2026-07-15. Teradata Cloud is on AWS, AI Studio is on AWS and Teradata Factory, and Tera is not in the availability list.",
+      "text": "Teradata announced the Autonomous Knowledge Platform on 2026-05-07. It announced general availability on 2026-07-15. Teradata Cloud is on AWS. AI Studio is on AWS and Teradata Factory. Tera is not in the availability list.",
       "sources": [
         {
           "t": "Introducing the Autonomous Knowledge Platform",
@@ -456,7 +456,7 @@
     },
     {
       "topic": "Teradata MCP server status",
-      "text": "The repo is under the Teradata GitHub organization with an MIT license and 0.x PyPI releases starting August 2025. The pages read do not state GA, support terms or an SLA.",
+      "text": "The repo is under the Teradata GitHub organization with an MIT license. PyPI releases are 0.x and start in August 2025. The repo pages do not state GA, support terms or an SLA.",
       "sources": [
         {
           "t": "teradata-mcp-server on PyPI",
@@ -470,7 +470,7 @@
     },
     {
       "topic": "Apache Ossie",
-      "text": "Oracle appears in the April 2026 list of new Ossie working group participants. Ossie reference converters listed in its README cover dbt, GoodData, Polaris and Salesforce, not Oracle or Teradata.",
+      "text": "Oracle appears in the April 2026 list of new Ossie working group participants. The Ossie README lists reference converters for dbt, GoodData, Polaris and Salesforce. It lists none for Oracle or Teradata.",
       "sources": [
         {
           "t": "Open Semantic Interchange community update",

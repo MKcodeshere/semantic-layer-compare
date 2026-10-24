@@ -209,7 +209,7 @@
         },
         "mcp": {
           "l": 3,
-          "n": "The managed MCP server is GA since Nov 2025. Tools: Cortex Analyst on a semantic view, Search, Agents, SQL and custom. The limit is 50 tools.",
+          "n": "The managed MCP server is GA since Nov 2025. Tools: Cortex Analyst on a semantic view, Search, Agents, SQL, custom. Limit: 50 tools.",
           "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
         },
         "governance": {
