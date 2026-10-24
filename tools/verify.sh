@@ -6,7 +6,7 @@ U=http://127.0.0.1:8791
 OUT=${1:-/tmp/sl-shots}; mkdir -p "$OUT"
 fail=0
 check() { r=$($B js "$2" 2>&1 | grep -v -E 'UNTRUSTED' | tail -1); case "$r" in true) echo "PASS $1";; *) echo "FAIL $1 ($r)"; fail=1;; esac; }
-errs() { e=$($B console --errors 2>&1 | grep -v -E 'UNTRUSTED|^$|No console' | grep -i -E 'error|uncaught' | head -3); [ -z "$e" ] && echo "PASS $1 no console errors" || { echo "FAIL $1 console: $e"; fail=1; }; $B console --clear >/dev/null 2>&1; }
+errs() { e=$($B console --errors 2>&1 | grep -v -i -E 'untrusted|^[[:space:]]*$|no console (errors|messages)|^[[:space:]]*\(?(none|empty)\)?[[:space:]]*$' | grep -i -E 'error|uncaught' | head -3); [ -z "$e" ] && echo "PASS $1 no console errors" || { echo "FAIL $1 console: $e"; fail=1; }; $B console --clear >/dev/null 2>&1; }
 
 for p in a-guide b-matrix c-map; do
   $B viewport 1440x900 >/dev/null; $B goto "$U/$p.html" >/dev/null; $B wait --load >/dev/null 2>&1

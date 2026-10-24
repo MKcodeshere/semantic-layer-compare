@@ -85,7 +85,7 @@ for (const file of files) {
     v.caps ??= {};
     for (const { key } of CAPS) {
       const c = v.caps[key];
-      if (c && ![0, 1, 2, 3].includes(c.l)) problems.push(`${where}: cap ${key} level not 0-3`);
+      if (c && c.l !== null && ![0, 1, 2, 3].includes(c.l)) problems.push(`${where}: cap ${key} level not 0-3`);
       if (!c || ![0, 1, 2, 3].includes(c.l)) v.caps[key] = { l: null, n: 'Not checked yet.', u: '' };
     }
     if (!v.sources?.length) problems.push(`${where}: no sources`);
@@ -117,7 +117,7 @@ for (const file of enrichFiles) {
     for (const [k, c] of Object.entries(e.caps ?? {})) {
       if (!CAPS.some((x) => x.key === k)) { problems.push(`${file}:${e.id}: unknown cap ${k}`); continue; }
       if ([0, 1, 2, 3].includes(c?.l)) v.caps[k] = c;
-      else problems.push(`${file}:${e.id}: cap ${k} level not 0-3`);
+      else if (c?.l !== null) problems.push(`${file}:${e.id}: cap ${k} level not 0-3`);
     }
     if (e.enrichHowTo) v.enrichHowTo = e.enrichHowTo;
     if (e.bulkSnippet?.code) v.bulkSnippet = e.bulkSnippet;
@@ -125,8 +125,8 @@ for (const file of enrichFiles) {
     for (const s of e.sources ?? []) if (!seen.has(s.u)) { v.sources.push(s); seen.add(s.u); }
   }
 }
-const unchecked = vendors.filter((v) => CAPS.some((c) => v.caps[c.key].l === null)).map((v) => v.id);
-if (unchecked.length) problems.push(`not checked yet (some caps): ${unchecked.join(', ')}`);
+const unchecked = vendors.map((v) => [v.id, CAPS.filter((c) => v.caps[c.key].l === null).map((c) => c.key)]).filter(([, ks]) => ks.length);
+if (unchecked.length) problems.push(`not checked yet (${unchecked.reduce((n, [, ks]) => n + ks.length, 0)} cells):\n    ${unchecked.map(([id, ks]) => `${id}: ${ks.join(', ')}`).join('\n    ')}`);
 
 const catOrder = Object.fromEntries(CATEGORIES.map((c, i) => [c.id, i]));
 vendors.sort((a, b) => (catOrder[a.category] ?? 99) - (catOrder[b.category] ?? 99) || a.name.localeCompare(b.name));
