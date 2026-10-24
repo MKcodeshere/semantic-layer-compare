@@ -38,7 +38,7 @@
           "status": "GA",
           "since": "",
           "format": "GUI, Agentforce",
-          "url": "https://hex.tech/blog/tableau-next/"
+          "url": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
         },
         {
           "name": "Semantic Model Scope and Page Filters in Concierge",
@@ -102,14 +102,14 @@
           "u": "https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/learn-the-basics-of-tableau-semantics"
         },
         "graph": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Tableau Knowledge Graph REST API (Cloud+, Sept 2026): nodes, edges, lineage and impact calls. No Cypher, GQL or SPARQL query language.",
+          "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_tableau_knowledge_graph.htm"
         },
         "vector": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Tableau Knowledge Graph API has a natural-language semantic search over graph nodes. Cloud+ only, not on Tableau Server.",
+          "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_tableau_knowledge_graph.htm"
         },
         "mcp": {
           "l": 3,
@@ -195,16 +195,20 @@
           "u": "https://trailhead.salesforce.com/content/learn/modules/semantic-models-in-tableau-next-quick-look/design-your-semantic-model-for-analysis"
         },
         {
-          "t": "What You Need to Know About Tableau Next in 2026 (Hex)",
-          "u": "https://hex.tech/blog/tableau-next/"
-        },
-        {
           "t": "Apache Ossie converters repo",
           "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
         },
         {
           "t": "Tableau Next MCP Server (Salesforce Help)",
           "u": "https://help.salesforce.com/s/articleView?id=analytics.tua_data_sdm_mcp.htm&language=en_US&type=5"
+        },
+        {
+          "t": "Tableau Help: Step 4, Enable Tableau Next AI Features",
+          "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
+        },
+        {
+          "t": "Tableau Help: Tableau Knowledge Graph Methods",
+          "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_tableau_knowledge_graph.htm"
         }
       ],
       "verified": "2026-10-24"
@@ -297,9 +301,9 @@
           "u": "https://docs.thoughtspot.com/cloud/26.6.0.cl/semantic-layer"
         },
         "dimensions": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Model columns are typed ATTRIBUTE or MEASURE. Docs also cover custom calendars and a default metric time grain; no hierarchy object found.",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/data-modeling-column-basics.md"
         },
         "relationships": {
           "l": 3,
@@ -322,19 +326,19 @@
           "u": "https://developers.thoughtspot.com/docs/deprecated-features"
         },
         "ontology": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No ontology object in the documentation index. Teams use Models with column descriptions, synonyms and Spotter instructions.",
+          "u": "https://docs.thoughtspot.com/llms-full.txt"
         },
         "graph": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No graph query feature in the documentation index.",
+          "u": "https://docs.thoughtspot.com/llms-full.txt"
         },
         "vector": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No vector search feature in the documentation index. Spotter uses a value index for column values.",
+          "u": "https://docs.thoughtspot.com/llms-full.txt"
         },
         "mcp": {
           "l": 3,
@@ -456,6 +460,14 @@
         {
           "t": "Apache Ossie converters repo",
           "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        },
+        {
+          "t": "ThoughtSpot: Set column name, description, and type",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/data-modeling-column-basics.md"
+        },
+        {
+          "t": "ThoughtSpot documentation index (llms-full)",
+          "u": "https://docs.thoughtspot.com/llms-full.txt"
         }
       ],
       "verified": "2026-10-24"
@@ -532,9 +544,9 @@
           "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices"
         },
         "dimensions": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Data model metrics set a default timeline with a date column and truncation. Hierarchies exist only in workbooks, not data models.",
+          "u": "https://help.sigmacomputing.com/docs/create-and-manage-metrics.md"
         },
         "relationships": {
           "l": 3,
@@ -547,9 +559,9 @@
           "u": "https://help.sigmacomputing.com/docs/manage-ai-context-for-data-models.md"
         },
         "verifiedQueries": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No saved question-SQL pairs found in the docs. Teams use AI context text, metric definitions and endorsed badges.",
+          "u": "https://help.sigmacomputing.com/docs/manage-ai-context-for-data-models.md"
         },
         "nl2sql": {
           "l": 3,
@@ -691,6 +703,14 @@
         {
           "t": "Apache Ossie converters repo",
           "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        },
+        {
+          "t": "Sigma: Create and manage metrics",
+          "u": "https://help.sigmacomputing.com/docs/create-and-manage-metrics.md"
+        },
+        {
+          "t": "Sigma: Work with hierarchies",
+          "u": "https://help.sigmacomputing.com/docs/hierarchies.md"
         }
       ],
       "verified": "2026-10-24"
@@ -778,14 +798,14 @@
       ],
       "caps": {
         "metrics": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Beast Mode calculations can be saved to a DataSet and managed in Beast Mode Manager. AI Readiness lists them as columns for AI.",
+          "u": "https://www.domo.com/docs/s/article/360042925474.md"
         },
         "dimensions": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 1,
+          "n": "No declared dimension or hierarchy object in Data Models. Teams build date and bucket fields with Beast Mode calculated fields.",
+          "u": "https://www.domo.com/docs/s/article/360043429913.md"
         },
         "relationships": {
           "l": 2,
@@ -798,9 +818,9 @@
           "u": "https://www.domo.com/docs/s/article/Create-and-Use-Data-Models"
         },
         "verifiedQueries": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No saved question-SQL pairs. AI Readiness takes DataSet context, synonyms and column context instead.",
+          "u": "https://www.domo.com/docs/s/article/000005561.md"
         },
         "nl2sql": {
           "l": 3,
@@ -813,14 +833,14 @@
           "u": "https://research.isg-one.com/analyst-perspectives/domo-adds-context-to-platform-for-analytics-and-ai"
         },
         "graph": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No graph query feature in the Domo Knowledge Base index.",
+          "u": "https://www.domo.com/docs/_llms/en/knowledge-base.txt"
         },
         "vector": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No vector search feature in the Domo Knowledge Base index.",
+          "u": "https://www.domo.com/docs/_llms/en/knowledge-base.txt"
         },
         "mcp": {
           "l": 2,
@@ -828,9 +848,9 @@
           "u": "https://www.domo.com/docs/s/article/May-2026-Release.md"
         },
         "governance": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Company and department certification badges for cards and DataSets. AI Chat keeps the same security settings as the rest of Domo.",
+          "u": "https://www.domo.com/docs/s/article/360043430613.md"
         },
         "openStandard": {
           "l": 0,
@@ -926,6 +946,30 @@
         {
           "t": "Apache Ossie converters repo",
           "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        },
+        {
+          "t": "Domo: Beast Mode Manager",
+          "u": "https://www.domo.com/docs/s/article/360042925474.md"
+        },
+        {
+          "t": "Domo: Create a Beast Mode Calculation",
+          "u": "https://www.domo.com/docs/s/article/360043429913.md"
+        },
+        {
+          "t": "Domo: AI Readiness",
+          "u": "https://www.domo.com/docs/s/article/000005561.md"
+        },
+        {
+          "t": "Domo: Certify Cards and DataSets",
+          "u": "https://www.domo.com/docs/s/article/360043430613.md"
+        },
+        {
+          "t": "Domo: AI Chat",
+          "u": "https://www.domo.com/docs/s/article/AI-Chat-v2.md"
+        },
+        {
+          "t": "Domo Knowledge Base index",
+          "u": "https://www.domo.com/docs/_llms/en/knowledge-base.txt"
         }
       ],
       "verified": "2026-10-24"
@@ -1206,14 +1250,14 @@
           "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
         },
         "relationships": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No declared joins or relationships between datasets. Teams join tables in a SQL virtual dataset.",
+          "u": "https://preset.io/blog/understanding-superset-semantic-layer/"
         },
         "synonyms": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Datasets, columns and metrics carry verbose_name and description fields. No separate synonym field.",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/superset/datasets/schemas.py"
         },
         "verifiedQueries": {
           "l": 0,
@@ -1340,6 +1384,14 @@
         {
           "t": "superset UPDATING.md",
           "u": "https://raw.githubusercontent.com/apache/superset/master/UPDATING.md"
+        },
+        {
+          "t": "Preset: Understanding the Superset Semantic Layer",
+          "u": "https://preset.io/blog/understanding-superset-semantic-layer/"
+        },
+        {
+          "t": "Superset datasets schemas.py",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/superset/datasets/schemas.py"
         }
       ],
       "verified": "2026-10-24"

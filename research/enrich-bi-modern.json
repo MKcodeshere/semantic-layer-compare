@@ -24,9 +24,9 @@
           "u": "https://help.tableau.com/current/tableau/en-us/tableau_gai_data.htm"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No feature mines usage or query logs to suggest models or metrics. Tableau Agent drafts descriptions from the data source.",
+          "u": "https://help.tableau.com/current/tableau/en-us/tableau_gai_solutions.htm"
         },
         "lineage": {
           "l": 3,
@@ -204,19 +204,19 @@
           "u": "https://help.sigmacomputing.com/reference/update-data-model-spec.md"
         },
         "autoClassify": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No automatic column classification in the docs. Column-level security rules are set by hand.",
+          "u": "https://help.sigmacomputing.com/docs/column-level-security.md"
         },
         "sampleValues": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "Docs describe the Assistant index as built from names, descriptions and generated synonyms. No sampled values documented.",
+          "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices.md"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "Usage dashboards report query statistics for admins. No feature turns them into models or examples.",
+          "u": "https://help.sigmacomputing.com/docs/usage-overview.md"
         },
         "lineage": {
           "l": 0,
@@ -283,6 +283,14 @@
         {
           "t": "Create and manage datasets (Deprecated)",
           "u": "https://help.sigmacomputing.com/docs/create-and-manage-datasets.md"
+        },
+        {
+          "t": "Sigma: Configure column-level security",
+          "u": "https://help.sigmacomputing.com/docs/column-level-security.md"
+        },
+        {
+          "t": "Sigma: Usage overview",
+          "u": "https://help.sigmacomputing.com/docs/usage-overview.md"
         }
       ],
       "verified": "2026-10-24"
@@ -306,14 +314,14 @@
           "u": "https://www.domo.com/docs/s/article/4409199658263.md"
         },
         "sampleValues": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "AI Readiness uses descriptions, synonyms and column context you write. No value sampling documented; the Beast Mode assistant sends only schema.",
+          "u": "https://www.domo.com/docs/s/article/000005561.md"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "Activity Log records usage for admins. No feature mines it to suggest models or examples.",
+          "u": "https://www.domo.com/docs/s/article/360042934574.md"
         },
         "lineage": {
           "l": 1,
@@ -380,6 +388,10 @@
         {
           "t": "Alter Dataset Schema",
           "u": "https://www.domo.com/docs/api-reference/datasets-api/alter-dataset-schema.md"
+        },
+        {
+          "t": "Domo: Activity Log",
+          "u": "https://www.domo.com/docs/s/article/360042934574.md"
         }
       ],
       "verified": "2026-10-24"
@@ -408,9 +420,9 @@
           "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/privacy.md"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "Metabot keeps only the current conversation. Nothing mines past queries to suggest models or examples.",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/metabot.md"
         },
         "lineage": {
           "l": 0,
@@ -483,9 +495,9 @@
           "u": "https://superset.apache.org/admin-docs/configuration/importing-exporting-datasources"
         },
         "autoClassify": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No automatic column classification in the README feature list.",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
         },
         "sampleValues": {
           "l": 0,
@@ -493,9 +505,9 @@
           "u": "https://preset.io/blog/apache-superset-6-1-release/"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No feature mines query history to suggest joins, metrics or examples in the README or MCP docs.",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
         },
         "lineage": {
           "l": 0,
@@ -530,6 +542,10 @@
         {
           "t": "Apache Superset docs index",
           "u": "https://superset.apache.org/llms.txt"
+        },
+        {
+          "t": "Superset README",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
         }
       ],
       "verified": "2026-10-24"
