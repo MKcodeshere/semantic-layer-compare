@@ -2,168 +2,432 @@
   "vendors": [
     {
       "id": "snowflake",
+      "verified": "2026-10-24",
       "caps": {
-        "aiDescriptions": { "l": 3, "n": "AI_GENERATE_TABLE_DESC drafts table and column descriptions. SQL path GA 2025-09-29. Snowsight path also listed as GA.", "u": "https://docs.snowflake.com/en/user-guide/sql-cortex-descriptions" },
-        "bulkMetadata": { "l": 3, "n": "One ALTER TABLE can set COMMENT on many columns. COMMENT ON COLUMN handles one column. No bulk import tool found.", "u": "https://docs.snowflake.com/en/sql-reference/sql/alter-table-column" },
-        "autoClassify": { "l": 3, "n": "Classification profiles tag columns on a schedule. Whole-database auto classification GA Aug 2025. Semi-structured support GA Feb 2026.", "u": "https://docs.snowflake.com/release-notes/2026/other/2026-02-05-sensitive-data-classification-json" },
-        "sampleValues": { "l": 3, "n": "Semantic views take SAMPLE_VALUES and IS_ENUM. Taken from earlier repo research; not re-checked this session.", "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl" },
-        "queryHistory": { "l": 3, "n": "Autopilot reads query history visible to your role to suggest relationships and verified queries. GA label not confirmed.", "u": "https://docs.snowflake.com/en/user-guide/views-semantic/autopilot" },
-        "lineage": { "l": 3, "n": "Snowsight Lineage tab and GET_LINEAGE accept domain COLUMN. Default and maximum distance is 5. Status label not seen.", "u": "https://docs.snowflake.com/en/sql-reference/functions/get_lineage-snowflake-core" },
-        "evals": { "l": 3, "n": "Cortex Analyst evaluations run a semantic view against its verified queries and compare results. Status label not seen.", "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst-evaluations" }
+        "aiDescriptions": {
+          "l": 3,
+          "n": "AI_GENERATE_TABLE_DESC drafts table, view and column descriptions, optionally from sample data. SQL path GA 2025-09-29. Snowsight UI path also exists.",
+          "u": "https://docs.snowflake.com/en/user-guide/sql-cortex-descriptions"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "One ALTER TABLE ... ALTER (...) statement sets COMMENT on many columns. COMMENT ON handles one object. No file import tool.",
+          "u": "https://docs.snowflake.com/en/sql-reference/sql/alter-table-column"
+        },
+        "autoClassify": {
+          "l": 3,
+          "n": "A classification profile set on a database auto-classifies its tables (GA Aug 2025). Semi-structured data support GA 2026-02-05.",
+          "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-02-05-sensitive-data-classification-json"
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Semantic views accept SAMPLE_VALUES and IS_ENUM on dimensions, in both YAML and DDL. The values are authored, not auto-sampled by this setting.",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl"
+        },
+        "queryHistory": {
+          "l": 3,
+          "n": "Semantic View Autopilot uses query history visible to the creating role to suggest relationships and verified queries. No preview label on the page.",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/autopilot"
+        },
+        "lineage": {
+          "l": 3,
+          "n": "Snowsight Lineage tab shows column lineage. GET_LINEAGE accepts the COLUMN domain, with a default and maximum distance of 5. Enterprise Edition or higher.",
+          "u": "https://docs.snowflake.com/en/sql-reference/functions/get_lineage-snowflake-core"
+        },
+        "evals": {
+          "l": 3,
+          "n": "Cortex Analyst evaluations run a semantic view against its verified queries and compare results. Snowflake now recommends Cortex Agents.",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst-evaluations"
+        }
       },
-      "enrichHowTo": "Call the AI_GENERATE_TABLE_DESC stored procedure on each table to draft table and column descriptions. Review them, then write final text with ALTER TABLE ... ALTER COLUMN ... COMMENT, many columns per statement. You need ownership of the table and the SNOWFLAKE.CORTEX_USER database role.",
+      "enrichHowTo": "Call the AI_GENERATE_TABLE_DESC stored procedure on each table with describe_columns set to true to draft table and column descriptions. Review them, then write the final text with ALTER TABLE ... ALTER (col COMMENT '...', ...), many columns per statement.",
       "bulkSnippet": {
         "lang": "sql",
-        "code": "ALTER TABLE orders\n  ALTER COLUMN o_custkey COMMENT 'Customer key',\n  ALTER COLUMN o_totalprice COMMENT 'Order total in USD';",
+        "code": "ALTER TABLE t1 ALTER (\n  c1 COMMENT 'Customer key',\n  c5 COMMENT '50 character column'\n);",
         "u": "https://docs.snowflake.com/en/sql-reference/sql/alter-table-column"
       },
       "sources": [
-        { "t": "Using SQL to automatically generate object descriptions", "u": "https://docs.snowflake.com/en/user-guide/sql-cortex-descriptions" },
-        { "t": "Sep 29, 2025: Cortex Powered Object Descriptions via SQL (GA)", "u": "https://docs.snowflake.com/release-notes/2025/other/2025-09-29-sql-object-descriptions" },
-        { "t": "ALTER TABLE ... ALTER COLUMN", "u": "https://docs.snowflake.com/en/sql-reference/sql/alter-table-column" },
-        { "t": "COMMENT", "u": "https://docs.snowflake.com/en/sql-reference/sql/comment" },
-        { "t": "9.25 Release notes (Aug 2025)", "u": "https://docs.snowflake.com/en/release-notes/2025/9_25" },
-        { "t": "Feb 05, 2026: Sensitive data classification, semi-structured data (GA)", "u": "https://docs.snowflake.com/release-notes/2026/other/2026-02-05-sensitive-data-classification-json" },
-        { "t": "CREATE CLASSIFICATION_PROFILE", "u": "https://docs.snowflake.com/en/sql-reference/classes/classification_profile/commands/create-classification-profile" },
-        { "t": "Semantic View Autopilot", "u": "https://docs.snowflake.com/en/user-guide/views-semantic/autopilot" },
-        { "t": "GET_LINEAGE", "u": "https://docs.snowflake.com/en/sql-reference/functions/get_lineage-snowflake-core" },
-        { "t": "Data Lineage", "u": "https://docs.snowflake.com/en/user-guide/ui-snowsight-lineage" },
-        { "t": "Cortex Analyst evaluations", "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst-evaluations" },
-        { "t": "YAML vs DDL authoring for semantic views", "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl" }
+        {
+          "t": "Using SQL to automatically generate object descriptions",
+          "u": "https://docs.snowflake.com/en/user-guide/sql-cortex-descriptions"
+        },
+        {
+          "t": "Generate descriptions with Snowflake Cortex",
+          "u": "https://docs.snowflake.com/en/user-guide/ui-snowsight-cortex-descriptions"
+        },
+        {
+          "t": "Sep 29, 2025: Cortex Powered Object Descriptions via SQL (GA)",
+          "u": "https://docs.snowflake.com/en/release-notes/2025/other/2025-09-29-sql-object-descriptions"
+        },
+        {
+          "t": "ALTER TABLE ... ALTER COLUMN",
+          "u": "https://docs.snowflake.com/en/sql-reference/sql/alter-table-column"
+        },
+        {
+          "t": "COMMENT",
+          "u": "https://docs.snowflake.com/en/sql-reference/sql/comment"
+        },
+        {
+          "t": "9.25 Release notes (Aug 2025)",
+          "u": "https://docs.snowflake.com/en/release-notes/2025/9_25"
+        },
+        {
+          "t": "Feb 05, 2026: Sensitive data classification, semi-structured data (GA)",
+          "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-02-05-sensitive-data-classification-json"
+        },
+        {
+          "t": "CREATE CLASSIFICATION_PROFILE",
+          "u": "https://docs.snowflake.com/en/sql-reference/classes/classification_profile/commands/create-classification-profile"
+        },
+        {
+          "t": "Semantic View Autopilot",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/autopilot"
+        },
+        {
+          "t": "GET_LINEAGE",
+          "u": "https://docs.snowflake.com/en/sql-reference/functions/get_lineage-snowflake-core"
+        },
+        {
+          "t": "Data Lineage",
+          "u": "https://docs.snowflake.com/en/user-guide/ui-snowsight-lineage"
+        },
+        {
+          "t": "Cortex Analyst evaluations",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst-evaluations"
+        },
+        {
+          "t": "YAML vs DDL authoring for semantic views",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl"
+        }
       ]
     },
     {
       "id": "databricks",
+      "verified": "2026-10-24",
       "caps": {
-        "aiDescriptions": { "l": 3, "n": "AI-generated comments for tables and columns, GA 2024-06-27. Human review advised. Saving runs ALTER, which can disturb jobs.", "u": "https://docs.databricks.com/aws/en/comments/ai-comments" },
-        "bulkMetadata": { "l": 3, "n": "ALTER TABLE ... ALTER COLUMN sets COMMENT and SET TAGS. One column per clause, so script it. No bulk import tool found.", "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-alter-table-manage-column" },
-        "autoClassify": { "l": 3, "n": "Data Classification GA 2026-04-20, an AI agent that tags sensitive data. Scanning views is Beta (2026-09-15). Some doc pages still say Preview.", "u": "https://docs.databricks.com/aws/en/release-notes/data-classification" },
-        "sampleValues": { "l": 3, "n": "Genie value sampling: example values plus value dictionaries (up to 1,024 values per column, 120 columns). Tables with row filters or masks excluded.", "u": "https://docs.databricks.com/gcp/en/genie/sample-values" },
-        "queryHistory": { "l": 0, "n": "No query-history mining for joins, metrics or examples confirmed. Genie query suggestions exist, but their data source is not stated.", "u": "https://docs.databricks.com/aws/en/genie/set-up" },
-        "lineage": { "l": 3, "n": "system.access.column_lineage table, 1-year retention. Records only when lineage can be inferred. Literal inserts are not captured.", "u": "https://docs.databricks.com/aws/en/admin/system-tables/lineage" },
-        "evals": { "l": 3, "n": "Genie benchmarks: up to 500 questions, scored against reference SQL, tracked in the Evaluations tab. Status label not seen.", "u": "https://docs.databricks.com/aws/en/genie/benchmarks" }
+        "aiDescriptions": {
+          "l": 3,
+          "n": "AI-generated comments for catalogs, schemas, tables, views, columns and more, in Catalog Explorer. GA 2024-06-27. Review advised. Saving runs ALTER, which can disrupt jobs.",
+          "u": "https://docs.databricks.com/aws/en/comments/ai-comments"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "One ALTER TABLE ... ALTER COLUMN statement can set COMMENT on several columns (Runtime 16.3 and above). SET TAGS also works. No file import tool.",
+          "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-alter-table-manage-column"
+        },
+        "autoClassify": {
+          "l": 3,
+          "n": "Data Classification GA 2026-04-20, an agentic AI system that tags sensitive data. Scanning views is Beta (2026-09-15). Auto-tag configuration in the API is Public Preview.",
+          "u": "https://docs.databricks.com/aws/en/release-notes/data-classification"
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Genie format assistance samples representative values. Entity matching keeps up to 1,024 values per column, for up to 120 columns. Row filters exclude the table.",
+          "u": "https://docs.databricks.com/aws/en/genie-agents/tune-quality"
+        },
+        "queryHistory": {
+          "l": 3,
+          "n": "When you add tables, Genie searches popular workspace queries you can view and suggests them as example queries. You accept or reject each one.",
+          "u": "https://docs.databricks.com/aws/en/genie-agents/set-up"
+        },
+        "lineage": {
+          "l": 3,
+          "n": "system.access.column_lineage table with a rolling 1-year window. Records only when lineage can be inferred.",
+          "u": "https://docs.databricks.com/aws/en/admin/system-tables/lineage"
+        },
+        "evals": {
+          "l": 3,
+          "n": "Genie benchmarks: up to 500 questions per agent, scored against reference SQL, with an Evaluations tab to track runs. No preview label on the page.",
+          "u": "https://docs.databricks.com/aws/en/genie-agents/monitor"
+        }
       },
-      "enrichHowTo": "Generate comments in Catalog Explorer with AI-generated comments, review each one, then save. For scripted writes, run ALTER TABLE ... ALTER COLUMN ... COMMENT per column. Then add a Genie benchmark set and re-run it after each metadata change.",
+      "enrichHowTo": "Generate comments in Catalog Explorer with AI-generated comments, review each one, then save. For scripted writes, run ALTER TABLE ... ALTER COLUMN with several COMMENT clauses in one statement. Then add a Genie benchmark set and re-run it after each metadata change.",
       "bulkSnippet": {
         "lang": "sql",
-        "code": "ALTER TABLE main.sales.orders ALTER COLUMN order_id COMMENT 'Unique order id';\nALTER TABLE main.sales.orders ALTER COLUMN region COMMENT 'Sales region code, for example NY';",
+        "code": "ALTER TABLE students ALTER COLUMN\n  name COMMENT 'full name',\n  email COMMENT 'primary email';",
         "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-alter-table-manage-column"
       },
       "sources": [
-        { "t": "AI-generated comments", "u": "https://docs.databricks.com/aws/en/comments/ai-comments" },
-        { "t": "Announcing GA of Databricks Assistant and AI-generated comments", "u": "https://databricks.com/blog/announcing-general-availability-databricks-assistant-and-ai-generated-comments" },
-        { "t": "ALTER TABLE ... COLUMN clause", "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-alter-table-manage-column" },
-        { "t": "Data Classification release notes", "u": "https://docs.databricks.com/aws/en/release-notes/data-classification" },
-        { "t": "Data Classification", "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-classification" },
-        { "t": "Genie sample values", "u": "https://docs.databricks.com/gcp/en/genie/sample-values" },
-        { "t": "Genie knowledge store", "u": "https://docs.databricks.com/aws/genie/knowledge-store" },
-        { "t": "Genie set up", "u": "https://docs.databricks.com/aws/en/genie/set-up" },
-        { "t": "Lineage system tables", "u": "https://docs.databricks.com/aws/en/admin/system-tables/lineage" },
-        { "t": "Use benchmarks in a Genie space", "u": "https://docs.databricks.com/aws/en/genie/benchmarks" },
-        { "t": "AI/BI and Genie release notes 2026", "u": "https://docs.databricks.com/gcp/en/ai-bi/release-notes/2026" }
+        {
+          "t": "AI-generated comments",
+          "u": "https://docs.databricks.com/aws/en/comments/ai-comments"
+        },
+        {
+          "t": "Announcing GA of Databricks Assistant and AI-generated comments",
+          "u": "https://www.databricks.com/blog/announcing-general-availability-databricks-assistant-and-ai-generated-comments"
+        },
+        {
+          "t": "ALTER TABLE ... COLUMN clause",
+          "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-alter-table-manage-column"
+        },
+        {
+          "t": "Data Classification release notes",
+          "u": "https://docs.databricks.com/aws/en/release-notes/data-classification"
+        },
+        {
+          "t": "Data Classification",
+          "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-classification"
+        },
+        {
+          "t": "Tune Genie Agent quality",
+          "u": "https://docs.databricks.com/aws/en/genie-agents/tune-quality"
+        },
+        {
+          "t": "Set up a Genie Agent",
+          "u": "https://docs.databricks.com/aws/en/genie-agents/set-up"
+        },
+        {
+          "t": "Lineage system tables",
+          "u": "https://docs.databricks.com/aws/en/admin/system-tables/lineage"
+        },
+        {
+          "t": "Test and monitor a Genie Agent",
+          "u": "https://docs.databricks.com/aws/en/genie-agents/monitor"
+        },
+        {
+          "t": "AI/BI and Genie release notes 2026",
+          "u": "https://docs.databricks.com/gcp/en/ai-bi/release-notes/2026"
+        }
       ]
     },
     {
       "id": "bigquery",
+      "verified": "2026-10-24",
       "caps": {
-        "aiDescriptions": { "l": 2, "n": "Data insights drafts table and column descriptions with Gemini. Publishing to Knowledge Catalog is labeled Preview. Generation status not seen.", "u": "https://docs.cloud.google.com/bigquery/docs/data-insights" },
-        "bulkMetadata": { "l": 3, "n": "ALTER TABLE ... SET OPTIONS(description=...) for tables. Column form seen only in a third-party tutorial. One column per statement.", "u": "https://docs.cloud.google.com/bigquery/docs/managing-tables" },
-        "autoClassify": { "l": 1, "n": "Sensitive Data Protection discovery profiles BigQuery and can auto-tag. It is a separate product. GA status not confirmed.", "u": "https://docs.cloud.google.com/dlp/docs/data-profiles" },
-        "sampleValues": { "l": 0, "n": "No sample-value or entity-match setting found for data agents. Data profile scans ground Gemini data insights only.", "u": "https://docs.cloud.google.com/bigquery/docs/data-insights" },
-        "queryHistory": { "l": 0, "n": "No query-history mining for agent context found. Agents can generate their own context from selected tables; review it first.", "u": "https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/bigquery" },
-        "lineage": { "l": 2, "n": "Column-level lineage announced Oct 2025 for BigQuery. GA not confirmed. Skipped when a job makes over 1,500 column links.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" },
-        "evals": { "l": 0, "n": "No eval runner found. Verified queries (formerly golden queries) guide the agent. 'Show reasoning' lets users inspect steps.", "u": "https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/bigquery" }
+        "aiDescriptions": {
+          "l": 3,
+          "n": "Data insights drafts table and column descriptions with Gemini. Generate without publishing has no preview label. Publishing to Knowledge Catalog is Preview.",
+          "u": "https://docs.cloud.google.com/bigquery/docs/generate-table-insights"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "ALTER TABLE ... ALTER COLUMN ... SET OPTIONS (description=...) sets a column description; tables and views are covered. One column per statement, so script it.",
+          "u": "https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language"
+        },
+        "autoClassify": {
+          "l": 1,
+          "n": "Sensitive Data Protection discovery profiles BigQuery (GA) and can auto-attach sensitivity tags. It is a separate product from BigQuery.",
+          "u": "https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles"
+        },
+        "sampleValues": {
+          "l": 1,
+          "n": "Agents can match terms to values using existing embeddings of your column values (for example Texas to TX). You must create the embeddings.",
+          "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "No query-history mining for agent context found. Teams add verified queries (formerly golden queries), glossaries and instructions by hand.",
+          "u": "https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/bigquery"
+        },
+        "lineage": {
+          "l": 3,
+          "n": "Column-level lineage GA 2025-09-29 for BigQuery jobs, in Knowledge Catalog. Custom sources support table level only.",
+          "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+        },
+        "evals": {
+          "l": 0,
+          "n": "No eval runner found. Verified queries guide the agent, and the chat shows the agent's reasoning for each answer.",
+          "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
+        }
       },
-      "enrichHowTo": "Run data insights on a table to draft table and column descriptions, edit them, and publish. For scripted writes, run ALTER TABLE ... ALTER COLUMN ... SET OPTIONS (description=...) per column. Then add verified queries to the data agent.",
+      "enrichHowTo": "Run data insights on a table to draft table and column descriptions, edit them, and publish. For scripted writes, run ALTER TABLE ... ALTER COLUMN ... SET OPTIONS (description=...) per column. Then add verified queries and glossary terms to the data agent.",
       "bulkSnippet": {
         "lang": "sql",
-        "code": "ALTER TABLE mydataset.orders ALTER COLUMN order_id SET OPTIONS (description = 'Unique order id');\nALTER TABLE mydataset.orders ALTER COLUMN region SET OPTIONS (description = 'Sales region code');",
-        "u": "https://docs.cloud.google.com/bigquery/docs/managing-tables"
+        "code": "ALTER TABLE mydataset.mytable\nALTER COLUMN price\nSET OPTIONS (description = 'Price per unit');",
+        "u": "https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language"
       },
       "sources": [
-        { "t": "Generate data insights in BigQuery", "u": "https://docs.cloud.google.com/bigquery/docs/data-insights" },
-        { "t": "Manage tables", "u": "https://docs.cloud.google.com/bigquery/docs/managing-tables" },
-        { "t": "Adding Column Descriptions to GSC Tables in SQL (third party)", "u": "https://trevorfox.com/learn-sql-for-seo/adding-column-descriptions-to-gsc-tables/" },
-        { "t": "Overview of sensitive data discovery", "u": "https://docs.cloud.google.com/dlp/docs/data-profiles" },
-        { "t": "Conversational analytics in BigQuery", "u": "https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/bigquery" },
-        { "t": "Conversational Analytics API release notes", "u": "https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/release-notes" },
-        { "t": "Knowledge Catalog release notes", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" },
-        { "t": "About data lineage visualization in Knowledge Catalog", "u": "https://docs.cloud.google.com/dataplex/docs/lineage-views?authuser=2" }
+        {
+          "t": "Data insights overview",
+          "u": "https://docs.cloud.google.com/bigquery/docs/data-insights"
+        },
+        {
+          "t": "Generate table insights",
+          "u": "https://docs.cloud.google.com/bigquery/docs/generate-table-insights"
+        },
+        {
+          "t": "DDL statements in GoogleSQL",
+          "u": "https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language"
+        },
+        {
+          "t": "Overview of sensitive data discovery",
+          "u": "https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles"
+        },
+        {
+          "t": "Conversational analytics in BigQuery",
+          "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
+        },
+        {
+          "t": "Conversational analytics in BigQuery (data agents)",
+          "u": "https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/bigquery"
+        },
+        {
+          "t": "Conversational Analytics API release notes",
+          "u": "https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/release-notes"
+        },
+        {
+          "t": "Knowledge Catalog release notes",
+          "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+        },
+        {
+          "t": "About data lineage visualization in Knowledge Catalog",
+          "u": "https://docs.cloud.google.com/knowledge-catalog/docs/lineage-views"
+        }
       ]
     },
     {
       "id": "looker",
+      "verified": "2026-10-24",
       "caps": {
-        "aiDescriptions": { "l": 0, "n": "Gemini LookML assistant writes dimension and measure code. Field description or label generation not found. Explore summaries reuse existing descriptions.", "u": "https://docs.cloud.google.com/looker/docs/2604/write-lookml-gemini?hl=ja" },
-        "bulkMetadata": { "l": 0, "n": "Descriptions, labels and synonyms are LookML text in project files. No bulk metadata API or import found; edit files and use Git.", "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices" },
-        "autoClassify": { "l": 0, "n": "No classification feature found in Looker. Classify in the warehouse, for example with BigQuery Sensitive Data Protection.", "u": "" },
-        "sampleValues": { "l": 3, "n": "Conversational Analytics can sample field values and fuzzy search them to pick filter values. Looker API GA 2026-06-23.", "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices" },
-        "queryHistory": { "l": 0, "n": "No query-history mining for LookML or golden queries found.", "u": "" },
-        "lineage": { "l": 2, "n": "Looker (Google Cloud core) only. Needs a Looker preview feature on. Graph runs BigQuery to views, Explores, dashboards. Column level not confirmed.", "u": "https://docs.cloud.google.com/looker/docs/looker-core-lineage" },
-        "evals": { "l": 0, "n": "No eval runner found. Golden queries pair questions with Looker queries as examples; pivots and custom fields unsupported.", "u": "https://docs.cloud.google.com/looker/docs/2606/conversational-analytics-overview" }
+        "aiDescriptions": {
+          "l": 0,
+          "n": "Gemini LookML assistant (Preview) writes dimensions, dimension groups and measures. No field description or label generation is documented.",
+          "u": "https://docs.cloud.google.com/looker/docs/write-lookml-gemini"
+        },
+        "bulkMetadata": {
+          "l": 1,
+          "n": "Descriptions, labels and synonyms are LookML text in project files. Bulk edits mean scripting file changes and using Git. No metadata import API.",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "No classification feature in Looker docs. Teams classify in the warehouse, for example with BigQuery Sensitive Data Protection.",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Conversational Analytics can sample field values and fuzzy search them to pick filter values. Conversational Analytics API GA 2026-06-23.",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "No query-history mining for LookML or verified queries documented. System Activity only reports usage.",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
+        },
+        "lineage": {
+          "l": 0,
+          "n": "Knowledge Catalog lineage for Looker (Google Cloud core) is Preview and object level only. Column-level lineage is not supported.",
+          "u": "https://docs.cloud.google.com/looker/docs/looker-core-lineage"
+        },
+        "evals": {
+          "l": 0,
+          "n": "No eval runner found. Verified queries (golden queries) serve as examples; pivots and custom fields are unsupported. Admins can review user feedback (Preview).",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
+        }
       },
-      "enrichHowTo": "Write description, label and synonyms parameters on LookML fields, keep text short and in business words, and hide internal ID fields. Commit the files through the Looker IDE and Git. Add golden queries to the conversational analytics agent as examples.",
+      "enrichHowTo": "Write description, label and synonyms parameters on LookML fields, keep text short and in business words, and hide internal ID fields. Commit the files through the Looker IDE and Git. Add verified queries to the conversational analytics agent as examples.",
       "bulkSnippet": {
         "lang": "json",
         "code": "",
+        "title": "",
         "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices"
       },
       "sources": [
-        { "t": "Best practices for configuring Conversational Analytics in Looker", "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices" },
-        { "t": "Conversational analytics overview (Looker 26.6)", "u": "https://docs.cloud.google.com/looker/docs/2606/conversational-analytics-overview" },
-        { "t": "Conversational Analytics API release notes", "u": "https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/release-notes" },
-        { "t": "Write LookML with Gemini assistance", "u": "https://docs.cloud.google.com/looker/docs/2604/write-lookml-gemini?hl=ja" },
-        { "t": "Explore summary with Gemini", "u": "https://docs.cloud.google.com/looker/docs/2602/explore-summary-gemini?hl=en" },
-        { "t": "Track data lineage with Knowledge Catalog", "u": "https://docs.cloud.google.com/looker/docs/looker-core-lineage?hl=en" }
+        {
+          "t": "Best practices for configuring Conversational Analytics in Looker",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices"
+        },
+        {
+          "t": "Conversational Analytics in Looker overview",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
+        },
+        {
+          "t": "Conversational Analytics API release notes",
+          "u": "https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/release-notes"
+        },
+        {
+          "t": "Write LookML with Gemini assistance",
+          "u": "https://docs.cloud.google.com/looker/docs/write-lookml-gemini"
+        },
+        {
+          "t": "Explore summary with Gemini",
+          "u": "https://docs.cloud.google.com/looker/docs/explore-summary-gemini"
+        },
+        {
+          "t": "Track data lineage with Knowledge Catalog",
+          "u": "https://docs.cloud.google.com/looker/docs/looker-core-lineage"
+        }
       ]
     }
   ],
   "notes": [
     {
-      "topic": "Method and limits",
-      "text": "WebFetch failed for every vendor docs host (DNS error) and the proxy denied direct curl (403), so no page was read in full. All facts come from WebSearch result summaries, and only URLs seen in results are cited. Treat 'not found' as not found in snippets.",
-      "sources": []
-    },
-    {
-      "topic": "Snowflake sample values source",
-      "text": "The sample values level rests on earlier repo research (research/snowflake.json), not a fresh check this session. Status labels for Autopilot, lineage and Cortex Analyst evaluations were not seen in snippets.",
-      "sources": [
-        { "t": "YAML vs DDL authoring for semantic views", "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl" }
-      ]
-    },
-    {
       "topic": "Databricks Data Classification status",
-      "text": "Release notes show Public Preview 2025-10-13 and GA 2026-04-20. Scanning views reached Beta on 2026-09-15. Several doc copies still carry a Preview banner.",
+      "text": "Release notes show GA on 2026-04-20. Scanning views reached Beta on 2026-09-15, the API went GA on 2026-10-14, and auto-tag configuration in the API remains Public Preview.",
       "sources": [
-        { "t": "Data Classification release notes", "u": "https://docs.databricks.com/aws/en/release-notes/data-classification" }
+        {
+          "t": "Data Classification release notes",
+          "u": "https://docs.databricks.com/aws/en/release-notes/data-classification"
+        }
       ]
     },
     {
-      "topic": "Databricks AI comments object support",
-      "text": "The AWS and GCP doc copies disagree on whether views and materialized views are supported. Not resolved.",
+      "topic": "Databricks bulk comments",
+      "text": "ALTER TABLE ... ALTER COLUMN accepts several column changes in one statement on Runtime 16.3 and above, separated by commas.",
       "sources": [
-        { "t": "AI-generated comments", "u": "https://docs.databricks.com/aws/en/comments/ai-comments" }
+        {
+          "t": "ALTER TABLE ... COLUMN clause",
+          "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-alter-table-manage-column"
+        }
       ]
     },
     {
-      "topic": "Genie naming and status",
-      "text": "Databricks Assistant was renamed Genie Code. Genie Agent mode is Public Preview or Beta per 2026 release notes. Genie benchmarks and value sampling showed no status label in snippets.",
+      "topic": "Genie naming",
+      "text": "Genie Spaces are now called Genie Agents, and docs moved to the genie-agents path. Benchmarks and value sampling pages carry no status label.",
       "sources": [
-        { "t": "AI/BI and Genie release notes 2026", "u": "https://docs.databricks.com/gcp/en/ai-bi/release-notes/2026" }
+        {
+          "t": "Tune Genie Agent quality",
+          "u": "https://docs.databricks.com/aws/en/genie-agents/tune-quality"
+        }
       ]
     },
     {
-      "topic": "BigQuery naming and status",
-      "text": "Dataplex Universal Catalog is now called Knowledge Catalog in newer docs. Conversational Analytics API is GA for BigQuery and Looker per a 2026-06-23 release note, and verified queries were formerly golden queries.",
+      "topic": "BigQuery column descriptions and lineage",
+      "text": "ALTER COLUMN SET OPTIONS (description=...) is documented for tables and views. Column-level lineage for BigQuery jobs went GA on 2025-09-29.",
       "sources": [
-        { "t": "Conversational Analytics API release notes", "u": "https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/release-notes" },
-        { "t": "Conversational analytics in BigQuery", "u": "https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/bigquery" }
+        {
+          "t": "DDL statements in GoogleSQL",
+          "u": "https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language"
+        },
+        {
+          "t": "Knowledge Catalog release notes",
+          "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+        }
       ]
     },
     {
-      "topic": "Unverified claims",
-      "text": "Unverified: BigQuery column ALTER syntax (third-party tutorial only), BigQuery column lineage GA, Sensitive Data Protection GA, any Looker description generation, any Looker bulk API, and Databricks query-history suggestions.",
-      "sources": []
+      "topic": "BigQuery naming",
+      "text": "Dataplex Universal Catalog is now called Knowledge Catalog. Conversational Analytics API is GA for BigQuery and Looker as of 2026-06-23, and verified queries were formerly golden queries.",
+      "sources": [
+        {
+          "t": "Conversational Analytics API release notes",
+          "u": "https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/release-notes"
+        }
+      ]
+    },
+    {
+      "topic": "Snowflake sample values",
+      "text": "SAMPLE_VALUES and IS_ENUM are supported in semantic view YAML and DDL. IS_ENUM marks the listed values as the full set and is valid on dimensions only.",
+      "sources": [
+        {
+          "t": "YAML vs DDL authoring for semantic views",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl"
+        }
+      ]
+    },
+    {
+      "topic": "Looker scored none",
+      "text": "AI descriptions, auto classification, query history, column lineage and evals were checked against Looker docs and are not offered natively. Descriptions are written as LookML.",
+      "sources": [
+        {
+          "t": "Conversational Analytics in Looker overview",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
+        },
+        {
+          "t": "Track data lineage with Knowledge Catalog",
+          "u": "https://docs.cloud.google.com/looker/docs/looker-core-lineage"
+        }
+      ]
     }
   ]
 }
