@@ -228,9 +228,9 @@
       },
       "enrichHowTo": "Write dataset descriptions and tags with PATCH /api/v1/data-sets/{id} in the Data sets API, and load business terms with the Glossaries API import. Insight Advisor synonyms are edited by hand in each app's Vocabulary, because the REST API list has no vocabulary or logical model endpoint.",
       "bulkSnippet": {
-        "lang": "bash",
-        "code": "curl \"https://{tenant}.{region}.qlikcloud.com/api/v1/data-sets/{data-set-id}\" \\\n-X PATCH \\\n-H \"Content-type: application/json\" \\\n-H \"Authorization: Bearer <access_token>\" \\\n-d '[{\"op\":\"replace\",\"path\":\"/description\",\"value\":\"Daily sales by store\"}]'",
-        "u": "https://qlik.dev/apis/rest/data-sets/"
+        "lang": "",
+        "code": "",
+        "u": ""
       },
       "sources": [
         {
