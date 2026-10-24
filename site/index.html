@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Semantic layer page: 3 design prototypes</title>
+<title>Semantic layer page: design prototypes</title>
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; }
@@ -23,7 +23,8 @@
   <button data-src="a-guide.html">A. Field guide</button>
   <button data-src="b-matrix.html">B. Can I semantic?</button>
   <button data-src="c-map.html">C. Stack map</button>
-  <span class="hint">Keys 1, 2, 3 switch. Throwaway prototype.</span>
+  <button data-src="hub.html">D. Semantic Context Index</button>
+  <span class="hint">Keys 1 to 4 switch. Throwaway prototype.</span>
   <a id="open" href="a-guide.html" target="_blank">Open in new tab</a>
 </nav>
 <iframe id="f" title="Design prototype"></iframe>
@@ -33,11 +34,11 @@ function show(i) {
   btns.forEach((b, k) => b.setAttribute('aria-pressed', k === i));
   document.getElementById('f').src = btns[i].dataset.src;
   document.getElementById('open').href = btns[i].dataset.src;
-  history.replaceState(null, '', '#' + 'abc'[i]);
+  history.replaceState(null, '', '#' + 'abcd'[i]);
 }
 btns.forEach((b, i) => (b.onclick = () => show(i)));
-addEventListener('keydown', (e) => { const i = '123'.indexOf(e.key); if (i >= 0) show(i); });
-show(Math.max(0, 'abc'.indexOf(location.hash.slice(1))));
+addEventListener('keydown', (e) => { const i = '1234'.indexOf(e.key); if (i >= 0) show(i); });
+show(Math.max(0, 'abcd'.indexOf(location.hash.slice(1))));
 </script>
 </body>
 </html>

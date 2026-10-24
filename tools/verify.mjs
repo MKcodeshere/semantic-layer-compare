@@ -102,6 +102,37 @@ await check('C hover draws links in whole map', "document.querySelectorAll('#cli
 await shot('c-map-hover.png');
 errs('interactions');
 
+
+// D: Semantic Context Index (hub.html)
+for (const [w, h, tag] of [[1440, 900, 'desktop'], [390, 844, 'mobile']]) {
+  await page.setViewportSize({ width: w, height: h });
+  for (const v of ['ask', 'products', 'stack', 'compare', 'catalogs', 'grid']) {
+    await go(`${U}/hub.html?${v}#${v}`);
+    await check(`D ${v} ${tag} has no horizontal page overflow`, `document.documentElement.scrollWidth <= ${w + 2}`);
+    if (v === 'ask' || v === 'products' || v === 'stack') await shot(`d-hub-${v}-${tag}.png`);
+  }
+}
+await page.setViewportSize({ width: 1440, height: 900 });
+await go(`${U}/hub.html?products#products`);
+await check('D products shows one card per vendor', "document.querySelectorAll('.card[data-open]').length === SL.vendors.length");
+await go(`${U}/hub.html?grid#grid`);
+await check('D grid shows one cell per vendor and cap', "document.querySelectorAll('table.grid td button').length === SL.vendors.length * SL.caps.length");
+await go(`${U}/hub.html?catalogs#catalogs`);
+await check('D catalogs lists every catalog', "document.querySelectorAll('.catcard').length === SL.vendors.filter(v=>v.category==='catalog').length");
+await check('D catalogs has platform-built catalogs', "document.querySelectorAll('.lane')[0].querySelectorAll('.catcard').length > 0");
+await page.fill('#q', 'azure');
+await go(`${U}/hub.html?products#products`);
+await page.fill('#q', 'azure');
+await check('D search finds Azure products', "document.querySelectorAll('.card[data-open]').length >= 2");
+await page.fill('#q', 'purview');
+await check('D search finds Purview', "!!document.querySelector('.card[data-open=\"purview\"]')");
+await page.fill('#q', '');
+await page.evaluate(`document.querySelector('.card[data-open]').click()`);
+await page.waitForTimeout(350);
+await check('D card opens drawer', "document.querySelector('#drawer').classList.contains('open')");
+await shot('d-hub-drawer.png');
+errs('D hub');
+
 const dashed = readdirSync(site).filter((f) => f.endsWith('.html') && /[—–]/.test(readFileSync(join(site, f), 'utf8')));
 if (dashed.length) { console.log(`FAIL em or en dash in page markup: ${dashed.join(', ')}`); fail = 1; } else console.log('PASS no em or en dash in page markup');
 const dataDash = /[—–]/.test(readFileSync(join(site, 'data.js'), 'utf8').replace(/"code": "(?:[^"\\]|\\.)*"/g, ''));

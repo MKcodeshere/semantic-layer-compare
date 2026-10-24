@@ -43,7 +43,7 @@
   .cta select { height: 42px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); padding: 0 14px; font: inherit; font-size: 15px; color: var(--ink); }
   .board { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 22px; box-shadow: 0 20px 50px -30px rgb(24 24 27 / .25); }
   .board h2 { font-size: 15px; margin: 0 0 16px; font-weight: 600; color: var(--ink2); }
-  .board .col { padding: 12px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 112px 1fr; gap: 14px; align-items: start; }
+  .board .col { padding: 12px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 14px; align-items: start; }
   .board .col:first-of-type { border-top: 0; padding-top: 0; }
   .board .k { font-size: 13px; font-weight: 600; }
   .board .k b { display: block; font: 600 30px/1 'Geist Mono', monospace; letter-spacing: -0.04em; margin-bottom: 2px; }
@@ -141,7 +141,8 @@
   @media (max-width: 960px) {
     .wrap { padding: 0 18px; }
     nav.top .links { display: none; }
-    .hero { grid-template-columns: 1fr; padding-top: 40px; padding-bottom: 40px; gap: 32px; }
+    .hero { grid-template-columns: minmax(0, 1fr); padding-top: 40px; padding-bottom: 40px; gap: 32px; }
+    #jump { max-width: 100%; min-width: 0; }
     .ladder { grid-template-columns: 1fr; } .rung { min-height: 0 !important; }
     .layout { grid-template-columns: minmax(0, 1fr); } .toc { display: none; }
     article.ch { padding: 22px 18px; }

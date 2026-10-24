@@ -79,11 +79,12 @@ nav.tabs small { font: 500 11px var(--mono); color: var(--muted); margin-left: 4
 main .wrap { padding-block: 22px 56px; }
 .viewhead { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: baseline; justify-content: space-between; margin-bottom: 16px; }
 .viewhead h2 { font: 600 22px/1.2 var(--display); margin: 0; }
+.viewhead > * { min-width: 0; max-width: 100%; }
 .viewhead p { margin: 4px 0 0; color: var(--ink2); max-width: 70ch; }
 .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .chip { height: 30px; padding: 0 11px; border-radius: 999px; border: 1px solid var(--rule2); background: var(--sheet); cursor: pointer; font-size: 13px; white-space: nowrap; color: var(--ink2); }
 .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-select.sel { height: 32px; border: 1px solid var(--rule2); border-radius: var(--r); background: var(--sheet); padding: 0 8px; max-width: 100%; }
+select.sel { min-width: 0; height: 32px; border: 1px solid var(--rule2); border-radius: var(--r); background: var(--sheet); padding: 0 8px; max-width: 100%; }
 .empty { padding: 28px; text-align: center; color: var(--muted); border: 1px dashed var(--rule2); border-radius: var(--r); }
 
 /* Level marks: shape plus color */
@@ -465,7 +466,7 @@ function viewCompare() {
       return `<div class="cmprow ${diff ? 'diff' : ''}" style="grid-template-columns:${cols}"><div class="k">${esc(c.label)}<small>${esc(c.long)}</small></div>${vs.map((v) => { const x = v.caps[c.key]; return `<div class="v">${mark(x.l)}<span>${esc(x.n)}${x.u ? ` <a href="${esc(x.u)}" target="_blank" rel="noopener" class="mono" style="font-size:11.5px">${esc(host(x.u))}</a>` : ''}</span></div>`; }).join('')}</div>`;
     }).join('')).join('');
   return `<div class="viewhead"><div><h2>Compare</h2><p>Compare up to 4 products. A teal edge marks a capability where the products are different.</p></div>
-    <div class="controls"><select class="sel" id="cmpAdd" aria-label="Add a product"><option value="">Add a product</option>${all.filter((v) => !state.compare.includes(v.id)).map((v) => `<option value="${v.id}">${esc(shortName(v))}</option>`).join('')}</select>
+    <div class="controls"><select class="sel" id="cmpAdd" style="width:min(320px, 100%)" aria-label="Add a product"><option value="">Add a product</option>${all.filter((v) => !state.compare.includes(v.id)).map((v) => `<option value="${v.id}">${esc(shortName(v))}</option>`).join('')}</select>
     ${vs.map((v) => `<button class="chip" type="button" data-rm="${v.id}" aria-label="Remove ${esc(shortName(v))}">${esc(shortName(v))} &#215;</button>`).join('')}</div></div>
   ${vs.length ? `<div class="tblwrap"><div class="cmpgrid">
     <div class="cmprow head" style="grid-template-columns:${cols}"><div>Capability</div>${vs.map((v) => `<div>${esc(shortName(v))}<div class="mono" style="font:12px var(--mono);color:var(--muted)">${esc(VERDICT[v.verdict])}</div></div>`).join('')}</div>
