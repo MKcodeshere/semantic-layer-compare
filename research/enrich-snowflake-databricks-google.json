@@ -6,32 +6,32 @@
       "caps": {
         "aiDescriptions": {
           "l": 3,
-          "n": "AI_GENERATE_TABLE_DESC drafts table, view and column descriptions, optionally from sample data. SQL path GA 2025-09-29. Snowsight UI path also exists.",
+          "n": "AI_GENERATE_TABLE_DESC drafts table, view and column descriptions, optionally from sample data. The SQL path is GA since 2025-09-29. A Snowsight UI path also exists.",
           "u": "https://docs.snowflake.com/en/user-guide/sql-cortex-descriptions"
         },
         "bulkMetadata": {
           "l": 3,
-          "n": "One ALTER TABLE ... ALTER (...) statement sets COMMENT on many columns. COMMENT ON handles one object. No file import tool.",
+          "n": "One ALTER TABLE ... ALTER (...) statement sets COMMENT on many columns. COMMENT ON handles one object. No file import tool exists.",
           "u": "https://docs.snowflake.com/en/sql-reference/sql/alter-table-column"
         },
         "autoClassify": {
           "l": 3,
-          "n": "A classification profile set on a database auto-classifies its tables (GA Aug 2025). Semi-structured data support GA 2026-02-05.",
+          "n": "A classification profile set on a database auto-classifies its tables (GA Aug 2025). Support for semi-structured data is GA since 2026-02-05.",
           "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-02-05-sensitive-data-classification-json"
         },
         "sampleValues": {
           "l": 3,
-          "n": "Semantic views accept SAMPLE_VALUES and IS_ENUM on dimensions, in both YAML and DDL. The values are authored, not auto-sampled by this setting.",
+          "n": "Semantic views accept SAMPLE_VALUES and IS_ENUM on dimensions, in both YAML and DDL. The author writes the values. This setting does not auto-sample them.",
           "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl"
         },
         "queryHistory": {
           "l": 3,
-          "n": "Semantic View Autopilot uses query history visible to the creating role to suggest relationships and verified queries. No preview label on the page.",
+          "n": "Semantic View Autopilot uses query history visible to the creating role. It suggests relationships and verified queries. The page shows no preview label.",
           "u": "https://docs.snowflake.com/en/user-guide/views-semantic/autopilot"
         },
         "lineage": {
           "l": 3,
-          "n": "Snowsight Lineage tab shows column lineage. GET_LINEAGE accepts the COLUMN domain, with a default and maximum distance of 5. Enterprise Edition or higher.",
+          "n": "The Snowsight Lineage tab shows column lineage. GET_LINEAGE accepts the COLUMN domain. The default and maximum distance is 5. It needs Enterprise Edition or higher.",
           "u": "https://docs.snowflake.com/en/sql-reference/functions/get_lineage-snowflake-core"
         },
         "evals": {
@@ -40,7 +40,7 @@
           "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst-evaluations"
         }
       },
-      "enrichHowTo": "Call the AI_GENERATE_TABLE_DESC stored procedure on each table with describe_columns set to true to draft table and column descriptions. Review them, then write the final text with ALTER TABLE ... ALTER (col COMMENT '...', ...), many columns per statement.",
+      "enrichHowTo": "Call the AI_GENERATE_TABLE_DESC stored procedure on each table with describe_columns set to true. This drafts table and column descriptions. Review them. Then write the final text with ALTER TABLE ... ALTER (col COMMENT '...', ...), with many columns per statement.",
       "bulkSnippet": {
         "lang": "sql",
         "code": "ALTER TABLE t1 ALTER (\n  c1 COMMENT 'Customer key',\n  c5 COMMENT '50 character column'\n);",
@@ -107,17 +107,17 @@
       "caps": {
         "aiDescriptions": {
           "l": 3,
-          "n": "AI-generated comments for catalogs, schemas, tables, views, columns and more, in Catalog Explorer. GA 2024-06-27. Review advised. Saving runs ALTER, which can disrupt jobs.",
+          "n": "Catalog Explorer has AI-generated comments for catalogs, schemas, tables, views, columns and more. It is GA since 2024-06-27. Databricks advises review. Saving runs ALTER, which can disrupt jobs.",
           "u": "https://docs.databricks.com/aws/en/comments/ai-comments"
         },
         "bulkMetadata": {
           "l": 3,
-          "n": "One ALTER TABLE ... ALTER COLUMN statement can set COMMENT on several columns (Runtime 16.3 and above). SET TAGS also works. No file import tool.",
+          "n": "One ALTER TABLE ... ALTER COLUMN statement can set COMMENT on several columns (Runtime 16.3 and above). SET TAGS also works. No file import tool exists.",
           "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-alter-table-manage-column"
         },
         "autoClassify": {
           "l": 3,
-          "n": "Data Classification GA 2026-04-20, an agentic AI system that tags sensitive data. Scanning views is Beta (2026-09-15). Auto-tag configuration in the API is Public Preview.",
+          "n": "Data Classification is GA since 2026-04-20. It is an agentic AI system that tags sensitive data. Scanning views is Beta (2026-09-15). Auto-tag configuration in the API is Public Preview.",
           "u": "https://docs.databricks.com/aws/en/release-notes/data-classification"
         },
         "sampleValues": {
@@ -127,21 +127,21 @@
         },
         "queryHistory": {
           "l": 3,
-          "n": "When you add tables, Genie searches popular workspace queries you can view and suggests them as example queries. You accept or reject each one.",
+          "n": "When you add tables, Genie searches popular workspace queries that you can view. It suggests them as example queries. You accept or reject each one.",
           "u": "https://docs.databricks.com/aws/en/genie-agents/set-up"
         },
         "lineage": {
           "l": 3,
-          "n": "system.access.column_lineage table with a rolling 1-year window. Records only when lineage can be inferred.",
+          "n": "The system.access.column_lineage table has a rolling 1-year window. It records only when the system can infer lineage.",
           "u": "https://docs.databricks.com/aws/en/admin/system-tables/lineage"
         },
         "evals": {
           "l": 3,
-          "n": "Genie benchmarks: up to 500 questions per agent, scored against reference SQL, with an Evaluations tab to track runs. No preview label on the page.",
+          "n": "Genie benchmarks allow up to 500 questions per agent. Reference SQL scores them. An Evaluations tab tracks runs. The page shows no preview label.",
           "u": "https://docs.databricks.com/aws/en/genie-agents/monitor"
         }
       },
-      "enrichHowTo": "Generate comments in Catalog Explorer with AI-generated comments, review each one, then save. For scripted writes, run ALTER TABLE ... ALTER COLUMN with several COMMENT clauses in one statement. Then add a Genie benchmark set and re-run it after each metadata change.",
+      "enrichHowTo": "Generate comments in Catalog Explorer with AI-generated comments. Review each one. Then save. For scripted writes, run ALTER TABLE ... ALTER COLUMN with several COMMENT clauses in one statement. Then add a Genie benchmark set. Re-run it after each metadata change.",
       "bulkSnippet": {
         "lang": "sql",
         "code": "ALTER TABLE students ALTER COLUMN\n  name COMMENT 'full name',\n  email COMMENT 'primary email';",
@@ -201,36 +201,36 @@
         },
         "bulkMetadata": {
           "l": 3,
-          "n": "ALTER TABLE ... ALTER COLUMN ... SET OPTIONS (description=...) sets a column description; tables and views are covered. One column per statement, so script it.",
+          "n": "ALTER TABLE ... ALTER COLUMN ... SET OPTIONS (description=...) sets a column description. It covers tables and views. It sets one column per statement, so script it.",
           "u": "https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language"
         },
         "autoClassify": {
           "l": 1,
-          "n": "Sensitive Data Protection discovery profiles BigQuery (GA) and can auto-attach sensitivity tags. It is a separate product from BigQuery.",
+          "n": "Sensitive Data Protection discovery profiles BigQuery (GA). It can auto-attach sensitivity tags. It is a separate product from BigQuery.",
           "u": "https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles"
         },
         "sampleValues": {
           "l": 1,
-          "n": "Agents can match terms to values using existing embeddings of your column values (for example Texas to TX). You must create the embeddings.",
+          "n": "Agents can match terms to values with existing embeddings of your column values (for example Texas to TX). You must create the embeddings.",
           "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
         },
         "queryHistory": {
           "l": 0,
-          "n": "No query-history mining for agent context found. Teams add verified queries (formerly golden queries), glossaries and instructions by hand.",
+          "n": "The docs show no query-history mining for agent context. Teams add verified queries (formerly golden queries), glossaries and instructions by hand.",
           "u": "https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/bigquery"
         },
         "lineage": {
           "l": 3,
-          "n": "Column-level lineage GA 2025-09-29 for BigQuery jobs, in Knowledge Catalog. Custom sources support table level only.",
+          "n": "Column-level lineage for BigQuery jobs is GA since 2025-09-29, in Knowledge Catalog. Custom sources support table level only.",
           "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
         },
         "evals": {
           "l": 0,
-          "n": "No eval runner found. Verified queries guide the agent, and the chat shows the agent's reasoning for each answer.",
+          "n": "The docs show no eval runner. Verified queries guide the agent. The chat shows the reasoning of the agent for each answer.",
           "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
         }
       },
-      "enrichHowTo": "Run data insights on a table to draft table and column descriptions, edit them, and publish. For scripted writes, run ALTER TABLE ... ALTER COLUMN ... SET OPTIONS (description=...) per column. Then add verified queries and glossary terms to the data agent.",
+      "enrichHowTo": "Run data insights on a table to draft table and column descriptions. Edit them and publish. For scripted writes, run ALTER TABLE ... ALTER COLUMN ... SET OPTIONS (description=...) per column. Then add verified queries and glossary terms to the data agent.",
       "bulkSnippet": {
         "lang": "sql",
         "code": "ALTER TABLE mydataset.mytable\nALTER COLUMN price\nSET OPTIONS (description = 'Price per unit');",
@@ -281,41 +281,41 @@
       "caps": {
         "aiDescriptions": {
           "l": 0,
-          "n": "Gemini LookML assistant (Preview) writes dimensions, dimension groups and measures. No field description or label generation is documented.",
+          "n": "Gemini LookML assistant (Preview) writes dimensions, dimension groups and measures. The docs do not describe field description or label generation.",
           "u": "https://docs.cloud.google.com/looker/docs/write-lookml-gemini"
         },
         "bulkMetadata": {
           "l": 1,
-          "n": "Descriptions, labels and synonyms are LookML text in project files. Bulk edits mean scripting file changes and using Git. No metadata import API.",
+          "n": "Descriptions, labels and synonyms are LookML text in project files. Bulk edits need scripted file changes and Git. No metadata import API exists.",
           "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices"
         },
         "autoClassify": {
           "l": 0,
-          "n": "No classification feature in Looker docs. Teams classify in the warehouse, for example with BigQuery Sensitive Data Protection.",
+          "n": "The Looker docs show no classification feature. Teams classify in the warehouse, for example with BigQuery Sensitive Data Protection.",
           "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
         },
         "sampleValues": {
           "l": 3,
-          "n": "Conversational Analytics can sample field values and fuzzy search them to pick filter values. Conversational Analytics API GA 2026-06-23.",
+          "n": "Conversational Analytics can sample field values and fuzzy search them to pick filter values. Conversational Analytics API is GA since 2026-06-23.",
           "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices"
         },
         "queryHistory": {
           "l": 0,
-          "n": "No query-history mining for LookML or verified queries documented. System Activity only reports usage.",
+          "n": "The docs do not describe query-history mining for LookML or verified queries. System Activity only reports usage.",
           "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
         },
         "lineage": {
           "l": 0,
-          "n": "Knowledge Catalog lineage for Looker (Google Cloud core) is Preview and object level only. Column-level lineage is not supported.",
+          "n": "Knowledge Catalog lineage for Looker (Google Cloud core) is Preview. It is object level only. Looker does not support column-level lineage.",
           "u": "https://docs.cloud.google.com/looker/docs/looker-core-lineage"
         },
         "evals": {
           "l": 0,
-          "n": "No eval runner found. Verified queries (golden queries) serve as examples; pivots and custom fields are unsupported. Admins can review user feedback (Preview).",
+          "n": "The docs show no eval runner. Verified queries (golden queries) serve as examples. Pivots and custom fields are unsupported. Admins can review user feedback (Preview).",
           "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
         }
       },
-      "enrichHowTo": "Write description, label and synonyms parameters on LookML fields, keep text short and in business words, and hide internal ID fields. Commit the files through the Looker IDE and Git. Add verified queries to the conversational analytics agent as examples.",
+      "enrichHowTo": "Write description, label and synonyms parameters on LookML fields. Keep text short and in business words. Hide internal ID fields. Commit the files through the Looker IDE and Git. Add verified queries to the conversational analytics agent as examples.",
       "bulkSnippet": {
         "lang": "json",
         "code": "",
@@ -353,7 +353,7 @@
   "notes": [
     {
       "topic": "Databricks Data Classification status",
-      "text": "Release notes show GA on 2026-04-20. Scanning views reached Beta on 2026-09-15, the API went GA on 2026-10-14, and auto-tag configuration in the API remains Public Preview.",
+      "text": "Release notes show GA on 2026-04-20. Scanning views reached Beta on 2026-09-15. The API went GA on 2026-10-14. Auto-tag configuration in the API remains Public Preview.",
       "sources": [
         {
           "t": "Data Classification release notes",
@@ -363,7 +363,7 @@
     },
     {
       "topic": "Databricks bulk comments",
-      "text": "ALTER TABLE ... ALTER COLUMN accepts several column changes in one statement on Runtime 16.3 and above, separated by commas.",
+      "text": "On Runtime 16.3 and above, ALTER TABLE ... ALTER COLUMN accepts several column changes in one statement. Commas separate the changes.",
       "sources": [
         {
           "t": "ALTER TABLE ... COLUMN clause",
@@ -373,7 +373,7 @@
     },
     {
       "topic": "Genie naming",
-      "text": "Genie Spaces are now called Genie Agents, and docs moved to the genie-agents path. Benchmarks and value sampling pages carry no status label.",
+      "text": "Genie Spaces are now called Genie Agents. The docs moved to the genie-agents path. The Benchmarks and value sampling pages carry no status label.",
       "sources": [
         {
           "t": "Tune Genie Agent quality",
@@ -397,7 +397,7 @@
     },
     {
       "topic": "BigQuery naming",
-      "text": "Dataplex Universal Catalog is now called Knowledge Catalog. Conversational Analytics API is GA for BigQuery and Looker as of 2026-06-23, and verified queries were formerly golden queries.",
+      "text": "Dataplex Universal Catalog is now called Knowledge Catalog. Conversational Analytics API is GA for BigQuery and Looker as of 2026-06-23. Verified queries were formerly golden queries.",
       "sources": [
         {
           "t": "Conversational Analytics API release notes",
@@ -407,7 +407,7 @@
     },
     {
       "topic": "Snowflake sample values",
-      "text": "SAMPLE_VALUES and IS_ENUM are supported in semantic view YAML and DDL. IS_ENUM marks the listed values as the full set and is valid on dimensions only.",
+      "text": "Semantic view YAML and DDL support SAMPLE_VALUES and IS_ENUM. IS_ENUM marks the listed values as the full set. IS_ENUM is valid on dimensions only.",
       "sources": [
         {
           "t": "YAML vs DDL authoring for semantic views",
@@ -417,7 +417,7 @@
     },
     {
       "topic": "Looker scored none",
-      "text": "AI descriptions, auto classification, query history, column lineage and evals were checked against Looker docs and are not offered natively. Descriptions are written as LookML.",
+      "text": "Looker does not offer AI descriptions, auto classification, query history, column lineage or evals natively. The Looker docs support this. Descriptions are written as LookML.",
       "sources": [
         {
           "t": "Conversational Analytics in Looker overview",

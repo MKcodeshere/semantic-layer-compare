@@ -4,9 +4,9 @@
       "id": "bigquery",
       "name": "Google BigQuery",
       "category": "cloud-dw",
-      "tagline": "Google Cloud serverless data warehouse with built-in Gemini agents, graph, and vector search.",
+      "tagline": "BigQuery is a Google Cloud serverless data warehouse. It has built-in Gemini agents, graph and vector search.",
       "verdict": "partial",
-      "verdictNote": "Data agents take descriptions, synonyms, verified queries, and glossary terms, but BigQuery has no general metric or semantic view object; graph measures are Preview.",
+      "verdictNote": "Data agents take descriptions, synonyms, verified queries and glossary terms. BigQuery has no general metric or semantic view object. Graph measures are Preview.",
       "artifacts": [
         {
           "name": "Data agents (conversational analytics in BigQuery)",
@@ -116,12 +116,12 @@
       "caps": {
         "metrics": {
           "l": 2,
-          "n": "Only MEASURE in property graph DDL, Preview since Apr 2026; no general metric object. Query through GRAPH_EXPAND and AGG.",
+          "n": "MEASURE exists only in property graph DDL, Preview since Apr 2026. There is no general metric object. Query it through GRAPH_EXPAND and AGG.",
           "u": "https://docs.cloud.google.com/bigquery/docs/graph-measures"
         },
         "dimensions": {
           "l": 0,
-          "n": "No dimension, hierarchy, or time-grain object. Teams use column descriptions and agent field context, or LookML.",
+          "n": "There is no dimension, hierarchy or time-grain object. Teams use column descriptions and agent field context, or LookML.",
           "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq"
         },
         "relationships": {
@@ -131,12 +131,12 @@
         },
         "synonyms": {
           "l": 3,
-          "n": "Data agents accept table and column descriptions, synonyms, tags, and system instructions. Custom glossary terms were Preview in Feb 2026.",
+          "n": "Data agents accept table and column descriptions, synonyms, tags and system instructions. Custom glossary terms were Preview in Feb 2026.",
           "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq"
         },
         "verifiedQueries": {
           "l": 3,
-          "n": "Verified queries (formerly golden queries) pair a question with SQL, support parameters, and return matched_query. GA with agents Jun 2026.",
+          "n": "Verified queries (formerly golden queries) pair a question with SQL. They support parameters and return matched_query. They are GA with agents since Jun 2026.",
           "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
         },
         "nl2sql": {
@@ -146,12 +146,12 @@
         },
         "ontology": {
           "l": 0,
-          "n": "No ontology object. Closest: property graphs for entities and links, Knowledge Catalog glossary for terms.",
+          "n": "There is no ontology object. The closest items are property graphs for entities and links, and the Knowledge Catalog glossary for terms.",
           "u": "https://docs.cloud.google.com/knowledge-catalog/docs/catalog-overview"
         },
         "graph": {
           "l": 3,
-          "n": "GA Aug 31, 2026, with GQL and SQL/PGQ. Standard edition and on-demand billing end for graph processing Apr 26, 2027.",
+          "n": "Graph is GA since Aug 31, 2026, with GQL and SQL/PGQ. Standard edition and on-demand billing end for graph processing on Apr 26, 2027.",
           "u": "https://docs.cloud.google.com/bigquery/docs/release-notes"
         },
         "vector": {
@@ -161,34 +161,34 @@
         },
         "mcp": {
           "l": 3,
-          "n": "GA Apr 20, 2026, with metadata and SQL tools. No conversational analytics tool listed; MCP Toolbox adds ask_data_insights.",
+          "n": "GA since Apr 20, 2026, with metadata and SQL tools. The server lists no conversational analytics tool. MCP Toolbox adds ask_data_insights.",
           "u": "https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp"
         },
         "governance": {
           "l": 3,
-          "n": "Agents see only data the user can query and cannot run DML. Graph metadata syncs to Knowledge Catalog in Preview.",
+          "n": "Agents see only data that the user can query. Agents cannot run DML. Graph metadata syncs to Knowledge Catalog in Preview.",
           "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
         },
         "openStandard": {
           "l": 1,
-          "n": "Graph follows ISO GQL and SQL/PGQ. No OSI or Ossie converter for BigQuery was found in the Ossie converters repo.",
+          "n": "Graph follows ISO GQL and SQL/PGQ. The Ossie converters repo has no OSI or Ossie converter for BigQuery.",
           "u": "https://docs.cloud.google.com/bigquery/docs/graph-iso-standards"
         }
       },
       "offers": [
-        "Data agents hold table and column descriptions, synonyms, tags, and parameterized verified queries as context (GA Jun 2026).",
-        "Conversational Analytics API v1 lets your own app call the same agents, over BigQuery and Looker sources.",
-        "Remote BigQuery MCP server (GA Apr 2026) exposes metadata and SQL tools; MCP Toolbox adds ask_data_insights.",
-        "Property graphs (GA Aug 2026) declare entities and relationships over tables and can be a data agent source.",
-        "Knowledge Catalog glossary terms can be imported into agents, up to 10 terms per table.",
+        "Data agents hold table and column descriptions, synonyms, tags and parameterized verified queries as context (GA Jun 2026).",
+        "Conversational Analytics API v1 lets your own app call the same agents. The agents work over BigQuery and Looker sources.",
+        "The remote BigQuery MCP server (GA Apr 2026) exposes metadata and SQL tools. MCP Toolbox adds ask_data_insights.",
+        "Property graphs (GA Aug 2026) declare entities and relationships over tables. A property graph can be a data agent source.",
+        "Users can import Knowledge Catalog glossary terms into agents. The limit is 10 terms per table.",
         "VECTOR_SEARCH and vector indexes give semantic search in SQL."
       ],
       "gaps": [
-        "No general metric or semantic view object. Only graph MEASURE inside property graphs, which is Preview.",
-        "No declared dimension, hierarchy, or time-grain object. Agents rely on column metadata and instructions.",
-        "Relationships and glossary entries in system instructions are free YAML text, not typed fields.",
-        "Agent context lives inside each agent. No portable export; no OSI or Ossie converter for BigQuery found.",
-        "The BigQuery MCP server doc lists metadata and SQL tools only, with no conversational analytics tool."
+        "There is no general metric or semantic view object. Only graph MEASURE inside property graphs exists, and it is Preview.",
+        "There is no declared dimension, hierarchy or time-grain object. Agents rely on column metadata and instructions.",
+        "Relationships and glossary entries in system instructions are free YAML text. They are not typed fields.",
+        "Agent context lives inside each agent. There is no portable export. There is no OSI or Ossie converter for BigQuery.",
+        "The BigQuery MCP server doc lists metadata and SQL tools only. It lists no conversational analytics tool."
       ],
       "fillWith": [
         "Looker (LookML)",
@@ -196,7 +196,7 @@
         "Cube",
         "MCP Toolbox for Databases"
       ],
-      "nl2sqlPath": "Create a data agent with table descriptions, synonyms, parameterized verified queries, and glossary terms, then call it through the Conversational Analytics API. Give other agents access through the BigQuery MCP server or MCP Toolbox ask_data_insights. For governed metrics, keep them as verified queries or define them in a semantic layer such as LookML.",
+      "nl2sqlPath": "Create a data agent with table descriptions, synonyms, parameterized verified queries and glossary terms. Call it through the Conversational Analytics API. Give other agents access through the BigQuery MCP server or MCP Toolbox ask_data_insights. For governed metrics, keep them as verified queries. You can also define them in a semantic layer such as LookML.",
       "snippet": {
         "lang": "json",
         "title": "Data agent context: table metadata plus one verified example query",
@@ -279,9 +279,9 @@
       "id": "looker",
       "name": "Looker (Google Cloud)",
       "category": "semantic-layer",
-      "tagline": "BI platform with LookML, a code-defined semantic layer used by Gemini agents.",
+      "tagline": "Looker is a BI platform with LookML. LookML is a code-defined semantic layer that Gemini agents use.",
       "verdict": "native",
-      "verdictNote": "LookML defines metrics, dimensions, joins, and field context in versioned code, and Looker agents read it directly.",
+      "verdictNote": "LookML defines metrics, dimensions, joins and field context in versioned code. Looker agents read it directly.",
       "artifacts": [
         {
           "name": "LookML (models, views, Explores, joins, dimensions, measures)",
@@ -383,85 +383,85 @@
       "caps": {
         "metrics": {
           "l": 3,
-          "n": "LookML measures (sum, count, others) are defined once as version-controlled code and reused by every query.",
+          "n": "LookML measures (sum, count and others) are defined once as version-controlled code. Every query reuses them.",
           "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts"
         },
         "dimensions": {
           "l": 3,
-          "n": "Dimensions and dimension_group declare fields; one dimension_group creates several time-related dimensions at once.",
+          "n": "Dimensions and dimension_group declare fields. One dimension_group creates several time-related dimensions at once.",
           "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts"
         },
         "relationships": {
           "l": 3,
-          "n": "Explore join declarations with sql_on; Looker generates join SQL when a query uses fields from several views.",
+          "n": "Explore join declarations use sql_on. Looker generates join SQL when a query uses fields from several views.",
           "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts"
         },
         "synonyms": {
           "l": 3,
-          "n": "Field description, label, and synonyms parameters plus agent instructions and glossaries feed Conversational Analytics.",
+          "n": "Field description, label and synonyms parameters feed Conversational Analytics. Agent instructions and glossaries also feed it.",
           "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices"
         },
         "verifiedQueries": {
           "l": 3,
-          "n": "Verified (golden) queries pair questions with Explore queries; GA Aug 28, 2026. Docs advise 30 to 50 pairs at most.",
+          "n": "Verified (golden) queries pair questions with Explore queries. They are GA since Aug 28, 2026. The docs advise 30 to 50 pairs at most.",
           "u": "https://docs.cloud.google.com/looker/docs/release-notes"
         },
         "nl2sql": {
           "l": 3,
-          "n": "Conversational Analytics GA Nov 12, 2025. Looker composes the SQL from LookML; the agent does not write it.",
+          "n": "Conversational Analytics is GA since Nov 12, 2025. Looker composes the SQL from LookML. The agent does not write it.",
           "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
         },
         "ontology": {
           "l": 0,
-          "n": "No ontology object. LookML models views, Explores, and fields. Knowledge Catalog ingests Looker metadata (GA Oct 2026).",
+          "n": "There is no ontology object. LookML models views, Explores and fields. Knowledge Catalog ingests Looker metadata (GA Oct 2026).",
           "u": "https://docs.cloud.google.com/looker/docs/release-notes"
         },
         "graph": {
           "l": 0,
-          "n": "No graph query in LookML. derived_analytic_model can generate BigQuery Graph objects (Preview).",
+          "n": "LookML has no graph query. derived_analytic_model can generate BigQuery Graph objects (Preview).",
           "u": "https://docs.cloud.google.com/looker/docs/reference/param-view-derived-analytic-model"
         },
         "vector": {
           "l": 0,
-          "n": "No vector search on data. Gemini in Looker lists semantic search for saved content, with no stage stated.",
+          "n": "There is no vector search on data. Gemini in Looker lists semantic search for saved content, with no stage stated.",
           "u": "https://docs.cloud.google.com/looker/docs/gemini-overview-looker"
         },
         "mcp": {
           "l": 2,
-          "n": "Looker-managed MCP server is Preview since May 27, 2026, Looker-hosted instances only. Open-source MCP Toolbox covers customer-hosted.",
+          "n": "The Looker-managed MCP server is Preview since May 27, 2026. It works on Looker-hosted instances only. Open-source MCP Toolbox covers customer-hosted instances.",
           "u": "https://docs.cloud.google.com/looker/docs/r/mcp"
         },
         "governance": {
           "l": 3,
-          "n": "Queries apply model permissions, access grants, and user attributes. LookML lives in Git with CI. Catalog sync GA Oct 2026.",
+          "n": "Queries apply model permissions, access grants and user attributes. LookML lives in Git with CI. Catalog sync is GA since Oct 2026.",
           "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
         },
         "openStandard": {
           "l": 1,
-          "n": "LookML is Looker-specific. Open SQL Interface, BI connectors, and MCP expose it. No Ossie converter for LookML found.",
+          "n": "LookML is Looker-specific. Open SQL Interface, BI connectors and MCP expose it. There is no Ossie converter for LookML.",
           "u": "https://github.com/apache/ossie-converters"
         }
       },
       "offers": [
-        "LookML declares views, dimensions, measures, and Explore joins as version-controlled code, with Looker generating the SQL.",
-        "LookML description, label, synonyms, and hidden parameters, plus agent instructions and glossaries, give agents field-level context.",
-        "Verified queries (GA Aug 2026) and up to five Explores per agent keep Conversational Analytics answers scoped.",
+        "LookML declares views, dimensions, measures and Explore joins as version-controlled code. Looker generates the SQL.",
+        "LookML description, label, synonyms and hidden parameters give agents field-level context. Agent instructions and glossaries add more context.",
+        "Verified queries (GA Aug 2026) keep Conversational Analytics answers scoped. Up to five Explores per agent do the same.",
         "Open SQL Interface, Tableau and Power BI connectors expose governed Explores to other BI tools.",
-        "Looker-managed MCP server (Preview) and open-source MCP Toolbox let your own agents query Explores through Looker.",
-        "Model permissions, access grants, and user attributes apply when Looker builds each query."
+        "The Looker-managed MCP server (Preview) and open-source MCP Toolbox let your own agents query Explores through Looker.",
+        "Model permissions, access grants and user attributes apply when Looker builds each query."
       ],
       "gaps": [
-        "LookML is proprietary. The Ossie converters repo lists no LookML converter, so there is no standard export path.",
-        "Looker-managed MCP server is Preview, Looker-hosted only, with no fine-grained OAuth scopes or Dynamic Client Registration.",
-        "Agents connect to at most five Explores; no custom fields, no pivots, and 50,000 rows per query.",
-        "No ontology, graph, or vector search on data in LookML. Forecasting and prediction are not supported in agents."
+        "LookML is proprietary. The Ossie converters repo lists no LookML converter. There is no standard export path.",
+        "The Looker-managed MCP server is Preview and Looker-hosted only. It has no fine-grained OAuth scopes and no Dynamic Client Registration.",
+        "Agents connect to at most five Explores. They support no custom fields and no pivots. The limit is 50,000 rows per query.",
+        "LookML has no ontology, graph or vector search on data. Agents do not support forecasting and prediction."
       ],
       "fillWith": [
         "MCP Toolbox for Databases",
         "Cube",
         "dbt Semantic Layer"
       ],
-      "nl2sqlPath": "Model the data in LookML with descriptions, labels, and synonyms, build a curated Explore for each agent, and add instructions and verified queries. Use Conversational Analytics in Looker or the Conversational Analytics API (GA Jun 2026). For your own agents, use the Looker-managed MCP server (Preview) or MCP Toolbox so Looker generates the SQL.",
+      "nl2sqlPath": "Model the data in LookML with descriptions, labels and synonyms. Build a curated Explore for each agent. Add instructions and verified queries. Use Conversational Analytics in Looker or the Conversational Analytics API (GA Jun 2026). For your own agents, use the Looker-managed MCP server (Preview) or MCP Toolbox. Looker then generates the SQL.",
       "snippet": {
         "lang": "lookml",
         "title": "Minimal view with a dimension (description, synonyms) and a measure",
@@ -548,7 +548,7 @@
   "notes": [
     {
       "topic": "Does BigQuery have a native semantic or metrics object in 2026?",
-      "text": "Not found. The closest object is MEASURE inside a property graph (Preview, Apr 22, 2026), queried through GRAPH_EXPAND and AGG, and Looker's derived_analytic_model targets BigQuery Graph (Preview, May 2026). No semantic view or metric view object appears in the BigQuery release notes or docs I fetched.",
+      "text": "No. The closest object is MEASURE inside a property graph (Preview, Apr 22, 2026). Users query it through GRAPH_EXPAND and AGG. Looker's derived_analytic_model targets BigQuery Graph (Preview, May 2026). The BigQuery release notes and docs show no semantic view or metric view object.",
       "sources": [
         {
           "t": "Graph measures",
@@ -566,7 +566,7 @@
     },
     {
       "topic": "Graph measures stage",
-      "text": "Release notes label graph measures Preview on Apr 22, 2026. BigQuery Graph itself went GA on Aug 31, 2026, but no note says measures are GA, so treat measures as Preview.",
+      "text": "Release notes label graph measures Preview on Apr 22, 2026. BigQuery Graph itself went GA on Aug 31, 2026. No note says measures are GA, so treat measures as Preview.",
       "sources": [
         {
           "t": "BigQuery release notes",
@@ -576,7 +576,7 @@
     },
     {
       "topic": "Product renames",
-      "text": "Dataplex Universal Catalog became Knowledge Catalog on Apr 10, 2026 (API, CLI, and IAM names unchanged). Golden queries are now called verified queries. Looker Studio is now Data Studio and BigLake is now Google Cloud Lakehouse (Apr 2026). Gen AI Toolbox for Databases is now MCP Toolbox for Databases (repo mcp-toolbox). Open Semantic Interchange is now Apache Ossie (incubating).",
+      "text": "Dataplex Universal Catalog became Knowledge Catalog on Apr 10, 2026. API, CLI and IAM names are unchanged. Golden queries are now called verified queries. Looker Studio is now Data Studio. BigLake is now Google Cloud Lakehouse (Apr 2026). Gen AI Toolbox for Databases is now MCP Toolbox for Databases (repo mcp-toolbox). Open Semantic Interchange is now Apache Ossie (incubating).",
       "sources": [
         {
           "t": "About metadata in Knowledge Catalog",
@@ -602,7 +602,7 @@
     },
     {
       "topic": "Conversational Analytics API timeline",
-      "text": "Private Preview Jun 5, 2025, Public Preview Aug 25, 2025 (BigQuery structured context with example question and SQL pairs), GA for BigQuery and Looker Jun 23, 2026. Database sources (AlloyDB, Cloud SQL, Spanner) were Preview as of Mar 2026. The API release notes list no MCP entry.",
+      "text": "Private Preview began Jun 5, 2025. Public Preview began Aug 25, 2025 (BigQuery structured context with example question and SQL pairs). GA for BigQuery and Looker came Jun 23, 2026. Database sources (AlloyDB, Cloud SQL, Spanner) were Preview as of Mar 2026. The API release notes list no MCP entry.",
       "sources": [
         {
           "t": "Conversational Analytics API release notes",
@@ -616,7 +616,7 @@
     },
     {
       "topic": "Agent context limits and glossary use",
-      "text": "A BigQuery data agent holds up to 100 knowledge sources (tables, views, graphs, UDFs), per the current doc. A Google codelab says 50, so the codelab is older. With a Knowledge Catalog glossary, an agent imports up to 10 terms per table.",
+      "text": "According to the current doc, a BigQuery data agent holds up to 100 knowledge sources (tables, views, graphs, UDFs). A Google codelab says 50, so the codelab is older. With a Knowledge Catalog glossary, an agent imports up to 10 terms per table.",
       "sources": [
         {
           "t": "Conversational analytics in BigQuery",
@@ -630,7 +630,7 @@
     },
     {
       "topic": "Knowledge Catalog glossary stage is unverified",
-      "text": "Release notes list the business glossary as Preview on Jan 30, 2023 and no GA entry is listed. The glossary doc page shows no stage label. Custom glossary terms and Knowledge Catalog term import for BigQuery agents were Preview on Feb 24, 2026.",
+      "text": "Release notes list the business glossary as Preview on Jan 30, 2023. They list no GA entry. The glossary doc page shows no stage label. Custom glossary terms and Knowledge Catalog term import for BigQuery agents were Preview on Feb 24, 2026.",
       "sources": [
         {
           "t": "Knowledge Catalog release notes",
@@ -668,7 +668,7 @@
     },
     {
       "topic": "Vector search stage detail",
-      "text": "The VECTOR_SEARCH reference marks the single-query syntax and hybrid search as Preview and does not label the batch syntax. Release notes list TreeAH vector indexes GA (May 2025). Hybrid search was disabled on Jul 9, 2026 and restored Aug 3, 2026.",
+      "text": "The VECTOR_SEARCH reference marks the single-query syntax and hybrid search as Preview. It does not label the batch syntax. Release notes list TreeAH vector indexes as GA (May 2025). Hybrid search was disabled on Jul 9, 2026 and restored on Aug 3, 2026.",
       "sources": [
         {
           "t": "BigQuery search functions",
@@ -682,7 +682,7 @@
     },
     {
       "topic": "Looker MCP: managed server versus MCP Toolbox",
-      "text": "The Looker-managed MCP server entered Preview on May 27, 2026 for Looker-hosted instances only, with OAuth 2.1 and no fine-grained scopes. For customer-hosted Looker, Google points to the open-source MCP Toolbox, which Google describes as as-is and not a supported Google Cloud product.",
+      "text": "The Looker-managed MCP server entered Preview on May 27, 2026. It works for Looker-hosted instances only. It uses OAuth 2.1 and has no fine-grained scopes. For customer-hosted Looker, Google points to the open-source MCP Toolbox. Google describes the Toolbox as as-is and not a supported Google Cloud product.",
       "sources": [
         {
           "t": "Looker-managed MCP server",
@@ -700,7 +700,7 @@
     },
     {
       "topic": "Looker Conversational Analytics timeline",
-      "text": "Preview Feb 24, 2025. GA Nov 12, 2025 for Looker 25.18 and later. Verified queries Preview Jul 30, 2026 and GA Aug 28, 2026. Dashboard data agents GA Oct 8, 2026. Agentic workflows (triggered and scheduled) and publishing to Gemini Enterprise are Preview.",
+      "text": "Preview began Feb 24, 2025. GA came Nov 12, 2025 for Looker 25.18 and later. Verified queries were Preview on Jul 30, 2026 and GA on Aug 28, 2026. Dashboard data agents are GA since Oct 8, 2026. Agentic workflows (triggered and scheduled) and publishing to Gemini Enterprise are Preview.",
       "sources": [
         {
           "t": "Looker release notes",
@@ -714,7 +714,7 @@
     },
     {
       "topic": "How Looker agents read LookML",
-      "text": "Agents read field labels, descriptions, and synonyms from Explores and ignore hidden fields. Looker, not the model, composes the SQL, and access grants and user attributes apply. The synonyms parameter page shows no stage label and requires the legacy LookML runtime to be off.",
+      "text": "Agents read field labels, descriptions and synonyms from Explores. They ignore hidden fields. Looker, not the model, composes the SQL. Access grants and user attributes apply. The synonyms parameter page shows no stage label. It requires the legacy LookML runtime to be off.",
       "sources": [
         {
           "t": "Best practices for configuring Conversational Analytics with Looker",
@@ -732,7 +732,7 @@
     },
     {
       "topic": "Looker semantic layer opened to other tools",
-      "text": "The Open SQL Interface was GA on Aug 14, 2024 and backs the Tableau connector (GA Aug 14, 2024; Tableau Cloud Dec 2025). The Power BI connector was GA on Jun 14, 2023. Connected Sheets and Data Studio also read Looker. The current status of Looker Modeler is unconfirmed; it does not appear in the Looker release notes or the Next '26 post.",
+      "text": "The Open SQL Interface was GA on Aug 14, 2024. It backs the Tableau connector (GA Aug 14, 2024, Tableau Cloud Dec 2025). The Power BI connector was GA on Jun 14, 2023. Connected Sheets and Data Studio also read Looker. The current status of Looker Modeler is unconfirmed. It does not appear in the Looker release notes or the Next '26 post.",
       "sources": [
         {
           "t": "Looker release notes",
@@ -750,7 +750,7 @@
     },
     {
       "topic": "In-database analytic models link Looker to BigQuery Graph",
-      "text": "Since May 27, 2026 (Preview) Looker can reference BigQuery Graph or Snowflake semantic views, or generate them from an Explore with derived_analytic_model. Views become node tables, foreign_key joins become edge tables, and dimensions and measures become node properties. Needs BigQuery or Snowflake, primary keys, and acyclic joins.",
+      "text": "Since May 27, 2026 (Preview), Looker can reference BigQuery Graph or Snowflake semantic views. It can also generate them from an Explore with derived_analytic_model. Views become node tables. foreign_key joins become edge tables. Dimensions and measures become node properties. The feature needs BigQuery or Snowflake, primary keys and acyclic joins.",
       "sources": [
         {
           "t": "In-database analytic models",
@@ -764,7 +764,7 @@
     },
     {
       "topic": "Looker and open semantic standards",
-      "text": "The Apache Ossie README does not mention Google, Looker, or LookML, and the apache/ossie-converters directory list has no LookML or BigQuery converter (it lists Cube, Databricks, dbt, Hex, Omni, Salesforce, Snowflake, ThoughtSpot and others). The Next '26 post mentions MCP but not OSI.",
+      "text": "The Apache Ossie README does not mention Google, Looker or LookML. The apache/ossie-converters directory list has no LookML or BigQuery converter. It lists Cube, Databricks, dbt, Hex, Omni, Salesforce, Snowflake, ThoughtSpot and others. The Next '26 post mentions MCP but not OSI.",
       "sources": [
         {
           "t": "Apache Ossie repo",
@@ -782,7 +782,7 @@
     },
     {
       "topic": "Looker BI agents and Next '26 announcements",
-      "text": "At Next '26 (Apr 23, 2026) Google announced Dashboard Agents, agentic workflows, a managed MCP server, a VS Code extension with a LookML AI agent, and Knowledge Catalog integration. Later release notes show dashboard agents GA (Oct 8, 2026) and the VS Code extension GA (Sep 10, 2026), while agentic workflows and the MCP server are still Preview.",
+      "text": "At Next '26 (Apr 23, 2026) Google announced Dashboard Agents, agentic workflows and a managed MCP server. It also announced a VS Code extension with a LookML AI agent and Knowledge Catalog integration. Later release notes show dashboard agents GA (Oct 8, 2026) and the VS Code extension GA (Sep 10, 2026). Agentic workflows and the MCP server are still Preview.",
       "sources": [
         {
           "t": "Looker updates for agentic BI at Next '26",
@@ -796,7 +796,7 @@
     },
     {
       "topic": "Items not verified",
-      "text": "MCP Toolbox for Databases support status (README gives v1.x, Google docs say as-is). BigQuery data canvas stage (page labels only the chat assistant Preview, Apr 2025). Looker Modeler status. The VECTOR_SEARCH original GA date. Web search quota ran out partway, so these were not chased further.",
+      "text": "MCP Toolbox for Databases support status (the README gives v1.x, Google docs say as-is). BigQuery data canvas stage (the page labels only the chat assistant Preview, Apr 2025). Looker Modeler status. The VECTOR_SEARCH original GA date.",
       "sources": [
         {
           "t": "MCP Toolbox for Databases (GitHub)",

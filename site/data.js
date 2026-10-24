@@ -648,6 +648,251 @@ window.SL = {
    }
   },
   {
+   "id": "azure-synapse",
+   "name": "Azure Synapse Analytics",
+   "category": "cloud-dw",
+   "aliases": [
+    "Azure Synapse",
+    "Synapse Analytics",
+    "Synapse SQL",
+    "Synapse dedicated SQL pool",
+    "Synapse serverless SQL pool",
+    "Azure SQL Data Warehouse",
+    "Azure SQL DW",
+    "Synapse Spark"
+   ],
+   "tagline": "Azure analytics service with SQL pools and Spark. Microsoft points new work to Fabric.",
+   "verdict": "none",
+   "verdictNote": "Synapse SQL pools have no semantic layer object, and Microsoft puts its AI and semantic work into Fabric and Power BI.",
+   "artifacts": [
+    {
+     "name": "Primary key and unique constraints (NOT ENFORCED)",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "T-SQL DDL; dedicated SQL pool accepts these keys only as NOT ENFORCED",
+     "url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview.md"
+    },
+    {
+     "name": "Data Discovery and Classification (sensitivity labels)",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2019-09",
+     "format": "Portal, T-SQL ADD SENSITIVITY CLASSIFICATION, Azure CLI, REST API",
+     "url": "https://learn.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-data-protection"
+    },
+    {
+     "name": "Microsoft Purview scan of dedicated SQL pools",
+     "kind": "glossary",
+     "status": "GA",
+     "since": "",
+     "format": "Separate Purview service; scans metadata and applies classifications",
+     "url": "https://learn.microsoft.com/en-us/purview/register-scan-azure-synapse-analytics"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 0,
+     "n": "No metric object in SQL pools. Teams define measures in Power BI semantic models, dbt, or Cube.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/synapse-analytics/overview-what-is.md"
+    },
+    "dimensions": {
+     "l": 0,
+     "n": "No hierarchy or time grain object in SQL pools. Teams declare dimensions in a Power BI model or dbt.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/synapse-analytics/overview-what-is.md"
+    },
+    "relationships": {
+     "l": 1,
+     "n": "Dedicated pool allows primary key and unique constraints only as NOT ENFORCED. They document keys but do not enforce them.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview.md"
+    },
+    "synonyms": {
+     "l": 0,
+     "n": "Docs for sp_addextendedproperty do not list Synapse. Teams keep descriptions and synonyms in Purview or a data dictionary.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/sql-docs/live/docs/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql.md"
+    },
+    "verifiedQueries": {
+     "l": 0,
+     "n": "No store for question and SQL pairs. Teams keep them in the NL-to-SQL tool they build or buy.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/synapse-analytics/overview-what-is.md"
+    },
+    "nl2sql": {
+     "l": 0,
+     "n": "No Copilot or NL-to-SQL in Synapse SQL pools. Copilot for Fabric Warehouse generates T-SQL and is in Preview.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/fundamentals/copilot-ai-feature-state.md"
+    },
+    "ontology": {
+     "l": 0,
+     "n": "No ontology object. Fabric IQ ontology is a Fabric item, not a Synapse feature.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/synapse-analytics/overview-what-is.md"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query in Synapse SQL pools or Synapse Spark. Synapse Data Explorer, the KQL engine, is retired.",
+     "u": "https://mc.merill.net/message/AZ484968"
+    },
+    "vector": {
+     "l": 0,
+     "n": "The dedicated SQL pool data type page lists no vector type. Teams use Azure AI Search or another store.",
+     "u": "https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types"
+    },
+    "mcp": {
+     "l": 0,
+     "n": "The Azure MCP Server tool list has no Synapse namespace. Teams use a custom or partner MCP server over T-SQL.",
+     "u": "https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/tools/"
+    },
+    "governance": {
+     "l": 3,
+     "n": "Dedicated pool has row-level security, column-level security, dynamic data masking, and sensitivity classification.",
+     "u": "https://learn.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-access-control"
+    },
+    "openStandard": {
+     "l": 0,
+     "n": "No portable semantic format. Tables are standard T-SQL objects that other tools read.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/synapse-analytics/overview-what-is.md"
+    },
+    "aiDescriptions": {
+     "l": 0,
+     "n": "No AI description feature found for SQL pools or Synapse Studio. Teams use an external catalog.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/synapse-analytics/overview-what-is.md"
+    },
+    "bulkMetadata": {
+     "l": 1,
+     "n": "ADD SENSITIVITY CLASSIFICATION, Azure CLI, and REST write labels. No documented T-SQL path for table and column descriptions.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/sql-docs/live/docs/t-sql/statements/add-sensitivity-classification-transact-sql.md"
+    },
+    "autoClassify": {
+     "l": 3,
+     "n": "Data Discovery and Classification suggests labels from patterns and keywords. A person reviews and applies them.",
+     "u": "https://learn.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-data-protection"
+    },
+    "sampleValues": {
+     "l": 0,
+     "n": "No NL-to-SQL feature, so no value matching. Teams build value lookup in their own agent.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/synapse-analytics/overview-what-is.md"
+    },
+    "queryHistory": {
+     "l": 0,
+     "n": "No feature mines query history for joins or metrics. Request views exist for monitoring only.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/synapse-analytics/overview-what-is.md"
+    },
+    "lineage": {
+     "l": 1,
+     "n": "Purview captures table lineage from Synapse pipeline Copy and Data Flow runs. Its source table shows no lineage for dedicated pools.",
+     "u": "https://learn.microsoft.com/en-us/purview/data-map-lineage-azure-synapse-analytics"
+    },
+    "evals": {
+     "l": 0,
+     "n": "No NL-to-SQL accuracy tooling in Synapse. Teams use an open source eval set with their own agent.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/synapse-analytics/overview-what-is.md"
+    }
+   },
+   "offers": [
+    "Dedicated SQL pools hold data in distributed T-SQL tables that any BI or agent tool can query.",
+    "Serverless SQL pools query files in the data lake with T-SQL views.",
+    "Data Discovery and Classification labels sensitive columns, and audit logs record queries on labeled columns.",
+    "Row-level security, column-level security, and dynamic data masking limit what a query returns.",
+    "Microsoft publishes migration tools and guides from Synapse to Fabric Data Warehouse and Fabric Spark."
+   ],
+   "gaps": [
+    "Synapse SQL pools have no Copilot or NL-to-SQL feature. The Fabric Warehouse Copilot is in Preview.",
+    "Primary keys are NOT ENFORCED, and no join metadata reaches an AI agent.",
+    "The Azure MCP Server has no Synapse tool.",
+    "Synapse Data Explorer was retired on 2025-10-07. Synapse Link for Cosmos DB ends in March 2029."
+   ],
+   "fillWith": [
+    "Power BI semantic models",
+    "dbt",
+    "Cube",
+    "Microsoft Purview",
+    "Azure AI Search",
+    "Fabric Data Warehouse"
+   ],
+   "nl2sqlPath": "Do not build new NL-to-SQL on Synapse SQL pools. Move the tables to Fabric Data Warehouse, or keep them in place and build a Power BI semantic model over them. Then use Copilot or a Fabric data agent on that model.",
+   "snippet": {
+    "lang": "sql",
+    "title": "Key constraint on a dedicated SQL pool table (not enforced)",
+    "code": "ALTER TABLE dbo.FactSales\n    ADD CONSTRAINT PK_FactSales\n    PRIMARY KEY NONCLUSTERED (SaleId) NOT ENFORCED;",
+    "u": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview.md"
+   },
+   "enrichHowTo": "Synapse SQL pools have no documented comment or description statement for tables and columns. Keep descriptions in Microsoft Purview or in a Power BI model. Use ADD SENSITIVITY CLASSIFICATION to label sensitive columns in bulk.",
+   "bulkSnippet": {
+    "lang": "sql",
+    "code": "ADD SENSITIVITY CLASSIFICATION TO dbo.Customers.Email\nWITH (LABEL = 'Confidential', INFORMATION_TYPE = 'Contact Info', RANK = MEDIUM);",
+    "u": "https://raw.githubusercontent.com/MicrosoftDocs/sql-docs/live/docs/t-sql/statements/add-sensitivity-classification-transact-sql.md"
+   },
+   "sources": [
+    {
+     "t": "What is Azure Synapse Analytics?",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/synapse-analytics/overview-what-is.md"
+    },
+    {
+     "t": "Migration planning: Synapse dedicated SQL pools to Fabric Data Warehouse",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-warehouse/migration-synapse-dedicated-sql-pool-planning.md"
+    },
+    {
+     "t": "Migration methods: Synapse dedicated SQL pools to Fabric",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-warehouse/migration-synapse-dedicated-sql-pool-methods.md"
+    },
+    {
+     "t": "Fabric Migration Assistant for Data Warehouse",
+     "u": "https://learn.microsoft.com/en-us/fabric/data-warehouse/migration-assistant"
+    },
+    {
+     "t": "Overview of migrating Azure Synapse Spark to Fabric",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-engineering/migrate-synapse-overview.md"
+    },
+    {
+     "t": "Retirement: Azure Synapse Link for Azure Cosmos DB NoSQL",
+     "u": "https://mc.merill.net/message/AZ558560"
+    },
+    {
+     "t": "Retirement: Azure Synapse Data Explorer (Preview)",
+     "u": "https://mc.merill.net/message/AZ484968"
+    },
+    {
+     "t": "Release status of AI and Copilot experiences in Fabric",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/fundamentals/copilot-ai-feature-state.md"
+    },
+    {
+     "t": "Designing tables in dedicated SQL pool",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview.md"
+    },
+    {
+     "t": "ADD SENSITIVITY CLASSIFICATION (Transact-SQL)",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/sql-docs/live/docs/t-sql/statements/add-sensitivity-classification-transact-sql.md"
+    },
+    {
+     "t": "Synapse security white paper: data protection",
+     "u": "https://learn.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-data-protection"
+    },
+    {
+     "t": "Synapse security white paper: access control",
+     "u": "https://learn.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-access-control"
+    },
+    {
+     "t": "Metadata and lineage from Azure Synapse Analytics into Microsoft Purview",
+     "u": "https://learn.microsoft.com/en-us/purview/data-map-lineage-azure-synapse-analytics"
+    },
+    {
+     "t": "Data sources that connect to Data Map",
+     "u": "https://learn.microsoft.com/en-us/purview/data-map-data-sources"
+    },
+    {
+     "t": "Table data types in dedicated SQL pool",
+     "u": "https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types"
+    },
+    {
+     "t": "Azure MCP Server tools",
+     "u": "https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/tools/"
+    }
+   ],
+   "askData": [],
+   "verified": "2026-10-24",
+   "logo": null,
+   "worksWith": []
+  },
+  {
    "id": "bigquery",
    "name": "Google BigQuery",
    "category": "cloud-dw",
@@ -2049,9 +2294,9 @@ window.SL = {
    },
    "enrichHowTo": "Write descriptions into the table with SQL comments in Hive or Impala, then import glossary terms and business metadata through the Atlas CSV import. Apply tags in bulk with the Atlas bulk classification REST endpoint. The SQL AI Assistant does not document a way to read glossary terms.",
    "bulkSnippet": {
-    "lang": "bash",
-    "code": "curl -u \"$USER:$PASS\" -X POST \"$ATLAS_URL/api/atlas/v2/entity/bulk/classification\" \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"classification\":{\"typeName\":\"PII\"},\"entityGuids\":[\"<guid1>\",\"<guid2>\"]}'",
-    "u": "https://community.cloudera.com/t5/Support-Questions/REST-API-for-assigning-tag-to-an-entity/m-p/183828"
+    "lang": "",
+    "code": "",
+    "u": ""
    },
    "offers": [
     "The SQL AI Assistant in Hue writes, edits, fixes, and explains Hive and Impala SQL from a prompt.",
@@ -3016,9 +3261,9 @@ window.SL = {
      "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/overview"
     },
     "graph": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Graph in Fabric is GA. The overview page has no preview banner. Data agent use of graph (NL2GQL) is Preview.",
+     "u": "https://learn.microsoft.com/en-us/fabric/graph/overview"
     },
     "vector": {
      "l": 3,
@@ -3216,6 +3461,10 @@ window.SL = {
     {
      "t": "Fabric IQ: The semantic layer powering trusted AI agents at enterprise scale (Fabric blog, Build 2026)",
      "u": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-iq-the-semantic-layer-powering-trusted-ai-agents-at-enterprise-scale/5190739"
+    },
+    {
+     "t": "Graph in Microsoft Fabric overview (source)",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/graph/overview.md"
     },
     {
      "t": "Release status of AI and Copilot in Fabric",
@@ -5332,6 +5581,336 @@ window.SL = {
     "code": "EXECUTE sys.sp_addextendedproperty\n    @name = N'MS_Description',\n    @value = N'Postal code for the customer address.',\n    @level0type = 'SCHEMA', @level0name = N'Person',\n    @level1type = 'TABLE', @level1name = N'Address',\n    @level2type = 'COLUMN', @level2name = N'PostalCode';",
     "u": "https://raw.githubusercontent.com/MicrosoftDocs/sql-docs/live/docs/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql.md"
    }
+  },
+  {
+   "id": "azure-data-explorer",
+   "name": "Azure Data Explorer and Fabric Eventhouse",
+   "category": "realtime-olap",
+   "aliases": [
+    "Azure Data Explorer",
+    "ADX",
+    "Kusto",
+    "Kusto Query Language",
+    "KQL database",
+    "Eventhouse",
+    "Fabric Eventhouse",
+    "Real-Time Intelligence",
+    "Fabric Real-Time Intelligence"
+   ],
+   "tagline": "Real-time analytics engine with KQL, sold as an Azure service and as Fabric Eventhouse.",
+   "verdict": "partial",
+   "verdictNote": "KQL databases have docstrings, stored functions, and Copilot with saved example pairs, but no metric or relationship objects.",
+   "artifacts": [
+    {
+     "name": "Docstrings on tables, columns, and functions",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "KQL control commands: .alter table docstring, .alter table column-docstrings",
+     "url": "https://raw.githubusercontent.com/MicrosoftDocs/dataexplorer-docs/main/data-explorer/kusto/management/alter-table-docstring-command.md"
+    },
+    {
+     "name": "Copilot for writing KQL queries",
+     "kind": "nl2sql",
+     "status": "GA",
+     "since": "",
+     "format": "UI in KQL queryset and Real-Time Dashboards; works with Eventhouse and with ADX clusters through Fabric capacity",
+     "url": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/copilot-real-time-intelligence"
+    },
+    {
+     "name": "Private Shots (saved natural language and KQL pairs)",
+     "kind": "annotations",
+     "status": "Unverified",
+     "since": "",
+     "format": "Automatic. Saved querysets and Real-Time Dashboards publish KQL queries to a Private Shots database. Docs show no stage label",
+     "url": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/copilot-real-time-intelligence"
+    },
+    {
+     "name": "Fabric RTI MCP server (local, open source)",
+     "kind": "mcp",
+     "status": "Preview",
+     "since": "",
+     "format": "Self-hosted MCP server for Eventhouse, Eventstream, Activator, Map, and ADX; PyPI package microsoft-fabric-rti-mcp",
+     "url": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/mcp-overview"
+    },
+    {
+     "name": "Eventhouse remote MCP server",
+     "kind": "mcp",
+     "status": "Preview",
+     "since": "",
+     "format": "Hosted HTTP MCP endpoint; schema discovery, NL-to-KQL, data sampling",
+     "url": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/mcp-eventhouse"
+    },
+    {
+     "name": "Azure MCP Server, Azure Data Explorer tools",
+     "kind": "mcp",
+     "status": "Preview",
+     "since": "",
+     "format": "MCP tools to list clusters, view databases, and query data with natural language or KQL",
+     "url": "https://learn.microsoft.com/en-us/azure/data-explorer/integrate-mcp-servers"
+    },
+    {
+     "name": "Graph semantics: graph models and snapshots",
+     "kind": "graph-query",
+     "status": "GA",
+     "since": "",
+     "format": "KQL make-graph and graph-match for transient graphs; .create graph_model for persistent labeled property graphs. Docs show no preview label",
+     "url": "https://raw.githubusercontent.com/MicrosoftDocs/dataexplorer-docs/main/data-explorer/kusto/query/graph-semantics-overview.md"
+    },
+    {
+     "name": "Vector functions: series_cosine_similarity and ai_embeddings plugin",
+     "kind": "vector",
+     "status": "GA",
+     "since": "",
+     "format": "KQL function for cosine similarity; ai_embeddings plugin is Preview; Vector16 encoding policy saves storage",
+     "url": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/vector-database-eventhouse"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 1,
+     "n": "No metric object. Teams package reusable logic in stored functions and materialized views.",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/copilot-real-time-intelligence"
+    },
+    "dimensions": {
+     "l": 0,
+     "n": "No hierarchy or time grain object. Teams model dimensions in Power BI or in KQL functions.",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/copilot-real-time-intelligence"
+    },
+    "relationships": {
+     "l": 1,
+     "n": "No foreign keys. A graph model can define node and edge links between tables.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/dataexplorer-docs/main/data-explorer/kusto/management/graph/graph-model-overview.md"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "Docstrings on tables, columns, and functions guide Copilot. Docs call them critical for columns with unclear names.",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/copilot-real-time-intelligence"
+    },
+    "verifiedQueries": {
+     "l": 3,
+     "n": "Private Shots store question and KQL pairs from saved querysets. Data agent also takes example queries for Eventhouse.",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/copilot-real-time-intelligence"
+    },
+    "nl2sql": {
+     "l": 3,
+     "n": "Copilot in KQL queryset writes KQL from questions (GA). ADX clusters need a Fabric capacity for Copilot.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/fundamentals/copilot-ai-feature-state.md"
+    },
+    "ontology": {
+     "l": 1,
+     "n": "Fabric IQ ontology is a separate Preview item. Data agent docs list KQL as a source query language for it.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/data-agent-add-datasources.md"
+    },
+    "graph": {
+     "l": 3,
+     "n": "KQL has make-graph, graph-match, and persistent graph models with snapshots. Docs show no preview label.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/dataexplorer-docs/main/data-explorer/kusto/query/graph-semantics-overview.md"
+    },
+    "vector": {
+     "l": 3,
+     "n": "series_cosine_similarity ranks stored embeddings. The ai_embeddings plugin that creates embeddings in a query is Preview.",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/vector-database-eventhouse"
+    },
+    "mcp": {
+     "l": 2,
+     "n": "Local RTI, remote Eventhouse, and Azure MCP Server for ADX are all Preview.",
+     "u": "https://learn.microsoft.com/en-us/azure/data-explorer/integrate-mcp-servers"
+    },
+    "governance": {
+     "l": 3,
+     "n": "Row level security policy limits rows by caller. Purview lists classifications and sensitivity labels for ADX.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/dataexplorer-docs/main/data-explorer/kusto/management/row-level-security-policy.md"
+    },
+    "openStandard": {
+     "l": 0,
+     "n": "No portable semantic model format found. KQL stored functions and docstrings stay inside the database.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/dataexplorer-docs/main/data-explorer/kusto/management/alter-table-docstring-command.md"
+    },
+    "aiDescriptions": {
+     "l": 0,
+     "n": "Copilot docs list query writing and dashboards. They do not list drafting of docstrings.",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/copilot-real-time-intelligence"
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": ".alter table column-docstrings sets many column descriptions in one command. The merge form keeps existing ones.",
+     "u": "https://learn.microsoft.com/en-us/kusto/management/alter-column-docstrings?view=microsoft-fabric"
+    },
+    "autoClassify": {
+     "l": 1,
+     "n": "Purview scans ADX and applies classifications and sensitivity labels. Purview is a separate service.",
+     "u": "https://learn.microsoft.com/en-us/purview/data-map-data-sources"
+    },
+    "sampleValues": {
+     "l": 2,
+     "n": "The Eventhouse MCP server samples data (Preview). Copilot docs do not describe literal matching.",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/mcp-eventhouse"
+    },
+    "queryHistory": {
+     "l": 0,
+     "n": "Copilot learns from saved querysets and dashboards that you publish, not from query history.",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/copilot-real-time-intelligence"
+    },
+    "lineage": {
+     "l": 0,
+     "n": "The Purview Data Map source table shows no lineage for Azure Data Explorer.",
+     "u": "https://learn.microsoft.com/en-us/purview/data-map-data-sources"
+    },
+    "evals": {
+     "l": 0,
+     "n": "Like and dislike icons send feedback to Microsoft. No NL-to-KQL accuracy test tool found.",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/copilot-real-time-intelligence"
+    }
+   },
+   "offers": [
+    "Copilot turns a question into KQL in a KQL queryset or Real-Time Dashboard and supports follow-up questions.",
+    "Private Shots add your saved KQL queries, including graph and stored function calls, as examples for Copilot.",
+    "Docstrings on tables and columns give Copilot business meaning. One command sets many column docstrings.",
+    "MCP servers let agents discover schema, sample data, and run KQL. All three servers are in Preview.",
+    "KQL has graph operators, persistent graph models, and vector similarity functions in the same query language."
+   ],
+   "gaps": [
+    "No metric, dimension, or relationship objects. Reusable logic lives in stored functions and materialized views.",
+    "Copilot for ADX clusters needs a Fabric-enabled capacity. Trial capacity is not supported.",
+    "All MCP servers for ADX and Eventhouse are Preview. The ai_embeddings plugin is Preview.",
+    "No lineage for ADX in the Purview Data Map source table, and no NL-to-KQL accuracy test tool."
+   ],
+   "fillWith": [
+    "Power BI semantic models",
+    "Fabric data agent",
+    "Microsoft Purview",
+    "Azure OpenAI embeddings"
+   ],
+   "nl2sqlPath": "Add docstrings to the tables and columns that users ask about. Use Copilot in a KQL queryset and save good queries so they become Private Shots. For agents, connect the Eventhouse MCP server or add the Eventhouse as a Fabric data agent source with example queries.",
+   "snippet": {
+    "lang": "other",
+    "title": "KQL docstrings for a table and its columns",
+    "code": ".alter table Sales docstring \"One row per order line.\"\n\n.alter-merge table Sales column-docstrings (\n    Amount: \"Net sales in USD\",\n    Region: \"Sales region name\"\n)",
+    "u": "https://learn.microsoft.com/en-us/kusto/management/alter-column-docstrings?view=microsoft-fabric"
+   },
+   "enrichHowTo": "Set docstrings with .alter table docstring and .alter-merge table column-docstrings. The merge form keeps existing column docstrings. Copilot reads docstrings, so add them first to tables and columns with unclear names.",
+   "bulkSnippet": {
+    "lang": "other",
+    "code": ".alter-merge table Sales column-docstrings (\n    Amount: \"Net sales in USD\",\n    Region: \"Sales region name\"\n)",
+    "u": "https://learn.microsoft.com/en-us/kusto/management/alter-column-docstrings?view=microsoft-fabric"
+   },
+   "sources": [
+    {
+     "t": "Copilot for Real-Time Intelligence",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/copilot-real-time-intelligence"
+    },
+    {
+     "t": "What is Copilot for writing queries in KQL Queryset?",
+     "u": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-for-writing-queries"
+    },
+    {
+     "t": "Release status of AI and Copilot experiences in Fabric",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/fundamentals/copilot-ai-feature-state.md"
+    },
+    {
+     "t": "Use MCP servers with Azure Data Explorer (preview)",
+     "u": "https://learn.microsoft.com/en-us/azure/data-explorer/integrate-mcp-servers"
+    },
+    {
+     "t": "What is MCP in Real-Time Intelligence (preview)?",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/mcp-overview"
+    },
+    {
+     "t": "Remote MCP server for eventhouses (preview)",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/mcp-eventhouse"
+    },
+    {
+     "t": "Azure Data Explorer tools for the Azure MCP Server",
+     "u": "https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/tools/azure-data-explorer"
+    },
+    {
+     "t": "Graph semantics overview",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/dataexplorer-docs/main/data-explorer/kusto/query/graph-semantics-overview.md"
+    },
+    {
+     "t": "Graph models overview",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/dataexplorer-docs/main/data-explorer/kusto/management/graph/graph-model-overview.md"
+    },
+    {
+     "t": "series_cosine_similarity()",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/dataexplorer-docs/main/data-explorer/kusto/query/series-cosine-similarity-function.md"
+    },
+    {
+     "t": "ai_embeddings plugin (preview)",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/dataexplorer-docs/main/data-explorer/kusto/query/ai-embeddings-plugin.md"
+    },
+    {
+     "t": "Tutorial: Use an eventhouse as a vector database",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/vector-database-eventhouse"
+    },
+    {
+     "t": ".alter table docstring command",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/dataexplorer-docs/main/data-explorer/kusto/management/alter-table-docstring-command.md"
+    },
+    {
+     "t": ".alter table column-docstrings command",
+     "u": "https://learn.microsoft.com/en-us/kusto/management/alter-column-docstrings?view=microsoft-fabric"
+    },
+    {
+     "t": "Row level security policy",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/dataexplorer-docs/main/data-explorer/kusto/management/row-level-security-policy.md"
+    },
+    {
+     "t": "Add a data source to Data Agent",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/data-agent-add-datasources.md"
+    },
+    {
+     "t": "Data agent example queries",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/data-agent-example-queries.md"
+    },
+    {
+     "t": "Data sources that connect to Data Map",
+     "u": "https://learn.microsoft.com/en-us/purview/data-map-data-sources"
+    },
+    {
+     "t": "Retirement: Azure Synapse Data Explorer (Preview)",
+     "u": "https://mc.merill.net/message/AZ484968"
+    }
+   ],
+   "askData": [
+    {
+     "name": "Copilot for writing KQL queries",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "KQL",
+     "reads": "Table and column names, docstrings, and saved natural language and KQL pairs (Private Shots).",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/copilot-real-time-intelligence"
+    },
+    {
+     "name": "Eventhouse remote MCP server and Fabric RTI MCP server",
+     "status": "Preview",
+     "since": "",
+     "surfaces": [
+      "MCP"
+     ],
+     "output": "KQL",
+     "reads": "KQL database schema and metadata, and sample data. Schema lookup needs Copilot in Fabric.",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/mcp-eventhouse"
+    },
+    {
+     "name": "Azure MCP Server, Azure Data Explorer tools",
+     "status": "Preview",
+     "since": "",
+     "surfaces": [
+      "MCP"
+     ],
+     "output": "KQL",
+     "reads": "Cluster, database, and table schema. The agent writes KQL from a natural language prompt.",
+     "u": "https://learn.microsoft.com/en-us/azure/data-explorer/integrate-mcp-servers"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null,
+   "worksWith": []
   },
   {
    "id": "clickhouse",
@@ -10472,9 +11051,9 @@ window.SL = {
    ],
    "caps": {
     "metrics": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Data modules hold reusable calculations and filtered measures. The Usage property marks a column as a measure.",
+     "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
     },
     "dimensions": {
      "l": 3,
@@ -10487,9 +11066,9 @@ window.SL = {
      "u": "https://community.ibm.com:443/community/user/blogs/shaveta-srivastava/2025/10/30/cognos-1211-smarter-reporting-faster-dashboards-an?hlmlt=VT"
     },
     "synonyms": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "The Assistant reads column labels and synonyms. Authors add each synonym as a calculation in a folder under the column.",
+     "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_gtstd.pdf"
     },
     "verifiedQueries": {
      "l": null,
@@ -10502,14 +11081,14 @@ window.SL = {
      "u": "https://www.ibm.com/products/cognos-analytics"
     },
     "ontology": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No ontology or business entity layer in data modules. They model tables, columns, calculations and relationships.",
+     "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
     },
     "graph": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No graph query feature in data modules or the Assistant.",
+     "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_gtstd.pdf"
     },
     "vector": {
      "l": null,
@@ -10517,9 +11096,9 @@ window.SL = {
      "u": ""
     },
     "mcp": {
-     "l": 1,
-     "n": "No IBM MCP server. A third-party Activepieces server manages data sources and content objects. An IBM Ideas request asks for an official one.",
-     "u": "https://www.activepieces.com/mcp/ibm-cognose"
+     "l": 3,
+     "n": "Release 12.1.3 adds the Cognos Analytics MCP server, an IBM program. Its tools cover administration, configuration, data and content.",
+     "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_new.pdf"
     },
     "governance": {
      "l": 3,
@@ -10537,24 +11116,24 @@ window.SL = {
      "u": ""
     },
     "bulkMetadata": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "Translation CSV export and import covers Label, Description and Screen tip. The REST API has update module calls, not documented for column text.",
+     "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Package enrichment sets data characteristics such as Time and Geographic Location. No PII or sensitivity tags are documented.",
+     "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Loading metadata or enriching a package reads up to 10000 sample rows per table. The Assistant uses the inferred characteristics.",
+     "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_manage.pdf"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No query history mining in the Assistant, data module or administration guides. Authors model and enrich by hand.",
+     "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_manage.pdf"
     },
     "lineage": {
      "l": 3,
@@ -10562,9 +11141,9 @@ window.SL = {
      "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ug_cr_rptstd.pdf"
     },
     "evals": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No accuracy testing or feedback loop for the Assistant in the guides. Teams test by asking questions.",
+     "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_gtstd.pdf"
     }
    },
    "offers": [
@@ -10636,8 +11215,24 @@ window.SL = {
      "u": "https://ossie.apache.org/ecosystem/"
     },
     {
+     "t": "Cognos Analytics 12.1.x Data Modules User Guide (PDF)",
+     "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
+    },
+    {
+     "t": "Cognos Analytics 12.1.x Getting Started User Guide (PDF)",
+     "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_gtstd.pdf"
+    },
+    {
+     "t": "IBM Cognos Analytics 12.1.x What's New (PDF)",
+     "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_new.pdf"
+    },
+    {
      "t": "IBM Cognos Analytics Reporting 12.1.x User Guide (PDF)",
      "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ug_cr_rptstd.pdf"
+    },
+    {
+     "t": "Cognos Analytics 12.1.x Managing User Guide (PDF)",
+     "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_manage.pdf"
     }
    ],
    "worksWith": [
@@ -11949,6 +12544,374 @@ window.SL = {
    "enrichHowTo": "In Console, open Search Index, select the data model and Export a CSV. Fill the Synonyms and AI Description columns, then Import it. Indexing restarts on import, and the file also moves AI-ready metadata between environments."
   },
   {
+   "id": "powerbi",
+   "name": "Power BI",
+   "category": "bi",
+   "aliases": [
+    "Power BI Desktop",
+    "Power BI service",
+    "Power BI semantic models",
+    "Power BI datasets",
+    "Copilot in Power BI",
+    "Fabric IQ for Power BI",
+    "Power BI Premium"
+   ],
+   "tagline": "Microsoft BI tool built on semantic models with DAX measures, Copilot, and MCP servers.",
+   "verdict": "native",
+   "verdictNote": "Power BI semantic models hold governed measures and relationships in open TMDL text, and Copilot and MCP servers read them, but Prep data for AI is Preview.",
+   "artifacts": [
+    {
+     "name": "Power BI semantic model (TMDL, DAX measures, relationships)",
+     "kind": "semantic-model",
+     "status": "GA",
+     "since": "",
+     "format": "TMDL text folder, TMSL/TOM, DAX",
+     "url": "https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview"
+    },
+    {
+     "name": "Prep data for AI: AI instructions, AI data schema, verified answers",
+     "kind": "annotations",
+     "status": "Preview",
+     "since": "",
+     "format": "GUI in Desktop and service; saved on the semantic model. Verified answers allow up to three filters",
+     "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai"
+    },
+    {
+     "name": "Q&A synonyms and linguistic schema",
+     "kind": "annotations",
+     "status": "Deprecated",
+     "since": "",
+     "format": "Q&A setup in Desktop. Learn pages say Q&A experiences go away in February 2027",
+     "url": "https://learn.microsoft.com/en-us/power-bi/natural-language/q-and-a-tooling-intro"
+    },
+    {
+     "name": "Copilot in Power BI: ask data questions (with Fabric IQ)",
+     "kind": "nl2sql",
+     "status": "GA",
+     "since": "",
+     "format": "Copilot pane in the Power BI service; generates DAX and shows reasoning steps",
+     "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-ask-data-question"
+    },
+    {
+     "name": "Fabric IQ MCP server",
+     "kind": "mcp",
+     "status": "GA",
+     "since": "",
+     "format": "Remote read-only MCP server for Power BI reports and semantic models; Entra ID sign-in",
+     "url": "https://learn.microsoft.com/en-us/fabric/iq/connectors/fabric-iq-mcp"
+    },
+    {
+     "name": "Power BI Authoring MCP server (hosted)",
+     "kind": "mcp",
+     "status": "Preview",
+     "since": "",
+     "format": "Remote MCP at https://api.fabric.microsoft.com/v1/mcp/powerbi/authoring; edits semantic models",
+     "url": "https://learn.microsoft.com/en-us/power-bi/developer/mcp/mcp-servers-overview"
+    },
+    {
+     "name": "Power BI Authoring MCP server (local)",
+     "kind": "mcp",
+     "status": "GA",
+     "since": "",
+     "format": "Local stdio server for Power BI Desktop and PBIP files; supports service principals",
+     "url": "https://learn.microsoft.com/en-us/power-bi/developer/mcp/mcp-servers-overview"
+    },
+    {
+     "name": "XMLA endpoint",
+     "kind": "semantic-model",
+     "status": "GA",
+     "since": "",
+     "format": "XMLA protocol; read-only by default on capacity workspaces, read-write when enabled",
+     "url": "https://learn.microsoft.com/en-us/fabric/enterprise/powerbi/service-premium-connect-tools"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 3,
+     "n": "DAX measures live in the semantic model as TMDL or TOM objects, with formats and descriptions.",
+     "u": "https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview"
+    },
+    "dimensions": {
+     "l": 3,
+     "n": "Columns, hierarchies, display folders, and sort-by-column are declared in TMDL.",
+     "u": "https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview"
+    },
+    "relationships": {
+     "l": 3,
+     "n": "Model relationships are declared objects. Fabric IQ uses relationships in the semantic model.",
+     "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-ask-data-question"
+    },
+    "synonyms": {
+     "l": 2,
+     "n": "Descriptions and synonyms are model metadata. AI instructions are Preview, and Q&A synonyms go away in February 2027.",
+     "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai"
+    },
+    "verifiedQueries": {
+     "l": 2,
+     "n": "Verified answers bind trigger phrases to a visual with up to three filters (Preview). They need Q&A on.",
+     "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-verified-answers"
+    },
+    "nl2sql": {
+     "l": 3,
+     "n": "Copilot answers data questions with DAX over the semantic model. Needs a paid Fabric capacity.",
+     "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-ask-data-question"
+    },
+    "ontology": {
+     "l": 1,
+     "n": "Fabric IQ ontology is a separate Preview item that can start from a semantic model.",
+     "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/overview"
+    },
+    "graph": {
+     "l": 1,
+     "n": "Power BI has no graph query. Graph in Fabric is a separate item.",
+     "u": "https://learn.microsoft.com/en-us/fabric/graph/overview"
+    },
+    "vector": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "mcp": {
+     "l": 3,
+     "n": "Fabric IQ MCP is GA and read-only. The authoring MCP server is GA locally and Preview when hosted.",
+     "u": "https://learn.microsoft.com/en-us/power-bi/developer/mcp/mcp-servers-overview"
+    },
+    "governance": {
+     "l": 3,
+     "n": "Row-level and object-level security apply through Fabric IQ MCP. Sensitivity labels flow to downstream content.",
+     "u": "https://learn.microsoft.com/en-us/fabric/iq/connectors/fabric-iq-mcp"
+    },
+    "openStandard": {
+     "l": 2,
+     "n": "TMDL is a documented text format and XMLA is open. The Power BI Ossie converter is initial.",
+     "u": "https://www.snowflake.com/en/blog/engineering/apache-ossie-microsoft-ecosystem-support/"
+    },
+    "aiDescriptions": {
+     "l": 3,
+     "n": "Copilot drafts measure descriptions from the DAX formula in Desktop and web modeling. Measures only.",
+     "u": "https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-measure-copilot-descriptions"
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "TMDL, the XMLA endpoint, and the authoring MCP server edit many objects at once. Hosted MCP is Preview.",
+     "u": "https://learn.microsoft.com/en-us/power-bi/developer/mcp/mcp-servers-overview"
+    },
+    "autoClassify": {
+     "l": 1,
+     "n": "Purview sensitivity labels apply to semantic models and flow downstream. No column-level labels found for models.",
+     "u": "https://learn.microsoft.com/en-us/fabric/enterprise/powerbi/service-security-sensitivity-label-overview"
+    },
+    "sampleValues": {
+     "l": 2,
+     "n": "Fabric IQ MCP offers value lookup. Instance value indexing needs the Q&A setting, which goes away in 2027.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/semantic-model-best-practices.md"
+    },
+    "queryHistory": {
+     "l": 0,
+     "n": "No feature mines query history to suggest measures or joins. Q&A review of asked questions is part of the retiring Q&A.",
+     "u": "https://learn.microsoft.com/en-us/power-bi/natural-language/q-and-a-tooling-intro"
+    },
+    "lineage": {
+     "l": 1,
+     "n": "Workspace lineage view shows items. Purview gives column lineage only when the source is Azure SQL Database.",
+     "u": "https://learn.microsoft.com/en-us/purview/data-map-lineage-power-bi"
+    },
+    "evals": {
+     "l": 1,
+     "n": "Docs tell you to test key questions by hand in Desktop. The data agent evaluation SDK is a separate Preview tool.",
+     "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai"
+    }
+   },
+   "offers": [
+    "A semantic model stores DAX measures, relationships, hierarchies, descriptions, and synonyms as TMDL files that work with Git.",
+    "Prep data for AI stores AI instructions, an AI data schema, and verified answers on the model (Preview).",
+    "Copilot answers questions with DAX over the model and shows its reasoning steps and the DAX query.",
+    "Fabric IQ MCP (GA) gives agents read-only schema lookup, value search, and DAX queries under the caller's security roles.",
+    "The Power BI Authoring MCP server edits tables, measures, and relationships in bulk, locally (GA) or hosted (Preview)."
+   ],
+   "gaps": [
+    "Q&A experiences go away in February 2027 per Learn, and Prep data for AI still needs Q&A turned on.",
+    "Verified answers bind to visuals, not to SQL or DAX text. Fabric IQ in the Copilot pane returns no verified answers.",
+    "Fabric IQ MCP has no natural language answer tool. The calling agent writes the DAX.",
+    "Copilot needs a paid Fabric capacity in a supported region. Trial SKUs do not work."
+   ],
+   "fillWith": [
+    "Fabric data agent",
+    "Semantic Link Labs",
+    "Tabular Editor",
+    "Microsoft Purview",
+    "Apache Ossie converter"
+   ],
+   "nl2sqlPath": "Build a clean semantic model with measure names, descriptions, and synonyms. Add AI instructions, an AI data schema, and verified answers in Prep data for AI, then test your top questions in Copilot. For agents, connect the Fabric IQ MCP server, and use the authoring MCP server to edit the model.",
+   "snippet": {
+    "lang": "other",
+    "title": "TMDL table with a description, a DAX measure and a relationship",
+    "code": "/// Sales fact table\ntable Sales\n\n    /// Sum of quantity times net price\n    measure 'Sales Amount' = SUMX('Sales', 'Sales'[Quantity] * 'Sales'[Net Price])\n        formatString: $ #,##0\n\n    column 'Product Key'\n        dataType: int64\n        isHidden\n        sourceColumn: ProductKey\n\nrelationship cdb6e6a9-c9d1-42b9-b9e0-484a1bc7e123\n    fromColumn: Sales.'Product Key'\n    toColumn: Product.'Product Key'",
+    "u": "https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview"
+   },
+   "enrichHowTo": "Add descriptions and synonyms to tables, columns, and measures in the model. Draft measure descriptions with Copilot, then review them. For many objects, edit TMDL files, use the XMLA endpoint, or ask the Power BI Authoring MCP server to run a bulk operation.",
+   "bulkSnippet": {
+    "lang": "other",
+    "code": "/// Sum of quantity times net price\nmeasure 'Sales Amount' = SUMX('Sales', 'Sales'[Quantity] * 'Sales'[Net Price])\n    description: Net sales in USD",
+    "u": "https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview"
+   },
+   "worksWith": [
+    "Snowflake",
+    "Google BigQuery",
+    "Azure Databricks",
+    "Databricks",
+    "Amazon Redshift",
+    "Amazon Athena",
+    "Azure Synapse Analytics (SQL DW)",
+    "Azure SQL database",
+    "SQL Server",
+    "PostgreSQL",
+    "MySQL database",
+    "Oracle database",
+    "Teradata database",
+    "SAP HANA database",
+    "Azure Data Explorer (Kusto)",
+    "Dataverse",
+    "Salesforce Objects",
+    "Azure Analysis Services database",
+    "AtScale cubes",
+    "Denodo",
+    "Dremio Cloud",
+    "Starburst",
+    "ClickHouse",
+    "Lakehouse (Preview)",
+    "Warehouse (Preview)"
+   ],
+   "worksWithUrl": "https://learn.microsoft.com/en-us/power-query/connectors/",
+   "openToOtherTools": {
+    "l": 3,
+    "n": "The XMLA endpoint is read-only by default and read-write when enabled. Fabric IQ MCP works with any MCP client.",
+    "u": "https://learn.microsoft.com/en-us/fabric/enterprise/powerbi/service-premium-connect-tools"
+   },
+   "sources": [
+    {
+     "t": "TMDL overview",
+     "u": "https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview"
+    },
+    {
+     "t": "Prepare your data for AI to improve Copilot results (preview)",
+     "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai"
+    },
+    {
+     "t": "Prep data for AI: verified answers",
+     "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-verified-answers"
+    },
+    {
+     "t": "Intro to Q&A tooling (Q&A retirement notice)",
+     "u": "https://learn.microsoft.com/en-us/power-bi/natural-language/q-and-a-tooling-intro"
+    },
+    {
+     "t": "Ask data questions with Copilot and Fabric IQ",
+     "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-ask-data-question"
+    },
+    {
+     "t": "Use Copilot to create measure descriptions",
+     "u": "https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-measure-copilot-descriptions"
+    },
+    {
+     "t": "Power BI MCP servers overview",
+     "u": "https://learn.microsoft.com/en-us/power-bi/developer/mcp/mcp-servers-overview"
+    },
+    {
+     "t": "Get started with the Fabric IQ MCP server",
+     "u": "https://learn.microsoft.com/en-us/fabric/iq/connectors/fabric-iq-mcp"
+    },
+    {
+     "t": "Semantic model connectivity with the XMLA endpoint",
+     "u": "https://learn.microsoft.com/en-us/fabric/enterprise/powerbi/service-premium-connect-tools"
+    },
+    {
+     "t": "Connectors in Power Query",
+     "u": "https://learn.microsoft.com/en-us/power-query/connectors/"
+    },
+    {
+     "t": "Power BI data sources",
+     "u": "https://learn.microsoft.com/en-us/power-bi/connect-data/power-bi-data-sources"
+    },
+    {
+     "t": "Semantic model best practices for data agent",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/semantic-model-best-practices.md"
+    },
+    {
+     "t": "Fabric data agent concepts",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/concept-data-agent.md"
+    },
+    {
+     "t": "Release status of AI and Copilot experiences in Fabric",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/fundamentals/copilot-ai-feature-state.md"
+    },
+    {
+     "t": "Sensitivity labels in Power BI",
+     "u": "https://learn.microsoft.com/en-us/fabric/enterprise/powerbi/service-security-sensitivity-label-overview"
+    },
+    {
+     "t": "Metadata and lineage from Power BI into Microsoft Purview",
+     "u": "https://learn.microsoft.com/en-us/purview/data-map-lineage-power-bi"
+    },
+    {
+     "t": "Breaking Down Semantic Silos: Microsoft Ecosystem Support Comes to Apache Ossie",
+     "u": "https://www.snowflake.com/en/blog/engineering/apache-ossie-microsoft-ecosystem-support/"
+    },
+    {
+     "t": "What is ontology (preview)?",
+     "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/overview"
+    },
+    {
+     "t": "Graph in Microsoft Fabric overview",
+     "u": "https://learn.microsoft.com/en-us/fabric/graph/overview"
+    },
+    {
+     "t": "Retirement of Power BI Q&A (Message Center MC1218421)",
+     "u": "https://mc.merill.net/message/MC1218421"
+    }
+   ],
+   "askData": [
+    {
+     "name": "Copilot in Power BI (ask data questions, with Fabric IQ)",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "DAX",
+     "reads": "Measures, relationships, descriptions, synonyms, and Prep data for AI settings in the semantic model.",
+     "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-ask-data-question"
+    },
+    {
+     "name": "Fabric data agent over a semantic model",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "REST API",
+      "SDK",
+      "MCP"
+     ],
+     "output": "DAX",
+     "reads": "Schema, synonyms, AI instructions, AI data schema, and verified answers. Data agent level instructions do not reach the DAX tool.",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/semantic-model-best-practices.md"
+    },
+    {
+     "name": "Power BI Q&A",
+     "status": "Deprecated",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "Table and field names, synonyms, and the linguistic schema. Microsoft retires Q&A experiences in February 2027.",
+     "u": "https://learn.microsoft.com/en-us/power-bi/natural-language/q-and-a-tooling-intro"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null
+  },
+  {
    "id": "qlik",
    "name": "Qlik (Qlik Sense and Qlik Cloud)",
    "category": "bi",
@@ -12977,9 +13940,9 @@ window.SL = {
      "u": "https://www2.strategy.com/producthelp/2021/NextGenAI/en-us/Content/agent_tuning.htm"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No column classification or sensitivity tagging in the Agent docs or What's New. Mosaic Sentinel tracks usage and audit events.",
+     "u": "https://www2.strategy.com/producthelp/Current/Readme/en-us/content/whats_new.htm"
     },
     "sampleValues": {
      "l": 3,
@@ -12987,9 +13950,9 @@ window.SL = {
      "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_bots_new_general.htm"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "A history and clarifier agent uses past queries to suggest alternative questions (June 2025). Admins promote user learnings to knowledge assets.",
+     "u": "https://www2.strategy.com/producthelp/Current/Readme/en-us/content/whats_new.htm"
     },
     "lineage": {
      "l": 0,
@@ -13110,6 +14073,10 @@ window.SL = {
     {
      "t": "Customize Agent Display Using the General Panel",
      "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_bots_new_general.htm"
+    },
+    {
+     "t": "What's New in Strategy",
+     "u": "https://www2.strategy.com/producthelp/Current/Readme/en-us/content/whats_new.htm"
     }
    ],
    "worksWith": [
@@ -15263,6 +16230,533 @@ window.SL = {
    ]
   },
   {
+   "id": "denodo-catalog",
+   "name": "Denodo Data Catalog (Data Marketplace)",
+   "category": "catalog",
+   "partOf": "denodo",
+   "aliases": [
+    "Denodo Data Marketplace",
+    "Denodo Data Catalog",
+    "Data Marketplace",
+    "Denodo Assistant"
+   ],
+   "tagline": "Denodo catalog for views with descriptions, tags, categories, lineage and an AI chatbot.",
+   "verdict": "partial",
+   "verdictNote": "The Data Marketplace gives LLMs view descriptions, tags, sample data and lineage, and it has an NL query feature, but it is a paid bundle and metric views are new.",
+   "artifacts": [
+    {
+     "name": "Data Marketplace (formerly Data Catalog)",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2025-09",
+     "format": "Web UI; renamed from Data Catalog in Denodo 9.3; categories, tags, descriptions and custom properties",
+     "url": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/introduction/introduction"
+    },
+    {
+     "name": "Assisted Query",
+     "kind": "nl2sql",
+     "status": "GA",
+     "since": "2025-09",
+     "format": "UI on each view; creates VQL from plain language; Enterprise Plus bundle",
+     "url": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/assisted_query"
+    },
+    {
+     "name": "Denodo Assistant Chatbot with Deep Query",
+     "kind": "agent",
+     "status": "GA",
+     "since": "2026-03",
+     "format": "UI; LLM plus metadata vector database; Enterprise Plus bundle",
+     "url": "https://community.denodo.com/docs/html/browse/9.4/en/vdp/data_catalog/chatbot/chatbot"
+    },
+    {
+     "name": "Denodo Assistant (description and tag suggestions)",
+     "kind": "agent",
+     "status": "GA",
+     "since": "2024-11",
+     "format": "Design Studio; suggests descriptions for views and columns, and tags since 9.3",
+     "url": "https://www.denodo.com/en/press-release/2024-11-20/denodo-platform-91-brings-new-advanced-ai-capabilities-and-enhanced-data-lakehouse-performance"
+    },
+    {
+     "name": "Metric Views",
+     "kind": "metric-view",
+     "status": "GA",
+     "since": "",
+     "format": "Virtual DataPort view type in Denodo 9.5; the Marketplace has a page and Assisted Query for them",
+     "url": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_5"
+    },
+    {
+     "name": "Denodo MCP Server",
+     "kind": "mcp",
+     "status": "GA",
+     "since": "",
+     "format": "DenodoConnect download; read-only; metadata resources, semantic search and VQL tools; Basic or OAuth 2.0",
+     "url": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20MCP%20Server%20-%20User%20Manual"
+    },
+    {
+     "name": "Denodo AI SDK",
+     "kind": "agent",
+     "status": "GA",
+     "since": "2024-11",
+     "format": "Open source Apache license; getMetadata fills a vector store; answerQuestion endpoint",
+     "url": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20AI%20SDK%20-%20User%20Manual"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 3,
+     "n": "Denodo 9.5 Metric Views declare metrics on views. The Marketplace has a metric view page.",
+     "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_5"
+    },
+    "dimensions": {
+     "l": 3,
+     "n": "Assisted Query marks each metric view field as a dimension or a metric.",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/assisted_query"
+    },
+    "relationships": {
+     "l": 3,
+     "n": "Associations between views show in a relationships pill. Assisted Query sends the direct associations to the LLM.",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/views"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "Assisted Query sends view and field descriptions, logical names, tags and custom properties to the LLM.",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/assisted_query"
+    },
+    "verifiedQueries": {
+     "l": 0,
+     "n": "Users save and share queries. The docs do not say the AI uses them as examples.",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/index"
+    },
+    "nl2sql": {
+     "l": 3,
+     "n": "Assisted Query writes VQL from plain language. The chatbot adds Deep Query. Both need Enterprise Plus.",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/assisted_query"
+    },
+    "ontology": {
+     "l": 1,
+     "n": "Domains, categories, tags and custom properties add business meaning. No object, link or action model found.",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/introduction/introduction"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query language. The 360 Graph view only draws usage and lineage.",
+     "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_5"
+    },
+    "vector": {
+     "l": 3,
+     "n": "The Marketplace stores metadata in a vector database for similarity search and RAG. You supply the database.",
+     "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_3"
+    },
+    "mcp": {
+     "l": 3,
+     "n": "Denodo MCP Server is a separate DenodoConnect download. It offers semantic metadata search and VQL tools.",
+     "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20MCP%20Server%20-%20User%20Manual"
+    },
+    "governance": {
+     "l": 3,
+     "n": "The Marketplace enforces Denodo roles and permissions. The AI SDK runs questions with the end user's credentials.",
+     "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20AI%20SDK%20-%20User%20Manual"
+    },
+    "openStandard": {
+     "l": 1,
+     "n": "Export of catalog metadata to JSON, open source AI SDK and MCP. No OSI support found.",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/administration/import_export/import_export"
+    },
+    "aiDescriptions": {
+     "l": 3,
+     "n": "Denodo Assistant suggests view and column descriptions, and tags since Denodo 9.3.",
+     "u": "https://www.denodo.com/en/press-release/2024-11-20/denodo-platform-91-brings-new-advanced-ai-capabilities-and-enhanced-data-lakehouse-performance"
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "Export and import of categories, tags, custom properties and saved queries as JSON in a zip file.",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/administration/import_export/import_export"
+    },
+    "autoClassify": {
+     "l": 0,
+     "n": "The Assistant suggests tags. No PII or sensitivity classifier found.",
+     "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_3"
+    },
+    "sampleValues": {
+     "l": 3,
+     "n": "Assisted Query can send sample data to the LLM. The AI SDK samples rows per view with examples_per_table.",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/assisted_query"
+    },
+    "queryHistory": {
+     "l": 0,
+     "n": "The Marketplace shows usage statistics. No mining of history to suggest joins or metrics found.",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/views"
+    },
+    "lineage": {
+     "l": 3,
+     "n": "A data lineage pill shows the field path from sources to the view. 360 Graph shows downstream use.",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/views"
+    },
+    "evals": {
+     "l": 0,
+     "n": "No NL-to-SQL test tooling found. The AI SDK has a feedback setting that is off by default.",
+     "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20AI%20SDK%20-%20User%20Manual"
+    }
+   },
+   "offers": [
+    "Descriptions, tags, categories and custom properties on views, which Assisted Query sends to the LLM.",
+    "Assisted Query and a chatbot with Deep Query that create VQL from plain language.",
+    "Metric Views in Denodo 9.5 for governed KPIs, with a page and Assisted Query in the Marketplace.",
+    "Denodo AI SDK that fills a vector store from catalog metadata and answers questions.",
+    "Denodo MCP Server with semantic metadata search and VQL tools."
+   ],
+   "gaps": [
+    "Assisted Query and the chatbot need the Enterprise Plus subscription bundle.",
+    "The chatbot needs your own LLM and a vector database.",
+    "No automatic PII classification and no query history mining found.",
+    "The Data Catalog name is gone. Older guides and search results still use it."
+   ],
+   "fillWith": [
+    "Cube",
+    "dbt Semantic Layer"
+   ],
+   "nl2sqlPath": "Write view and field descriptions and tags in Design Studio, with Denodo Assistant suggestions. Then use Assisted Query for users, or connect an agent through the Denodo AI SDK or the Denodo MCP Server. Add Metric Views for KPIs.",
+   "snippet": {
+    "lang": "other",
+    "title": "",
+    "code": "",
+    "u": ""
+   },
+   "enrichHowTo": "In Design Studio, use Denodo Assistant to suggest view and column descriptions and tags, then review them. Move categories and tags between servers with Administration, Import / Export in the Data Marketplace. Then run getMetadata in the AI SDK to refresh the vector store.",
+   "bulkSnippet": {
+    "lang": "bash",
+    "code": "",
+    "u": ""
+   },
+   "askData": [
+    {
+     "name": "Assisted Query",
+     "status": "GA",
+     "since": "2025-09",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "View and field descriptions, logical names, tags, custom properties, associations and optional sample data.",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/assisted_query"
+    },
+    {
+     "name": "Denodo Assistant Chatbot with Deep Query",
+     "status": "GA",
+     "since": "2026-03",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "Metadata in a vector database, and data values. Deep Query plans multi-step analysis.",
+     "u": "https://community.denodo.com/docs/html/browse/9.4/en/vdp/data_catalog/chatbot/chatbot"
+    },
+    {
+     "name": "Denodo Assistant in the VQL Shell",
+     "status": "GA",
+     "since": "2025-09",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "View metadata and custom instructions. It writes and runs a query from plain language.",
+     "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_3"
+    }
+   ],
+   "sources": [
+    {
+     "t": "Data Marketplace Guide: Introduction",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/introduction/introduction"
+    },
+    {
+     "t": "Data Marketplace Guide: Views",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/views"
+    },
+    {
+     "t": "Data Marketplace Guide: Assisted Query",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/views/assisted_query"
+    },
+    {
+     "t": "Data Marketplace Guide: Denodo Assistant Chatbot",
+     "u": "https://community.denodo.com/docs/html/browse/9.4/en/vdp/data_catalog/chatbot/chatbot"
+    },
+    {
+     "t": "Data Marketplace Guide: Import and Export Data Marketplace Metadata",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/administration/import_export/import_export"
+    },
+    {
+     "t": "What Is New in Denodo 9.5",
+     "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_5"
+    },
+    {
+     "t": "What Is New in Denodo 9.4",
+     "u": "https://community.denodo.com/docs/html/browse/9.4/en/platform/new_features/what_is_new_9_4"
+    },
+    {
+     "t": "What Is New in Denodo 9.3",
+     "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_3"
+    },
+    {
+     "t": "Denodo AI SDK User Manual",
+     "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20AI%20SDK%20-%20User%20Manual"
+    },
+    {
+     "t": "Denodo MCP Server User Manual",
+     "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20MCP%20Server%20-%20User%20Manual"
+    },
+    {
+     "t": "Denodo Platform 9.1 press release",
+     "u": "https://www.denodo.com/en/press-release/2024-11-20/denodo-platform-91-brings-new-advanced-ai-capabilities-and-enhanced-data-lakehouse-performance"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null,
+   "worksWith": []
+  },
+  {
+   "id": "knowledge-catalog",
+   "name": "Google Cloud Knowledge Catalog",
+   "category": "catalog",
+   "partOf": "bigquery",
+   "aliases": [
+    "Dataplex Universal Catalog",
+    "Dataplex Catalog",
+    "Dataplex",
+    "BigQuery universal catalog"
+   ],
+   "tagline": "Google Cloud metadata catalog with glossary, AI insights, lineage, data products and an MCP server.",
+   "verdict": "partial",
+   "verdictNote": "Knowledge Catalog gives agents glossary terms, profiles, joins, lineage and a lookupContext call over MCP, but it holds no native metric definitions.",
+   "artifacts": [
+    {
+     "name": "Knowledge Catalog remote MCP server",
+     "kind": "mcp",
+     "status": "GA",
+     "since": "2025-09",
+     "format": "Remote MCP; /mcp has search_entries, lookup_context and lookup_entry; /mcp/data-products is Preview; OAuth with IAM",
+     "url": "https://docs.cloud.google.com/knowledge-catalog/docs/use-remote-mcp"
+    },
+    {
+     "name": "lookupContext",
+     "kind": "annotations",
+     "status": "Preview",
+     "since": "2026-06",
+     "format": "REST and MCP; returns YAML, XML or JSON context for an asset, with terms, joins, profile and quality",
+     "url": "https://docs.cloud.google.com/knowledge-catalog/docs/retrieve-data-context"
+    },
+    {
+     "name": "Business glossary",
+     "kind": "glossary",
+     "status": "GA",
+     "since": "",
+     "format": "UI and API; categories, terms, synonyms, related terms and links to assets and columns",
+     "url": "https://docs.cloud.google.com/knowledge-catalog/docs/manage-glossaries"
+    },
+    {
+     "name": "Data insights",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2024-08",
+     "format": "Gemini writes table and column descriptions, sample queries and relationship graphs; publishing to the catalog is Preview",
+     "url": "https://docs.cloud.google.com/knowledge-catalog/docs/data-insights-structured-data"
+    },
+    {
+     "name": "Natural language search",
+     "kind": "vector",
+     "status": "GA",
+     "since": "2025-12",
+     "format": "UI and API; semantic search over catalog entries",
+     "url": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+    },
+    {
+     "name": "Data products",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2026-05",
+     "format": "UI and API; package assets with access groups and approval workflows",
+     "url": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+    },
+    {
+     "name": "Data lineage remote MCP server",
+     "kind": "mcp",
+     "status": "Preview",
+     "since": "2026-05",
+     "format": "Remote MCP; queries lineage graphs upstream and downstream",
+     "url": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 1,
+     "n": "No native metric objects. dbt metadata import is GA, and MetricFlow import was Preview in August 2026.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+    },
+    "dimensions": {
+     "l": 1,
+     "n": "The catalog ingests Looker dimensions and measures as entries. It does not define dimensions itself.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/overview"
+    },
+    "relationships": {
+     "l": 2,
+     "n": "Link discovery between assets is Preview. lookupContext returns joins mined from query logs and data insights.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/retrieve-data-context"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "Glossary terms have synonyms and related terms. A guidelines aspect holds extra agent context on assets.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/manage-glossaries"
+    },
+    "verifiedQueries": {
+     "l": 2,
+     "n": "Published data insights store suggested queries and questions as reusable aspects. Publishing is Preview.",
+     "u": "https://docs.cloud.google.com/bigquery/docs/generate-table-insights"
+    },
+    "nl2sql": {
+     "l": 1,
+     "n": "The catalog does not answer questions. BigQuery data agents read its glossary terms, up to 10 per table.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/manage-glossaries"
+    },
+    "ontology": {
+     "l": 1,
+     "n": "Glossaries, aspects and data domains (Preview) add business meaning. No object, link or action model.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query in the catalog. It indexes BigQuery Graph metadata for search, which is Preview.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+    },
+    "vector": {
+     "l": 3,
+     "n": "Natural language search over catalog entries is GA. Gemini powers the semantic search.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+    },
+    "mcp": {
+     "l": 3,
+     "n": "Remote server at dataplex.googleapis.com/mcp. The data products endpoint is Preview. The docs show no stage for the main endpoint.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/reference/mcp"
+    },
+    "governance": {
+     "l": 3,
+     "n": "lookupContext returns only assets that the caller can access under IAM. Data products add access approval.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/retrieve-data-context"
+    },
+    "openStandard": {
+     "l": 3,
+     "n": "MCP, bulk metadata export and import, and dbt import are GA. No OSI support found.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+    },
+    "aiDescriptions": {
+     "l": 2,
+     "n": "Gemini writes table and column descriptions. Generate and publish to the catalog is Preview.",
+     "u": "https://docs.cloud.google.com/bigquery/docs/generate-table-insights"
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "Metadata import jobs, aspect-only import and bulk export to Cloud Storage are GA.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+    },
+    "autoClassify": {
+     "l": 1,
+     "n": "Sensitive Data Protection is a separate product. It sends inspection results to the catalog as aspects.",
+     "u": "https://docs.cloud.google.com/dlp/docs/send-profiles-to-dataplex"
+    },
+    "sampleValues": {
+     "l": 3,
+     "n": "Data profile scans give distinct counts, null ratios and sample values. lookupContext returns them to agents.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/retrieve-data-context"
+    },
+    "queryHistory": {
+     "l": 2,
+     "n": "Gemini reads query logs to suggest descriptions and joins. lookupContext is Preview and relationship discovery is Preview.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/overview"
+    },
+    "lineage": {
+     "l": 3,
+     "n": "Column-level lineage for BigQuery jobs is GA. Dataproc column lineage is GA. Lineage MCP server is Preview.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+    },
+    "evals": {
+     "l": 0,
+     "n": "No NL-to-SQL test tooling found in the Knowledge Catalog docs.",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+    }
+   },
+   "offers": [
+    "lookupContext returns schema, terms, joins, profile and quality for an asset in one call, over REST or MCP.",
+    "Remote MCP server with search_entries, lookup_context and lookup_entry tools, secured by OAuth and IAM.",
+    "Business glossary with synonyms and related terms that link to assets and columns.",
+    "Gemini data insights write descriptions and sample queries, and can publish them to the catalog.",
+    "Column-level lineage, data profiles and data quality results as catalog metadata."
+   ],
+   "gaps": [
+    "No native metric or dimension definitions. Metrics come from Looker, dbt or BigQuery views.",
+    "lookupContext and publishing of data insights are Preview.",
+    "A BigQuery data agent reads at most 10 glossary terms for each table.",
+    "No NL-to-SQL test tooling found. Teams must build their own evaluation set."
+   ],
+   "fillWith": [
+    "Looker semantic layer",
+    "dbt Semantic Layer",
+    "Cube"
+   ],
+   "nl2sqlPath": "Add glossary terms and table descriptions in Knowledge Catalog, then give your agent the MCP server or lookupContext. Keep metric definitions in Looker, dbt or BigQuery views. Use BigQuery data agents if you want a first-party chat.",
+   "snippet": {
+    "lang": "other",
+    "title": "List the tools of the Knowledge Catalog MCP server",
+    "code": "curl --location 'https://dataplex.googleapis.com/mcp' \\\n--header 'content-type: application/json' \\\n--header 'accept: application/json, text/event-stream' \\\n--data '{\n  \"method\": \"tools/list\",\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1\n}'",
+    "u": "https://docs.cloud.google.com/knowledge-catalog/docs/reference/mcp"
+   },
+   "enrichHowTo": "In BigQuery Studio, open a table, select Insights, and select Generate and publish (Preview). Gemini writes table and column descriptions into the catalog. For scale, set catalog_publishing_enabled to true in a DATA_DOCUMENTATION scan, or run a metadata import job.",
+   "bulkSnippet": {
+    "lang": "bash",
+    "code": "",
+    "u": ""
+   },
+   "askData": [],
+   "sources": [
+    {
+     "t": "Knowledge Catalog release notes",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+    },
+    {
+     "t": "Knowledge Catalog overview",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/overview"
+    },
+    {
+     "t": "Use the Knowledge Catalog remote MCP server",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/use-remote-mcp"
+    },
+    {
+     "t": "MCP Reference: dataplex.googleapis.com",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/reference/mcp"
+    },
+    {
+     "t": "Retrieve context for data assets",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/retrieve-data-context"
+    },
+    {
+     "t": "Manage a business glossary",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/manage-glossaries"
+    },
+    {
+     "t": "About data insights for structured data",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/data-insights-structured-data"
+    },
+    {
+     "t": "Generate table insights",
+     "u": "https://docs.cloud.google.com/bigquery/docs/generate-table-insights"
+    },
+    {
+     "t": "Tag tables based on insights from data profiles",
+     "u": "https://docs.cloud.google.com/dlp/docs/send-profiles-to-dataplex"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null,
+   "worksWith": []
+  },
+  {
    "id": "informatica",
    "name": "Informatica Intelligent Data Management Cloud",
    "category": "catalog",
@@ -15438,9 +16932,9 @@ window.SL = {
    },
    "enrichHowTo": "Turn on CLAIRE generated descriptions and classifications in Metadata Command Center, then scan the source. Review the output in CDGC. For large corrections, use the CDGC Bulk Import and Export API.",
    "bulkSnippet": {
-    "lang": "bash",
-    "code": "# CDGC Bulk Import and Export API: export assets, edit descriptions in the file, import the file back.\n# Exact endpoints: see the Informatica CDGC REST API reference.",
-    "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+    "lang": "",
+    "code": "",
+    "u": ""
    },
    "askData": [
     {
@@ -15479,6 +16973,263 @@ window.SL = {
     {
      "t": "Salesforce completes acquisition of Informatica",
      "u": "https://www.salesforce.com/news/press-releases/2025/11/18/salesforce-completes-acquisition-of-informatica/"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null,
+   "worksWith": []
+  },
+  {
+   "id": "purview",
+   "name": "Microsoft Purview Unified Catalog",
+   "category": "catalog",
+   "partOf": "fabric",
+   "aliases": [
+    "Microsoft Purview",
+    "Purview Data Catalog",
+    "Purview Data Map",
+    "Azure Purview",
+    "Purview Data Governance",
+    "Unified Catalog"
+   ],
+   "tagline": "Microsoft governance catalog with glossary, data products, classification, lineage and data quality.",
+   "verdict": "partial",
+   "verdictNote": "Unified Catalog holds glossary terms, data products, classification and lineage, but it has no metric objects, no NL-to-SQL, and no MCP server that we found.",
+   "artifacts": [
+    {
+     "name": "Unified Catalog (governance domains, data products, critical data elements)",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "UI; governance domains hold data products, terms and critical data elements",
+     "url": "https://learn.microsoft.com/en-us/purview/unified-catalog"
+    },
+    {
+     "name": "Business glossary terms",
+     "kind": "glossary",
+     "status": "GA",
+     "since": "",
+     "format": "UI and API; synonyms, acronyms, related terms and custom attributes; CSV bulk import is Preview",
+     "url": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms-create-manage"
+    },
+    {
+     "name": "Data products",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "UI and API; group data assets with a description, owners and an access policy",
+     "url": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-products"
+    },
+    {
+     "name": "Data Map classification",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Scan-time classification; more than 200 built-in classifications and custom classifications",
+     "url": "https://learn.microsoft.com/en-us/purview/data-map-classification"
+    },
+    {
+     "name": "Unified Catalog API",
+     "kind": "annotations",
+     "status": "Preview",
+     "since": "2025-09",
+     "format": "REST; version 2026-03-20-preview covers domains, terms, data products, data assets and columns",
+     "url": "https://learn.microsoft.com/en-us/rest/api/purview/unified-catalog-api-overview"
+    },
+    {
+     "name": "Natural language data product search",
+     "kind": "vector",
+     "status": "Preview",
+     "since": "",
+     "format": "UI; English, French and Spanish; ranks data products from metadata",
+     "url": "https://learn.microsoft.com/en-us/purview/unified-catalog-responsible-ai-faq"
+    },
+    {
+     "name": "OneLake catalog (Fabric)",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Fabric UI with Explore, Govern and Secure tabs; Catalog Search REST API is Preview",
+     "url": "https://learn.microsoft.com/en-us/fabric/governance/onelake-catalog-overview"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 0,
+     "n": "No metric objects. Terms and critical data elements hold text definitions only. Power BI semantic models hold the measures.",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms-create-manage"
+    },
+    "dimensions": {
+     "l": 0,
+     "n": "No dimension or hierarchy objects for query use. Terms can have a parent term in a hierarchy.",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms-create-manage"
+    },
+    "relationships": {
+     "l": 1,
+     "n": "Terms, data products and assets link to each other. The catalog holds no join paths for SQL.",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms-create-manage"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "Terms have definitions up to 10,000 characters, synonyms, acronyms, related terms and custom attributes. Link them to assets and columns.",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms-create-manage"
+    },
+    "verifiedQueries": {
+     "l": 0,
+     "n": "No verified question and SQL pairs. Data product descriptions can hold usage examples as text.",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-products"
+    },
+    "nl2sql": {
+     "l": 0,
+     "n": "No NL-to-SQL in the catalog. Natural language search finds data products only. Fabric Copilot features are separate products.",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-responsible-ai-faq"
+    },
+    "ontology": {
+     "l": 1,
+     "n": "Governance domains, data products, terms and critical data elements model business concepts. No object, link or action model.",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-products"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query language in the catalog. Lineage shows as a graph in the UI only.",
+     "u": "https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage"
+    },
+    "vector": {
+     "l": 2,
+     "n": "Natural language search over data products uses Azure OpenAI embedding models. Preview, three languages.",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-responsible-ai-faq"
+    },
+    "mcp": {
+     "l": 0,
+     "n": "No first-party MCP server for Unified Catalog found. Agents can call the preview Unified Catalog REST API instead.",
+     "u": "https://learn.microsoft.com/en-us/rest/api/purview/unified-catalog-api-overview"
+    },
+    "governance": {
+     "l": 3,
+     "n": "Data product access policies with approval, classification, sensitivity labels, data quality scores and lineage.",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-products"
+    },
+    "openStandard": {
+     "l": 1,
+     "n": "Preview REST API and preview CSV import. No open semantic standard such as OSI found.",
+     "u": "https://learn.microsoft.com/en-us/rest/api/purview/unified-catalog-api-overview"
+    },
+    "aiDescriptions": {
+     "l": 0,
+     "n": "No AI description writer in the docs. AI features are data asset suggestions, rule suggestions and search, all Preview.",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-responsible-ai-faq"
+    },
+    "bulkMetadata": {
+     "l": 2,
+     "n": "CSV import of glossary terms and bulk data product creation are Preview. The REST API is Preview and covers GA features only.",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms-create-manage"
+    },
+    "autoClassify": {
+     "l": 3,
+     "n": "Scans classify assets with more than 200 built-in classifications. You can add custom classifications.",
+     "u": "https://learn.microsoft.com/en-us/purview/data-map-classification"
+    },
+    "sampleValues": {
+     "l": 0,
+     "n": "No sample value feature for NL-to-SQL found. Data profiling exists inside data quality scans.",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-quality"
+    },
+    "queryHistory": {
+     "l": 0,
+     "n": "No mining of query history to suggest joins, metrics or examples found.",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog"
+    },
+    "lineage": {
+     "l": 3,
+     "n": "Entity and column lineage from supported sources. A Fabric tenant scan brings in metadata and lineage for Fabric items.",
+     "u": "https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant"
+    },
+    "evals": {
+     "l": 0,
+     "n": "No NL-to-SQL test tooling in the catalog. Data quality rules test data, not AI answers.",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-quality"
+    }
+   },
+   "offers": [
+    "Glossary terms with definitions, synonyms and acronyms that link to assets and columns.",
+    "Data products that group assets under a use case description, owners and an access policy.",
+    "Automatic classification during scans, with more than 200 built-in classifications.",
+    "Lineage and data quality scores for scanned assets, including Fabric items.",
+    "A preview REST API for domains, terms, data products, data assets and columns."
+   ],
+   "gaps": [
+    "No metric or dimension objects. An NL-to-SQL agent cannot read governed measures here.",
+    "No MCP server for Unified Catalog found. Agents must use the preview REST API.",
+    "No AI writer for table or column descriptions found in the docs.",
+    "The REST API covers GA features only, so preview features such as bulk import have no API."
+   ],
+   "fillWith": [
+    "Power BI semantic models",
+    "dbt Semantic Layer",
+    "Cube"
+   ],
+   "nl2sqlPath": "Use Purview for glossary terms, classification, lineage and access policy. Keep metrics and joins in a Power BI semantic model or another semantic layer. Read glossary terms from the Unified Catalog API and add them to the agent prompt.",
+   "snippet": {
+    "lang": "other",
+    "title": "",
+    "code": "",
+    "u": ""
+   },
+   "enrichHowTo": "Write column and table descriptions at the source or in the Fabric item, then scan the source. For glossary terms, upload a CSV file in a governance domain, which is Preview. The upload creates terms but cannot edit them.",
+   "bulkSnippet": {
+    "lang": "bash",
+    "code": "",
+    "u": ""
+   },
+   "askData": [],
+   "sources": [
+    {
+     "t": "Learn about Microsoft Purview Unified Catalog",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog"
+    },
+    {
+     "t": "Create and manage glossary terms in Unified Catalog",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms-create-manage"
+    },
+    {
+     "t": "Data products in Unified Catalog",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-products"
+    },
+    {
+     "t": "Unified Catalog API (Public Preview)",
+     "u": "https://learn.microsoft.com/en-us/rest/api/purview/unified-catalog-api-overview"
+    },
+    {
+     "t": "Application card: Microsoft Purview Unified Catalog",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-responsible-ai-faq"
+    },
+    {
+     "t": "Data classification in Data Map",
+     "u": "https://learn.microsoft.com/en-us/purview/data-map-classification"
+    },
+    {
+     "t": "Overview of data quality in Unified Catalog",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-quality"
+    },
+    {
+     "t": "Data lineage in classic Data Catalog",
+     "u": "https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage"
+    },
+    {
+     "t": "Connect to your Microsoft Fabric tenant in the same tenant as Purview",
+     "u": "https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant"
+    },
+    {
+     "t": "OneLake catalog overview",
+     "u": "https://learn.microsoft.com/en-us/fabric/governance/onelake-catalog-overview"
+    },
+    {
+     "t": "Catalog - Search (Fabric REST API)",
+     "u": "https://learn.microsoft.com/rest/api/fabric/core/catalog/search"
+    },
+    {
+     "t": "What's new in Microsoft Purview",
+     "u": "https://learn.microsoft.com/en-us/purview/whats-new"
     }
    ],
    "verified": "2026-10-24",
@@ -16290,7 +18041,7 @@ window.SL = {
      "name": "Semantic views",
      "kind": "semantic-model",
      "status": "GA",
-     "since": "2025",
+     "since": "",
      "format": "SQL DDL (CREATE SEMANTIC VIEW) or YAML; schema-level objects with grants and tags",
      "url": "https://docs.snowflake.com/en/user-guide/views-semantic/overview"
     },
@@ -20967,6 +22718,102 @@ window.SL = {
    "from": "r3-catalogs-platform-1.json"
   },
   {
+   "topic": "Purview and the OneLake catalog",
+   "text": "OneLake catalog is the Fabric catalog with Explore, Govern and Secure tabs. Purview scans a Fabric tenant and brings in metadata and lineage for Fabric items. Purview covers the whole data estate and adds governance domains, glossary terms and data products.",
+   "sources": [
+    {
+     "t": "OneLake catalog overview",
+     "u": "https://learn.microsoft.com/en-us/fabric/governance/onelake-catalog-overview"
+    },
+    {
+     "t": "Connect to your Microsoft Fabric tenant in the same tenant as Purview",
+     "u": "https://learn.microsoft.com/en-us/purview/register-scan-fabric-tenant"
+    }
+   ],
+   "from": "r3-catalogs-platform-2.json"
+  },
+  {
+   "topic": "OneLake catalog for agents",
+   "text": "The Fabric Catalog Search REST API finds catalog entries across workspaces. It is in Preview and returns metadata only. It does not give access to item data.",
+   "sources": [
+    {
+     "t": "Catalog - Search (Fabric REST API)",
+     "u": "https://learn.microsoft.com/rest/api/fabric/core/catalog/search"
+    }
+   ],
+   "from": "r3-catalogs-platform-2.json"
+  },
+  {
+   "topic": "Purview AI features",
+   "text": "Unified Catalog lists three AI features: natural language data product search, data asset suggestions, and data quality rule suggestions. All three are Preview. The docs do not list an AI description writer.",
+   "sources": [
+    {
+     "t": "Application card: Microsoft Purview Unified Catalog",
+     "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-responsible-ai-faq"
+    }
+   ],
+   "from": "r3-catalogs-platform-2.json"
+  },
+  {
+   "topic": "Knowledge Catalog rename",
+   "text": "Dataplex Universal Catalog became Knowledge Catalog on 2026-04-10. The API, client library, CLI and IAM names did not change. Dataplex Catalog was called BigQuery universal catalog in April 2025.",
+   "sources": [
+    {
+     "t": "Knowledge Catalog release notes",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+    }
+   ],
+   "from": "r3-catalogs-platform-2.json"
+  },
+  {
+   "topic": "Knowledge Catalog context for agents",
+   "text": "The lookupContext method returns schema, business terms, joins from query logs, data profile and quality results in one call. It filters results by the caller's IAM permissions. It is in Preview.",
+   "sources": [
+    {
+     "t": "Retrieve context for data assets",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/retrieve-data-context"
+    }
+   ],
+   "from": "r3-catalogs-platform-2.json"
+  },
+  {
+   "topic": "Knowledge Catalog glossary in BigQuery data agents",
+   "text": "A BigQuery data agent imports at most 10 glossary terms for each table. Google advises that you also write table and column descriptions.",
+   "sources": [
+    {
+     "t": "Manage a business glossary",
+     "u": "https://docs.cloud.google.com/knowledge-catalog/docs/manage-glossaries"
+    }
+   ],
+   "from": "r3-catalogs-platform-2.json"
+  },
+  {
+   "topic": "Denodo Data Catalog rename",
+   "text": "Denodo renamed the Data Catalog to Data Marketplace in version 9.3. Version 9.5 renamed Reference Lineage to 360 Graph. Old guides still use the old names.",
+   "sources": [
+    {
+     "t": "What Is New in Denodo 9.4",
+     "u": "https://community.denodo.com/docs/html/browse/9.4/en/platform/new_features/what_is_new_9_4"
+    },
+    {
+     "t": "What Is New in Denodo 9.5",
+     "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/new_features/what_is_new_9_5"
+    }
+   ],
+   "from": "r3-catalogs-platform-2.json"
+  },
+  {
+   "topic": "Denodo AI SDK and catalog metadata",
+   "text": "The AI SDK connects to the Data Marketplace to read view metadata. The getMetadata endpoint vectorizes descriptions and sample data into a vector store. The answerQuestion endpoint then runs with the end user's credentials.",
+   "sources": [
+    {
+     "t": "Denodo AI SDK User Manual",
+     "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20AI%20SDK%20-%20User%20Manual"
+    }
+   ],
+   "from": "r3-catalogs-platform-2.json"
+  },
+  {
    "topic": "Salesforce acquired Informatica",
    "text": "Salesforce completed the acquisition of Informatica on 2025-11-18. Informatica adds its catalog, integration, governance and MDM services to the Salesforce platform.",
    "sources": [
@@ -21088,6 +22935,81 @@ window.SL = {
     }
    ],
    "from": "r3-ibm-cloudera-startree.json"
+  },
+  {
+   "topic": "Azure Synapse status relative to Fabric",
+   "text": "Microsoft publishes migration guides and a Migration Assistant from Synapse dedicated SQL pools and Synapse Spark to Fabric. The migration pages give no retirement date for the Synapse service itself.",
+   "sources": [
+    {
+     "t": "Fabric Migration Assistant for Data Warehouse",
+     "u": "https://learn.microsoft.com/en-us/fabric/data-warehouse/migration-assistant"
+    },
+    {
+     "t": "Overview of migrating Azure Synapse Spark to Fabric",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-engineering/migrate-synapse-overview.md"
+    }
+   ],
+   "from": "r3-microsoft.json"
+  },
+  {
+   "topic": "Synapse component retirements",
+   "text": "Synapse Data Explorer (Preview) was retired on 2025-10-07, and Microsoft points users to Fabric Eventhouse. Synapse Link for Azure Cosmos DB NoSQL reaches end of life in March 2029.",
+   "sources": [
+    {
+     "t": "Retirement: Azure Synapse Data Explorer (Preview)",
+     "u": "https://mc.merill.net/message/AZ484968"
+    },
+    {
+     "t": "Retirement: Azure Synapse Link for Azure Cosmos DB NoSQL",
+     "u": "https://mc.merill.net/message/AZ558560"
+    }
+   ],
+   "from": "r3-microsoft.json"
+  },
+  {
+   "topic": "Power BI Q&A retirement date",
+   "text": "Q&A experiences retire in February 2027. The Power BI Learn pages show this date and were updated on 2026-06-02. An earlier Message Center notice (2026-01-16) and one Fabric data agent page still say December 2026.",
+   "sources": [
+    {
+     "t": "Intro to Q&A tooling",
+     "u": "https://learn.microsoft.com/en-us/power-bi/natural-language/q-and-a-tooling-intro"
+    },
+    {
+     "t": "Retirement of Power BI Q&A (Message Center MC1218421)",
+     "u": "https://mc.merill.net/message/MC1218421"
+    },
+    {
+     "t": "Semantic model best practices for data agent",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/semantic-model-best-practices.md"
+    }
+   ],
+   "from": "r3-microsoft.json"
+  },
+  {
+   "topic": "Release labels in Microsoft docs disagree",
+   "text": "The Fabric data agent concepts page calls the data agent generally available, but the release status table lists it as Preview. The KQL Copilot article title says preview, and the release status table says GA.",
+   "sources": [
+    {
+     "t": "Fabric data agent concepts",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/concept-data-agent.md"
+    },
+    {
+     "t": "Release status of AI and Copilot experiences in Fabric",
+     "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/fundamentals/copilot-ai-feature-state.md"
+    }
+   ],
+   "from": "r3-microsoft.json"
+  },
+  {
+   "topic": "Copilot for Azure Data Explorer clusters",
+   "text": "The Azure Data Explorer web UI pages checked show no Copilot. Copilot reaches ADX clusters from Fabric, and it needs a Fabric-enabled capacity.",
+   "sources": [
+    {
+     "t": "Copilot for Real-Time Intelligence",
+     "u": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/copilot-real-time-intelligence"
+    }
+   ],
+   "from": "r3-microsoft.json"
   },
   {
    "topic": "Oracle docs access",
