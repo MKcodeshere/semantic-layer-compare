@@ -31,12 +31,12 @@
         "mcp": { "l": 2, "n": "The Hex MCP server is in Beta on Team and Enterprise plans. It runs Threads, searches projects, and edits notebooks.", "u": "https://learn.hex.tech/docs/api-integrations/mcp-server" },
         "governance": { "l": 3, "n": "The MCP server enforces workspace roles and project permissions. Endorsements and Context Studio observability show which context agents use.", "u": "https://learn.hex.tech/docs/api-integrations/mcp-server" },
         "openStandard": { "l": 2, "n": "Hex imports Apache Ossie files through a CLI conversion step (Alpha). It also syncs dbt MetricFlow, Cube, and Snowflake Semantic Views.", "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/ossie" },
-        "aiDescriptions": { "l": null, "n": "Not checked yet.", "u": "" },
+        "aiDescriptions": { "l": 3, "n": "Suggestions proposes new table and column descriptions from agent conversation gaps. An admin reviews each change before it applies.", "u": "https://learn.hex.tech/docs/agent-management/suggestions" },
         "bulkMetadata": { "l": 3, "n": "The hex context CLI syncs guides, semantic projects, and evals from Git. Hex also reads dbt Cloud model and column descriptions.", "u": "https://learn.hex.tech/docs/agent-management/context-management/context-sync" },
-        "autoClassify": { "l": null, "n": "Not checked yet.", "u": "" },
-        "sampleValues": { "l": null, "n": "Not checked yet.", "u": "" },
-        "queryHistory": { "l": null, "n": "Not checked yet. Suggestions use agent conversations, not warehouse query history.", "u": "https://learn.hex.tech/docs/agent-management/suggestions" },
-        "lineage": { "l": null, "n": "Not checked yet.", "u": "" },
+        "autoClassify": { "l": 0, "n": "The Data browser shows no PII or sensitivity tags. Admins can exclude data objects from agent context by hand.", "u": "https://learn.hex.tech/docs/explore-data/data-browser" },
+        "sampleValues": { "l": 0, "n": "Users get a 100-row table preview. The docs name no value index for agents. Teams describe value formats in column descriptions.", "u": "https://learn.hex.tech/docs/explore-data/data-browser" },
+        "queryHistory": { "l": 3, "n": "Suggestions mines agent conversations and warnings to propose guides, descriptions, and endorsements. It does not read warehouse query history.", "u": "https://learn.hex.tech/docs/agent-management/suggestions" },
+        "lineage": { "l": 0, "n": "The Data browser shows dbt run date, source freshness, and test status. The docs name no column-level lineage.", "u": "https://learn.hex.tech/docs/explore-data/data-browser" },
         "evals": { "l": 3, "n": "Eval suites in YAML grade agent threads with rubrics. Teams run them on a schedule or against a Context Preview.", "u": "https://learn.hex.tech/docs/agent-management/evals" }
       },
       "enrichHowTo": "Connect dbt Cloud so Hex reads model and column descriptions. Keep guides, semantic projects, and eval suites in Git and sync them with the hex context CLI. Then endorse the trusted tables in Context Studio.",
@@ -83,7 +83,11 @@
         { "t": "dbt Integrations", "u": "https://learn.hex.tech/docs/connect-to-data/data-connections/dbt-integration" },
         { "t": "Data connections introduction", "u": "https://learn.hex.tech/docs/connect-to-data/data-connections/data-connections-introduction" },
         { "t": "Hex llms.txt", "u": "https://hex.tech/llms.txt" },
-        { "t": "Apache Ossie converters repo", "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md" }
+        { "t": "Apache Ossie converters repo", "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md" },
+        {
+         "t": "Data browser (Hex)",
+         "u": "https://learn.hex.tech/docs/explore-data/data-browser"
+        }
       ],
       "verified": "2026-10-24"
     },
@@ -119,11 +123,11 @@
         "mcp": { "l": 3, "n": "The MCP server has tools for model and topic choice, queries, and docs search. An admin enables each tool in the AI Hub.", "u": "https://docs.omni.co/ai/mcp/tools.md" },
         "governance": { "l": 3, "n": "MCP queries use the permissions of the authenticated user. Omni states that user permissions apply to every AI surface.", "u": "https://docs.omni.co/ai/mcp/index.md" },
         "openStandard": { "l": 1, "n": "The Apache Ossie converters repo has a two-way Omni converter. Omni documents no native Ossie import or export.", "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/omni/README.md" },
-        "aiDescriptions": { "l": null, "n": "Not checked yet. The Modeling Agent drafts model changes, but the docs read do not name description generation.", "u": "https://docs.omni.co/ai/index.md" },
+        "aiDescriptions": { "l": 3, "n": "The Modeling Agent and Learn from conversation write field descriptions as YAML. A user reviews each change first.", "u": "https://docs.omni.co/ai/learn-from-conversation.md" },
         "bulkMetadata": { "l": 3, "n": "The REST API writes one YAML file per request. A model branch batches many writes into one Git sync.", "u": "https://docs.omni.co/guides/api/bulk-update-model-yaml.md" },
-        "autoClassify": { "l": null, "n": "Not checked yet.", "u": "" },
+        "autoClassify": { "l": 0, "n": "The docs name no PII or sensitivity classifier. The query history skill only suggests dimension, measure, or time types.", "u": "https://docs.omni.co/ai/model-assistant.md" },
         "sampleValues": { "l": 3, "n": "Fields take sample_values and all_values. The AI can also fetch field values on demand.", "u": "https://docs.omni.co/modeling/develop/ai-optimization.md" },
-        "queryHistory": { "l": null, "n": "Not checked yet. Suggestions use AI feedback, not warehouse query history.", "u": "https://docs.omni.co/ai/suggestions.md" },
+        "queryHistory": { "l": 3, "n": "The Suggest model from query history skill reads Snowflake or Postgres query history. It suggests views, measures, joins, and query views.", "u": "https://docs.omni.co/ai/model-assistant.md" },
         "lineage": { "l": 1, "n": "A guide shows how to build a lineage integration with the REST API for OpenMetadata or DataHub.", "u": "https://docs.omni.co/guides/api/data-lineage-integration.md" },
         "evals": { "l": 3, "n": "Prompt sets hold up to 25 prompts. A judge scores runs against a model branch. Suggestions turn feedback into model changes.", "u": "https://docs.omni.co/ai/evals.md" }
       },
@@ -168,7 +172,15 @@
         { "t": "Connect data", "u": "https://docs.omni.co/connect-data/index.md" },
         { "t": "Omni documentation index", "u": "https://docs.omni.co/llms.txt" },
         { "t": "Ossie to Omni converter", "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/omni/README.md" },
-        { "t": "Apache Ossie converters repo", "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md" }
+        { "t": "Apache Ossie converters repo", "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md" },
+        {
+         "t": "Learn from conversation (Omni)",
+         "u": "https://docs.omni.co/ai/learn-from-conversation.md"
+        },
+        {
+         "t": "Modeling Agent (Omni)",
+         "u": "https://docs.omni.co/ai/model-assistant.md"
+        }
       ],
       "verified": "2026-10-24"
     },
@@ -204,12 +216,12 @@
         "mcp": { "l": 3, "n": "The MCP server runs on Lightdash Cloud. Self-hosted instances need an Enterprise license. Access uses OAuth and existing permissions.", "u": "https://docs.lightdash.com/agents/lightdash-mcp.md" },
         "governance": { "l": 3, "n": "Agent answers follow project permissions and user attributes. Admins can scope agents with tags and set the identity an agent uses in the warehouse.", "u": "https://docs.lightdash.com/agents.md" },
         "openStandard": { "l": 1, "n": "Native YAML and content as code are open to Git. dbt MetricFlow translation is Beta. Ossie support is Experimental and not released.", "u": "https://docs.lightdash.com/integrations/apache-ossie.md" },
-        "aiDescriptions": { "l": null, "n": "Not checked yet. AI writeback edits YAML files and opens a pull request.", "u": "https://docs.lightdash.com/agents/ai-writeback.md" },
+        "aiDescriptions": { "l": 3, "n": "An agent edits descriptions in dbt or YAML files on request and opens a pull request. It needs a Git repository.", "u": "https://docs.lightdash.com/agents/ai-writeback.md" },
         "bulkMetadata": { "l": 3, "n": "The lightdash generate command syncs schema.yml files. Content as code downloads and uploads charts, dashboards, and agents.", "u": "https://docs.lightdash.com/workflow/cli/generate.md" },
-        "autoClassify": { "l": null, "n": "Not checked yet.", "u": "" },
-        "sampleValues": { "l": null, "n": "Not checked yet.", "u": "" },
-        "queryHistory": { "l": null, "n": "Not checked yet.", "u": "" },
-        "lineage": { "l": null, "n": "Not checked yet.", "u": "" },
+        "autoClassify": { "l": 0, "n": "The docs name no classifier for PII or sensitivity. Admins scope agents with tags and user attributes by hand.", "u": "https://docs.lightdash.com/agents/data-access.md" },
+        "sampleValues": { "l": 3, "n": "Agents search real field values to build accurate filters. Dimensions also take a filter_autocomplete list of fixed values.", "u": "https://docs.lightdash.com/agents/data-access.md" },
+        "queryHistory": { "l": 0, "n": "No feature mines warehouse query history for joins or metrics. Autopilot (Beta) drafts charts from repeated AI assistant questions.", "u": "https://docs.lightdash.com/agents/autopilot.md" },
+        "lineage": { "l": 0, "n": "The docs name no column-level lineage. Saved Trees show how metrics feed each other.", "u": "https://docs.lightdash.com/explore/metrics-catalog/drivers.md" },
         "evals": { "l": 3, "n": "Evaluation suites run test prompts in batch. An LLM judge scores each result when an expected response exists.", "u": "https://docs.lightdash.com/agents/create-evaluation-suites.md" }
       },
       "enrichHowTo": "Write descriptions and ai_hint values in dbt or Lightdash YAML. Run the lightdash generate command to create and sync schema.yml files, then review them in a pull request. Add an evaluation suite to test the agent.",
@@ -254,7 +266,19 @@
         { "t": "Generate semantic layer YAML", "u": "https://docs.lightdash.com/workflow/cli/generate.md" },
         { "t": "AI writeback", "u": "https://docs.lightdash.com/agents/ai-writeback.md" },
         { "t": "Saved Trees", "u": "https://docs.lightdash.com/explore/metrics-catalog/build-saved-trees.md" },
-        { "t": "Lightdash documentation index", "u": "https://docs.lightdash.com/llms.txt" }
+        { "t": "Lightdash documentation index", "u": "https://docs.lightdash.com/llms.txt" },
+        {
+         "t": "Data access control (Lightdash)",
+         "u": "https://docs.lightdash.com/agents/data-access.md"
+        },
+        {
+         "t": "Autopilot (Lightdash)",
+         "u": "https://docs.lightdash.com/agents/autopilot.md"
+        },
+        {
+         "t": "Drivers (Lightdash)",
+         "u": "https://docs.lightdash.com/explore/metrics-catalog/drivers.md"
+        }
       ],
       "verified": "2026-10-24"
     }

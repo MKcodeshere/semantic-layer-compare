@@ -695,9 +695,9 @@
           "u": "https://learn.microsoft.com/en-us/fabric/graph/overview"
         },
         "vector": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Copilot search finds reports and semantic models by meaning, using item metadata. Eventhouse in Fabric stores vectors for your own data.",
+          "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-search-new-content"
         },
         "mcp": {
           "l": 3,
@@ -896,6 +896,10 @@
         {
           "t": "Retirement of Power BI Q&A (Message Center MC1218421)",
           "u": "https://mc.merill.net/message/MC1218421"
+        },
+        {
+         "t": "Find content using Power BI Copilot search",
+         "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-search-new-content"
         }
       ],
       "askData": [

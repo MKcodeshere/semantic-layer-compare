@@ -103,9 +103,9 @@
      "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
     },
     "aiDescriptions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No routine drafts table or column comments. Teams write comments with DDL, and NL_SQL reads them.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
     },
     "bulkMetadata": {
      "l": 3,
@@ -113,29 +113,29 @@
      "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No column classification for PII or semantic type. Data masking functions exist, but you apply them by hand.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/"
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "NL_SQL reads schema, table, column, and comment data. The docs show no value index or literal matching.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Query history keeps the last 1000 queries for performance monitoring. NL_SQL does not use it to suggest models.",
+     "u": "https://dev.mysql.com/doc/heatwave/en/mys-hw-metadata-queries-query-history.html"
     },
     "lineage": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The user guide has no lineage topic.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/"
     },
     "evals": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The user guide has no NL_SQL accuracy test tool and no feedback loop.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
     }
    },
    "offers": [
@@ -183,6 +183,10 @@
     {
      "t": "MySQL HeatWave on OCI",
      "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
+    },
+    {
+     "t": "HeatWave Query History and Statistics Monitoring",
+     "u": "https://dev.mysql.com/doc/heatwave/en/mys-hw-metadata-queries-query-history.html"
     }
    ],
    "verified": "2026-10-24",
@@ -317,39 +321,39 @@
      "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
     },
     "aiDescriptions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No feature drafts descriptions for collections or fields. The NL guide tells teams to write annotated schema types by hand.",
+     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
     },
     "bulkMetadata": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "A $jsonSchema validator can hold title and description text per field. The docs name no field comment store.",
+     "u": "https://www.mongodb.com/docs/manual/core/schema-validation.md"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No automatic PII or semantic classification. Teams choose fields for Queryable Encryption by hand.",
+     "u": "https://www.mongodb.com/docs/manual/core/queryable-encryption.md"
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "The NL guide says to add two or three sample documents to the prompt. The NL Querying agent skill uses sample documents.",
+     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Performance Advisor reads slow queries to suggest indexes and schema changes. It does not suggest semantic context.",
+     "u": "https://www.mongodb.com/docs/mcp-server/tools.md"
     },
     "lineage": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The MongoDB documentation index lists no lineage feature.",
+     "u": "https://www.mongodb.com/docs/llms.txt"
     },
     "evals": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "MongoDB publishes a public NL-to-mongosh benchmark dataset on Hugging Face. The docs list no in-product accuracy test.",
+     "u": "https://huggingface.co/datasets/mongodb-eai/natural-language-to-mongosh"
     }
    },
    "offers": [
@@ -410,6 +414,22 @@
     {
      "t": "Automated Embedding",
      "u": "https://www.mongodb.com/docs/vector-search/crud-embeddings/automated-embedding/overview.md"
+    },
+    {
+     "t": "Schema Validation (MongoDB)",
+     "u": "https://www.mongodb.com/docs/manual/core/schema-validation.md"
+    },
+    {
+     "t": "Queryable Encryption (MongoDB)",
+     "u": "https://www.mongodb.com/docs/manual/core/queryable-encryption.md"
+    },
+    {
+     "t": "MongoDB docs index (llms.txt)",
+     "u": "https://www.mongodb.com/docs/llms.txt"
+    },
+    {
+     "t": "MongoDB NL-to-mongosh benchmark (Hugging Face)",
+     "u": "https://huggingface.co/datasets/mongodb-eai/natural-language-to-mongosh"
     }
    ],
    "verified": "2026-10-24",
@@ -579,29 +599,29 @@
      "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
     },
     "bulkMetadata": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "SQL accepts COMMENT on tables and columns. Analyst docs show description edits one table or column at a time.",
+     "u": "https://docs.singlestore.com/cloud/reference/sql-reference/data-definition-language-ddl/alter-table.md"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The Analyst docs name no PII or semantic type classifier. Domain owners set descriptions and Business Rules by hand.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Analyst reads schema metadata, descriptions, and rules. The docs show no sample value store. Owners map terms in Business Rules.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Query History traces slow and failed queries. Analyst learns from user questions and feedback, not from warehouse query history.",
+     "u": "https://docs.singlestore.com/cloud/query-data/query-tuning/query-history.md"
     },
     "lineage": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The SingleStore documentation index lists no lineage feature.",
+     "u": "https://docs.singlestore.com/llms.txt"
     },
     "evals": {
      "l": 2,
@@ -653,6 +673,18 @@
     {
      "t": "AI and ML Functions",
      "u": "https://docs.singlestore.com/cloud/ai/ai-ml-functions.md"
+    },
+    {
+     "t": "ALTER TABLE (SingleStore)",
+     "u": "https://docs.singlestore.com/cloud/reference/sql-reference/data-definition-language-ddl/alter-table.md"
+    },
+    {
+     "t": "Query History (SingleStore)",
+     "u": "https://docs.singlestore.com/cloud/query-data/query-tuning/query-history.md"
+    },
+    {
+     "t": "SingleStore docs index (llms.txt)",
+     "u": "https://docs.singlestore.com/llms.txt"
     }
    ],
    "verified": "2026-10-24",
