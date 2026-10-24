@@ -485,7 +485,7 @@
       ]
     },
     {
-      "topic": "Neo4j Aura Agent (not in leads, found during check)",
+      "topic": "Neo4j Aura Agent",
       "text": "Neo4j announced Aura Agent as generally available on 2026-02-03. It has Cypher Template, Similarity Search and Text2Cypher tools. It also has a REST endpoint and a read-only MCP server. The docs describe agent evaluations with datasets of up to 50 questions and five metrics. The docs show no preview label. The GA blog does not mention evaluations.",
       "sources": [
         {
