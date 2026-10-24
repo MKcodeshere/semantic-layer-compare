@@ -74,24 +74,24 @@
           "u": ""
         },
         "bulkMetadata": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 1,
+          "n": "Translation CSV export and import covers Label, Description and Screen tip. The REST API has update module calls, not documented for column text.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
         },
         "autoClassify": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Package enrichment sets data characteristics such as Time and Geographic Location. No PII or sensitivity tags are documented.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
         },
         "sampleValues": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Loading metadata or enriching a package reads up to 10000 sample rows per table. The Assistant uses the inferred characteristics.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_manage.pdf"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No query history mining in the Assistant, data module or administration guides. Authors model and enrich by hand.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_manage.pdf"
         },
         "lineage": {
           "l": 3,
@@ -99,9 +99,9 @@
           "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ug_cr_rptstd.pdf"
         },
         "evals": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No accuracy testing or feedback loop for the Assistant in the guides. Teams test by asking questions.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_gtstd.pdf"
         }
       },
       "enrichHowTo": "No supported bulk method for descriptions is confirmed for this product yet.",
@@ -114,6 +114,18 @@
         {
           "t": "IBM Cognos Analytics Reporting 12.1.x User Guide (PDF)",
           "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ug_cr_rptstd.pdf"
+        },
+        {
+          "t": "Cognos Analytics 12.1.x Data Modules User Guide (PDF)",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
+        },
+        {
+          "t": "Cognos Analytics 12.1.x Managing User Guide (PDF)",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_manage.pdf"
+        },
+        {
+          "t": "Cognos Analytics 12.1.x Getting Started User Guide (PDF)",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_gtstd.pdf"
         }
       ],
       "verified": "2026-10-24"
@@ -132,9 +144,9 @@
           "u": "https://www2.strategy.com/producthelp/2021/NextGenAI/en-us/Content/agent_tuning.htm"
         },
         "autoClassify": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No column classification or sensitivity tagging in the Agent docs or What's New. Mosaic Sentinel tracks usage and audit events.",
+          "u": "https://www2.strategy.com/producthelp/Current/Readme/en-us/content/whats_new.htm"
         },
         "sampleValues": {
           "l": 3,
@@ -142,9 +154,9 @@
           "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_bots_new_general.htm"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "A history and clarifier agent uses past queries to suggest alternative questions (June 2025). Admins promote user learnings to knowledge assets.",
+          "u": "https://www2.strategy.com/producthelp/Current/Readme/en-us/content/whats_new.htm"
         },
         "lineage": {
           "l": 0,
@@ -191,6 +203,10 @@
         {
           "t": "Customize Agent Display Using the General Panel",
           "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_bots_new_general.htm"
+        },
+        {
+          "t": "What's New in Strategy",
+          "u": "https://www2.strategy.com/producthelp/Current/Readme/en-us/content/whats_new.htm"
         }
       ],
       "verified": "2026-10-24"

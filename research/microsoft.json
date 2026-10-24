@@ -166,8 +166,8 @@
           "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/overview"
         },
         "graph": {
-          "l": null,
-          "n": "Not checked yet.",
+          "l": 3,
+          "n": "Graph in Fabric is GA. The overview page has no preview banner. Data agent use of graph (NL2GQL) is Preview.",
           "u": "https://learn.microsoft.com/en-us/fabric/graph/overview"
         },
         "vector": {
@@ -331,6 +331,10 @@
         {
           "t": "Fabric IQ: The semantic layer powering trusted AI agents at enterprise scale (Fabric blog, Build 2026)",
           "u": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-iq-the-semantic-layer-powering-trusted-ai-agents-at-enterprise-scale/5190739"
+        },
+        {
+          "t": "Graph in Microsoft Fabric overview (source)",
+          "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/graph/overview.md"
         }
       ],
       "verified": "2026-10-24"
