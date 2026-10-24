@@ -202,7 +202,7 @@
       "gaps": [
         "Prep data for AI and the ontology item are Preview; Learn pages disagree on some GA labels.",
         "Data agent accepts no example queries for semantic models; verified answers are visual-based, capped at 250 per model.",
-        "Q&A retires (February 2027 on most Learn pages, December 2026 on one); Prep data for AI still requires Q&A enabled.",
+        "Q&A retires in February 2027; Prep data for AI still requires Q&A enabled.",
         "Data agent replies cap at 25 rows and 25 columns, English only, read-only, up to five sources.",
         "Fabric IQ MCP covers reports and semantic models only; it does not support ontologies or data agents."
       ],
@@ -220,34 +220,118 @@
         "u": "https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview"
       },
       "sources": [
-        { "t": "TMDL overview", "u": "https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview" },
-        { "t": "Prepare your data for AI (Preview)", "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai" },
-        { "t": "Prep data for AI: AI instructions", "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-instructions" },
-        { "t": "Prep data for AI: AI data schemas", "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-data-schema" },
-        { "t": "Prep data for AI: verified answers", "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-verified-answers" },
-        { "t": "Intro to Q&A tooling (Q&A retirement notice)", "u": "https://learn.microsoft.com/en-us/power-bi/natural-language/q-and-a-tooling-intro" },
-        { "t": "Ask data questions with Copilot and Fabric IQ", "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-ask-data-question" },
-        { "t": "Fabric data agent concepts", "u": "https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent" },
-        { "t": "Add a data source to Data Agent", "u": "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-add-datasources" },
-        { "t": "Semantic model best practices for data agent", "u": "https://learn.microsoft.com/en-us/fabric/data-science/semantic-model-best-practices" },
-        { "t": "Data agent as MCP server", "u": "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-mcp-server" },
-        { "t": "What is Fabric IQ?", "u": "https://learn.microsoft.com/en-us/fabric/iq/overview" },
-        { "t": "What is ontology (preview)?", "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/overview" },
-        { "t": "Use Ontology MCP Server (Preview)", "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-use-ontology-mcp-server" },
-        { "t": "Get started with the Fabric IQ MCP server", "u": "https://learn.microsoft.com/en-us/fabric/iq/connectors/fabric-iq-mcp" },
-        { "t": "Overview of the Power BI MCP servers", "u": "https://learn.microsoft.com/en-us/power-bi/developer/mcp/mcp-servers-overview" },
-        { "t": "Power BI Authoring MCP server", "u": "https://learn.microsoft.com/en-us/power-bi/developer/mcp/power-bi-authoring-mcp" },
-        { "t": "Choose a Microsoft Fabric MCP server", "u": "https://learn.microsoft.com/en-us/rest/api/fabric/articles/mcp-servers/fabric-mcp-servers-list" },
-        { "t": "What is graph in Microsoft Fabric?", "u": "https://learn.microsoft.com/en-us/fabric/graph/overview" },
-        { "t": "Labeled Property Graph in Fabric (RDF not supported)", "u": "https://learn.microsoft.com/en-us/fabric/graph/graph-data-models" },
-        { "t": "Overview of Copilot in Fabric", "u": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview" },
-        { "t": "Release status of AI and Copilot in Fabric", "u": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-ai-feature-state" },
-        { "t": "Glossary terms in Unified Catalog", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms" },
-        { "t": "Search for and manage data assets in Unified Catalog", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-assets-search" },
-        { "t": "Breaking Down Semantic Silos: Microsoft Ecosystem Support Comes to Apache Ossie (Snowflake blog)", "u": "https://www.snowflake.com/en/blog/engineering/apache-ossie-microsoft-ecosystem-support/" },
-        { "t": "Fabric IQ: The Semantic Foundation for Enterprise AI (Fabric blog, Ignite 2025)", "u": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-iq-the-semantic-foundation-for-enterprise-ai/5172473" },
-        { "t": "Graph in Fabric (Generally Available) (Fabric blog)", "u": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/graph-in-fabric-generally-available/5190748" },
-        { "t": "Fabric IQ: The semantic layer powering trusted AI agents at enterprise scale (Fabric blog, Build 2026)", "u": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-iq-the-semantic-layer-powering-trusted-ai-agents-at-enterprise-scale/5190739" }
+        {
+          "t": "TMDL overview",
+          "u": "https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview"
+        },
+        {
+          "t": "Prepare your data for AI (Preview)",
+          "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai"
+        },
+        {
+          "t": "Prep data for AI: AI instructions",
+          "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-instructions"
+        },
+        {
+          "t": "Prep data for AI: AI data schemas",
+          "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-data-schema"
+        },
+        {
+          "t": "Prep data for AI: verified answers",
+          "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-verified-answers"
+        },
+        {
+          "t": "Intro to Q&A tooling (Q&A retirement notice)",
+          "u": "https://learn.microsoft.com/en-us/power-bi/natural-language/q-and-a-tooling-intro"
+        },
+        {
+          "t": "Ask data questions with Copilot and Fabric IQ",
+          "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-ask-data-question"
+        },
+        {
+          "t": "Fabric data agent concepts",
+          "u": "https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent"
+        },
+        {
+          "t": "Add a data source to Data Agent",
+          "u": "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-add-datasources"
+        },
+        {
+          "t": "Semantic model best practices for data agent",
+          "u": "https://learn.microsoft.com/en-us/fabric/data-science/semantic-model-best-practices"
+        },
+        {
+          "t": "Data agent as MCP server",
+          "u": "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-mcp-server"
+        },
+        {
+          "t": "What is Fabric IQ?",
+          "u": "https://learn.microsoft.com/en-us/fabric/iq/overview"
+        },
+        {
+          "t": "What is ontology (preview)?",
+          "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/overview"
+        },
+        {
+          "t": "Use Ontology MCP Server (Preview)",
+          "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-use-ontology-mcp-server"
+        },
+        {
+          "t": "Get started with the Fabric IQ MCP server",
+          "u": "https://learn.microsoft.com/en-us/fabric/iq/connectors/fabric-iq-mcp"
+        },
+        {
+          "t": "Overview of the Power BI MCP servers",
+          "u": "https://learn.microsoft.com/en-us/power-bi/developer/mcp/mcp-servers-overview"
+        },
+        {
+          "t": "Power BI Authoring MCP server",
+          "u": "https://learn.microsoft.com/en-us/power-bi/developer/mcp/power-bi-authoring-mcp"
+        },
+        {
+          "t": "Choose a Microsoft Fabric MCP server",
+          "u": "https://learn.microsoft.com/en-us/rest/api/fabric/articles/mcp-servers/fabric-mcp-servers-list"
+        },
+        {
+          "t": "What is graph in Microsoft Fabric?",
+          "u": "https://learn.microsoft.com/en-us/fabric/graph/overview"
+        },
+        {
+          "t": "Labeled Property Graph in Fabric (RDF not supported)",
+          "u": "https://learn.microsoft.com/en-us/fabric/graph/graph-data-models"
+        },
+        {
+          "t": "Overview of Copilot in Fabric",
+          "u": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview"
+        },
+        {
+          "t": "Release status of AI and Copilot in Fabric",
+          "u": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-ai-feature-state"
+        },
+        {
+          "t": "Glossary terms in Unified Catalog",
+          "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms"
+        },
+        {
+          "t": "Search for and manage data assets in Unified Catalog",
+          "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-assets-search"
+        },
+        {
+          "t": "Breaking Down Semantic Silos: Microsoft Ecosystem Support Comes to Apache Ossie (Snowflake blog)",
+          "u": "https://www.snowflake.com/en/blog/engineering/apache-ossie-microsoft-ecosystem-support/"
+        },
+        {
+          "t": "Fabric IQ: The Semantic Foundation for Enterprise AI (Fabric blog, Ignite 2025)",
+          "u": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-iq-the-semantic-foundation-for-enterprise-ai/5172473"
+        },
+        {
+          "t": "Graph in Fabric (Generally Available) (Fabric blog)",
+          "u": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/graph-in-fabric-generally-available/5190748"
+        },
+        {
+          "t": "Fabric IQ: The semantic layer powering trusted AI agents at enterprise scale (Fabric blog, Build 2026)",
+          "u": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-iq-the-semantic-layer-powering-trusted-ai-agents-at-enterprise-scale/5190739"
+        }
       ],
       "verified": "2026-10-24"
     },
@@ -432,22 +516,70 @@
         "u": "https://learn.microsoft.com/en-us/sql/t-sql/data-types/vector-data-type"
       },
       "sources": [
-        { "t": "Vector Search and Vector Index in the SQL Database Engine", "u": "https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors" },
-        { "t": "Vector data type", "u": "https://learn.microsoft.com/en-us/sql/t-sql/data-types/vector-data-type" },
-        { "t": "VECTOR_SEARCH (Transact-SQL)", "u": "https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql" },
-        { "t": "AI_GENERATE_EMBEDDINGS (Transact-SQL)", "u": "https://learn.microsoft.com/en-us/sql/t-sql/functions/ai-generate-embeddings-transact-sql" },
-        { "t": "CREATE EXTERNAL MODEL (Transact-SQL)", "u": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-model-transact-sql" },
-        { "t": "SQL Graph Architecture", "u": "https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-architecture" },
-        { "t": "MATCH (SQL Graph)", "u": "https://learn.microsoft.com/en-us/sql/t-sql/queries/match-sql-graph" },
-        { "t": "What Is GitHub Copilot in SQL Server Management Studio?", "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/overview" },
-        { "t": "Database Instructions - GitHub Copilot in SSMS", "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/database-instructions" },
-        { "t": "MCP Servers - GitHub Copilot in SSMS", "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/mcp-servers" },
-        { "t": "Release Notes for SQL Server Management Studio 22", "u": "https://learn.microsoft.com/en-us/ssms/release-notes-22" },
-        { "t": "SQL MCP Server overview", "u": "https://learn.microsoft.com/en-us/azure/data-api-builder/mcp/overview" },
-        { "t": "Intelligent Applications and AI - Azure SQL Database", "u": "https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql" },
-        { "t": "Microsoft Copilot in Azure with Azure SQL Database Overview", "u": "https://learn.microsoft.com/en-us/azure/azure-sql/copilot/copilot-azure-sql-overview" },
-        { "t": "Announcing General Availability of Azure SQL Database Capabilities for Microsoft Copilot in Azure", "u": "https://techcommunity.microsoft.com/blog/azuresqlblog/announcing-general-availability-of-azure-sql-database-capabilities-for-microsoft/4403518" },
-        { "t": "SQL Server 2025 is Now Generally Available", "u": "https://techcommunity.microsoft.com/blog/sqlserver/sql-server-2025-is-now-generally-available/4470570" }
+        {
+          "t": "Vector Search and Vector Index in the SQL Database Engine",
+          "u": "https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors"
+        },
+        {
+          "t": "Vector data type",
+          "u": "https://learn.microsoft.com/en-us/sql/t-sql/data-types/vector-data-type"
+        },
+        {
+          "t": "VECTOR_SEARCH (Transact-SQL)",
+          "u": "https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql"
+        },
+        {
+          "t": "AI_GENERATE_EMBEDDINGS (Transact-SQL)",
+          "u": "https://learn.microsoft.com/en-us/sql/t-sql/functions/ai-generate-embeddings-transact-sql"
+        },
+        {
+          "t": "CREATE EXTERNAL MODEL (Transact-SQL)",
+          "u": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-model-transact-sql"
+        },
+        {
+          "t": "SQL Graph Architecture",
+          "u": "https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-architecture"
+        },
+        {
+          "t": "MATCH (SQL Graph)",
+          "u": "https://learn.microsoft.com/en-us/sql/t-sql/queries/match-sql-graph"
+        },
+        {
+          "t": "What Is GitHub Copilot in SQL Server Management Studio?",
+          "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/overview"
+        },
+        {
+          "t": "Database Instructions - GitHub Copilot in SSMS",
+          "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/database-instructions"
+        },
+        {
+          "t": "MCP Servers - GitHub Copilot in SSMS",
+          "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/mcp-servers"
+        },
+        {
+          "t": "Release Notes for SQL Server Management Studio 22",
+          "u": "https://learn.microsoft.com/en-us/ssms/release-notes-22"
+        },
+        {
+          "t": "SQL MCP Server overview",
+          "u": "https://learn.microsoft.com/en-us/azure/data-api-builder/mcp/overview"
+        },
+        {
+          "t": "Intelligent Applications and AI - Azure SQL Database",
+          "u": "https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql"
+        },
+        {
+          "t": "Microsoft Copilot in Azure with Azure SQL Database Overview",
+          "u": "https://learn.microsoft.com/en-us/azure/azure-sql/copilot/copilot-azure-sql-overview"
+        },
+        {
+          "t": "Announcing General Availability of Azure SQL Database Capabilities for Microsoft Copilot in Azure",
+          "u": "https://techcommunity.microsoft.com/blog/azuresqlblog/announcing-general-availability-of-azure-sql-database-capabilities-for-microsoft/4403518"
+        },
+        {
+          "t": "SQL Server 2025 is Now Generally Available",
+          "u": "https://techcommunity.microsoft.com/blog/sqlserver/sql-server-2025-is-now-generally-available/4470570"
+        }
       ],
       "verified": "2026-10-24"
     }
@@ -457,127 +589,256 @@
       "topic": "Fabric IQ and ontology: existence, announcement, status",
       "text": "Fabric IQ and its Ontology item were announced at Ignite in November 2025, with ontology in public preview. Microsoft Learn (pages updated 2026-07 to 2026-10) still labels the IQ workload and ontology Preview, and says the old ontology experience retires on 2027-01-31. Microsoft Fabric blog posts from Build (June 2026) describe Fabric IQ, Graph and Operations agents as GA with ontology still in Preview; I could not fetch those posts (HTTP 403) and relied on search snippets.",
       "sources": [
-        { "t": "What is Fabric IQ?", "u": "https://learn.microsoft.com/en-us/fabric/iq/overview" },
-        { "t": "What is ontology (preview)?", "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/overview" },
-        { "t": "Fabric IQ: The Semantic Foundation for Enterprise AI", "u": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-iq-the-semantic-foundation-for-enterprise-ai/5172473" },
-        { "t": "Fabric IQ: The semantic layer powering trusted AI agents at enterprise scale", "u": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-iq-the-semantic-layer-powering-trusted-ai-agents-at-enterprise-scale/5190739" },
-        { "t": "Fabric IQ Is GA. Your Ontology Isn't.", "u": "https://community.fabric.microsoft.com/blog/fiq_comm_blog/fabric-iq-is-ga-your-ontology-isnt-heres-what-that-actually-means-/5364087" }
+        {
+          "t": "What is Fabric IQ?",
+          "u": "https://learn.microsoft.com/en-us/fabric/iq/overview"
+        },
+        {
+          "t": "What is ontology (preview)?",
+          "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/overview"
+        },
+        {
+          "t": "Fabric IQ: The Semantic Foundation for Enterprise AI",
+          "u": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-iq-the-semantic-foundation-for-enterprise-ai/5172473"
+        },
+        {
+          "t": "Fabric IQ: The semantic layer powering trusted AI agents at enterprise scale",
+          "u": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-iq-the-semantic-layer-powering-trusted-ai-agents-at-enterprise-scale/5190739"
+        },
+        {
+          "t": "Fabric IQ Is GA. Your Ontology Isn't.",
+          "u": "https://community.fabric.microsoft.com/blog/fiq_comm_blog/fabric-iq-is-ga-your-ontology-isnt-heres-what-that-actually-means-/5364087"
+        }
       ]
     },
     {
       "topic": "Ontology details that matter for NL-to-SQL builders",
       "text": "Ontology stores definitions and bindings; it is not a query engine, and the bound source (semantic model, lakehouse, eventhouse, warehouse, SQL database, mirrored database) runs the query. DAX measures from a semantic model appear as metrics, rules are natural-language text, and graph execution is an opt-in materialization. A data agent can mount an ontology (Preview) and then writes source-native SQL, KQL or DAX.",
       "sources": [
-        { "t": "What is ontology (preview)?", "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/overview" },
-        { "t": "Add a data source to Data Agent", "u": "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-add-datasources" }
+        {
+          "t": "What is ontology (preview)?",
+          "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/overview"
+        },
+        {
+          "t": "Add a data source to Data Agent",
+          "u": "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-add-datasources"
+        }
       ]
     },
     {
       "topic": "Three meanings of Fabric IQ",
       "text": "Fabric IQ names the workload (ontology, semantic model, graph, data agent, operations agent, plan), a remote MCP server for Power BI reports and semantic models, and a Copilot mode in the Power BI report viewer. Fabric IQ MCP does not support ontologies or data agents; a separate Ontology MCP server (Preview) and a data-agent MCP endpoint exist. In the report viewer, Copilot does not return verified answers when Fabric IQ is on.",
       "sources": [
-        { "t": "Get started with the Fabric IQ MCP server", "u": "https://learn.microsoft.com/en-us/fabric/iq/connectors/fabric-iq-mcp" },
-        { "t": "Ask data questions with Copilot and Fabric IQ", "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-ask-data-question" },
-        { "t": "Use Ontology MCP Server (Preview)", "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-use-ontology-mcp-server" }
+        {
+          "t": "Get started with the Fabric IQ MCP server",
+          "u": "https://learn.microsoft.com/en-us/fabric/iq/connectors/fabric-iq-mcp"
+        },
+        {
+          "t": "Ask data questions with Copilot and Fabric IQ",
+          "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-ask-data-question"
+        },
+        {
+          "t": "Use Ontology MCP Server (Preview)",
+          "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-use-ontology-mcp-server"
+        }
       ]
     },
     {
       "topic": "Power BI MCP servers: renames and replacements",
       "text": "Current docs describe one Power BI Authoring MCP server with hosted (Preview) and local (GA) options; earlier coverage called the local server the Power BI Modeling MCP server, and the npm package is still named powerbi-modeling-mcp. The earlier hosted query endpoint (api.fabric.microsoft.com/v1/mcp/powerbi) is now called the Power BI Consumption MCP server and is kept only for existing integrations; Microsoft points consumption to Fabric IQ MCP (https://fabriciq.svc.cloud.microsoft/v1/mcp/fabriciq). Fabric also lists remote MCP servers for Core, Data Warehouse (T-SQL), Eventhouse (KQL), Activator and operations agent, plus local servers for development and Real-Time Intelligence; I did not check the status label of each.",
       "sources": [
-        { "t": "Overview of the Power BI MCP servers", "u": "https://learn.microsoft.com/en-us/power-bi/developer/mcp/mcp-servers-overview" },
-        { "t": "Power BI Authoring MCP server", "u": "https://learn.microsoft.com/en-us/power-bi/developer/mcp/power-bi-authoring-mcp" },
-        { "t": "Choose a Microsoft Fabric MCP server", "u": "https://learn.microsoft.com/en-us/rest/api/fabric/articles/mcp-servers/fabric-mcp-servers-list" }
+        {
+          "t": "Overview of the Power BI MCP servers",
+          "u": "https://learn.microsoft.com/en-us/power-bi/developer/mcp/mcp-servers-overview"
+        },
+        {
+          "t": "Power BI Authoring MCP server",
+          "u": "https://learn.microsoft.com/en-us/power-bi/developer/mcp/power-bi-authoring-mcp"
+        },
+        {
+          "t": "Choose a Microsoft Fabric MCP server",
+          "u": "https://learn.microsoft.com/en-us/rest/api/fabric/articles/mcp-servers/fabric-mcp-servers-list"
+        }
       ]
     },
     {
       "topic": "Power BI Q&A retirement and linguistic schema",
-      "text": "Learn pages say Q&A experiences go away in February 2027, but the data agent semantic model guide says Q&A retires in December 2026. Prep data for AI and Copilot data questions still require Q&A enabled on the model, and the data agent value-index feature needs the same setting until a replacement ships. Synonyms and linguistic relationships are stored in the model's linguistic metadata (a cultures file in TMDL).",
+      "text": "Q&A experiences retire in February 2027 (Power BI Learn, updated 2026-06-02). One Fabric data agent page, dated January 2026, still says December 2026. Prep data for AI and Copilot data questions still require Q&A enabled on the model, and the data agent value-index feature needs the same setting until a replacement ships. Synonyms and linguistic relationships are stored in the model's linguistic metadata (a cultures file in TMDL).",
       "sources": [
-        { "t": "Intro to Q&A tooling to train Power BI Q&A (preview)", "u": "https://learn.microsoft.com/en-us/power-bi/natural-language/q-and-a-tooling-intro" },
-        { "t": "Semantic model best practices for data agent", "u": "https://learn.microsoft.com/en-us/fabric/data-science/semantic-model-best-practices" },
-        { "t": "TMDL overview", "u": "https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview" }
+        {
+          "t": "Intro to Q&A tooling to train Power BI Q&A (preview)",
+          "u": "https://learn.microsoft.com/en-us/power-bi/natural-language/q-and-a-tooling-intro"
+        },
+        {
+          "t": "Semantic model best practices for data agent",
+          "u": "https://learn.microsoft.com/en-us/fabric/data-science/semantic-model-best-practices"
+        },
+        {
+          "t": "TMDL overview",
+          "u": "https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview"
+        }
       ]
     },
     {
       "topic": "Fabric data agent: status conflict and what it reads",
       "text": "The data agent concept page (updated 2026-10-21) calls it generally available, but the Release status table (updated 2026-07) lists Data agent under Data Science as Preview; a secondary source puts GA at FabCon in March 2026, which I did not confirm. Sources can be up to five lakehouses, warehouses, KQL databases, semantic models, mirrored databases, ontologies or (Preview) graph and Azure AI Search. For semantic models, the DAX tool uses only model metadata and Prep data for AI settings and ignores data agent level instructions; Topics and schema object descriptions for SQL sources are Preview on the preview runtime.",
       "sources": [
-        { "t": "Fabric data agent concepts", "u": "https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent" },
-        { "t": "Release status of AI and Copilot in Fabric", "u": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-ai-feature-state" },
-        { "t": "Add a data source to Data Agent", "u": "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-add-datasources" },
-        { "t": "Semantic model best practices for data agent", "u": "https://learn.microsoft.com/en-us/fabric/data-science/semantic-model-best-practices" }
+        {
+          "t": "Fabric data agent concepts",
+          "u": "https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent"
+        },
+        {
+          "t": "Release status of AI and Copilot in Fabric",
+          "u": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-ai-feature-state"
+        },
+        {
+          "t": "Add a data source to Data Agent",
+          "u": "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-add-datasources"
+        },
+        {
+          "t": "Semantic model best practices for data agent",
+          "u": "https://learn.microsoft.com/en-us/fabric/data-science/semantic-model-best-practices"
+        }
       ]
     },
     {
       "topic": "Copilot in Fabric: NL-to-SQL status by workload",
       "text": "The Release status table lists Copilot for Data Warehouse SQL generation as Preview, Copilot for SQL database in Fabric as GA, and Power BI Copilot items (ask questions about your data, DAX help, suggest linguistic synonyms, measure descriptions) as GA. The Azure SQL AI page still labels Copilot in Fabric SQL database as preview, so the two pages disagree. The Copilot overview also says Fabric data agents are 'formerly known as Data agent'; I could not tell what that rename covers.",
       "sources": [
-        { "t": "Release status of AI and Copilot in Fabric", "u": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-ai-feature-state" },
-        { "t": "Overview of Copilot in Fabric", "u": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview" },
-        { "t": "Intelligent Applications and AI - Azure SQL Database", "u": "https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql" }
+        {
+          "t": "Release status of AI and Copilot in Fabric",
+          "u": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-ai-feature-state"
+        },
+        {
+          "t": "Overview of Copilot in Fabric",
+          "u": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview"
+        },
+        {
+          "t": "Intelligent Applications and AI - Azure SQL Database",
+          "u": "https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql"
+        }
       ]
     },
     {
       "topic": "Graph in Microsoft Fabric",
       "text": "The Fabric blog post 'Graph in Fabric (Generally Available)' announces GA around Build 2026; I could not fetch it (HTTP 403) and saw it only in search results. Learn describes a labeled property graph over OneLake with GQL (ISO/IEC 39075) and says RDF is not supported. The graph as a data agent source (NL2GQL) is still labeled Preview, and a search snippet of the GQL Query HTTP API page says that API is beta.",
       "sources": [
-        { "t": "What is graph in Microsoft Fabric?", "u": "https://learn.microsoft.com/en-us/fabric/graph/overview" },
-        { "t": "Labeled Property Graph (LPG) in Fabric", "u": "https://learn.microsoft.com/en-us/fabric/graph/graph-data-models" },
-        { "t": "Graph in Fabric (Generally Available)", "u": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/graph-in-fabric-generally-available/5190748" },
-        { "t": "GQL Query HTTP API Reference for graph in Microsoft Fabric", "u": "https://learn.microsoft.com/en-us/fabric/graph/gql-query-api" }
+        {
+          "t": "What is graph in Microsoft Fabric?",
+          "u": "https://learn.microsoft.com/en-us/fabric/graph/overview"
+        },
+        {
+          "t": "Labeled Property Graph (LPG) in Fabric",
+          "u": "https://learn.microsoft.com/en-us/fabric/graph/graph-data-models"
+        },
+        {
+          "t": "Graph in Fabric (Generally Available)",
+          "u": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/graph-in-fabric-generally-available/5190748"
+        },
+        {
+          "t": "GQL Query HTTP API Reference for graph in Microsoft Fabric",
+          "u": "https://learn.microsoft.com/en-us/fabric/graph/gql-query-api"
+        }
       ]
     },
     {
       "topic": "Purview Unified Catalog business glossary",
       "text": "Unified Catalog glossary terms sit under governance domains, can carry synonyms, acronyms and related terms, and can carry policies that follow the term to data products and assets. Linking terms to assets and columns is labeled preview, and asset curation requires migrating classic terms first. I found no Microsoft doc where Copilot in Power BI, the data agent or the ontology reads Unified Catalog terms, so treat the glossary as governance metadata, not AI context.",
       "sources": [
-        { "t": "Glossary terms in Unified Catalog", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms" },
-        { "t": "Search for and manage data assets in Unified Catalog", "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-assets-search" },
-        { "t": "Microsoft Purview Data Governance glossary", "u": "https://learn.microsoft.com/en-us/purview/data-governance-glossary" }
+        {
+          "t": "Glossary terms in Unified Catalog",
+          "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms"
+        },
+        {
+          "t": "Search for and manage data assets in Unified Catalog",
+          "u": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-assets-search"
+        },
+        {
+          "t": "Microsoft Purview Data Governance glossary",
+          "u": "https://learn.microsoft.com/en-us/purview/data-governance-glossary"
+        }
       ]
     },
     {
       "topic": "Open Semantic Interchange renamed Apache Ossie",
       "text": "Search results show the Open Semantic Interchange (OSI) effort now appears as Apache Ossie (incubating). A Snowflake engineering blog dated 2026-09-30 describes an initial open source converter between Power BI/Fabric semantic models and Ossie, with DAX added as a recognized expression language; the post does not state a preview or GA status. A Fabric community post titled 'Microsoft + Snowflake's commitment to Apache Ossie' exists, but I did not open it.",
       "sources": [
-        { "t": "Breaking Down Semantic Silos: Microsoft Ecosystem Support Comes to Apache Ossie", "u": "https://www.snowflake.com/en/blog/engineering/apache-ossie-microsoft-ecosystem-support/" },
-        { "t": "Open Semantic Interchange: A New AI Standard (Apache Ossie site)", "u": "https://ossie.apache.org/updates/open-semantic-interchange-a-new-ai-standard/" },
-        { "t": "Microsoft and Google to contribute to the Apache Ossie project (Techzine)", "u": "https://www.techzine.eu/news/data-management/144719/microsoft-and-google-to-contribute-to-the-apache-ossie-project/" }
+        {
+          "t": "Breaking Down Semantic Silos: Microsoft Ecosystem Support Comes to Apache Ossie",
+          "u": "https://www.snowflake.com/en/blog/engineering/apache-ossie-microsoft-ecosystem-support/"
+        },
+        {
+          "t": "Open Semantic Interchange: A New AI Standard (Apache Ossie site)",
+          "u": "https://ossie.apache.org/updates/open-semantic-interchange-a-new-ai-standard/"
+        },
+        {
+          "t": "Microsoft and Google to contribute to the Apache Ossie project (Techzine)",
+          "u": "https://www.techzine.eu/news/data-management/144719/microsoft-and-google-to-contribute-to-the-apache-ossie-project/"
+        }
       ]
     },
     {
       "topic": "SQL Server 2025: no native semantic layer object",
       "text": "SQL Server 2025 went generally available on 2025-11-18 with the vector type, text chunking, embeddings through CREATE EXTERNAL MODEL, and DiskANN indexing. I found no semantic model, metric, dimension or ontology object in the SQL Server 2025 or Azure SQL docs; this is an absence in what I reviewed, not a proof. The closest native items are the AGENTS.md and CONSTITUTION.md extended properties, which only GitHub Copilot in SSMS is documented to read.",
       "sources": [
-        { "t": "SQL Server 2025 is Now Generally Available", "u": "https://techcommunity.microsoft.com/blog/sqlserver/sql-server-2025-is-now-generally-available/4470570" },
-        { "t": "Database Instructions - GitHub Copilot in SSMS", "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/database-instructions" },
-        { "t": "CREATE EXTERNAL MODEL (Transact-SQL)", "u": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-model-transact-sql" }
+        {
+          "t": "SQL Server 2025 is Now Generally Available",
+          "u": "https://techcommunity.microsoft.com/blog/sqlserver/sql-server-2025-is-now-generally-available/4470570"
+        },
+        {
+          "t": "Database Instructions - GitHub Copilot in SSMS",
+          "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/database-instructions"
+        },
+        {
+          "t": "CREATE EXTERNAL MODEL (Transact-SQL)",
+          "u": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-model-transact-sql"
+        }
       ]
     },
     {
       "topic": "GitHub Copilot in SSMS: name, status and dates",
       "text": "SSMS release notes show GitHub Copilot in SSMS GA in 22.4.1 (2026-03-18), database instructions introduced as Preview in 22.3.0 (2026-02-10), Agent mode Preview in 22.7.0 (2026-06-09) and GA in 22.10.2 (2026-09-28). Doc paths moved from /ssms/copilot/ to /ssms/github-copilot/, and older page titles say 'Copilot in SQL Server Management Studio'. The database instructions page has no preview label now, but no release note states a separate GA for that feature.",
       "sources": [
-        { "t": "Release Notes for SQL Server Management Studio 22", "u": "https://learn.microsoft.com/en-us/ssms/release-notes-22" },
-        { "t": "What Is GitHub Copilot in SQL Server Management Studio?", "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/overview" },
-        { "t": "MCP Servers - GitHub Copilot in SSMS", "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/mcp-servers" }
+        {
+          "t": "Release Notes for SQL Server Management Studio 22",
+          "u": "https://learn.microsoft.com/en-us/ssms/release-notes-22"
+        },
+        {
+          "t": "What Is GitHub Copilot in SQL Server Management Studio?",
+          "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/overview"
+        },
+        {
+          "t": "MCP Servers - GitHub Copilot in SSMS",
+          "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/mcp-servers"
+        }
       ]
     },
     {
       "topic": "Copilot in Azure SQL Database: status conflict",
       "text": "The Azure SQL AI page says Copilot skills in Azure SQL Database are in preview for a limited number of early adopters, while a Tech Community post titled 'Announcing General Availability of Azure SQL Database Capabilities for Microsoft Copilot in Azure' exists (I could read only its title). The Copilot in Azure overview lists generating T-SQL from questions as a developer use case without a status label. I could not confirm whether NL-to-T-SQL is available in the portal today.",
       "sources": [
-        { "t": "Intelligent Applications and AI - Azure SQL Database", "u": "https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql" },
-        { "t": "Microsoft Copilot in Azure with Azure SQL Database Overview", "u": "https://learn.microsoft.com/en-us/azure/azure-sql/copilot/copilot-azure-sql-overview" },
-        { "t": "Announcing General Availability of Azure SQL Database Capabilities for Microsoft Copilot in Azure", "u": "https://techcommunity.microsoft.com/blog/azuresqlblog/announcing-general-availability-of-azure-sql-database-capabilities-for-microsoft/4403518" }
+        {
+          "t": "Intelligent Applications and AI - Azure SQL Database",
+          "u": "https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql"
+        },
+        {
+          "t": "Microsoft Copilot in Azure with Azure SQL Database Overview",
+          "u": "https://learn.microsoft.com/en-us/azure/azure-sql/copilot/copilot-azure-sql-overview"
+        },
+        {
+          "t": "Announcing General Availability of Azure SQL Database Capabilities for Microsoft Copilot in Azure",
+          "u": "https://techcommunity.microsoft.com/blog/azuresqlblog/announcing-general-availability-of-azure-sql-database-capabilities-for-microsoft/4403518"
+        }
       ]
     },
     {
       "topic": "SQL MCP Server design choice",
       "text": "SQL MCP Server is part of open source Data API builder (version 1.7 and later; 2.0 is current), is self-hosted, and states that it intentionally does not support NL2SQL. It exposes seven DML tools over configured entities, so entity description text is the only semantic context an agent gets, and it covers data operations rather than schema changes. The docs carry no preview or GA label.",
       "sources": [
-        { "t": "SQL MCP Server overview", "u": "https://learn.microsoft.com/en-us/azure/data-api-builder/mcp/overview" }
+        {
+          "t": "SQL MCP Server overview",
+          "u": "https://learn.microsoft.com/en-us/azure/data-api-builder/mcp/overview"
+        }
       ]
     }
   ]

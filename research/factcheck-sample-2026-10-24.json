@@ -1,0 +1,162 @@
+[
+ {
+  "vendor": "wrenai",
+  "name": "Wren AI / Wren Engine",
+  "cap": "verifiedQueries",
+  "l": 3,
+  "n": "NL-to-SQL pairs are Markdown files under knowledge/sql/. The wren memory store command writes them.",
+  "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
+ },
+ {
+  "vendor": "redshift",
+  "name": "AWS (Redshift + ecosystem)",
+  "cap": "synonyms",
+  "l": 3,
+  "n": "Q context annotations, CustomDocuments, AppendToPrompt; Bedrock KB table and column descriptions. Synonyms only in Quick datasets.",
+  "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
+ },
+ {
+  "vendor": "denodo",
+  "name": "Denodo Platform",
+  "cap": "sampleValues",
+  "l": 3,
+  "n": "AI SDK samples values per view when it vectorizes metadata. Set examples_per_table = 0 to turn it off. SDK is a separate download.",
+  "u": "https://community.denodo.com/docs/html/document/denodoconnects/latest/en/Denodo%20AI%20SDK%20-%20User%20Manual"
+ },
+ {
+  "vendor": "dremio",
+  "name": "Dremio",
+  "cap": "governance",
+  "l": 3,
+  "n": "Agent acts with the user's privileges. Row-access and column-masking policies apply to views. Lineage is available.",
+  "u": "https://docs.dremio.com/dremio-cloud/manage-govern/row-column-policies"
+ },
+ {
+  "vendor": "qlik",
+  "name": "Qlik (Qlik Sense and Qlik Cloud)",
+  "cap": "verifiedQueries",
+  "l": 0,
+  "n": "No verified-query store. Vocabulary custom analyses and example questions are the closest match.",
+  "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business_logic.htm"
+ },
+ {
+  "vendor": "honeydew",
+  "name": "Honeydew",
+  "cap": "relationships",
+  "l": 3,
+  "n": "Entities declare relations with rel_type and key fields. Honeydew finds the join path from them.",
+  "u": "https://honeydew.ai/docs/tpch-example.md"
+ },
+ {
+  "vendor": "postgres",
+  "name": "PostgreSQL",
+  "cap": "nl2sql",
+  "l": 1,
+  "n": "None in core. AlloyDB QueryData is Preview (2026-04), alloydb_ai_nl is Pre-GA, Supabase Assistant is dashboard-only.",
+  "u": "https://cloud.google.com/blog/products/databases/introducing-querydata-for-near-100-percent-accurate-data-agents"
+ },
+ {
+  "vendor": "metabase",
+  "name": "Metabase",
+  "cap": "mcp",
+  "l": 3,
+  "n": "Official server arrived in Metabase 60 (Apr 16, 2026) and was improved in Metabase 64 (Oct 2026). Admin enables it.",
+  "u": "https://github.com/metabase/metabase/blob/master/docs/ai/mcp.md"
+ },
+ {
+  "vendor": "starburst",
+  "name": "Starburst / Trino",
+  "cap": "verifiedQueries",
+  "l": 0,
+  "n": "Data products store sample queries, but the docs reviewed do not say AIDA uses them as few-shot context.",
+  "u": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
+ },
+ {
+  "vendor": "oracleanalytics",
+  "name": "Oracle Analytics Cloud and Server",
+  "cap": "openStandard",
+  "l": 0,
+  "n": "The model is JSON (SMML) with Git support. No Ossie or OSI export from Semantic Modeler.",
+  "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/what-is-oracle-analytics-semantic-modeler.html"
+ },
+ {
+  "vendor": "businessobjects",
+  "name": "SAP BusinessObjects BI",
+  "cap": "openStandard",
+  "l": 0,
+  "n": "No OSI or Ossie export. Universes are .unx files that only SAP tools write.",
+  "u": ""
+ },
+ {
+  "vendor": "wrenai",
+  "name": "Wren AI / Wren Engine",
+  "cap": "lineage",
+  "l": 0,
+  "n": "No lineage feature found in the README or CLI reference. dbt import reads refs and tests, not column lineage.",
+  "u": ""
+ },
+ {
+  "vendor": "collibra",
+  "name": "Collibra",
+  "cap": "metrics",
+  "l": 3,
+  "n": "Measure assets link to columns, and MCP tools trace a measure to its tables. Catalog objects, not query definitions.",
+  "u": "https://marketplace.collibra.com/listings/collibra-mcp-server-local-version/"
+ },
+ {
+  "vendor": "timbr",
+  "name": "Timbr.ai",
+  "cap": "bulkMetadata",
+  "l": 3,
+  "n": "SQL DDL sets concept descriptions, relationship descriptions and tags. Property-level description DDL not found. UI bulk description editor exists.",
+  "u": "https://docs.timbr.ai/doc/docs/sql/sql-ddl/"
+ },
+ {
+  "vendor": "alation",
+  "name": "Alation",
+  "cap": "verifiedQueries",
+  "l": 3,
+  "n": "Verified question and SQL pairs are kept as evaluation cases and exported to Snowflake semantic views.",
+  "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/CreateDataProductsFromSemanticModel.md"
+ },
+ {
+  "vendor": "oracle",
+  "name": "Oracle Database / Autonomous AI Database",
+  "cap": "governance",
+  "l": 3,
+  "n": "Oracle says MCP access honors RBAC, auditing, VPD and redaction. Grants on analytic views specifically are not covered by that page.",
+  "u": "https://www.oracle.com/autonomous-database/mcp-server/"
+ },
+ {
+  "vendor": "clickhouse",
+  "name": "ClickHouse",
+  "cap": "metrics",
+  "l": 1,
+  "n": "No metric objects found in ClickHouse docs. Rill metrics views (Apache-2.0) and Cube define them over ClickHouse.",
+  "u": "https://docs.rilldata.com/developers/build/metrics-view/what-are-metrics-views"
+ },
+ {
+  "vendor": "wrenai",
+  "name": "Wren AI / Wren Engine",
+  "cap": "sampleValues",
+  "l": 1,
+  "n": "dbt import carries accepted_values tests as filter values. Docs list value profiling as upcoming, so no sampling today.",
+  "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/dbt-integration.md"
+ },
+ {
+  "vendor": "tableau",
+  "name": "Tableau (Tableau Semantics, Tableau Next)",
+  "cap": "sampleValues",
+  "l": 3,
+  "n": "Tableau Agent sends up to 1000 unique sampled values from the data source to the model when authoring vizzes.",
+  "u": "https://help.tableau.com/current/tableau/en-us/tableau_gai_data.htm"
+ },
+ {
+  "vendor": "tableau",
+  "name": "Tableau (Tableau Semantics, Tableau Next)",
+  "cap": "nl2sql",
+  "l": 3,
+  "n": "Concierge answers natural-language questions over semantic models; its scope controls are GA in April 2026 notes.",
+  "u": "https://www.tableau.com/2026-1-april-features"
+ }
+]

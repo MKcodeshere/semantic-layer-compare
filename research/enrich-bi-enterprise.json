@@ -95,8 +95,8 @@
         },
         "lineage": {
           "l": 3,
-          "n": "Right-click a report data item to trace it back through the package to data sources, in Business or Technical view. Data module coverage not confirmed.",
-          "u": "https://gateway.maine.gov/cognos/documentation/en/ug_cra_t_viewadataitemslineage.html"
+          "n": "Trace a report data item back through the package to its data sources, in Business or Technical view. Not supported in reports not linked to packages; an admin must configure it.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ug_cr_rptstd.pdf"
         },
         "evals": {
           "l": null,
@@ -112,12 +112,8 @@
       },
       "sources": [
         {
-          "t": "View Lineage Information for a Data Item (IBM Cognos docs, older release, hosted by State of Maine)",
-          "u": "https://gateway.maine.gov/cognos/documentation/en/ug_cra_t_viewadataitemslineage.html"
-        },
-        {
-          "t": "Configuring the lineage solution (IBM Cognos docs, older release, hosted by State of Maine)",
-          "u": "https://gateway.maine.gov/cognos/documentation/en/ug_cra_t_configure_lineage.html"
+          "t": "IBM Cognos Analytics Reporting 12.1.x User Guide (PDF)",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ug_cr_rptstd.pdf"
         }
       ],
       "verified": "2026-10-24"

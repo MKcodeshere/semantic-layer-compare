@@ -147,7 +147,7 @@
         },
         "synonyms": {
           "l": 3,
-          "n": "Q context annotations, CustomDocuments, AppendToPrompt; Bedrock KB table and column descriptions. Synonyms only in Quick datasets.",
+          "n": "Query Editor v2 custom context: table and column annotations, custom documents and prompt text that the SQL generator reads.",
           "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
         },
         "verifiedQueries": {
@@ -923,7 +923,7 @@
     },
     {
       "topic": "SAP openness to Databricks, Snowflake and others",
-      "text": "BDC Connect for Databricks was GA by 2025-10-08; BigQuery was in public preview then; Snowflake GA was planned for H1 2026 and Fabric was announced as planned. In May 2026 SAP lists Snowflake, Databricks, BigQuery and Fabric as existing partners and plans BDC Connect for Amazon Athena for H2 2026. SAP also announced it will acquire Dremio (2026-05-04) to make BDC Iceberg-native.",
+      "text": "BDC Connect for Databricks was GA by 2025-10-08; BigQuery was in public preview then; Snowflake GA was planned for H1 2026 and Fabric was announced as planned. In May 2026 SAP lists Snowflake, Databricks, BigQuery and Fabric as existing partners and plans BDC Connect for Amazon Athena for H2 2026. SAP announced it would acquire Dremio (2026-05-04) and completed the acquisition on 2026-07-06, to make BDC Iceberg-native.",
       "sources": [
         {
           "t": "BDC Connect for Databricks GA",
@@ -952,6 +952,10 @@
         {
           "t": "SAP to acquire Dremio",
           "u": "https://news.sap.com/2026/05/sap-to-acquire-dremio-unify-sap-and-non-sap-data-power-agentic-ai/"
+        },
+        {
+          "t": "SAP completes Dremio acquisition",
+          "u": "https://news.sap.com/2026/07/sap-completes-dremio-acquisition/"
         }
       ]
     },

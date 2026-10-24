@@ -249,7 +249,7 @@
         },
         "bulkMetadata": {
           "l": 3,
-          "n": "SQL DDL sets concept descriptions, relationship descriptions and tags. Property-level description DDL not found. UI bulk description editor exists.",
+          "n": "SQL DDL sets concept descriptions, relationship descriptions and tags. Property-level description DDL not found. Bulk AI description generation announced March 2026.",
           "u": "https://docs.timbr.ai/doc/docs/sql/sql-ddl/"
         },
         "autoClassify": {
@@ -312,6 +312,10 @@
         {
           "t": "Timbr Ontology Explorer",
           "u": "https://docs.timbr.ai/doc/docs/platform/modeling/ontology-explorer/"
+        },
+        {
+          "t": "Timbr: active LLM management and accelerated ontology generation (2026-03-09)",
+          "u": "https://timbr.ai/news/announcing-active-llm-management-and-accelerated-ontology-generation/"
         }
       ],
       "verified": "2026-10-24"
@@ -567,7 +571,7 @@
         },
         "sampleValues": {
           "l": 1,
-          "n": "dbt import carries accepted_values tests as filter values. Docs list value profiling as upcoming, so no sampling today.",
+          "n": "dbt import carries accepted_values tests as filter values. The README lists value profiling as both shipped and upcoming; the CLI documents no sampling command.",
           "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/dbt-integration.md"
         },
         "queryHistory": {
@@ -578,7 +582,7 @@
         "lineage": {
           "l": 0,
           "n": "No lineage feature found in the README or CLI reference. dbt import reads refs and tests, not column lineage.",
-          "u": ""
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/dbt-integration.md"
         },
         "evals": {
           "l": 0,

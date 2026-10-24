@@ -1216,7 +1216,7 @@
   "notes": [
     {
       "topic": "benchmark: dbt",
-      "text": "Vendor-run by dbt Labs, blog dated 7 Apr 2026. Dataset: ACME Insurance (from data.world), 11 questions run 20 times each. On the original schema, text-to-SQL scored 64.5% and the Semantic Layer 72.7% for both Sonnet 4.6 and GPT-5.3 Codex; after 3 added models, Sonnet 4.6 went from 90.0% to 98.2% and GPT-5.3 Codex from 84.1% to 100.0%. Bodo (Sep 2026) reported 220 of 220 correct with its own PyDough pipeline on a local SQLite replica, which is not the dbt setup.",
+      "text": "Vendor-run by dbt Labs, blog dated 7 Apr 2026. Dataset: ACME Insurance (from data.world), 11 questions run 20 times each. On the original schema (all 11 questions), text-to-SQL scored 64.5% and the Semantic Layer 72.7% with both Sonnet 4.6 and GPT-5.3 Codex. After 3 dbt models were added, the Semantic Layer scored 98.2% (Sonnet 4.6) and 100.0% (GPT-5.3 Codex), and text-to-SQL scored 90.0% and 84.1%. Bodo (Sep 2026) reported 220 of 220 correct with its own PyDough pipeline on a local SQLite replica, which is not the dbt setup.",
       "sources": [
         {
           "t": "Semantic Layer vs. Text-to-SQL: 2026 Benchmark Update (dbt)",

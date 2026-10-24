@@ -107,8 +107,8 @@
         },
         "openStandard": {
           "l": 0,
-          "n": "No OSI or Ossie export. Universes are .unx files that only SAP tools write.",
-          "u": ""
+          "n": "No OSI or Ossie export. Universes (.unx) are a proprietary format; other tools write them only through SAP's Semantic Layer Java SDK.",
+          "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/Cloud/Content/Bridges/MIRBoInformationDesignToolUnxExport.htm"
         }
       },
       "offers": [

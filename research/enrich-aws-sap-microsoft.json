@@ -202,7 +202,7 @@
         },
         "sampleValues": {
           "l": 2,
-          "n": "Instance value indexing (Preview runtime) searches semantic model column values to build DAX filters. Needs the Q&A setting, which retires in December 2026.",
+          "n": "Instance value indexing (Preview runtime) searches semantic model column values to build DAX filters. Needs the Q&A setting, which retires in February 2027.",
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/semantic-model-best-practices.md"
         },
         "queryHistory": {

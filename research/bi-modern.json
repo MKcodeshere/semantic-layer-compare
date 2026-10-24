@@ -19,8 +19,8 @@
         {
           "name": "Tableau Next MCP server",
           "kind": "mcp",
-          "status": "GA",
-          "since": "2026-04",
+          "status": "Unverified",
+          "since": "",
           "format": "MCP",
           "url": "https://www.tableau.com/2026-1-april-features"
         },
@@ -43,8 +43,8 @@
         {
           "name": "Semantic Model Scope and Page Filters in Concierge",
           "kind": "agent",
-          "status": "GA",
-          "since": "2026-04",
+          "status": "Unverified",
+          "since": "",
           "format": "GUI",
           "url": "https://www.tableau.com/2026-1-april-features"
         },
@@ -54,7 +54,7 @@
           "status": "Preview",
           "since": "2026-04",
           "format": "GUI",
-          "url": "https://www.tableau.com/2026-1-april-features"
+          "url": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
         },
         {
           "name": "Tableau Pulse (metrics and insights)",
@@ -62,7 +62,7 @@
           "status": "GA",
           "since": "",
           "format": "GUI",
-          "url": "https://www.tableau.com/2026-1-april-features"
+          "url": "https://help.tableau.com/current/online/en-us/pulse_intro.htm"
         }
       ],
       "caps": {
@@ -93,8 +93,8 @@
         },
         "nl2sql": {
           "l": 3,
-          "n": "Concierge answers natural-language questions over semantic models; its scope controls are GA in April 2026 notes.",
-          "u": "https://www.tableau.com/2026-1-april-features"
+          "n": "Concierge answers natural-language questions over Tableau Semantics models in Tableau Next.",
+          "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
         },
         "ontology": {
           "l": 0,
@@ -102,8 +102,8 @@
           "u": "https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/learn-the-basics-of-tableau-semantics"
         },
         "graph": {
-          "l": 3,
-          "n": "Tableau Knowledge Graph REST API (Cloud+, Sept 2026): nodes, edges, lineage and impact calls. No Cypher, GQL or SPARQL query language.",
+          "l": 0,
+          "n": "No graph query language. The Knowledge Graph REST API (Cloud+, Sept 2026) returns nodes, lineage and impact over Tableau content metadata only.",
           "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_tableau_knowledge_graph.htm"
         },
         "vector": {
@@ -167,10 +167,6 @@
       },
       "sources": [
         {
-          "t": "Tableau April 2026 New Features",
-          "u": "https://www.tableau.com/2026-1-april-features"
-        },
-        {
           "t": "Tableau Next (Salesforce)",
           "u": "https://www.salesforce.com/analytics/tableau-next/"
         },
@@ -209,6 +205,10 @@
         {
           "t": "Tableau Help: Tableau Knowledge Graph Methods",
           "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_tableau_knowledge_graph.htm"
+        },
+        {
+          "t": "Tableau Pulse release notes",
+          "u": "https://help.tableau.com/current/online/en-us/pulse_intro.htm"
         }
       ],
       "verified": "2026-10-24"
@@ -1080,7 +1080,7 @@
         "mcp": {
           "l": 3,
           "n": "Official server arrived in Metabase 60 (Apr 16, 2026) and was improved in Metabase 64 (Oct 2026). Admin enables it.",
-          "u": "https://github.com/metabase/metabase/blob/master/docs/ai/mcp.md"
+          "u": "https://www.metabase.com/releases/metabase-60"
         },
         "governance": {
           "l": 3,

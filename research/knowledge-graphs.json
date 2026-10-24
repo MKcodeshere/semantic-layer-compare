@@ -1046,7 +1046,7 @@
     },
     {
       "topic": "Open Semantic Interchange (OSI) / Apache Ossie",
-      "text": "A vendor-neutral JSON and YAML spec for semantic layer constructs (datasets, metrics, dimensions, relationships, context), launched by Snowflake and partners on 23 Sep 2025; v0.1 went live under Apache 2.0 on 27 Jan 2026. On 10 Jul 2026 the project was renamed Apache Ossie (incubating). RelationalAI is a launch partner; Stardog, Neo4j, and data.world do not appear on the partner lists I read.",
+      "text": "A vendor-neutral JSON and YAML spec for semantic layer constructs (datasets, metrics, dimensions, relationships, context), launched by Snowflake and partners on 23 Sep 2025; v0.1 went live under Apache 2.0 on 27 Jan 2026. It entered the Apache Incubator on 22 Jun 2026 and the rename to Apache Ossie (incubating) was announced on 8 to 10 Jul 2026. RelationalAI is a launch partner; Stardog, Neo4j, and data.world do not appear on the partner lists I read.",
       "sources": [
         {
           "t": "Apache Ossie (OSI) updates",
@@ -1067,6 +1067,10 @@
         {
           "t": "Ossie repository",
           "u": "https://github.com/open-semantic-interchange/OSI"
+        },
+        {
+          "t": "Apache Ossie podling page",
+          "u": "https://incubator.apache.org/projects/ossie.html"
         }
       ]
     },
