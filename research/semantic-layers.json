@@ -94,7 +94,7 @@
         },
         "nl2sql": {
           "l": 3,
-          "n": "The MCP text_to_sql tool generates SQL from project context. It uses dbt Copilot actions and is hidden if admins turn AI features off.",
+          "n": "MCP text_to_sql tool generates SQL from project context. It uses dbt Copilot actions and is off when AI is disabled.",
           "u": "https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools"
         },
         "ontology": {
@@ -114,7 +114,7 @@
         },
         "mcp": {
           "l": 3,
-          "n": "dbt MCP server exposes Semantic Layer, Discovery API, SQL, and Admin API tools. Remote server is on all plans, tools depend on plan.",
+          "n": "MCP server exposes Semantic Layer, Discovery, SQL, and Admin API tools. Remote server is on all plans; tools vary.",
           "u": "https://docs.getdbt.com/docs/dbt-ai/about-mcp"
         },
         "governance": {
@@ -136,7 +136,7 @@
         "Works with Snowflake, BigQuery, Databricks, Redshift, Postgres, and Trino."
       ],
       "gaps": [
-        "Only answers questions inside the modeled scope. In dbt's April 2026 benchmark, questions needing too many entity hops got no answer.",
+        "Answers only modeled questions. In dbt's April 2026 benchmark, questions needing too many entity hops got no answer.",
         "Semantic Layer APIs and integrations need a dbt Starter, Enterprise, or Enterprise+ plan.",
         "No synonyms field. Only description and label carry business wording.",
         "No stored question-to-SQL pairs and no ontology layer."
@@ -367,7 +367,7 @@
         },
         "openStandard": {
           "l": 2,
-          "n": "Export to and import from Apache Ossie through the Cube CLI and Platform API. Docs label it Preview and ask you to contact support.",
+          "n": "Apache Ossie export and import through the Cube CLI and Platform API. Docs label it Preview; contact support to enable.",
           "u": "https://docs.cube.dev/docs/integrations/apache-ossie.md"
         }
       },
@@ -534,7 +534,7 @@
         },
         "nl2sql": {
           "l": 1,
-          "n": "External LLM agents write SQL through the MCP run_query tool. A first-party NLQ feature was announced as a private preview in Sept 2024.",
+          "n": "External agents write SQL through MCP run_query. A first-party NLQ feature was announced as private preview in Sept 2024.",
           "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
         },
         "ontology": {
@@ -765,7 +765,7 @@
         },
         "governance": {
           "l": 3,
-          "n": "Row and column security is in Wren AI Cloud and Enterprise Plus, not the open-source tier. OSS can omit columns from a model.",
+          "n": "Row and column security is in Wren AI Cloud and Enterprise Plus, not open source. OSS can omit model columns.",
           "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
         },
         "openStandard": {
@@ -1090,7 +1090,7 @@
         },
         "nl2sql": {
           "l": 3,
-          "n": "Deep Analysis runs multi-step analysis. The semantic compiler writes the SQL, not the LLM. Also reachable from Slack, Teams, and MCP.",
+          "n": "Deep Analysis runs multi-step analysis. The semantic compiler writes the SQL, not the LLM. Also reachable from Slack, Teams, MCP.",
           "u": "https://honeydew.ai/docs/integration/context-layer/deep-analysis.md"
         },
         "ontology": {
