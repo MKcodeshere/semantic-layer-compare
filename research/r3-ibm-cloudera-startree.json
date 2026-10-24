@@ -96,9 +96,9 @@
           "u": "https://community.ibm.com/community/user/blogs/gupta-neeru/2024/06/24/enrich-your-metadata-using-foundation-models-and-g"
         },
         "verifiedQueries": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No store of approved question and SQL pairs appears in the install guide or MCP tool list. Text-to-SQL context comes from enriched metadata.",
+          "u": "https://www.ibm.com/docs/SSNFH6_5.4.x/svc-wxd-intell/wxd-intell-prep-install.html"
         },
         "nl2sql": {
           "l": 2,
@@ -111,9 +111,9 @@
           "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
         },
         "graph": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No graph query language appears in the watsonx.data intelligence docs read. Lineage graphs exist in the catalog.",
+          "u": "https://www.ibm.com/docs/en/watsonx/wdi/saas?topic=intelligence-getting-started-watsonxdata-mcp-server"
         },
         "vector": {
           "l": 3,
@@ -131,9 +131,9 @@
           "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
         },
         "openStandard": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "IBM does not appear in the Apache Ossie working group lists read. No semantic model export appears in the docs read.",
+          "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
         },
         "aiDescriptions": {
           "l": 3,
@@ -156,9 +156,9 @@
           "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "The Text-to-SQL and MCP tool docs read show no mining of query history. Context comes from enrichment and vectors.",
+          "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
         },
         "lineage": {
           "l": 3,
@@ -166,9 +166,9 @@
           "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
         },
         "evals": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "IBM certifies models for Text-to-SQL, but no customer test set or rating loop appears in the docs read.",
+          "u": "https://www.ibm.com/docs/SSNFH6_5.4.x/svc-wxd-intell/wxd-intell-prep-install.html"
         }
       },
       "enrichHowTo": "Run a metadata enrichment job in watsonx.data intelligence on the target tables. It drafts names, descriptions, and glossary term assignments with an LLM. Then import business terms in bulk with the glossary CSV import tool and enable the project for text-to-SQL.",
@@ -274,6 +274,22 @@
         {
           "t": "Text-2-SQL in Db2 Genius Hub (IBM Community)",
           "u": "https://community.ibm.com/community/user/blogs/aditya-patil/2026/04/15/text2sql-db2-ai-assistant"
+        },
+        {
+          "t": "watsonx.data intelligence installation settings",
+          "u": "https://www.ibm.com/docs/SSNFH6_5.4.x/svc-wxd-intell/wxd-intell-prep-install.html"
+        },
+        {
+          "t": "watsonx.data intelligence MCP server",
+          "u": "https://www.ibm.com/docs/en/watsonx/wdi/saas?topic=intelligence-getting-started-watsonxdata-mcp-server"
+        },
+        {
+          "t": "Apache Ossie community update, April 2026",
+          "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
+        },
+        {
+          "t": "Snowflake: OSI partners expand",
+          "u": "https://www.snowflake.com/en/blog/osi-initiative-expands-partners/"
         }
       ],
       "verified": "2026-10-24"
@@ -383,9 +399,9 @@
           "u": "https://docs.cloudera.com/data-catalog/1.5.5/core-concepts/topics/dc-atlas-tags-overview.html"
         },
         "graph": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "Atlas keeps metadata in JanusGraph and shows lineage graphs. The docs read show no graph query language for users.",
+          "u": "https://docs.cloudera.com/runtime/7.3.1/cdp-governance-overview/atlas-concepts.pdf"
         },
         "vector": {
           "l": 2,
@@ -403,14 +419,14 @@
           "u": "https://www.cloudera.com/blog/technical/bringing-context-to-genai-with-cloudera-mpc-servers.html"
         },
         "openStandard": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "Cloudera joined the Apache Ossie working group in 2026. The docs read show no Ossie import or export in a product.",
+          "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
         },
         "aiDescriptions": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "The SQL AI Assistant summarizes queries but does not write table or column descriptions. Data Catalog descriptions are manual.",
+          "u": "https://docs.cloudera.com/runtime/7.3.1/administering-hue/topics/dw-hue-sql-ai-assistant-overview.html"
         },
         "bulkMetadata": {
           "l": 3,
@@ -428,9 +444,9 @@
           "u": "https://www.cloudera.com/blog/technical/setting-up-and-getting-started-with-cloudera-s-new-sql-ai-assist.html"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "Hue shows query history to users. The docs read do not say the SQL AI Assistant mines it for context.",
+          "u": "https://docs.cloudera.com/runtime/7.3.1/administering-hue/topics/dw-hue-sql-ai-assistant-overview.html"
         },
         "lineage": {
           "l": 3,
@@ -438,9 +454,9 @@
           "u": "https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html"
         },
         "evals": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "The docs list model limits such as hallucination. No feedback loop or test set tool appears.",
+          "u": "https://docs.cloudera.com/runtime/7.3.1/administering-hue/topics/dw-hue-sql-ai-assistant-overview.html"
         }
       },
       "enrichHowTo": "Write descriptions into the table with SQL comments in Hive or Impala, then import glossary terms and business metadata through the Atlas CSV import. Apply tags in bulk with the Atlas bulk classification REST endpoint. The SQL AI Assistant does not document a way to read glossary terms.",
@@ -542,6 +558,18 @@
         {
           "t": "Cloudera to acquire Octopai (press release)",
           "u": "https://www.aap.com.au/aapreleases/globenewswire9273697/"
+        },
+        {
+          "t": "About the Hue SQL AI Assistant",
+          "u": "https://docs.cloudera.com/runtime/7.3.1/administering-hue/topics/dw-hue-sql-ai-assistant-overview.html"
+        },
+        {
+          "t": "Apache Ossie community update, April 2026",
+          "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
+        },
+        {
+          "t": "Cloudera Runtime Atlas use cases",
+          "u": "https://docs.cloudera.com/runtime/7.3.1/cdp-governance-overview/atlas-concepts.pdf"
         }
       ],
       "verified": "2026-10-24"
@@ -639,9 +667,9 @@
           "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
         },
         "graph": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "Pinot queries use SQL. The StarTree Cloud docs index lists no graph query feature.",
+          "u": "https://docs.startree.ai/_llms/star-tree-cloud.txt"
         },
         "vector": {
           "l": 3,
@@ -674,9 +702,9 @@
           "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md"
         },
         "autoClassify": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "An author can flag columns as do_not_use by hand. The docs read show no automatic PII or sensitivity tagging.",
+          "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
         },
         "sampleValues": {
           "l": 2,
@@ -689,9 +717,9 @@
           "u": "https://docs.startree.ai/llms.txt"
         },
         "lineage": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "The StarTree Cloud docs index lists no lineage page. Teams use an external catalog for lineage.",
+          "u": "https://docs.startree.ai/_llms/star-tree-cloud.txt"
         },
         "evals": {
           "l": 2,
@@ -772,6 +800,10 @@
         {
           "t": "Introducing StarTree's MCP Server for Apache Pinot",
           "u": "https://startree.ai/resources/startree-mcp-server-for-apache-pinot/"
+        },
+        {
+          "t": "StarTree Cloud docs index",
+          "u": "https://docs.startree.ai/_llms/star-tree-cloud.txt"
         }
       ],
       "verified": "2026-10-24"

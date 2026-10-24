@@ -53,19 +53,19 @@
       ],
       "caps": {
         "metrics": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "The Glossary Metric asset holds a description, business logic text, format type and alias names. The logic is text, not executable.",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/DGC/en/ab-understanding-businessassets/Glossary_Metric.html"
         },
         "dimensions": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "Metric assets have no dimension fields. Glossary parents and business terms give context, but they do not declare dimensions.",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/DGC/en/ab-understanding-businessassets/Glossary_Metric.html"
         },
         "relationships": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Relationship Discovery finds similar columns and relations between tables in scanned sources. It does not declare join paths for an agent.",
+          "u": "https://success.informatica.com/learning-path/cloud-data-governance-and-catalog/discover.html"
         },
         "synonyms": {
           "l": 2,
@@ -73,9 +73,9 @@
           "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
         },
         "verifiedQueries": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No store of approved question and SQL pairs appears in the CLAIRE GPT or CDGC docs read.",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/clairegpt/en/ab-using-claire-gpt/Using_CLAIRE_GPT.html"
         },
         "nl2sql": {
           "l": 2,
@@ -83,14 +83,14 @@
           "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
         },
         "ontology": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Business terms link to each other, and admins can add custom asset types and relationship types. There are no action objects.",
+          "u": "https://aws.amazon.com/blogs/database/how-informatica-cloud-data-governance-and-catalog-uses-amazon-neptune-for-knowledge-graphs/"
         },
         "graph": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No graph query language for users. The catalog stores metadata in a graph store, but users do not query it with Cypher, GQL or SPARQL.",
+          "u": "https://aws.amazon.com/blogs/database/how-informatica-cloud-data-governance-and-catalog-uses-amazon-neptune-for-knowledge-graphs/"
         },
         "vector": {
           "l": null,
@@ -133,9 +133,9 @@
           "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "The CLAIRE GPT and CDGC docs read do not show a feature that mines query history to suggest joins, metrics or examples.",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/clairegpt/en/ab-using-claire-gpt/Using_CLAIRE_GPT.html"
         },
         "lineage": {
           "l": 3,
@@ -217,6 +217,26 @@
         {
           "t": "Salesforce completes acquisition of Informatica",
           "u": "https://www.salesforce.com/news/press-releases/2025/11/18/salesforce-completes-acquisition-of-informatica/"
+        },
+        {
+          "t": "Informatica Glossary Metric asset",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/DGC/en/ab-understanding-businessassets/Glossary_Metric.html"
+        },
+        {
+          "t": "Informatica CDGC Discover learning path",
+          "u": "https://success.informatica.com/learning-path/cloud-data-governance-and-catalog/discover.html"
+        },
+        {
+          "t": "Informatica Using CLAIRE GPT",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/clairegpt/en/ab-using-claire-gpt/Using_CLAIRE_GPT.html"
+        },
+        {
+          "t": "AWS: how CDGC uses Amazon Neptune for knowledge graphs",
+          "u": "https://aws.amazon.com/blogs/database/how-informatica-cloud-data-governance-and-catalog-uses-amazon-neptune-for-knowledge-graphs/"
+        },
+        {
+          "t": "Informatica CLAIRE GPT Enablement deck",
+          "u": "https://www.informatica.com/content/dam/informatica-cxp/success_accelerators/CLAIRE%20GPT%20Enablement%20-%20Apr.2024%20v1.1.pdf"
         }
       ],
       "verified": "2026-10-24"
@@ -316,9 +336,9 @@
           "u": "https://docs.selectstar.com/llms.txt"
         },
         "vector": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Embeddings back Ask AI and natural language search. The system refreshes them once a day. Other searches use keywords.",
+          "u": "https://docs.selectstar.com/features/ai-features-and-settings.md"
         },
         "mcp": {
           "l": 3,
@@ -351,9 +371,9 @@
           "u": "https://docs.selectstar.com/data-management/automated-pii-detection-beta.md"
         },
         "sampleValues": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 2,
+          "n": "Semantic model YAML has a sample_values field. Auto-generation from BI dashboards fills sample values. The feature is Beta.",
+          "u": "https://docs.selectstar.com/features/semantic-models.md"
         },
         "queryHistory": {
           "l": 3,
@@ -448,6 +468,18 @@
         {
           "t": "Snowflake to acquire Select Star",
           "u": "https://www.snowflake.com/en/blog/snowflake-acquire-select-star/"
+        },
+        {
+          "t": "Select Star Search",
+          "u": "https://docs.selectstar.com/features/search.md"
+        },
+        {
+          "t": "Select Star AI Settings",
+          "u": "https://docs.selectstar.com/features/ai-features-and-settings.md"
+        },
+        {
+          "t": "Select Star changelog, June 2025",
+          "u": "https://docs.selectstar.com/changelog/june-18-2025-auto-cortex-models-llm-search-tableau-metric-extraction-and-more.md"
         }
       ],
       "verified": "2026-10-24"
@@ -528,9 +560,9 @@
           "u": "https://docs.secoda.co/features/ai-assistant.md"
         },
         "verifiedQueries": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "Query blocks save SQL in documents. The docs do not say Secoda AI uses them as approved question and SQL examples.",
+          "u": "https://docs.secoda.co/features/queries.md"
         },
         "nl2sql": {
           "l": 3,
@@ -548,9 +580,9 @@
           "u": "https://docs.secoda.co/llms.txt"
         },
         "vector": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "Search ranks by title, description match and popularity. The docs read show no vector index.",
+          "u": "https://docs.secoda.co/features/search.md"
         },
         "mcp": {
           "l": 3,
@@ -583,9 +615,9 @@
           "u": "https://docs.secoda.co/features/automations/ai-powered-automations.md"
         },
         "sampleValues": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "Column profiling stores counts, minimum, maximum and distribution. The docs do not say Secoda AI uses them to match literals.",
+          "u": "https://docs.secoda.co/features/column-profiling.md"
         },
         "queryHistory": {
           "l": 1,
@@ -598,9 +630,9 @@
           "u": "https://docs.secoda.co/features/data-lineage.md"
         },
         "evals": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 2,
+          "n": "Thumbs ratings and Advanced Memory help Secoda AI learn from past answers. No test set or benchmark tool appears.",
+          "u": "https://docs.secoda.co/features/ai-assistant.md"
         }
       },
       "offers": [
@@ -676,6 +708,22 @@
         {
           "t": "Atlassian acquires Secoda",
           "u": "https://www.secoda.co/blog/atlassian-acquires-secoda"
+        },
+        {
+          "t": "Secoda queries",
+          "u": "https://docs.secoda.co/features/queries.md"
+        },
+        {
+          "t": "Secoda column profiling",
+          "u": "https://docs.secoda.co/features/column-profiling.md"
+        },
+        {
+          "t": "Secoda search",
+          "u": "https://docs.secoda.co/features/search.md"
+        },
+        {
+          "t": "Secoda AI user guide",
+          "u": "https://docs.secoda.co/features/ai-assistant/best-practices.md"
         }
       ],
       "verified": "2026-10-24"
