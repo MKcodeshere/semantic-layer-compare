@@ -81,6 +81,7 @@ await page.evaluate(`document.querySelector('.chip[data-cat="'+SL.vendors[0].cat
 await check('B category chip filters rows', "document.querySelectorAll('#grid tbody tr[data-id]').length === SL.vendors.filter(v=>v.category===SL.vendors[0].category).length");
 await page.evaluate(`document.querySelector('.cell[data-k="metrics"]').click()`);
 await check('B cell click opens drawer with evidence', "document.querySelector('#drawer').classList.contains('open') && !!document.querySelector('#drawer .focus')");
+await page.waitForTimeout(400);
 await check('B drawer sets deep link hash', "/#[a-z0-9-]+\\/metrics$/.test(location.href)");
 await shot('b-matrix-drawer.png');
 await go(`${U}/b-matrix.html#snowflake/synonyms`);
