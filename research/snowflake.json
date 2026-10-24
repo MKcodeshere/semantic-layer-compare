@@ -1,0 +1,623 @@
+{
+  "vendors": [
+    {
+      "id": "snowflake",
+      "name": "Snowflake",
+      "category": "cloud-dw",
+      "tagline": "Snowflake is a cloud data platform. It has built-in semantic views, Cortex AI agents and a managed MCP server.",
+      "verdict": "native",
+      "verdictNote": "Semantic Views are GA schema-level objects. They contain metrics, dimensions, relationships, synonyms and verified queries. Cortex Agents and the managed MCP server read them.",
+      "artifacts": [
+        {
+          "name": "Semantic View",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "2025-06",
+          "format": "SQL DDL, YAML, GUI",
+          "url": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+        },
+        {
+          "name": "Semantic View Autopilot",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://docs.snowflake.com/en/user-guide/views-semantic/autopilot"
+        },
+        {
+          "name": "Semantic Studio",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "2026-09",
+          "format": "YAML, GUI",
+          "url": "https://docs.snowflake.com/en/user-guide/views-semantic/semantic-studio"
+        },
+        {
+          "name": "Semantic model YAML file on a stage (legacy stage API)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "YAML",
+          "url": "https://docs.snowflake.com/en/user-guide/views-semantic/semantic-models-vs-views"
+        },
+        {
+          "name": "Verified queries (AI_VERIFIED_QUERIES, Verified Query Repository)",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "2026-04",
+          "format": "SQL DDL, YAML",
+          "url": "https://docs.snowflake.com/en/user-guide/views-semantic/verified-query-repository"
+        },
+        {
+          "name": "Custom instructions (AI_SQL_GENERATION, AI_QUESTION_CATEGORIZATION)",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "2026-01",
+          "format": "SQL DDL, YAML",
+          "url": "https://docs.snowflake.com/en/user-guide/views-semantic/custom-instructions"
+        },
+        {
+          "name": "Cortex Analyst",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "",
+          "format": "REST API",
+          "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst"
+        },
+        {
+          "name": "Cortex Agents",
+          "kind": "agent",
+          "status": "GA",
+          "since": "2025-11",
+          "format": "SQL, REST API, GUI",
+          "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents"
+        },
+        {
+          "name": "Snowflake CoWork (renamed from Snowflake Intelligence in Jun 2026)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "2025-11",
+          "format": "GUI",
+          "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/snowflake-cowork"
+        },
+        {
+          "name": "Snowflake-managed MCP server",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2025-11",
+          "format": "SQL DDL (CREATE MCP SERVER), YAML spec",
+          "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+        },
+        {
+          "name": "Horizon Catalog",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, SQL, API",
+          "url": "https://docs.snowflake.com/en/user-guide/snowflake-horizon"
+        },
+        {
+          "name": "Horizon Context (external metadata connectors)",
+          "kind": "annotations",
+          "status": "Preview",
+          "since": "2026-10",
+          "format": "GUI",
+          "url": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+        },
+        {
+          "name": "Cortex Search",
+          "kind": "vector",
+          "status": "GA",
+          "since": "2024-10",
+          "format": "SQL, REST API",
+          "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview"
+        },
+        {
+          "name": "Retrieve Cortex Search (CORTEX_SEARCH_RETRIEVE)",
+          "kind": "vector",
+          "status": "Preview",
+          "since": "2026-10",
+          "format": "SQL table function",
+          "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-10-23-cortex-search-retrieve-preview"
+        },
+        {
+          "name": "VECTOR data type and vector functions",
+          "kind": "vector",
+          "status": "GA",
+          "since": "2024-05",
+          "format": "SQL",
+          "url": "https://docs.snowflake.com/en/sql-reference/data-types-vector"
+        },
+        {
+          "name": "Apache Ossie (formerly OSI) YAML import and export for semantic views",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "2026-06",
+          "format": "YAML",
+          "url": "https://docs.snowflake.com/en/sql-reference/stored-procedures/system_create_semantic_view_from_ossie_yaml"
+        },
+        {
+          "name": "Power BI ingestion into Semantic View Autopilot",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "2026-08",
+          "format": ".pbit or .pbix upload",
+          "url": "https://docs.snowflake.com/en/user-guide/views-semantic/power-bi-ingestion"
+        },
+        {
+          "name": "Tableau ingestion into Semantic View Autopilot",
+          "kind": "semantic-model",
+          "status": "Unverified",
+          "since": "",
+          "format": ".twb, .twbx, .tds, .tdsx upload",
+          "url": "https://docs.snowflake.com/en/user-guide/views-semantic/tableau-ingestion"
+        },
+        {
+          "name": "Semantic view export to Tableau data source (SYSTEM$EXPORT_TDS_FROM_SEMANTIC_VIEW)",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "2026-03",
+          "format": "TDS file via SQL function",
+          "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-03-05-semantic-views-tableau-tds"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "The METRICS clause supports aggregate, derived, window and semi-additive metrics. Access modifiers are PUBLIC or PRIVATE.",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "DIMENSIONS and FACTS support filters, sample values and enum flags. YAML adds time_dimensions. The spec has no hierarchy construct.",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "RELATIONSHIPS support primary keys, many-to-one, one-to-one, ASOF and bridge tables. The USING relationship path and range joins are Preview.",
+          "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Synonyms use WITH SYNONYMS, COMMENT, SAMPLE_VALUES and IS_ENUM. Free-text instructions use AI_SQL_GENERATION and AI_QUESTION_CATEGORIZATION.",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/custom-instructions"
+        },
+        "verifiedQueries": {
+          "l": 3,
+          "n": "AI_VERIFIED_QUERIES are stored in the semantic view. A Verified Query Repository also exists. Optimization from verified queries is Preview.",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/verified-query-repository"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Tools: Cortex Analyst API, Cortex Agents, CoWork. Since Aug 2026, Snowflake recommends Cortex Agents over standalone Cortex Analyst.",
+          "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-08-28-cortex-analyst-transition-cortex-agents"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "There is no object, link or action layer. Semantic views cover tables, relationships and metrics. Ossie has an Ontology working group.",
+          "u": "https://ossie.apache.org/updates/ossie-enters-apache-incubator/"
+        },
+        "graph": {
+          "l": 1,
+          "n": "The SQL command and function indexes show no graph query feature. Partner apps are Neo4j Graph Analytics and RelationalAI.",
+          "u": "https://neo4j.com/docs/snowflake-graph-analytics/current/"
+        },
+        "vector": {
+          "l": 3,
+          "n": "The VECTOR type is GA since May 2024. Cortex Search (vector plus keyword) is GA since Oct 2024. Dimensions can bind a Search service.",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "The managed MCP server is GA since Nov 2025. Tools: Cortex Analyst on a semantic view, Search, Agents, SQL, custom. Limit: 50 tools.",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+        },
+        "governance": {
+          "l": 3,
+          "n": "RBAC grants, tags, ACCOUNT_USAGE views and agent lineage apply. Masking and row access policies apply at query time. The verified_by field is free text.",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+        },
+        "openStandard": {
+          "l": 2,
+          "n": "Ossie (formerly OSI) YAML import and export is Preview since Jun 2026. Native YAML, GET_DDL, a dbt package and Terraform also exist.",
+          "u": "https://docs.snowflake.com/en/sql-reference/stored-procedures/system_create_semantic_view_from_ossie_yaml"
+        }
+      },
+      "offers": [
+        "Semantic Views are schema-level objects. They have logical tables, relationships, facts, dimensions, metrics and synonyms. Agents read them as context.",
+        "Verified queries and text instructions live inside the semantic view. They follow its grants and shares.",
+        "Cortex Agents and CoWork generate SQL directly from semantic views. They run the SQL under Snowflake roles.",
+        "The managed MCP server exposes semantic views, Cortex Search, agents and SQL execution to external MCP clients. It uses RBAC.",
+        "Autopilot drafts a semantic view from tables, query history, example SQL, Power BI files or Tableau files.",
+        "Plain SQL queries on semantic views work from any SQL client. They use the SEMANTIC_VIEW clause or AGG."
+      ],
+      "gaps": [
+        "There is no ontology layer (objects, links, actions). There is no native graph query. Graph work needs a partner Native App.",
+        "Semantic views live inside Snowflake. A metric layer shared with other warehouses needs an external tool.",
+        "The Ossie spec is pre-1.0. Release 0.1.1 is out and 0.2.0 is a draft. Snowflake import and export is Preview.",
+        "Several parts are Preview: relationship paths, range joins, materializations, TDS export, Horizon Context and verified-query optimization.",
+        "Names and entry points changed in 2026: Intelligence became CoWork and Analyst became Agents. Older tutorials and response formats do not match."
+      ],
+      "fillWith": [
+        "dbt Semantic Layer (MetricFlow)",
+        "dbt_semantic_view package",
+        "Terraform Snowflake provider",
+        "Cube",
+        "AtScale",
+        "Honeydew",
+        "RelationalAI",
+        "Neo4j Graph Analytics"
+      ],
+      "nl2sqlPath": "Model the data as a semantic view with synonyms, sample values, verified queries and instructions. Add the view as a tool on a Cortex Agent. Call the agent through the Agents Run API, CoWork or the managed MCP server. Use Autopilot or Semantic Studio to draft the view. Keep the definition in Git through dbt or Terraform.",
+      "snippet": {
+        "lang": "sql",
+        "title": "Minimal CREATE SEMANTIC VIEW over TPC-H sample data, adapted from the official example",
+        "code": "CREATE SEMANTIC VIEW tpch_rev_analysis\n  TABLES (\n    orders AS SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS PRIMARY KEY (o_orderkey) WITH SYNONYMS ('sales orders'),\n    customers AS SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER PRIMARY KEY (c_custkey)\n  )\n  RELATIONSHIPS ( orders_to_customers AS orders (o_custkey) REFERENCES customers )\n  DIMENSIONS (\n    customers.customer_name AS customers.c_name WITH SYNONYMS = ('customer name'),\n    orders.order_year AS YEAR(o_orderdate) COMMENT = 'Year when the order was placed'\n  )\n  METRICS (\n    orders.order_average_value AS AVG(orders.o_totalprice) COMMENT = 'Average order value across all orders'\n  )\n  COMMENT = 'Semantic view for revenue analysis';",
+        "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+      },
+      "sources": [
+        {
+          "t": "CREATE SEMANTIC VIEW",
+          "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+        },
+        {
+          "t": "Overview of semantic views",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/overview"
+        },
+        {
+          "t": "YAML vs DDL authoring for semantic views",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl"
+        },
+        {
+          "t": "Migrating from the legacy stage API to semantic views",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/semantic-models-vs-views"
+        },
+        {
+          "t": "Cortex Analyst",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst"
+        },
+        {
+          "t": "Cortex Analyst Verified Query Repository",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/verified-query-repository"
+        },
+        {
+          "t": "Custom instructions in Cortex Analyst",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/custom-instructions"
+        },
+        {
+          "t": "Cortex Agents",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents"
+        },
+        {
+          "t": "Snowflake-managed MCP server",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+        },
+        {
+          "t": "Overview of Snowflake CoWork",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/snowflake-cowork"
+        },
+        {
+          "t": "Snowflake Horizon Catalog",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon"
+        },
+        {
+          "t": "Horizon Context",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+        },
+        {
+          "t": "Cortex Search",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview"
+        },
+        {
+          "t": "Vector data types",
+          "u": "https://docs.snowflake.com/en/sql-reference/data-types-vector"
+        },
+        {
+          "t": "Preview features list",
+          "u": "https://docs.snowflake.com/en/release-notes/preview-features"
+        },
+        {
+          "t": "Release notes 2026",
+          "u": "https://docs.snowflake.com/en/release-notes/new-features-2026"
+        },
+        {
+          "t": "Release notes 2025",
+          "u": "https://docs.snowflake.com/en/release-notes/new-features-2025"
+        }
+      ],
+      "verified": "2026-10-24"
+    }
+  ],
+  "notes": [
+    {
+      "topic": "OSI: who started it and when",
+      "text": "Snowflake announced Open Semantic Interchange (OSI) on 2025-09-23. OSI is an open source initiative for a vendor-neutral semantic model spec. Snowflake leads it. The press release names Salesforce (with Tableau), BlackRock, dbt Labs and RelationalAI as launch partners.",
+      "sources": [
+        {
+          "t": "Snowflake press release: Open Semantic Interchange Initiative",
+          "u": "https://snowflake.com/en/news/press-releases/snowflake-salesforce-dbt-labs-and-more-revolutionize-data-readiness-for-ai-with-open-semantic-interchange-initiative"
+        }
+      ]
+    },
+    {
+      "topic": "OSI origins and early members",
+      "text": "The Sep 2025 coalition also listed Alation, Atlan, Blue Yonder, Cube, Elementum AI, Hex, Honeydew, Mistral AI, Omni, Select Star, Sigma and ThoughtSpot. The Snowflake Jul 2026 post says 17 launch partners. It does not name them. It now counts more than 50 organizations. The press release does not use the term founding members.",
+      "sources": [
+        {
+          "t": "Snowflake press release: Open Semantic Interchange Initiative",
+          "u": "https://snowflake.com/en/news/press-releases/snowflake-salesforce-dbt-labs-and-more-revolutionize-data-readiness-for-ai-with-open-semantic-interchange-initiative"
+        },
+        {
+          "t": "Snowflake blog: Apache Ossie (Incubating)",
+          "u": "https://www.snowflake.com/en/blog/apache-ossie-open-semantic-interchange-incubator/"
+        }
+      ]
+    },
+    {
+      "topic": "OSI working group growth",
+      "text": "Nov 2025 additions: AWS, Collibra, DataHub, Domo, Firebolt, Informatica, Instacart, JPMC, Preset, Starburst Data, Strategy. Jan 2026 additions: AtScale, Coalesce, Collate, Credible, Databricks, JetBrains, Lightdash, Qlik. Denodo joined in Mar 2026. Kyvos joined in Aug 2026.",
+      "sources": [
+        {
+          "t": "Snowflake blog: OSI initiative expands partners (2025-11-13)",
+          "u": "https://snowflake.com/en/blog/osi-initiative-expands-partners/"
+        },
+        {
+          "t": "Snowflake blog: OSI specs finalized (2026-01-27)",
+          "u": "https://www.snowflake.com/en/blog/open-semantic-interchanges-specs-finalized/"
+        },
+        {
+          "t": "Apache Ossie updates 2026",
+          "u": "https://ossie.apache.org/updates/archive/2026/"
+        }
+      ]
+    },
+    {
+      "topic": "OSI spec status, version and license in 2026",
+      "text": "The spec is under Apache License 2.0. The spec file lists release 0.1.1 dated 2025-12-11. Snowflake announced the first version on 2026-01-27. On 2026-10-24 the main branch shows 0.2.0.dev0, marked draft and unreleased. The only git tag is osi-0.1.1-rc1. A v1.0 target was named in Nov 2025 with no date.",
+      "sources": [
+        {
+          "t": "Apache Ossie core spec (spec.md)",
+          "u": "https://github.com/apache/ossie/blob/main/core-spec/spec.md"
+        },
+        {
+          "t": "apache/ossie repository",
+          "u": "https://github.com/apache/ossie"
+        },
+        {
+          "t": "Snowflake blog: OSI specs finalized",
+          "u": "https://www.snowflake.com/en/blog/open-semantic-interchanges-specs-finalized/"
+        },
+        {
+          "t": "Snowflake blog: OSI initiative expands partners",
+          "u": "https://snowflake.com/en/blog/osi-initiative-expands-partners/"
+        }
+      ]
+    },
+    {
+      "topic": "OSI renamed Apache Ossie (incubating)",
+      "text": "Open Semantic Interchange entered the Apache Incubator on 2026-06-22. It was renamed Apache Ossie (incubating) to avoid confusion with the Open Source Initiative acronym. The Snowflake blog announced the rename on 2026-07-08. ossie.apache.org announced it on 2026-07-10. Spec, community and mission are unchanged. The code lives at github.com/apache/ossie. The ASF notes that incubation does not mean the code is complete or stable.",
+      "sources": [
+        {
+          "t": "Apache Ossie enters the Apache Incubator",
+          "u": "https://ossie.apache.org/updates/ossie-enters-apache-incubator/"
+        },
+        {
+          "t": "Apache Ossie home",
+          "u": "https://ossie.apache.org/"
+        },
+        {
+          "t": "dbt Labs: OSI is now Apache Ossie",
+          "u": "https://www.getdbt.com/blog/osi-is-now-apache-ossie"
+        },
+        {
+          "t": "Snowflake blog: Apache Ossie (Incubating)",
+          "u": "https://www.snowflake.com/en/blog/apache-ossie-open-semantic-interchange-incubator/"
+        },
+        {
+          "t": "Apache Ossie podling page (enters incubation 2026-06-22)",
+          "u": "https://incubator.apache.org/projects/ossie.html"
+        }
+      ]
+    },
+    {
+      "topic": "Snowflake support for Ossie and OSI YAML",
+      "text": "Snowflake documents SYSTEM$CREATE_SEMANTIC_VIEW_FROM_OSSIE_YAML and SYSTEM$READ_OSSIE_YAML_FROM_SEMANTIC_VIEW. Snowflake-only features stay in vendor extensions. The older OSI-named procedure is marked deprecated. The Preview features list shows OSI YAML for semantic views as Preview since Jun 2026. The docs example uses spec version 0.1.1.",
+      "sources": [
+        {
+          "t": "SYSTEM$CREATE_SEMANTIC_VIEW_FROM_OSSIE_YAML",
+          "u": "https://docs.snowflake.com/en/sql-reference/stored-procedures/system_create_semantic_view_from_ossie_yaml"
+        },
+        {
+          "t": "SYSTEM$READ_OSSIE_YAML_FROM_SEMANTIC_VIEW",
+          "u": "https://docs.snowflake.com/en/sql-reference/functions/system_read_ossie_yaml_from_semantic_view"
+        },
+        {
+          "t": "SYSTEM$CREATE_SEMANTIC_VIEW_FROM_OSI_YAML (deprecated)",
+          "u": "https://docs.snowflake.com/en/sql-reference/stored-procedures/system_create_semantic_view_from_osi_yaml"
+        },
+        {
+          "t": "Preview features list",
+          "u": "https://docs.snowflake.com/en/release-notes/preview-features"
+        }
+      ]
+    },
+    {
+      "topic": "Product rename: Snowflake Intelligence to Snowflake CoWork",
+      "text": "Snowflake Intelligence became Snowflake CoWork. Cortex Code became CoCo. Snowflake announced both changes at Snowflake Summit on 2026-06-02. Current Snowflake docs use the CoWork and CoCo names. The 2025 GA release note for Snowflake Intelligence now points to the CoWork overview.",
+      "sources": [
+        {
+          "t": "Snowflake press release: Snowflake CoWork (formerly Snowflake Intelligence), 2026-06-02",
+          "u": "https://www.snowflake.com/en/news/press-releases/snowflake-cowork-powers-the-agentic-enterprise-as-the-personal-agent-for-knowledge-workers-to-work-smarter/"
+        },
+        {
+          "t": "Overview of Snowflake CoWork",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/snowflake-cowork"
+        }
+      ]
+    },
+    {
+      "topic": "Is the semantic model YAML file path legacy?",
+      "text": "Yes for the stage file. Snowflake calls stage-based semantic model YAML the legacy stage API. It still works with Cortex Analyst. Snowflake recommends semantic views for new work. Stage files lack SQL querying and native sharing. YAML is still a valid way to author a semantic view through SYSTEM$CREATE_SEMANTIC_VIEW_FROM_YAML and Semantic Studio.",
+      "sources": [
+        {
+          "t": "Migrating from the legacy stage API to semantic views",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/semantic-models-vs-views"
+        },
+        {
+          "t": "Cortex Analyst",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst"
+        },
+        {
+          "t": "YAML vs DDL authoring for semantic views",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl"
+        },
+        {
+          "t": "Cortex Analyst REST API",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst/rest-api"
+        }
+      ]
+    },
+    {
+      "topic": "Cortex Analyst versus Cortex Agents",
+      "text": "On 2026-08-28 Snowflake recommended moving from Cortex Analyst to Cortex Agents. The Cortex Analyst REST API stays available. Since 2026-04-13 agents generate SQL directly from semantic views. The response block type changed from cortex_analyst_text_to_sql to system_execute_sql.",
+      "sources": [
+        {
+          "t": "Aug 28 2026 release note: transition to Cortex Agents",
+          "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-08-28-cortex-analyst-transition-cortex-agents"
+        },
+        {
+          "t": "Apr 13 2026 release note: improved SQL generation in Cortex Agents",
+          "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-04-13-cortex-agents-agentic-analyst"
+        }
+      ]
+    },
+    {
+      "topic": "Semantic view status and dates",
+      "text": "Semantic views entered Preview on 2025-04-17. Defining them became GA at Summit in June 2025. Querying them became GA in Aug 2025. Standard SQL clauses on semantic views became GA on 2026-03-02. Semantic Studio became GA on 2026-09-30. Cortex Agents and the managed MCP server became GA on 2025-11-04. Preview items: USING relationship paths, range joins, materializations, TDS export and Horizon Context (2026-10-12).",
+      "sources": [
+        {
+          "t": "Apr 17 2025 release note: Semantic views (Preview)",
+          "u": "https://docs.snowflake.com/en/release-notes/2025/other/2025-04-17-semantic-views"
+        },
+        {
+          "t": "Summit announcements June 2025",
+          "u": "https://docs.snowflake.com/en/release-notes/2025/june-summit"
+        },
+        {
+          "t": "Mar 2 2026 release note: standard SQL clauses GA",
+          "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-03-02-semantic-views-standard-sql"
+        },
+        {
+          "t": "Sep 30 2026 release note: Semantic Studio GA",
+          "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-09-30-semantic-studio-ga"
+        },
+        {
+          "t": "Cortex Agents GA release note",
+          "u": "https://docs.snowflake.com/en/release-notes/2025/other/2025-11-04-cortex-agents"
+        },
+        {
+          "t": "Managed MCP server GA release note",
+          "u": "https://docs.snowflake.com/en/release-notes/2025/other/2025-11-04-cortex-agents-mcp"
+        },
+        {
+          "t": "Preview features list",
+          "u": "https://docs.snowflake.com/en/release-notes/preview-features"
+        }
+      ]
+    },
+    {
+      "topic": "How semantic views inherit governance",
+      "text": "A semantic view is a schema-level object. As with standard views, you grant SELECT on the view and need no SELECT on its base tables. Snowflake docs say the query engine enforces masking and row access policies when agents query data. Tags work on semantic views and their members since May 2026. Lineage links the table, semantic view and agent since Sep 2026.",
+      "sources": [
+        {
+          "t": "Querying semantic views",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/querying"
+        },
+        {
+          "t": "Horizon Context",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+        },
+        {
+          "t": "May 2026 release note: tagging in semantic views",
+          "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-05-05-semantic-views-object-tagging"
+        },
+        {
+          "t": "Sep 2026 release note: lineage for Cortex Agents",
+          "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-09-02-cortex-agent-lineage"
+        }
+      ]
+    },
+    {
+      "topic": "BI tool support for semantic views",
+      "text": "Inbound: Autopilot builds a semantic view from a Power BI file (GA 2026-08-18) or a Tableau file. DAX measures become metrics. Outbound: SYSTEM$EXPORT_TDS_FROM_SEMANTIC_VIEW makes a Tableau data source (Preview, Mar 2026). Native semantic view support inside other BI tools is unverified.",
+      "sources": [
+        {
+          "t": "Power BI ingestion feature support",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/power-bi-ingestion"
+        },
+        {
+          "t": "Power BI ingestion GA release note",
+          "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-08-18-semantic-views-power-bi-ingestion-ga"
+        },
+        {
+          "t": "Tableau ingestion feature support",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/tableau-ingestion"
+        },
+        {
+          "t": "TDS export release note",
+          "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-03-05-semantic-views-tableau-tds"
+        },
+        {
+          "t": "Querying semantic views",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/querying"
+        }
+      ]
+    },
+    {
+      "topic": "Graph features",
+      "text": "The Snowflake SQL command and function indexes show no property graph, SQL/PGQ or Cypher feature. Neo4j documents Graph Analytics for Snowflake (graph algorithms on Snowpark Container Services). RelationalAI lists a Snowflake Native App with graph reasoning.",
+      "sources": [
+        {
+          "t": "Neo4j Graph Analytics for Snowflake",
+          "u": "https://neo4j.com/docs/snowflake-graph-analytics/current/"
+        },
+        {
+          "t": "RelationalAI",
+          "u": "https://relational.ai/"
+        }
+      ]
+    },
+    {
+      "topic": "Horizon Catalog and Horizon Context",
+      "text": "Horizon Catalog is the catalog layer for descriptions, tags, lineage and access control. Horizon Context (Preview, 2026-10-12) adds metadata connectors to 18 external sources such as Power BI, Tableau, dbt, Databricks and BigQuery. The connectors read metadata from external systems.",
+      "sources": [
+        {
+          "t": "Snowflake Horizon Catalog",
+          "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon"
+        },
+        {
+          "t": "Oct 12 2026 release note: Horizon Context (Preview)",
+          "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-10-12-horizon-context-preview"
+        }
+      ]
+    },
+    {
+      "topic": "Claims not fully verified",
+      "text": "Semantic View Autopilot has no Preview label in the docs. Power BI ingestion for it is GA. The docs list no GA release note for it. Flexera (third party) says GA since Feb 2026. These items are unverified: Tableau ingestion status, the exact GA date of Cortex Analyst (Preview Aug 2024), and third-party BI tools that read semantic views.",
+      "sources": [
+        {
+          "t": "Semantic View Autopilot",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/autopilot"
+        },
+        {
+          "t": "Flexera: Snowflake Summit 2026 recap",
+          "u": "https://www.flexera.com/blog/perspectives/snowflake-summit-2026/"
+        },
+        {
+          "t": "Release notes 2024",
+          "u": "https://docs.snowflake.com/en/release-notes/new-features-2024"
+        }
+      ]
+    }
+  ]
+}

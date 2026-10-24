@@ -1,0 +1,1012 @@
+{
+  "vendors": [
+    {
+      "id": "dremio",
+      "name": "Dremio",
+      "category": "virtualization",
+      "tagline": "Iceberg lakehouse and query engine. Its semantic layer is views, wikis, and labels.",
+      "verdict": "partial",
+      "verdictNote": "Views, wikis, labels, and semantic search give an AI agent business context. Dremio has no metric, dimension, or relationship objects.",
+      "artifacts": [
+        {
+          "name": "Views in spaces and folders",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "SQL DDL",
+          "url": "https://docs.dremio.com/current/reference/sql/commands/create-view"
+        },
+        {
+          "name": "Wikis and labels",
+          "kind": "glossary",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, REST API, CLI",
+          "url": "https://docs.dremio.com/dremio-cloud/manage-govern/wikis-labels/"
+        },
+        {
+          "name": "AI-generated wikis and labels",
+          "kind": "annotations",
+          "status": "Preview",
+          "since": "",
+          "format": "GUI",
+          "url": "https://docs.dremio.com/dremio-cloud/manage-govern/wikis-labels/"
+        },
+        {
+          "name": "AI semantic search",
+          "kind": "vector",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://docs.dremio.com/dremio-cloud/explore-analyze/discover"
+        },
+        {
+          "name": "AI Agent",
+          "kind": "agent",
+          "status": "GA",
+          "since": "2025-11",
+          "format": "GUI",
+          "url": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent"
+        },
+        {
+          "name": "Dremio-hosted MCP server",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2025-11",
+          "format": "API",
+          "url": "https://docs.dremio.com/dremio-cloud/developer/mcp-server/"
+        },
+        {
+          "name": "Open-source MCP server (dremio-mcp, self-hosted)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2025-05",
+          "format": "API",
+          "url": "https://docs.dremio.com/dremio-cloud/developer/mcp-server/"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 0,
+          "n": "The docs show no metric object. Metric logic is in SQL expressions inside views.",
+          "u": "https://docs.dremio.com/dremio-cloud/about/concepts"
+        },
+        "dimensions": {
+          "l": 0,
+          "n": "The docs show no declared dimensions or hierarchies. Views expose plain columns.",
+          "u": "https://docs.dremio.com/dremio-cloud/about/concepts"
+        },
+        "relationships": {
+          "l": 0,
+          "n": "The docs show no declared join paths. Users write joins inside view SQL.",
+          "u": "https://docs.dremio.com/dremio-cloud/help-support/well-architected-framework/self-serve-semantic-layer"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Markdown wikis and labels exist on datasets and folders. The AI Agent reads them as context.",
+          "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "The docs show no verified-query or example-SQL store.",
+          "u": ""
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "The built-in AI Agent writes SQL, charts, and explanations. It needs the CALL MODEL privilege. It uses a built-in or external LLM.",
+          "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "No ontology layer exists. Spaces, folders, views, wikis, and labels are the modeling objects.",
+          "u": "https://docs.dremio.com/dremio-cloud/about/concepts"
+        },
+        "graph": {
+          "l": 0,
+          "n": "The docs show no graph query language. A lineage graph exists for datasets only.",
+          "u": "https://docs.dremio.com/llms-full.txt"
+        },
+        "vector": {
+          "l": 3,
+          "n": "AI semantic search covers names, wikis, labels, and metadata. It is English-optimized. The index can be a few hours late.",
+          "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/discover"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "The hosted MCP server uses OAuth. A self-hosted open-source server also exists. Tools include RunSqlQuery and GetSchemaOfTable.",
+          "u": "https://docs.dremio.com/dremio-cloud/developer/mcp-server/"
+        },
+        "governance": {
+          "l": 3,
+          "n": "The agent acts with the privileges of the user. Row-access and column-masking policies apply to views. Dataset-level lineage is available.",
+          "u": "https://docs.dremio.com/dremio-cloud/manage-govern/row-column-policies"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "Dremio is in the Apache Ossie ecosystem list. The docs show no Dremio converter or export. The catalog follows Iceberg REST on Apache Polaris.",
+          "u": "https://ossie.apache.org/ecosystem/"
+        }
+      },
+      "offers": [
+        "Views in spaces and folders give agents curated tables to query. The views are in three layers: preparation, business, and application.",
+        "Markdown wikis and labels on datasets add descriptions. The AI Agent reads them for discovery and SQL generation.",
+        "The hosted MCP server uses OAuth. It lets Claude or ChatGPT query governed data with the privileges of the user.",
+        "The built-in AI Agent turns questions into SQL and charts. It also explains SQL or past jobs in the console.",
+        "The query planner applies row-access and column-masking policies on tables and views at run time.",
+        "Semantic search finds tables, views, and folders from natural-language terms. It uses names, wikis, and labels."
+      ],
+      "gaps": [
+        "Dremio has no metric, dimension, or join-path objects. Business logic stays inside view SQL. Agents must infer joins and metric rules.",
+        "AI generation of wikis and labels is Preview. The docs warn that table names, tags, and wikis can reach the model.",
+        "The docs show no verified question-to-SQL store, no ontology layer, and no graph query language.",
+        "The docs show no Dremio converter for Apache Ossie. Semantic definitions are therefore not portable.",
+        "The self-hosted MCP server is open source. It is outside the Dremio support policies."
+      ],
+      "fillWith": [
+        "dbt (dbt-dremio adapter, maintained by Dremio)",
+        "Apache Ossie YAML (spec only, no Dremio converter found)"
+      ],
+      "nl2sqlPath": "Model business logic as business-layer views. Write a wiki and labels for each view and column. Point the AI Agent or the hosted MCP server at that space. Put metric formulas and join rules in the wikis. Dremio has no object for them.",
+      "snippet": {
+        "lang": "sql",
+        "title": "A view in a space, from the CREATE VIEW reference. The console, REST API, or CLI edit wikis and labels.",
+        "code": "-- Dremio docs example: a view stored in a space or folder\nCREATE VIEW demo.jobs_view AS SELECT * FROM \"oracle_e2e\".DREMIO.JOBS",
+        "u": "https://docs.dremio.com/current/reference/sql/commands/create-view"
+      },
+      "sources": [
+        {
+          "t": "Dremio Cloud key concepts",
+          "u": "https://docs.dremio.com/dremio-cloud/about/concepts"
+        },
+        {
+          "t": "Wikis and labels",
+          "u": "https://docs.dremio.com/dremio-cloud/manage-govern/wikis-labels/"
+        },
+        {
+          "t": "Discover data (semantic search)",
+          "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/discover"
+        },
+        {
+          "t": "Analyze using Dremio's AI Agent",
+          "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent"
+        },
+        {
+          "t": "Connect AI agents to Dremio with MCP",
+          "u": "https://docs.dremio.com/dremio-cloud/developer/mcp-server/"
+        },
+        {
+          "t": "Row and column policies",
+          "u": "https://docs.dremio.com/dremio-cloud/manage-govern/row-column-policies"
+        },
+        {
+          "t": "Self-serve semantic layer (well-architected framework)",
+          "u": "https://docs.dremio.com/dremio-cloud/help-support/well-architected-framework/self-serve-semantic-layer"
+        },
+        {
+          "t": "CREATE VIEW (Dremio 26.x docs)",
+          "u": "https://docs.dremio.com/current/reference/sql/commands/create-view"
+        },
+        {
+          "t": "Dremio AI features (older cloud docs path, shows Preview label)",
+          "u": "https://docs.dremio.com/cloud/sonar/ai"
+        },
+        {
+          "t": "Dremio docs llms-full.txt",
+          "u": "https://docs.dremio.com/llms-full.txt"
+        },
+        {
+          "t": "Dremio unveils the agentic lakehouse (Nov 13, 2025)",
+          "u": "https://www.dremio.com/press-releases/dremio-unveils-the-agentic-lakehouse-built-for-agents-managed-by-agents/"
+        },
+        {
+          "t": "Dremio launches new MCP server (May 6, 2025)",
+          "u": "https://www.dremio.com/press-releases/dremio-launches-new-mcp-server-furthers-its-leadership-in-accelerating-agentic-applications/"
+        },
+        {
+          "t": "Dremio MCP server now hosted (Nov 13, 2025)",
+          "u": "https://www.dremio.com/blog/dremio-mcp-server-now-hosted-in-dremios-next-generation-cloud/"
+        },
+        {
+          "t": "dbt-dremio setup (maintained by Dremio)",
+          "u": "https://docs.getdbt.com/docs/core/connect-data-platform/dremio-setup"
+        },
+        {
+          "t": "Dremio AI agent",
+          "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent/"
+        },
+        {
+          "t": "Dremio lineage",
+          "u": "https://docs.dremio.com/dremio-cloud/manage-govern/lineage/"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "denodo",
+      "name": "Denodo Platform",
+      "category": "virtualization",
+      "tagline": "Logical data management platform. Its semantic layer has views, associations, and metric views.",
+      "verdict": "native",
+      "verdictNote": "Since 9.5 (July 2026), metric views, associations, and view metadata form a semantic layer. The Data Marketplace assistant queries metric views.",
+      "artifacts": [
+        {
+          "name": "Metric View (CREATE METRIC VIEW)",
+          "kind": "metric-view",
+          "status": "GA",
+          "since": "2026-07",
+          "format": "VQL, GUI",
+          "url": "https://community.denodo.com/docs/html/accessible/9.5/vdp/vql/defining_a_derived_view/defining_a_metric_view/defining_a_metric_view.html"
+        },
+        {
+          "name": "View and column descriptions, tags, and associations",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "VQL, GUI",
+          "url": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/Denodo%20AI%20SDK%20-%20User%20Manual"
+        },
+        {
+          "name": "Denodo Assistant (VQL Shell and Data Marketplace)",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://community.denodo.com/docs/html/browse/9.5/en/platform/new_features/what_is_new_9_5"
+        },
+        {
+          "name": "Denodo AI SDK (text-to-VQL, metadata search, open source)",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "",
+          "format": "API",
+          "url": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/Denodo%20AI%20SDK%20-%20User%20Manual"
+        },
+        {
+          "name": "DeepQuery agent",
+          "kind": "agent",
+          "status": "GA",
+          "since": "2025-09",
+          "format": "API",
+          "url": "https://www.denodo.com/en/press-release/2025-09-16/denodo-platform-93-now-available-breakthrough-support-ai-innovation"
+        },
+        {
+          "name": "Denodo MCP Server (standalone, read-only)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "",
+          "format": "API",
+          "url": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/Denodo%20MCP%20Server%20-%20User%20Manual"
+        },
+        {
+          "name": "AI SDK MCP endpoint (/mcp)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "",
+          "format": "API",
+          "url": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/Denodo%20AI%20SDK%20-%20User%20Manual"
+        },
+        {
+          "name": "Vector data type and metadata embeddings",
+          "kind": "vector",
+          "status": "GA",
+          "since": "2026-03",
+          "format": "VQL",
+          "url": "https://community.denodo.com/docs/html/browse/9.5/en/platform/new_features/what_is_new_9_4"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "Metric views (9.5, July 2026) declare metrics over fact and dimension views. BI and AI tools reuse them.",
+          "u": "https://community.denodo.com/docs/html/accessible/9.5/vdp/vql/defining_a_derived_view/defining_a_metric_view/defining_a_metric_view.html"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "Metric views declare dimensions and dimension groups. The syntax shows no hierarchy or time-grain clause.",
+          "u": "https://community.denodo.com/docs/html/accessible/9.5/vdp/vql/defining_a_derived_view/defining_a_metric_view/defining_a_metric_view.html"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Associations declare joins between views. Metric views list them in an ASSOCIATIONS clause with a join type.",
+          "u": "https://community.denodo.com/docs/html/accessible/9.5/vdp/vql/defining_a_derived_view/defining_a_metric_view/defining_a_metric_view.html"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Sources are view and column descriptions, tags, logical names, and Assistant custom instructions. The docs show no dedicated synonym field.",
+          "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/Denodo%20AI%20SDK%20-%20User%20Manual"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "The AI SDK manual and the 9.4 and 9.5 release notes show no verified question-to-SQL store.",
+          "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/Denodo%20AI%20SDK%20-%20User%20Manual"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Denodo Assistant and metric view assisted query write VQL. The open-source AI SDK adds text-to-VQL. You supply the LLM.",
+          "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/metric_views/assisted_query"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "No ontology layer exists. Views, associations, and metric views are the modeling objects. 360 Graph maps assets and lineage.",
+          "u": "https://itbrief.com.au/story/denodo-9-5-adds-metric-views-for-ai-data-governance"
+        },
+        "graph": {
+          "l": 0,
+          "n": "The docs show no graph query language. 360 Graph (renamed from Reference Lineage) is a lineage and asset map.",
+          "u": "https://community.denodo.com/docs/html/browse/9.5/en/platform/new_features/what_is_new_9_5"
+        },
+        "vector": {
+          "l": 3,
+          "n": "Version 9.4 added a vector data type with distance functions. Metadata search needs a configured external vector database such as PGVector.",
+          "u": "https://community.denodo.com/docs/html/browse/9.5/en/platform/new_features/what_is_new_9_4"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "A standalone read-only MCP server and an AI SDK MCP endpoint exist. Tools include run_vql_query, metadata_search, generate_vql.",
+          "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/Denodo%20MCP%20Server%20-%20User%20Manual"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Denodo privileges are the final filter for MCP. The AI SDK retrieves only views that the user may access. Tags set visibility.",
+          "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/Denodo%20MCP%20Server%20-%20User%20Manual"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "Denodo is in the Apache Ossie ecosystem and working group. The docs show no converter or Ossie export.",
+          "u": "https://ossie.apache.org/ecosystem/"
+        }
+      },
+      "offers": [
+        "Metric views define KPIs once over joined views. The Data Marketplace assistant turns plain-language requests into VQL against them.",
+        "The open-source AI SDK provides text-to-VQL, vector metadata search, and a DeepQuery agent. DeepQuery answers multi-step questions.",
+        "The standalone read-only MCP server exposes view metadata and semantic metadata search. It also has tools to validate and run VQL.",
+        "Views carry descriptions, tags, and associations. The AI SDK passes this schema to the LLM. It filters by user permission.",
+        "One virtual layer reaches many sources. Agents query live data without copying it."
+      ],
+      "gaps": [
+        "Metric views are new (9.5, July 2026). The AI SDK and MCP docs do not mention them.",
+        "The docs show no ontology, no verified-query store, and no graph query language.",
+        "Metadata search and the AI SDK need an external vector database and an LLM. You configure and run both.",
+        "The 9.5 docs list AI and Semantics feature packs under Enterprise Plus. The licensing scope is unverified.",
+        "The manual says the sample chatbot is not for production. It also says Chroma is for demos only."
+      ],
+      "fillWith": [
+        "dbt Denodo adapter (DenodoConnect component)",
+        "PGVector or OpenSearch as the metadata vector store",
+        "Apache Ossie (Denodo is a listed participant, no converter found)"
+      ],
+      "nl2sqlPath": "Model facts and dimensions as metric views. Fill in view and column descriptions. Tag the views. Then run the Denodo AI SDK or MCP server with a vector store that you host. The LLM then sees view schemas and descriptions. Use DeepQuery only for multi-step questions. DeepQuery needs a thinking model with at least 128k context.",
+      "snippet": {
+        "lang": "sql",
+        "title": "Metric view in VQL, shortened from the 9.5 VQL Guide example",
+        "code": "CREATE OR REPLACE METRIC VIEW sales_view\n  DESCRIPTION = 'Example of metric view'\n  SOURCES (\n    orders AS vdb_tpch.psql_tpch_orders,\n    customer AS vdb_tpch.psql_tpch_customer )\n  ASSOCIATIONS (\n    orders customer vdb_tpch.psql_tpch_customer_psql_tpch_orders INNER )\n  DIMENSIONS (\n    customer_dim( customer_name AS customer.c_name ),\n    order_date AS orders.o_orderdate )\n  METRICS (\n    count_order_keys AS count(orders.o_orderkey),\n    order_average_value AS avg(orders.o_totalprice) );",
+        "u": "https://community.denodo.com/docs/html/accessible/9.5/vdp/vql/defining_a_derived_view/defining_a_metric_view/defining_a_metric_view.html"
+      },
+      "sources": [
+        {
+          "t": "Defining a Metric View (VQL Guide 9.5)",
+          "u": "https://community.denodo.com/docs/html/accessible/9.5/vdp/vql/defining_a_derived_view/defining_a_metric_view/defining_a_metric_view.html"
+        },
+        {
+          "t": "Metric views: assisted query (Data Marketplace Guide 9.5)",
+          "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/metric_views/assisted_query"
+        },
+        {
+          "t": "What is new in Denodo 9.5",
+          "u": "https://community.denodo.com/docs/html/browse/9.5/en/platform/new_features/what_is_new_9_5"
+        },
+        {
+          "t": "What is new in Denodo 9.4",
+          "u": "https://community.denodo.com/docs/html/browse/9.5/en/platform/new_features/what_is_new_9_4"
+        },
+        {
+          "t": "Denodo AI SDK user manual (9.5, modified 1 Oct 2026)",
+          "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/Denodo%20AI%20SDK%20-%20User%20Manual"
+        },
+        {
+          "t": "Denodo MCP Server user manual (9.5)",
+          "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/Denodo%20MCP%20Server%20-%20User%20Manual"
+        },
+        {
+          "t": "Denodo Platform 9.3 and DeepQuery (Sep 16, 2025)",
+          "u": "https://www.denodo.com/en/press-release/2025-09-16/denodo-platform-93-now-available-breakthrough-support-ai-innovation"
+        },
+        {
+          "t": "Denodo Assistant",
+          "u": "https://www.denodo.com/en/solutions/by-capability/denodo-assistant.md"
+        },
+        {
+          "t": "Denodo 9.5 adds metric views (IT Brief, Jul 2026)",
+          "u": "https://itbrief.com.au/story/denodo-9-5-adds-metric-views-for-ai-data-governance"
+        },
+        {
+          "t": "Denodo Platform 9.4 press release (Mar 2026)",
+          "u": "https://www.aap.com.au/aapreleases/globenewswire9668692/"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "starburst",
+      "name": "Starburst / Trino",
+      "category": "virtualization",
+      "tagline": "Trino-based federated query engine. It has data products, an AI agent, and an MCP server.",
+      "verdict": "partial",
+      "verdictNote": "Data products feed the AI agent. A data product is views plus descriptions, tags, sample queries, and business rules. Starburst has no metric, dimension, or relationship objects. Open-source Trino has none of these features.",
+      "artifacts": [
+        {
+          "name": "Data product (views and materialized views in a schema)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, REST API",
+          "url": "https://docs.starburst.io/latest/data-products/index.html"
+        },
+        {
+          "name": "Data Products as Code",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "YAML",
+          "url": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
+        },
+        {
+          "name": "Data product business rules (businessContext)",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "2026-06",
+          "format": "Free text in GUI or YAML",
+          "url": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
+        },
+        {
+          "name": "AI Data Assistant (AIDA), powered by the Starburst AI agent",
+          "kind": "agent",
+          "status": "GA",
+          "since": "2025-11",
+          "format": "GUI",
+          "url": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
+        },
+        {
+          "name": "AI agent-based data product enrichment",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "2025-11",
+          "format": "GUI",
+          "url": "https://docs.starburst.io/latest/starburst-ai/data-product-enrichment-ai.html"
+        },
+        {
+          "name": "Starburst MCP server (Starburst Enterprise)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2025-11",
+          "format": "API",
+          "url": "https://docs.starburst.io/latest/starburst-ai/mcp-server.html"
+        },
+        {
+          "name": "AIDA skills and external MCP servers",
+          "kind": "agent",
+          "status": "Preview",
+          "since": "2026-08",
+          "format": "GUI",
+          "url": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
+        },
+        {
+          "name": "MCP on Starburst Galaxy",
+          "kind": "mcp",
+          "status": "Unverified",
+          "since": "",
+          "format": "API",
+          "url": "https://docs.starburst.io/starburst-galaxy/starburst-ai/mcp-server.html"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 0,
+          "n": "No metric object exists. Metric rules go in view SQL or in free-text business rules. AIDA reads the business rules.",
+          "u": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
+        },
+        "dimensions": {
+          "l": 0,
+          "n": "No dimension or hierarchy objects exist. Columns and column descriptions are the only structure.",
+          "u": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
+        },
+        "relationships": {
+          "l": 0,
+          "n": "No declared join paths exist. Dataset descriptions can explain relations in free text.",
+          "u": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Data product and column descriptions, tags, and business rules give AIDA context. Business rules can have up to 60,000 characters.",
+          "u": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "Data products store sample queries. AIDA uses only their descriptions as suggested prompts. It does not use the SQL as few-shot context.",
+          "u": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "AIDA turns questions into SQL over a chosen data product. It is GA since 477-e. It needs AI workflows and agentic-layer licenses.",
+          "u": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "No ontology exists. Data products group into domains. The docs show no entity or class model.",
+          "u": "https://docs.starburst.io/latest/data-products/index.html"
+        },
+        "graph": {
+          "l": 0,
+          "n": "The Starburst and Trino docs show no graph query language.",
+          "u": ""
+        },
+        "vector": {
+          "l": 1,
+          "n": "AI functions include starburst.ai.generate_embedding(). The docs show no native vector index. Data product search uses keywords.",
+          "u": "https://docs.starburst.io/latest/starburst-ai/mcp-server.html"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "The integrated MCP server is GA since 477-e. It has a read-only query tool and data product search and retrieval tools. It needs an MCP license.",
+          "u": "https://docs.starburst.io/latest/starburst-ai/mcp-server.html"
+        },
+        "governance": {
+          "l": 3,
+          "n": "AIDA runs under the role of the user. It logs agent interactions. Data product privileges grant no table access.",
+          "u": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "Data Products as Code is Starburst-specific YAML (sep/v1). Starburst Data is in the Ossie ecosystem list. The docs show no converter.",
+          "u": "https://ossie.apache.org/ecosystem/"
+        }
+      },
+      "offers": [
+        "Data products bundle views with descriptions, tags, owners, sample queries, and business rules. AIDA reads them as context.",
+        "AIDA generates and runs SQL over a chosen data product. It has personas and an audit log of agent interactions.",
+        "The integrated MCP server (GA since 477-e) offers a read-only query tool. It also offers data product search and retrieval tools.",
+        "Agent-based enrichment drafts descriptions for data products, datasets, and columns. It uses the schema, SQL, and optional data samples.",
+        "Data Products as Code exports and imports data products as YAML. This supports versioning and auditing."
+      ],
+      "gaps": [
+        "No metric, dimension, or join-path objects exist. Metric logic lives in view SQL or in free-text business rules.",
+        "Open-source Trino has no semantic layer. Its views accept only a COMMENT. Data products, AIDA, and MCP are Starburst products.",
+        "Data products need a Hive or Iceberg catalog. AIDA and MCP need separate licenses.",
+        "AIDA skills, external MCP servers, and data sampling in enrichment are public preview (August 2026).",
+        "The docs show no use of sample queries as AI context. They also show no native vector search."
+      ],
+      "fillWith": [
+        "dbt (dbt-trino adapter, maintained by Starburst)",
+        "Cube (has a Trino connector)",
+        "Apache Ossie (Starburst Data is listed, no converter found)"
+      ],
+      "nl2sqlPath": "Build data products on Hive or Iceberg catalogs. Write column descriptions and business rules. Then use AIDA or the Starburst MCP server against those products. Put metric formulas in business rules or view SQL, because no metric object exists. On open-source Trino, build the semantic context yourself, for example with dbt or Cube.",
+      "snippet": {
+        "lang": "yaml",
+        "title": "Data Products as Code excerpt, shortened. Publishing also needs a summary and owners.",
+        "code": "apiVersion: sep/v1\nkind: DataProduct\nmetadata:\n  name: Comprehensive Data Product\n  catalogName: analytics_catalog\n  dataDomainName: Enterprise Analytics Domain\n  businessContext: Revenue is gross_sales - returns - discounts in USD.\ndatasets:\n  views:\n    - name: sales_summary\n      definitionQuery: SELECT product_id, SUM(amount) AS total_revenue FROM raw.transactions.sales GROUP BY 1\n      columns:\n        - name: total_revenue\n          type: decimal(18,2)\n          description: Total revenue in USD",
+        "u": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
+      },
+      "sources": [
+        {
+          "t": "Starburst AI overview",
+          "u": "https://docs.starburst.io/latest/starburst-ai/index.html"
+        },
+        {
+          "t": "AI Data Assistant (AIDA)",
+          "u": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
+        },
+        {
+          "t": "Starburst MCP server",
+          "u": "https://docs.starburst.io/latest/starburst-ai/mcp-server.html"
+        },
+        {
+          "t": "Data product AI agent-based enrichment",
+          "u": "https://docs.starburst.io/latest/starburst-ai/data-product-enrichment-ai.html"
+        },
+        {
+          "t": "Data products overview",
+          "u": "https://docs.starburst.io/latest/data-products/index.html"
+        },
+        {
+          "t": "Manage data products (includes Data Products as Code)",
+          "u": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
+        },
+        {
+          "t": "Release 477-e LTS (25 Nov 2025): AI Agent, MCP GA",
+          "u": "https://docs.starburst.io/latest/release/release-477-e.html"
+        },
+        {
+          "t": "Release 480-e LTS (29 May 2026)",
+          "u": "https://docs.starburst.io/latest/release/release-480-e.html"
+        },
+        {
+          "t": "Release 481-e STS (15 Jun 2026): business rules",
+          "u": "https://docs.starburst.io/latest/release/release-481-e.html"
+        },
+        {
+          "t": "Release 482-e LTS (11 Sep 2026): public preview items",
+          "u": "https://docs.starburst.io/latest/release/release-482-e.html"
+        },
+        {
+          "t": "AIDA on Starburst Galaxy",
+          "u": "https://docs.starburst.io/starburst-galaxy/starburst-ai/ai-aida.html"
+        },
+        {
+          "t": "MCP on Starburst Galaxy",
+          "u": "https://docs.starburst.io/starburst-galaxy/starburst-ai/mcp-server.html"
+        },
+        {
+          "t": "Trino CREATE VIEW",
+          "u": "https://trino.io/docs/current/sql/create-view.html"
+        },
+        {
+          "t": "dbt-trino setup (maintained by Starburst)",
+          "u": "https://docs.getdbt.com/docs/core/connect-data-platform/trino-setup"
+        },
+        {
+          "t": "Cube: Trino data source",
+          "u": "https://docs.cube.dev/admin/connect-to-data/data-sources/trino"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "timbr",
+      "name": "Timbr.ai",
+      "category": "virtualization",
+      "tagline": "SQL-native ontology and virtual knowledge graph over existing SQL sources. It has data agents and MCP.",
+      "verdict": "native",
+      "verdictNote": "Concepts, relationships, measures, cubes, and a Knowledge Base of approved examples are first-party objects. The Timbr agents and MCP server read them.",
+      "artifacts": [
+        {
+          "name": "Ontology concept (CREATE CONCEPT)",
+          "kind": "ontology",
+          "status": "GA",
+          "since": "",
+          "format": "SQL DDL",
+          "url": "https://docs.timbr.ai/doc/docs/sql/sql-ddl"
+        },
+        {
+          "name": "Mapping (CREATE MAPPING) from source tables to concepts",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "SQL DDL",
+          "url": "https://docs.timbr.ai/doc/docs/sql/mappings"
+        },
+        {
+          "name": "Measure (CREATE MEASURE) and ontology cube",
+          "kind": "metric-view",
+          "status": "GA",
+          "since": "",
+          "format": "SQL DDL",
+          "url": "https://docs.timbr.ai/doc/docs/sql/measures"
+        },
+        {
+          "name": "Knowledge Base (CREATE KNOWLEDGEBASE)",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "SQL DDL",
+          "url": "https://docs.timbr.ai/doc/docs/sql/knowledge-bases"
+        },
+        {
+          "name": "Virtual knowledge graph and graph algorithms (gtimbr)",
+          "kind": "knowledge-graph",
+          "status": "GA",
+          "since": "",
+          "format": "SQL",
+          "url": "https://docs.timbr.ai/doc/docs/sql/graph-algorithms"
+        },
+        {
+          "name": "Data agents and Ask Timbr",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://docs.timbr.ai/doc/docs/platform/"
+        },
+        {
+          "name": "LangChain and LangGraph SDK",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "",
+          "format": "Python SDK",
+          "url": "https://docs.timbr.ai/doc/docs/integration/langchain-sdk"
+        },
+        {
+          "name": "Timbr MCP server",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "",
+          "format": "API",
+          "url": "https://docs.timbr.ai/doc/docs/integration/mcp/overview"
+        },
+        {
+          "name": "Solomon (AI ontology author)",
+          "kind": "agent",
+          "status": "Preview",
+          "since": "2026-07",
+          "format": "GUI",
+          "url": "https://docs.timbr.ai/doc/docs/general/changelog"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "CREATE MEASURE defines aggregations with filters and temporal variants. Measures feed cubes.",
+          "u": "https://docs.timbr.ai/doc/docs/sql/measures"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "Cubes expose properties of a concept and related concepts as dimensions. The user chooses the grouping at query time.",
+          "u": "https://docs.timbr.ai/doc/docs/sql/cubes"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Relationships are foreign-key constraints with inverse names. One-to-many, many-to-many, and transitive forms exist.",
+          "u": "https://docs.timbr.ai/doc/docs/sql/sql-ddl"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Concept descriptions, tags, and Knowledge Base instructions define business terms. The docs show no dedicated synonym field.",
+          "u": "https://docs.timbr.ai/doc/docs/sql/knowledge-bases"
+        },
+        "verifiedQueries": {
+          "l": 3,
+          "n": "The Knowledge Base holds approved question-SQL examples. Agents reuse or follow them before they generate SQL.",
+          "u": "https://docs.timbr.ai/doc/docs/sql/knowledge-bases"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Data agents, Ask Timbr, and the LangChain SDK generate Timbr SQL over the ontology. They use your LLM.",
+          "u": "https://docs.timbr.ai/doc/docs/integration/langchain-sdk"
+        },
+        "ontology": {
+          "l": 3,
+          "n": "SQL-native ontology with concepts, inheritance, relationships, and inference. It is a virtual schema over JDBC, ODBC, and REST.",
+          "u": "https://docs.timbr.ai/doc/docs/getting-started/intro-timbr"
+        },
+        "graph": {
+          "l": 3,
+          "n": "Graph traversal in SQL and graph algorithms are in the gtimbr schema. The docs show no SPARQL or Cypher.",
+          "u": "https://docs.timbr.ai/doc/docs/sql/graph-algorithms"
+        },
+        "vector": {
+          "l": 0,
+          "n": "The docs show no vector index or embedding search. GraphRAG Extract maps entities from unstructured data.",
+          "u": "https://docs.timbr.ai/doc/docs/general/changelog"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "The first-party MCP server uses an API key or OAuth. Tools include query_data, generate_sql, describe_knowledge_graph, execute_sql.",
+          "u": "https://docs.timbr.ai/doc/docs/integration/mcp/overview"
+        },
+        "governance": {
+          "l": 3,
+          "n": "RBAC applies to ontologies, agents, and Knowledge Bases. Row-level security policies also cover views.",
+          "u": "https://docs.timbr.ai/doc/docs/sql/permissions"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "The docs show no Ossie listing. The intro says ERD and OWL import exists. Ontology Git export arrived in 2.69.0 (Oct 2026).",
+          "u": "https://docs.timbr.ai/doc/docs/getting-started/intro-timbr"
+        }
+      },
+      "offers": [
+        "An ontology of concepts, relationships, and measures covers many SQL sources. Agents write short semantic SQL instead of joins.",
+        "The Knowledge Base stores approved question-SQL examples and rules. Agents look them up before they generate SQL.",
+        "The MCP server exposes natural-language tools (query_data, generate_sql). It also exposes metadata tools (describe_knowledge_graph, list_ontologies).",
+        "Cubes and measures define aggregations once. They serve SQL and BI tools over JDBC, ODBC, and REST.",
+        "Row-level security policies and RBAC apply to ontologies, agents, and Knowledge Bases."
+      ],
+      "gaps": [
+        "Ontology DDL is Timbr-specific SQL. The docs show no Ossie or OSI support, so models are not portable.",
+        "AI features need an LLM that the customer provides. The MCP docs say outputs are probabilistic and need review.",
+        "The docs show no vector or embedding search.",
+        "The docs give no GA or beta label for MCP or the Knowledge Base. Solomon is in private preview.",
+        "Graph support is SQL traversal and algorithms. The docs show no SPARQL or Cypher."
+      ],
+      "fillWith": [],
+      "nl2sqlPath": "Map your sources to concepts. Add relationships and measures. Describe each concept. Create a Knowledge Base of approved examples. Bind it to the ontology or to a data agent. Then connect an LLM through a data agent, the LangChain SDK, or the MCP server.",
+      "snippet": {
+        "lang": "sql",
+        "title": "Concept with a relationship, with placeholders as written in the Timbr docs",
+        "code": "CREATE OR REPLACE CONCEPT `{concept_name}` (\n  `{property_name}` {property_type},\n  `{property_name2}` {property_type2},\n  PRIMARY KEY(`{property_name}`),\n  LABEL(`{property_name2}`),\n  CONSTRAINT `{relationship_name}`\n    FOREIGN KEY (`{property_name2}`)\n    REFERENCES `{target_concept}` (`{target_concept_property}`)\n    INVERSEOF `{inverse_relationship_name}`\n) INHERITS (`{inherits_from_concept}`)\nDESCRIPTION '{concept_description}';",
+        "u": "https://docs.timbr.ai/doc/docs/sql/sql-ddl"
+      },
+      "sources": [
+        {
+          "t": "Timbr documentation home",
+          "u": "https://docs.timbr.ai/"
+        },
+        {
+          "t": "Introduction to Timbr",
+          "u": "https://docs.timbr.ai/doc/docs/getting-started/intro-timbr"
+        },
+        {
+          "t": "The Semantic Graph Platform",
+          "u": "https://docs.timbr.ai/doc/docs/platform/"
+        },
+        {
+          "t": "Concepts (SQL DDL)",
+          "u": "https://docs.timbr.ai/doc/docs/sql/sql-ddl"
+        },
+        {
+          "t": "Mappings",
+          "u": "https://docs.timbr.ai/doc/docs/sql/mappings"
+        },
+        {
+          "t": "Measures",
+          "u": "https://docs.timbr.ai/doc/docs/sql/measures"
+        },
+        {
+          "t": "Cubes",
+          "u": "https://docs.timbr.ai/doc/docs/sql/cubes"
+        },
+        {
+          "t": "Knowledge Bases",
+          "u": "https://docs.timbr.ai/doc/docs/sql/knowledge-bases"
+        },
+        {
+          "t": "Permissions and roles",
+          "u": "https://docs.timbr.ai/doc/docs/sql/permissions"
+        },
+        {
+          "t": "Graph algorithms",
+          "u": "https://docs.timbr.ai/doc/docs/sql/graph-algorithms"
+        },
+        {
+          "t": "Timbr MCP server overview",
+          "u": "https://docs.timbr.ai/doc/docs/integration/mcp/overview"
+        },
+        {
+          "t": "Timbr integrations index",
+          "u": "https://docs.timbr.ai/doc/docs/integration/"
+        },
+        {
+          "t": "LangChain SDK",
+          "u": "https://docs.timbr.ai/doc/docs/integration/langchain-sdk"
+        },
+        {
+          "t": "Timbr platform changelog",
+          "u": "https://docs.timbr.ai/doc/docs/general/changelog"
+        },
+        {
+          "t": "What's new (2.69.0, 11 Oct 2026)",
+          "u": "https://docs.timbr.ai/doc/docs/general/whats_new"
+        },
+        {
+          "t": "Timbr.ai home page",
+          "u": "https://timbr.ai/"
+        }
+      ],
+      "verified": "2026-10-24"
+    }
+  ],
+  "notes": [
+    {
+      "topic": "Open Semantic Interchange is now Apache Ossie (incubating)",
+      "text": "The OSI project has a new name: Apache Ossie. It is in the Apache Incubator. The Ossie ecosystem page lists Denodo, Dremio, and Starburst Data. It does not list Timbr. It shows no converter for any of the four.",
+      "sources": [
+        {
+          "t": "Apache Ossie ecosystem",
+          "u": "https://ossie.apache.org/ecosystem/"
+        },
+        {
+          "t": "OSI community update (28 Apr 2026)",
+          "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
+        },
+        {
+          "t": "Dremio: Apache Ossie, the new name for Open Semantic Interchange (13 Jul 2026)",
+          "u": "https://www.dremio.com/blog/apache-ossie-incubating-the-new-name-for-open-semantic-interchange/"
+        }
+      ]
+    },
+    {
+      "topic": "Dremio is now part of SAP",
+      "text": "SAP announced completion of the Dremio acquisition on 6 July 2026. Dremio docs and press pages still use the Dremio name. A site banner reads 'Dremio is now part of SAP'. The docs announce no rename.",
+      "sources": [
+        {
+          "t": "SAP completes Dremio acquisition",
+          "u": "https://news.sap.com/2026/07/sap-completes-dremio-acquisition/"
+        },
+        {
+          "t": "Dremio unveils the agentic lakehouse",
+          "u": "https://www.dremio.com/press-releases/dremio-unveils-the-agentic-lakehouse-built-for-agents-managed-by-agents/"
+        }
+      ]
+    },
+    {
+      "topic": "Dremio docs split and agentic lakehouse timeline",
+      "text": "Dremio Cloud and self-managed Dremio have separate doc trees. Dremio Cloud launched on 13 Nov 2025 as the agentic lakehouse. The current/ tree is the self-managed 26.x docs. The Nov 2025 launch named the AI Semantic Layer, AI Agent, and MCP support. It gave no per-feature GA label.",
+      "sources": [
+        {
+          "t": "Dremio unveils the agentic lakehouse (13 Nov 2025)",
+          "u": "https://www.dremio.com/press-releases/dremio-unveils-the-agentic-lakehouse-built-for-agents-managed-by-agents/"
+        },
+        {
+          "t": "Dremio docs llms-full.txt",
+          "u": "https://docs.dremio.com/llms-full.txt"
+        }
+      ]
+    },
+    {
+      "topic": "Denodo renames",
+      "text": "Data Catalog became Data Marketplace in 9.3. Embedded MPP became Lakehouse Accelerator by 9.4. Cache Engine became Materialization Engine by 9.4. Reference Lineage became 360 Graph in 9.5.",
+      "sources": [
+        {
+          "t": "What is new in Denodo 9.4",
+          "u": "https://community.denodo.com/docs/html/browse/9.5/en/platform/new_features/what_is_new_9_4"
+        },
+        {
+          "t": "What is new in Denodo 9.5",
+          "u": "https://community.denodo.com/docs/html/browse/9.5/en/platform/new_features/what_is_new_9_5"
+        }
+      ]
+    },
+    {
+      "topic": "Denodo release timeline",
+      "text": "9.3 shipped on 16 Sep 2025 with DeepQuery. Press coverage gives the dates of 9.4 (March 2026, vector data type) and 9.5 (July 2026, metric views, LLM-agent Denodo Assistant). Denodo docs do not give them.",
+      "sources": [
+        {
+          "t": "Denodo Platform 9.3 press release",
+          "u": "https://www.denodo.com/en/press-release/2025-09-16/denodo-platform-93-now-available-breakthrough-support-ai-innovation"
+        },
+        {
+          "t": "Denodo 9.5 adds metric views (IT Brief)",
+          "u": "https://itbrief.com.au/story/denodo-9-5-adds-metric-views-for-ai-data-governance"
+        }
+      ]
+    },
+    {
+      "topic": "Status labels used in this file",
+      "text": "Vendors in this set label Preview features in their docs. These are Dremio wiki generation, Starburst skills, and Timbr Solomon. Features with no label in their own doc page are marked GA here. Where a release note or press release states GA, the artifact says so. Otherwise, treat GA as inferred from the missing Preview label.",
+      "sources": [
+        {
+          "t": "Starburst Enterprise release 477-e (explicit GA list)",
+          "u": "https://docs.starburst.io/latest/release/release-477-e.html"
+        },
+        {
+          "t": "Dremio wikis and labels (Preview label on AI generation)",
+          "u": "https://docs.dremio.com/dremio-cloud/manage-govern/wikis-labels/"
+        }
+      ]
+    },
+    {
+      "topic": "Starburst editions",
+      "text": "The docs cover mostly Starburst Enterprise 483-e. Starburst Galaxy also documents AIDA, AI data product enrichment, and an MCP server. Its release status is unverified. Open-source Trino views accept a COMMENT clause and nothing else for semantic context.",
+      "sources": [
+        {
+          "t": "Starburst Galaxy: AIDA",
+          "u": "https://docs.starburst.io/starburst-galaxy/starburst-ai/ai-aida.html"
+        },
+        {
+          "t": "Trino CREATE VIEW",
+          "u": "https://trino.io/docs/current/sql/create-view.html"
+        }
+      ]
+    },
+    {
+      "topic": "Timbr MCP and Knowledge Base timing",
+      "text": "The Timbr changelog shows MCP OAuth and Dynamic Client Registration in release 2.55.1 (23 Mar 2026). It shows a new Knowledge Base management page in the 14 Jul 2026 release. The date of the first MCP release is unknown.",
+      "sources": [
+        {
+          "t": "Timbr platform changelog",
+          "u": "https://docs.timbr.ai/doc/docs/general/changelog"
+        }
+      ]
+    },
+    {
+      "topic": "Dremio MCP support scope",
+      "text": "The Dremio docs say Dremio Support Policies do not cover the open-source MCP server. The hosted server needs a Dremio Cloud project. For clients other than Claude.ai and ChatGPT, it also needs a Native OAuth application.",
+      "sources": [
+        {
+          "t": "Connect AI agents to Dremio with MCP",
+          "u": "https://docs.dremio.com/dremio-cloud/developer/mcp-server/"
+        }
+      ]
+    }
+  ]
+}

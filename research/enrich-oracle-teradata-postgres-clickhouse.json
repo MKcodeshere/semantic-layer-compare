@@ -1,0 +1,419 @@
+{
+  "vendors": [
+    {
+      "id": "oracle",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "No DBMS_CLOUD_AI procedure or console feature drafts comments or annotations. Select AI reads text that you write. Teams draft with their own LLM job.",
+          "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/dbms-cloud-ai-package.html"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "SQL scripts use COMMENT ON and annotation DDL (CREATE or ALTER TABLE ... ANNOTATIONS). Annotations apply to tables, views, columns and indexes. No bulk API exists.",
+          "u": "https://docs.oracle.com/en/database/oracle/oracle-database/26/sqlrf/annotations_clause.html"
+        },
+        "autoClassify": {
+          "l": 1,
+          "n": "Oracle Data Safe, a separate OCI service, discovers and classifies sensitive data with 150+ predefined types. It does not feed Select AI.",
+          "u": "https://www.oracle.com/security/database-security/data-safe/"
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "No value sampling exists. The profile attribute case_sensitive_values only tells the LLM whether to generate case-insensitive string comparisons.",
+          "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/dbms-cloud-ai-package.html"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "Select AI logs generated SQL in V$CLOUD_AI_SQL. Nothing mines that history to suggest joins, metrics or examples.",
+          "u": "https://raw.githubusercontent.com/oracle/skills/main/db/features/select-ai.md"
+        },
+        "lineage": {
+          "l": 1,
+          "n": "OCI Data Catalog, a separate service, shows table and column lineage for Data Integration and Data Flow jobs. The database has no lineage view.",
+          "u": "https://docs.oracle.com/en-us/iaas/Content/data-catalog/using/view-data-lineage-dis.htm"
+        },
+        "evals": {
+          "l": 3,
+          "n": "DBMS_CLOUD_AI.FEEDBACK stores confirmed or corrected SQL per profile. It reuses the SQL as hints. It works on 26ai only. No benchmark runner exists.",
+          "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/select-ai-feedback.html"
+        }
+      },
+      "enrichHowTo": "Write business meaning into table and column annotations and COMMENT ON text. Then set comments and annotations to true in the Select AI profile. Add annotations with ALTER TABLE ... ANNOTATIONS (ADD name 'value'). Add column annotations with ALTER TABLE ... MODIFY col ANNOTATIONS (ADD name 'value'). Record good answers with DBMS_CLOUD_AI.FEEDBACK.",
+      "bulkSnippet": {
+        "lang": "sql",
+        "code": "ALTER TABLE Table1 ANNOTATIONS(ADD JoinOperations 'Join');\nALTER TABLE Table1 MODIFY T ANNOTATIONS(ADD Label, DROP Identity);\n-- then in the Select AI profile attributes: \"annotations\": \"true\"",
+        "u": "https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/registering-application-data-usage-database.html"
+      },
+      "sources": [
+        {
+          "t": "Annotations clause (26ai SQL reference)",
+          "u": "https://docs.oracle.com/en/database/oracle/oracle-database/26/sqlrf/annotations_clause.html"
+        },
+        {
+          "t": "Registering application data usage, schema annotations (19c)",
+          "u": "https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/registering-application-data-usage-database.html"
+        },
+        {
+          "t": "DBMS_CLOUD_AI package",
+          "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/dbms-cloud-ai-package.html"
+        },
+        {
+          "t": "Select AI feedback",
+          "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/select-ai-feedback.html"
+        },
+        {
+          "t": "Select AI examples",
+          "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/select-ai-examples.html"
+        },
+        {
+          "t": "Select AI release note: comments, annotations, constraints",
+          "u": "https://docs.oracle.com/en-us/iaas/releasenotes/autonomous-database-dedicated/adbd-selectai-sqlquerygen.htm"
+        },
+        {
+          "t": "oracle/skills: Select AI",
+          "u": "https://raw.githubusercontent.com/oracle/skills/main/db/features/select-ai.md"
+        },
+        {
+          "t": "Oracle Data Safe",
+          "u": "https://www.oracle.com/security/database-security/data-safe/"
+        },
+        {
+          "t": "Data Catalog lineage overview",
+          "u": "https://docs.oracle.com/en-us/iaas/Content/data-catalog/using/view-data-lineage-dis.htm"
+        }
+      ]
+    },
+    {
+      "id": "teradata",
+      "caps": {
+        "aiDescriptions": {
+          "l": 1,
+          "n": "AI Studio Enterprise MCP ships prompts for table and database descriptions. An agent drafts text. Then COMMENT writes it.",
+          "u": "https://docs.teradata.com/r/Teradata-AI-Studio-Release-Notes/AI-Studio-Release-Notes/New-Features"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "COMMENT ON object AS or IS 'text' sets comments on columns, tables and views by SQL. Comment text has a limit of 255 characters. The docs show no bulk import.",
+          "u": "https://docs.teradata.com/r/SQL-Data-Definition-Language-Syntax-and-Examples/July-2021/Comment-Help-and-Show-Statements/COMMENT-Comment-Placing-Form/COMMENT-Syntax-Elements-Comment-Placing-Form"
+        },
+        "autoClassify": {
+          "l": 1,
+          "n": "Teradata Package for Generative AI offers recognize_pii_entities and mask_pii. Python code calls them to detect PII in a DataFrame column.",
+          "u": "https://docs.teradata.com/r/VMware/Teradata-Package-for-Generative-AI-Function-Reference/text_analytics/teradatagenai.TextAnalyticsAI.recognize_pii_entities.html"
+        },
+        "sampleValues": {
+          "l": 1,
+          "n": "The MCP server tool qlty_distinctCategories lists distinct values of a column for an agent. No automatic literal matching exists.",
+          "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/src/teradata_mcp_server/tools/qlty/README.md"
+        },
+        "queryHistory": {
+          "l": 1,
+          "n": "DBQL logs queries with SQL text and objects once BEGIN QUERY LOGGING is set. Teams mine it themselves.",
+          "u": "https://docs.teradata.com/r/Lake-Database-Reference/Database-Administration/Setting-Up-Database-Query-Logging"
+        },
+        "lineage": {
+          "l": 1,
+          "n": "Platform releases mention lineage, but no docs page describes it. The Teradata source of DataHub extracts table and column lineage from query logs.",
+          "u": "https://docs.datahub.com/docs/generated/ingestion/sources/teradata.md"
+        },
+        "evals": {
+          "l": 0,
+          "n": "The MCP server README and docs index show no NL-to-SQL evaluation tooling.",
+          "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/docs/README.md"
+        }
+      },
+      "enrichHowTo": "Write column and table comments with the COMMENT statement. Use one statement per object, from a script. Comment text has a limit of 255 characters. The Teradata MCP server can also load descriptions, glossary terms and cubes from YAML for an agent. Draft text with your own LLM job. Review it by hand.",
+      "bulkSnippet": {
+        "lang": "sql",
+        "code": "COMMENT ON COLUMN sales.orders.status IS 'open, shipped, or cancelled. Exclude cancelled from revenue.';",
+        "u": "https://docs.teradata.com/r/SQL-Data-Definition-Language-Syntax-and-Examples/July-2021/Comment-Help-and-Show-Statements/COMMENT-Comment-Placing-Form/COMMENT-Syntax-Comment-Placing-Form"
+      },
+      "sources": [
+        {
+          "t": "COMMENT syntax, placing form",
+          "u": "https://docs.teradata.com/r/SQL-Data-Definition-Language-Syntax-and-Examples/July-2021/Comment-Help-and-Show-Statements/COMMENT-Comment-Placing-Form/COMMENT-Syntax-Comment-Placing-Form"
+        },
+        {
+          "t": "COMMENT syntax elements, placing form",
+          "u": "https://docs.teradata.com/r/SQL-Data-Definition-Language-Syntax-and-Examples/July-2021/Comment-Help-and-Show-Statements/COMMENT-Comment-Placing-Form/COMMENT-Syntax-Elements-Comment-Placing-Form"
+        },
+        {
+          "t": "Teradata MCP Server README",
+          "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/README.md"
+        },
+        {
+          "t": "Teradata MCP Server: qlty tools",
+          "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/src/teradata_mcp_server/tools/qlty/README.md"
+        },
+        {
+          "t": "Teradata MCP Server docs index",
+          "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/docs/README.md"
+        },
+        {
+          "t": "DataHub Teradata source",
+          "u": "https://docs.datahub.com/docs/generated/ingestion/sources/teradata.md"
+        },
+        {
+          "t": "Teradata AI Studio release notes: New Features",
+          "u": "https://docs.teradata.com/r/Teradata-AI-Studio-Release-Notes/AI-Studio-Release-Notes/New-Features"
+        },
+        {
+          "t": "Teradata Package for Generative AI: recognize_pii_entities",
+          "u": "https://docs.teradata.com/r/VMware/Teradata-Package-for-Generative-AI-Function-Reference/text_analytics/teradatagenai.TextAnalyticsAI.recognize_pii_entities.html"
+        },
+        {
+          "t": "Setting Up Database Query Logging (DBQL)",
+          "u": "https://docs.teradata.com/r/Lake-Database-Reference/Database-Administration/Setting-Up-Database-Query-Logging"
+        }
+      ]
+    },
+    {
+      "id": "postgres",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "Core PostgreSQL has no description generator. Hosted variants may differ.",
+          "u": "https://raw.githubusercontent.com/postgres/postgres/master/doc/src/sgml/ref/comment.sgml"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "COMMENT ON TABLE and COLUMN work by SQL script. No bulk or file-import command exists. Any user connected to the database can read all comments.",
+          "u": "https://raw.githubusercontent.com/postgres/postgres/master/doc/src/sgml/ref/comment.sgml"
+        },
+        "autoClassify": {
+          "l": 1,
+          "n": "The postgresql_anonymizer extension has an anon.detect() function. It flags identifier columns from a name dictionary. It is early stage and heuristic.",
+          "u": "https://postgresql-anonymizer.readthedocs.io/en/latest/detection/"
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "Core PostgreSQL has no sample-value or entity-matching feature.",
+          "u": ""
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "pg_stat_statements tracks statement statistics. It does not suggest joins, metrics or examples.",
+          "u": "https://raw.githubusercontent.com/postgres/postgres/master/doc/src/sgml/pgstatstatements.sgml"
+        },
+        "lineage": {
+          "l": 0,
+          "n": "No lineage feature exists. pg_depend records dependencies between database objects. This is not data lineage.",
+          "u": "https://raw.githubusercontent.com/postgres/postgres/master/doc/src/sgml/catalogs.sgml"
+        },
+        "evals": {
+          "l": 0,
+          "n": "Core PostgreSQL has no NL-to-SQL evaluation tooling.",
+          "u": ""
+        }
+      },
+      "enrichHowTo": "Run COMMENT ON TABLE and COMMENT ON COLUMN for each object. Use a script that reads descriptions from a file or catalog. Read them back with obj_description and col_description when you build the prompt. Postgres has no AI generator. Draft text with your own LLM job and review it.",
+      "bulkSnippet": {
+        "lang": "sql",
+        "code": "COMMENT ON TABLE my_schema.my_table IS 'Employee Information';\nCOMMENT ON COLUMN my_table.my_column IS 'Employee ID number';\nCOMMENT ON TABLE mytable IS NULL;  -- removes a comment",
+        "u": "https://raw.githubusercontent.com/postgres/postgres/master/doc/src/sgml/ref/comment.sgml"
+      },
+      "sources": [
+        {
+          "t": "COMMENT reference (postgres/postgres source)",
+          "u": "https://raw.githubusercontent.com/postgres/postgres/master/doc/src/sgml/ref/comment.sgml"
+        },
+        {
+          "t": "pg_stat_statements (postgres/postgres source)",
+          "u": "https://raw.githubusercontent.com/postgres/postgres/master/doc/src/sgml/pgstatstatements.sgml"
+        },
+        {
+          "t": "System catalogs, pg_depend (postgres/postgres source)",
+          "u": "https://raw.githubusercontent.com/postgres/postgres/master/doc/src/sgml/catalogs.sgml"
+        },
+        {
+          "t": "PostgreSQL Anonymizer: detecting identifiers",
+          "u": "https://postgresql-anonymizer.readthedocs.io/en/latest/detection/"
+        }
+      ]
+    },
+    {
+      "id": "clickhouse",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "ClickHouse Assistant in Cloud generates queries, charts and summaries. No feature drafts column or table descriptions.",
+          "u": "https://clickhouse.com/docs/products/cloud/features/ai-ml/aichat/using-ai-chat.md"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "ALTER TABLE ... COMMENT COLUMN and ALTER TABLE ... MODIFY COMMENT work by SQL. Comments show in system.columns. No bulk API exists.",
+          "u": "https://clickhouse.com/docs/reference/statements/alter/column.md"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The SQL reference and Cloud Assistant docs show no automatic column classification.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "No sample-value feature exists. The mcp-clickhouse list_tables tool returns column metadata and the CREATE statement only.",
+          "u": "https://raw.githubusercontent.com/ClickHouse/mcp-clickhouse/main/README.md"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "system.query_log records executed queries with tables and columns used. Nothing turns it into join, metric or example suggestions.",
+          "u": "https://clickhouse.com/docs/reference/system-tables/query_log.md"
+        },
+        "lineage": {
+          "l": 0,
+          "n": "No lineage feature exists. system.query_log lists tables, columns and views per query. This is not a lineage graph.",
+          "u": "https://clickhouse.com/docs/reference/system-tables/query_log.md"
+        },
+        "evals": {
+          "l": 0,
+          "n": "The Assistant and MCP server docs show no NL-to-SQL evaluation tooling.",
+          "u": "https://clickhouse.com/docs/products/cloud/features/ai-ml/aichat/using-ai-chat.md"
+        }
+      },
+      "enrichHowTo": "Set column text with ALTER TABLE ... COMMENT COLUMN, one statement per column. Set table text with ALTER TABLE ... MODIFY COMMENT. Use a script. Read comments from system.columns when you build the prompt. ClickHouse has no description generator. Draft with your own LLM job.",
+      "bulkSnippet": {
+        "lang": "sql",
+        "code": "ALTER TABLE visits COMMENT COLUMN browser 'This column shows the browser used for accessing the site.'",
+        "u": "https://clickhouse.com/docs/reference/statements/alter/column.md"
+      },
+      "sources": [
+        {
+          "t": "ALTER TABLE column statements",
+          "u": "https://clickhouse.com/docs/reference/statements/alter/column.md"
+        },
+        {
+          "t": "ALTER TABLE ... MODIFY COMMENT",
+          "u": "https://clickhouse.com/docs/reference/statements/alter/comment.md"
+        },
+        {
+          "t": "system.columns",
+          "u": "https://clickhouse.com/docs/reference/system-tables/columns.md"
+        },
+        {
+          "t": "system.query_log",
+          "u": "https://clickhouse.com/docs/reference/system-tables/query_log.md"
+        },
+        {
+          "t": "ClickHouse Assistant in Cloud",
+          "u": "https://clickhouse.com/docs/products/cloud/features/ai-ml/aichat/using-ai-chat.md"
+        },
+        {
+          "t": "mcp-clickhouse (GitHub)",
+          "u": "https://raw.githubusercontent.com/ClickHouse/mcp-clickhouse/main/README.md"
+        }
+      ]
+    },
+    {
+      "id": "duckdb",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "No function drafts descriptions into the catalog. MotherDuck prompt() can draft text in SQL, but you must write it back yourself.",
+          "u": ""
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "COMMENT ON works for tables, columns, views and more by SQL. Functions such as duckdb_tables() read the comments. Schemas and databases take no comments. No bulk import exists.",
+          "u": "https://duckdb.org/docs/2.0/sql/statements/comment_on.html"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "No automatic column classification exists. MotherDuck prompt_jev classifies text values, not columns.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "No sample-value feature exists. MotherDuck prompt_sql reads the schema. It lets you limit tables and columns with include_tables.",
+          "u": "https://motherduck.com/docs/sql-reference/motherduck-sql-reference/ai-functions/sql-assistant/prompt-sql/"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "MotherDuck QUERY_HISTORY (Business plan) records org queries for usage and cost. It does not suggest joins, metrics or examples.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 0,
+          "n": "The DuckDB and MotherDuck docs show no lineage feature.",
+          "u": ""
+        },
+        "evals": {
+          "l": 0,
+          "n": "The DuckDB and MotherDuck docs show no NL-to-SQL evaluation tooling.",
+          "u": ""
+        }
+      },
+      "enrichHowTo": "Write COMMENT ON TABLE and COMMENT ON COLUMN statements from a script. Read them back through duckdb_tables() or duckdb_columns() when you build the prompt. There is no AI generator. Draft with your own LLM job. You cannot set comments on schemas or databases.",
+      "bulkSnippet": {
+        "lang": "sql",
+        "code": "COMMENT ON TABLE test_table IS 'very nice table';\nCOMMENT ON COLUMN test_table.test_table_column IS 'very nice column';\nCOMMENT ON TABLE test_table IS NULL;",
+        "u": "https://duckdb.org/docs/2.0/sql/statements/comment_on.html"
+      },
+      "sources": [
+        {
+          "t": "COMMENT ON statement (DuckDB)",
+          "u": "https://duckdb.org/docs/2.0/sql/statements/comment_on.html"
+        },
+        {
+          "t": "MotherDuck prompt_sql",
+          "u": "https://motherduck.com/docs/sql-reference/motherduck-sql-reference/ai-functions/sql-assistant/prompt-sql/"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "topic": "What level 0 means here",
+      "text": "A level 0 means the docs pages listed for that vendor do not show the feature. A level 0 item without a source URL has no page that shows it.",
+      "sources": []
+    },
+    {
+      "topic": "Oracle annotations version",
+      "text": "The 26ai SQL reference documents the annotations clause. The 19c application development guide has a schema annotations chapter with the same DDL. The docs describe the Select AI annotations profile attribute as a 26ai feature.",
+      "sources": [
+        {
+          "t": "Annotations clause (26ai)",
+          "u": "https://docs.oracle.com/en/database/oracle/oracle-database/26/sqlrf/annotations_clause.html"
+        },
+        {
+          "t": "Schema annotations (19c)",
+          "u": "https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/registering-application-data-usage-database.html"
+        },
+        {
+          "t": "DBMS_CLOUD_AI package",
+          "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/dbms-cloud-ai-package.html"
+        }
+      ]
+    },
+    {
+      "topic": "Oracle Select AI feedback as evals",
+      "text": "The docs say feedback works only on 26ai with an NL2SQL profile. It creates a vector index named <profile>_FEEDBACK_VECINDEX. Positive feedback stores the confirmed SQL. An LLM refines negative feedback and stores it as a hint. The page carries no preview label.",
+      "sources": [
+        {
+          "t": "Select AI feedback",
+          "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/select-ai-feedback.html"
+        }
+      ]
+    },
+    {
+      "topic": "Teradata comment limits",
+      "text": "The Teradata COMMENT statement stores up to 255 characters per object. It replaces any existing comment. Teradata items marked not checked have no confirmed answer yet.",
+      "sources": [
+        {
+          "t": "COMMENT syntax elements",
+          "u": "https://docs.teradata.com/r/SQL-Data-Definition-Language-Syntax-and-Examples/July-2021/Comment-Help-and-Show-Statements/COMMENT-Comment-Placing-Form/COMMENT-Syntax-Elements-Comment-Placing-Form"
+        }
+      ]
+    },
+    {
+      "topic": "Teradata MCP server",
+      "text": "The Teradata MCP server is MIT licensed. It loads tools, prompts, cubes and glossary terms from YAML. It is a separate open-source project, not a Vantage feature.",
+      "sources": [
+        {
+          "t": "Teradata MCP Server README",
+          "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/README.md"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1096 @@
+{
+  "vendors": [
+    {
+      "id": "neo4j",
+      "name": "Neo4j",
+      "category": "knowledge-graph",
+      "tagline": "Native graph database with GraphRAG libraries, Aura Agent, and MCP servers.",
+      "verdict": "partial",
+      "verdictNote": "Neo4j gives a graph model, Cypher, vector search, and agents. It has no governed metric or dimension objects over warehouse tables.",
+      "worksWith": [
+        "snowflake",
+        "databricks",
+        "bigquery",
+        "redshift",
+        "fabric"
+      ],
+      "artifacts": [
+        {
+          "name": "Aura Agent",
+          "kind": "agent",
+          "status": "GA",
+          "since": "2026-02",
+          "format": "GUI, REST, MCP",
+          "url": "https://neo4j.com/blog/agentic-ai/neo4j-launches-aura-agent/"
+        },
+        {
+          "name": "Neo4j MCP Server (official)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2025-12",
+          "format": "MCP server (binary, pip, Homebrew)",
+          "url": "https://github.com/neo4j/mcp"
+        },
+        {
+          "name": "mcp-neo4j servers (Neo4j Labs: cypher, memory, aura-api, data-modeling)",
+          "kind": "mcp",
+          "status": "Preview",
+          "since": "",
+          "format": "MCP servers, MIT, no SLA",
+          "url": "https://github.com/neo4j-contrib/mcp-neo4j"
+        },
+        {
+          "name": "neo4j-graphrag (Python): retrievers incl. Text2CypherRetriever, KG builder",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "",
+          "format": "Python library",
+          "url": "https://neo4j.com/docs/neo4j-graphrag-python/current/"
+        },
+        {
+          "name": "Neo4j Virtual Graph (Cypher over Snowflake in place)",
+          "kind": "graph-query",
+          "status": "Preview",
+          "since": "2026-06",
+          "format": "GUI mapping, Cypher",
+          "url": "https://neo4j.com/blog/developer/zero-copy-graph-reasoning-on-snowflake-getting-started-with-neo4j-virtual-graph/"
+        },
+        {
+          "name": "Neo4j Graph Analytics for Snowflake",
+          "kind": "graph-query",
+          "status": "GA",
+          "since": "",
+          "format": "SQL (Snowpark Container Services, Snowflake Marketplace)",
+          "url": "https://neo4j.com/cloud/snowflake/"
+        },
+        {
+          "name": "Neo4j Agent for Snowflake Intelligence",
+          "kind": "agent",
+          "status": "Preview",
+          "since": "2026-03",
+          "format": "Snowflake Marketplace listing (public preview)",
+          "url": "https://neo4j.com/blog/developer/neo4j-and-the-data-ecosystem/"
+        },
+        {
+          "name": "Neo4j Context Engine (business ontology for agents)",
+          "kind": "ontology",
+          "status": "Preview",
+          "since": "2026-10",
+          "format": "Graph model plus Context Studio UI (private preview)",
+          "url": "https://neo4j.com/blog/news/neo4j-context-engine/"
+        },
+        {
+          "name": "Neo4j Connector for Unity Catalog",
+          "kind": "graph-query",
+          "status": "Announced",
+          "since": "",
+          "format": "JDBC driver with SQL2Cypher; listed as coming soon to Labs",
+          "url": "https://neo4j.com/blog/developer/neo4j-and-the-data-ecosystem/"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 0,
+          "n": "No metric object type exists. Users write aggregates as Cypher. Aura Agent Cypher templates can pin a parameterized query.",
+          "u": "https://neo4j.com/developer/genai-ecosystem/aura-agent/"
+        },
+        "dimensions": {
+          "l": 0,
+          "n": "No dimension or time-grain objects exist. Teams model categories as node labels or properties.",
+          "u": ""
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Relationships are first-class typed edges with properties. Virtual Graph (Preview) maps foreign keys to relationships.",
+          "u": "https://neo4j.com/blog/developer/zero-copy-graph-reasoning-on-snowflake-getting-started-with-neo4j-virtual-graph/"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Aura Agent holds agent instructions and tool descriptions that the LLM reads. No synonym object type exists.",
+          "u": "https://neo4j.com/blog/agentic-ai/neo4j-launches-aura-agent/"
+        },
+        "verifiedQueries": {
+          "l": 3,
+          "n": "Aura Agent Cypher templates are predefined, parameterized queries. The agent calls them as tools. They are not question-query pairs.",
+          "u": "https://neo4j.com/developer/genai-ecosystem/aura-agent/"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "The Aura Agent Text2Cypher tool (GA Feb 2026) writes Cypher, not SQL. The Neo4j EAP guide calls it a fallback to templates.",
+          "u": "https://neo4j.com/blog/genai/build-context-aware-graphrag-agent/"
+        },
+        "ontology": {
+          "l": 2,
+          "n": "Business ontology is in Neo4j Context Engine, private preview (Oct 2026). The graph schema works as an ontology by convention.",
+          "u": "https://neo4j.com/blog/news/neo4j-context-engine/"
+        },
+        "graph": {
+          "l": 3,
+          "n": "Cypher property graph queries plus Graph Data Science algorithms. Virtual Graph (Preview) runs Cypher over Snowflake tables.",
+          "u": "https://neo4j.com/docs/cypher-manual/current/introduction/cypher_overview/"
+        },
+        "vector": {
+          "l": 3,
+          "n": "Vector indexes and similarity search exist. The neo4j-graphrag library and Aura Agent both use them.",
+          "u": "https://neo4j.com/docs/neo4j-graphrag-python/current/"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "Neo4j has an official MCP server (GA announced Dec 2025). Aura Agent has hosted MCP endpoints with OAuth.",
+          "u": "https://github.com/neo4j/mcp"
+        },
+        "governance": {
+          "l": 2,
+          "n": "Virtual Graph (Preview) runs queries under a read-only Snowflake user, so source RBAC applies. Context Engine adds governance (private preview).",
+          "u": "https://neo4j.com/blog/developer/zero-copy-graph-reasoning-on-snowflake-getting-started-with-neo4j-virtual-graph/"
+        },
+        "openStandard": {
+          "l": 1,
+          "n": "The docs show no OSI listing. Labs MCP servers are MIT licensed. Aura Agent exposes standard MCP and REST endpoints.",
+          "u": "https://github.com/neo4j-contrib/mcp-neo4j"
+        }
+      },
+      "offers": [
+        "Aura Agent builds an agent from the graph schema. It has Cypher template, similarity search, and Text2Cypher tools (GA Feb 2026).",
+        "Aura Agent has hosted MCP and REST endpoints for agents. MCP is read-only. Public agents bill per agent-hour from March 2026.",
+        "Official MCP server tools: get-schema, read-cypher, write-cypher, list-gds-procedures. Read-only mode is available. The latest release is v1.6.1 (Oct 2026).",
+        "The neo4j-graphrag Python library has vector retrieval, Text2CypherRetriever, and a knowledge graph builder pipeline. Some parts are experimental.",
+        "Warehouse links: Graph Analytics for Snowflake (Marketplace), Spark connector for Databricks, Dataflow templates for BigQuery, Aura Data Importer.",
+        "Virtual Graph (Preview, Jun 2026) translates Cypher to Snowflake SQL in place, with no copy. The translation is rule-based."
+      ],
+      "gaps": [
+        "No metric, dimension, or time-grain objects exist, so governed KPIs stay in a warehouse semantic layer.",
+        "Text2Cypher writes Cypher, not SQL. Users must load warehouse data, map it through Virtual Graph (Preview), or query it separately.",
+        "The Virtual Graph article covers Snowflake only. The Unity Catalog connector for Databricks is listed as coming soon to Labs.",
+        "MCP read-only mode relies on EXPLAIN query classification. The README warns that misclassified custom procedures may bypass it.",
+        "Business ontology (Context Engine) is private preview. OSI partner lists do not name Neo4j."
+      ],
+      "fillWith": [
+        "dbt Semantic Layer",
+        "Cube",
+        "Snowflake semantic views",
+        "Databricks metric views"
+      ],
+      "nl2sqlPath": "Keep NL-to-SQL on the warehouse semantic layer. Use Neo4j for multi-hop and relationship questions. Use Cypher templates first and Text2Cypher as fallback. To reach warehouse data, import with Aura Data Importer or the Spark connector. Or try Virtual Graph (Preview) for Snowflake.",
+      "snippet": {
+        "lang": "other",
+        "title": "Cypher: property filter and relationship pattern (Cypher manual overview)",
+        "code": "MATCH (movie:Movie)\nWHERE movie.rating > 7\nRETURN movie.title\n\nMATCH (actor:Actor)-[:ACTED_IN]->(movie:Movie {title: 'The Matrix'})\nRETURN actor.name",
+        "u": "https://neo4j.com/docs/cypher-manual/current/introduction/cypher_overview/"
+      },
+      "sources": [
+        {
+          "t": "Neo4j Aura Agent enters general availability (Feb 3, 2026)",
+          "u": "https://neo4j.com/blog/agentic-ai/neo4j-launches-aura-agent/"
+        },
+        {
+          "t": "Aura Agent: create your own GraphRAG agent (Early Access, Oct 1, 2025)",
+          "u": "https://neo4j.com/blog/genai/build-context-aware-graphrag-agent/"
+        },
+        {
+          "t": "Aura Agent developer page",
+          "u": "https://neo4j.com/developer/genai-ecosystem/aura-agent/"
+        },
+        {
+          "t": "Aura Agent docs (MCP server option)",
+          "u": "https://neo4j.com/docs/aura/aura-agent/"
+        },
+        {
+          "t": "Official Neo4j MCP server repository",
+          "u": "https://github.com/neo4j/mcp"
+        },
+        {
+          "t": "Neo4j MCP releases (v1.6.1)",
+          "u": "https://github.com/neo4j/mcp/releases"
+        },
+        {
+          "t": "Neo4j MCP docs",
+          "u": "https://neo4j.com/docs/mcp/current/"
+        },
+        {
+          "t": "This Week in Neo4j, Dec 6, 2025 (MCP server GA)",
+          "u": "https://community.neo4j.com/t/this-week-in-neo4j-mcp-deployment-vector-graphrag-and-more/76072"
+        },
+        {
+          "t": "Neo4j Labs MCP servers repository",
+          "u": "https://github.com/neo4j-contrib/mcp-neo4j"
+        },
+        {
+          "t": "neo4j-graphrag for Python docs",
+          "u": "https://neo4j.com/docs/neo4j-graphrag-python/current/"
+        },
+        {
+          "t": "Effortless RAG with Text2CypherRetriever",
+          "u": "https://neo4j.com/blog/developer/effortless-rag-text2cypherretriever/"
+        },
+        {
+          "t": "Google Cloud and Neo4j Text2Cypher models (Apr 9, 2025)",
+          "u": "https://neo4j.com/blog/news/text2cypher-vertex-ai/"
+        },
+        {
+          "t": "Zero-copy graph reasoning on Snowflake: Virtual Graph (Jun 22, 2026)",
+          "u": "https://neo4j.com/blog/developer/zero-copy-graph-reasoning-on-snowflake-getting-started-with-neo4j-virtual-graph/"
+        },
+        {
+          "t": "Neo4j and the data ecosystem (Mar 12, 2026)",
+          "u": "https://neo4j.com/blog/developer/neo4j-and-the-data-ecosystem/"
+        },
+        {
+          "t": "Neo4j Graph Analytics for Snowflake",
+          "u": "https://neo4j.com/cloud/snowflake/"
+        },
+        {
+          "t": "Graph-grounded Copilots in Microsoft Fabric (Sep 23, 2026)",
+          "u": "https://neo4j.com/blog/knowledge-graph/graph-grounded-copilot-recommendations-microsoft-fabric/"
+        },
+        {
+          "t": "Neo4j Context Engine (Oct 19, 2026)",
+          "u": "https://neo4j.com/blog/news/neo4j-context-engine/"
+        },
+        {
+          "t": "Agentic GraphRAG (Oct 2026)",
+          "u": "https://neo4j.com/blog/agentic-ai/agentic-graphrag/"
+        },
+        {
+          "t": "Graphs, knowledge graphs, and context graphs (Sep 2026)",
+          "u": "https://neo4j.com/blog/agentic-ai/context-graph-vs-knowledge-graph/"
+        },
+        {
+          "t": "Cypher manual overview",
+          "u": "https://neo4j.com/docs/cypher-manual/current/introduction/cypher_overview/"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "stardog",
+      "name": "Stardog",
+      "category": "knowledge-graph",
+      "tagline": "Knowledge graph platform with virtual graphs over SQL sources and Voicebox natural-language query.",
+      "verdict": "native",
+      "verdictNote": "Ontology, mappings, and Voicebox form a semantic layer over SQL sources. Stardog has no first-class metric objects.",
+      "worksWith": [
+        "snowflake",
+        "databricks",
+        "bigquery",
+        "redshift",
+        "postgres",
+        "oracle",
+        "sqlserver",
+        "synapse",
+        "athena"
+      ],
+      "artifacts": [
+        {
+          "name": "Virtual graphs",
+          "kind": "knowledge-graph",
+          "status": "GA",
+          "since": "",
+          "format": "SMS, SMS2, or R2RML mapping plus properties file",
+          "url": "https://docs.stardog.com/virtual-graphs/"
+        },
+        {
+          "name": "Voicebox",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "",
+          "format": "Chat UI and API; Stardog Cloud or on-premises",
+          "url": "https://docs.stardog.com/voicebox/"
+        },
+        {
+          "name": "Voicebox multi-agent orchestration",
+          "kind": "agent",
+          "status": "Preview",
+          "since": "",
+          "format": "Private preview",
+          "url": "https://docs.stardog.com/voicebox/"
+        },
+        {
+          "name": "Stardog Cloud MCP server, local mode (stardog-cloud-mcp)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "",
+          "format": "MCP server; Voicebox API token required; described as stable in AWS post",
+          "url": "https://github.com/stardog-union/stardog-cloud-mcp"
+        },
+        {
+          "name": "Stardog Cloud MCP server, remote mode",
+          "kind": "mcp",
+          "status": "Preview",
+          "since": "",
+          "format": "HTTP or Docker; marked Beta in the README",
+          "url": "https://github.com/stardog-union/stardog-cloud-mcp"
+        },
+        {
+          "name": "Ontologies and Knowledge Kits",
+          "kind": "ontology",
+          "status": "GA",
+          "since": "",
+          "format": "RDF models; prebuilt Knowledge Kits ship with Voicebox",
+          "url": "https://www.stardog.com/product/"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 1,
+          "n": "The docs show no metric object. The ontology encodes a Big Spender segment once (AWS post).",
+          "u": "https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-stardog-and-amazon-bedrock-agentcore/"
+        },
+        "dimensions": {
+          "l": 0,
+          "n": "The docs show no dimension or time-grain objects. Class hierarchies in the ontology are the closest equivalent.",
+          "u": ""
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Ontology properties plus mappings define relationships. Shared IRIs let virtual graphs join Aurora and Redshift without ETL (AWS post).",
+          "u": "https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-stardog-and-amazon-bedrock-agentcore/"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Voicebox matches question concepts to the ontology by vector search. The docs do not confirm dedicated synonym objects.",
+          "u": "https://docs.stardog.com/voicebox/"
+        },
+        "verifiedQueries": {
+          "l": 3,
+          "n": "Voicebox uses few-shot examples alongside the ontology as domain context.",
+          "u": "https://docs.stardog.com/voicebox/"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Voicebox writes SPARQL. Stardog compiles it into a multi-SQL query plan from mappings. SPARQL is the intermediate language.",
+          "u": "https://docs.stardog.com/voicebox/"
+        },
+        "ontology": {
+          "l": 3,
+          "n": "Ontologies and reasoning are the core product. Pre-configured Knowledge Kits ship with Voicebox.",
+          "u": "https://docs.stardog.com/voicebox/"
+        },
+        "graph": {
+          "l": 3,
+          "n": "SPARQL runs over RDF knowledge graphs. Virtual graphs rewrite SPARQL into the native query language of each source.",
+          "u": "https://docs.stardog.com/virtual-graphs/"
+        },
+        "vector": {
+          "l": 3,
+          "n": "A built-in vector store matches concepts. It also supports RAG over PDF and DOCX files that a Spark pipeline indexes.",
+          "u": "https://docs.stardog.com/voicebox/"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "The official stardog-cloud-mcp exposes Voicebox tools. Local mode is stable. Remote mode is beta. It needs a Voicebox API token.",
+          "u": "https://github.com/stardog-union/stardog-cloud-mcp"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Named-graph security works by role. Lineage exists per answer. Audit logs of questions and generated SPARQL are exportable.",
+          "u": "https://docs.stardog.com/voicebox/"
+        },
+        "openStandard": {
+          "l": 3,
+          "n": "Stardog supports RDF, SPARQL, and R2RML. SMS2 is Stardog-specific. OSI partner lists do not name Stardog.",
+          "u": "https://docs.stardog.com/virtual-graphs/"
+        }
+      },
+      "offers": [
+        "Virtual graphs query SQL sources in place by rewriting SPARQL to native SQL. Virtual import gives optional materialization.",
+        "Mapping sources include Snowflake, Databricks SQL, BigQuery, Redshift, PostgreSQL, Oracle, SQL Server, and Synapse.",
+        "Voicebox turns natural language into SPARQL and then SQL. It has few-shot examples, lineage, answer provenance, and CSV audit reports.",
+        "Stardog Cloud MCP server exposes voicebox_ask, voicebox_generate_query, and voicebox_settings to agents.",
+        "The AWS reference design (Jul 2026) uses Bedrock AgentCore and shared IRIs to join Aurora and Redshift without ETL."
+      ],
+      "gaps": [
+        "The docs show no first-party metric or measure object. Teams must model metrics in the ontology or SPARQL.",
+        "The NL path runs through SPARQL, so SQL teams must learn mappings (SMS2, R2RML) and ontology modeling.",
+        "The docs state that External LLM agent answers may contain hallucinations. The product page says hallucination-managed.",
+        "MCP needs a Voicebox API token that is limited to certain accounts. Multi-agent orchestration is private preview.",
+        "OSI partner lists do not name Stardog. SMS2 mappings are not portable to other tools."
+      ],
+      "fillWith": [
+        "dbt Semantic Layer",
+        "Snowflake semantic views",
+        "Databricks metric views",
+        "Cube"
+      ],
+      "nl2sqlPath": "Model the ontology. Map warehouse tables with virtual graphs. Ask through Voicebox, which writes SPARQL that Stardog turns into SQL. Agents can reach Voicebox through the Stardog Cloud MCP server. They can also call SPARQL directly (AWS Bedrock AgentCore reference, Jul 2026). Keep governed metrics in a warehouse semantic layer.",
+      "snippet": {
+        "lang": "other",
+        "title": "SMS2 mapping from Stardog docs (JSON source, trailing comma removed)",
+        "code": "PREFIX : <http://stardog.com/movies/>\nMAPPING <urn:movies>\nFROM JSON {\n  \"movie\":{\n    \"_id\":\"?movieId\",\n    \"name\":\"?name\"\n  }\n}\nTO {\n  ?movie a :Movie ;\n    :name ?name .\n}\nWHERE {\n  BIND (template(\"http://stardog.com/movies/Title_{movieId}\") AS ?movie)\n}",
+        "u": "https://docs.stardog.com/virtual-graphs/mapping-data-sources"
+      },
+      "sources": [
+        {
+          "t": "Stardog docs: virtual graphs",
+          "u": "https://docs.stardog.com/virtual-graphs/"
+        },
+        {
+          "t": "Stardog docs: supported data sources",
+          "u": "https://docs.stardog.com/virtual-graphs/data-sources/supported-data-sources"
+        },
+        {
+          "t": "Stardog docs: mapping data sources (SMS2)",
+          "u": "https://docs.stardog.com/virtual-graphs/mapping-data-sources"
+        },
+        {
+          "t": "Stardog docs: Voicebox",
+          "u": "https://docs.stardog.com/voicebox/"
+        },
+        {
+          "t": "Stardog product page",
+          "u": "https://www.stardog.com/product/"
+        },
+        {
+          "t": "stardog-cloud-mcp repository",
+          "u": "https://github.com/stardog-union/stardog-cloud-mcp"
+        },
+        {
+          "t": "AWS ML blog: semantic layer with Stardog and Bedrock AgentCore (Jul 10, 2026)",
+          "u": "https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-stardog-and-amazon-bedrock-agentcore/"
+        },
+        {
+          "t": "Stardog blog: The Semantic Control Plane (Jun 15, 2026)",
+          "u": "https://www.stardog.com/blog/semantic-control-plane-building-trust-enterprise-ai/"
+        },
+        {
+          "t": "Stardog blog: Why every AI system needs a semantic layer (Jul 17, 2026)",
+          "u": "https://www.stardog.com/blog/ai-chessboard-every-ai-system-needs-semantic-layer/"
+        },
+        {
+          "t": "Stardog blog: One year at Stardog, enterprise context layer (Oct 6, 2026)",
+          "u": "https://www.stardog.com/blog/stardog-ceo-importance-enterprise-context-layer-ai/"
+        },
+        {
+          "t": "Atlan: Stardog vs Atlan (competitor view, Sep 2026)",
+          "u": "https://atlan.com/know/ai-agent/knowledge-graph/stardog-vs-atlan/"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "relationalai",
+      "name": "RelationalAI",
+      "category": "knowledge-graph",
+      "tagline": "Decision intelligence platform with Python semantic models and reasoners. It is a Snowflake Native App.",
+      "verdict": "partial",
+      "verdictNote": "PyRel gives an ontology-style semantic model and reasoners on Snowflake. It has no metric layer, MCP server, or other platforms.",
+      "worksWith": [
+        "snowflake"
+      ],
+      "artifacts": [
+        {
+          "name": "RelationalAI Native App (knowledge graph coprocessor)",
+          "kind": "knowledge-graph",
+          "status": "GA",
+          "since": "2024-11",
+          "format": "Snowflake Native App",
+          "url": "https://www.relational.ai/post/relationalai-knowledge-graph-coprocessor-is-generally-available-as-a-snowflake-native-app"
+        },
+        {
+          "name": "PyRel semantic model",
+          "kind": "ontology",
+          "status": "GA",
+          "since": "",
+          "format": "Python SDK (relationalai package)",
+          "url": "https://docs.relational.ai/build/guides/modeling/index.md"
+        },
+        {
+          "name": "Prescriptive reasoner",
+          "kind": "knowledge-graph",
+          "status": "GA",
+          "since": "2026-06",
+          "format": "PyRel API",
+          "url": "https://www.relational.ai/post/relationalai-closes-the-ai-value-gap-with-new-agentic-decision-intelligence-capabilities-for-the-snowflake-ai-data-cloud"
+        },
+        {
+          "name": "Rel App (governed enterprise model with natural-language questions)",
+          "kind": "semantic-model",
+          "status": "Announced",
+          "since": "2026-06",
+          "format": "App; availability not stated",
+          "url": "https://www.relational.ai/post/relationalai-closes-the-ai-value-gap-with-new-agentic-decision-intelligence-capabilities-for-the-snowflake-ai-data-cloud"
+        },
+        {
+          "name": "Template: Snowflake Intelligence Agent over RelationalAI knowledge graph",
+          "kind": "agent",
+          "status": "Unverified",
+          "since": "",
+          "format": "Docs template; contents not read",
+          "url": "https://docs.relational.ai/build/templates/index.md"
+        },
+        {
+          "name": "OSI ontology extension (proposal)",
+          "kind": "ontology",
+          "status": "Announced",
+          "since": "2026-05",
+          "format": "Spec proposal in OSI working group",
+          "url": "https://www.relational.ai/post/bringing-ontological-semantics-to-open-semantic-interchange-osi"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 0,
+          "n": "The docs and posts show no metric object. Metrics would sit in Snowflake semantic views.",
+          "u": ""
+        },
+        "dimensions": {
+          "l": 0,
+          "n": "No dimension or hierarchy object exists. Concept subtypes cover entity classes only.",
+          "u": "https://docs.relational.ai/build/guides/modeling/index.md"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "PyRel models concepts, properties, and relationships. The Jun 2026 post adds roles, multiplicity, and constraints.",
+          "u": "https://www.relational.ai/post/from-dimensions-to-decisions-what-ontologies-give-ai-agents-and-how-osi-makes-them-portable"
+        },
+        "synonyms": {
+          "l": 0,
+          "n": "The docs show none. Rel App lets users ask questions over the model (announced Jun 2026).",
+          "u": ""
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "The docs show none.",
+          "u": ""
+        },
+        "nl2sql": {
+          "l": 1,
+          "n": "Rel App and Snowflake CoWork take natural-language questions (announced Jun 2026). Reasoners produce the answers. The availability status is not stated.",
+          "u": "https://www.relational.ai/post/relationalai-closes-the-ai-value-gap-with-new-agentic-decision-intelligence-capabilities-for-the-snowflake-ai-data-cloud"
+        },
+        "ontology": {
+          "l": 3,
+          "n": "The PyRel semantic model holds concepts, relationships, and constraints. The Rel App is the governed model UI (announced Jun 2026).",
+          "u": "https://docs.relational.ai/build/guides/modeling/index.md"
+        },
+        "graph": {
+          "l": 3,
+          "n": "The graph analytics reasoner runs inside Snowflake. The product has no Cypher, SPARQL, or GQL. Queries are PyRel Python.",
+          "u": "https://docs.relational.ai/"
+        },
+        "vector": {
+          "l": 0,
+          "n": "The docs show none.",
+          "u": ""
+        },
+        "mcp": {
+          "l": 0,
+          "n": "The docs and posts show no MCP server or reference. Agents generate PyRel and use coding-agent skills.",
+          "u": "https://www.relational.ai/post/answer-questions-beyond-sql"
+        },
+        "governance": {
+          "l": 1,
+          "n": "Data stays in the Snowflake account perimeter. Admins control app access. The docs do not confirm inheritance of row or column policies.",
+          "u": "https://docs.relational.ai/"
+        },
+        "openStandard": {
+          "l": 2,
+          "n": "RelationalAI is an OSI launch partner (Sep 2025) and is active in the Ontology Representation working group. Spec support for ontologies is a proposal.",
+          "u": "https://www.relational.ai/post/bringing-ontological-semantics-to-open-semantic-interchange-osi"
+        }
+      },
+      "offers": [
+        "The PyRel Python SDK builds a semantic model of concepts, relationships, and rules. It then queries the model with where and select.",
+        "PyRel runs as a Snowflake Native App (GA Nov 2024). Queries run against data inside the Snowflake account.",
+        "Reasoners cover graph analytics, prescriptive optimization (GA, Jun 2026), and predictive analysis. The predictive status is not stated.",
+        "The docs list 53 templates. One template is for a Snowflake Intelligence agent over the RelationalAI knowledge graph.",
+        "Coding-agent skills for Snowflake CoCo, Claude Code, OpenAI Codex, and GitHub Copilot help agents extend models (Jun 2026)."
+      ],
+      "gaps": [
+        "The docs show no metric, dimension, synonym, or verified-query objects. PyRel is a reasoning layer, not a BI metric layer.",
+        "Snowflake only. A May 2026 post says Snowflake is the currently supported platform.",
+        "No MCP server exists. Natural-language access is through Rel App or Snowflake CoWork. The status is not stated.",
+        "RelationalAI moved its positioning from knowledge graph coprocessor (Nov 2024) to decision intelligence. Rel now also names the decision agent.",
+        "Ontology support in OSI is a proposal, so portability of PyRel models through OSI is not yet standard."
+      ],
+      "fillWith": [
+        "Snowflake semantic views",
+        "Cortex Analyst",
+        "Snowflake Intelligence"
+      ],
+      "nl2sqlPath": "For NL-to-SQL on Snowflake, use Snowflake semantic views and Cortex Analyst for metrics. Add RelationalAI when questions need rules, graph analysis, or optimization that SQL does not express. Reasoner outputs return as tables. Snowflake Intelligence and agents can read them.",
+      "snippet": {
+        "lang": "other",
+        "title": "PyRel (Python): concept, property, subtype rule, query (comments trimmed)",
+        "code": "from relationalai.semantics import Integer, Model, String\n\nm = Model(\"PeopleModel\")\nPerson = m.Concept(\"Person\")\nPerson.name = m.Property(f\"{Person} is named {String:name}\")\nPerson.age = m.Property(f\"{Person} is {Integer:age} years old\")\nm.define(Person.new(name=\"Alice\", age=10), Person.new(name=\"Bob\", age=30))\n\n# Adult is a subtype of Person, defined by a rule\nAdult = m.Concept(\"Adult\", extends=[Person])\nm.define(Adult(Person)).where(Person.age >= 18)\n\nq = m.select(Adult.name, Adult.age)\nq.inspect()",
+        "u": "https://docs.relational.ai/build/guides/modeling/index.md"
+      },
+      "sources": [
+        {
+          "t": "RelationalAI docs home (PyRel 1.37.0, Native App 2026.10.17)",
+          "u": "https://docs.relational.ai/"
+        },
+        {
+          "t": "PyRel guide: build a semantic model",
+          "u": "https://docs.relational.ai/build/guides/modeling/index.md"
+        },
+        {
+          "t": "PyRel: start building",
+          "u": "https://docs.relational.ai/get-started/start-building-with-pyrel/index.md"
+        },
+        {
+          "t": "PyRel templates catalog",
+          "u": "https://docs.relational.ai/build/templates/index.md"
+        },
+        {
+          "t": "Knowledge graph coprocessor GA as Snowflake Native App (Nov 2024)",
+          "u": "https://www.relational.ai/post/relationalai-knowledge-graph-coprocessor-is-generally-available-as-a-snowflake-native-app"
+        },
+        {
+          "t": "RelationalAI closes the AI value gap (Jun 2, 2026)",
+          "u": "https://www.relational.ai/post/relationalai-closes-the-ai-value-gap-with-new-agentic-decision-intelligence-capabilities-for-the-snowflake-ai-data-cloud"
+        },
+        {
+          "t": "Bringing ontological semantics to OSI (May 29, 2026)",
+          "u": "https://www.relational.ai/post/bringing-ontological-semantics-to-open-semantic-interchange-osi"
+        },
+        {
+          "t": "From dimensions to decisions: ontologies and OSI (Jun 10, 2026)",
+          "u": "https://www.relational.ai/post/from-dimensions-to-decisions-what-ontologies-give-ai-agents-and-how-osi-makes-them-portable"
+        },
+        {
+          "t": "Answer questions beyond SQL (May 4, 2026)",
+          "u": "https://www.relational.ai/post/answer-questions-beyond-sql"
+        },
+        {
+          "t": "Beyond context: closing the AI value gap (Apr 15, 2026)",
+          "u": "https://www.relational.ai/post/beyond-context-closing-the-ai-value-gap"
+        },
+        {
+          "t": "RelationalAI blog index",
+          "u": "https://www.relational.ai/blog"
+        },
+        {
+          "t": "Apache Ossie (OSI) updates",
+          "u": "https://ossie.apache.org/updates/"
+        },
+        {
+          "t": "Snowflake: OSI initiative expands partners (Nov 13, 2025)",
+          "u": "https://www.snowflake.com/en/blog/osi-initiative-expands-partners/"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "dataworld",
+      "name": "data.world (ServiceNow)",
+      "category": "knowledge-graph",
+      "tagline": "Knowledge-graph-based data catalog and governance platform. ServiceNow acquired it in July 2025.",
+      "verdict": "partial",
+      "verdictNote": "The catalog graph supplies glossary, lineage, and metadata context to AI. It has no governed metric layer and no warehouse query execution.",
+      "worksWith": [
+        "snowflake",
+        "databricks"
+      ],
+      "artifacts": [
+        {
+          "name": "data.world Enterprise data catalog (knowledge graph)",
+          "kind": "knowledge-graph",
+          "status": "GA",
+          "since": "",
+          "format": "SaaS catalog",
+          "url": "https://data.world/product/"
+        },
+        {
+          "name": "Business glossary",
+          "kind": "glossary",
+          "status": "GA",
+          "since": "",
+          "format": "Catalog feature (docs navigation)",
+          "url": "https://docs.data.world/"
+        },
+        {
+          "name": "Archie AI Assistant (Archie Chat, Archie Enrich)",
+          "kind": "agent",
+          "status": "Preview",
+          "since": "",
+          "format": "Public Preview for Enterprise customers; SQL generation is beta",
+          "url": "https://docs.data.world/en/160498-using-archie.html"
+        },
+        {
+          "name": "data.world MCP server for AI assistants",
+          "kind": "mcp",
+          "status": "Unverified",
+          "since": "",
+          "format": "Hosted MCP server; no status label in docs",
+          "url": "https://docs.data.world/en/413220-data-world-mcp-server-for-ai-assistants.html"
+        },
+        {
+          "name": "SQL and SPARQL queries over the catalog graph",
+          "kind": "graph-query",
+          "status": "GA",
+          "since": "",
+          "format": "SPARQL, SQL",
+          "url": "https://docs.data.world/en/114326-sql,-sparql,-and-markdown.html"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 0,
+          "n": "The docs show no governed business-metric objects. Teams use a warehouse semantic layer for metrics.",
+          "u": ""
+        },
+        "dimensions": {
+          "l": 0,
+          "n": "The docs show none.",
+          "u": ""
+        },
+        "relationships": {
+          "l": 3,
+          "n": "The catalog graph stores asset relationships and lineage. The docs describe custom relationship types in Eureka Explorer.",
+          "u": "https://docs.data.world/"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Business glossary and metadata enrichment give assets descriptions that an AI can read. Archie enrichment is Public Preview.",
+          "u": "https://docs.data.world/en/160498-using-archie.html"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "The docs show none.",
+          "u": ""
+        },
+        "nl2sql": {
+          "l": 2,
+          "n": "Archie chat is Public Preview for Enterprise customers. SQL generation is a beta feature of Archie.",
+          "u": "https://docs.data.world/en/160498-using-archie.html"
+        },
+        "ontology": {
+          "l": 1,
+          "n": "The catalog graph is the model. The docs show no domain ontology authoring.",
+          "u": "https://data.world/product/"
+        },
+        "graph": {
+          "l": 3,
+          "n": "The docs describe querying the catalog graph with SQL and SPARQL. The docs give only navigation titles for this.",
+          "u": "https://docs.data.world/en/114326-sql,-sparql,-and-markdown.html"
+        },
+        "vector": {
+          "l": 0,
+          "n": "This is not confirmed. A June 2025 blog title mentions semantic search. The blog body is unavailable.",
+          "u": ""
+        },
+        "mcp": {
+          "l": 2,
+          "n": "The hosted data.world MCP server reads and writes catalog content. The docs show no GA label, so this report counts it as Preview-level.",
+          "u": "https://docs.data.world/en/413220-data-world-mcp-server-for-ai-assistants.html"
+        },
+        "governance": {
+          "l": 3,
+          "n": "The MCP server respects existing data.world permissions. Governance automations, lineage, and glossary are core catalog features.",
+          "u": "https://docs.data.world/en/413220-data-world-mcp-server-for-ai-assistants.html"
+        },
+        "openStandard": {
+          "l": 1,
+          "n": "SPARQL gives access to the catalog graph. MCP is an open standard. OSI partner lists do not name data.world.",
+          "u": "https://ossie.apache.org/updates/"
+        }
+      },
+      "offers": [
+        "The catalog is built on a knowledge graph. The vendor claims answers are 4.2x more accurate than a traditional catalog (marketing figure).",
+        "The docs navigation shows a business glossary, governance automations, lineage, and a marketplace.",
+        "The hosted MCP server lets Claude, Cursor, and VS Code Copilot search and update the catalog under your permissions.",
+        "The Archie assistant (Public Preview) chats over catalog metadata and enriches assets. SQL generation is beta.",
+        "Integrations on the product page include Snowflake, Databricks, dbt, Power BI, Tableau, and Looker."
+      ],
+      "gaps": [
+        "The docs show no metric, dimension, or verified-query objects. The catalog describes data but does not define KPIs.",
+        "Archie is Public Preview. SQL generation is beta. The MCP server shows no GA label.",
+        "The docs, product pages, and ServiceNow filings show no 'AI Context Engine' name. Treat it as unverified.",
+        "The public docs give little syntax for catalog graph queries or MCP tool lists."
+      ],
+      "fillWith": [
+        "Snowflake semantic views",
+        "dbt Semantic Layer",
+        "Databricks metric views"
+      ],
+      "nl2sqlPath": "Use data.world as the business context source: glossary terms, lineage, and asset metadata. An agent reads them through the hosted MCP server. Run NL-to-SQL and governed metrics on the warehouse semantic layer. Treat Archie SQL generation as beta.",
+      "snippet": null,
+      "sources": [
+        {
+          "t": "data.world home",
+          "u": "https://data.world/"
+        },
+        {
+          "t": "data.world product page",
+          "u": "https://data.world/product/"
+        },
+        {
+          "t": "data.world docs home",
+          "u": "https://docs.data.world/"
+        },
+        {
+          "t": "data.world docs: MCP server for AI assistants",
+          "u": "https://docs.data.world/en/413220-data-world-mcp-server-for-ai-assistants.html"
+        },
+        {
+          "t": "data.world docs: Using Archie AI Assistant",
+          "u": "https://docs.data.world/en/160498-using-archie.html"
+        },
+        {
+          "t": "data.world docs: SQL, SPARQL, and Markdown",
+          "u": "https://docs.data.world/en/114326-sql,-sparql,-and-markdown.html"
+        },
+        {
+          "t": "data.world page on Enterprise continuity and Open Data Community retirement",
+          "u": "https://data.world/ai-context-engine/"
+        },
+        {
+          "t": "ServiceNow Form 10-Q, quarter ended Sep 30, 2025 (acquisition completed July 2025)",
+          "u": "https://www.sec.gov/Archives/edgar/data/1373715/000137371525000309/now-20250930.htm"
+        },
+        {
+          "t": "NowBen: ServiceNow acquires data.world (May 9, 2025)",
+          "u": "https://nowben.com/servicenow-acquires-data-world-just-months-after-logik-ai-and-moveworks-purchases/"
+        },
+        {
+          "t": "data.world GitHub organization (cwd-benchmark-data)",
+          "u": "https://github.com/datadotworld"
+        }
+      ],
+      "verified": "2026-10-24"
+    }
+  ],
+  "notes": [
+    {
+      "topic": "semantic layer",
+      "text": "A business-facing layer over physical data that names tables and columns as business terms. Business Objects filed a patent for the idea in 1991. In 2026 vendors use it for governed metrics, dimensions, and joins (dbt Semantic Layer, Snowflake semantic views). At Stardog, it means an ontology of concepts, rules, and constraints. It is the broad umbrella. Metrics layer, semantic model, and ontology are narrower or alternative parts of it.",
+      "sources": [
+        {
+          "t": "Wikipedia: Semantic layer",
+          "u": "https://en.wikipedia.org/wiki/Semantic_layer"
+        },
+        {
+          "t": "dbt docs: dbt Semantic Layer",
+          "u": "https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl"
+        },
+        {
+          "t": "Snowflake docs: semantic views overview",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/overview"
+        },
+        {
+          "t": "Stardog: Why every AI system needs a semantic layer",
+          "u": "https://www.stardog.com/blog/ai-chessboard-every-ai-system-needs-semantic-layer/"
+        }
+      ]
+    },
+    {
+      "topic": "metrics layer (metrics store)",
+      "text": "A central definition of how each metric is calculated (Benn Stancil, April 2021). It sits between the warehouse and BI tools. It returns SQL for a metric request. It covers measures and the dimensions to slice them. It does not cover entities, rules, or glossary terms, so it is narrower than a semantic layer. Today it ships inside products such as dbt MetricFlow and Databricks metric views. No primary source defines the label 'metrics store'.",
+      "sources": [
+        {
+          "t": "Benn Stancil: The metrics layer (Apr 22, 2021)",
+          "u": "https://benn.substack.com/p/metrics-layer"
+        },
+        {
+          "t": "dbt docs: dbt Semantic Layer",
+          "u": "https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl"
+        },
+        {
+          "t": "Databricks docs: metric views",
+          "u": "https://docs.databricks.com/aws/en/metric-views/"
+        },
+        {
+          "t": "Wikipedia: Semantic layer (lists metrics layer and headless BI as names)",
+          "u": "https://en.wikipedia.org/wiki/Semantic_layer"
+        }
+      ]
+    },
+    {
+      "topic": "ontology",
+      "text": "A formal, explicit specification of a shared conceptualization of a domain (Gruber, 1993). It has classes, properties, relations, and constraints. W3C describes OWL 2 ontologies as formalized vocabularies of terms. An ontology is the schema level. A knowledge graph is the data that uses it. RelationalAI says ontologies add entity identity, relationships with multiplicity, and constraints beyond the dimensional semantics of metrics.",
+      "sources": [
+        {
+          "t": "Wikipedia: Ontology (information science)",
+          "u": "https://en.wikipedia.org/wiki/Ontology_(information_science)"
+        },
+        {
+          "t": "W3C: OWL 2 overview",
+          "u": "https://www.w3.org/TR/owl2-overview/"
+        },
+        {
+          "t": "RelationalAI: From dimensions to decisions (Jun 10, 2026)",
+          "u": "https://www.relational.ai/post/from-dimensions-to-decisions-what-ontologies-give-ai-agents-and-how-osi-makes-them-portable"
+        }
+      ]
+    },
+    {
+      "topic": "knowledge graph",
+      "text": "A graph of data meant to accumulate and convey knowledge of the real world. It has nodes for entities and edges for relations (Hogan et al., ACM Computing Surveys 2021). Google popularized the term in 2012 as 'things, not strings'. Neo4j adds that a knowledge graph is a graph plus meaning and organizing principles such as taxonomies or ontologies. It models entities and facts, not metric definitions. It holds instance data, where an ontology holds the schema.",
+      "sources": [
+        {
+          "t": "Hogan et al.: Knowledge Graphs (arXiv 2003.02320)",
+          "u": "https://arxiv.org/abs/2003.02320"
+        },
+        {
+          "t": "Google: Introducing the Knowledge Graph (May 16, 2012)",
+          "u": "https://blog.google/products/search/introducing-knowledge-graph-things-not/"
+        },
+        {
+          "t": "Neo4j: Graphs, knowledge graphs, and context graphs (Sep 2026)",
+          "u": "https://neo4j.com/blog/agentic-ai/context-graph-vs-knowledge-graph/"
+        },
+        {
+          "t": "W3C: RDF 1.1 Primer",
+          "u": "https://www.w3.org/TR/rdf11-primer/"
+        }
+      ]
+    },
+    {
+      "topic": "context graph",
+      "text": "Current usage comes from the Foundation Capital essay 'AI's trillion-dollar opportunity: Context graphs' by Jaya Gupta and Ashu Garg. It defines a context graph as 'a living record of decision traces stitched across entities and time so precedent becomes searchable'. This is not the chain-of-thought of the model. The essay never mentions knowledge graphs or ontologies. The exact original date is unverified. The page metadata shows Oct 23, 2026. The essay cites a post whose URL carries 121225, so the essay is from after mid-December 2025.",
+      "sources": [
+        {
+          "t": "Foundation Capital: AI's trillion-dollar opportunity: Context graphs",
+          "u": "https://foundationcapital.com/ideas/context-graphs-ais-trillion-dollar-opportunity"
+        },
+        {
+          "t": "Foundation Capital ideas index (lists authors Jaya Gupta, Ashu Garg)",
+          "u": "https://foundationcapital.com/ideas/"
+        },
+        {
+          "t": "Foundation Capital: Jaya Gupta profile",
+          "u": "https://foundationcapital.com/member/jaya-gupta/"
+        }
+      ]
+    },
+    {
+      "topic": "context graph (vendor usage in 2026)",
+      "text": "Vendors use the term in different ways. Atlan and Neo4j follow the decision-trace idea. Atlan says 'a specialized knowledge graph that captures decision traces'. Neo4j defines it as a knowledge graph plus the agent's conversations, tool calls, decisions, and outcomes. Google's Knowledge Catalog calls its metadata metamodel an 'active context graph'. Google renamed Dataplex Universal Catalog to Knowledge Catalog on 10 Apr 2026. RelationalAI and Stardog prefer 'context layer'.",
+      "sources": [
+        {
+          "t": "Atlan: context graph",
+          "u": "https://atlan.com/context-graph/"
+        },
+        {
+          "t": "Neo4j: Agentic GraphRAG (Oct 2026)",
+          "u": "https://neo4j.com/blog/agentic-ai/agentic-graphrag/"
+        },
+        {
+          "t": "Google Cloud docs: Knowledge Catalog (formerly Dataplex Universal Catalog)",
+          "u": "https://docs.cloud.google.com/dataplex/docs/catalog-overview"
+        },
+        {
+          "t": "RelationalAI: Beyond context (Apr 15, 2026)",
+          "u": "https://www.relational.ai/post/beyond-context-closing-the-ai-value-gap"
+        },
+        {
+          "t": "Stardog: One year at Stardog, enterprise context layer (Oct 6, 2026)",
+          "u": "https://www.stardog.com/blog/stardog-ceo-importance-enterprise-context-layer-ai/"
+        }
+      ]
+    },
+    {
+      "topic": "data catalog",
+      "text": "An inventory of the data assets of an organization with metadata that helps people find, understand, manage, and access data (IBM). It is a discovery and governance tool. It holds descriptions, lineage, and glossary links. It does not define queryable metrics like a semantic layer. Catalogs now add AI context. Google renamed Dataplex Universal Catalog to Knowledge Catalog in April 2026. data.world builds its catalog on a knowledge graph.",
+      "sources": [
+        {
+          "t": "IBM: What is a data catalog",
+          "u": "https://www.ibm.com/think/topics/data-catalog"
+        },
+        {
+          "t": "Google Cloud docs: Knowledge Catalog overview",
+          "u": "https://docs.cloud.google.com/dataplex/docs/catalog-overview"
+        },
+        {
+          "t": "data.world product page",
+          "u": "https://data.world/product/"
+        }
+      ]
+    },
+    {
+      "topic": "business glossary",
+      "text": "A governed vocabulary of business terms, grouped in categories, with owners and relations such as synonym and related term (Google Knowledge Catalog docs). It can link to data assets and columns. It records meaning, not query logic, so it differs from a semantic layer. It is also business-facing. A data dictionary describes dataset fields, types, and allowed values (IBM).",
+      "sources": [
+        {
+          "t": "Google Cloud docs: create a business glossary",
+          "u": "https://docs.cloud.google.com/dataplex/docs/create-glossary"
+        },
+        {
+          "t": "IBM: What is a data catalog (data dictionary comparison)",
+          "u": "https://www.ibm.com/think/topics/data-catalog"
+        }
+      ]
+    },
+    {
+      "topic": "semantic model",
+      "text": "The artifact that stores the definitions of a semantic layer. The word has no single meaning. A Power BI semantic model is an Analysis Services tabular model with data preparation queries, relationships, and calculations. Snowflake used 'semantic model' for stage-based YAML files. Snowflake now calls them legacy and replaces them with schema-level semantic views. Stardog uses 'semantic models (ontologies)'.",
+      "sources": [
+        {
+          "t": "Microsoft Learn: Semantic models in the Power BI service",
+          "u": "https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-understand"
+        },
+        {
+          "t": "Snowflake docs: YAML specification for semantic views",
+          "u": "https://docs.snowflake.com/en/user-guide/views-semantic/semantic-view-yaml-spec"
+        },
+        {
+          "t": "Stardog: The Semantic Control Plane (Jun 15, 2026)",
+          "u": "https://www.stardog.com/blog/semantic-control-plane-building-trust-enterprise-ai/"
+        }
+      ]
+    },
+    {
+      "topic": "GraphRAG",
+      "text": "Retrieval-augmented generation that connects facts in a graph instead of scattering them across isolated text chunks. Answers can then follow relationships. The agentic variant of Neo4j lets an AI agent choose between vector search, graph traversal, and schema inspection at each step.",
+      "sources": [
+        {
+          "t": "Neo4j: Agentic GraphRAG (Oct 2026)",
+          "u": "https://neo4j.com/blog/agentic-ai/agentic-graphrag/"
+        },
+        {
+          "t": "neo4j-graphrag for Python docs",
+          "u": "https://neo4j.com/docs/neo4j-graphrag-python/current/"
+        }
+      ]
+    },
+    {
+      "topic": "Open Semantic Interchange (OSI) / Apache Ossie",
+      "text": "A vendor-neutral JSON and YAML spec for semantic layer constructs (datasets, metrics, dimensions, relationships, context). Snowflake and partners launched it on 23 Sep 2025. Version 0.1 went live under Apache 2.0 on 27 Jan 2026. It entered the Apache Incubator on 22 Jun 2026. The project announced the rename to Apache Ossie (incubating) on 8 to 10 Jul 2026. RelationalAI is a launch partner. Stardog, Neo4j, and data.world do not appear on the partner lists.",
+      "sources": [
+        {
+          "t": "Apache Ossie (OSI) updates",
+          "u": "https://ossie.apache.org/updates/"
+        },
+        {
+          "t": "Snowflake: OSI initiative expands partners (Nov 13, 2025)",
+          "u": "https://www.snowflake.com/en/blog/osi-initiative-expands-partners/"
+        },
+        {
+          "t": "Snowflake: OSI specs finalized (Jan 27, 2026)",
+          "u": "https://www.snowflake.com/en/blog/open-semantic-interchanges-specs-finalized/"
+        },
+        {
+          "t": "dbt: The OSI spec updates (Jan 29, 2026)",
+          "u": "https://www.getdbt.com/blog/the-osi-spec-updates"
+        },
+        {
+          "t": "Ossie repository",
+          "u": "https://github.com/open-semantic-interchange/OSI"
+        },
+        {
+          "t": "Apache Ossie podling page",
+          "u": "https://incubator.apache.org/projects/ossie.html"
+        }
+      ]
+    },
+    {
+      "topic": "data.world acquisition by ServiceNow",
+      "text": "ServiceNow signed a definitive agreement to buy data.world in May 2025 (reported 7 May at Knowledge 2025). Its quarterly filing says it completed the acquisition in July 2025. ServiceNow does not disclose the exact closing day and price. ServiceNow calls the deal not material. The data.world site says 'data.world is now part of ServiceNow!'. It also says that data.world Enterprise continues unchanged.",
+      "sources": [
+        {
+          "t": "ServiceNow Form 10-Q, quarter ended Sep 30, 2025",
+          "u": "https://www.sec.gov/Archives/edgar/data/1373715/000137371525000309/now-20250930.htm"
+        },
+        {
+          "t": "NowBen: ServiceNow acquires data.world (May 9, 2025)",
+          "u": "https://nowben.com/servicenow-acquires-data-world-just-months-after-logik-ai-and-moveworks-purchases/"
+        },
+        {
+          "t": "data.world",
+          "u": "https://data.world/"
+        }
+      ]
+    }
+  ]
+}

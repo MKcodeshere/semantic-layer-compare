@@ -1,0 +1,1222 @@
+{
+  "vendors": [
+    {
+      "id": "businessobjects",
+      "name": "SAP BusinessObjects BI",
+      "category": "bi",
+      "tagline": "The long-running enterprise BI suite from SAP. Universes are its semantic layer.",
+      "verdict": "partial",
+      "verdictNote": "Universes (.unx) are a classic governed semantic layer. BusinessObjects has no first-party NL-to-SQL, synonym or MCP feature. SAP puts its AI work into Business Data Cloud.",
+      "artifacts": [
+        {
+          "name": "Universe (.unx) built in Information Design Tool",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, .unx files",
+          "url": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        {
+          "name": "Universe (.unv) built in Universe Design Tool",
+          "kind": "semantic-model",
+          "status": "Deprecated",
+          "since": "",
+          "format": "GUI, .unv files",
+          "url": "https://nbs-us.com/hubfs/SAP%20Analytics%20Business%20Intelligence%20Statement%20of%20Direction.pdf"
+        },
+        {
+          "name": "BI platform RESTful web services (/biprws)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "REST, JSON or XML",
+          "url": "https://hackernoon.com/how-to-fetch-sap-business-objects-universes-using-python"
+        },
+        {
+          "name": "SAP BusinessObjects BI 2025 release",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "Product release",
+          "url": "https://wiiisdom.com/blog/sap-businessobjects-bi-2025/"
+        },
+        {
+          "name": "SAP Business Data Cloud shared semantic layer and HANA Cloud knowledge graph",
+          "kind": "knowledge-graph",
+          "status": "Unverified",
+          "since": "",
+          "format": "SAP cloud service",
+          "url": "https://barc.com/sap-data-analytics-2026/"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "The business layer of a universe holds measures. They map to SQL expressions on the data foundation.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "The business layer holds dimensions, hierarchies and attributes. Web Intelligence queries pick these objects.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "The data foundation declares joins. The tool can detect or set join cardinality.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        "synonyms": {
+          "l": 0,
+          "n": "No synonym or AI context object exists for universes. Teams use object descriptions or an outside layer.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "Universes have no example query or trusted question store. Teams keep curated Web Intelligence documents instead.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        "nl2sql": {
+          "l": 0,
+          "n": "BusinessObjects has no first-party NL-to-SQL. SAP Joule agents depend on Business Data Cloud.",
+          "u": "https://barc.com/sap-data-analytics-2026/"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "BusinessObjects has none. The SAP knowledge graph engine sits in HANA Cloud and Business Data Cloud.",
+          "u": "https://barc.com/sap-data-analytics-2026/"
+        },
+        "graph": {
+          "l": 0,
+          "n": "BusinessObjects has none.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        "vector": {
+          "l": 0,
+          "n": "BusinessObjects has none.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        "mcp": {
+          "l": 1,
+          "n": "SAP has no MCP server. CData sells a third-party MCP server for BusinessObjects BI. It uses the JDBC driver of CData.",
+          "u": "https://cdn.cdata.com/help/GJN/mcp"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Admins can secure universes with data and business security profiles. They set the profiles in the Information Design Tool.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "No OSI or Ossie export exists. Universes (.unx) are a proprietary format. Other tools write them only through the Semantic Layer Java SDK of SAP.",
+          "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/Cloud/Content/Bridges/MIRBoInformationDesignToolUnxExport.htm"
+        }
+      },
+      "offers": [
+        "BI 2025 still supports single-source .unx universes with dimensions, measures and joins.",
+        "Web Intelligence builds queries on a universe, so business users avoid raw SQL.",
+        "Security profiles restrict universe data and objects per user or group.",
+        "BI platform REST services list universes and Web Intelligence documents.",
+        "BI 4.3 mainstream maintenance ends in 2026. Then Customer Specific Maintenance starts."
+      ],
+      "gaps": [
+        "BusinessObjects has no first-party NL-to-SQL, synonyms, verified queries or MCP server.",
+        "BI 2025 does not deliver the Universe Design Tool and .unv universes. Only .unx from Information Design Tool continues.",
+        "BI 2025 also does not deliver multi-source universes, per the SAP statement of direction.",
+        "SAP puts its AI and semantic investment into Business Data Cloud, not the BusinessObjects universe."
+      ],
+      "fillWith": [
+        "Cube",
+        "dbt Semantic Layer",
+        "SAP Business Data Cloud"
+      ],
+      "nl2sqlPath": "BusinessObjects has no native NL-to-SQL. Teams that need an AI agent usually read the warehouse or an outside semantic layer instead of the universe. If the data is in SAP, look at Business Data Cloud and Joule. They are separate products.",
+      "snippet": {
+        "lang": "other",
+        "title": "List universes over the BI platform REST API (third-party tutorial)",
+        "code": "GET http://{host}:6405/biprws/raylight/v1/universes/",
+        "u": "https://hackernoon.com/how-to-fetch-sap-business-objects-universes-using-python"
+      },
+      "sources": [
+        {
+          "t": "SAP Business Intelligence Statement of Direction, May 2024 (SAP)",
+          "u": "https://nbs-us.com/hubfs/SAP%20Analytics%20Business%20Intelligence%20Statement%20of%20Direction.pdf"
+        },
+        {
+          "t": "SAP BusinessObjects Addendum to BI Statement of Direction, June 2021 (SAP)",
+          "u": "https://www.axians.nl/app/uploads/sites/71/2021/12/SAP-BusinessObjects-Addendum-to-BI-SoD_June-2021.pdf"
+        },
+        {
+          "t": "Information Design Tool User Guide, BI 4.3 SP4 (SAP Help)",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        {
+          "t": "SAP BusinessObjects BI 2025 (Wiiisdom)",
+          "u": "https://wiiisdom.com/blog/sap-businessobjects-bi-2025/"
+        },
+        {
+          "t": "SAP BusinessObjects BI 2025 positioning (SAPinsider)",
+          "u": "https://sapinsider.org/articles/saps-strategic-direction-for-analytics-businessobjects-bi-2025/"
+        },
+        {
+          "t": "Building a query based on a universe (SAP Learning)",
+          "u": "https://learning.sap.com/courses/exploring-the-fundamental-concepts-of-sap-businessobjects-web-intelligence/building-a-query-based-on-a-universe"
+        },
+        {
+          "t": "Fetch BusinessObjects universes over REST with Python (Hackernoon)",
+          "u": "https://hackernoon.com/how-to-fetch-sap-business-objects-universes-using-python"
+        },
+        {
+          "t": "Web Intelligence REST workflow (Redwood docs)",
+          "u": "https://documentation.redwood.com/extensions/Content/SAPConnector/BusinessObjects/SAPBobjWebIntelligenceAdvanced.htm"
+        },
+        {
+          "t": "SAP data and analytics 2026 (BARC)",
+          "u": "https://barc.com/sap-data-analytics-2026/"
+        },
+        {
+          "t": "Code Assist MCP for SAP BusinessObjects BI (CData)",
+          "u": "https://cdn.cdata.com/help/GJN/mcp"
+        }
+      ],
+      "worksWith": [
+        "Snowflake",
+        "Google BigQuery",
+        "Azure Synapse Analytics",
+        "Azure SQL Database",
+        "SAP HANA"
+      ],
+      "worksWithUrl": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf",
+      "openToOtherTools": {
+        "l": 1,
+        "n": "REST services list universes and documents. A third-party MCP server exists. There is no SAP MCP and no OSI export.",
+        "u": "https://hackernoon.com/how-to-fetch-sap-business-objects-universes-using-python"
+      },
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "cognos",
+      "name": "IBM Cognos Analytics",
+      "category": "bi",
+      "tagline": "IBM enterprise BI suite with data modules and an AI Assistant.",
+      "verdict": "partial",
+      "verdictNote": "Data modules are a governed model, and the AI Assistant answers questions on them. IBM offers no verified queries and no official MCP server.",
+      "artifacts": [
+        {
+          "name": "Data modules",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://community.ibm.com/community/user/blogs/ian-henderson1/2024/08/23/multi-modeler-multi-module-techniques"
+        },
+        {
+          "name": "AI Assistant",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://www.ibm.com/products/cognos-analytics"
+        },
+        {
+          "name": "Reporting agents (find, summarize, create reports)",
+          "kind": "agent",
+          "status": "Unverified",
+          "since": "2025-10",
+          "format": "GUI",
+          "url": "https://community.ibm.com:443/community/user/blogs/shaveta-srivastava/2025/10/30/cognos-1211-smarter-reporting-faster-dashboards-an?hlmlt=VT"
+        },
+        {
+          "name": "Third-party Cognos MCP server (Activepieces, not IBM)",
+          "kind": "mcp",
+          "status": "Unverified",
+          "since": "2026-09",
+          "format": "Open source, MIT",
+          "url": "https://www.activepieces.com/mcp/ibm-cognose"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "Data modules hold reusable calculations and filtered measures. The Usage property marks a column as a measure.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "Users model dimensions as tables or views with column dependency. This defines grains and hierarchies.",
+          "u": "https://community.ibm.com/community/user/blogs/ian-henderson1/2024/08/23/multi-modeler-multi-module-techniques"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Relationships carry cardinality. Release 12.1.1 added a relationship expression editor and a Use vs Display value option.",
+          "u": "https://community.ibm.com:443/community/user/blogs/shaveta-srivastava/2025/10/30/cognos-1211-smarter-reporting-faster-dashboards-an?hlmlt=VT"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "The Assistant reads column labels and synonyms. Authors add each synonym as a calculation in a folder under the column.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_gtstd.pdf"
+        },
+        "verifiedQueries": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "The AI Assistant answers natural-language questions. It builds visualizations and dashboards from governed data.",
+          "u": "https://www.ibm.com/products/cognos-analytics"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "Data modules have no ontology or business entity layer. They model tables, columns, calculations and relationships.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
+        },
+        "graph": {
+          "l": 0,
+          "n": "Data modules and the Assistant have no graph query feature.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_gtstd.pdf"
+        },
+        "vector": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "mcp": {
+          "l": 3,
+          "n": "Release 12.1.3 adds the Cognos Analytics MCP server, an IBM program. Its tools cover administration, configuration, data and content.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_new.pdf"
+        },
+        "governance": {
+          "l": 3,
+          "n": "IBM lists certified data models, fine-grained access controls and audit trails. The assistant answers from governed data.",
+          "u": "https://www.ibm.com/products/cognos-analytics"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "No open semantic export exists. Cognos does not appear on the Apache Ossie ecosystem page.",
+          "u": "https://ossie.apache.org/ecosystem/"
+        }
+      },
+      "offers": [
+        "Data modules take relationship expressions and display-value settings (12.1.1, Oct 2025).",
+        "The AI Assistant answers natural-language questions from any Cognos view.",
+        "Users can build modules from reusable dimension and fact modules. Aliases serve role-playing tables.",
+        "IBM names 12.1.3 as its latest release. It has conversational data interaction and reporting agents."
+      ],
+      "gaps": [
+        "No official MCP server exists. Only a third-party wrapper and an IBM Ideas request exist.",
+        "Teams on 11.2 and 12.0 reported weak Assistant results on large models with similar column names.",
+        "Users set synonyms per model. Teams reported that sharing them across modules is unsupported in 11.2.3.",
+        "Reporting agents were Preview in 12.1.1. IBM does not state their stage in 12.1.3."
+      ],
+      "fillWith": [
+        "Cube",
+        "dbt Semantic Layer"
+      ],
+      "nl2sqlPath": "Model the data in a data module. Define unique item names and synonyms. Use the built-in AI Assistant for end users. For your own agents, the only MCP path is a third-party wrapper, so test it carefully. Check the IBM 12.1.3 notes before you commit.",
+      "snippet": {
+        "lang": "other",
+        "title": "",
+        "code": "",
+        "u": ""
+      },
+      "sources": [
+        {
+          "t": "IBM Cognos Analytics product page",
+          "u": "https://www.ibm.com/products/cognos-analytics"
+        },
+        {
+          "t": "Cognos 12.1.1 smarter reporting, faster dashboards (IBM Community)",
+          "u": "https://community.ibm.com:443/community/user/blogs/shaveta-srivastava/2025/10/30/cognos-1211-smarter-reporting-faster-dashboards-an?hlmlt=VT"
+        },
+        {
+          "t": "Multi-modeler, multi-module techniques (IBM Community)",
+          "u": "https://community.ibm.com/community/user/blogs/ian-henderson1/2024/08/23/multi-modeler-multi-module-techniques"
+        },
+        {
+          "t": "Your experiences with Cognos Analytics AI Assistant (IBM Community)",
+          "u": "https://community.ibm.com/community/user/discussion/your-experiences-with-cognos-analytics-ai-assistant"
+        },
+        {
+          "t": "Relative time logic in data modules (IBM Community)",
+          "u": "https://community.ibm.com/community/user/discussion/relative-time-logic-lookup-reference-generated-measures-in-enterprise-model-1"
+        },
+        {
+          "t": "Using the REST API with Cognos Analytics on Cloud (IBM Community)",
+          "u": "https://community.ibm.com/community/user/blogs/patrick-neveu/2026/05/07/using-rest-api-with-cognos-analytics-on-cloud"
+        },
+        {
+          "t": "MCP server for Cognos Analytics (IBM Ideas request)",
+          "u": "https://ibm-data-and-ai.ideas.ibm.com/ideas/CA-I-4846"
+        },
+        {
+          "t": "IBM Cognos MCP (Activepieces, third party)",
+          "u": "https://www.activepieces.com/mcp/ibm-cognose"
+        },
+        {
+          "t": "How to set up a Snowflake data source in Cognos Analytics (IBM Support)",
+          "u": "https://www.ibm.com/support/pages/node/6326069"
+        },
+        {
+          "t": "Cognos Analytics on Cloud On-Demand supported environments (IBM Support)",
+          "u": "https://www.ibm.com/support/pages/node/737555"
+        },
+        {
+          "t": "Apache Ossie ecosystem",
+          "u": "https://ossie.apache.org/ecosystem/"
+        },
+        {
+          "t": "Cognos Analytics 12.1.x Data Modules User Guide (PDF)",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
+        },
+        {
+          "t": "Cognos Analytics 12.1.x Getting Started User Guide (PDF)",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_gtstd.pdf"
+        },
+        {
+          "t": "IBM Cognos Analytics 12.1.x What's New (PDF)",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_new.pdf"
+        }
+      ],
+      "worksWith": [
+        "SAP BW/4HANA",
+        "Microsoft Fabric"
+      ],
+      "worksWithUrl": "https://community.ibm.com:443/community/user/blogs/shaveta-srivastava/2025/10/30/cognos-1211-smarter-reporting-faster-dashboards-an?hlmlt=VT",
+      "openToOtherTools": {
+        "l": 1,
+        "n": "A REST API covers content and data sources. The only MCP path is a third-party wrapper. No SQL or OSI route to data modules exists.",
+        "u": "https://community.ibm.com/community/user/blogs/patrick-neveu/2026/05/07/using-rest-api-with-cognos-analytics-on-cloud"
+      },
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "strategy",
+      "name": "Strategy (formerly MicroStrategy)",
+      "category": "bi",
+      "tagline": "BI vendor whose Mosaic universal semantic layer feeds agents and MCP clients.",
+      "verdict": "native",
+      "verdictNote": "Mosaic is a GA semantic layer with agents, an MCP server for Mosaic models, and Apache Ossie YAML import and export.",
+      "artifacts": [
+        {
+          "name": "Strategy Mosaic (universal semantic layer)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "2025-06",
+          "format": "GUI, YAML, Git (GitHub)",
+          "url": "https://www.strategy.com/press/strategy-announces-general-availability-of-strategy-mosaic-the-ai-powered-universal-intelligence-layer_06-24-2025"
+        },
+        {
+          "name": "Agents on AI-enabled Mosaic models",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "2025-12",
+          "format": "GUI",
+          "url": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_agent_from_model.htm"
+        },
+        {
+          "name": "MCP server for Mosaic models",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2026-03",
+          "format": "MCP, endpoint /collaboration/mcp/mosaic",
+          "url": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/agent_mcpserverintegration.htm"
+        },
+        {
+          "name": "Mosaic import and export as Apache Ossie YAML",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "2026-07",
+          "format": "YAML",
+          "url": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_osi_import.htm"
+        },
+        {
+          "name": "Git version control for Mosaic models (GitHub only)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "2026-03",
+          "format": "Git, YAML",
+          "url": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_github.htm"
+        },
+        {
+          "name": "AI-generated ontologies",
+          "kind": "ontology",
+          "status": "Announced",
+          "since": "2026-02",
+          "format": "Not released",
+          "url": "https://www.strategy.com/press/strategy-world-2026-declares-a-new-era-for-enterprise-ai-honors-customer-and-partner-innovation_02-25-2026"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "Mosaic YAML defines fact metrics and derived metrics with aggregation, formulas and formatting.",
+          "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_yaml_overview.htm"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "Attributes, hierarchies and relationships between attributes define grouping and roll-up.",
+          "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_yaml_overview.htm"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Hierarchy and relationship definitions are part of the model. Users can link Mosaic models to each other.",
+          "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_yaml_overview.htm"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Agent column descriptions hold aliases and business logic. Auto knowledge assets take glossaries, acronyms and synonyms.",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/agent_bestpractices.htm"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "No verified-query object exists. Agents use custom instructions with SQL examples and column descriptions instead.",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/agent_bestpractices.htm"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Agents answer questions on AI-enabled Mosaic models. They use the metrics and relationships in the model. GA since Dec 2025.",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_agent_from_model.htm"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "Strategy announced AI-generated ontologies at Strategy World in Feb 2026. They are not released.",
+          "u": "https://www.strategy.com/press/strategy-world-2026-declares-a-new-era-for-enterprise-ai-honors-customer-and-partner-innovation_02-25-2026"
+        },
+        "graph": {
+          "l": 0,
+          "n": "The Mosaic and agent docs show no graph query language.",
+          "u": "https://www2.strategy.com/producthelp/current/readme/en-us/content/whats_new.htm"
+        },
+        "vector": {
+          "l": 0,
+          "n": "The release notes show no vector search over data or metadata.",
+          "u": "https://www2.strategy.com/producthelp/current/readme/en-us/content/whats_new.htm"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "Mosaic models are in the MCP server out of the box from March 2026. This replaces a Feb 2026 preview. Models must be certified.",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/agent_mcpserverintegration.htm"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Mosaic YAML carries security filters and ACLs. MCP queries use only published, certified models that the user can view.",
+          "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_yaml_overview.htm"
+        },
+        "openStandard": {
+          "l": 3,
+          "n": "Mosaic imports and exports Apache Ossie YAML. It was Preview in Jun 2026 and is available out of the box from Jul 2026.",
+          "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_osi_import.htm"
+        }
+      },
+      "offers": [
+        "Mosaic serves JDBC, XMLA and DAX for Power BI, REST and Python. It also has a Tableau connector.",
+        "The Mosaic MCP endpoint returns projects, models, semantic definitions and read-only SQL results (Trino dialect).",
+        "Users can exchange models as Apache Ossie YAML and version them in GitHub.",
+        "Agents read column descriptions and custom instructions. Tuning files can be reused across agents.",
+        "Mosaic Studio can import Databricks Unity Catalog and BigQuery descriptions. It can generate business-friendly names."
+      ],
+      "gaps": [
+        "AI-generated ontologies are announced only.",
+        "Git support starts with GitHub only. It allows one integration per environment.",
+        "Ossie import keeps only ANSI SQL expressions and assumes one-to-many relationships. It loses time granularity on round trips.",
+        "No verified-query object exists. Agent tuning versions that test custom instructions are Preview."
+      ],
+      "fillWith": [
+        "dbt Semantic Layer",
+        "Cube"
+      ],
+      "nl2sqlPath": "Build the model in Mosaic. Certify it. Turn on AI for it. Let agents answer in Strategy tools. For outside agents, connect Claude, ChatGPT or Copilot to the Mosaic MCP endpoint. Use the Ossie YAML export when you need to move definitions elsewhere.",
+      "snippet": {
+        "lang": "other",
+        "title": "MCP endpoint paths for a custom connector (from product help)",
+        "code": "https://env-domain/collaboration/mcp/mosaic\n// agents use a different path:\n// https://env-domain/collaboration/mcp/agent",
+        "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/agent_mcpserverintegration.htm"
+      },
+      "sources": [
+        {
+          "t": "Interact with agents, Mosaic models and cubes using an MCP server (product help)",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/agent_mcpserverintegration.htm"
+        },
+        {
+          "t": "Import and export data from an Apache Ossie YAML file (product help)",
+          "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_osi_import.htm"
+        },
+        {
+          "t": "Import and export Mosaic models as Apache Ossie YAML (release note)",
+          "u": "https://employee.microstrategy.com/whats-new/import-and-export-mosaic-models-as-apache-ossie-yaml"
+        },
+        {
+          "t": "Direct Mosaic model access via MCP (release note)",
+          "u": "https://employee.microstrategy.com/whats-new/direct-mosaic-model-access-via-mcp"
+        },
+        {
+          "t": "Mosaic model version control with GitHub (product help)",
+          "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_github.htm"
+        },
+        {
+          "t": "Mosaic YAML format overview (product help)",
+          "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_yaml_overview.htm"
+        },
+        {
+          "t": "Mosaic Universal Semantic Layer connectors (product help)",
+          "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_connector.htm"
+        },
+        {
+          "t": "Create an agent from a data model (product help)",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_agent_from_model.htm"
+        },
+        {
+          "t": "Best practices: working with agents (product help)",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/agent_bestpractices.htm"
+        },
+        {
+          "t": "What's New in Strategy (product help)",
+          "u": "https://www2.strategy.com/producthelp/current/readme/en-us/content/whats_new.htm"
+        },
+        {
+          "t": "Import data from a database (product help)",
+          "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_import_database.htm"
+        },
+        {
+          "t": "Mosaic general availability press release, Jun 2025",
+          "u": "https://www.strategy.com/press/strategy-announces-general-availability-of-strategy-mosaic-the-ai-powered-universal-intelligence-layer_06-24-2025"
+        },
+        {
+          "t": "Strategy World 2026 press release",
+          "u": "https://www.strategy.com/press/strategy-world-2026-declares-a-new-era-for-enterprise-ai-honors-customer-and-partner-innovation_02-25-2026"
+        },
+        {
+          "t": "Apache Ossie ecosystem",
+          "u": "https://ossie.apache.org/ecosystem/"
+        }
+      ],
+      "worksWith": [
+        "Snowflake",
+        "Databricks",
+        "Google BigQuery",
+        "Amazon Redshift"
+      ],
+      "worksWithUrl": "https://www2.strategy.com/producthelp/current/readme/en-us/content/whats_new.htm",
+      "openToOtherTools": {
+        "l": 3,
+        "n": "Mosaic exposes JDBC, XMLA and DAX, REST, Python, an MCP server for Mosaic models (Mar 2026) and Ossie YAML export (Jul 2026).",
+        "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_connector.htm"
+      },
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "qlik",
+      "name": "Qlik (Qlik Sense and Qlik Cloud)",
+      "category": "bi",
+      "tagline": "Associative analytics platform with logical models, Qlik Answers, and an MCP server.",
+      "verdict": "native",
+      "verdictNote": "Logical models, business logic synonyms, glossary links and Qlik Answers feed AI. The Qlik MCP server reached GA in Feb 2026.",
+      "artifacts": [
+        {
+          "name": "Logical model and business logic (vocabulary, synonyms)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business_logic.htm"
+        },
+        {
+          "name": "Qlik Answers over apps (structured data)",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "2026-02",
+          "format": "GUI, API",
+          "url": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikAnswers/working-with-apps-in-qlik-answers.htm"
+        },
+        {
+          "name": "Qlik Answers generated field and master item descriptions (semantic understanding)",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikAnswers/BusinessLogicAI/business-logic-semantic-understanding.htm"
+        },
+        {
+          "name": "Qlik MCP server",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2026-02",
+          "format": "MCP, tool catalog",
+          "url": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikMCP/Qlik-MCP-server.htm"
+        },
+        {
+          "name": "Fast Mode for Qlik Answers",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "2026-06",
+          "format": "GUI",
+          "url": "https://community.qlik.com/t5/Support-Updates/Introducing-Fast-Mode-A-New-Gear-for-Qlik-Answers/ba-p/2552881"
+        },
+        {
+          "name": "Discovery Agent and Data Products for Analytics",
+          "kind": "agent",
+          "status": "Announced",
+          "since": "2026-02",
+          "format": "Planned after the Feb 2026 release",
+          "url": "https://www.qlik.com/us/news/company/press-room/press-releases/qlik-brings-agentic-analytics-to-general-availability-and-launches-mcp-server-for-third-party-assistants"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "Qlik Answers indexes master measures first. Fast Mode uses them. MCP tools create and update them.",
+          "u": "https://community.qlik.com/t5/Support-Updates/Introducing-Fast-Mode-A-New-Gear-for-Qlik-Answers/ba-p/2552881"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "Fast Mode uses master dimensions. The logical model adds groups, hierarchies and calendar periods.",
+          "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business-logic-logical-models.htm"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Logical model groups show conceptual association between fields and master items. Qlik Answers reads the Overview and Fields tabs.",
+          "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business-logic-logical-models.htm"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Business logic vocabulary maps alternate terms. Answers generates field descriptions that you can edit. Glossary terms link to master items.",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business_logic.htm"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "No verified-query store exists. Vocabulary custom analyses and example questions are the closest match.",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business_logic.htm"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Qlik Answers on apps reached GA in Feb 2026. Fast Mode for simple lookups went live in Jun 2026.",
+          "u": "https://www.qlik.com/us/news/company/press-room/press-releases/qlik-brings-agentic-analytics-to-general-availability-and-launches-mcp-server-for-third-party-assistants"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "None exists. Business glossary terms and data products exist, but no ontology layer.",
+          "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikMCP/Qlik-MCP-server.htm"
+        },
+        "graph": {
+          "l": 0,
+          "n": "None exists.",
+          "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikMCP/Qlik-MCP-server.htm"
+        },
+        "vector": {
+          "l": 0,
+          "n": "Knowledge base search exists for documents. The docs show no vector search over app data or metadata.",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikMCP/Qlik-MCP-server-tools.htm"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "Qlik MCP server GA Feb 2026. It needs the Qlik MCP: Allowed permission. Admins can enable tools per tenant.",
+          "u": "https://www.qlik.com/us/news/company/press-room/press-releases/qlik-brings-agentic-analytics-to-general-availability-and-launches-mcp-server-for-third-party-assistants"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Qlik Answers respects Section Access. MCP tools run as the connecting user. A lineage tool exists.",
+          "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikAnswers/working-with-apps-in-qlik-answers.htm"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "Qlik joined the Open Semantic Interchange effort. The docs show no Qlik export of the logical model.",
+          "u": "https://ossie.apache.org/updates/qlik-joins-snowflake-to-support-open-semantic-interchange/"
+        }
+      },
+      "offers": [
+        "The logical model and vocabulary supply synonyms and custom analyses to Insight Advisor.",
+        "Qlik Answers generates field and master item descriptions you can review and edit.",
+        "The Qlik MCP server lets outside assistants search apps, read fields, apply selections and run ad hoc calculations.",
+        "MCP tools cover glossary, data products, lineage, master items and selections.",
+        "Section Access limits what Qlik Answers returns."
+      ],
+      "gaps": [
+        "No verified-query or example-SQL object exists.",
+        "Each app has a single logical model, so it is not a shared governed model across apps.",
+        "Qlik joined the standard but has no export of the logical model to Ossie.",
+        "Qlik announced Discovery Agent and Data Products for Analytics for after Feb 2026. Their current status is not confirmed."
+      ],
+      "fillWith": [
+        "Cube",
+        "dbt Semantic Layer"
+      ],
+      "nl2sqlPath": "Define master measures and dimensions. Set up the logical model and vocabulary. Then let Qlik Answers index the app. For your own agents, connect to the Qlik MCP server and enable only the tools you need. Plan for one logical model per app when you think about reuse.",
+      "snippet": {
+        "lang": "other",
+        "title": "Qlik MCP app discovery tools (names from the tools page)",
+        "code": "qlik_search\nqlik_describe_app\nqlik_get_fields\nqlik_list_sheets\nqlik_get_sheet_details",
+        "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikMCP/Qlik-MCP-server-tools.htm"
+      },
+      "sources": [
+        {
+          "t": "Qlik agentic analytics GA and MCP server press release",
+          "u": "https://www.qlik.com/us/news/company/press-room/press-releases/qlik-brings-agentic-analytics-to-general-availability-and-launches-mcp-server-for-third-party-assistants"
+        },
+        {
+          "t": "Qlik MCP server (help)",
+          "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikMCP/Qlik-MCP-server.htm"
+        },
+        {
+          "t": "Qlik MCP tools (help)",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikMCP/Qlik-MCP-server-tools.htm"
+        },
+        {
+          "t": "Building logical models for Insight Advisor (help)",
+          "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business-logic-logical-models.htm"
+        },
+        {
+          "t": "Customizing logical models for Insight Advisor (help)",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business_logic.htm"
+        },
+        {
+          "t": "Qlik Answers generated descriptions (help)",
+          "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikAnswers/BusinessLogicAI/business-logic-semantic-understanding.htm"
+        },
+        {
+          "t": "Working with applications in Qlik Answers (help)",
+          "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikAnswers/working-with-apps-in-qlik-answers.htm"
+        },
+        {
+          "t": "Fast Mode for Qlik Answers (Qlik Community)",
+          "u": "https://community.qlik.com/t5/Support-Updates/Introducing-Fast-Mode-A-New-Gear-for-Qlik-Answers/ba-p/2552881"
+        },
+        {
+          "t": "Data sources in Qlik Cloud Analytics (help)",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Helpsites/Connectors_SaaS.htm"
+        },
+        {
+          "t": "Qlik joins Snowflake to support Open Semantic Interchange",
+          "u": "https://ossie.apache.org/updates/qlik-joins-snowflake-to-support-open-semantic-interchange/"
+        }
+      ],
+      "worksWith": [
+        "Snowflake",
+        "Databricks",
+        "Google BigQuery",
+        "Amazon Redshift",
+        "Azure Synapse Analytics",
+        "Azure SQL Database",
+        "Apache Spark",
+        "Apache Hive"
+      ],
+      "worksWithUrl": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Helpsites/Connectors_SaaS.htm",
+      "openToOtherTools": {
+        "l": 3,
+        "n": "The Qlik MCP server (GA Feb 2026) exposes app discovery, fields, ad hoc calculations and glossary to third-party assistants.",
+        "u": "https://www.qlik.com/us/news/company/press-room/press-releases/qlik-brings-agentic-analytics-to-general-availability-and-launches-mcp-server-for-third-party-assistants"
+      },
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "oracleanalytics",
+      "name": "Oracle Analytics Cloud and Server",
+      "category": "bi",
+      "tagline": "Oracle BI platform with a code-based semantic model, AI Assistant, and an MCP server in Preview.",
+      "verdict": "native",
+      "verdictNote": "The semantic model (Semantic Modeler, SMML JSON, Git) feeds the AI Assistant through indexing, synonyms and AI Descriptions. The MCP server is still Preview.",
+      "artifacts": [
+        {
+          "name": "Semantic Modeler (SMML JSON, Git)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "JSON files, GUI",
+          "url": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/what-is-oracle-analytics-semantic-modeler.html"
+        },
+        {
+          "name": "Model Administration Tool (.rpd)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "Windows tool, .rpd",
+          "url": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/semantic-models-architecture.html"
+        },
+        {
+          "name": "Oracle Analytics AI Assistant",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/oracle-analytics-ai-assistant.html"
+        },
+        {
+          "name": "Search Index: AI Assistant indexing, synonyms and AI Descriptions",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, CSV",
+          "url": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/managing-data-model-indexing-synonyms-ai-descriptions-using-csv-file.html"
+        },
+        {
+          "name": "Oracle Analytics Cloud MCP server",
+          "kind": "mcp",
+          "status": "Preview",
+          "since": "2025-11",
+          "format": "MCP, OAuth 2.0",
+          "url": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/access-oracle-analytics-cloud-mcp-server-preview.html"
+        },
+        {
+          "name": "Analytic Views support in Semantic Modeler",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "2026-01",
+          "format": "GUI",
+          "url": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/data-sources-supported-semantic-models.html"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "Logical columns carry aggregation rules. The logical layer holds measures, level-based measures and calculations.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsmm/smml-elements-logical-table.html"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "Logical levels, level-based and parent-child hierarchies and drill paths are part of the model.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsmm/smml-elements-logical-table.html"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "The physical layer holds joins and aliases. Logical tables carry joins with mapped table sources.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/semantic-models-architecture.html"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Admins set synonyms, indexing and AI Descriptions per column in the Search Index. CSV export allows bulk edits.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/managing-data-model-indexing-synonyms-ai-descriptions-using-csv-file.html"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "No verified-query object exists. AI Descriptions add business context per column instead.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/managing-data-model-indexing-synonyms-ai-descriptions-using-csv-file.html"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "The AI Assistant reuses indexed datasets and subject areas and answers in natural language.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/oracle-analytics-ai-assistant.html"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "The semantic model has none.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/semantic-models-architecture.html"
+        },
+        "graph": {
+          "l": 0,
+          "n": "The semantic model has none.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/semantic-models-architecture.html"
+        },
+        "vector": {
+          "l": 0,
+          "n": "The docs show no vector search. The AI Assistant uses a metadata and value index.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/managing-data-model-indexing-synonyms-ai-descriptions-using-csv-file.html"
+        },
+        "mcp": {
+          "l": 2,
+          "n": "The OAC MCP server is Preview. It has tools to search the catalog, describe data and run ANSI or Logical SQL. It was first listed in Nov 2025.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/access-oracle-analytics-cloud-mcp-server-preview.html"
+        },
+        "governance": {
+          "l": 3,
+          "n": "MCP tools run with the permissions of the user of the token. Sensitive Data indexing limits values to users with column access.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/access-oracle-analytics-cloud-mcp-server-preview.html"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "The model is JSON (SMML) with Git support. Semantic Modeler has no Ossie or OSI export.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/what-is-oracle-analytics-semantic-modeler.html"
+        }
+      },
+      "offers": [
+        "The Search Index lets admins choose which attributes the AI Assistant sees. It has synonyms, AI Descriptions and metadata-only or value indexing.",
+        "Semantic Modeler stores models as JSON (SMML) files with Git integration.",
+        "MCP tools search the catalog, find matching data sources for a question, describe columns and run ANSI SQL or Logical SQL.",
+        "AI Descriptions state units, formats and aggregation rules for the assistant (Sep 2026).",
+        "Semantic Modeler supports Snowflake, BigQuery, Redshift, Oracle databases and Analytic Views."
+      ],
+      "gaps": [
+        "The MCP server is Preview. Oracle warns that its behavior may change. A tool (discover_data) is already deprecated.",
+        "The AI Assistant has no verified-query object.",
+        "Databricks is not in the Semantic Modeler data source table.",
+        "No Ossie or OSI converter or open export exists."
+      ],
+      "fillWith": [
+        "Cube",
+        "dbt Semantic Layer"
+      ],
+      "nl2sqlPath": "Build the model in Semantic Modeler. Then enable attributes, synonyms and AI Descriptions in the Search Index so the AI Assistant can use them. For outside agents, use the Preview MCP server and keep its permissions narrow. Do not depend on it for production until it is GA.",
+      "snippet": {
+        "lang": "json",
+        "title": "OAC MCP tools/call arguments for oracle_analytics-search_catalog (from Oracle docs)",
+        "code": "{\n  \"name\": \"oracle_analytics-search_catalog\",\n  \"arguments\": {\n    \"query\": \"sales\",\n    \"types\": [\"datasets\", \"subjectAreas\"],\n    \"limit\": 20\n  }\n}",
+        "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/deprecated-mcp-server-tools-preview.html"
+      },
+      "sources": [
+        {
+          "t": "Get started with Oracle Analytics Cloud MCP tools (Preview)",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/access-oracle-analytics-cloud-mcp-server-preview.html"
+        },
+        {
+          "t": "Available Oracle Analytics Cloud MCP tools (Preview)",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/available-oracle-analytics-cloud-mcp-tools-preview.html"
+        },
+        {
+          "t": "Visible MCP tool metadata (Preview)",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/visible-mcp-tool-metadata-preview.html"
+        },
+        {
+          "t": "Deprecated MCP server tools (Preview)",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/deprecated-mcp-server-tools-preview.html"
+        },
+        {
+          "t": "MCP quick reference (Preview)",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/quick-reference-preview.html"
+        },
+        {
+          "t": "What's New for Oracle Analytics Cloud",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acswn/index.html"
+        },
+        {
+          "t": "About Oracle Analytics AI Assistant",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/oracle-analytics-ai-assistant.html"
+        },
+        {
+          "t": "Managing indexing, synonyms and AI Descriptions using a CSV file",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/managing-data-model-indexing-synonyms-ai-descriptions-using-csv-file.html"
+        },
+        {
+          "t": "Data sources supported for semantic models",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/data-sources-supported-semantic-models.html"
+        },
+        {
+          "t": "About a semantic model's architecture",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/semantic-models-architecture.html"
+        },
+        {
+          "t": "What is Oracle Analytics Semantic Modeler?",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/what-is-oracle-analytics-semantic-modeler.html"
+        },
+        {
+          "t": "SMML elements: logical table",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsmm/smml-elements-logical-table.html"
+        }
+      ],
+      "worksWith": [
+        "Snowflake",
+        "Google BigQuery",
+        "Amazon Redshift",
+        "PostgreSQL",
+        "Teradata",
+        "Oracle Autonomous AI Lakehouse",
+        "Oracle AI Data Platform",
+        "Oracle Database"
+      ],
+      "worksWithUrl": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/data-sources-supported-semantic-models.html",
+      "openToOtherTools": {
+        "l": 2,
+        "n": "The OAC MCP server is Preview. AI clients search the catalog, describe data and run ANSI SQL or Logical SQL as the user of the token.",
+        "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/access-oracle-analytics-cloud-mcp-server-preview.html"
+      },
+      "verified": "2026-10-24"
+    }
+  ],
+  "notes": [
+    {
+      "topic": "SAP BusinessObjects roadmap",
+      "text": "The May 2024 statement of direction from SAP says BI 2025 does not deliver Universe Design Tool, .unv universes or multi-source universes. It planned BI 2027 for Q4 2026. Wiiisdom (Feb 2026) says BI 4.3 mainstream maintenance ends in 2026. Customer Specific Maintenance follows, with security fixes in the first 12 months. The status of BI 2027 is not confirmed.",
+      "sources": [
+        {
+          "t": "SAP statement of direction, May 2024",
+          "u": "https://nbs-us.com/hubfs/SAP%20Analytics%20Business%20Intelligence%20Statement%20of%20Direction.pdf"
+        },
+        {
+          "t": "Wiiisdom",
+          "u": "https://wiiisdom.com/blog/sap-businessobjects-bi-2025/"
+        }
+      ]
+    },
+    {
+      "topic": "BusinessObjects .unv end of support",
+      "text": "The 2021 addendum from SAP tied the end of .unv and Universe Design Tool support to the end of BI 4.3 maintenance, end of 2027. The 2024 direction from SAP says .unx universes cover all .unv use cases. It also says SAP tools support migration to .unx. Wiiisdom says .unv is not supported after BI 4.3.",
+      "sources": [
+        {
+          "t": "SAP 2021 addendum",
+          "u": "https://www.axians.nl/app/uploads/sites/71/2021/12/SAP-BusinessObjects-Addendum-to-BI-SoD_June-2021.pdf"
+        },
+        {
+          "t": "SAP statement of direction, May 2024",
+          "u": "https://nbs-us.com/hubfs/SAP%20Analytics%20Business%20Intelligence%20Statement%20of%20Direction.pdf"
+        },
+        {
+          "t": "Wiiisdom",
+          "u": "https://wiiisdom.com/blog/sap-businessobjects-bi-2025/"
+        }
+      ]
+    },
+    {
+      "topic": "BusinessObjects data platforms",
+      "text": "The list shown comes from the connections named in the Information Design Tool guide of SAP. The full list is in the Product Availability Matrix of SAP. That matrix needs an SAP login.",
+      "sources": [
+        {
+          "t": "Information Design Tool User Guide",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        }
+      ]
+    },
+    {
+      "topic": "Cognos latest release",
+      "text": "The IBM product page calls 12.1.3 the latest release. It says reporting agents and conversational data interaction arrive with it. GenAI agents were Preview in 12.1.1 (Oct 2025). The IBM docs pages were not readable, so several data module details rely on IBM Community posts.",
+      "sources": [
+        {
+          "t": "IBM Cognos Analytics",
+          "u": "https://www.ibm.com/products/cognos-analytics"
+        },
+        {
+          "t": "Cognos 12.1.1 (IBM Community)",
+          "u": "https://community.ibm.com:443/community/user/blogs/shaveta-srivastava/2025/10/30/cognos-1211-smarter-reporting-faster-dashboards-an?hlmlt=VT"
+        }
+      ]
+    },
+    {
+      "topic": "Cognos MCP",
+      "text": "No IBM MCP server exists. A third-party Activepieces MCP server (updated Sep 2026) exposes data source and content object actions. An IBM Ideas request from Jun 2026 asks for an official server.",
+      "sources": [
+        {
+          "t": "Activepieces",
+          "u": "https://www.activepieces.com/mcp/ibm-cognose"
+        },
+        {
+          "t": "IBM Ideas",
+          "u": "https://ibm-data-and-ai.ideas.ibm.com/ideas/CA-I-4846"
+        }
+      ]
+    },
+    {
+      "topic": "Cognos data platforms",
+      "text": "IBM publishes its supported data source list as compatibility reports. The list shown is limited to the SAP BW/4HANA and Microsoft Fabric connectors named in the 12.1.1 release post. IBM also documents a Snowflake data source setup.",
+      "sources": [
+        {
+          "t": "Cognos 12.1.1 (IBM Community)",
+          "u": "https://community.ibm.com:443/community/user/blogs/shaveta-srivastava/2025/10/30/cognos-1211-smarter-reporting-faster-dashboards-an?hlmlt=VT"
+        },
+        {
+          "t": "Snowflake setup (IBM Support)",
+          "u": "https://www.ibm.com/support/pages/node/6326069"
+        },
+        {
+          "t": "Supported environments (IBM Support)",
+          "u": "https://www.ibm.com/support/pages/node/737555"
+        }
+      ]
+    },
+    {
+      "topic": "Strategy rename and Mosaic timeline",
+      "text": "MicroStrategy is now Strategy. Mosaic went GA Jun 24, 2025. Mosaic in the MCP server shipped out of the box on Mar 20, 2026. This replaced a Feb 2026 preview. An admin enables the MCP server itself once per environment. From Sep 2026 separate privileges control the Agent and Mosaic MCP servers. Use Mosaic MCP Server is off by default after an upgrade.",
+      "sources": [
+        {
+          "t": "MCP server (product help)",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/agent_mcpserverintegration.htm"
+        },
+        {
+          "t": "Mosaic MCP release note",
+          "u": "https://employee.microstrategy.com/whats-new/direct-mosaic-model-access-via-mcp"
+        },
+        {
+          "t": "Mosaic GA",
+          "u": "https://www.strategy.com/press/strategy-announces-general-availability-of-strategy-mosaic-the-ai-powered-universal-intelligence-layer_06-24-2025"
+        }
+      ]
+    },
+    {
+      "topic": "Strategy Ossie import and export",
+      "text": "Import and export of Apache Ossie YAML was a Preview in Strategy One June 2026. It is available out of the box from the July 2026 release (release note dated Jul 17, 2026). Only ANSI SQL expressions import. Relationships import as one-to-many. Time granularity is lost on a round trip. October 2026 converts unknown database functions to pass-through expressions.",
+      "sources": [
+        {
+          "t": "Ossie import and export (product help)",
+          "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_osi_import.htm"
+        },
+        {
+          "t": "Release note",
+          "u": "https://employee.microstrategy.com/whats-new/import-and-export-mosaic-models-as-apache-ossie-yaml"
+        }
+      ]
+    },
+    {
+      "topic": "Open Semantic Interchange rename",
+      "text": "OSI is now Apache Ossie (Incubating). The Ossie ecosystem page describes Strategy Mosaic import and export. It also lists Qlik and Oracle among participants. The Qlik and Oracle docs show no export.",
+      "sources": [
+        {
+          "t": "Apache Ossie ecosystem",
+          "u": "https://ossie.apache.org/ecosystem/"
+        },
+        {
+          "t": "Qlik joins OSI",
+          "u": "https://ossie.apache.org/updates/qlik-joins-snowflake-to-support-open-semantic-interchange/"
+        }
+      ]
+    },
+    {
+      "topic": "Qlik MCP and Answers timeline",
+      "text": "Qlik announced GA of its agentic experience, Qlik Answers and the MCP server in Feb 2026. Discovery Agent and Data Products for Analytics were to follow. Fast Mode for Qlik Answers on structured data went live Jun 7, 2026. Qlik MCP tools now include lineage, glossary, data product and master item tools.",
+      "sources": [
+        {
+          "t": "Qlik press release",
+          "u": "https://www.qlik.com/us/news/company/press-room/press-releases/qlik-brings-agentic-analytics-to-general-availability-and-launches-mcp-server-for-third-party-assistants"
+        },
+        {
+          "t": "Fast Mode",
+          "u": "https://community.qlik.com/t5/Support-Updates/Introducing-Fast-Mode-A-New-Gear-for-Qlik-Answers/ba-p/2552881"
+        },
+        {
+          "t": "Qlik MCP tools",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikMCP/Qlik-MCP-server-tools.htm"
+        }
+      ]
+    },
+    {
+      "topic": "Oracle MCP stage and tool names",
+      "text": "The Sep 2026 developer guide from Oracle still labels the OAC MCP server Preview. It first appeared in the Nov 2025 update. Tool names changed. The oracle_analytics-discover_data tool is deprecated, and search_catalog replaces it. Oracle added ANSI SQL execution.",
+      "sources": [
+        {
+          "t": "MCP tools (Preview)",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/access-oracle-analytics-cloud-mcp-server-preview.html"
+        },
+        {
+          "t": "Deprecated tools",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/deprecated-mcp-server-tools-preview.html"
+        },
+        {
+          "t": "What's New",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acswn/index.html"
+        }
+      ]
+    },
+    {
+      "topic": "Oracle Analytic Views in Semantic Modeler",
+      "text": "The Jan 2026 update added Analytic Views to Semantic Modeler. The supported data source table now lists Oracle Analytic Views as supported in both Semantic Modeler and the Model Administration Tool.",
+      "sources": [
+        {
+          "t": "What's New",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acswn/index.html"
+        },
+        {
+          "t": "Data sources supported",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/data-sources-supported-semantic-models.html"
+        }
+      ]
+    },
+    {
+      "topic": "Oracle AI Assistant and AI Descriptions",
+      "text": "The AI Assistant docs carry no preview label. AI Descriptions for datasets and subject area columns appear in the Sep 2026 What's New. The Oracle docs list Databricks as a remote data source through Data Gateway. They do not list it in the Semantic Modeler table.",
+      "sources": [
+        {
+          "t": "About Oracle Analytics AI Assistant",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/oracle-analytics-ai-assistant.html"
+        },
+        {
+          "t": "What's New",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acswn/index.html"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1510 @@
+{
+  "vendors": [
+    {
+      "id": "tableau",
+      "name": "Tableau (Tableau Semantics, Tableau Next)",
+      "category": "bi",
+      "tagline": "Salesforce BI with Tableau Semantics, a semantic layer on Data 360, and an MCP server.",
+      "verdict": "native",
+      "verdictNote": "Tableau Semantics holds metrics, calculated fields, and relationships in Tableau Next and Data 360. Agents reach it through a GA MCP server (Apr 2026).",
+      "artifacts": [
+        {
+          "name": "Tableau Semantics (semantic layer in Tableau Next, on Data 360)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, Salesforce Semantic Model JSON",
+          "url": "https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/learn-the-basics-of-tableau-semantics"
+        },
+        {
+          "name": "Tableau Next MCP server",
+          "kind": "mcp",
+          "status": "Unverified",
+          "since": "",
+          "format": "MCP",
+          "url": "https://www.tableau.com/2026-1-april-features"
+        },
+        {
+          "name": "Tableau MCP (open source, hosted at mcp.tableau.com or self-hosted)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "",
+          "format": "MCP, OAuth 2.1 or PAT",
+          "url": "https://tableau.github.io/tableau-mcp/"
+        },
+        {
+          "name": "Concierge (conversational analytics agent in Tableau Next)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, Agentforce",
+          "url": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
+        },
+        {
+          "name": "Semantic Model Scope and Page Filters in Concierge",
+          "kind": "agent",
+          "status": "Unverified",
+          "since": "",
+          "format": "GUI",
+          "url": "https://www.tableau.com/2026-1-april-features"
+        },
+        {
+          "name": "Q&A Calibration and Data Pro auto-generated semantic models",
+          "kind": "nl2sql",
+          "status": "Preview",
+          "since": "2026-04",
+          "format": "GUI",
+          "url": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
+        },
+        {
+          "name": "Tableau Pulse (metrics and insights)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://help.tableau.com/current/online/en-us/pulse_intro.htm"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "Semantic Model Builder defines metrics and calculated fields. Metrics carry filters and a time dimension that agents reuse.",
+          "u": "https://trailhead.salesforce.com/content/learn/modules/semantic-models-in-tableau-next-quick-look/design-your-semantic-model-for-analysis"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "Users build calculated dimensions and measures in the model. The docs do not describe hierarchies and time grains.",
+          "u": "https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/create-calculated-fields-and-metrics"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "The canvas shows relationships between data objects. Einstein can suggest relationships when the toggle is on.",
+          "u": "https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/learn-the-basics-of-tableau-semantics"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Agents read field labels and descriptions (255 characters). The docs also name Business Preferences. The docs show no synonym field.",
+          "u": "https://trailhead.salesforce.com/content/learn/modules/semantic-models-in-tableau-next-quick-look/design-your-semantic-model-for-analysis"
+        },
+        "verifiedQueries": {
+          "l": 2,
+          "n": "Q&A Calibration is Beta in the April 2026 notes and still Beta in June 2026. It does not use question-SQL pairs.",
+          "u": "https://www.tableau.com/2026-1-april-features"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Concierge answers natural-language questions over Tableau Semantics models in Tableau Next.",
+          "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "Semantic Model Builder elements are metrics, calculated fields, parameters, logical views, and data objects. No ontology object exists.",
+          "u": "https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/learn-the-basics-of-tableau-semantics"
+        },
+        "graph": {
+          "l": 0,
+          "n": "No graph query language exists. The Knowledge Graph REST API (Cloud+, Sept 2026) returns nodes, lineage and impact over Tableau content metadata only.",
+          "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_tableau_knowledge_graph.htm"
+        },
+        "vector": {
+          "l": 3,
+          "n": "The Tableau Knowledge Graph API has a natural-language semantic search over graph nodes. It is Cloud+ only, not on Tableau Server.",
+          "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_tableau_knowledge_graph.htm"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "April 2026 notes: Tableau Next MCP is generally available. The open-source Tableau MCP covers Cloud and Server.",
+          "u": "https://www.tableau.com/2026-1-april-features"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Admins set which semantic models an agent may use. Hosted Tableau MCP enforces the existing permissions of each user.",
+          "u": "https://www.tableau.com/2026-1-april-features"
+        },
+        "openStandard": {
+          "l": 1,
+          "n": "The Apache Ossie converters repo has a two-way Salesforce converter. It is described as the Salesforce / Tableau semantic layer.",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        }
+      },
+      "offers": [
+        "The Tableau Next MCP server (GA Apr 2026) lets agents query the analytics engine of Tableau with semantic context.",
+        "Open-source tableau-mcp works with Tableau Cloud and Server. It is hosted at mcp.tableau.com or self-hosted.",
+        "Semantic Model Scope in Concierge limits which semantic models an agent may use.",
+        "Data 360 connectors cover Snowflake, BigQuery, Redshift, Databricks, PostgreSQL, and MySQL."
+      ],
+      "gaps": [
+        "Q&A Calibration and auto-generated semantic models are Beta.",
+        "The semantic layer lives in Salesforce Data 360, so definitions sit inside one vendor cloud.",
+        "No synonym field exists. Descriptions and Business Preferences carry business wording.",
+        "Salesforce lists opening the semantic layer to other semantic layers as roadmap work. It is not shipped."
+      ],
+      "fillWith": [
+        "Snowflake Semantic Views",
+        "dbt Semantic Layer",
+        "Cube"
+      ],
+      "nl2sqlPath": "Build a semantic model in Tableau Next on Data 360. Then use Concierge or the Tableau Next MCP server to ask questions. Calls go through the semantic model, so the agent does not write raw SQL. Write clear field labels and descriptions first.",
+      "snippet": {
+        "lang": "other",
+        "title": "Hosted Tableau MCP endpoint named in the tableau-mcp README",
+        "code": "https://mcp.tableau.com",
+        "u": "https://raw.githubusercontent.com/tableau/tableau-mcp/main/README.md"
+      },
+      "worksWith": [
+        "Snowflake",
+        "Google BigQuery",
+        "Amazon Redshift",
+        "Databricks",
+        "PostgreSQL",
+        "MySQL"
+      ],
+      "worksWithUrl": "https://www.salesforce.com/analytics/tableau-next/",
+      "openToOtherTools": {
+        "l": 3,
+        "n": "Tableau Next MCP is GA (Apr 2026) and open-source tableau-mcp is available. No SQL interface exists. An Ossie converter exists.",
+        "u": "https://www.tableau.com/2026-1-april-features"
+      },
+      "sources": [
+        {
+          "t": "Tableau Next (Salesforce)",
+          "u": "https://www.salesforce.com/analytics/tableau-next/"
+        },
+        {
+          "t": "Tableau MCP docs",
+          "u": "https://tableau.github.io/tableau-mcp/"
+        },
+        {
+          "t": "Tableau MCP README",
+          "u": "https://raw.githubusercontent.com/tableau/tableau-mcp/main/README.md"
+        },
+        {
+          "t": "Trailhead: Learn the Basics of Tableau Semantics",
+          "u": "https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/learn-the-basics-of-tableau-semantics"
+        },
+        {
+          "t": "Trailhead: Create Calculated Fields and Metrics",
+          "u": "https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/create-calculated-fields-and-metrics"
+        },
+        {
+          "t": "Trailhead: Design a Semantic Model for Effective AI Analytics",
+          "u": "https://trailhead.salesforce.com/content/learn/modules/semantic-models-in-tableau-next-quick-look/design-your-semantic-model-for-analysis"
+        },
+        {
+          "t": "Apache Ossie converters repo",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        },
+        {
+          "t": "Tableau Next MCP Server (Salesforce Help)",
+          "u": "https://help.salesforce.com/s/articleView?id=analytics.tua_data_sdm_mcp.htm&language=en_US&type=5"
+        },
+        {
+          "t": "Tableau Help: Step 4, Enable Tableau Next AI Features",
+          "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
+        },
+        {
+          "t": "Tableau Help: Tableau Knowledge Graph Methods",
+          "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_tableau_knowledge_graph.htm"
+        },
+        {
+          "t": "Tableau Pulse release notes",
+          "u": "https://help.tableau.com/current/online/en-us/pulse_intro.htm"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "thoughtspot",
+      "name": "ThoughtSpot",
+      "category": "bi",
+      "tagline": "Search and AI analytics platform with Models, TML, Spotter agents, and an MCP server.",
+      "verdict": "native",
+      "verdictNote": "Models with joins, formulas, synonyms, coaching, and TML are GA. They feed Spotter. Agents reach Spotter through a dated-version MCP server.",
+      "artifacts": [
+        {
+          "name": "Models (replaced Worksheets)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, TML",
+          "url": "https://docs.thoughtspot.com/cloud/26.10.0.cl/models.md"
+        },
+        {
+          "name": "ThoughtSpot Modeling Language (TML)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "TML text",
+          "url": "https://docs.thoughtspot.com/cloud/26.10.0.cl/tml.md"
+        },
+        {
+          "name": "Spotter Semantics (governed semantic layer built on Models and AI context)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "2026-03",
+          "format": "GUI, TML",
+          "url": "https://docs.thoughtspot.com/cloud/26.6.0.cl/semantic-layer"
+        },
+        {
+          "name": "Spotter (AI analyst, replaced Sage and Ask Sage)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://developers.thoughtspot.com/docs/deprecated-features"
+        },
+        {
+          "name": "Spotter agent conversation APIs",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "REST",
+          "url": "https://developers.thoughtspot.com/docs/spotter-agent-apis"
+        },
+        {
+          "name": "Spotter MCP server (Spotter 3 tools from the 2026-05-01 version)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2026-04",
+          "format": "MCP",
+          "url": "https://developers.thoughtspot.com/docs/mcp-server-changelog"
+        },
+        {
+          "name": "SpotterModel (autonomous Model generation)",
+          "kind": "nl2sql",
+          "status": "Preview",
+          "since": "",
+          "format": "GUI",
+          "url": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-model-create.md"
+        },
+        {
+          "name": "Snowflake Semantic Views integration (import as Models)",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "2026-05",
+          "format": "GUI, YAML upload",
+          "url": "https://docs.thoughtspot.com/cloud/26.6.0.cl/26-5-0-cl"
+        },
+        {
+          "name": "Worksheets",
+          "kind": "semantic-model",
+          "status": "Deprecated",
+          "since": "2024-11",
+          "format": "GUI, TML",
+          "url": "https://developers.thoughtspot.com/docs/deprecated-features"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "Models hold formulas and measures. The Spotter Semantics docs describe metrics defined once and applied everywhere.",
+          "u": "https://docs.thoughtspot.com/cloud/26.6.0.cl/semantic-layer"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "Model columns are typed ATTRIBUTE or MEASURE. The docs also cover custom calendars and a default metric time grain. The docs show no hierarchy object.",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/data-modeling-column-basics.md"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "The model editor creates joins between tables. SpotterModel suggests joins (Beta).",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/models.md"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Spotter reads column synonyms, descriptions, and Spotter instructions. ThoughtSpot removed model-level AI synonym generation in 26.6.0.cl.",
+          "u": "https://docs.thoughtspot.com/cloud/26.9.0.cl/deprecation"
+        },
+        "verifiedQueries": {
+          "l": 3,
+          "n": "Reference questions train Spotter. Coaching access and coaching TML export went GA in 26.3.0.cl.",
+          "u": "https://docs.thoughtspot.com/cloud/26.9.0.cl/26-3-0-cl"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Spotter is the AI analyst. ThoughtSpot removed Sage and Ask Sage in December 2025 and replaced them with Spotter.",
+          "u": "https://developers.thoughtspot.com/docs/deprecated-features"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "The documentation index shows no ontology object. Teams use Models with column descriptions, synonyms and Spotter instructions.",
+          "u": "https://docs.thoughtspot.com/llms-full.txt"
+        },
+        "graph": {
+          "l": 0,
+          "n": "The documentation index shows no graph query feature.",
+          "u": "https://docs.thoughtspot.com/llms-full.txt"
+        },
+        "vector": {
+          "l": 0,
+          "n": "The documentation index shows no vector search feature. Spotter uses a value index for column values.",
+          "u": "https://docs.thoughtspot.com/llms-full.txt"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "MCP versions carry dates. The 2026-05-01 version switched to Spotter 3 session tools and deprecated the old URLs.",
+          "u": "https://developers.thoughtspot.com/docs/mcp-server-changelog"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Row-level security rules on tables apply to Models and Answers. The docs say RLS and CLS apply during query generation.",
+          "u": "https://docs.thoughtspot.com/cloud/26.9.0.cl/security-rls"
+        },
+        "openStandard": {
+          "l": 1,
+          "n": "The Apache Ossie converters repo has a ThoughtSpot converter (TML Model and Table/SQL View). Snowflake Semantic Views import is Early Access.",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        }
+      },
+      "offers": [
+        "Models and TML give a code form for the semantic layer. ThoughtSpot migrated Worksheets to Models.",
+        "The Spotter MCP server (2026-05-01 version) gives agents session tools: create_analysis_session, send_session_message, get_session_updates.",
+        "Spotter agent conversation APIs let your app start and continue conversations. The older converse endpoints are deprecated.",
+        "An Ossie converter for TML exists in the Apache repo.",
+        "Live connections to Snowflake, Redshift, BigQuery, Databricks, and more."
+      ],
+      "gaps": [
+        "The product docs do not describe the metrics catalog from the March 2026 launch release.",
+        "The 2026-05-01 MCP version replaced the legacy tools. Older integrations must migrate or pin an earlier version date.",
+        "ThoughtSpot removed model-level Generate AI Synonyms in 26.6.0.cl. Spotter Model (Early Access) is the named replacement.",
+        "Snowflake Semantic Views import is Early Access and SpotterModel Model generation is Beta."
+      ],
+      "fillWith": [
+        "Snowflake Semantic Views",
+        "Databricks Metric Views",
+        "dbt Semantic Layer"
+      ],
+      "nl2sqlPath": "Model data in ThoughtSpot Models (TML). Add synonyms, descriptions, and reference questions. Then use Spotter in the UI. For your own agent, call the Spotter MCP server or the Spotter agent APIs. Pin an MCP version date, because the May 2026 change replaced older tool names.",
+      "snippet": {
+        "lang": "other",
+        "title": "Pin the Spotter MCP server version in the URL (query parameter)",
+        "code": "?api-version=2026-05-01",
+        "u": "https://developers.thoughtspot.com/docs/mcp-server-changelog"
+      },
+      "worksWith": [
+        "Snowflake",
+        "Amazon Redshift",
+        "Google BigQuery",
+        "Databricks",
+        "Azure Synapse",
+        "Oracle",
+        "PostgreSQL",
+        "SQL Server",
+        "Starburst",
+        "Teradata",
+        "Trino"
+      ],
+      "worksWithUrl": "https://docs.thoughtspot.com/cloud/26.10.0.cl/connections.md",
+      "openToOtherTools": {
+        "l": 3,
+        "n": "The Spotter MCP server and Spotter agent REST APIs let outside agents query. An Ossie converter for TML exists in the Apache repo.",
+        "u": "https://developers.thoughtspot.com/docs/mcp-server-changelog"
+      },
+      "sources": [
+        {
+          "t": "Deprecation announcements",
+          "u": "https://developers.thoughtspot.com/docs/deprecated-features"
+        },
+        {
+          "t": "ThoughtSpot Spotter MCP Server changelog",
+          "u": "https://developers.thoughtspot.com/docs/mcp-server-changelog"
+        },
+        {
+          "t": "MCP Server with Spotter 3 capabilities",
+          "u": "https://developers.thoughtspot.com/docs/mcp-server-spotter3"
+        },
+        {
+          "t": "Spotter AI Agent APIs",
+          "u": "https://developers.thoughtspot.com/docs/spotter-agent-apis"
+        },
+        {
+          "t": "Semantic layer (Spotter Semantics) docs",
+          "u": "https://docs.thoughtspot.com/cloud/26.6.0.cl/semantic-layer"
+        },
+        {
+          "t": "Deprecated and removed features (26.9.0.cl)",
+          "u": "https://docs.thoughtspot.com/cloud/26.9.0.cl/deprecation"
+        },
+        {
+          "t": "Create Models",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/models.md"
+        },
+        {
+          "t": "Connections in ThoughtSpot Cloud",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/connections.md"
+        },
+        {
+          "t": "Spotter FAQ",
+          "u": "https://docs.thoughtspot.com/cloud/26.9.0.cl/spotter-faq"
+        },
+        {
+          "t": "About row-level security",
+          "u": "https://docs.thoughtspot.com/cloud/26.9.0.cl/security-rls"
+        },
+        {
+          "t": "26.3.0.cl release notes",
+          "u": "https://docs.thoughtspot.com/cloud/26.9.0.cl/26-3-0-cl"
+        },
+        {
+          "t": "26.5.0.cl release notes (May 2026)",
+          "u": "https://docs.thoughtspot.com/cloud/26.6.0.cl/26-5-0-cl"
+        },
+        {
+          "t": "26.6.0.cl release notes (June 2026)",
+          "u": "https://docs.thoughtspot.com/cloud/26.8.0.cl/26-6-0-cl"
+        },
+        {
+          "t": "ThoughtSpot Introduces Spotter Semantics (press release)",
+          "u": "https://www.thoughtspot.com/press-releases/thoughtspot-introduces-spotter-semantics-to-bring-trust-and-context-to-enterprise-ai"
+        },
+        {
+          "t": "Apache Ossie converters repo",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        },
+        {
+          "t": "ThoughtSpot: Set column name, description, and type",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/data-modeling-column-basics.md"
+        },
+        {
+          "t": "ThoughtSpot documentation index (llms-full)",
+          "u": "https://docs.thoughtspot.com/llms-full.txt"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "sigma",
+      "name": "Sigma",
+      "category": "bi",
+      "tagline": "Cloud analytics workbook tool that queries the warehouse live, with data models and an MCP server.",
+      "verdict": "native",
+      "verdictNote": "Data models hold relationships, metrics, descriptions, and row-level security. They feed Sigma Assistant and a GA MCP server. AI context for data models is Beta.",
+      "artifacts": [
+        {
+          "name": "Data models (tables, relationships, metrics)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, JSON or YAML via API",
+          "url": "https://help.sigmacomputing.com/docs/get-started-with-data-modeling.md"
+        },
+        {
+          "name": "Data model code representation (JSON or YAML via API)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "JSON, YAML",
+          "url": "https://help.sigmacomputing.com/docs/manage-data-models-as-code.md"
+        },
+        {
+          "name": "AI context for data models",
+          "kind": "annotations",
+          "status": "Preview",
+          "since": "",
+          "format": "GUI, Markdown text",
+          "url": "https://help.sigmacomputing.com/docs/manage-ai-context-for-data-models.md"
+        },
+        {
+          "name": "Sigma Assistant (formerly Ask Sigma)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://help.sigmacomputing.com/docs/ask-natural-language-queries-with-assistant.md"
+        },
+        {
+          "name": "Sigma MCP server (queries connections, data models, workbooks)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2025-12",
+          "format": "MCP, OAuth",
+          "url": "https://help.sigmacomputing.com/docs/use-sigma-mcp-server"
+        },
+        {
+          "name": "Sigma MCP client (connectors for Sigma agents)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2025-12",
+          "format": "MCP",
+          "url": "https://help.sigmacomputing.com/docs/configure-mcp-connectors.md"
+        },
+        {
+          "name": "Documentation MCP server",
+          "kind": "mcp",
+          "status": "Preview",
+          "since": "",
+          "format": "MCP",
+          "url": "https://help.sigmacomputing.com/docs/use-documentation-mcp-server.md"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "Sigma Assistant uses metrics in a data model for aggregate calculations. The docs advise a default timeline and description.",
+          "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "Data model metrics set a default timeline with a date column and truncation. Hierarchies exist only in workbooks, not data models.",
+          "u": "https://help.sigmacomputing.com/docs/create-and-manage-metrics.md"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Relationships define join logic between data model tables. Only many-to-one or one-to-one is allowed. Sigma does not create them automatically.",
+          "u": "https://help.sigmacomputing.com/docs/define-relationships-in-data-models.md"
+        },
+        "synonyms": {
+          "l": 2,
+          "n": "AI context (Beta) lets you define aliases for columns and metrics. Descriptions and generated synonyms feed a search index.",
+          "u": "https://help.sigmacomputing.com/docs/manage-ai-context-for-data-models.md"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "The docs show no saved question-SQL pairs. Teams use AI context text, metric definitions and endorsed badges.",
+          "u": "https://help.sigmacomputing.com/docs/manage-ai-context-for-data-models.md"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Sigma Assistant answers natural-language questions on data models. It uses relationships, metrics, descriptions, and AI context.",
+          "u": "https://help.sigmacomputing.com/docs/ask-natural-language-queries-with-assistant.md"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "The Sigma docs index shows no ontology object. Teams use data models with relationships and AI context.",
+          "u": "https://help.sigmacomputing.com/docs/get-started-with-data-modeling.md"
+        },
+        "graph": {
+          "l": 0,
+          "n": "The Sigma docs index shows no graph query feature.",
+          "u": ""
+        },
+        "vector": {
+          "l": 3,
+          "n": "The Assistant uses a semantic search index over data model metadata to pick sources. The docs show no vector search on row data.",
+          "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "The Sigma MCP server queries connections, data models, and workbooks without SQL. It needs the Use Sigma MCP with OAuth permission.",
+          "u": "https://help.sigmacomputing.com/docs/use-sigma-mcp-server"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Data model tables have row-level and column-level security. Data models also have certification badges and lineage.",
+          "u": "https://help.sigmacomputing.com/docs/set-up-row-level-security.md"
+        },
+        "openStandard": {
+          "l": 1,
+          "n": "The Apache Ossie converters repo has a Sigma directory. Data models also export as JSON or YAML through the API.",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        }
+      },
+      "offers": [
+        "Sigma Assistant reads data model metrics, relationships, and descriptions.",
+        "The API can create and update data models as JSON or YAML. An example library exists.",
+        "The Sigma MCP server (Dec 2025) lets Claude, ChatGPT, Cursor, and other clients query data models and workbooks.",
+        "Sigma agents can call other MCP servers through MCP connectors.",
+        "Warehouse connections include Snowflake, BigQuery, Redshift, Databricks, and PostgreSQL."
+      ],
+      "gaps": [
+        "AI context for data models is Beta. It is the main place for aliases and usage rules.",
+        "Users must create relationships by hand. They support only many-to-one or one-to-one joins.",
+        "No SQL interface for outside tools exists.",
+        "MCP use needs an OAuth permission on the account type."
+      ],
+      "fillWith": [
+        "Snowflake Semantic Views",
+        "dbt Semantic Layer",
+        "Cube"
+      ],
+      "nl2sqlPath": "Build data models with relationships, metrics, descriptions, and a default timeline. Add AI context. Then use Sigma Assistant. For external agents, use the Sigma MCP server so questions run against data models. Keep warehouse-level semantics in the warehouse if you need them outside Sigma.",
+      "snippet": {
+        "lang": "json",
+        "title": "Metric in the code representation of a data model (Sigma API example)",
+        "code": "\"metrics\": [\n  {\n    \"id\": \"1ka0apXiVj\",\n    \"formula\": \"CountDistinct([Sku Number])\",\n    \"name\": \"Unique Products\"\n  }\n]",
+        "u": "https://help.sigmacomputing.com/docs/example-representation-data-model-with-a-table-and-a-metric.md"
+      },
+      "worksWith": [
+        "Snowflake",
+        "Google BigQuery",
+        "Amazon Redshift",
+        "Databricks",
+        "PostgreSQL",
+        "AlloyDB",
+        "Azure SQL Database",
+        "MySQL",
+        "Starburst Galaxy",
+        "SQL Server 2022",
+        "Azure SQL Managed Instance"
+      ],
+      "worksWithUrl": "https://help.sigmacomputing.com/docs/region-warehouse-and-feature-support.md",
+      "openToOtherTools": {
+        "l": 3,
+        "n": "The hosted Sigma MCP server queries data models and workbooks. It needs OAuth permission. Data models export as JSON or YAML by API.",
+        "u": "https://help.sigmacomputing.com/docs/use-sigma-mcp-server"
+      },
+      "sources": [
+        {
+          "t": "Use the Sigma MCP server",
+          "u": "https://help.sigmacomputing.com/docs/use-sigma-mcp-server"
+        },
+        {
+          "t": "Data modeling best practices",
+          "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices"
+        },
+        {
+          "t": "Get started with data modeling",
+          "u": "https://help.sigmacomputing.com/docs/get-started-with-data-modeling.md"
+        },
+        {
+          "t": "Define relationships in data models",
+          "u": "https://help.sigmacomputing.com/docs/define-relationships-in-data-models.md"
+        },
+        {
+          "t": "Manage AI context for a data model (Beta)",
+          "u": "https://help.sigmacomputing.com/docs/manage-ai-context-for-data-models.md"
+        },
+        {
+          "t": "Ask natural language queries with Sigma Assistant",
+          "u": "https://help.sigmacomputing.com/docs/ask-natural-language-queries-with-assistant.md"
+        },
+        {
+          "t": "Manage data models as code",
+          "u": "https://help.sigmacomputing.com/docs/manage-data-models-as-code.md"
+        },
+        {
+          "t": "Example representation: data model with a table and metric",
+          "u": "https://help.sigmacomputing.com/docs/example-representation-data-model-with-a-table-and-a-metric.md"
+        },
+        {
+          "t": "Set up row-level security",
+          "u": "https://help.sigmacomputing.com/docs/set-up-row-level-security.md"
+        },
+        {
+          "t": "Add MCP connectors to Sigma",
+          "u": "https://help.sigmacomputing.com/docs/configure-mcp-connectors.md"
+        },
+        {
+          "t": "Access Sigma documentation from AI tools",
+          "u": "https://help.sigmacomputing.com/docs/use-documentation-mcp-server.md"
+        },
+        {
+          "t": "Supported regions, data platforms, and features",
+          "u": "https://help.sigmacomputing.com/docs/region-warehouse-and-feature-support.md"
+        },
+        {
+          "t": "Sigma December 2025 launch",
+          "u": "https://www.sigmacomputing.com/product-launch/december-2025"
+        },
+        {
+          "t": "What's New in Sigma, April 17, 2026",
+          "u": "https://community.sigmacomputing.com/t/whats-new-in-sigma-april-17-2026/6747"
+        },
+        {
+          "t": "Apache Ossie converters repo",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        },
+        {
+          "t": "Sigma: Create and manage metrics",
+          "u": "https://help.sigmacomputing.com/docs/create-and-manage-metrics.md"
+        },
+        {
+          "t": "Sigma: Work with hierarchies",
+          "u": "https://help.sigmacomputing.com/docs/hierarchies.md"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "domo",
+      "name": "Domo",
+      "category": "bi",
+      "tagline": "Cloud BI and data platform with Data Models, AI Chat, an agent builder, and MCP toolkits. Many are in beta.",
+      "verdict": "partial",
+      "verdictNote": "Domo has Data Models with relationships, AI synonyms, and an MCP server. Its Sep 2026 release notes list the modeling integration, Snowflake Semantic View import, and new MCP toolkits as Beta.",
+      "artifacts": [
+        {
+          "name": "Data Models (relationships between DataSets, with Domo Schema)",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "",
+          "format": "GUI",
+          "url": "https://www.domo.com/docs/s/article/Create-and-Use-Data-Models"
+        },
+        {
+          "name": "Domo Schema (AI Enabled, AI Synonyms, AI Context per field)",
+          "kind": "annotations",
+          "status": "Unverified",
+          "since": "",
+          "format": "GUI",
+          "url": "https://www.domo.com/docs/s/article/Create-and-Use-Data-Models"
+        },
+        {
+          "name": "Data Modeling Builder and Visualization Integration",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "2026-09",
+          "format": "GUI",
+          "url": "https://www.domo.com/docs/s/article/Current-Release-Notes"
+        },
+        {
+          "name": "Semantic View Integration (Snowflake semantic view as read-only Data Model)",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "2026-09",
+          "format": "GUI",
+          "url": "https://www.domo.com/docs/s/article/Current-Release-Notes"
+        },
+        {
+          "name": "Worksheets",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "2026-03",
+          "format": "GUI",
+          "url": "https://www.domo.com/docs/s/article/March-2026-Release.md"
+        },
+        {
+          "name": "Domo Essentials MCP (AI Library toolkit at /mcp/toolkits/)",
+          "kind": "mcp",
+          "status": "Preview",
+          "since": "2026-05",
+          "format": "MCP, OAuth",
+          "url": "https://www.domo.com/docs/s/article/May-2026-Release.md"
+        },
+        {
+          "name": "MCP Toolkits (Alerts, Workspaces, Automation, Sandbox)",
+          "kind": "mcp",
+          "status": "Preview",
+          "since": "2026-09",
+          "format": "MCP",
+          "url": "https://www.domo.com/docs/s/article/Current-Release-Notes"
+        },
+        {
+          "name": "AI Library and AI Agent Builder",
+          "kind": "agent",
+          "status": "Preview",
+          "since": "2026-05",
+          "format": "GUI",
+          "url": "https://www.domo.com/docs/s/article/May-2026-Release.md"
+        },
+        {
+          "name": "AI Chat (multi-DataSet questions)",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "2026-09",
+          "format": "GUI",
+          "url": "https://www.domo.com/docs/s/article/Current-Release-Notes"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "Users can save Beast Mode calculations to a DataSet and manage them in Beast Mode Manager. AI Readiness lists them as columns for AI.",
+          "u": "https://www.domo.com/docs/s/article/360042925474.md"
+        },
+        "dimensions": {
+          "l": 1,
+          "n": "Data Models have no declared dimension or hierarchy object. Teams build date and bucket fields with Beast Mode calculated fields.",
+          "u": "https://www.domo.com/docs/s/article/360043429913.md"
+        },
+        "relationships": {
+          "l": 2,
+          "n": "The Data Model editor sets relationship keys and cardinality. The Sep 2026 notes list the modeling integration as Beta.",
+          "u": "https://www.domo.com/docs/s/article/Create-and-Use-Data-Models"
+        },
+        "synonyms": {
+          "l": 2,
+          "n": "Domo Schema has AI Enabled, AI Synonyms, and AI Context per field. The Data Model docs carry no stage label.",
+          "u": "https://www.domo.com/docs/s/article/Create-and-Use-Data-Models"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "No saved question-SQL pairs exist. AI Readiness takes DataSet context, synonyms and column context instead.",
+          "u": "https://www.domo.com/docs/s/article/000005561.md"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "AI Chat answers over DataSets and queries each one separately. AI Chat does not support cross-DataSet joins and unions (Sep 2026).",
+          "u": "https://www.domo.com/docs/s/article/Current-Release-Notes"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "The docs show no ontology object. ISG reports that Project Ambience plans ontologies with no date.",
+          "u": "https://research.isg-one.com/analyst-perspectives/domo-adds-context-to-platform-for-analytics-and-ai"
+        },
+        "graph": {
+          "l": 0,
+          "n": "The Domo Knowledge Base index shows no graph query feature.",
+          "u": "https://www.domo.com/docs/_llms/en/knowledge-base.txt"
+        },
+        "vector": {
+          "l": 0,
+          "n": "The Domo Knowledge Base index shows no vector search feature.",
+          "u": "https://www.domo.com/docs/_llms/en/knowledge-base.txt"
+        },
+        "mcp": {
+          "l": 2,
+          "n": "Domo listed Domo Essentials MCP under Beta Features in May 2026. New toolkits in Sep 2026 are Beta too.",
+          "u": "https://www.domo.com/docs/s/article/May-2026-Release.md"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Company and department certification badges exist for cards and DataSets. AI Chat keeps the same security settings as the rest of Domo.",
+          "u": "https://www.domo.com/docs/s/article/360043430613.md"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "Domo is not in the vendor list of the Apache Ossie converters repo. Domo can import Snowflake semantic views instead.",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        }
+      },
+      "offers": [
+        "Data Models define relationships between DataSets once. Users reuse them in Analyzer and App Studio.",
+        "Snowflake semantic views register as read-only Data Models with their relationships and metrics (Beta).",
+        "Domo MCP exposes DataSet queries, document queries, and search to outside assistants.",
+        "The Schema tab holds field descriptions, AI synonyms, and AI context. Snowflake column descriptions can sync in."
+      ],
+      "gaps": [
+        "Modeling integration, Semantic View Integration, and new MCP toolkits are Beta as of Sep 2026.",
+        "AI Chat does not join or union DataSets. It queries each one and combines the results.",
+        "The docs confirm no metric, dimension, or verified-query object.",
+        "Domo is not in the Ossie converters repo."
+      ],
+      "fillWith": [
+        "Snowflake Semantic Views",
+        "dbt Semantic Layer",
+        "Cube"
+      ],
+      "nl2sqlPath": "Define Data Models with relationships. Fill in the Domo Schema with descriptions, AI synonyms, and AI context. Then use AI Chat. For external agents, use the Domo MCP toolkits and expect beta limits. If you need a stable semantic layer today, keep it in the warehouse and connect Domo to it.",
+      "snippet": {
+        "lang": "other",
+        "title": "",
+        "code": "",
+        "u": ""
+      },
+      "worksWith": [
+        "Snowflake",
+        "Databricks",
+        "Google BigQuery",
+        "Amazon Redshift",
+        "Amazon Athena",
+        "Azure SQL Database",
+        "Dremio",
+        "Lakebase",
+        "MySQL",
+        "Oracle ADW",
+        "Oracle NetSuite",
+        "PostgreSQL"
+      ],
+      "worksWithUrl": "https://www.domo.com/docs/s/article/4412849158167",
+      "openToOtherTools": {
+        "l": 2,
+        "n": "Domo Essentials MCP queries DataSets and documents. It was Beta in May 2026. New toolkits in Sep 2026 are Beta.",
+        "u": "https://www.domo.com/docs/s/article/May-2026-Release.md"
+      },
+      "sources": [
+        {
+          "t": "Connect AI Tools to Domo Using MCP",
+          "u": "https://www.domo.com/docs/s/article/Connect-AI-Tools-to-Domo-Using-MCP"
+        },
+        {
+          "t": "Domo MCP",
+          "u": "https://www.domo.com/docs/s/article/Domo-MCP"
+        },
+        {
+          "t": "September 2026 Release Notes",
+          "u": "https://www.domo.com/docs/s/article/Current-Release-Notes"
+        },
+        {
+          "t": "2026 Release 3 (May)",
+          "u": "https://www.domo.com/docs/s/article/May-2026-Release.md"
+        },
+        {
+          "t": "2026 Release 2 (March)",
+          "u": "https://www.domo.com/docs/s/article/March-2026-Release.md"
+        },
+        {
+          "t": "Create and Use Data Models",
+          "u": "https://www.domo.com/docs/s/article/Create-and-Use-Data-Models"
+        },
+        {
+          "t": "Cloud Integrations Overview",
+          "u": "https://www.domo.com/docs/s/article/4412849158167"
+        },
+        {
+          "t": "Domo AI - Beta Features (March 2025)",
+          "u": "https://www.domo.com/product/new-features/domo-ai-beta-features"
+        },
+        {
+          "t": "Domo adds context to platform for analytics and AI (ISG)",
+          "u": "https://research.isg-one.com/analyst-perspectives/domo-adds-context-to-platform-for-analytics-and-ai"
+        },
+        {
+          "t": "Domo MCP expansion, agent stack still beta (nl2sql.ai)",
+          "u": "https://www.nl2sql.ai/news/domo-september-2026-mcp-toolkits-beta-live-boundary"
+        },
+        {
+          "t": "Apache Ossie converters repo",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        },
+        {
+          "t": "Domo: Beast Mode Manager",
+          "u": "https://www.domo.com/docs/s/article/360042925474.md"
+        },
+        {
+          "t": "Domo: Create a Beast Mode Calculation",
+          "u": "https://www.domo.com/docs/s/article/360043429913.md"
+        },
+        {
+          "t": "Domo: AI Readiness",
+          "u": "https://www.domo.com/docs/s/article/000005561.md"
+        },
+        {
+          "t": "Domo: Certify Cards and DataSets",
+          "u": "https://www.domo.com/docs/s/article/360043430613.md"
+        },
+        {
+          "t": "Domo: AI Chat",
+          "u": "https://www.domo.com/docs/s/article/AI-Chat-v2.md"
+        },
+        {
+          "t": "Domo Knowledge Base index",
+          "u": "https://www.domo.com/docs/_llms/en/knowledge-base.txt"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "metabase",
+      "name": "Metabase",
+      "category": "bi",
+      "tagline": "Open-source BI with a Library semantic layer, Metabot AI, and an official MCP server.",
+      "verdict": "partial",
+      "verdictNote": "Library metrics, measures, segments, and glossary feed Metabot and a permission-scoped MCP server. The docs describe no joins or verified query pairs.",
+      "artifacts": [
+        {
+          "name": "Library (published tables, metrics, SQL snippets, Glossary)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, Git sync",
+          "url": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/library.md"
+        },
+        {
+          "name": "Measures (saved aggregations on a table)",
+          "kind": "metric-view",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, expression",
+          "url": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/measures.md"
+        },
+        {
+          "name": "Segments (saved table filters)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://raw.githubusercontent.com/metabase/metabase/master/docs/data-modeling/semantic-layer/segments.md"
+        },
+        {
+          "name": "Glossary (business terms for people and agents)",
+          "kind": "glossary",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, Git sync",
+          "url": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/library.md"
+        },
+        {
+          "name": "Metabot (AI assistant)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, Slack",
+          "url": "https://github.com/metabase/metabase/blob/master/docs/ai/metabot.md"
+        },
+        {
+          "name": "Official MCP server (/api/metabase-mcp)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2026-04",
+          "format": "MCP over Streamable HTTP, OAuth 2.0",
+          "url": "https://github.com/metabase/metabase/blob/master/docs/ai/mcp.md"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "Library metrics are standardized calculations. They rank first in navigation, search, and the query builder.",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/library.md"
+        },
+        "dimensions": {
+          "l": 0,
+          "n": "The docs show no dimension or time-grain object. Segments are saved filters only.",
+          "u": ""
+        },
+        "relationships": {
+          "l": 0,
+          "n": "The published-tables doc defines no joins. Users publish related tables together.",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/published-tables.md"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Glossary terms help Metabot understand your terminology. No separate synonym field exists.",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/ai/metabot.md"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "No question-to-SQL pairs exist. Admins can limit Metabot to verified, official, or Library content.",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/library.md"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Metabot generates SQL but does not run it. Its search covers only tables, metrics, questions, models, and dashboards.",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/ai/metabot.md"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "No ontology object exists.",
+          "u": ""
+        },
+        "graph": {
+          "l": 0,
+          "n": "No graph query exists.",
+          "u": ""
+        },
+        "vector": {
+          "l": 0,
+          "n": "The Metabase AI docs show no vector search on data.",
+          "u": ""
+        },
+        "mcp": {
+          "l": 3,
+          "n": "The official server arrived in Metabase 60 (Apr 16, 2026). Metabase 64 (Oct 2026) improved it. An admin enables it.",
+          "u": "https://www.metabase.com/releases/metabase-60"
+        },
+        "governance": {
+          "l": 3,
+          "n": "MCP and OAuth scopes follow the permissions of the connecting user. Pro and Enterprise can limit tools per group.",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/ai/mcp.md"
+        },
+        "openStandard": {
+          "l": 1,
+          "n": "Library syncs to Git. Metabase is not in the vendor list of the Apache Ossie converters repo.",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        }
+      },
+      "offers": [
+        "Library holds curated tables, metrics, and SQL snippets. Admins can limit Metabot to Library content.",
+        "Measures give one official formula per table, for example Net Promoter Score.",
+        "The official MCP server needs no AI provider in Metabase. The client supplies the model.",
+        "Library, measures, segments, and glossary sync to Git when Library sync is on.",
+        "MCP also offers raw SQL, which admins can turn off."
+      ],
+      "gaps": [
+        "Measures work only on questions that query the measure table directly. They do not work with joins or nested queries.",
+        "Metabot checks only the first 100 tables when no table is named. It may invent tables beyond that.",
+        "No synonyms field or verified question-SQL pairs exist. The Glossary is the main text context.",
+        "Metabot cannot find segments, measures, documents, or collections on its own.",
+        "MCP tool access controls and analytics need Pro or Enterprise."
+      ],
+      "fillWith": [
+        "dbt Semantic Layer",
+        "Cube",
+        "Snowflake Semantic Views"
+      ],
+      "nl2sqlPath": "Publish clean tables to the Library. Add metrics, measures, and glossary terms. Then set Metabot to curated content only. For your own agent, enable the MCP server and let the client supply the model. Keep a warehouse semantic layer if you need joins or synonyms.",
+      "snippet": {
+        "lang": "other",
+        "title": "Measure formula for Net Promoter Score, from the Measures doc",
+        "code": "(CountIf([Score] >= 9) - CountIf([Score] <= 6)) / Count() * 100",
+        "u": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/measures.md"
+      },
+      "worksWith": [
+        "Athena",
+        "BigQuery",
+        "ClickHouse",
+        "Databricks",
+        "Druid",
+        "MongoDB",
+        "MariaDB",
+        "MySQL",
+        "Oracle",
+        "PostgreSQL",
+        "Presto",
+        "Redshift",
+        "Snowflake",
+        "SparkSQL",
+        "SQL Server",
+        "SQLite",
+        "Starburst",
+        "Vertica"
+      ],
+      "worksWithUrl": "https://github.com/metabase/metabase/blob/master/docs/databases/connecting.md",
+      "openToOtherTools": {
+        "l": 3,
+        "n": "The official MCP server (Streamable HTTP, OAuth 2.0) searches and queries metrics and tables within user permissions. No OSI export exists.",
+        "u": "https://github.com/metabase/metabase/blob/master/docs/ai/mcp.md"
+      },
+      "sources": [
+        {
+          "t": "Metabase MCP docs (GitHub)",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/ai/mcp.md"
+        },
+        {
+          "t": "Metabot docs (GitHub)",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/ai/metabot.md"
+        },
+        {
+          "t": "Library docs (GitHub)",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/library.md"
+        },
+        {
+          "t": "Measures docs (GitHub)",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/measures.md"
+        },
+        {
+          "t": "Published tables docs (GitHub)",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/published-tables.md"
+        },
+        {
+          "t": "Connecting to databases docs (GitHub)",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/databases/connecting.md"
+        },
+        {
+          "t": "Data Studio",
+          "u": "https://www.metabase.com/docs/latest/data-modeling/data-studio"
+        },
+        {
+          "t": "Metabase 60 release notes",
+          "u": "https://www.metabase.com/releases/metabase-60"
+        },
+        {
+          "t": "Metabase 59 release notes",
+          "u": "https://www.metabase.com/releases/metabase-59"
+        },
+        {
+          "t": "Metabase releases",
+          "u": "https://www.metabase.com/releases"
+        },
+        {
+          "t": "Metabase 64 release notes",
+          "u": "https://www.metabase.com/releases/metabase-64"
+        },
+        {
+          "t": "Segments docs (GitHub)",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/segments.md"
+        },
+        {
+          "t": "Glossary docs (GitHub)",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/glossary.md"
+        },
+        {
+          "t": "Apache Ossie converters repo",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "superset",
+      "name": "Apache Superset",
+      "category": "bi",
+      "tagline": "Open-source BI with datasets, an MCP service, and a semantic layer feature that is still behind a flag.",
+      "verdict": "partial",
+      "verdictNote": "Datasets act as a light semantic layer, and an MCP server exists. External semantic layers sit behind the default-off SEMANTIC_LAYERS flag. The docs show no first-party NL-to-SQL.",
+      "artifacts": [
+        {
+          "name": "Datasets (lightweight semantic layer: metrics and dimensions)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://raw.githubusercontent.com/apache/superset/master/README.md"
+        },
+        {
+          "name": "Semantic Layers (external layers as a datasource type, SIP-182)",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "2026-04",
+          "format": "Feature flag SEMANTIC_LAYERS, extensions",
+          "url": "https://superset.apache.org/admin-docs/configuration/feature-flags/"
+        },
+        {
+          "name": "MCP service (superset mcp run)",
+          "kind": "mcp",
+          "status": "Unverified",
+          "since": "",
+          "format": "MCP, JWT or dev auth",
+          "url": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "The Superset README describes a lightweight semantic layer for defining custom metrics and dimensions on datasets.",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "The same README line covers dimensions. The docs do not confirm hierarchy and time-grain objects.",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
+        },
+        "relationships": {
+          "l": 0,
+          "n": "No declared joins or relationships between datasets exist. Teams join tables in a SQL virtual dataset.",
+          "u": "https://preset.io/blog/understanding-superset-semantic-layer/"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Datasets, columns and metrics carry verbose_name and description fields. No separate synonym field exists.",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/superset/datasets/schemas.py"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "The README and MCP docs show no verified question-SQL pairs. Teams use MCP clients with their own prompts.",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
+        },
+        "nl2sql": {
+          "l": 0,
+          "n": "The README feature list and MCP docs show no first-party NL-to-SQL. Teams use MCP clients.",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "The README feature list shows no ontology object.",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
+        },
+        "graph": {
+          "l": 0,
+          "n": "The README feature list shows no graph query.",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
+        },
+        "vector": {
+          "l": 0,
+          "n": "The README feature list shows no vector search.",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
+        },
+        "mcp": {
+          "l": 2,
+          "n": "The MCP docs list tools for datasets, charts, and SQL. They need Superset 5.0 or later. The page gives no stage label.",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
+        },
+        "governance": {
+          "l": 3,
+          "n": "MCP_RBAC_ENABLED is True by default, so each tool checks the Superset permissions of the caller. Superset audits calls.",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "The docs show no Ossie import or export. The Aug 2026 post from Preset discusses Apache Ossie alongside SIP-182.",
+          "u": "https://preset.io/blog/semantic-layers-in-superset/"
+        }
+      },
+      "offers": [
+        "The built-in MCP server (superset mcp run) has tools such as list_datasets, query_dataset, execute_sql, and generate_chart.",
+        "MCP supports JWT auth and RBAC checks on every tool call.",
+        "SEMANTIC_LAYERS lets Snowflake semantic views and dbt MetricFlow appear as chartable datasources. Extensions deliver them.",
+        "Apache Software Foundation project, self-hosted."
+      ],
+      "gaps": [
+        "SEMANTIC_LAYERS defaults to False and sits in the Development (experimental) section of the feature flag docs.",
+        "The docs do not say which release will ship the semantic layers as stable.",
+        "The MCP docs give no GA or Preview label. They need Superset 5.0 or later, Python 3.11 or later, and fastmcp.",
+        "The docs show no first-party NL-to-SQL, synonym, or verified-query feature."
+      ],
+      "fillWith": [
+        "Cube",
+        "dbt Semantic Layer",
+        "Snowflake Semantic Views",
+        "MetricFlow"
+      ],
+      "nl2sqlPath": "Define metrics and dimensions on datasets. Run the built-in MCP service so your agent calls dataset tools. For governed metrics, keep them in Cube or dbt. Or try the semantic layers flag in a test environment.",
+      "snippet": {
+        "lang": "other",
+        "title": "Start the Superset MCP server (from the MCP server doc)",
+        "code": "superset mcp run --host 127.0.0.1 --port 5008\n# endpoint: /mcp\n# MCP_AUTH_ENABLED = True enables JWT auth\n# MCP_RBAC_ENABLED = True is the default",
+        "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
+      },
+      "worksWith": [
+        "Snowflake",
+        "Google BigQuery",
+        "Amazon Redshift",
+        "Databricks",
+        "Amazon Athena",
+        "ClickHouse",
+        "Trino",
+        "Presto",
+        "Microsoft SQL Server",
+        "Oracle",
+        "MariaDB",
+        "Apache Druid",
+        "Azure Synapse",
+        "StarRocks",
+        "Teradata"
+      ],
+      "worksWithUrl": "https://superset.apache.org/docs/databases/",
+      "openToOtherTools": {
+        "l": 2,
+        "n": "MCP service with dataset and SQL tools and JWT auth. The docs show no stage label. The docs show no Ossie export.",
+        "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
+      },
+      "sources": [
+        {
+          "t": "Apache Superset README",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
+        },
+        {
+          "t": "Superset MCP server doc",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
+        },
+        {
+          "t": "Feature Flags - Apache Superset",
+          "u": "https://superset.apache.org/admin-docs/configuration/feature-flags/"
+        },
+        {
+          "t": "Feature Flags (6.1.0)",
+          "u": "https://superset.apache.org/admin-docs/6.1.0/configuration/feature-flags/"
+        },
+        {
+          "t": "Supported databases",
+          "u": "https://superset.apache.org/docs/databases/"
+        },
+        {
+          "t": "Semantic Layers in Apache Superset: SIP-182 and Apache Ossie (Preset)",
+          "u": "https://preset.io/blog/semantic-layers-in-superset/"
+        },
+        {
+          "t": "Apache Superset Repo Recap: May 2026 (Preset)",
+          "u": "https://preset.io/blog/apache-superset-repo-recap-may-2026/"
+        },
+        {
+          "t": "Apache Superset Repo Recap: April 2026 (Preset)",
+          "u": "https://preset.io/blog/apache-superset-repo-recap-april-2026/"
+        },
+        {
+          "t": "superset UPDATING.md",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/UPDATING.md"
+        },
+        {
+          "t": "Preset: Understanding the Superset Semantic Layer",
+          "u": "https://preset.io/blog/understanding-superset-semantic-layer/"
+        },
+        {
+          "t": "Superset datasets schemas.py",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/superset/datasets/schemas.py"
+        }
+      ],
+      "verified": "2026-10-24"
+    }
+  ],
+  "notes": [
+    {
+      "topic": "Product renames",
+      "text": "ThoughtSpot deprecated Worksheets in Nov 2024 and replaced them with Models. ThoughtSpot removed Sage and Ask Sage in Dec 2025 and replaced them with Spotter. Ask Sigma is now Sigma Assistant.",
+      "sources": [
+        {
+          "t": "Deprecation announcements",
+          "u": "https://developers.thoughtspot.com/docs/deprecated-features"
+        },
+        {
+          "t": "Ask natural language queries with Sigma Assistant",
+          "u": "https://help.sigmacomputing.com/docs/ask-natural-language-queries-with-assistant.md"
+        }
+      ]
+    },
+    {
+      "topic": "Tableau MCP stage",
+      "text": "The April 2026 notes from Tableau say Tableau Next MCP is generally available with Tableau Next. Q&A Calibration and Data Pro auto-generated semantic models are Beta in the same notes. The open-source Tableau MCP is a separate project.",
+      "sources": [
+        {
+          "t": "Tableau April 2026 New Features",
+          "u": "https://www.tableau.com/2026-1-april-features"
+        },
+        {
+          "t": "Tableau MCP README",
+          "u": "https://raw.githubusercontent.com/tableau/tableau-mcp/main/README.md"
+        }
+      ]
+    },
+    {
+      "topic": "ThoughtSpot MCP May 2026 release",
+      "text": "The 2026-05-01 MCP version moved the main URL to Spotter 3 tools and replaced the legacy tools. This is a breaking change. Pin an earlier api-version date to keep old tools. August 2026 added search_objects.",
+      "sources": [
+        {
+          "t": "ThoughtSpot Spotter MCP Server changelog",
+          "u": "https://developers.thoughtspot.com/docs/mcp-server-changelog"
+        }
+      ]
+    },
+    {
+      "topic": "ThoughtSpot AI synonyms removed",
+      "text": "ThoughtSpot removed Generate AI Synonyms at the model level in 26.6.0.cl. Synonyms that users already generated stay in place. Spotter Model (Early Access) is the named replacement.",
+      "sources": [
+        {
+          "t": "Deprecated and removed features (26.9.0.cl)",
+          "u": "https://docs.thoughtspot.com/cloud/26.9.0.cl/deprecation"
+        }
+      ]
+    },
+    {
+      "topic": "ThoughtSpot Spotter Semantics",
+      "text": "ThoughtSpot announced it on Mar 12, 2026. The product docs describe it as the governed semantic foundation built on Models and AI context. The docs do not describe the metrics catalog from the press release.",
+      "sources": [
+        {
+          "t": "Semantic layer docs",
+          "u": "https://docs.thoughtspot.com/cloud/26.6.0.cl/semantic-layer"
+        },
+        {
+          "t": "Spotter Semantics press release",
+          "u": "https://www.thoughtspot.com/press-releases/thoughtspot-introduces-spotter-semantics-to-bring-trust-and-context-to-enterprise-ai"
+        }
+      ]
+    },
+    {
+      "topic": "Domo semantic and MCP status",
+      "text": "The Sep 2026 notes from Domo list Data Modeling Builder integration, Semantic View Integration, and new MCP toolkits under Beta Features. The May 2026 notes list Domo Essentials MCP and the AI Library as Beta. The Beta Features page of Domo dates from March 2025. It does not list a semantic layer.",
+      "sources": [
+        {
+          "t": "September 2026 Release Notes",
+          "u": "https://www.domo.com/docs/s/article/Current-Release-Notes"
+        },
+        {
+          "t": "2026 Release 3 (May)",
+          "u": "https://www.domo.com/docs/s/article/May-2026-Release.md"
+        },
+        {
+          "t": "Domo AI - Beta Features",
+          "u": "https://www.domo.com/product/new-features/domo-ai-beta-features"
+        }
+      ]
+    },
+    {
+      "topic": "Metabase MCP and Metabot",
+      "text": "The official MCP server arrived in Metabase 60 (Apr 16, 2026). Metabase 64 (Oct 2026) improved it. The client supplies the model, so MCP needs no Metabase AI provider.",
+      "sources": [
+        {
+          "t": "Metabase MCP docs (GitHub)",
+          "u": "https://github.com/metabase/metabase/blob/master/docs/ai/mcp.md"
+        },
+        {
+          "t": "Metabase releases",
+          "u": "https://www.metabase.com/releases"
+        }
+      ]
+    },
+    {
+      "topic": "Superset SEMANTIC_LAYERS flag",
+      "text": "SEMANTIC_LAYERS defaults to False. The feature flag docs list it in the Development stage, in both the current and 6.1.0 pages. The docs do not name a release that makes it stable.",
+      "sources": [
+        {
+          "t": "Feature Flags - Apache Superset",
+          "u": "https://superset.apache.org/admin-docs/configuration/feature-flags/"
+        },
+        {
+          "t": "Feature Flags (6.1.0)",
+          "u": "https://superset.apache.org/admin-docs/6.1.0/configuration/feature-flags/"
+        }
+      ]
+    }
+  ]
+}

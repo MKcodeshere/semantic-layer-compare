@@ -1,0 +1,429 @@
+{
+  "vendors": [
+    {
+      "id": "businessobjects",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "No AI description generation exists. Users write universe object descriptions by hand in the Information Design Tool.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        "bulkMetadata": {
+          "l": 1,
+          "n": "The Semantic Layer Java SDK ships with the BI client tools. Third-party catalog bridges use it to read and write .unx universes. The docs show no first-party bulk tool.",
+          "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/8.0/Content/MIRBoInformationDesignToolUnxExport.htm"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "No automatic classification or PII tagging exists. Manual security profiles handle sensitivity.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "No NL-to-SQL literal matching exists. Universe objects have lists of values for query prompts only.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        "queryHistory": {
+          "l": 1,
+          "n": "Data Federation Administration Tool browses executed queries for monitoring. Users must build any mining for joins or metrics themselves.",
+          "u": "https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/f43f4d90c5ee4858ac5c8817d6aff803/459f99766e041014910aba7db0e91070.html?locale=en-US&state=PRODUCTION&version=2025"
+        },
+        "lineage": {
+          "l": 1,
+          "n": "The docs show no lineage view inside BI. Talend Data Catalog, a separate product, imports universes (.unx) with transformation lineage.",
+          "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/8.1/Content/Bridges/MIRBoInformationDesignToolUnxImport.htm"
+        },
+        "evals": {
+          "l": 0,
+          "n": "There is no NL-to-SQL, so there are no accuracy tests or feedback loop.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        }
+      },
+      "enrichHowTo": "The Semantic Layer Java SDK ships with the BI client tools. It reads universes (.unx). Third-party catalog bridges use it to import and export universe metadata.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": [
+        {
+          "t": "Talend Data Catalog: SAP BusinessObjects IDT (File) import",
+          "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/8.1/Content/Bridges/MIRBoInformationDesignToolUnxImport.htm"
+        },
+        {
+          "t": "Talend Data Catalog: SAP BusinessObjects IDT (File) export",
+          "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/8.0/Content/MIRBoInformationDesignToolUnxExport.htm"
+        },
+        {
+          "t": "Information Design Tool User Guide, BI 4.3 SP4 (SAP Help)",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        {
+          "t": "Browsing the query history (SAP Help, BI platform 2025)",
+          "u": "https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/f43f4d90c5ee4858ac5c8817d6aff803/459f99766e041014910aba7db0e91070.html?locale=en-US&state=PRODUCTION&version=2025"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "cognos",
+      "caps": {
+        "aiDescriptions": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "bulkMetadata": {
+          "l": 1,
+          "n": "Translation CSV export and import covers Label, Description and Screen tip. The REST API has update module calls. The docs do not describe them for column text.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
+        },
+        "autoClassify": {
+          "l": 3,
+          "n": "Package enrichment sets data characteristics such as Time and Geographic Location. The docs describe no PII or sensitivity tags.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Loading metadata or enriching a package reads up to 10000 sample rows per table. The Assistant uses the inferred characteristics.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_manage.pdf"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "The Assistant, data module and administration guides show no query history mining. Authors model and enrich by hand.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_manage.pdf"
+        },
+        "lineage": {
+          "l": 3,
+          "n": "Users trace a report data item back through the package to its data sources, in Business or Technical view. This does not work in reports not linked to packages. An admin must configure it.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ug_cr_rptstd.pdf"
+        },
+        "evals": {
+          "l": 0,
+          "n": "The guides show no accuracy testing or feedback loop for the Assistant. Teams test by asking questions.",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_gtstd.pdf"
+        }
+      },
+      "enrichHowTo": "No source confirms a supported bulk method for descriptions for this product yet.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": [
+        {
+          "t": "IBM Cognos Analytics Reporting 12.1.x User Guide (PDF)",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ug_cr_rptstd.pdf"
+        },
+        {
+          "t": "Cognos Analytics 12.1.x Data Modules User Guide (PDF)",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
+        },
+        {
+          "t": "Cognos Analytics 12.1.x Managing User Guide (PDF)",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_manage.pdf"
+        },
+        {
+          "t": "Cognos Analytics 12.1.x Getting Started User Guide (PDF)",
+          "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_gtstd.pdf"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "strategy",
+      "caps": {
+        "aiDescriptions": {
+          "l": 3,
+          "n": "Enable for AI generates a dataset description and a description per column from column name and sample values. Users can edit them. It exists since March 2025.",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_bots_new_data.htm"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "Since June 2026, users can download the tuning file (JSON) of an agent. It has column descriptions and custom instructions. Users can upload it to another agent.",
+          "u": "https://www2.strategy.com/producthelp/2021/NextGenAI/en-us/Content/agent_tuning.htm"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The Agent docs and What's New show no column classification or sensitivity tagging. Mosaic Sentinel tracks usage and audit events.",
+          "u": "https://www2.strategy.com/producthelp/Current/Readme/en-us/content/whats_new.htm"
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Agent auto complete lists matching columns and attribute elements as users type. A typed value then picks the exact element.",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_bots_new_general.htm"
+        },
+        "queryHistory": {
+          "l": 3,
+          "n": "A history and clarifier agent uses past queries to suggest alternative questions (June 2025). Admins promote user learnings to knowledge assets.",
+          "u": "https://www2.strategy.com/producthelp/Current/Readme/en-us/content/whats_new.htm"
+        },
+        "lineage": {
+          "l": 0,
+          "n": "Components and Dependents views show object-level links between reports, attributes, metrics and tables. The docs describe no column-level lineage view.",
+          "u": "https://www2.strategy.com/producthelp/Current/Workstation/en-us/Content/view_component_dependent_objects.htm"
+        },
+        "evals": {
+          "l": 1,
+          "n": "Platform Analytics tables store thumbs feedback and reasons. Clarifications become per-user learnings. No eval runner or shared verified examples exist.",
+          "u": "https://www2.strategy.com/producthelp/Current/PlatformAnalytics/en-us/Content/auto_assistant_schema.htm"
+        }
+      },
+      "enrichHowTo": "Enable the dataset for AI in Workstation or Library. This generates dataset and column descriptions. Edit them in the agent data panel. Then download the agent tuning file (JSON). Use it to reuse column descriptions in other agents.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": [
+        {
+          "t": "Enable a Dataset for Agents",
+          "u": "https://www2.microstrategy.com/producthelp/Current/Workstation/en-us/Content/enable_ai_dataset.htm"
+        },
+        {
+          "t": "Manage Agent Data Using the Data Panel",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_bots_new_data.htm"
+        },
+        {
+          "t": "Reuse and Share Custom Instructions and Column Descriptions Among Agents",
+          "u": "https://www2.strategy.com/producthelp/2021/NextGenAI/en-us/Content/agent_tuning.htm"
+        },
+        {
+          "t": "View Component and Dependent Objects",
+          "u": "https://www2.strategy.com/producthelp/Current/Workstation/en-us/Content/view_component_dependent_objects.htm"
+        },
+        {
+          "t": "Auto Telemetry",
+          "u": "https://www2.strategy.com/producthelp/Current/PlatformAnalytics/en-us/Content/auto_assistant_schema.htm"
+        },
+        {
+          "t": "Use Suggestions",
+          "u": "https://www2.strategy.com/producthelp/Current/Library/en-us/Content/auto_answers_use_suggestions.htm"
+        },
+        {
+          "t": "Customize Agent Display Using the General Panel",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_bots_new_general.htm"
+        },
+        {
+          "t": "What's New in Strategy",
+          "u": "https://www2.strategy.com/producthelp/Current/Readme/en-us/content/whats_new.htm"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "qlik",
+      "caps": {
+        "aiDescriptions": {
+          "l": 3,
+          "n": "It generates descriptions for a data product, its datasets and fields from names and native types. It is for Premium tiers and English only. Users can edit the text.",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/DataIntegration/DataProducts/Generating-AI-based-description.htm"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "The Data sets API PATCH /api/v1/data-sets/{id} updates dataset metadata. The Glossaries API can import terms. No API exists for vocabulary or logical model.",
+          "u": "https://qlik.dev/apis/rest/data-sets/"
+        },
+        "autoClassify": {
+          "l": 3,
+          "n": "Each field gets a semantic type when over 40% of values match. Detected types such as email or national ID can flag sensitive data.",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/DataIntegration/DataProducts/Managing-semantic-types.htm"
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Business logic vocabulary adds alternative names for fields and values, and names for coded values. The logical model sets which fields are value searchable.",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/InsightAdvisorBestPractices/best-practice-create-business-logic.htm"
+        },
+        "queryHistory": {
+          "l": 3,
+          "n": "The default logical model learns from charts that users add or edit. Precedents are per user. They are unavailable once business logic is on.",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/insight-advisor-create-visualizations.htm"
+        },
+        "lineage": {
+          "l": 3,
+          "n": "Field-level lineage and impact analysis cover cataloged data across apps, scripts and datasets. The Lineage graphs API also provides them.",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Catalog/lineage.htm"
+        },
+        "evals": {
+          "l": 1,
+          "n": "The Natural Language API logs feedback and questions for audit admins. The docs point to manual model fixes.",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/insight-advisor-usage-metrics.htm"
+        }
+      },
+      "enrichHowTo": "Write dataset descriptions and tags with PATCH /api/v1/data-sets/{id} in the Data sets API. Load business terms with the Glossaries API import. Edit Insight Advisor synonyms by hand in the Vocabulary of each app. The REST API list has no vocabulary or logical model endpoint.",
+      "bulkSnippet": {
+        "lang": "",
+        "code": "",
+        "u": ""
+      },
+      "sources": [
+        {
+          "t": "Generating an AI-based description",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/DataIntegration/DataProducts/Generating-AI-based-description.htm"
+        },
+        {
+          "t": "Data sets REST API",
+          "u": "https://qlik.dev/apis/rest/data-sets/"
+        },
+        {
+          "t": "Glossaries REST API",
+          "u": "https://qlik.dev/apis/rest/glossaries/"
+        },
+        {
+          "t": "Managing semantic types",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/DataIntegration/DataProducts/Managing-semantic-types.htm"
+        },
+        {
+          "t": "Best practices for business logic",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/InsightAdvisorBestPractices/best-practice-create-business-logic.htm"
+        },
+        {
+          "t": "Analyzing lineage for apps, scripts, and datasets",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Catalog/lineage.htm"
+        },
+        {
+          "t": "Working with lineage and impact analysis in Data Integration",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Catalog/work-with-lineage-impact-analysis-di.htm"
+        },
+        {
+          "t": "Lineage graphs REST API",
+          "u": "https://qlik.dev/apis/rest/lineage-graphs/"
+        },
+        {
+          "t": "Building logical models for Insight Advisor with Business logic",
+          "u": "https://help.qlik.com/en-US/sense/May2026/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business-logic-logical-models.htm"
+        },
+        {
+          "t": "Creating visualizations with Insight Advisor",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/insight-advisor-create-visualizations.htm"
+        },
+        {
+          "t": "Using feedback and usage metrics to improve application usability",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/insight-advisor-usage-metrics.htm"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "oracleanalytics",
+      "caps": {
+        "aiDescriptions": {
+          "l": 3,
+          "n": "Catalog Descriptions drafts dataset descriptions. Semantic Modeler Assistant suggests names. It also writes presentation table and column descriptions.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/oracle-analytics-ai-assistants-features.html"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "Export the data model index to CSV in Console. Edit synonyms, AI Descriptions and index type, and import it. The last import wins per column.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/export-import-csv-file-containing-synonyms-ai-descriptions-data-model-columns.html"
+        },
+        "autoClassify": {
+          "l": 3,
+          "n": "Dataset profiling detects semantic types and recommends enrichments. Users flag sensitive columns by hand with the DataSecurity setting.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/tutorial-apply-custom-semantic-types-to-data/index.html"
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Index type Index covers metadata and data values for dimension columns. Index Metadata Only keeps values out, for sensitive columns.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/managing-data-model-indexing-synonyms-ai-descriptions-using-csv-file.html"
+        },
+        "queryHistory": {
+          "l": 1,
+          "n": "Usage Tracking logs logical and physical queries to a database that you specify. The team must analyze the logs.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/usage-tracking-database.html"
+        },
+        "lineage": {
+          "l": 3,
+          "n": "The Semantic Modeler lineage viewer and Export Lineage CSV map presentation columns to logical and physical columns. The scope is the semantic model.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/generate-document-repository-mappings.html"
+        },
+        "evals": {
+          "l": 1,
+          "n": "AI Assistant feedback goes to OCI logs with category and details. The docs do not say it improves future answers.",
+          "u": "https://docs.oracle.com/en-us/iaas/analytics-cloud/doc/audit-and-diagnostic-logs-oracle-analytics-cloud.html"
+        }
+      },
+      "enrichHowTo": "In Console, open Search Index, select the data model and Export a CSV. Fill the Synonyms and AI Description columns. Then Import it. Indexing restarts on import. The file also moves AI-ready metadata between environments.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": [
+        {
+          "t": "About Oracle Analytics AI Assistants",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/oracle-analytics-ai-assistants-features.html"
+        },
+        {
+          "t": "Export and Import a CSV File Containing Synonyms and AI Descriptions for Data Model Columns",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/export-import-csv-file-containing-synonyms-ai-descriptions-data-model-columns.html"
+        },
+        {
+          "t": "About Managing Data Model Indexing, Synonyms, and AI Descriptions Using a CSV File",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/managing-data-model-indexing-synonyms-ai-descriptions-using-csv-file.html"
+        },
+        {
+          "t": "Add Metadata for a Dataset Using AI Assistant",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-metadata-dataset-using-ai.html"
+        },
+        {
+          "t": "Apply Custom Semantic Types to Your Data",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/tutorial-apply-custom-semantic-types-to-data/index.html"
+        },
+        {
+          "t": "What's New for Oracle Analytics Cloud",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acswn/"
+        },
+        {
+          "t": "About the Usage Tracking Database",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/usage-tracking-database.html"
+        },
+        {
+          "t": "Generate a Document of Semantic Model Mappings",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/generate-document-repository-mappings.html"
+        },
+        {
+          "t": "Audit and diagnostic logs for Oracle Analytics Cloud",
+          "u": "https://docs.oracle.com/en-us/iaas/analytics-cloud/doc/audit-and-diagnostic-logs-oracle-analytics-cloud.html"
+        }
+      ],
+      "verified": "2026-10-24"
+    }
+  ],
+  "notes": [
+    {
+      "topic": "Strategy bots are now agents",
+      "text": "Strategy One renamed enhanced bots to agents in September 2025. A dataset must be enabled for AI before an agent can use it. This generates the dataset and column descriptions.",
+      "sources": [
+        {
+          "t": "Enable a Dataset for Agents",
+          "u": "https://www2.microstrategy.com/producthelp/Current/Workstation/en-us/Content/enable_ai_dataset.htm"
+        }
+      ]
+    },
+    {
+      "topic": "Oracle AI Descriptions are written by hand",
+      "text": "In Oracle Analytics, an AI Description is a column field that you write to give the AI Assistant business context such as units or scale. It is separate from the generative features that draft dataset and presentation descriptions.",
+      "sources": [
+        {
+          "t": "About Managing Data Model Indexing, Synonyms, and AI Descriptions Using a CSV File",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/managing-data-model-indexing-synonyms-ai-descriptions-using-csv-file.html"
+        },
+        {
+          "t": "About Oracle Analytics AI Assistants",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/oracle-analytics-ai-assistants-features.html"
+        }
+      ]
+    },
+    {
+      "topic": "Qlik business logic turns off precedent learning",
+      "text": "When business logic is enabled in a Qlik app, Qlik disables precedent-based learning for that app. Insight Advisor then relies on the logical model and vocabulary that you maintain.",
+      "sources": [
+        {
+          "t": "Building logical models for Insight Advisor with Business logic",
+          "u": "https://help.qlik.com/en-US/sense/May2026/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business-logic-logical-models.htm"
+        }
+      ]
+    }
+  ]
+}

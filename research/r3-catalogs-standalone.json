@@ -1,0 +1,796 @@
+{
+  "vendors": [
+    {
+      "id": "informatica",
+      "name": "Informatica Intelligent Data Management Cloud",
+      "category": "catalog",
+      "aliases": [
+        "Informatica",
+        "IDMC",
+        "Informatica IDMC",
+        "Cloud Data Governance and Catalog",
+        "CDGC",
+        "CLAIRE",
+        "CLAIRE GPT",
+        "Informatica Data Catalog"
+      ],
+      "tagline": "Enterprise data catalog and governance service with CLAIRE AI, now owned by Salesforce.",
+      "verdict": "partial",
+      "verdictNote": "CDGC holds glossary terms, descriptions, lineage and classification, and it exposes them to agents, but it has no metric or semantic model object.",
+      "artifacts": [
+        {
+          "name": "Cloud Data Governance and Catalog (CDGC)",
+          "kind": "glossary",
+          "status": "GA",
+          "since": "",
+          "format": "UI and REST APIs (asset search, lineage, bulk import and export)",
+          "url": "https://www.informatica.com/products/data-governance/cloud-data-governance-and-catalog.html"
+        },
+        {
+          "name": "CLAIRE GPT",
+          "kind": "nl2sql",
+          "status": "Unverified",
+          "since": "",
+          "format": "UI chat; the sources do not state a stage for the CDGC use",
+          "url": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+        },
+        {
+          "name": "CLAIRE Agents (Data Exploration, Enterprise Discovery, Data Quality)",
+          "kind": "agent",
+          "status": "Preview",
+          "since": "2025-10",
+          "format": "UI; the Fall 2025 release lists some agents as public or private preview",
+          "url": "https://itwire.com/business-it-news/data/informatica-announces-%E2%80%98latest-innovations%E2%80%99-to-intelligent-data-management-cloud.html"
+        },
+        {
+          "name": "Informatica MCP servers (CDGC Metadata Search)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "",
+          "format": "MCP 2025-06-18 over streamable HTTP; tools get_asset_details and search_metadata",
+          "url": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "The Glossary Metric asset holds a description, business logic text, format type and alias names. The logic is text, not executable.",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/DGC/en/ab-understanding-businessassets/Glossary_Metric.html"
+        },
+        "dimensions": {
+          "l": 0,
+          "n": "Metric assets have no dimension fields. Glossary parents and business terms give context, but they do not declare dimensions.",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/DGC/en/ab-understanding-businessassets/Glossary_Metric.html"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Relationship Discovery finds similar columns and relations between tables in scanned sources. It does not declare join paths for an agent.",
+          "u": "https://success.informatica.com/learning-path/cloud-data-governance-and-catalog/discover.html"
+        },
+        "synonyms": {
+          "l": 2,
+          "n": "The CDGC MCP server returns asset details and searches metadata, which include glossary terms and descriptions. The server stage is not confirmed as GA.",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "No store of approved question and SQL pairs appears in the CLAIRE GPT or CDGC docs.",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/clairegpt/en/ab-using-claire-gpt/Using_CLAIRE_GPT.html"
+        },
+        "nl2sql": {
+          "l": 2,
+          "n": "CLAIRE GPT answers natural-language questions about catalog assets, quality and lineage, and shows data samples. The sources do not show a SQL output.",
+          "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+        },
+        "ontology": {
+          "l": 3,
+          "n": "Business terms link to each other, and admins can add custom asset types and relationship types. There are no action objects.",
+          "u": "https://aws.amazon.com/blogs/database/how-informatica-cloud-data-governance-and-catalog-uses-amazon-neptune-for-knowledge-graphs/"
+        },
+        "graph": {
+          "l": 0,
+          "n": "No graph query language for users. The catalog stores metadata in a graph store, but users do not query it with Cypher, GQL or SPARQL.",
+          "u": "https://aws.amazon.com/blogs/database/how-informatica-cloud-data-governance-and-catalog-uses-amazon-neptune-for-knowledge-graphs/"
+        },
+        "vector": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "mcp": {
+          "l": 3,
+          "n": "Informatica MCP servers include a CDGC Metadata Search server with get_asset_details and search_metadata tools. The docs page shows no preview label.",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
+        },
+        "governance": {
+          "l": 3,
+          "n": "CDGC covers lineage, classification, policies and data quality. TechTarget reports that CLAIRE MCP calls use the caller's security context.",
+          "u": "https://www.techtarget.com/data-technologies/news/366628006/Informatica-adds-MCP-support-spate-of-AI-fueled-features"
+        },
+        "openStandard": {
+          "l": 1,
+          "n": "MCP is an open standard and CDGC has REST APIs. No OSI or semantic model export was found.",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
+        },
+        "aiDescriptions": {
+          "l": 3,
+          "n": "CLAIRE generates descriptions and business names for technical assets in CDGC. The slide deck does not state a stage.",
+          "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "CDGC has a Bulk Import and Export API and a Metadata Management API for programmatic writes.",
+          "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+        },
+        "autoClassify": {
+          "l": 3,
+          "n": "CLAIRE generates a classification tag for each data element during a metadata scan, and teams can promote it.",
+          "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+        },
+        "sampleValues": {
+          "l": 2,
+          "n": "CLAIRE GPT shows live data samples in answers. The sources do not show value matching for SQL literals.",
+          "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "The CLAIRE GPT and CDGC docs do not show a feature that mines query history to suggest joins, metrics or examples.",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/clairegpt/en/ab-using-claire-gpt/Using_CLAIRE_GPT.html"
+        },
+        "lineage": {
+          "l": 3,
+          "n": "CDGC gives end-to-end lineage and AI-inferred lineage across catalog sources without ETL code.",
+          "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+        },
+        "evals": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        }
+      },
+      "offers": [
+        "CDGC stores technical metadata, business glossary terms, classification tags and lineage in one governed catalog.",
+        "CLAIRE generates descriptions, business names and classification tags, and it links data elements to glossary terms.",
+        "The CDGC MCP server lets an agent search metadata and read asset details with the caller's permissions.",
+        "CDGC REST APIs cover asset search, lineage, bulk import and export, and data quality for custom agents.",
+        "CLAIRE GPT answers catalog questions in natural language for people who do not write SQL."
+      ],
+      "gaps": [
+        "No metric, dimension or join model object was found, so an agent cannot read governed measures from CDGC.",
+        "No verified question and SQL pairs and no NL-to-SQL accuracy test tool was found.",
+        "The MCP servers and several CLAIRE agents show preview stages in the sources, and GA dates are unclear.",
+        "CLAIRE GPT output is an answer in chat. The sources do not show SQL that runs on the warehouse."
+      ],
+      "fillWith": [
+        "Snowflake semantic views",
+        "Databricks metric views",
+        "dbt Semantic Layer",
+        "Cube"
+      ],
+      "nl2sqlPath": "Use CDGC as the source of descriptions, glossary terms, classification and lineage. Read them through the CDGC MCP server or REST APIs. Build metrics and joins in a warehouse semantic layer, and let the agent query that layer.",
+      "snippet": {
+        "lang": "json",
+        "title": "MCP client entry for an Informatica MCP server (shape only)",
+        "code": "{\n  \"mcpServers\": {\n    \"informatica-cdgc\": {\n      \"url\": \"<MCP server URL from IDMC>\",\n      \"headers\": { \"Authorization\": \"Bearer <token>\" }\n    }\n  }\n}",
+        "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
+      },
+      "enrichHowTo": "Turn on CLAIRE generated descriptions and classifications in Metadata Command Center, then scan the source. Review the output in CDGC. For large corrections, use the CDGC Bulk Import and Export API.",
+      "bulkSnippet": {
+        "lang": "",
+        "code": "",
+        "u": ""
+      },
+      "askData": [
+        {
+          "name": "CLAIRE GPT",
+          "status": "Unverified",
+          "since": "",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "answer only",
+          "reads": "Catalog assets, glossary terms, descriptions, quality scores, lineage and live data samples in CDGC.",
+          "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "t": "Cloud Data Governance and Catalog product page",
+          "u": "https://www.informatica.com/products/data-governance/cloud-data-governance-and-catalog.html"
+        },
+        {
+          "t": "Introduction to Informatica MCP servers",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
+        },
+        {
+          "t": "AI for the Catalog, Catalog for the AI (Informatica slides)",
+          "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+        },
+        {
+          "t": "TechTarget: Informatica adds MCP support",
+          "u": "https://www.techtarget.com/data-technologies/news/366628006/Informatica-adds-MCP-support-spate-of-AI-fueled-features"
+        },
+        {
+          "t": "ITWire: Informatica Fall 2025 release",
+          "u": "https://itwire.com/business-it-news/data/informatica-announces-%E2%80%98latest-innovations%E2%80%99-to-intelligent-data-management-cloud.html"
+        },
+        {
+          "t": "Salesforce completes acquisition of Informatica",
+          "u": "https://www.salesforce.com/news/press-releases/2025/11/18/salesforce-completes-acquisition-of-informatica/"
+        },
+        {
+          "t": "Informatica Glossary Metric asset",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/DGC/en/ab-understanding-businessassets/Glossary_Metric.html"
+        },
+        {
+          "t": "Informatica CDGC Discover learning path",
+          "u": "https://success.informatica.com/learning-path/cloud-data-governance-and-catalog/discover.html"
+        },
+        {
+          "t": "Informatica Using CLAIRE GPT",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/clairegpt/en/ab-using-claire-gpt/Using_CLAIRE_GPT.html"
+        },
+        {
+          "t": "AWS: how CDGC uses Amazon Neptune for knowledge graphs",
+          "u": "https://aws.amazon.com/blogs/database/how-informatica-cloud-data-governance-and-catalog-uses-amazon-neptune-for-knowledge-graphs/"
+        },
+        {
+          "t": "Informatica CLAIRE GPT Enablement deck",
+          "u": "https://www.informatica.com/content/dam/informatica-cxp/success_accelerators/CLAIRE%20GPT%20Enablement%20-%20Apr.2024%20v1.1.pdf"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "selectstar",
+      "name": "Select Star",
+      "category": "catalog",
+      "aliases": [
+        "Select Star Metadata Context Platform",
+        "selectstar.com"
+      ],
+      "tagline": "Automated data catalog with lineage, semantic models and an MCP server, now part of Snowflake.",
+      "verdict": "partial",
+      "verdictNote": "Select Star builds semantic models with entities, metrics, relationships and example queries, but the feature is in Beta and exports to the Snowflake format.",
+      "artifacts": [
+        {
+          "name": "Semantic Models",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "",
+          "format": "UI; AI-generated; YAML in the Snowflake Cortex Analyst specification",
+          "url": "https://docs.selectstar.com/features/semantic-models.md"
+        },
+        {
+          "name": "Ask AI Chatbot",
+          "kind": "nl2sql",
+          "status": "Unverified",
+          "since": "",
+          "format": "UI and Slack; docs give no stage label",
+          "url": "https://docs.selectstar.com/features/ask-ai-chatbot.md"
+        },
+        {
+          "name": "MCP Server",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "",
+          "format": "Remote MCP at mcp.production.selectstar.com with API token",
+          "url": "https://docs.selectstar.com/features/mcp-server.md"
+        },
+        {
+          "name": "Metrics Generation",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "",
+          "format": "UI; reads Power BI and Tableau dashboards",
+          "url": "https://docs.selectstar.com/features/documents/metrics/metrics-generation.md"
+        },
+        {
+          "name": "AI Agents (tagging rules)",
+          "kind": "agent",
+          "status": "Preview",
+          "since": "",
+          "format": "UI; private beta",
+          "url": "https://docs.selectstar.com/features/ai-tagging-agent.md"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 2,
+          "n": "Semantic models hold metrics with definitions, synonyms and SQL expressions. Metrics Generation reads Power BI and Tableau dashboards. Both are Beta.",
+          "u": "https://docs.selectstar.com/features/semantic-models.md"
+        },
+        "dimensions": {
+          "l": 2,
+          "n": "Semantic model entities list their columns, and metrics list dimensions. The feature is Beta.",
+          "u": "https://docs.selectstar.com/features/semantic-models.md"
+        },
+        "relationships": {
+          "l": 2,
+          "n": "A Relationships tab shows joins inferred from primary and foreign keys in the ERD. The feature is Beta.",
+          "u": "https://docs.selectstar.com/features/semantic-models.md"
+        },
+        "synonyms": {
+          "l": 2,
+          "n": "Semantic models take descriptions, synonyms, sample business questions and custom instructions. The feature is Beta.",
+          "u": "https://docs.selectstar.com/features/semantic-models.md"
+        },
+        "verifiedQueries": {
+          "l": 2,
+          "n": "Semantic models hold example queries with SQL that help Ask AI. The feature is Beta.",
+          "u": "https://docs.selectstar.com/features/semantic-models.md"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Ask AI writes queries from metadata and recommends joins. The docs give no stage label and say the chatbot can be enabled per organization.",
+          "u": "https://docs.selectstar.com/features/ask-ai-chatbot.md"
+        },
+        "ontology": {
+          "l": 1,
+          "n": "Semantic models define entities and a glossary exists, but no object, link or action model was found.",
+          "u": "https://docs.selectstar.com/features/semantic-models.md"
+        },
+        "graph": {
+          "l": 0,
+          "n": "No graph query language in the docs index. Lineage is shown in the UI and the MCP server.",
+          "u": "https://docs.selectstar.com/llms.txt"
+        },
+        "vector": {
+          "l": 3,
+          "n": "Embeddings back Ask AI and natural language search. The system refreshes them once a day. Other searches use keywords.",
+          "u": "https://docs.selectstar.com/features/ai-features-and-settings.md"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "The MCP server searches tables, dashboards and columns, returns asset details and lineage, and supports dbt workflows.",
+          "u": "https://docs.selectstar.com/features/mcp-server.md"
+        },
+        "governance": {
+          "l": 2,
+          "n": "Admins can limit which assets Ask AI sees, and tags carry certification. The sources do not show row-level security inheritance.",
+          "u": "https://docs.selectstar.com/features/ai-features-and-settings.md"
+        },
+        "openStandard": {
+          "l": 2,
+          "n": "Each semantic model has YAML in the Snowflake Cortex Analyst specification, with export to a stage or a view. No OSI support found.",
+          "u": "https://docs.selectstar.com/features/semantic-models.md"
+        },
+        "aiDescriptions": {
+          "l": 3,
+          "n": "AI generates table, column, dashboard and chart descriptions from metadata, SQL queries and existing documentation.",
+          "u": "https://docs.selectstar.com/features/auto-documentation.md"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "CSV upload for table and column descriptions, a REST API, and dbt docs sync. Snowflake tag sync and BigQuery description sync are Beta.",
+          "u": "https://docs.selectstar.com/data-management/add-documentation/csv-metadata-upload.md"
+        },
+        "autoClassify": {
+          "l": 3,
+          "n": "Automated PII rules tag columns by regular expression on column names. Rules run daily after metadata sync.",
+          "u": "https://docs.selectstar.com/data-management/automated-pii-detection-beta.md"
+        },
+        "sampleValues": {
+          "l": 2,
+          "n": "Semantic model YAML has a sample_values field. Auto-generation from BI dashboards fills sample values. The feature is Beta.",
+          "u": "https://docs.selectstar.com/features/semantic-models.md"
+        },
+        "queryHistory": {
+          "l": 3,
+          "n": "AI documentation, popularity and lineage use SQL query history. Semantic models draw on dashboards and downstream use.",
+          "u": "https://docs.selectstar.com/features/ask-ai-chatbot.md"
+        },
+        "lineage": {
+          "l": 3,
+          "n": "Column-level lineage from query logs and BI tools, with OpenLineage input in Beta.",
+          "u": "https://docs.selectstar.com/features/lineage.md"
+        },
+        "evals": {
+          "l": 0,
+          "n": "Users can rate Ask AI answers. No test set tool or rating-to-example loop was found.",
+          "u": "https://docs.selectstar.com/features/ask-ai-chatbot.md"
+        }
+      },
+      "offers": [
+        "Semantic Models: AI generates entities, metrics, joins and example queries from warehouse tables or BI dashboards.",
+        "Ask AI reads the semantic model, descriptions and glossary to answer data questions and write queries.",
+        "The MCP server gives agents catalog search, asset details, lineage and semantic model context.",
+        "Export of a semantic model as Snowflake Cortex Analyst YAML, to a stage or as a view.",
+        "CSV upload and a REST API write descriptions and tags in bulk."
+      ],
+      "gaps": [
+        "Semantic Models and Metrics Generation are Beta, and Metrics Generation covers Power BI and Tableau only.",
+        "The YAML format follows Snowflake Cortex Analyst, so other engines need a conversion step.",
+        "PII detection matches column names with regular expressions, not data values.",
+        "No NL-to-SQL accuracy test tool was found."
+      ],
+      "fillWith": [
+        "Snowflake semantic views",
+        "dbt Semantic Layer",
+        "Cube"
+      ],
+      "nl2sqlPath": "Generate a semantic model from key tables or dashboards, review the metrics and joins, and turn on Ask AI for it. For a Snowflake warehouse, export the YAML to Cortex Analyst. For other agents, connect through the MCP server.",
+      "snippet": {
+        "lang": "bash",
+        "title": "Add the Select Star MCP server to Claude Code",
+        "code": "claude mcp add --transport http select-star https://mcp.production.selectstar.com/mcp \\\n  --header \"Authorization: Bearer <your_api_token>\" -s user",
+        "u": "https://docs.selectstar.com/features/mcp-server.md"
+      },
+      "enrichHowTo": "Use the AI generation icon on a table to draft descriptions, or turn on AI documentation for a new data source. For corrections at scale, use CSV Metadata Upload or the Select Star API.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "# Select Star CSV Metadata Upload: export descriptions, edit the CSV, upload it in Data Management.\n# API: see the Select Star API quick start for table and column description updates.",
+        "u": "https://docs.selectstar.com/data-management/add-documentation/csv-metadata-upload.md"
+      },
+      "askData": [
+        {
+          "name": "Ask AI",
+          "status": "Unverified",
+          "since": "",
+          "surfaces": [
+            "UI",
+            "Slack"
+          ],
+          "output": "SQL",
+          "reads": "Metadata, descriptions, glossary, popularity, lineage, query history and the enabled semantic model.",
+          "u": "https://docs.selectstar.com/features/ask-ai-chatbot.md"
+        }
+      ],
+      "sources": [
+        {
+          "t": "Semantic Models",
+          "u": "https://docs.selectstar.com/features/semantic-models.md"
+        },
+        {
+          "t": "Ask AI Chatbot",
+          "u": "https://docs.selectstar.com/features/ask-ai-chatbot.md"
+        },
+        {
+          "t": "MCP Server",
+          "u": "https://docs.selectstar.com/features/mcp-server.md"
+        },
+        {
+          "t": "Automated Documentation",
+          "u": "https://docs.selectstar.com/features/auto-documentation.md"
+        },
+        {
+          "t": "Automated PII Detection",
+          "u": "https://docs.selectstar.com/data-management/automated-pii-detection-beta.md"
+        },
+        {
+          "t": "Metrics Generation",
+          "u": "https://docs.selectstar.com/features/documents/metrics/metrics-generation.md"
+        },
+        {
+          "t": "Cortex Analyst (beta)",
+          "u": "https://docs.selectstar.com/integrations/snowflake/cortex-analyst.md"
+        },
+        {
+          "t": "Snowflake to acquire Select Star",
+          "u": "https://www.snowflake.com/en/blog/snowflake-acquire-select-star/"
+        },
+        {
+          "t": "Select Star Search",
+          "u": "https://docs.selectstar.com/features/search.md"
+        },
+        {
+          "t": "Select Star AI Settings",
+          "u": "https://docs.selectstar.com/features/ai-features-and-settings.md"
+        },
+        {
+          "t": "Select Star changelog, June 2025",
+          "u": "https://docs.selectstar.com/changelog/june-18-2025-auto-cortex-models-llm-search-tableau-metric-extraction-and-more.md"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "secoda",
+      "name": "Secoda",
+      "category": "catalog",
+      "aliases": [
+        "Secoda AI",
+        "Secoda Data Catalog",
+        "Atlassian Secoda"
+      ],
+      "tagline": "AI data catalog with lineage, glossary, monitors and an MCP server, now part of Atlassian.",
+      "verdict": "partial",
+      "verdictNote": "Secoda gives agents glossary terms, descriptions, lineage and a run_sql tool through MCP, but the docs show no metric or semantic model object.",
+      "artifacts": [
+        {
+          "name": "Secoda AI",
+          "kind": "nl2sql",
+          "status": "Unverified",
+          "since": "",
+          "format": "UI chat; admin turns it on in Settings; docs give no stage label",
+          "url": "https://docs.secoda.co/features/ai-assistant.md"
+        },
+        {
+          "name": "Secoda MCP server",
+          "kind": "mcp",
+          "status": "Unverified",
+          "since": "",
+          "format": "MCP tools: search_data_assets, run_sql, entity_lineage, glossary; docs give no stage label",
+          "url": "https://docs.secoda.co/features/ai-assistant/secoda-mcp-server.md"
+        },
+        {
+          "name": "AI-powered Automations",
+          "kind": "agent",
+          "status": "Unverified",
+          "since": "",
+          "format": "UI; AI rules write descriptions, tags and PII classes in bulk",
+          "url": "https://docs.secoda.co/features/automations/ai-powered-automations.md"
+        },
+        {
+          "name": "Secoda AI Agents",
+          "kind": "agent",
+          "status": "Unverified",
+          "since": "",
+          "format": "UI; scheduled prompts that deliver results to the inbox",
+          "url": "https://docs.secoda.co/features/ai-assistant/secoda-ai-agents.md"
+        },
+        {
+          "name": "Business glossary",
+          "kind": "glossary",
+          "status": "GA",
+          "since": "",
+          "format": "UI and API",
+          "url": "https://docs.secoda.co/features/glossary.md"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 0,
+          "n": "No metric or semantic model feature appears in the docs index. Glossary terms hold definitions.",
+          "u": "https://docs.secoda.co/llms.txt"
+        },
+        "dimensions": {
+          "l": 0,
+          "n": "No dimension object appears in the docs index.",
+          "u": "https://docs.secoda.co/llms.txt"
+        },
+        "relationships": {
+          "l": 0,
+          "n": "No declared join model appears in the docs index. Lineage shows data flow.",
+          "u": "https://docs.secoda.co/llms.txt"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Descriptions, glossary terms and admin custom instructions are context for Secoda AI and the MCP glossary tool.",
+          "u": "https://docs.secoda.co/features/ai-assistant.md"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "Query blocks save SQL in documents. The docs do not say Secoda AI uses them as approved question and SQL examples.",
+          "u": "https://docs.secoda.co/features/queries.md"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Secoda AI answers questions, builds queries and runs SQL on connected sources. The docs give no stage label.",
+          "u": "https://docs.secoda.co/features/ai-assistant.md"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "Glossary, collections and tags exist. No object, link or action model appears in the docs index.",
+          "u": "https://docs.secoda.co/llms.txt"
+        },
+        "graph": {
+          "l": 0,
+          "n": "No graph query language in the docs index. Lineage is available in the UI and MCP.",
+          "u": "https://docs.secoda.co/llms.txt"
+        },
+        "vector": {
+          "l": 0,
+          "n": "Search ranks by title, description match and popularity. The docs show no vector index.",
+          "u": "https://docs.secoda.co/features/search.md"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "The MCP server searches assets, runs SQL, returns lineage and glossary terms, and respects workspace permissions. No stage label in docs.",
+          "u": "https://docs.secoda.co/features/ai-assistant/secoda-mcp-server.md"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Admins set filter rules for what AI can see. AI follows team permissions, and run_sql needs query access.",
+          "u": "https://docs.secoda.co/features/ai-assistant.md"
+        },
+        "openStandard": {
+          "l": 1,
+          "n": "MCP and a REST API with CSV export exist. No OSI or semantic model export was found.",
+          "u": "https://docs.secoda.co/api.md"
+        },
+        "aiDescriptions": {
+          "l": 3,
+          "n": "The AI Description Editor generates descriptions in bulk and follows admin style instructions.",
+          "u": "https://docs.secoda.co/resource-and-metadata-management/add-documentation/ai-description-editor.md"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "CSV import and export, bulk editing, rule-based Automations, and a REST API with column endpoints.",
+          "u": "https://docs.secoda.co/resource-and-metadata-management/import-and-export-data.md"
+        },
+        "autoClassify": {
+          "l": 3,
+          "n": "AI Automations detect and classify PII and apply tags by rule.",
+          "u": "https://docs.secoda.co/features/automations/ai-powered-automations.md"
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "Column profiling stores counts, minimum, maximum and distribution. The docs do not say Secoda AI uses them to match literals.",
+          "u": "https://docs.secoda.co/features/column-profiling.md"
+        },
+        "queryHistory": {
+          "l": 1,
+          "n": "Secoda AI reports query usage patterns and costly queries. The docs do not show join or metric suggestions from query history.",
+          "u": "https://docs.secoda.co/features/ai-assistant/secoda-ai-capabilities.md"
+        },
+        "lineage": {
+          "l": 3,
+          "n": "Table and column lineage is extracted from queries. Manual lineage is also available.",
+          "u": "https://docs.secoda.co/features/data-lineage.md"
+        },
+        "evals": {
+          "l": 2,
+          "n": "Thumbs ratings and Advanced Memory help Secoda AI learn from past answers. No test set or benchmark tool appears.",
+          "u": "https://docs.secoda.co/features/ai-assistant.md"
+        }
+      },
+      "offers": [
+        "Secoda AI reads catalog metadata, glossary, lineage, monitors and query logs, and it can run SQL on connected sources.",
+        "The MCP server gives agents asset search, entity lineage, glossary terms and a run_sql tool.",
+        "Admin filters and custom instructions limit and steer what the AI reads.",
+        "The AI Description Editor and AI Automations write descriptions, tags and PII classes in bulk.",
+        "Advanced Memory lets the AI learn from past successful chats in a workspace."
+      ],
+      "gaps": [
+        "No metric, dimension or declared join object appears in the docs index, so measures stay in SQL or the glossary.",
+        "The docs give no stage label for Secoda AI or the MCP server.",
+        "No NL-to-SQL accuracy test tool and no verified question and SQL pairs were found.",
+        "Atlassian bought Secoda in December 2025, and the infrastructure is moving, so plans may change."
+      ],
+      "fillWith": [
+        "dbt Semantic Layer",
+        "Cube",
+        "Snowflake semantic views"
+      ],
+      "nl2sqlPath": "Document tables and columns in Secoda with the AI Description Editor and glossary terms. Set AI filters so the agent sees only certified resources. Define metrics in a separate semantic layer, and let agents use both through the MCP server.",
+      "snippet": {
+        "lang": "bash",
+        "title": "Secoda API key header (shape from docs)",
+        "code": "# Create an API key in Workspace Settings > API in Secoda.\n# Send it as a bearer token on Secoda API requests:\n#   Authorization: Bearer <your_api_key>",
+        "u": "https://docs.secoda.co/api/authentication.md"
+      },
+      "enrichHowTo": "Filter the tables to document, then use the AI Description Editor or an Automation with a Generate AI output rule. Turn on review before publish. For exact edits, export resources to CSV, edit them and import the file.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "# Secoda: Export resources to CSV, edit the description column, then import the file.\n# Docs: Import and export resources.",
+        "u": "https://docs.secoda.co/resource-and-metadata-management/import-and-export-data.md"
+      },
+      "askData": [
+        {
+          "name": "Secoda AI",
+          "status": "Unverified",
+          "since": "",
+          "surfaces": [
+            "UI",
+            "MCP"
+          ],
+          "output": "SQL",
+          "reads": "Catalog metadata, descriptions, glossary, lineage, monitors, query logs and admin custom instructions.",
+          "u": "https://docs.secoda.co/features/ai-assistant.md"
+        }
+      ],
+      "sources": [
+        {
+          "t": "Secoda AI",
+          "u": "https://docs.secoda.co/features/ai-assistant.md"
+        },
+        {
+          "t": "Secoda MCP server",
+          "u": "https://docs.secoda.co/features/ai-assistant/secoda-mcp-server.md"
+        },
+        {
+          "t": "Secoda AI capabilities",
+          "u": "https://docs.secoda.co/features/ai-assistant/secoda-ai-capabilities.md"
+        },
+        {
+          "t": "AI-powered automations",
+          "u": "https://docs.secoda.co/features/automations/ai-powered-automations.md"
+        },
+        {
+          "t": "AI description editor",
+          "u": "https://docs.secoda.co/resource-and-metadata-management/add-documentation/ai-description-editor.md"
+        },
+        {
+          "t": "Import and export resources",
+          "u": "https://docs.secoda.co/resource-and-metadata-management/import-and-export-data.md"
+        },
+        {
+          "t": "Atlassian acquires Secoda",
+          "u": "https://www.secoda.co/blog/atlassian-acquires-secoda"
+        },
+        {
+          "t": "Secoda queries",
+          "u": "https://docs.secoda.co/features/queries.md"
+        },
+        {
+          "t": "Secoda column profiling",
+          "u": "https://docs.secoda.co/features/column-profiling.md"
+        },
+        {
+          "t": "Secoda search",
+          "u": "https://docs.secoda.co/features/search.md"
+        },
+        {
+          "t": "Secoda AI user guide",
+          "u": "https://docs.secoda.co/features/ai-assistant/best-practices.md"
+        }
+      ],
+      "verified": "2026-10-24"
+    }
+  ],
+  "notes": [
+    {
+      "topic": "Salesforce acquired Informatica",
+      "text": "Salesforce completed the acquisition of Informatica on 2025-11-18. Informatica adds its catalog, integration, governance and MDM services to the Salesforce platform.",
+      "sources": [
+        {
+          "t": "Salesforce completes acquisition of Informatica",
+          "u": "https://www.salesforce.com/news/press-releases/2025/11/18/salesforce-completes-acquisition-of-informatica/"
+        }
+      ]
+    },
+    {
+      "topic": "Snowflake acquires Select Star",
+      "text": "Snowflake announced a definitive agreement to buy the Select Star team and platform on 2025-11-24. The Select Star site now says it is part of Snowflake. A completion date was not found.",
+      "sources": [
+        {
+          "t": "Snowflake to Acquire Select Star",
+          "u": "https://www.snowflake.com/en/blog/snowflake-acquire-select-star/"
+        },
+        {
+          "t": "Select Star home page",
+          "u": "https://www.selectstar.com/"
+        }
+      ]
+    },
+    {
+      "topic": "Atlassian acquires Secoda",
+      "text": "Secoda announced on 2025-12-04 that Atlassian acquired it. The Secoda home page repeats this.",
+      "sources": [
+        {
+          "t": "Atlassian acquires Secoda",
+          "u": "https://www.secoda.co/blog/atlassian-acquires-secoda"
+        },
+        {
+          "t": "Secoda home page",
+          "u": "https://www.secoda.co/"
+        }
+      ]
+    },
+    {
+      "topic": "Informatica MCP stage",
+      "text": "An Informatica MCP server page lists a CDGC Metadata Search server. The page shows no preview label. TechTarget reported MCP support in the July 2025 release.",
+      "sources": [
+        {
+          "t": "Introduction to Informatica MCP servers",
+          "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
+        },
+        {
+          "t": "TechTarget: Informatica adds MCP support",
+          "u": "https://www.techtarget.com/data-technologies/news/366628006/Informatica-adds-MCP-support-spate-of-AI-fueled-features"
+        }
+      ]
+    },
+    {
+      "topic": "Select Star semantic models",
+      "text": "Select Star semantic models are Beta. Their YAML follows the Snowflake Cortex Analyst specification.",
+      "sources": [
+        {
+          "t": "Semantic Models",
+          "u": "https://docs.selectstar.com/features/semantic-models.md"
+        }
+      ]
+    }
+  ]
+}

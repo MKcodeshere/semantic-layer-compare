@@ -1,0 +1,840 @@
+{
+  "vendors": [
+    {
+      "id": "dremio",
+      "caps": {
+        "aiDescriptions": {
+          "l": 2,
+          "n": "Generate wiki and Generate labels buttons on a dataset draft text from schema and data. The docs mark the feature Preview.",
+          "u": "https://docs.dremio.com/dremio-cloud/manage-govern/wikis-labels"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "The Catalog REST API creates wikis and tags per dataset. Wikis cover sources, folders and datasets. The docs show no SQL COMMENT or column descriptions.",
+          "u": "https://docs.dremio.com/dremio-cloud/api/catalog/wiki"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The docs show no automatic PII classification. Users add labels such as PII by hand. The AI label generator can also draft them.",
+          "u": "https://docs.dremio.com/dremio-cloud/manage-govern/wikis-labels"
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "The docs say the AI agent uses wikis, labels and sampling to judge relevance. The docs describe no value matching or stored sample values.",
+          "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "The docs describe no mining of query history to suggest joins, metrics or examples. The AI agent keeps per-user chat history only.",
+          "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent"
+        },
+        "lineage": {
+          "l": 0,
+          "n": "The lineage graph shows source, parent and child datasets. The docs describe no column-level lineage.",
+          "u": "https://docs.dremio.com/dremio-cloud/manage-govern/lineage"
+        },
+        "evals": {
+          "l": 0,
+          "n": "The docs describe no NL-to-SQL eval tooling. The AI agent has a feedback dialog that sends chat data to Dremio.",
+          "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent"
+        }
+      },
+      "enrichHowTo": "Turn on AI under Admin > Project > AI. Then use Generate wiki and Generate labels on each dataset. Review the text. For scripted writes, call the Catalog API. Use POST /v0/projects/{project_id}/catalog/{id}/collaboration/wiki for wikis. Use .../collaboration/tag for labels. Send one dataset per call.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "curl -X POST \"https://api.dremio.cloud/v0/projects/$PROJECT_ID/catalog/$DATASET_ID/collaboration/tag\" \\\n-H \"Authorization: Bearer $DREMIO_TOKEN\" \\\n-H 'Content-Type: application/json' \\\n--data-raw '{\"tags\": [\"NYC\", \"taxi\", \"2023\"]}'",
+        "u": "https://docs.dremio.com/dremio-cloud/api/catalog/tag"
+      },
+      "sources": [
+        {
+          "t": "Wikis and Labels",
+          "u": "https://docs.dremio.com/dremio-cloud/manage-govern/wikis-labels"
+        },
+        {
+          "t": "Generating Labels and Wikis",
+          "u": "https://docs.dremio.com/cloud/tutorials/generating-labels-and-wikis"
+        },
+        {
+          "t": "Catalog API: Tag",
+          "u": "https://docs.dremio.com/dremio-cloud/api/catalog/tag"
+        },
+        {
+          "t": "Catalog API: Wiki",
+          "u": "https://docs.dremio.com/dremio-cloud/api/catalog/wiki"
+        },
+        {
+          "t": "Lineage",
+          "u": "https://docs.dremio.com/dremio-cloud/manage-govern/lineage"
+        },
+        {
+          "t": "Analyze Using AI Agent",
+          "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent"
+        },
+        {
+          "t": "SQL commands",
+          "u": "https://docs.dremio.com/dremio-cloud/sql/commands/"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "denodo",
+      "caps": {
+        "aiDescriptions": {
+          "l": 3,
+          "n": "Denodo Assistant suggests view and column descriptions from sample data and metadata. Denodo added it in 9.1 (Nov 2024). It needs the AI & Denodo Assistant FeaturePack.",
+          "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/administration/denodo_platform_feature_packs/denodo_platform_feature_packs"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "The VQL DESCRIPTION clause sets view descriptions. The stored procedures DENODO_ASSISTANT_GENERATE_VIEW_DESCRIPTION and _FIELDS_DESCRIPTION draft text per view.",
+          "u": "https://community.denodo.com/docs/html/browse/latest/en/vdp/vql/language_for_defining_and_processing_data_vql/object_descriptions/object_descriptions"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The feature pack list shows no automatic column classification. Users apply tags by hand. The tags drive Global Security Policies.",
+          "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/administration/denodo_platform_feature_packs/denodo_platform_feature_packs"
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "AI SDK samples values per view when it vectorizes metadata. Set examples_per_table = 0 to turn it off. The SDK is a separate download.",
+          "u": "https://community.denodo.com/docs/html/document/denodoconnects/latest/en/Denodo%20AI%20SDK%20-%20User%20Manual"
+        },
+        "queryHistory": {
+          "l": 3,
+          "n": "The Assistant suggests filters, derived fields and cached summaries from past query activity. It needs the AI & Denodo Assistant FeaturePack (Enterprise Plus).",
+          "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/administration/denodo_platform_feature_packs/denodo_platform_feature_packs"
+        },
+        "lineage": {
+          "l": 3,
+          "n": "COLUMN_DEPENDENCIES returns column-level lineage for derived views. It gives the same data as the Data Lineage dialog in Design Studio.",
+          "u": "https://community.denodo.com/docs/html/browse/latest/en/vdp/vql/stored_procedures/predefined_stored_procedures/column_dependencies"
+        },
+        "evals": {
+          "l": 3,
+          "n": "The AI SDK Evaluator runs questions against ground-truth VQL. It reports F1, overlap and efficiency score in an Excel report.",
+          "u": "https://community.denodo.com/kb/en/view/document/A%20Quick%20Guide%20to%20the%20Denodo%20AI%20SDK%20Evaluator"
+        }
+      },
+      "enrichHowTo": "Configure Denodo Assistant. Then call DENODO_ASSISTANT_GENERATE_VIEW_DESCRIPTION and DENODO_ASSISTANT_GENERATE_FIELDS_DESCRIPTION for each view. Or use the Assistant in Design Studio. Review the text. Write it back with the VQL DESCRIPTION clause. The maximum description length is 4,000 characters.",
+      "bulkSnippet": {
+        "lang": "sql",
+        "code": "CREATE OR REPLACE VIEW customer360\n DESCRIPTION = 'This is the view that business users need to use to obtain all the information of the customer'\nAS SELECT ...",
+        "u": "https://community.denodo.com/docs/html/browse/latest/en/vdp/vql/language_for_defining_and_processing_data_vql/object_descriptions/object_descriptions"
+      },
+      "sources": [
+        {
+          "t": "Denodo Platform 9.1 press release",
+          "u": "https://www.denodo.com/en/press-release/2024-11-20/denodo-platform-91-brings-new-advanced-ai-capabilities-and-enhanced-data-lakehouse-performance"
+        },
+        {
+          "t": "Welcome to the era of Denodo Assistant",
+          "u": "https://www.datamanagementblog.com/welcome-to-the-era-of-denodo-assistant/"
+        },
+        {
+          "t": "Denodo Platform feature packs",
+          "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/administration/denodo_platform_feature_packs/denodo_platform_feature_packs"
+        },
+        {
+          "t": "Object Descriptions (VQL Guide)",
+          "u": "https://community.denodo.com/docs/html/browse/latest/en/vdp/vql/language_for_defining_and_processing_data_vql/object_descriptions/object_descriptions"
+        },
+        {
+          "t": "DENODO_ASSISTANT_GENERATE_VIEW_DESCRIPTION",
+          "u": "https://community.denodo.com/docs/html/browse/latest/en/vdp/vql/stored_procedures/predefined_stored_procedures/denodo_assistant_generate_view_description"
+        },
+        {
+          "t": "DENODO_ASSISTANT_GENERATE_FIELDS_DESCRIPTION",
+          "u": "https://community.denodo.com/docs/html/browse/latest/en/vdp/vql/stored_procedures/predefined_stored_procedures/denodo_assistant_generate_fields_description"
+        },
+        {
+          "t": "COLUMN_DEPENDENCIES",
+          "u": "https://community.denodo.com/docs/html/browse/latest/en/vdp/vql/stored_procedures/predefined_stored_procedures/column_dependencies"
+        },
+        {
+          "t": "Denodo AI SDK User Manual",
+          "u": "https://community.denodo.com/docs/html/document/denodoconnects/latest/en/Denodo%20AI%20SDK%20-%20User%20Manual"
+        },
+        {
+          "t": "A Quick Guide to the Denodo AI SDK Evaluator",
+          "u": "https://community.denodo.com/kb/en/view/document/A%20Quick%20Guide%20to%20the%20Denodo%20AI%20SDK%20Evaluator"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "starburst",
+      "caps": {
+        "aiDescriptions": {
+          "l": 3,
+          "n": "AI agent enrichment drafts data product, dataset and column descriptions. Starburst announced Automatic Metadata Enrichment as GA in May 2026. Galaxy has Enrich with AIDA.",
+          "u": "https://docs.starburst.io/latest/starburst-ai/data-product-enrichment-ai.html"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "Trino COMMENT ON TABLE, VIEW, MATERIALIZED VIEW, COLUMN sets one object per statement. That page does not cover connector support.",
+          "u": "https://trino.io/docs/current/sql/comment.html"
+        },
+        "autoClassify": {
+          "l": 3,
+          "n": "Galaxy data classifier jobs scan catalogs, schemas and tables. Then they propose attribute tags for PII and location columns. Admins accept or reject them.",
+          "u": "https://docs.starburst.io/starburst-galaxy/security-and-compliance/manage-galaxy-access/manage-users-roles-and-tags/data-classifier-jobs.html"
+        },
+        "sampleValues": {
+          "l": 2,
+          "n": "Enrichment can sample rows and column stats into descriptions (public preview). AIDA runs exploratory LIMIT queries before final SQL.",
+          "u": "https://docs.starburst.io/latest/starburst-ai/data-product-enrichment-ai.html"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "AIDA keeps chat history and audit logs. The docs describe no mining of query history for suggestions. Enrichment infers joins from dataset SQL.",
+          "u": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
+        },
+        "lineage": {
+          "l": 2,
+          "n": "Galaxy data lineage shows table and column lineage, one hop each way. It is public preview and Galaxy only.",
+          "u": "https://docs.starburst.io/starburst-galaxy/working-with-data/explore-data/data-lineage.html"
+        },
+        "evals": {
+          "l": 0,
+          "n": "The AIDA docs show no NL-to-SQL eval tooling or rating loop. Business rules and skills steer answers.",
+          "u": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
+        }
+      },
+      "enrichHowTo": "In the Data products tab, select a data product and click Enrich with AI (Enrich with AIDA in Galaxy). Enable data sampling if allowed. Then review and save. For scripted writes, run Trino COMMENT ON COLUMN statements, one per column. Enrichment needs AI workflows and Agentic layer licenses. It also needs starburst.agent.enabled=true.",
+      "bulkSnippet": {
+        "lang": "sql",
+        "code": "COMMENT ON TABLE users IS 'master table';\nCOMMENT ON COLUMN users.name IS 'full name';",
+        "u": "https://trino.io/docs/current/sql/comment.html"
+      },
+      "sources": [
+        {
+          "t": "Starburst AI agent-based data product enrichment",
+          "u": "https://docs.starburst.io/latest/starburst-ai/data-product-enrichment-ai.html"
+        },
+        {
+          "t": "AI Data Assistant (AIDA)",
+          "u": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
+        },
+        {
+          "t": "Galaxy: browse and organize data products",
+          "u": "https://docs.starburst.io/starburst-galaxy/working-with-data/data-products/browse-organize-data-products.html"
+        },
+        {
+          "t": "Galaxy: data classifier jobs",
+          "u": "https://docs.starburst.io/starburst-galaxy/security-and-compliance/manage-galaxy-access/manage-users-roles-and-tags/data-classifier-jobs.html"
+        },
+        {
+          "t": "Galaxy: data lineage",
+          "u": "https://docs.starburst.io/starburst-galaxy/working-with-data/explore-data/data-lineage.html"
+        },
+        {
+          "t": "Starburst Enterprise Intelligence Platform release",
+          "u": "https://www.starburst.io/press-releases/starburst-unveils-enterprise-intelligence-platform-giving-enterprises-a-faster-path-to-trusted-ai/"
+        },
+        {
+          "t": "Trino COMMENT",
+          "u": "https://trino.io/docs/current/sql/comment.html"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "timbr",
+      "caps": {
+        "aiDescriptions": {
+          "l": 3,
+          "n": "Release 2.52.0 (Jan 2026) auto-generates descriptions for concepts, properties, relationships, measures, views and cubes. Ontology Explorer does bulk generation.",
+          "u": "https://docs.timbr.ai/doc/docs/general/changelog/"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "SQL DDL sets concept descriptions, relationship descriptions and tags. The docs show no property-level description DDL. Timbr announced bulk AI description generation in March 2026.",
+          "u": "https://docs.timbr.ai/doc/docs/sql/sql-ddl/"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The docs and changelog show no automatic PII or semantic-type classification. Users set tags by hand with ALTER CONCEPT ... TAG.",
+          "u": "https://docs.timbr.ai/doc/docs/sql/sql-ddl/"
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "Ontology Explorer fetches 50 sample rows for people. Knowledge Base instructions map business terms to measures. The docs show no value matching for NL-to-SQL.",
+          "u": "https://docs.timbr.ai/doc/docs/platform/modeling/ontology-explorer/"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "The docs show no query-log mining. Benchmarks import questions from agent conversation history. Knowledge Base suggestions come from user feedback.",
+          "u": "https://docs.timbr.ai/doc/docs/platform/managing/benchmarks/"
+        },
+        "lineage": {
+          "l": 3,
+          "n": "The Data Lineage view and SYS_LINEAGE table cover datasources, tables, mappings, concepts, views and properties. The docs do not state source-column depth.",
+          "u": "https://docs.timbr.ai/doc/docs/platform/visualizing/data-lineage/"
+        },
+        "evals": {
+          "l": 3,
+          "n": "Benchmarks run question sets with known answers against agents. Knowledge Base can turn user feedback into suggested examples.",
+          "u": "https://docs.timbr.ai/doc/docs/platform/managing/benchmarks/"
+        }
+      },
+      "enrichHowTo": "Use Ontology Explorer to generate descriptions for concepts, properties and measures with the active LLM. Then review them. For scripted writes, use SQL DDL. Use CREATE OR REPLACE CONCEPT ... DESCRIPTION. Use ALTER CONSTRAINT ... SET DESCRIPTION for relationships. Use ALTER CONCEPT ... UPDATE TAG for tags.",
+      "bulkSnippet": {
+        "lang": "sql",
+        "code": "ALTER CONSTRAINT `{relationship_name}` SET DESCRIPTION = '{description value}';\nALTER CONCEPT `{concept_name}` UPDATE TAG `{tag_name}` = '{tag_value}';",
+        "u": "https://docs.timbr.ai/doc/docs/sql/sql-ddl/"
+      },
+      "sources": [
+        {
+          "t": "Timbr changelog",
+          "u": "https://docs.timbr.ai/doc/docs/general/changelog/"
+        },
+        {
+          "t": "Timbr concepts DDL",
+          "u": "https://docs.timbr.ai/doc/docs/sql/sql-ddl/"
+        },
+        {
+          "t": "Timbr ontology system tables",
+          "u": "https://docs.timbr.ai/doc/docs/getting-started/systables/"
+        },
+        {
+          "t": "Timbr Data Lineage",
+          "u": "https://docs.timbr.ai/doc/docs/platform/visualizing/data-lineage/"
+        },
+        {
+          "t": "Timbr Benchmarks",
+          "u": "https://docs.timbr.ai/doc/docs/platform/managing/benchmarks/"
+        },
+        {
+          "t": "Timbr Knowledge Bases",
+          "u": "https://docs.timbr.ai/doc/docs/sql/knowledge-bases/"
+        },
+        {
+          "t": "Timbr Ontology Explorer",
+          "u": "https://docs.timbr.ai/doc/docs/platform/modeling/ontology-explorer/"
+        },
+        {
+          "t": "Timbr: active LLM management and accelerated ontology generation (2026-03-09)",
+          "u": "https://timbr.ai/news/announcing-active-llm-management-and-accelerated-ontology-generation/"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "dbt",
+      "caps": {
+        "aiDescriptions": {
+          "l": 3,
+          "n": "dbt Copilot and dbt Wizard generate documentation, tests and semantic models. Copilot in Insights is Beta. Wizard is the recommended agent.",
+          "u": "https://docs.getdbt.com/docs/dbt-ai/copilot-overview"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "Descriptions live in YAML. On supported adapters, persist_docs writes them as database comments. dbt-codegen generates model YAML for many models.",
+          "u": "https://docs.getdbt.com/reference/resource-configs/persist_docs"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The dbt docs show no automatic column classification. Teams set tags and meta in YAML by hand or use a catalog tool.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "dbt MCP get_dimension_values returns distinct values for a Semantic Layer dimension. Agents can use them to match literals.",
+          "u": "https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "The dbt docs show no mining of query history to suggest metrics or examples.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 3,
+          "n": "dbt Catalog (Enterprise plans) has column-level lineage. It is also available locally with dbt v2 and the VS Code extension.",
+          "u": "https://docs.getdbt.com/docs/explore/column-level-lineage"
+        },
+        "evals": {
+          "l": 0,
+          "n": "dbt data tests check models, not NL-to-SQL accuracy. The docs show no eval set tooling for the text_to_sql tool.",
+          "u": "https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools"
+        }
+      },
+      "enrichHowTo": "Generate model YAML with the dbt-codegen macro generate_model_yaml. The upstream_descriptions option copies matching column descriptions. Fill in descriptions with dbt Wizard or by hand. Then set persist_docs for relation and columns. dbt then writes them as database comments on each run.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "dbt run-operation generate_model_yaml --args '{\"model_names\": [\"customers\"], \"upstream_descriptions\": true}'",
+        "u": "https://raw.githubusercontent.com/dbt-labs/dbt-codegen/main/README.md"
+      },
+      "sources": [
+        {
+          "t": "dbt Copilot",
+          "u": "https://docs.getdbt.com/docs/dbt-ai/copilot-overview"
+        },
+        {
+          "t": "dbt AI FAQs",
+          "u": "https://docs.getdbt.com/docs/dbt-ai/dbt-ai-faqs"
+        },
+        {
+          "t": "persist_docs",
+          "u": "https://docs.getdbt.com/reference/resource-configs/persist_docs"
+        },
+        {
+          "t": "dbt-codegen README",
+          "u": "https://raw.githubusercontent.com/dbt-labs/dbt-codegen/main/README.md"
+        },
+        {
+          "t": "dbt MCP available tools",
+          "u": "https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools"
+        },
+        {
+          "t": "Column-level lineage",
+          "u": "https://docs.getdbt.com/docs/explore/column-level-lineage"
+        },
+        {
+          "t": "Semantic models",
+          "u": "https://docs.getdbt.com/docs/build/semantic-models"
+        },
+        {
+          "t": "Apache Ossie semantic layer documents",
+          "u": "https://docs.getdbt.com/docs/build/ossie-semantic-models"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "cube",
+      "caps": {
+        "aiDescriptions": {
+          "l": 1,
+          "n": "The docs show no dedicated generate-description action. The Cube Cloud IDE agent edits data model files on request.",
+          "u": "https://docs.cube.dev/docs/getting-started/develop-in-ide"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "description and meta.ai_context sit in YAML model files in Git. cube_dbt renders cubes from dbt manifest.json with dbt descriptions.",
+          "u": "https://docs.cube.dev/docs/data-modeling/ai-context"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The Cube docs show no automatic column classification. Teams tag by hand in meta or use a catalog.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "The docs show no automatic value sampling. They suggest listing allowed values in description or ai_context text.",
+          "u": "https://docs.cube.dev/docs/data-modeling/ai-context"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "Query History and Chats History are monitoring views. The docs show no mining of history to suggest metrics or examples.",
+          "u": "https://docs.cube.dev/admin/monitoring/query-history"
+        },
+        "lineage": {
+          "l": 0,
+          "n": "The Cube docs index shows no lineage feature. Pre-aggregation and query monitoring exist, not column lineage.",
+          "u": ""
+        },
+        "evals": {
+          "l": 3,
+          "n": "The Evals tab benchmarks the agent against questions with ground-truth SQL or certified queries. It reports accuracy per run.",
+          "u": "https://docs.cube.dev/admin/ai/evals"
+        }
+      },
+      "enrichHowTo": "Write description on every cube, view, measure and dimension. Add meta.ai_context on views and members for agent-only hints such as synonyms. If you use dbt, cube_dbt can render cubes from manifest.json, including model descriptions. Commit the YAML to Git. Review changes there.",
+      "bulkSnippet": {
+        "lang": "python",
+        "code": "from cube_dbt import Dbt\n\ndbt = Dbt.from_url(manifest_url)\nmodel = dbt.model('orders')\nprint(model.as_cube())  # name, description, sql_table",
+        "u": "https://docs.cube.dev/reference/data-modeling/cube_dbt.md"
+      },
+      "sources": [
+        {
+          "t": "AI context",
+          "u": "https://docs.cube.dev/docs/data-modeling/ai-context"
+        },
+        {
+          "t": "Evals",
+          "u": "https://docs.cube.dev/admin/ai/evals"
+        },
+        {
+          "t": "Certified queries",
+          "u": "https://docs.cube.dev/admin/ai/certified-queries"
+        },
+        {
+          "t": "cube_dbt package",
+          "u": "https://docs.cube.dev/reference/data-modeling/cube_dbt.md"
+        },
+        {
+          "t": "Develop in IDE",
+          "u": "https://docs.cube.dev/docs/getting-started/develop-in-ide"
+        },
+        {
+          "t": "Query History",
+          "u": "https://docs.cube.dev/admin/monitoring/query-history"
+        },
+        {
+          "t": "Cube docs index",
+          "u": "https://docs.cube.dev/llms.txt"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "atscale",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "The AtScale docs show no description generator. One-Click Modeling (2025) proposes metrics, dimensions and relationships, not descriptions.",
+          "u": "https://www.atscale.com/press/atscale-2025-semantic-layer-summit-innovations/"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "SML objects carry description and label in YAML kept in Git. The open-source SML SDK reads and writes them in code.",
+          "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/metric.md"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The AtScale docs show no automatic column classification.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "Designer shows dataset sample rows for modelers. MCP explore_columns returns names and descriptions, not values.",
+          "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "The docs show no mining of query history to suggest metrics or examples.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 0,
+          "n": "The Lineage panel shows dependencies between SML objects, not source columns. Alation and Collibra connectors export model metadata.",
+          "u": "https://documentation.atscale.com/container/creating-and-sharing-cubes/navigating-the-cube-designer-canvas/lineage"
+        },
+        "evals": {
+          "l": 0,
+          "n": "The AtScale and AI-Link docs show no NL-to-SQL eval tooling.",
+          "u": ""
+        }
+      },
+      "enrichHowTo": "Add description and label to each SML object (model, dimension, metric) in the Git repository. Then deploy. For many objects, script the edits with the open-source SML SDK or CLI. Or convert an existing model with the SML converters. Review changes in pull requests.",
+      "bulkSnippet": {
+        "lang": "yaml",
+        "code": "unique_name: m_catalog_sales_coupon_amount_avg\nobject_type: metric\nlabel: Catalog Sales Average Coupon Amount\ndescription: Average coupon amount per catalog sale\ncalculation_method: average\ndataset: catalog_sales\ncolumn: cs_sales_price",
+        "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/metric.md"
+      },
+      "sources": [
+        {
+          "t": "SML README",
+          "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/README.md"
+        },
+        {
+          "t": "SML metric reference",
+          "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/metric.md"
+        },
+        {
+          "t": "AtScale MCP Server Tools Reference",
+          "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
+        },
+        {
+          "t": "AtScale Lineage panel",
+          "u": "https://documentation.atscale.com/container/creating-and-sharing-cubes/navigating-the-cube-designer-canvas/lineage"
+        },
+        {
+          "t": "AtScale Collibra connector",
+          "u": "https://documentation.atscale.com/container/connect-integrate/data-catalog-connectors/collibra"
+        },
+        {
+          "t": "AtScale 2025 Summit announcements",
+          "u": "https://www.atscale.com/press/atscale-2025-semantic-layer-summit-innovations/"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "wrenai",
+      "caps": {
+        "aiDescriptions": {
+          "l": 1,
+          "n": "The enrich-context skill has your own coding agent write definitions and examples into project files. AI-assisted context preparation is a commercial Cloud feature.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "Metadata is YAML and Markdown files in Git. wren context import brings dbt, OpenMetadata and Ossie metadata, including descriptions, into a project.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/cli.md"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The README and CLI reference show no automatic column classification.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": 1,
+          "n": "dbt import carries accepted_values tests as filter values. The README lists value profiling as both shipped and upcoming. The CLI documents no sampling command.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/dbt-integration.md"
+        },
+        "queryHistory": {
+          "l": 1,
+          "n": "wren memory store saves NL-SQL pairs by hand. The docs list the behavioral layer as in active development. No mining of warehouse query history exists.",
+          "u": "https://docs.getwren.ai/oss/concepts/what_is_context"
+        },
+        "lineage": {
+          "l": 0,
+          "n": "The README and CLI reference show no lineage feature. dbt import reads refs and tests, not column lineage.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/dbt-integration.md"
+        },
+        "evals": {
+          "l": 0,
+          "n": "The golden eval runner is listed under what is next, not shipped. The docs list evaluation as part of the planned context layer.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
+        }
+      },
+      "enrichHowTo": "If you use dbt, run wren context import dbt. This carries model and column descriptions and tests into the project. Then add definitions, enums and example NL-SQL pairs with the enrich-context skill. Or edit instructions.md and knowledge/ files. Review them in Git.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "wren context import dbt --project-dir ./jaffle_shop --path ./wren-jaffle",
+        "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/cli.md"
+      },
+      "sources": [
+        {
+          "t": "WrenAI README",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
+        },
+        {
+          "t": "Wren CLI reference",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/cli.md"
+        },
+        {
+          "t": "Wren dbt integration guide",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/dbt-integration.md"
+        },
+        {
+          "t": "What is context (Wren docs)",
+          "u": "https://docs.getwren.ai/oss/concepts/what_is_context"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "malloy",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "The Malloy docs show no AI description generation. Users write descriptions by hand as #\" annotations.",
+          "u": "https://docs.malloydata.dev/documentation/language/tags"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "Descriptions and tags are #\" and # annotations in .malloy text files. Scripts and Git can edit them in bulk. No metadata API exists.",
+          "u": "https://docs.malloydata.dev/documentation/language/tags"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The Malloy docs show no automatic column classification.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "The index query operator builds fieldName, fieldValue and weight tables. The docs say LLMs can use it for term-to-column mapping. Users run it manually.",
+          "u": "https://docs.malloydata.dev/documentation/patterns/dim_index"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "The Malloy and Publisher docs show no mining of query history.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 0,
+          "n": "The Malloy and Publisher docs show no lineage feature.",
+          "u": ""
+        },
+        "evals": {
+          "l": 0,
+          "n": "The Malloy and Publisher docs show no NL-to-SQL eval tooling.",
+          "u": ""
+        }
+      },
+      "enrichHowTo": "Write a #\" annotation above each source and field that you want described. The explorer renders it as Markdown. Edit the .malloy files in bulk with scripts or an AI coding agent. Review in Git. Malloy does not have a metadata API.",
+      "bulkSnippet": {
+        "lang": "other",
+        "code": "#\" Flights fact table\nsource: flights is duckdb.table('flights.parquet') extend {\n  #\" Airline name\n  dimension: carrier_name is carrier\n}",
+        "u": "https://docs.malloydata.dev/documentation/language/tags"
+      },
+      "sources": [
+        {
+          "t": "Malloy annotations (tags)",
+          "u": "https://docs.malloydata.dev/documentation/language/tags"
+        },
+        {
+          "t": "Malloy dimensional indexes",
+          "u": "https://docs.malloydata.dev/documentation/patterns/dim_index"
+        },
+        {
+          "t": "MCP for AI Agents (Publisher)",
+          "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/mcp_agents"
+        },
+        {
+          "t": "Publish Your Models",
+          "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/publishing"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "honeydew",
+      "caps": {
+        "aiDescriptions": {
+          "l": 1,
+          "n": "Users write AI-specific descriptions in Studio or YAML. An AI coding agent connected through the Honeydew MCP server can add and refine them.",
+          "u": "https://honeydew.ai/docs/integration/context-layer/building-with-ai.md"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "Metadata (description, synonyms, values, labels) is YAML in Git. The GraphQL API can import metadata from another system.",
+          "u": "https://honeydew.ai/docs/integration/context-layer/ai-metadata.md"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The Honeydew docs show no automatic column classification. Users set labels by hand for lightweight governance.",
+          "u": "https://honeydew.ai/docs/governance/metadata.md"
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "AI metadata has a values list per field. The Studio page for semantic context loads sample values (release note, Jan 2026).",
+          "u": "https://honeydew.ai/docs/integration/context-layer/ai-metadata.md"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "Query history (14 days) and question history are monitoring views. The docs show no mining of them to suggest metrics or examples.",
+          "u": "https://honeydew.ai/docs/monitoring/question-history.md"
+        },
+        "lineage": {
+          "l": 1,
+          "n": "Honeydew publishes lineage from attributes and metrics to warehouse columns into Atlan. The integration is Beta.",
+          "u": "https://honeydew.ai/docs/integration/catalogs/atlan.md"
+        },
+        "evals": {
+          "l": 0,
+          "n": "Users can rate and comment on Deep Analysis answers. The system stores feedback for the team to review. It does not turn feedback into examples.",
+          "u": "https://honeydew.ai/docs/integration/context-layer/deep-analysis.md"
+        }
+      },
+      "enrichHowTo": "Put an AI-specific description, synonyms and allowed values in the honeydew_ai metadata block of each attribute, metric and entity. Use Studio or the YAML files. Use an AI coding agent through the Honeydew MCP server to draft them. Then review in Git. Descriptive object names matter most.",
+      "bulkSnippet": {
+        "lang": "yaml",
+        "code": "metadata:\n  - name: honeydew_ai\n    metadata:\n      - name: description\n        value: This is an AI-specific description for the attribute\n      - name: synonyms\n        value: synonym1, synonym2",
+        "u": "https://honeydew.ai/docs/integration/context-layer/ai-metadata.md"
+      },
+      "sources": [
+        {
+          "t": "Honeydew AI Metadata",
+          "u": "https://honeydew.ai/docs/integration/context-layer/ai-metadata.md"
+        },
+        {
+          "t": "Honeydew Building with AI",
+          "u": "https://honeydew.ai/docs/integration/context-layer/building-with-ai.md"
+        },
+        {
+          "t": "Honeydew Metadata",
+          "u": "https://honeydew.ai/docs/governance/metadata.md"
+        },
+        {
+          "t": "Honeydew Deep Analysis",
+          "u": "https://honeydew.ai/docs/integration/context-layer/deep-analysis.md"
+        },
+        {
+          "t": "Honeydew Question history",
+          "u": "https://honeydew.ai/docs/monitoring/question-history.md"
+        },
+        {
+          "t": "Honeydew Atlan integration",
+          "u": "https://honeydew.ai/docs/integration/catalogs/atlan.md"
+        },
+        {
+          "t": "Honeydew GraphQL API",
+          "u": "https://honeydew.ai/docs/integration/graphql-api.md"
+        },
+        {
+          "t": "Honeydew release notes",
+          "u": "https://honeydew.ai/docs/release-notes.md"
+        }
+      ],
+      "verified": "2026-10-24"
+    }
+  ],
+  "notes": [
+    {
+      "topic": "Dremio AI wiki and label status",
+      "text": "Dremio docs mark Generate wiki and Generate labels as Preview. The Catalog API manages wikis and tags per dataset. Column descriptions have no documented API.",
+      "sources": [
+        {
+          "t": "Wikis and Labels",
+          "u": "https://docs.dremio.com/dremio-cloud/manage-govern/wikis-labels"
+        }
+      ]
+    },
+    {
+      "topic": "Starburst enrichment and AIDA",
+      "text": "A May 2026 release announces AIDA and Automatic Metadata Enrichment as GA. Data sampling inside enrichment is public preview. Galaxy column lineage is public preview.",
+      "sources": [
+        {
+          "t": "Starburst Enterprise Intelligence Platform release",
+          "u": "https://www.starburst.io/press-releases/starburst-unveils-enterprise-intelligence-platform-giving-enterprises-a-faster-path-to-trusted-ai/"
+        },
+        {
+          "t": "Starburst AI agent-based data product enrichment",
+          "u": "https://docs.starburst.io/latest/starburst-ai/data-product-enrichment-ai.html"
+        }
+      ]
+    },
+    {
+      "topic": "Denodo licensing",
+      "text": "Denodo Assistant features sit in the AI & Denodo Assistant FeaturePack. It is a separately licensed add-on to the Enterprise Plus bundle.",
+      "sources": [
+        {
+          "t": "Denodo Platform feature packs",
+          "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/administration/denodo_platform_feature_packs/denodo_platform_feature_packs"
+        }
+      ]
+    },
+    {
+      "topic": "dbt AI products",
+      "text": "dbt Labs now recommends dbt Wizard over dbt Copilot. Copilot remains in Canvas and Insights. Copilot in Insights is Beta.",
+      "sources": [
+        {
+          "t": "dbt AI FAQs",
+          "u": "https://docs.getdbt.com/docs/dbt-ai/dbt-ai-faqs"
+        },
+        {
+          "t": "dbt Copilot",
+          "u": "https://docs.getdbt.com/docs/dbt-ai/copilot-overview"
+        }
+      ]
+    },
+    {
+      "topic": "Wren AI roadmap items",
+      "text": "Wren docs list the operational and behavioral context layers as in active development. They list value profiling and a golden eval runner as next. Treat them as not shipped.",
+      "sources": [
+        {
+          "t": "What is context (Wren docs)",
+          "u": "https://docs.getwren.ai/oss/concepts/what_is_context"
+        },
+        {
+          "t": "WrenAI README",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
+        }
+      ]
+    },
+    {
+      "topic": "Cube Apache Ossie status",
+      "text": "The Apache Ossie conversion page of Cube says it is in preview. It needs activation by support.",
+      "sources": [
+        {
+          "t": "Cube Apache Ossie",
+          "u": "https://docs.cube.dev/docs/integrations/apache-ossie.md"
+        }
+      ]
+    }
+  ]
+}

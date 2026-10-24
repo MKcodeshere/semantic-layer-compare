@@ -1,0 +1,1059 @@
+{
+  "vendors": [
+    {
+      "id": "hex",
+      "name": "Hex",
+      "category": "bi",
+      "tagline": "Collaborative notebook and BI platform with semantic models, Threads, Context Studio, and an MCP server.",
+      "aliases": [
+        "Hex Technologies"
+      ],
+      "verdict": "partial",
+      "verdictNote": "Hex Threads is GA and reads semantic models and endorsed data, but native semantic authoring, Snowflake sync, and the MCP server are Beta.",
+      "artifacts": [
+        {
+          "name": "Semantic projects (authored in the Modeling Workbench, YAML)",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "",
+          "format": "GUI, YAML",
+          "url": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-authoring/modeling-specification"
+        },
+        {
+          "name": "Semantic Model Sync (dbt MetricFlow, Cube, Snowflake Semantic Views)",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "",
+          "format": "YAML, hex context CLI",
+          "url": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/intro"
+        },
+        {
+          "name": "Apache Ossie sync (convert with the Hex CLI)",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "",
+          "format": "YAML, CLI",
+          "url": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/ossie"
+        },
+        {
+          "name": "Threads (conversational analytics agent)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, Slack",
+          "url": "https://learn.hex.tech/docs/explore-data/threads"
+        },
+        {
+          "name": "Notebook agent",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://learn.hex.tech/docs/explore-data/notebook-view/notebook-agent"
+        },
+        {
+          "name": "Context Studio (guides, endorsements, models, suggestions)",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, CLI",
+          "url": "https://learn.hex.tech/docs/agent-management/context-studio"
+        },
+        {
+          "name": "Hex MCP server",
+          "kind": "mcp",
+          "status": "Preview",
+          "since": "",
+          "format": "MCP, OAuth",
+          "url": "https://learn.hex.tech/docs/api-integrations/mcp-server"
+        },
+        {
+          "name": "Evals (agent test suites)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "2026-08",
+          "format": "YAML, CLI",
+          "url": "https://learn.hex.tech/docs/agent-management/evals"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 2,
+          "n": "Measures are defined in semantic projects. Native authoring and sync from MetricFlow, Cube, and Snowflake are Beta.",
+          "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/intro"
+        },
+        "dimensions": {
+          "l": 2,
+          "n": "Dimensions are typed columns or expressions in a model. The YAML spec is Beta. No hierarchy object was read.",
+          "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-authoring/modeling-specification"
+        },
+        "relationships": {
+          "l": 2,
+          "n": "Joins link models in one semantic project. The YAML spec has many_to_one relations. Joins across projects are not possible.",
+          "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/intro"
+        },
+        "synonyms": {
+          "l": 2,
+          "n": "Models, dimensions, and measures have a description field. Guides and workspace rules add context. No synonym field was found.",
+          "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-authoring/modeling-specification"
+        },
+        "verifiedQueries": {
+          "l": 3,
+          "n": "Endorsements mark trusted tables, projects, and semantic models. Agents rank endorsed assets first. Endorsed Mode limits agents to them.",
+          "u": "https://learn.hex.tech/docs/agent-management/context-management/endorsements-in-context-studio"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Threads is available on all plans and prioritizes semantic models and endorsed data. The Notebook agent writes code.",
+          "u": "https://learn.hex.tech/docs/explore-data/threads"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "The Hex documentation index has no ontology object. Teams use semantic projects with guides.",
+          "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/intro-to-semantic-models"
+        },
+        "graph": {
+          "l": 0,
+          "n": "No graph query feature in the Hex documentation index.",
+          "u": ""
+        },
+        "vector": {
+          "l": 0,
+          "n": "No vector search feature in the Hex documentation index.",
+          "u": ""
+        },
+        "mcp": {
+          "l": 2,
+          "n": "The Hex MCP server is in Beta on Team and Enterprise plans. It runs Threads, searches projects, and edits notebooks.",
+          "u": "https://learn.hex.tech/docs/api-integrations/mcp-server"
+        },
+        "governance": {
+          "l": 3,
+          "n": "The MCP server enforces workspace roles and project permissions. Endorsements and Context Studio observability show which context agents use.",
+          "u": "https://learn.hex.tech/docs/api-integrations/mcp-server"
+        },
+        "openStandard": {
+          "l": 2,
+          "n": "Hex imports Apache Ossie files through a CLI conversion step (Alpha). It also syncs dbt MetricFlow, Cube, and Snowflake Semantic Views.",
+          "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/ossie"
+        },
+        "aiDescriptions": {
+          "l": 3,
+          "n": "Suggestions proposes new table and column descriptions from agent conversation gaps. An admin reviews each change before it applies.",
+          "u": "https://learn.hex.tech/docs/agent-management/suggestions"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "The hex context CLI syncs guides, semantic projects, and evals from Git. Hex also reads dbt Cloud model and column descriptions.",
+          "u": "https://learn.hex.tech/docs/agent-management/context-management/context-sync"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The Data browser shows no PII or sensitivity tags. Admins can exclude data objects from agent context by hand.",
+          "u": "https://learn.hex.tech/docs/explore-data/data-browser"
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "Users get a 100-row table preview. The docs name no value index for agents. Teams describe value formats in column descriptions.",
+          "u": "https://learn.hex.tech/docs/explore-data/data-browser"
+        },
+        "queryHistory": {
+          "l": 3,
+          "n": "Suggestions mines agent conversations and warnings to propose guides, descriptions, and endorsements. It does not read warehouse query history.",
+          "u": "https://learn.hex.tech/docs/agent-management/suggestions"
+        },
+        "lineage": {
+          "l": 0,
+          "n": "The Data browser shows dbt run date, source freshness, and test status. The docs name no column-level lineage.",
+          "u": "https://learn.hex.tech/docs/explore-data/data-browser"
+        },
+        "evals": {
+          "l": 3,
+          "n": "Eval suites in YAML grade agent threads with rubrics. Teams run them on a schedule or against a Context Preview.",
+          "u": "https://learn.hex.tech/docs/agent-management/evals"
+        }
+      },
+      "enrichHowTo": "Connect dbt Cloud so Hex reads model and column descriptions. Keep guides, semantic projects, and eval suites in Git and sync them with the hex context CLI. Then endorse the trusted tables in Context Studio.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": "https://learn.hex.tech/docs/agent-management/context-management/context-sync"
+      },
+      "askData": [
+        {
+          "name": "Threads",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI",
+            "MCP"
+          ],
+          "output": "answer only",
+          "reads": "Semantic models, endorsed tables and projects, guides, and workspace rules. Endorsed Mode limits the agent to endorsed assets.",
+          "u": "https://learn.hex.tech/docs/explore-data/threads"
+        },
+        {
+          "name": "Notebook agent",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "SQL",
+          "reads": "Data connections, semantic models, project context, warehouse schema, and the workspace rules file.",
+          "u": "https://learn.hex.tech/docs/explore-data/notebook-view/notebook-agent"
+        }
+      ],
+      "offers": [
+        "Threads reads semantic models and endorsed data, and each Thread opens as a notebook for review.",
+        "Semantic Model Sync imports dbt MetricFlow, Cube, and Snowflake Semantic Views into Explore.",
+        "Context Studio holds guides, endorsements, and Suggestions that the data team can approve.",
+        "Evals test agent answers with rubrics and run from the CLI or on a schedule.",
+        "The Hex MCP server lets outside assistants search projects and run Threads."
+      ],
+      "gaps": [
+        "Native semantic authoring, Snowflake Semantic Views sync, and the MCP server are Beta.",
+        "Unity Catalog metric views appear in the Data browser, but sync of these views is not supported yet.",
+        "No synonym field was found in the semantic YAML spec.",
+        "Ossie import needs a CLI conversion step and is Alpha."
+      ],
+      "fillWith": [
+        "Cube",
+        "dbt MetricFlow",
+        "Snowflake Semantic Views"
+      ],
+      "nl2sqlPath": "Define or sync a semantic project, then endorse the trusted tables and add guides in Context Studio. Test the agent with an eval suite before each context change. For your own agent, use the Hex MCP server and expect Beta limits.",
+      "snippet": {
+        "lang": "yaml",
+        "title": "Hex semantic model with a dimension, a measure, and a relation",
+        "code": "id: users\ntype: model\nbase_sql_table: public.users\ndimensions:\n  - id: email\n    type: string\n    unique: true\nmeasures:\n  - id: total_users\n    func: count\nrelations:\n  - id: organizations\n    type: many_to_one\n    join_sql: org_id = ${organizations}.id",
+        "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-authoring/modeling-specification"
+      },
+      "worksWith": [
+        "Snowflake",
+        "Databricks",
+        "BigQuery",
+        "Amazon Redshift",
+        "Amazon Athena",
+        "PostgreSQL",
+        "MySQL",
+        "MariaDB",
+        "Microsoft SQL Server",
+        "ClickHouse",
+        "MotherDuck",
+        "AlloyDB",
+        "Cloud SQL",
+        "Presto",
+        "Starburst",
+        "Trino"
+      ],
+      "worksWithUrl": "https://learn.hex.tech/docs/connect-to-data/data-connections/data-connections-introduction",
+      "openToOtherTools": {
+        "l": 2,
+        "n": "The Hex MCP server (Beta) lets Claude, Cursor, ChatGPT, and others run Threads. A Hex converter exists in the Ossie repo.",
+        "u": "https://learn.hex.tech/docs/api-integrations/mcp-server"
+      },
+      "sources": [
+        {
+          "t": "Hex MCP Server",
+          "u": "https://learn.hex.tech/docs/api-integrations/mcp-server"
+        },
+        {
+          "t": "Intro to Semantic Modeling",
+          "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/intro-to-semantic-models"
+        },
+        {
+          "t": "Introduction to Semantic Model Sync",
+          "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/intro"
+        },
+        {
+          "t": "Semantic YAML specification",
+          "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-authoring/modeling-specification"
+        },
+        {
+          "t": "Syncing from Apache Ossie",
+          "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/ossie"
+        },
+        {
+          "t": "Syncing from Snowflake Semantic Views",
+          "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/snowflake-semantic-views"
+        },
+        {
+          "t": "Databricks Unity Catalog Metric Views",
+          "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/unity-catalog-metric-views"
+        },
+        {
+          "t": "Threads",
+          "u": "https://learn.hex.tech/docs/explore-data/threads"
+        },
+        {
+          "t": "Notebook agent",
+          "u": "https://learn.hex.tech/docs/explore-data/notebook-view/notebook-agent"
+        },
+        {
+          "t": "Context Studio",
+          "u": "https://learn.hex.tech/docs/agent-management/context-studio"
+        },
+        {
+          "t": "Context Sync",
+          "u": "https://learn.hex.tech/docs/agent-management/context-management/context-sync"
+        },
+        {
+          "t": "Endorsements",
+          "u": "https://learn.hex.tech/docs/agent-management/context-management/endorsements-in-context-studio"
+        },
+        {
+          "t": "Suggestions",
+          "u": "https://learn.hex.tech/docs/agent-management/suggestions"
+        },
+        {
+          "t": "Evals",
+          "u": "https://learn.hex.tech/docs/agent-management/evals"
+        },
+        {
+          "t": "Introducing Evals (Hex blog)",
+          "u": "https://hex.tech/blog/evals/"
+        },
+        {
+          "t": "dbt Integrations",
+          "u": "https://learn.hex.tech/docs/connect-to-data/data-connections/dbt-integration"
+        },
+        {
+          "t": "Data connections introduction",
+          "u": "https://learn.hex.tech/docs/connect-to-data/data-connections/data-connections-introduction"
+        },
+        {
+          "t": "Hex llms.txt",
+          "u": "https://hex.tech/llms.txt"
+        },
+        {
+          "t": "Apache Ossie converters repo",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        },
+        {
+          "t": "Data browser (Hex)",
+          "u": "https://learn.hex.tech/docs/explore-data/data-browser"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "omni",
+      "name": "Omni Analytics",
+      "category": "bi",
+      "tagline": "BI platform with a YAML semantic model, the Omni Agent, evals, and an MCP server.",
+      "aliases": [
+        "Omni",
+        "Omni BI"
+      ],
+      "verdict": "native",
+      "verdictNote": "Omni models hold topics, joins, synonyms, sample values, and ai_context that the Omni Agent and the MCP server read, with evals to test them.",
+      "artifacts": [
+        {
+          "name": "Omni semantic model (YAML models, topics, views)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "YAML, GUI, Git",
+          "url": "https://docs.omni.co/modeling/develop/ai-optimization.md"
+        },
+        {
+          "name": "ai_context, synonyms, and sample_values on model, topic, view, and field",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "YAML",
+          "url": "https://docs.omni.co/modeling/develop/ai-optimization.md"
+        },
+        {
+          "name": "Omni Agent (standalone chat) and Workbook Agent",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, Slack",
+          "url": "https://docs.omni.co/ai/index.md"
+        },
+        {
+          "name": "Modeling Agent (drafts measures and topics in the model IDE)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://docs.omni.co/ai/index.md"
+        },
+        {
+          "name": "Omni MCP server",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "",
+          "format": "MCP, OAuth 2.1 or API key",
+          "url": "https://docs.omni.co/ai/mcp/index.md"
+        },
+        {
+          "name": "Evals (prompt sets and judged runs)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://docs.omni.co/ai/evals.md"
+        },
+        {
+          "name": "Suggestions (model changes from user feedback)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://docs.omni.co/ai/suggestions.md"
+        },
+        {
+          "name": "Snowflake semantic view import as topics",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "Schema refresh",
+          "url": "https://docs.omni.co/connect-data/snowflake-semantic-views/index.md"
+        },
+        {
+          "name": "Databricks Unity Catalog metric view import as topics",
+          "kind": "metric-view",
+          "status": "GA",
+          "since": "",
+          "format": "Schema refresh",
+          "url": "https://docs.omni.co/connect-data/databricks-unity-catalog-integration.md"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "Measures live in the YAML model. Omni also imports dbt semantic layer metrics and Databricks metric views.",
+          "u": "https://docs.omni.co/integrations/dbt/semantic-layer.md"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "Dimensions live in views. Omni supports custom calendars for fiscal periods. No hierarchy object was read.",
+          "u": "https://docs.omni.co/guides/modeling/custom-calendars.md"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Topics define governed joins. Omni imports relationships from Snowflake semantic views.",
+          "u": "https://docs.omni.co/connect-data/snowflake-semantic-views/index.md"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Fields take synonyms, descriptions, and ai_context at model, topic, view, and field level. Omni never prunes ai_context.",
+          "u": "https://docs.omni.co/modeling/develop/ai-optimization.md"
+        },
+        "verifiedQueries": {
+          "l": 3,
+          "n": "Topics take sample_queries that the AI reads as context. The evals guide tells teams to tune them.",
+          "u": "https://docs.omni.co/ai/evals.md"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "The Omni Agent answers questions over topics. The Workbook Agent builds queries from natural language.",
+          "u": "https://docs.omni.co/ai/index.md"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "No ontology object in the Omni documentation index. Teams use topics with ai_context.",
+          "u": "https://docs.omni.co/llms.txt"
+        },
+        "graph": {
+          "l": 0,
+          "n": "No graph query feature in the Omni documentation index.",
+          "u": "https://docs.omni.co/llms.txt"
+        },
+        "vector": {
+          "l": 0,
+          "n": "No vector search feature in the Omni documentation index.",
+          "u": "https://docs.omni.co/llms.txt"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "The MCP server has tools for model and topic choice, queries, and docs search. An admin enables each tool in the AI Hub.",
+          "u": "https://docs.omni.co/ai/mcp/tools.md"
+        },
+        "governance": {
+          "l": 3,
+          "n": "MCP queries use the permissions of the authenticated user. Omni states that user permissions apply to every AI surface.",
+          "u": "https://docs.omni.co/ai/mcp/index.md"
+        },
+        "openStandard": {
+          "l": 1,
+          "n": "The Apache Ossie converters repo has a two-way Omni converter. Omni documents no native Ossie import or export.",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/omni/README.md"
+        },
+        "aiDescriptions": {
+          "l": 3,
+          "n": "The Modeling Agent and Learn from conversation write field descriptions as YAML. A user reviews each change first.",
+          "u": "https://docs.omni.co/ai/learn-from-conversation.md"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "The REST API writes one YAML file per request. A model branch batches many writes into one Git sync.",
+          "u": "https://docs.omni.co/guides/api/bulk-update-model-yaml.md"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The docs name no PII or sensitivity classifier. The query history skill only suggests dimension, measure, or time types.",
+          "u": "https://docs.omni.co/ai/model-assistant.md"
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Fields take sample_values and all_values. The AI can also fetch field values on demand.",
+          "u": "https://docs.omni.co/modeling/develop/ai-optimization.md"
+        },
+        "queryHistory": {
+          "l": 3,
+          "n": "The Suggest model from query history skill reads Snowflake or Postgres query history. It suggests views, measures, joins, and query views.",
+          "u": "https://docs.omni.co/ai/model-assistant.md"
+        },
+        "lineage": {
+          "l": 1,
+          "n": "A guide shows how to build a lineage integration with the REST API for OpenMetadata or DataHub.",
+          "u": "https://docs.omni.co/guides/api/data-lineage-integration.md"
+        },
+        "evals": {
+          "l": 3,
+          "n": "Prompt sets hold up to 25 prompts. A judge scores runs against a model branch. Suggestions turn feedback into model changes.",
+          "u": "https://docs.omni.co/ai/evals.md"
+        }
+      },
+      "enrichHowTo": "Write descriptions, synonyms, sample_values, and ai_context in the model YAML. For many files, write to a model branch with the Create or update YAML files endpoint, then merge once. Run an eval prompt set on the branch before the merge.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "# Create or update one YAML file for a model branch\n# POST https://{instance}.omniapp.co/api/v1/models/{modelId}/yaml",
+        "u": "https://docs.omni.co/guides/api/bulk-update-model-yaml.md"
+      },
+      "askData": [
+        {
+          "name": "Omni Agent",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI",
+            "REST API",
+            "MCP"
+          ],
+          "output": "answer only",
+          "reads": "Topics, field descriptions, synonyms, sample values, ai_context, and sample queries from the semantic model.",
+          "u": "https://docs.omni.co/ai/chat.md"
+        },
+        {
+          "name": "Workbook Agent",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "answer only",
+          "reads": "The same semantic model context. It builds and refines queries and filters inside a workbook.",
+          "u": "https://docs.omni.co/ai/queries.md"
+        }
+      ],
+      "offers": [
+        "ai_context, synonyms, and sample_values at four model levels give the agent business wording.",
+        "Evals score AI answers with a judge and compare runs across model branches.",
+        "The MCP server passes user permissions to external tools such as Claude, Cursor, and Codex.",
+        "Omni imports Snowflake semantic views, Databricks metric views, and dbt semantic layer metrics.",
+        "A skill and a Python SDK push Omni topics out to Snowflake semantic views and Databricks metric views."
+      ],
+      "gaps": [
+        "Omni documents no native Apache Ossie import or export. A converter exists in the Ossie repo.",
+        "A prompt set holds at most 25 prompts.",
+        "The agent can fail on a topic with a large amount of ai_context, because Omni never trims it.",
+        "Single shot query generation (getData) is off by default in the MCP settings."
+      ],
+      "fillWith": [
+        "dbt Semantic Layer",
+        "Snowflake Semantic Views",
+        "Databricks Metric Views"
+      ],
+      "nl2sqlPath": "Build topics in the Omni model, add synonyms, sample values, and ai_context, and limit each topic with ai_fields. Test with an eval prompt set on a branch, then merge. For your own agent, use the Omni MCP server.",
+      "snippet": {
+        "lang": "yaml",
+        "title": "Topic ai_context that uses a user attribute",
+        "code": "ai_context: |\n  You are a sales analyst. When someone asks about their team or pipeline,\n  always filter by account.segment = {{omni_attributes.segment}} and\n  account.region = {{omni_attributes.region}}.",
+        "u": "https://docs.omni.co/modeling/develop/ai-optimization.md"
+      },
+      "worksWith": [
+        "Snowflake",
+        "Databricks",
+        "Google BigQuery",
+        "Amazon Redshift",
+        "Amazon Athena",
+        "PostgreSQL",
+        "MySQL",
+        "MariaDB",
+        "Microsoft SQL Server",
+        "Microsoft Fabric",
+        "ClickHouse",
+        "Exasol",
+        "MotherDuck",
+        "Starburst Galaxy",
+        "StarRocks"
+      ],
+      "worksWithUrl": "https://docs.omni.co/connect-data/index.md",
+      "openToOtherTools": {
+        "l": 3,
+        "n": "The Omni MCP server and the Omni AI API serve outside agents with user permissions. A two-way Ossie converter exists.",
+        "u": "https://docs.omni.co/ai/mcp/index.md"
+      },
+      "sources": [
+        {
+          "t": "AI in Omni",
+          "u": "https://docs.omni.co/ai/index.md"
+        },
+        {
+          "t": "Optimize models for Omni AI",
+          "u": "https://docs.omni.co/modeling/develop/ai-optimization.md"
+        },
+        {
+          "t": "Omni AI MCP Server",
+          "u": "https://docs.omni.co/ai/mcp/index.md"
+        },
+        {
+          "t": "MCP server tools",
+          "u": "https://docs.omni.co/ai/mcp/tools.md"
+        },
+        {
+          "t": "Omni Evals",
+          "u": "https://docs.omni.co/ai/evals.md"
+        },
+        {
+          "t": "Omni Suggestions",
+          "u": "https://docs.omni.co/ai/suggestions.md"
+        },
+        {
+          "t": "Bulk update model YAML files with the API",
+          "u": "https://docs.omni.co/guides/api/bulk-update-model-yaml.md"
+        },
+        {
+          "t": "Create or update YAML files (API)",
+          "u": "https://docs.omni.co/api/models/create-or-update-yaml-files.md"
+        },
+        {
+          "t": "Integrating dbt's semantic layer with Omni",
+          "u": "https://docs.omni.co/integrations/dbt/semantic-layer.md"
+        },
+        {
+          "t": "Snowflake semantic views in Omni",
+          "u": "https://docs.omni.co/connect-data/snowflake-semantic-views/index.md"
+        },
+        {
+          "t": "Databricks metric views in Omni",
+          "u": "https://docs.omni.co/connect-data/databricks-unity-catalog-integration.md"
+        },
+        {
+          "t": "Build a data lineage integration with the Omni API",
+          "u": "https://docs.omni.co/guides/api/data-lineage-integration.md"
+        },
+        {
+          "t": "Connect data",
+          "u": "https://docs.omni.co/connect-data/index.md"
+        },
+        {
+          "t": "Omni documentation index",
+          "u": "https://docs.omni.co/llms.txt"
+        },
+        {
+          "t": "Ossie to Omni converter",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/omni/README.md"
+        },
+        {
+          "t": "Apache Ossie converters repo",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        },
+        {
+          "t": "Learn from conversation (Omni)",
+          "u": "https://docs.omni.co/ai/learn-from-conversation.md"
+        },
+        {
+          "t": "Modeling Agent (Omni)",
+          "u": "https://docs.omni.co/ai/model-assistant.md"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "lightdash",
+      "name": "Lightdash",
+      "category": "bi",
+      "tagline": "Open-source BI on dbt or YAML with a metrics layer, AI agents, and an MCP server.",
+      "aliases": [
+        "Lightdash BI"
+      ],
+      "verdict": "native",
+      "verdictNote": "Lightdash defines metrics, dimensions, joins, and ai_hint in YAML, and its AI agents, verified answers, evals, and MCP server all read that layer.",
+      "artifacts": [
+        {
+          "name": "Lightdash semantic layer (dbt YAML or native Lightdash YAML)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "YAML",
+          "url": "https://docs.lightdash.com/semantic-layer.md"
+        },
+        {
+          "name": "ai_hint and agent context",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "YAML",
+          "url": "https://docs.lightdash.com/semantic-layer/writing-descriptions.md"
+        },
+        {
+          "name": "dbt MetricFlow metric translation",
+          "kind": "metric-view",
+          "status": "Preview",
+          "since": "",
+          "format": "dbt YAML",
+          "url": "https://docs.lightdash.com/integrations/dbt/metricflow.md"
+        },
+        {
+          "name": "AI agents",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, Slack",
+          "url": "https://docs.lightdash.com/agents.md"
+        },
+        {
+          "name": "Verified answers",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://docs.lightdash.com/agents/verified-answers.md"
+        },
+        {
+          "name": "Evaluation suites for agents",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://docs.lightdash.com/agents/create-evaluation-suites.md"
+        },
+        {
+          "name": "Lightdash MCP server",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "",
+          "format": "MCP, OAuth",
+          "url": "https://docs.lightdash.com/agents/lightdash-mcp.md"
+        },
+        {
+          "name": "Metrics SQL API (Postgres wire protocol)",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "",
+          "format": "SQL over Postgres protocol",
+          "url": "https://docs.lightdash.com/integrations/metrics-sql-api.md"
+        },
+        {
+          "name": "Apache Ossie import and export",
+          "kind": "semantic-model",
+          "status": "Announced",
+          "since": "",
+          "format": "YAML",
+          "url": "https://docs.lightdash.com/integrations/apache-ossie.md"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "Metrics are defined in YAML with types, filters, and formatting. They compile to SQL at query time.",
+          "u": "https://docs.lightdash.com/semantic-layer.md"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "Dimensions are columns with options. Date dimensions take time_intervals and custom granularities.",
+          "u": "https://docs.lightdash.com/semantic-layer/dimensions.md"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Joins in model YAML carry a relationship value such as one-to-many. Lightdash adds fanout protection.",
+          "u": "https://docs.lightdash.com/semantic-layer/joins.md"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "An ai_hint field at model, group, dimension, and metric level adds AI-only context. Agent context holds shared terms. No synonym field was found.",
+          "u": "https://docs.lightdash.com/semantic-layer/writing-descriptions.md"
+        },
+        "verifiedQueries": {
+          "l": 3,
+          "n": "Verified answers train the agent and become verified content. The MCP tool list_verified_content returns them.",
+          "u": "https://docs.lightdash.com/agents/verified-answers.md"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "AI agents answer questions through the semantic layer and return charts, tables, and data apps. They are an add-on on all plans.",
+          "u": "https://docs.lightdash.com/agents.md"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "No ontology object in the Lightdash documentation index.",
+          "u": "https://docs.lightdash.com/llms.txt"
+        },
+        "graph": {
+          "l": 0,
+          "n": "No graph query feature. Saved Trees only show how metrics relate.",
+          "u": "https://docs.lightdash.com/explore/metrics-catalog/build-saved-trees.md"
+        },
+        "vector": {
+          "l": 0,
+          "n": "No vector search feature in the Lightdash documentation index.",
+          "u": "https://docs.lightdash.com/llms.txt"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "The MCP server runs on Lightdash Cloud. Self-hosted instances need an Enterprise license. Access uses OAuth and existing permissions.",
+          "u": "https://docs.lightdash.com/agents/lightdash-mcp.md"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Agent answers follow project permissions and user attributes. Admins can scope agents with tags and set the identity an agent uses in the warehouse.",
+          "u": "https://docs.lightdash.com/agents.md"
+        },
+        "openStandard": {
+          "l": 1,
+          "n": "Native YAML and content as code are open to Git. dbt MetricFlow translation is Beta. Ossie support is Experimental and not released.",
+          "u": "https://docs.lightdash.com/integrations/apache-ossie.md"
+        },
+        "aiDescriptions": {
+          "l": 3,
+          "n": "An agent edits descriptions in dbt or YAML files on request and opens a pull request. It needs a Git repository.",
+          "u": "https://docs.lightdash.com/agents/ai-writeback.md"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "The lightdash generate command syncs schema.yml files. Content as code downloads and uploads charts, dashboards, and agents.",
+          "u": "https://docs.lightdash.com/workflow/cli/generate.md"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The docs name no classifier for PII or sensitivity. Admins scope agents with tags and user attributes by hand.",
+          "u": "https://docs.lightdash.com/agents/data-access.md"
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Agents search real field values to build accurate filters. Dimensions also take a filter_autocomplete list of fixed values.",
+          "u": "https://docs.lightdash.com/agents/data-access.md"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "No feature mines warehouse query history for joins or metrics. Autopilot (Beta) drafts charts from repeated AI assistant questions.",
+          "u": "https://docs.lightdash.com/agents/autopilot.md"
+        },
+        "lineage": {
+          "l": 0,
+          "n": "The docs name no column-level lineage. Saved Trees show how metrics feed each other.",
+          "u": "https://docs.lightdash.com/explore/metrics-catalog/drivers.md"
+        },
+        "evals": {
+          "l": 3,
+          "n": "Evaluation suites run test prompts in batch. An LLM judge scores each result when an expected response exists.",
+          "u": "https://docs.lightdash.com/agents/create-evaluation-suites.md"
+        }
+      },
+      "enrichHowTo": "Write descriptions and ai_hint values in dbt or Lightdash YAML. Run the lightdash generate command to create and sync schema.yml files, then review them in a pull request. Add an evaluation suite to test the agent.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "lightdash generate",
+        "u": "https://docs.lightdash.com/workflow/cli/generate.md"
+      },
+      "askData": [
+        {
+          "name": "Lightdash AI agents",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "UI",
+            "MCP"
+          ],
+          "output": "answer only",
+          "reads": "Semantic layer metrics, dimensions, joins, descriptions, ai_hint, agent context, and verified answers.",
+          "u": "https://docs.lightdash.com/agents.md"
+        }
+      ],
+      "offers": [
+        "YAML metrics and dimensions compile to SQL, so the agent does not write raw SQL.",
+        "ai_hint gives the agent rules that people do not need to see.",
+        "Verified answers train the agent and mark saved charts as trusted content.",
+        "Evaluation suites test agents in batch with an LLM judge.",
+        "The MCP server serves Claude, ChatGPT, Codex, and Cursor with OAuth and existing permissions."
+      ],
+      "gaps": [
+        "AI agents are a paid add-on.",
+        "Apache Ossie import and export are Experimental and not released.",
+        "The Metrics SQL API is Beta and Enterprise only.",
+        "No synonym field was found. Teams use description, ai_hint, and agent context.",
+        "dbt MetricFlow translation is Beta."
+      ],
+      "fillWith": [
+        "dbt",
+        "dbt MetricFlow"
+      ],
+      "nl2sqlPath": "Model tables in dbt or Lightdash YAML with metrics, joins, descriptions, and ai_hint. Set up an agent, verify good answers, and add an evaluation suite. For your own agent, use the Lightdash MCP server.",
+      "snippet": {
+        "lang": "yaml",
+        "title": "Metric with an ai_hint in dbt YAML",
+        "code": "columns:\n  - name: revenue_usd\n    meta:\n      metrics:\n        total_revenue_usd:\n          type: sum\n          description: >\n            Sum of revenue_usd for orders where completed_at IS NOT NULL.\n          ai_hint:\n            - Use this for any question about revenue, sales, or top-line numbers.",
+        "u": "https://docs.lightdash.com/semantic-layer/writing-descriptions.md"
+      },
+      "worksWith": [
+        "BigQuery",
+        "PostgreSQL",
+        "Supabase",
+        "Amazon Redshift",
+        "Snowflake",
+        "Databricks",
+        "Trino",
+        "ClickHouse",
+        "DuckDB",
+        "Amazon Athena"
+      ],
+      "worksWithUrl": "https://docs.lightdash.com/integrations/connect-project.md",
+      "openToOtherTools": {
+        "l": 3,
+        "n": "The Lightdash MCP server is available to all Cloud users. A Beta Postgres wire protocol API queries the semantic layer. Ossie support is not released.",
+        "u": "https://docs.lightdash.com/agents/lightdash-mcp.md"
+      },
+      "sources": [
+        {
+          "t": "Lightdash AI agents",
+          "u": "https://docs.lightdash.com/agents.md"
+        },
+        {
+          "t": "Lightdash MCP server",
+          "u": "https://docs.lightdash.com/agents/lightdash-mcp.md"
+        },
+        {
+          "t": "Verified Answers",
+          "u": "https://docs.lightdash.com/agents/verified-answers.md"
+        },
+        {
+          "t": "Create evaluation suites",
+          "u": "https://docs.lightdash.com/agents/create-evaluation-suites.md"
+        },
+        {
+          "t": "Writing useful descriptions in your semantic layer",
+          "u": "https://docs.lightdash.com/semantic-layer/writing-descriptions.md"
+        },
+        {
+          "t": "Agent context",
+          "u": "https://docs.lightdash.com/agents/agent-context.md"
+        },
+        {
+          "t": "Lightdash semantic layer",
+          "u": "https://docs.lightdash.com/semantic-layer.md"
+        },
+        {
+          "t": "Joins reference",
+          "u": "https://docs.lightdash.com/semantic-layer/joins.md"
+        },
+        {
+          "t": "Dimensions reference",
+          "u": "https://docs.lightdash.com/semantic-layer/dimensions.md"
+        },
+        {
+          "t": "dbt MetricFlow metrics",
+          "u": "https://docs.lightdash.com/integrations/dbt/metricflow.md"
+        },
+        {
+          "t": "Metrics SQL API",
+          "u": "https://docs.lightdash.com/integrations/metrics-sql-api.md"
+        },
+        {
+          "t": "Apache Ossie in Lightdash",
+          "u": "https://docs.lightdash.com/integrations/apache-ossie.md"
+        },
+        {
+          "t": "Connect your warehouse and project",
+          "u": "https://docs.lightdash.com/integrations/connect-project.md"
+        },
+        {
+          "t": "Generate semantic layer YAML",
+          "u": "https://docs.lightdash.com/workflow/cli/generate.md"
+        },
+        {
+          "t": "AI writeback",
+          "u": "https://docs.lightdash.com/agents/ai-writeback.md"
+        },
+        {
+          "t": "Saved Trees",
+          "u": "https://docs.lightdash.com/explore/metrics-catalog/build-saved-trees.md"
+        },
+        {
+          "t": "Lightdash documentation index",
+          "u": "https://docs.lightdash.com/llms.txt"
+        },
+        {
+          "t": "Data access control (Lightdash)",
+          "u": "https://docs.lightdash.com/agents/data-access.md"
+        },
+        {
+          "t": "Autopilot (Lightdash)",
+          "u": "https://docs.lightdash.com/agents/autopilot.md"
+        },
+        {
+          "t": "Drivers (Lightdash)",
+          "u": "https://docs.lightdash.com/explore/metrics-catalog/drivers.md"
+        }
+      ],
+      "verified": "2026-10-24"
+    }
+  ],
+  "notes": [
+    {
+      "topic": "Apache Ossie support",
+      "text": "The Ossie converters repo lists Omni and Hex as vendors. Hex documents Ossie import as Alpha through a CLI conversion. Lightdash documents Ossie as Experimental and not released.",
+      "sources": [
+        {
+          "t": "Apache Ossie converters repo",
+          "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+        },
+        {
+          "t": "Syncing from Apache Ossie (Hex)",
+          "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/ossie"
+        },
+        {
+          "t": "Apache Ossie in Lightdash",
+          "u": "https://docs.lightdash.com/integrations/apache-ossie.md"
+        }
+      ]
+    },
+    {
+      "topic": "Hex naming",
+      "text": "Current Hex docs call the AI features Threads, the Notebook agent, and Context Studio. The docs do not use the name Hex Magic, so it is not an alias here.",
+      "sources": [
+        {
+          "t": "Hex llms.txt",
+          "u": "https://hex.tech/llms.txt"
+        },
+        {
+          "t": "Notebook agent",
+          "u": "https://learn.hex.tech/docs/explore-data/notebook-view/notebook-agent"
+        }
+      ]
+    },
+    {
+      "topic": "Two-way exchange with warehouse semantic layers",
+      "text": "Omni imports Snowflake semantic views and Databricks metric views, and it can push Omni topics back to both. Hex syncs Snowflake Semantic Views as Beta.",
+      "sources": [
+        {
+          "t": "Snowflake semantic views in Omni",
+          "u": "https://docs.omni.co/connect-data/snowflake-semantic-views/index.md"
+        },
+        {
+          "t": "Push Omni topics to Databricks as metric views",
+          "u": "https://docs.omni.co/guides/modeling/push-to-databricks-metric-views.md"
+        },
+        {
+          "t": "Syncing from Snowflake Semantic Views (Hex)",
+          "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/snowflake-semantic-views"
+        }
+      ]
+    }
+  ]
+}

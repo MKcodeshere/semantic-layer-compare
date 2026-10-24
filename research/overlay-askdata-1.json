@@ -1,0 +1,618 @@
+{
+ "vendors": [
+  {
+   "id": "redshift",
+   "aliases": [
+    "Amazon Redshift",
+    "AWS",
+    "Amazon Quick",
+    "QuickSight",
+    "Amazon QuickSight",
+    "Quick Sight",
+    "Redshift Serverless",
+    "Query Editor v2"
+   ],
+   "askData": [
+    {
+     "name": "Amazon Q generative SQL in Query Editor v2",
+     "status": "GA",
+     "since": "2024-09",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The agent reads schema metadata, query history, and custom context that the admin supplies.",
+     "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
+    },
+    {
+     "name": "Amazon Quick chat (Dataset Q&A and Topics)",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The agent reads dataset field descriptions, enrichment metadata, Topic relationships, and custom instructions.",
+     "u": "https://docs.aws.amazon.com/quick/latest/userguide/using-quick-chat.html"
+    }
+   ]
+  },
+  {
+   "id": "bigquery",
+   "aliases": [
+    "BigQuery",
+    "GCP",
+    "Google Cloud",
+    "Gemini in BigQuery",
+    "BigQuery Studio",
+    "Dataplex",
+    "Knowledge Catalog"
+   ],
+   "askData": [
+    {
+     "name": "BigQuery data canvas (Gemini in BigQuery)",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The feature reads table schemas and metadata to turn prompts into queries, charts, and workflow nodes.",
+     "u": "https://docs.cloud.google.com/bigquery/docs/data-canvas"
+    },
+    {
+     "name": "Conversational Analytics API",
+     "status": "GA",
+     "since": "2026-06",
+     "surfaces": [
+      "REST API",
+      "SDK"
+     ],
+     "output": "answer only",
+     "reads": "The data agent reads table metadata, instructions, and verified queries that you give it.",
+     "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview"
+    }
+   ]
+  },
+  {
+   "id": "sap",
+   "aliases": [
+    "SAP Datasphere",
+    "SAP Business Data Cloud",
+    "SAP BDC",
+    "SAP Data Warehouse Cloud",
+    "SAP DWC",
+    "SAP HANA Cloud"
+   ],
+   "askData": [
+    {
+     "name": "Generate SQL with AI (SAP Datasphere)",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The feature reads the source views that you drag into the prompt panel and your prompt text.",
+     "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/generate-sql-code-with-ai-d153065.md"
+    }
+   ]
+  },
+  {
+   "id": "snowflake",
+   "aliases": [
+    "Cortex",
+    "Snowflake Intelligence",
+    "CoWork",
+    "Snowflake CoWork",
+    "Cortex Analyst",
+    "Cortex Agents",
+    "Snowflake Cortex AI"
+   ],
+   "askData": [
+    {
+     "name": "Cortex Analyst",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "REST API"
+     ],
+     "output": "SQL",
+     "reads": "The service reads semantic views, including verified queries, and writes SQL for the question.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst"
+    },
+    {
+     "name": "Cortex Agents",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "REST API",
+      "SQL function"
+     ],
+     "output": "answer only",
+     "reads": "The agent uses Cortex Analyst with semantic views for structured data and Cortex Search for documents.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents"
+    },
+    {
+     "name": "Snowflake CoWork",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "The data agents read structured and unstructured data and use verified answers from your data team.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/snowflake-cowork"
+    }
+   ]
+  },
+  {
+   "id": "databricks",
+   "aliases": [
+    "Azure Databricks",
+    "Unity Catalog",
+    "Genie",
+    "Genie One",
+    "Genie Agents",
+    "Genie Spaces",
+    "AI/BI Genie",
+    "Databricks One",
+    "Databricks SQL"
+   ],
+   "askData": [
+    {
+     "name": "Genie Agents",
+     "status": "GA",
+     "since": "2026-06",
+     "surfaces": [
+      "UI",
+      "REST API"
+     ],
+     "output": "SQL",
+     "reads": "The agent reads Unity Catalog tables and metric views, example SQL, and instructions that the analyst sets.",
+     "u": "https://docs.databricks.com/aws/en/genie-agents/set-up"
+    },
+    {
+     "name": "Genie One",
+     "status": "GA",
+     "since": "2026-06",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "Chat searches Genie Agents first, then dashboards, queries, and metric views, to answer the question.",
+     "u": "https://docs.databricks.com/aws/en/genie-one/chat"
+    }
+   ]
+  },
+  {
+   "id": "fabric",
+   "aliases": [
+    "Azure",
+    "OneLake",
+    "Synapse Data Warehouse in Fabric",
+    "Fabric Data Warehouse",
+    "Microsoft Fabric",
+    "Azure Synapse",
+    "Synapse Analytics",
+    "Fabric Lakehouse",
+    "Copilot in Fabric"
+   ],
+   "askData": [
+    {
+     "name": "Fabric data agent",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The agent reads schemas of up to five data sources, plus your instructions and example queries.",
+     "u": "https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent"
+    },
+    {
+     "name": "Copilot in Fabric Data Warehouse",
+     "status": "Preview",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "Copilot reads the schema of your warehouse and turns a natural language question into a SQL query.",
+     "u": "https://learn.microsoft.com/en-us/fabric/data-warehouse/copilot-chat-pane"
+    }
+   ]
+  },
+  {
+   "id": "teradata",
+   "aliases": [
+    "Teradata Vantage",
+    "Vantage",
+    "VantageCloud",
+    "Teradata Autonomous Knowledge Platform",
+    "Teradata AI Studio",
+    "Teradata Cloud"
+   ],
+   "askData": [
+    {
+     "name": "Tera natural language workspace",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "Tera uses governed enterprise context to answer questions in natural language.",
+     "u": "https://www.teradata.com/press-releases/2026/introducing-the-autonomous-knowledge-platform"
+    }
+   ]
+  },
+  {
+   "id": "oracle",
+   "aliases": [
+    "Oracle Autonomous Database",
+    "Oracle AI Database",
+    "Oracle Database 26ai",
+    "Autonomous AI Database",
+    "Select AI",
+    "OCI",
+    "Oracle Database 23ai"
+   ],
+   "askData": [
+    {
+     "name": "Select AI",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "SQL function",
+      "SDK"
+     ],
+     "output": "SQL",
+     "reads": "Select AI reads the object list of your AI profile and sends the schema metadata to the LLM.",
+     "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/select-ai.html"
+    }
+   ]
+  },
+  {
+   "id": "postgres",
+   "aliases": [
+    "Postgres",
+    "PostgreSQL"
+   ],
+   "askData": []
+  },
+  {
+   "id": "sqlserver",
+   "aliases": [
+    "Azure SQL Database",
+    "Azure SQL Managed Instance",
+    "MSSQL",
+    "Microsoft SQL Server",
+    "SQL Server",
+    "SSMS",
+    "SQL database in Fabric"
+   ],
+   "askData": [
+    {
+     "name": "GitHub Copilot in SSMS",
+     "status": "GA",
+     "since": "2026-03",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "Copilot reads the context of the connected database and the active query editor, plus your custom instructions.",
+     "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/overview"
+    },
+    {
+     "name": "Microsoft Copilot in Azure for Azure SQL Database",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "Copilot reads database context, catalog views, dynamic management views, and Query Store data.",
+     "u": "https://learn.microsoft.com/en-us/azure/azure-sql/copilot/copilot-azure-sql-overview"
+    }
+   ]
+  },
+  {
+   "id": "clickhouse",
+   "aliases": [
+    "ClickHouse Cloud",
+    "ClickHouse Agents",
+    "ClickHouse Assistant"
+   ],
+   "askData": [
+    {
+     "name": "ClickHouse Assistant",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The Assistant reads active tabs, saved queries, schemas, and dashboards in the Cloud console.",
+     "u": "https://clickhouse.com/docs/products/cloud/features/ai-ml/aichat/using-ai-chat"
+    },
+    {
+     "name": "ClickHouse Agents",
+     "status": "Preview",
+     "since": "2026-06",
+     "surfaces": [
+      "UI",
+      "MCP"
+     ],
+     "output": "answer only",
+     "reads": "The agent follows your instructions and calls the tools that you attach, then returns results.",
+     "u": "https://clickhouse.com/docs/products/cloud/features/ai-ml/agents/index.md"
+    }
+   ]
+  },
+  {
+   "id": "duckdb",
+   "aliases": [
+    "DuckDB",
+    "DuckLake"
+   ],
+   "askData": []
+  },
+  {
+   "id": "denodo",
+   "aliases": [
+    "Denodo Platform",
+    "Virtual DataPort",
+    "VDP",
+    "Denodo Data Marketplace",
+    "Denodo Assistant",
+    "Denodo AI SDK"
+   ],
+   "askData": [
+    {
+     "name": "Denodo Assistant",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "VQL",
+     "reads": "The Assistant reads view metadata and metric views, and uses the LLM that you configure.",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/platform/new_features/what_is_new_9_5"
+    },
+    {
+     "name": "Denodo AI SDK",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "REST API",
+      "SDK"
+     ],
+     "output": "VQL",
+     "reads": "The SDK indexes view metadata as vectors and uses an LLM that you supply to write VQL.",
+     "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20AI%20SDK%20-%20User%20Manual"
+    }
+   ]
+  },
+  {
+   "id": "dremio",
+   "aliases": [
+    "Dremio Cloud",
+    "Dremio Software",
+    "Dremio Enterprise Lakehouse"
+   ],
+   "askData": [
+    {
+     "name": "Dremio AI agent",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The agent works on data and entities that you can access, and uses project context and instructions.",
+     "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent/"
+    }
+   ]
+  },
+  {
+   "id": "starburst",
+   "aliases": [
+    "Starburst Galaxy",
+    "Starburst Enterprise",
+    "SEP",
+    "Starburst AI",
+    "AIDA",
+    "Starburst AI Data Assistant"
+   ],
+   "askData": [
+    {
+     "name": "AI Data Assistant (AIDA)",
+     "status": "GA",
+     "since": "2025-11",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "AIDA reads the chosen data product, its business rules, and the persona that you select.",
+     "u": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
+    }
+   ]
+  },
+  {
+   "id": "timbr",
+   "aliases": [
+    "Timbr.ai",
+    "Timbr ontology",
+    "Ask Timbr",
+    "Timbr SQL"
+   ],
+   "askData": [
+    {
+     "name": "Ask Timbr",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "Timbr SQL",
+     "reads": "Ask Timbr reads the ontology, the knowledge base rules, and the examples in your Timbr platform.",
+     "u": "https://docs.timbr.ai/doc/docs/general/changelog/"
+    },
+    {
+     "name": "Timbr LangChain SDK",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "SDK"
+     ],
+     "output": "Timbr SQL",
+     "reads": "The SDK reads the ontology concepts, relationships, and annotations, and uses your LLM to write Timbr SQL.",
+     "u": "https://docs.timbr.ai/doc/docs/integration/langchain-sdk/"
+    }
+   ]
+  },
+  {
+   "id": "neo4j",
+   "aliases": [
+    "Neo4j Aura",
+    "AuraDB",
+    "Aura Agent",
+    "Text2Cypher",
+    "AuraDS"
+   ],
+   "askData": [
+    {
+     "name": "Aura Agent (Text2Cypher tool)",
+     "status": "GA",
+     "since": "2026-02",
+     "surfaces": [
+      "UI",
+      "REST API",
+      "MCP"
+     ],
+     "output": "Cypher",
+     "reads": "The Text2Cypher tool adds the database schema and your tool instructions to the question, then writes Cypher.",
+     "u": "https://neo4j.com/docs/aura/aura-agent/"
+    }
+   ]
+  },
+  {
+   "id": "palantir",
+   "aliases": [
+    "Palantir Foundry",
+    "Foundry",
+    "AIP",
+    "Palantir AIP",
+    "Ontology",
+    "AIP Chatbot Studio",
+    "AIP Agent Studio",
+    "Palantir Gotham"
+   ],
+   "askData": [
+    {
+     "name": "AIP Chatbot Studio",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "SDK",
+      "REST API"
+     ],
+     "output": "answer only",
+     "reads": "The chatbot uses an LLM with the Ontology, documents, and tools that you attach.",
+     "u": "https://www.palantir.com/docs/foundry/chatbot-studio/overview"
+    }
+   ]
+  },
+  {
+   "id": "relationalai",
+   "aliases": [
+    "RelationalAI",
+    "Relational AI",
+    "RAI",
+    "Rel",
+    "Rel App"
+   ],
+   "askData": [
+    {
+     "name": "Conversational decision intelligence in Snowflake CoWork",
+     "status": "Unverified",
+     "since": "2026-06",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "RelationalAI reasoners answer the question from the semantic model of the enterprise in Snowflake.",
+     "u": "https://www.relational.ai/post/relationalai-closes-the-ai-value-gap-with-new-agentic-decision-intelligence-capabilities-for-the-snowflake-ai-data-cloud"
+    }
+   ]
+  },
+  {
+   "id": "stardog",
+   "aliases": [
+    "Stardog Cloud",
+    "Voicebox",
+    "Stardog Voicebox",
+    "Stardog Enterprise Knowledge Graph"
+   ],
+   "askData": [
+    {
+     "name": "Stardog Voicebox",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SPARQL",
+     "reads": "Voicebox reads the knowledge graph model and the few-shot examples that you give, then writes SPARQL.",
+     "u": "https://docs.stardog.com/voicebox/"
+    }
+   ]
+  },
+  {
+   "id": "dataworld",
+   "aliases": [
+    "data.world",
+    "Archie",
+    "Archie AI Assistant"
+   ],
+   "askData": [
+    {
+     "name": "Archie Chat",
+     "status": "Preview",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "Archie combines the data.world knowledge graph and an LLM to answer questions about catalog resources.",
+     "u": "https://docs.data.world/en/160498-using-archie.html"
+    }
+   ]
+  },
+  {
+   "id": "atscale",
+   "aliases": [
+    "AtScale Semantic Layer",
+    "AtScale Design Center",
+    "SML",
+    "Semantic Modeling Language"
+   ],
+   "askData": [
+    {
+     "name": "Natural Language Query (NLQ)",
+     "status": "Unverified",
+     "since": "2024-09",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The feature uses the AtScale semantic layer metadata and business context to write simple SQL.",
+     "u": "https://www.atscale.com/press/new-natural-language-query-capabilities-with-semantic-layer-integration/"
+    }
+   ]
+  }
+ ]
+}

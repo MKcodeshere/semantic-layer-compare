@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Semantic Field Guide: where data platforms store business meaning</title>
+<meta name="description" content="Per-platform guide to semantic layers, metric views, ontologies and metadata enrichment for NL-to-SQL builders.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fcfcfb; --paper: #ffffff; --ink: #18181b; --ink2: #3f3f46; --muted: #6b6b73; --line: #e4e4e7; --soft: #f4f4f3;
+    --accent: #047857; --accent-soft: #e7f4ee;
+    --lv1: #62be97; --lv2: #1f9a6c; --lv3: #0b6b4b;
+    --native: #047857; --partial: #b45309; --none: #6b6b73;
+    --r: 10px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 Geist, system-ui, sans-serif; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+  nav.top { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  nav.top .wrap { display: flex; align-items: center; gap: 28px; height: 64px; }
+  .wordmark { font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  nav.top .links { display: flex; gap: 22px; font-size: 14px; }
+  nav.top .links a { color: var(--ink2); text-decoration: none; }
+  nav.top .links a:hover { color: var(--ink); }
+  .btn { display: inline-flex; align-items: center; height: 42px; padding: 0 18px; border-radius: 999px; font-size: 15px; font-weight: 500; text-decoration: none; white-space: nowrap; border: 1px solid transparent; cursor: pointer; transition: transform .15s, background .15s; }
+  .btn:active { transform: translateY(1px); }
+  .btn.primary { background: var(--ink); color: #fafafa; }
+  .btn.primary:hover { background: #2b2b30; }
+  .btn.ghost { border-color: var(--line); color: var(--ink); background: var(--paper); }
+  nav.top .btn { margin-left: auto; height: 36px; font-size: 14px; }
+
+  .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 48px; padding-top: 72px; padding-bottom: 64px; align-items: center; }
+  .hero h1 { font-size: clamp(36px, 4.2vw, 54px); text-wrap: balance; line-height: 1.02; letter-spacing: -0.045em; margin: 0 0 20px; font-weight: 750; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p { font-size: 19px; color: var(--ink2); max-width: 34ch; margin: 0 0 28px; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .cta select { height: 42px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); padding: 0 14px; font: inherit; font-size: 15px; color: var(--ink); }
+  .board { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 22px; box-shadow: 0 20px 50px -30px rgb(24 24 27 / .25); }
+  .board h2 { font-size: 15px; margin: 0 0 16px; font-weight: 600; color: var(--ink2); }
+  .board .col { padding: 12px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 14px; align-items: start; }
+  .board .col:first-of-type { border-top: 0; padding-top: 0; }
+  .board .k { font-size: 13px; font-weight: 600; }
+  .board .k b { display: block; font: 600 30px/1 'Geist Mono', monospace; letter-spacing: -0.04em; margin-bottom: 2px; }
+  .board .native { color: var(--native); } .board .partial { color: var(--partial); } .board .none { color: var(--none); }
+  .faces { display: flex; flex-wrap: wrap; gap: 6px; }
+  .faces a { text-decoration: none; }
+
+  .logo { position: relative; flex: none; width: 30px; height: 30px; border-radius: 8px; background: var(--soft); border: 1px solid var(--line); display: inline-grid; place-items: center; overflow: hidden; transition: transform .15s; }
+  .logo b { font: 600 10px 'Geist Mono', monospace; color: var(--ink2); }
+  .logo img { position: absolute; inset: 5px; width: 18px; height: 18px; background: var(--soft); }
+  .faces a:hover .logo { transform: translateY(-2px); }
+
+  section.band { padding: 88px 0; border-top: 1px solid var(--line); }
+  h2.sec { font-size: clamp(28px, 3.4vw, 42px); letter-spacing: -0.035em; line-height: 1.08; margin: 0 0 14px; max-width: 24ch; }
+  p.sub { color: var(--ink2); max-width: 62ch; margin: 0 0 40px; }
+
+  .ladder { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; align-items: end; }
+  .rung { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+  .rung:nth-child(1) { min-height: 260px; } .rung:nth-child(2) { min-height: 300px; } .rung:nth-child(3) { min-height: 340px; background: var(--accent-soft); border-color: #bfe3d2; } .rung:nth-child(4) { min-height: 380px; } .rung:nth-child(5) { min-height: 420px; background: var(--ink); color: #f4f4f5; border-color: var(--ink); }
+  .rung h3 { margin: 0; font-size: 18px; letter-spacing: -0.02em; }
+  .rung p { margin: 0; font-size: 14px; line-height: 1.5; color: inherit; opacity: .85; }
+  .rung .ex { margin-top: auto; font: 12px/1.5 'Geist Mono', monospace; opacity: .75; }
+  .rung .src { font-size: 12px; } .rung:nth-child(5) a { color: #8ee0bb; }
+
+  .layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 56px; }
+  .toc { position: sticky; top: 88px; align-self: start; max-height: calc(100dvh - 110px); overflow: auto; font-size: 14px; padding-right: 8px; }
+  .toc .g { color: var(--muted); font-size: 12px; font-weight: 600; margin: 18px 0 6px; }
+  .toc .g:first-child { margin-top: 0; }
+  .toc a { display: flex; align-items: center; gap: 8px; color: var(--ink2); text-decoration: none; padding: 4px 8px; border-radius: 6px; }
+  .toc a:hover { background: var(--soft); }
+  .toc a.on { background: var(--ink); color: #fafafa; }
+  .toc a .vd { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+  .vd.native { background: var(--native); } .vd.partial { background: var(--partial); } .vd.none { background: transparent; box-shadow: inset 0 0 0 1.5px var(--none); }
+
+  .catblock + .catblock { margin-top: 72px; }
+  .catblock > h2 { font-size: 28px; letter-spacing: -0.03em; margin: 0 0 6px; }
+  .catblock > p { color: var(--muted); margin: 0 0 24px; font-size: 15px; }
+  article.ch { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 30px 32px; margin-bottom: 20px; overflow-wrap: anywhere; }
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      article.ch { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 30%; }
+      @keyframes rise { from { opacity: .3; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+    }
+  }
+  .chhead { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .chhead .logo { width: 44px; height: 44px; border-radius: 12px; } .chhead .logo img { inset: 9px; width: 24px; height: 24px; }
+  .chhead h3 { margin: 0; font-size: 26px; letter-spacing: -0.03em; }
+  .chhead .tag { color: var(--muted); font-size: 14px; width: 100%; margin-top: -4px; padding-left: 58px; }
+  .pillv { margin-left: auto; font-size: 13px; font-weight: 600; padding: 4px 12px; border-radius: 999px; border: 1.5px solid currentColor; }
+  .pillv.native { color: var(--native); } .pillv.partial { color: var(--partial); } .pillv.none { color: var(--none); }
+  .lede { font-size: 19px; line-height: 1.5; margin: 18px 0 20px; max-width: 62ch; }
+  .strip { display: flex; gap: 14px; flex-wrap: wrap; margin: 0 0 24px; }
+  .strip .grp { display: flex; flex-direction: column; gap: 4px; }
+  .strip .grp span { font-size: 11px; color: var(--muted); }
+  .strip .sq { display: flex; gap: 3px; }
+  .sq i { width: 18px; height: 18px; border-radius: 4px; display: block; }
+  .l0 { box-shadow: inset 0 0 0 1px var(--line); background: var(--paper); }
+  .l1 { background: var(--lv1); } .l2 { background: var(--lv2); } .l3 { background: var(--lv3); }
+  .lx { background: repeating-linear-gradient(135deg, var(--paper) 0 3px, var(--line) 3px 4px); box-shadow: inset 0 0 0 1px var(--line); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .two h4, .path h4, .ch h4 { margin: 0 0 8px; font-size: 13px; color: var(--muted); font-weight: 600; }
+  .two ul { margin: 0; padding-left: 18px; font-size: 15px; color: var(--ink2); }
+  .two li { margin: 5px 0; }
+  .path { margin-top: 24px; padding: 18px 20px; border-radius: var(--r); background: var(--soft); }
+  .path p { margin: 0 0 10px; font-size: 15px; }
+  .pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill { font-size: 13px; padding: 3px 10px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line); }
+  .enrich { margin-top: 20px; font-size: 15px; color: var(--ink2); }
+  details { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; }
+  summary { cursor: pointer; font-size: 14px; font-weight: 600; color: var(--ink2); }
+  .arts { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 6px 18px; font-size: 14px; margin-top: 12px; }
+  .arts .s { font: 12px 'Geist Mono', monospace; color: var(--muted); }
+  pre { background: #131316; color: #e4e4e7; border-radius: var(--r); padding: 16px 18px; overflow: auto; font: 13px/1.6 'Geist Mono', monospace; margin: 12px 0 0; }
+  figcaption { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .srcs { margin-top: 18px; font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; }
+
+  .etable { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+  .etable th, .etable td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+  .etable thead th { font-size: 12px; color: var(--muted); font-weight: 600; background: var(--soft); }
+  .etable td.c { text-align: center; }
+  .etable td .sq i { margin: 0 auto; }
+  .ewrap { overflow-x: auto; }
+  .evid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .evid .card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; }
+  .evid .card:first-child { grid-column: 1 / -1; background: var(--ink); color: #f4f4f5; border-color: var(--ink); }
+  .evid .card:first-child a { color: #8ee0bb; }
+  .evid h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: -0.01em; }
+  .evid p { margin: 0 0 10px; font-size: 15px; }
+  .evid .s { font-size: 13px; }
+  footer.end { padding: 64px 0 96px; border-top: 1px solid var(--line); color: var(--ink2); }
+  footer.end h2 { font-size: 30px; letter-spacing: -0.03em; margin: 0 0 10px; color: var(--ink); }
+  .legendrow { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+  .legendrow span { display: inline-flex; gap: 6px; align-items: center; }
+
+  @media (max-width: 960px) {
+    .wrap { padding: 0 18px; }
+    nav.top .links { display: none; }
+    .hero { grid-template-columns: minmax(0, 1fr); padding-top: 40px; padding-bottom: 40px; gap: 32px; }
+    #jump { max-width: 100%; min-width: 0; }
+    .ladder { grid-template-columns: 1fr; } .rung { min-height: 0 !important; }
+    .layout { grid-template-columns: minmax(0, 1fr); } .toc { display: none; }
+    article.ch { padding: 22px 18px; }
+    .two { grid-template-columns: 1fr; gap: 18px; }
+    .chhead .tag { padding-left: 0; }
+    .evid { grid-template-columns: 1fr; }
+    section.band { padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <a class="wordmark" href="#">Semantic Field Guide</a>
+  <div class="links"><a href="#ladder">The ladder</a><a href="#platforms">Platforms</a><a href="#enrichment">Enrichment</a><a href="#evidence">Evidence</a></div>
+  <a class="btn primary" href="#method">Suggest an edit</a>
+</div></nav>
+
+<header class="wrap hero">
+  <div>
+    <h1>Your LLM does not know what <em>revenue</em> means.</h1>
+    <p>Where data platforms, BI tools and graphs store business meaning, and what to add when they do not.</p>
+    <div class="cta">
+      <a class="btn primary" href="#ladder">Read the guide</a>
+      <label for="jump" style="position:absolute;left:-9999px">Find your platform</label>
+      <select id="jump"><option value="">Find your platform</option></select>
+    </div>
+  </div>
+  <div class="board" id="board"></div>
+</header>
+
+<section class="band" id="ladder"><div class="wrap">
+  <h2 class="sec">Five rungs of meaning, from a column comment to a context graph</h2>
+  <p class="sub">Each rung gives an agent more context than the one below it. Most teams building NL-to-SQL today need rung three. Rungs four and five are where the market is moving.</p>
+  <div class="ladder" id="rungs"></div>
+</div></section>
+
+<section class="band" id="platforms"><div class="wrap">
+  <h2 class="sec">Platform by platform</h2>
+  <p class="sub">What each platform gives an NL-to-SQL builder natively, what is missing, and what teams add. Every claim links to the vendor's own docs.</p>
+  <div class="legendrow" id="legend"></div>
+  <div class="layout"><nav class="toc" id="toc" aria-label="Platforms"></nav><div id="chapters"></div></div>
+</div></section>
+
+<section class="band" id="enrichment"><div class="wrap">
+  <h2 class="sec">Where accuracy is won: metadata enrichment</h2>
+  <p class="sub">A semantic layer is only as good as its descriptions, business names, and example values. This is what each data platform gives you to write them, in the UI or in bulk.</p>
+  <div class="ewrap"><table class="etable" id="etable"></table></div>
+</div></section>
+
+<section class="band" id="evidence"><div class="wrap">
+  <h2 class="sec">Does semantic context improve accuracy?</h2>
+  <p class="sub">Published numbers, with the setup and who ran them. Vendor-run benchmarks are marked.</p>
+  <div class="evid" id="evid"></div>
+</div></section>
+
+<footer class="end" id="method"><div class="wrap">
+  <h2>How this guide is made</h2>
+  <p style="max-width:62ch">Each platform entry comes from the vendor's docs and release notes, checked on <span id="built"></span>. Each claim keeps its source URL. Status labels follow the vendor: GA, Preview, or Announced. The data is one JSON file. Corrections are pull requests.</p>
+  <a class="btn ghost" href="#">Open the data on GitHub</a>
+</div></footer>
+
+<script src="data.js"></script>
+<script src="shared.js"></script>
+<script>
+const { esc, logo, lvl, LEVELS, VERDICT, host, cat, note, notesWhere } = SLX;
+const $ = (s) => document.querySelector(s);
+$('#built').textContent = SL.built;
+
+const groups = [['native', 'Native layer'], ['partial', 'Partial'], ['none', 'Bring your own']];
+$('#board').innerHTML = `<h2>${SL.vendors.length} products. Is there a native place for business meaning?</h2>` + groups.map(([k, label]) => {
+  const vs = SL.vendors.filter((v) => v.verdict === k);
+  return `<div class="col"><div class="k ${k}"><b>${vs.length}</b>${label}</div><div class="faces">${vs.map((v) => `<a href="#v-${v.id}" title="${esc(v.name)}">${logo(v)}</a>`).join('')}</div></div>`;
+}).join('');
+
+$('#jump').insertAdjacentHTML('beforeend', SL.vendors.map((v) => `<option value="${v.id}">${esc(v.name)}</option>`).join(''));
+$('#jump').onchange = (e) => e.target.value && document.getElementById('v-' + e.target.value).scrollIntoView({ behavior: 'smooth' });
+
+const RUNGS = [
+  { name: 'Schema and comments', re: /^schema comments$/i, fallback: 'Table and column names plus free-text comments. Every database has this. Agents read it, but it says nothing about how to compute a number.', ex: 'COMMENT ON, extended properties, annotations' },
+  { name: 'Catalog and glossary', re: /business glossary|data catalog/i, fallback: 'A searchable inventory of data with owners, tags, lineage, and business terms linked to columns.', ex: 'Unity Catalog, Horizon, Dataplex, Purview, Atlan' },
+  { name: 'Semantic layer', re: /^semantic layer$/i, fallback: 'Metrics, dimensions and joins defined once as code, then queried by BI tools and agents with the same result.', ex: 'Semantic views, metric views, LookML, dbt, Cube' },
+  { name: 'Ontology and knowledge graph', re: /^(ontology|knowledge graph)$/i, fallback: 'Business entities and their relations modeled above tables. Objects, links, and sometimes actions an agent can take.', ex: 'Foundry Ontology, Fabric IQ, Stardog, Timbr' },
+  { name: 'Context graph', re: /context graph/i, fallback: 'A record of decisions, exceptions and the reasons behind them, linked to the entities they touched.', ex: 'Emerging term, 2025 to 2026' },
+];
+$('#rungs').innerHTML = RUNGS.map((r) => {
+  const n = note(r.re);
+  const text = n?.text ? n.text.split(/(?<=\.)\s/).slice(0, 2).join(' ') : r.fallback;
+  const src = n?.sources?.[0];
+  return `<div class="rung"><h3>${esc(r.name)}</h3><p>${esc(text)}</p>${src ? `<a class="src" href="${esc(src.u)}" target="_blank" rel="noopener">${esc(host(src.u))}</a>` : ''}<div class="ex">${esc(r.ex)}</div></div>`;
+}).join('');
+
+$('#legend').innerHTML = [...LEVELS].reverse().concat(lvl(null)).map((L) => `<span><span class="sq"><i class="l${L.l}"></i></span>${L.label}</span>`).join('');
+
+const strip = (v) => SL.capGroups.map((g) => `<div class="grp"><span>${esc(g.label)}</span><div class="sq">${SL.caps.filter((c) => c.group === g.id).map((c) => {
+  const L = lvl(v.caps[c.key]);
+  return `<i class="l${L.l}" title="${esc(c.label)}: ${L.label}. ${esc(v.caps[c.key].n)}"></i>`;
+}).join('')}</div></div>`).join('');
+
+const chapter = (v) => `
+<article class="ch" id="v-${v.id}">
+  <div class="chhead">${logo(v)}<h3>${esc(v.name)}</h3><span class="pillv ${v.verdict}">${VERDICT[v.verdict]}</span><div class="tag">${esc(v.tagline)}</div></div>
+  <p class="lede">${esc(v.verdictNote)}</p>
+  <div class="strip">${strip(v)}</div>
+  <div class="two">
+    <div><h4>What you get</h4><ul>${v.offers.map((o) => `<li>${esc(o)}</li>`).join('')}</ul></div>
+    <div><h4>What is missing</h4><ul>${v.gaps.map((o) => `<li>${esc(o)}</li>`).join('')}</ul></div>
+  </div>
+  <div class="path"><h4>Path to NL-to-SQL</h4><p>${esc(v.nl2sqlPath)}</p>${v.fillWith.length ? `<div class="pills">${v.fillWith.map((f) => `<span class="pill">${esc(f)}</span>`).join('')}</div>` : ''}</div>
+  ${v.enrichHowTo ? `<div class="enrich"><h4>Enrich metadata at scale</h4>${esc(v.enrichHowTo)}</div>` : ''}
+  ${v.snippet?.code ? `<figure style="margin:20px 0 0"><pre>${esc(v.snippet.code)}</pre><figcaption>${esc(v.snippet.title || '')}${v.snippet.u ? ` <a href="${esc(v.snippet.u)}" target="_blank" rel="noopener">${esc(host(v.snippet.u))}</a>` : ''}</figcaption></figure>` : ''}
+  ${v.artifacts.length ? `<details><summary>Native artifacts (${v.artifacts.length})</summary><div class="arts">${v.artifacts.map((a) => `<span>${a.url ? `<a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.name)}</a>` : esc(a.name)}</span><span class="s">${esc(a.kind)}</span><span class="s">${esc(a.status)} ${esc(a.since || '')}</span>`).join('')}</div></details>` : ''}
+  <div class="srcs">Sources: ${(v.sources ?? []).slice(0, 8).map((s) => `<a href="${esc(s.u)}" target="_blank" rel="noopener">${esc(host(s.u))}</a>`).join('')}</div>
+</article>`;
+
+const cats = SL.categories.filter((c) => SL.vendors.some((v) => v.category === c.id));
+$('#chapters').innerHTML = cats.map((c) => `<div class="catblock"><h2>${esc(c.label)}</h2><p>${SL.vendors.filter((v) => v.category === c.id).length} products</p>${SL.vendors.filter((v) => v.category === c.id).map(chapter).join('')}</div>`).join('');
+$('#toc').innerHTML = cats.map((c) => `<div class="g">${esc(c.label)}</div>` + SL.vendors.filter((v) => v.category === c.id).map((v) => `<a href="#v-${v.id}" data-id="${v.id}"><span class="vd ${v.verdict}"></span>${esc(v.name)}</a>`).join('')).join('');
+
+const io = new IntersectionObserver((es) => es.forEach((e) => {
+  if (!e.isIntersecting) return;
+  document.querySelectorAll('.toc a.on').forEach((a) => a.classList.remove('on'));
+  const a = document.querySelector(`.toc a[data-id="${e.target.id.slice(2)}"]`);
+  a?.classList.add('on'); a?.scrollIntoView({ block: 'nearest' });
+}), { rootMargin: '-30% 0px -65% 0px' });
+document.querySelectorAll('article.ch').forEach((a) => io.observe(a));
+
+const ekeys = SL.caps.filter((c) => c.group === 'enrich');
+const dataPlatforms = SL.vendors.filter((v) => cat(v.category).group === 'data' || v.category === 'catalog');
+$('#etable').innerHTML = `<thead><tr><th>Platform</th>${ekeys.map((c) => `<th title="${esc(c.long)}">${esc(c.label)}</th>`).join('')}</tr></thead><tbody>${dataPlatforms.map((v) => `<tr><td><a href="#v-${v.id}">${esc(v.name)}</a></td>${ekeys.map((c) => {
+  const x = v.caps[c.key], L = lvl(x);
+  return `<td class="c" title="${esc(L.label)}. ${esc(x.n)}"><span class="sq"><i class="l${L.l}"></i></span></td>`;
+}).join('')}</tr>`).join('')}</tbody>`;
+
+const ev = SL.notes.filter((n) => /bench|accura|study|spider|bird|evidence|paper/i.test(`${n.topic} ${n.text}`) && /semantic-layers|knowledge-graphs/.test(n.from));
+$('#evid').innerHTML = ev.length ? ev.slice(0, 7).map((n) => `<div class="card"><h3>${esc(n.topic)}</h3><p>${esc(n.text)}</p><div class="s">${(n.sources ?? []).map((s) => `<a href="${esc(s.u)}" target="_blank" rel="noopener">${esc(s.t || host(s.u))}</a>`).join(' ')}</div></div>`).join('')
+  : `<div class="card"><h3>Research in progress</h3><p>Benchmark notes appear here once the semantic layer research file is merged.</p></div>`;
+</script>
+</body>
+</html>

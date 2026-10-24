@@ -1,0 +1,999 @@
+{
+  "vendors": [
+    {
+      "id": "redshift",
+      "name": "AWS (Redshift + ecosystem)",
+      "category": "cloud-dw",
+      "tagline": "Redshift is an AWS cloud data warehouse. AI, BI, catalog and graph services run separately around it.",
+      "verdict": "partial",
+      "verdictNote": "Redshift has no semantic layer object. Context sits in separate AWS features, each with its own config. The features are Q custom context, Bedrock Knowledge Bases, Quick Topics and SageMaker Catalog.",
+      "artifacts": [
+        {
+          "name": "Amazon Q generative SQL (Redshift Query Editor v2)",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "2024-09",
+          "format": "GUI chat in notebooks, admin must enable",
+          "url": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
+        },
+        {
+          "name": "Custom context for Amazon Q generative SQL",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "2024-09",
+          "format": "JSON file uploaded by admin",
+          "url": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
+        },
+        {
+          "name": "Amazon Quick Sight Topics (multi-dataset)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "2026-08",
+          "format": "GUI, API (CreateTopic), JSON relationships file",
+          "url": "https://docs.aws.amazon.com/quick/latest/userguide/topics.html"
+        },
+        {
+          "name": "Amazon Bedrock Knowledge Bases structured data retrieval (NL-to-SQL on Redshift)",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "2024-12",
+          "format": "Console and API (JSON config)",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2024/12/amazon-bedrock-knowledge-bases-structured-data-retrieval"
+        },
+        {
+          "name": "Bedrock query generation context (descriptions, include/exclude, curated queries)",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "2024-12",
+          "format": "JSON",
+          "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-structured-create.html"
+        },
+        {
+          "name": "SageMaker Catalog business glossary and metadata forms",
+          "kind": "glossary",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, CLI, SDK",
+          "url": "https://aws.amazon.com/blogs/aws/new-business-metadata-features-in-amazon-sagemaker-catalog-to-improve-discoverability-across-organizations"
+        },
+        {
+          "name": "SageMaker Catalog AI recommendations for names, descriptions and glossary terms",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, uses Bedrock models",
+          "url": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
+        },
+        {
+          "name": "Amazon SageMaker Data Agent (Unified Studio Query Editor)",
+          "kind": "agent",
+          "status": "Unverified",
+          "since": "2026-03",
+          "format": "GUI; announcement gives no GA or preview label",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-data-agent-query-editor"
+        },
+        {
+          "name": "Amazon Neptune (Database)",
+          "kind": "graph-query",
+          "status": "GA",
+          "since": "",
+          "format": "openCypher, Gremlin, SPARQL",
+          "url": "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html"
+        },
+        {
+          "name": "Amazon Neptune Analytics",
+          "kind": "graph-query",
+          "status": "GA",
+          "since": "",
+          "format": "openCypher, graph algorithms",
+          "url": "https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html"
+        },
+        {
+          "name": "Neptune Analytics vector search",
+          "kind": "vector",
+          "status": "GA",
+          "since": "",
+          "format": "Vector index inside graph queries",
+          "url": "https://docs.aws.amazon.com/neptune-analytics/latest/userguide/vector-similarity.html"
+        },
+        {
+          "name": "Bedrock Knowledge Bases GraphRAG with Neptune Analytics (documents, not Redshift tables)",
+          "kind": "knowledge-graph",
+          "status": "GA",
+          "since": "",
+          "format": "Console and API",
+          "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-graphs.html"
+        },
+        {
+          "name": "Amazon Redshift MCP Server (AWS Labs, open source)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "",
+          "format": "uvx package, 7 tools, read-only by default",
+          "url": "https://github.com/awslabs/mcp/tree/main/src/redshift-mcp-server"
+        },
+        {
+          "name": "Amazon Neptune MCP Server (AWS Labs, open source)",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2025-05",
+          "format": "uvx package",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2025/05/amazon-neptune-mcp-server/"
+        },
+        {
+          "name": "AWS MCP Server (managed) in Agent Toolkit for AWS",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2026-05",
+          "format": "Remote managed MCP server",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/05/agent-toolkit/"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 1,
+          "n": "Redshift has no metric object. Quick Sight calculated fields and Topic instructions hold metric logic. Only Quick can use them.",
+          "u": "https://docs.aws.amazon.com/quick/latest/userguide/legacy-topics.html"
+        },
+        "dimensions": {
+          "l": 1,
+          "n": "Redshift has none. Quick Sight dataset enrichment sets semantic types and descriptions. The Topic docs show no hierarchy or time-grain object.",
+          "u": "https://docs.aws.amazon.com/quick/latest/userguide/topics.html"
+        },
+        "relationships": {
+          "l": 1,
+          "n": "Quick Topics declare join keys between up to 12 datasets (GA Aug 2026). Redshift itself has no semantic join object.",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Query Editor v2 custom context holds table and column annotations, custom documents and prompt text. The SQL generator reads them.",
+          "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
+        },
+        "verifiedQueries": {
+          "l": 3,
+          "n": "Q custom context has CuratedQueries. Bedrock KB generation context has curatedQueries. Both are question-to-SQL pairs.",
+          "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Amazon Q generative SQL in Query Editor v2 is GA (Sep 2024). Bedrock Knowledge Bases structured retrieval is GA (Dec 2024).",
+          "u": "https://aws.amazon.com/es/about-aws/whats-new/2024/09/amazon-q-generative-sql-amazon-redshift/"
+        },
+        "ontology": {
+          "l": 1,
+          "n": "There is no ontology object. SageMaker Catalog holds glossary terms and metadata forms. Teams build graphs in Neptune or add Stardog.",
+          "u": "https://aws.amazon.com/blogs/aws/new-business-metadata-features-in-amazon-sagemaker-catalog-to-improve-discoverability-across-organizations"
+        },
+        "graph": {
+          "l": 1,
+          "n": "Redshift has no graph feature. Neptune (openCypher, Gremlin, SPARQL) and Neptune Analytics (openCypher) are separate GA services.",
+          "u": "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html"
+        },
+        "vector": {
+          "l": 1,
+          "n": "The Redshift data types page lists no vector type. Neptune Analytics offers vector search inside graph traversals.",
+          "u": "https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "The AWS Labs Redshift MCP server offers schema discovery and SQL. It is read-only by default. It exposes structure only, with no business definitions.",
+          "u": "https://github.com/awslabs/mcp/tree/main/src/redshift-mcp-server"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Q generative SQL is limited to each user's data permissions. Quick Topics reuse dataset RLS and CLS. The catalog adds lineage.",
+          "u": "https://aws.amazon.com/es/about-aws/whats-new/2024/09/amazon-q-generative-sql-amazon-redshift/"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "The docs show no OSI or Apache Ossie support. Custom context JSON and the Topic API are AWS-specific.",
+          "u": "https://github.com/apache/ossie"
+        }
+      },
+      "offers": [
+        "Amazon Q generative SQL custom context is JSON. It holds table and column annotations, curated question-SQL pairs, extra documents and prompt guardrails.",
+        "Bedrock Knowledge Bases turns questions into SQL on Redshift. It offers the GenerateQuery API, descriptions, include and exclude lists, and curated queries.",
+        "Amazon Quick Topics (GA Aug 2026) take up to 12 datasets, join keys and custom instructions. Chat shows the generated SQL.",
+        "SageMaker Catalog has a business glossary and metadata forms. Bedrock generates names and descriptions for assets and columns.",
+        "The open-source Redshift MCP server lists schemas and runs SQL read-only. A Neptune MCP server covers graph queries."
+      ],
+      "gaps": [
+        "Redshift has no semantic layer object. The warehouse does not declare metrics, dimensions and joins.",
+        "Semantic context is split across four products with four config formats. The products share nothing.",
+        "Q generative SQL is English-only and notebook-bound. It cannot reference external schemas.",
+        "Bedrock generation context is non-deterministic. It is only meant to improve accuracy. AWS says to verify generated SQL.",
+        "Redshift has no vector type. The docs show no OSI or Ossie support."
+      ],
+      "fillWith": [
+        "AtScale",
+        "Denodo",
+        "Strategy Mosaic",
+        "Stardog",
+        "dbt Semantic Layer"
+      ],
+      "nl2sqlPath": "Start with Bedrock Knowledge Bases structured retrieval or Q generative SQL custom context. Put table and column descriptions and curated question-SQL pairs in the config. Test with the GenerateQuery API. Check every generated query. For governed metrics, AWS blog posts show partner semantic layers (AtScale, Denodo, Strategy Mosaic) between the agent and Redshift.",
+      "snippet": {
+        "lang": "json",
+        "title": "Amazon Q generative SQL custom context for a Redshift cluster, trimmed from the official example",
+        "code": "{\n  \"resources\": [{\n    \"ResourceId\": \"mycluster\",\n    \"ResourceType\": \"REDSHIFT_WAREHOUSE\",\n    \"TablesToInclude\": [\"database.schema.table1\"],\n    \"TableAnnotations\": { \"database.schema.table1\": \"table1 refers to Q3 sales\" },\n    \"ColumnAnnotations\": { \"database.schema.table1\": { \"col1\": \"col1 refers to Q3 sale total\" } },\n    \"CuratedQueries\": [\n      { \"Question\": \"what is the sales data for Q3\", \"Answer\": \"SELECT * FROM table1\" }\n    ],\n    \"CustomDocuments\": [\"in manufacturing division total sales is price * revenue\"],\n    \"AppendToPrompt\": \"Apply these guardrails: Queries should never return the secretId field of a user.\"\n  }]\n}",
+        "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
+      },
+      "sources": [
+        {
+          "t": "Interacting with Amazon Q generative SQL (Redshift docs)",
+          "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
+        },
+        {
+          "t": "Amazon Q generative SQL GA announcement, 2024-09-16",
+          "u": "https://aws.amazon.com/es/about-aws/whats-new/2024/09/amazon-q-generative-sql-amazon-redshift/"
+        },
+        {
+          "t": "Secure generative SQL with Amazon Q (AWS Big Data Blog)",
+          "u": "https://aws.amazon.com/blogs/big-data/secure-generative-sql-with-amazon-q"
+        },
+        {
+          "t": "Working with Amazon Quick Sight Topics",
+          "u": "https://docs.aws.amazon.com/quick/latest/userguide/topics.html"
+        },
+        {
+          "t": "Adding custom instructions to a Topic",
+          "u": "https://docs.aws.amazon.com/quick/latest/userguide/topics-custom-instructions.html"
+        },
+        {
+          "t": "Using Topics in Amazon Quick chat",
+          "u": "https://docs.aws.amazon.com/quick/latest/userguide/topics-in-chat.html"
+        },
+        {
+          "t": "Working with legacy Topics",
+          "u": "https://docs.aws.amazon.com/quick/latest/userguide/legacy-topics.html"
+        },
+        {
+          "t": "Work with Quick Sight Topics using the APIs",
+          "u": "https://docs.aws.amazon.com/quick/latest/userguide/topics-cli.html"
+        },
+        {
+          "t": "Amazon Quick user guide document history",
+          "u": "https://docs.aws.amazon.com/quick/latest/userguide/doc-history.html"
+        },
+        {
+          "t": "Introducing Amazon Quick Suite, 2025-10-09",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-quick-suite-agentic-ai-powered-workspace"
+        },
+        {
+          "t": "Multi-dataset topics generally available, 2026-08-06",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick"
+        },
+        {
+          "t": "Multi-dataset Topics public preview post, 2026-07-07",
+          "u": "https://aws.amazon.com/blogs/machine-learning/build-a-unified-semantic-layer-across-datasets-with-multi-dataset-topics-in-amazon-quick/"
+        },
+        {
+          "t": "Bedrock Knowledge Bases structured data retrieval, 2024-12-04",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2024/12/amazon-bedrock-knowledge-bases-structured-data-retrieval"
+        },
+        {
+          "t": "Create a knowledge base with a structured data store",
+          "u": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-structured-create.html"
+        },
+        {
+          "t": "GenerateQuery API reference",
+          "u": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GenerateQuery.html"
+        },
+        {
+          "t": "Bedrock Knowledge Bases GraphRAG with Neptune Analytics",
+          "u": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-graphs.html"
+        },
+        {
+          "t": "Amazon SageMaker Catalog product page",
+          "u": "https://aws.amazon.com/sagemaker/catalog/"
+        },
+        {
+          "t": "SageMaker Catalog business metadata features, 2025-11-19",
+          "u": "https://aws.amazon.com/blogs/aws/new-business-metadata-features-in-amazon-sagemaker-catalog-to-improve-discoverability-across-organizations"
+        },
+        {
+          "t": "SageMaker Unified Studio AI recommendations docs",
+          "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
+        },
+        {
+          "t": "SageMaker Data Agent in Query Editor, 2026-03-30",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-data-agent-query-editor"
+        },
+        {
+          "t": "What is Amazon SageMaker (next generation)",
+          "u": "https://docs.aws.eu/next-generation-sagemaker/latest/userguide/what-is-sagemaker.html"
+        },
+        {
+          "t": "Amazon Neptune introduction",
+          "u": "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html"
+        },
+        {
+          "t": "What is Neptune Analytics",
+          "u": "https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html"
+        },
+        {
+          "t": "AWS Labs MCP servers repository",
+          "u": "https://github.com/awslabs/mcp"
+        },
+        {
+          "t": "AWS Labs Redshift MCP server",
+          "u": "https://github.com/awslabs/mcp/tree/main/src/redshift-mcp-server"
+        },
+        {
+          "t": "Agent Toolkit for AWS, 2026-05-06",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2026/05/agent-toolkit/"
+        },
+        {
+          "t": "Redshift supported data types",
+          "u": "https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html"
+        },
+        {
+          "t": "Amazon Redshift product page",
+          "u": "https://aws.amazon.com/redshift/"
+        },
+        {
+          "t": "Semantic layer for agentic AI on AWS with AtScale, 2026-10-20",
+          "u": "https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-atscale-and-amazon-bedrock-agentcore/"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "sap",
+      "name": "SAP Business Data Cloud / Datasphere",
+      "category": "cloud-dw",
+      "tagline": "SAP offers a data platform with semantic modeling, data products and SAP HANA Cloud engines.",
+      "verdict": "native",
+      "verdictNote": "Analytic models and the Business Builder layer declare measures, dimensions and associations natively. Public docs show little AI access to them beyond Joule tenant help.",
+      "artifacts": [
+        {
+          "name": "SAP Datasphere analytic model",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, CSN/JSON export and import, datasphere CLI",
+          "url": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/creating-an-analytic-model-e5fbe9e.md"
+        },
+        {
+          "name": "SAP Datasphere Business Builder (business entities, fact models, consumption models)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/Buisiness-Builder/creating-a-business-entity-c912cdc.md"
+        },
+        {
+          "name": "SAP Datasphere catalog terms, KPIs, tags and data products",
+          "kind": "glossary",
+          "status": "GA",
+          "since": "",
+          "format": "GUI",
+          "url": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Administering/Creating-and-Configuring-Your-Tenant/enable-sap-business-ai-for-sap-datasphere-1b3fe45.md"
+        },
+        {
+          "name": "SAP Datasphere Generate Semantics (AI-assisted semantic types, measures, attributes)",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "GUI, needs AI Units license",
+          "url": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/generate-semantic-information-2fc1d26.md"
+        },
+        {
+          "name": "SAP Datasphere Generate SQL with AI (SQL views)",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "",
+          "format": "GUI prompt panel, needs AI Units license",
+          "url": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/generate-sql-code-with-ai-d153065.md"
+        },
+        {
+          "name": "Joule in SAP Datasphere",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "Chat in the Datasphere shell bar",
+          "url": "https://news.sap.com/2026/04/sap-business-ai-release-highlights-q1-2026/"
+        },
+        {
+          "name": "SAP Business Data Cloud (SAP-managed data products, BDC Connect)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "2025-02",
+          "format": "Data products in a catalog; zero-copy sharing",
+          "url": "https://news.sap.com/2025/02/sap-business-data-cloud-databricks-turbocharge-business-ai/"
+        },
+        {
+          "name": "SAP Knowledge Graph / Datasphere knowledge graph (metadata graph)",
+          "kind": "knowledge-graph",
+          "status": "Unverified",
+          "since": "2024-03",
+          "format": "Auto-built from Datasphere metadata; ontology editor announced",
+          "url": "https://news.sap.com/2024/03/latest-sap-data-and-analytics-innovations-sap-data-unleashed/"
+        },
+        {
+          "name": "SAP HANA Cloud knowledge graph engine (RDF, SPARQL inside SQL)",
+          "kind": "knowledge-graph",
+          "status": "Unverified",
+          "since": "",
+          "format": "SPARQL_EXECUTE and SPARQL tables in SQL",
+          "url": "https://news.sap.com/2025/07/unifying-ai-workloads-sap-hana-cloud-one-database/"
+        },
+        {
+          "name": "SAP HANA Cloud vector engine",
+          "kind": "vector",
+          "status": "GA",
+          "since": "2024-04",
+          "format": "SQL vector functions",
+          "url": "https://news.sap.com/2024/04/sap-hana-cloud-vector-engine-ai-with-business-context/"
+        },
+        {
+          "name": "MCP support for SAP HANA Cloud",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2025-11",
+          "format": "MCP access to HANA multi-model engines",
+          "url": "https://news.sap.com/2025/11/business-ai-innovation-unveiled-at-sap-teched/"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 3,
+          "n": "Analytic model measures: fact source, calculated, restricted, count distinct, currency conversion, non-cumulative. Business Builder entities also define measures.",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/create-a-measure-in-an-analytic-model-e4cc3e8.md"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "Analytic models have dimensions, hierarchies, filters and variables. Business entities model dimensions with keys and attributes.",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/creating-an-analytic-model-e5fbe9e.md"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Associations define semantic relationships between entities in the Data Builder. They also define relationships between business entities for consumption models.",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/Buisiness-Builder/creating-a-business-entity-c912cdc.md"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Asset names, short and long descriptions, semantic types, catalog terms, KPIs and tags exist. AI drafts descriptions. The docs show no synonym field.",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Administering/Creating-and-Configuring-Your-Tenant/enable-sap-business-ai-for-sap-datasphere-1b3fe45.md"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "The docs show none. Datasphere AI SQL generation takes free-text prompts and source objects only.",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/generate-sql-code-with-ai-d153065.md"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Generate SQL with AI drafts SQL views. Joule in Datasphere is GA. The documented uses are tenant help, navigation and actions.",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/generate-sql-code-with-ai-d153065.md"
+        },
+        "ontology": {
+          "l": 2,
+          "n": "SAP Knowledge Graph exists in BDC and Datasphere. The docs show no GA statement. It started as a 2024 preview.",
+          "u": "https://news.sap.com/2024/03/latest-sap-data-and-analytics-innovations-sap-data-unleashed/"
+        },
+        "graph": {
+          "l": 2,
+          "n": "SAP HANA Cloud runs SPARQL on RDF in its knowledge graph engine, inside SQL. The docs show no GA label for the engine.",
+          "u": "https://news.sap.com/2025/07/unifying-ai-workloads-sap-hana-cloud-one-database/"
+        },
+        "vector": {
+          "l": 3,
+          "n": "The SAP HANA Cloud vector engine is GA (April 2024). Users query it with SQL functions.",
+          "u": "https://news.sap.com/2024/04/sap-hana-cloud-vector-engine-ai-with-business-context/"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "MCP support for SAP HANA Cloud is GA (Nov 2025). The docs show no MCP server for Datasphere models.",
+          "u": "https://news.sap.com/2025/11/business-ai-innovation-unveiled-at-sap-teched/"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Data access controls apply to analytic models. Consumption models support authorization scenarios. Catalog, data products and lineage views exist.",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/apply-a-data-access-control-to-an-analytic-model-8d8e2f9.md"
+        },
+        "openStandard": {
+          "l": 1,
+          "n": "CSN/JSON export and import exist. SAP's CAP docs define CSN. The docs show no OSI or Ossie support.",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/creating-an-analytic-model-e5fbe9e.md"
+        }
+      },
+      "offers": [
+        "Analytic models hold measures (calculated, restricted, count distinct), dimensions, hierarchies, filters and variables. Users can export them as CSN/JSON and manage them by CLI.",
+        "Business Builder layers business entities, fact models and consumption models. It adds associations and authorization scenarios.",
+        "The catalog has terms, KPIs, tags and data products. AI drafts descriptions and supports natural language search. This needs an AI Units license.",
+        "SAP HANA Cloud combines a vector engine, a knowledge graph engine (SPARQL) and MCP support in one database inside BDC.",
+        "BDC Connect shares data products zero-copy with Databricks (GA Oct 2025). SAP lists BigQuery, Snowflake and Fabric as partners. Athena is planned."
+      ],
+      "gaps": [
+        "The docs show no verified question-to-SQL pairs and no synonym field for analytic models.",
+        "Knowledge graph GA status is unclear. The Datasphere graph began as a 2024 preview. HANA Cloud auto-build was planned for Q1 2026.",
+        "The docs show no MCP server for Datasphere or analytic models. MCP is documented for SAP HANA Cloud only.",
+        "Public docs show Joule in Datasphere for tenant help and actions. They do not show question answering over analytic models.",
+        "AI features need an AI Units license and tenant enablement. Model export is SAP CSN. It is not an open spec."
+      ],
+      "fillWith": [
+        "SAP Databricks (inside BDC)",
+        "SAP Snowflake (inside BDC)",
+        "BDC Connect to Google BigQuery, Microsoft Fabric or Amazon Athena"
+      ],
+      "nl2sqlPath": "Model measures, dimensions and associations in Datasphere analytic models and the Business Builder layer. For AI question answering, SAP's own posts point to two paths. One path shares data products into Databricks or Snowflake with BDC Connect. The other builds agents on SAP HANA Cloud through its MCP support. Confirm Joule and SAP Knowledge Graph status with SAP before you rely on them.",
+      "snippet": null,
+      "sources": [
+        {
+          "t": "SAP Business Data Cloud product page",
+          "u": "https://www.sap.com/products/data-cloud.html"
+        },
+        {
+          "t": "SAP Datasphere product page",
+          "u": "https://www.sap.com/products/data-cloud/datasphere.html"
+        },
+        {
+          "t": "SAP Debuts Business Data Cloud with Databricks, 2025-02-13",
+          "u": "https://news.sap.com/2025/02/sap-business-data-cloud-databricks-turbocharge-business-ai/"
+        },
+        {
+          "t": "SAP Datasphere documentation source (SAP-docs on GitHub)",
+          "u": "https://github.com/SAP-docs/sap-datasphere"
+        },
+        {
+          "t": "Creating an Analytic Model (Datasphere docs)",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/creating-an-analytic-model-e5fbe9e.md"
+        },
+        {
+          "t": "Create a Measure in an Analytic Model",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/create-a-measure-in-an-analytic-model-e4cc3e8.md"
+        },
+        {
+          "t": "Creating a Business Entity",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/Buisiness-Builder/creating-a-business-entity-c912cdc.md"
+        },
+        {
+          "t": "Creating a Fact Model",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/Buisiness-Builder/creating-a-fact-model-5bbd14a.md"
+        },
+        {
+          "t": "Creating a Consumption Model",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/Buisiness-Builder/creating-a-consumption-model-337fa99.md"
+        },
+        {
+          "t": "Generate Semantic Information",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/generate-semantic-information-2fc1d26.md"
+        },
+        {
+          "t": "Generate SQL Code with AI",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/generate-sql-code-with-ai-d153065.md"
+        },
+        {
+          "t": "Enable SAP Business AI for SAP Datasphere",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Administering/Creating-and-Configuring-Your-Tenant/enable-sap-business-ai-for-sap-datasphere-1b3fe45.md"
+        },
+        {
+          "t": "Standard roles in SAP Datasphere (DW Metadata Graph Consumer)",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Administering/Managing-Users-and-Roles/standard-roles-delivered-with-sap-datasphere-a50a51d.md"
+        },
+        {
+          "t": "Apply a Data Access Control to an Analytic Model",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/apply-a-data-access-control-to-an-analytic-model-8d8e2f9.md"
+        },
+        {
+          "t": "SAP Data Unleashed 2024: Datasphere knowledge graph preview",
+          "u": "https://news.sap.com/2024/03/latest-sap-data-and-analytics-innovations-sap-data-unleashed/"
+        },
+        {
+          "t": "SAP HANA Cloud vector engine generally available, 2024-04",
+          "u": "https://news.sap.com/2024/04/sap-hana-cloud-vector-engine-ai-with-business-context/"
+        },
+        {
+          "t": "SAP Business Data Cloud intelligent applications, 2025-05-21",
+          "u": "https://news.sap.com/2025/05/future-intelligent-applications-sap-business-data-cloud/"
+        },
+        {
+          "t": "SAP Business AI release highlights Q1 2026",
+          "u": "https://news.sap.com/2026/04/sap-business-ai-release-highlights-q1-2026/"
+        },
+        {
+          "t": "SAP Business AI release highlights Q3 2025",
+          "u": "https://news.sap.com/2025/10/sap-business-ai-release-highlights-q3-2025/"
+        },
+        {
+          "t": "Business AI innovation at SAP TechEd, 2025-11-17",
+          "u": "https://news.sap.com/2025/11/business-ai-innovation-unveiled-at-sap-teched/"
+        },
+        {
+          "t": "SAP Snowflake and HANA Cloud data fabric news, 2025-11-05",
+          "u": "https://news.sap.com/2025/11/sap-snowflake-new-data-fabric-innovations-sap-bdc-sap-hana-cloud/"
+        },
+        {
+          "t": "SAP and Snowflake, 2025-11-04",
+          "u": "https://news.sap.com/2025/11/sap-snowflake-data-enterprise-ai-business-data-fabric/"
+        },
+        {
+          "t": "BDC Connect for Google BigQuery, 2025-10-06",
+          "u": "https://news.sap.com/2025/10/sap-google-cloud-redefine-enterprise-ai-zero-copy-data-google-bigquery/"
+        },
+        {
+          "t": "BDC Connect for Databricks GA, 2025-10-08",
+          "u": "https://news.sap.com/2025/10/sap-connect-intelligent-applications-sap-bdc/"
+        },
+        {
+          "t": "BDC Connect for Microsoft Fabric, 2025-11-18",
+          "u": "https://news.sap.com/2025/11/sap-bdc-connect-for-microsoft-fabric-business-insights-ai-innovation/"
+        },
+        {
+          "t": "SAP and AWS zero-copy sharing, 2026-05-12",
+          "u": "https://news.sap.com/2026/05/sap-aws-next-generation-ai-bi-directional-zero-copy-data-sharing-sap-bdc/"
+        },
+        {
+          "t": "Accelerate the Autonomous Enterprise with SAP BDC, 2026-05-13",
+          "u": "https://news.sap.com/2026/05/sap-bdc-accelerate-autonomous-enterprise/"
+        },
+        {
+          "t": "SAP to acquire Dremio, 2026-05-04",
+          "u": "https://news.sap.com/2026/05/sap-to-acquire-dremio-unify-sap-and-non-sap-data-power-agentic-ai/"
+        },
+        {
+          "t": "SAP AI-native North Star architecture, 2026-06-08",
+          "u": "https://news.sap.com/2026/06/sap-ai-native-north-star-architecture-technical-backbone-autonomous-enterprise/"
+        },
+        {
+          "t": "SAP HANA Cloud multi-model post, 2025-07-16",
+          "u": "https://news.sap.com/2025/07/unifying-ai-workloads-sap-hana-cloud-one-database/"
+        }
+      ],
+      "verified": "2026-10-24"
+    }
+  ],
+  "notes": [
+    {
+      "topic": "Redshift has no native semantic layer object",
+      "text": "The Redshift data types page and the Redshift product page, read on 2026-10-24, show no metric, dimension, relationship or ontology object. AWS ML blog posts show partners (AtScale, Denodo, Strategy Mosaic, Stardog) supplying the layer. Absence cannot be proven, so treat this as 'none found'.",
+      "sources": [
+        {
+          "t": "Redshift supported data types",
+          "u": "https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html"
+        },
+        {
+          "t": "Amazon Redshift product page",
+          "u": "https://aws.amazon.com/redshift/"
+        },
+        {
+          "t": "Semantic layer for agentic AI with AtScale (2026-10-20)",
+          "u": "https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-atscale-and-amazon-bedrock-agentcore/"
+        },
+        {
+          "t": "Semantic layer with Denodo",
+          "u": "https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-denodo-and-amazon-bedrock-agentcore/"
+        },
+        {
+          "t": "Semantic layer with Strategy Mosaic",
+          "u": "https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-strategy-mosaic-and-amazon-bedrock-agentcore/"
+        },
+        {
+          "t": "Semantic layer with Stardog",
+          "u": "https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-stardog-and-amazon-bedrock-agentcore/"
+        }
+      ]
+    },
+    {
+      "topic": "QuickSight to Quick Suite to Quick (renames)",
+      "text": "AWS launched Amazon Quick Suite on 2025-10-09 as an agentic workspace. The docs now say Amazon Quick and write the BI part as Quick Sight. They list the rebrand under 2025-10-09. Docs URLs moved from quicksuite to quick. A Feb 2026 third-party post found no official rename notice. AWS posts from Sep 2026 use 'Amazon Quick'.",
+      "sources": [
+        {
+          "t": "Introducing Amazon Quick Suite",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-quick-suite-agentic-ai-powered-workspace"
+        },
+        {
+          "t": "Amazon Quick user guide document history",
+          "u": "https://docs.aws.amazon.com/quick/latest/userguide/doc-history.html"
+        },
+        {
+          "t": "Serverworks blog on the Quick Suite to Quick change",
+          "u": "https://blog.serverworks.co.jp/amazon-quick-suite-renamed-to-amazon-quick"
+        },
+        {
+          "t": "Amazon Quick desktop app GA, Sep 2026",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-desktop-app-generally-available-macos-windows/"
+        }
+      ]
+    },
+    {
+      "topic": "Quick Topics were redesigned in 2026",
+      "text": "New Topics are a multi-dataset semantic layer. They take up to 12 datasets, join keys, custom instructions and runtime joins, with RLS and CLS reused from datasets. An AWS blog dated 2026-07-07 calls it public preview. AWS announced GA on 2026-08-06. Older Topics are now called legacy and stay single-dataset. The preview post says SPICE and Direct Query datasets cannot be mixed in one Topic. It lists Redshift among Direct Query sources.",
+      "sources": [
+        {
+          "t": "Multi-dataset topics GA, 2026-08-06",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-quick"
+        },
+        {
+          "t": "Multi-dataset Topics public preview post",
+          "u": "https://aws.amazon.com/blogs/machine-learning/build-a-unified-semantic-layer-across-datasets-with-multi-dataset-topics-in-amazon-quick/"
+        },
+        {
+          "t": "Working with Quick Sight Topics",
+          "u": "https://docs.aws.amazon.com/quick/latest/userguide/topics.html"
+        },
+        {
+          "t": "Working with legacy Topics",
+          "u": "https://docs.aws.amazon.com/quick/latest/userguide/legacy-topics.html"
+        }
+      ]
+    },
+    {
+      "topic": "Amazon Q generative SQL scope and limits",
+      "text": "Amazon Q generative SQL became GA on 2024-09-16 in Redshift Query Editor v2. It is off by default and needs an admin switch. It works in notebooks and accepts English only. It cannot reference external schemas. The custom context JSON takes three-part table names. It holds annotations, curated queries, documents and prompt text.",
+      "sources": [
+        {
+          "t": "Interacting with Amazon Q generative SQL",
+          "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
+        },
+        {
+          "t": "GA announcement (Spanish page)",
+          "u": "https://aws.amazon.com/es/about-aws/whats-new/2024/09/amazon-q-generative-sql-amazon-redshift/"
+        },
+        {
+          "t": "Secure generative SQL with Amazon Q",
+          "u": "https://aws.amazon.com/blogs/big-data/secure-generative-sql-with-amazon-q"
+        }
+      ]
+    },
+    {
+      "topic": "Bedrock Knowledge Bases structured retrieval",
+      "text": "AWS announced structured retrieval on 2024-12-04 for Amazon Redshift and SageMaker Lakehouse. It runs in all commercial regions where Bedrock Knowledge Bases runs. The docs say the generation context is non-deterministic and meant only to improve accuracy. Graph retrieval (GraphRAG with Neptune Analytics) works on ingested documents, not on Redshift tables.",
+      "sources": [
+        {
+          "t": "Structured data retrieval announcement",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2024/12/amazon-bedrock-knowledge-bases-structured-data-retrieval"
+        },
+        {
+          "t": "Create a knowledge base with a structured data store",
+          "u": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-structured-create.html"
+        },
+        {
+          "t": "GraphRAG with Neptune Analytics",
+          "u": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-graphs.html"
+        }
+      ]
+    },
+    {
+      "topic": "SageMaker naming and Data Agent",
+      "text": "The next-generation Amazon SageMaker combines Unified Studio and governance. The original service is now SageMaker AI. Unified Studio reached GA on 2025-03-13. SageMaker Catalog is built on Amazon DataZone. The SageMaker Data Agent (2026-03-30) generates SQL for Redshift and Athena. The announcement gives no GA or preview label.",
+      "sources": [
+        {
+          "t": "What is Amazon SageMaker (next generation)",
+          "u": "https://docs.aws.eu/next-generation-sagemaker/latest/userguide/what-is-sagemaker.html"
+        },
+        {
+          "t": "Unified Studio GA post",
+          "u": "https://aws.amazon.com/blogs/aws/collaborate-and-build-faster-with-amazon-sagemaker-unified-studio-now-generally-available"
+        },
+        {
+          "t": "SageMaker Catalog product page",
+          "u": "https://aws.amazon.com/sagemaker/catalog/"
+        },
+        {
+          "t": "SageMaker Data Agent announcement",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-data-agent-query-editor"
+        },
+        {
+          "t": "AI recommendations for custom assets, 2025-07-01",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-sagemaker-catalog-adds-ai/"
+        }
+      ]
+    },
+    {
+      "topic": "AWS Labs MCP servers and the Agent Toolkit",
+      "text": "The Agent Toolkit for AWS (2026-05-06) is the successor to the AWS Labs MCP servers. The old servers stay available. The Redshift server has 7 tools. It is read-only by default and returns schema metadata only. The AWS Labs README still labels the managed AWS MCP Server 'in preview'. The May 2026 announcement calls it GA.",
+      "sources": [
+        {
+          "t": "AWS Labs MCP repository",
+          "u": "https://github.com/awslabs/mcp"
+        },
+        {
+          "t": "Agent Toolkit for AWS announcement",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2026/05/agent-toolkit/"
+        },
+        {
+          "t": "AWS Labs Redshift MCP server",
+          "u": "https://github.com/awslabs/mcp/tree/main/src/redshift-mcp-server"
+        },
+        {
+          "t": "AWS Labs Neptune MCP server",
+          "u": "https://github.com/awslabs/mcp/tree/main/src/amazon-neptune-mcp-server"
+        },
+        {
+          "t": "Neptune MCP server announcement, 2025-05-28",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2025/05/amazon-neptune-mcp-server/"
+        }
+      ]
+    },
+    {
+      "topic": "Vector support on AWS data stores",
+      "text": "The current Redshift data types page lists no vector type. A mid-2024 re:Post article says Redshift had no vector search. Vector search appears in Neptune Analytics (inside graph traversals) and in SageMaker Catalog semantic search over metadata. Redshift also calls Bedrock models from SQL through CREATE EXTERNAL MODEL (Oct 2024).",
+      "sources": [
+        {
+          "t": "Redshift supported data types",
+          "u": "https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html"
+        },
+        {
+          "t": "Vector search with Amazon Redshift (re:Post)",
+          "u": "https://www.repost.aws/articles/ARPoweQIN2ROOXZiJAtSQvkQ/vector-search-with-amazon-redshift"
+        },
+        {
+          "t": "Neptune Analytics vector similarity",
+          "u": "https://docs.aws.amazon.com/neptune-analytics/latest/userguide/vector-similarity.html"
+        },
+        {
+          "t": "SageMaker Catalog product page",
+          "u": "https://aws.amazon.com/sagemaker/catalog/"
+        },
+        {
+          "t": "Redshift and Bedrock integration",
+          "u": "https://aws.amazon.com/about-aws/whats-new/2024/10/amazon-redshift-integration-bedrock-generative-ai"
+        }
+      ]
+    },
+    {
+      "topic": "Open Semantic Interchange is now Apache Ossie",
+      "text": "The OSI repository README says Apache Ossie (incubating) was formerly known as Open Semantic Interchange. The README names neither AWS nor SAP as participants. The docs show no AWS or SAP support for it.",
+      "sources": [
+        {
+          "t": "open-semantic-interchange/OSI repository",
+          "u": "https://github.com/open-semantic-interchange/OSI"
+        },
+        {
+          "t": "apache/ossie repository",
+          "u": "https://github.com/apache/ossie"
+        }
+      ]
+    },
+    {
+      "topic": "SAP product naming and structure",
+      "text": "SAP Data Warehouse Cloud became SAP Datasphere in 2023. SAP announced Business Data Cloud on 2025-02-13, with Datasphere as a key component. SAP says existing Datasphere and Analytics Cloud customers keep their service and may move over time.",
+      "sources": [
+        {
+          "t": "SAP Datasphere launch post, 2023-03-08 (seen in SAP News search)",
+          "u": "https://news.sap.com/2023/03/sap-datasphere-simplify-data-landscape-partnerships-collibra-confluent-databricks-datarobot/"
+        },
+        {
+          "t": "Techzine on Datasphere as DWC successor",
+          "u": "https://techzine.eu/blogs/data-management/117331/sap-expands-datasphere-with-knowledge-graph-and-compass"
+        },
+        {
+          "t": "SAP Business Data Cloud product page",
+          "u": "https://www.sap.com/products/data-cloud.html"
+        },
+        {
+          "t": "SAP Datasphere product page",
+          "u": "https://www.sap.com/products/data-cloud/datasphere.html"
+        },
+        {
+          "t": "BDC launch post",
+          "u": "https://news.sap.com/2025/02/sap-business-data-cloud-databricks-turbocharge-business-ai/"
+        }
+      ]
+    },
+    {
+      "topic": "SAP uses 'knowledge graph' for three things",
+      "text": "The first is the Datasphere knowledge graph (preview signup in March 2024, and a DW Metadata Graph Consumer role exists in current docs). The second is the SAP Knowledge Graph that grounds Joule agents in BDC. The third is the SAP HANA Cloud knowledge graph engine (RDF and SPARQL). The docs show no GA statement for any of them.",
+      "sources": [
+        {
+          "t": "SAP Data Unleashed 2024",
+          "u": "https://news.sap.com/2024/03/latest-sap-data-and-analytics-innovations-sap-data-unleashed/"
+        },
+        {
+          "t": "Datasphere standard roles",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Administering/Managing-Users-and-Roles/standard-roles-delivered-with-sap-datasphere-a50a51d.md"
+        },
+        {
+          "t": "BDC intelligent applications, 2025-05",
+          "u": "https://news.sap.com/2025/05/future-intelligent-applications-sap-business-data-cloud/"
+        },
+        {
+          "t": "SAP HANA Cloud multi-model post",
+          "u": "https://news.sap.com/2025/07/unifying-ai-workloads-sap-hana-cloud-one-database/"
+        },
+        {
+          "t": "SAP AI-native North Star architecture",
+          "u": "https://news.sap.com/2026/06/sap-ai-native-north-star-architecture-technical-backbone-autonomous-enterprise/"
+        }
+      ]
+    },
+    {
+      "topic": "SAP MCP status",
+      "text": "SAP's TechEd post (2025-11-17) says MCP support for SAP HANA Cloud is now generally available. The 2025-11-05 post only says SAP is expanding HANA Cloud with MCP. SAP's June 2026 architecture post lists MCP and A2A as supported open standards. The docs show no MCP server for Datasphere analytic models.",
+      "sources": [
+        {
+          "t": "Business AI innovation at SAP TechEd",
+          "u": "https://news.sap.com/2025/11/business-ai-innovation-unveiled-at-sap-teched/"
+        },
+        {
+          "t": "Data fabric innovations post, 2025-11-05",
+          "u": "https://news.sap.com/2025/11/sap-snowflake-new-data-fabric-innovations-sap-bdc-sap-hana-cloud/"
+        },
+        {
+          "t": "SAP AI-native North Star architecture",
+          "u": "https://news.sap.com/2026/06/sap-ai-native-north-star-architecture-technical-backbone-autonomous-enterprise/"
+        },
+        {
+          "t": "Sapphire 2026 keynote",
+          "u": "https://news.sap.com/2026/05/sap-sapphire-keynote-business-ai-platform-power-autonomous-enterprise/"
+        }
+      ]
+    },
+    {
+      "topic": "SAP openness to Databricks, Snowflake and others",
+      "text": "BDC Connect for Databricks was GA by 2025-10-08. BigQuery was in public preview then. Snowflake GA was planned for H1 2026. Fabric was announced as planned. In May 2026 SAP lists Snowflake, Databricks, BigQuery and Fabric as existing partners. SAP plans BDC Connect for Amazon Athena for H2 2026. SAP announced it would acquire Dremio (2026-05-04) and completed the acquisition on 2026-07-06. The goal is to make BDC Iceberg-native.",
+      "sources": [
+        {
+          "t": "BDC Connect for Databricks GA",
+          "u": "https://news.sap.com/2025/10/sap-connect-intelligent-applications-sap-bdc/"
+        },
+        {
+          "t": "BDC Connect for BigQuery",
+          "u": "https://news.sap.com/2025/10/sap-google-cloud-redefine-enterprise-ai-zero-copy-data-google-bigquery/"
+        },
+        {
+          "t": "SAP and Snowflake",
+          "u": "https://news.sap.com/2025/11/sap-snowflake-data-enterprise-ai-business-data-fabric/"
+        },
+        {
+          "t": "BDC Connect for Microsoft Fabric",
+          "u": "https://news.sap.com/2025/11/sap-bdc-connect-for-microsoft-fabric-business-insights-ai-innovation/"
+        },
+        {
+          "t": "SAP and AWS zero-copy sharing",
+          "u": "https://news.sap.com/2026/05/sap-aws-next-generation-ai-bi-directional-zero-copy-data-sharing-sap-bdc/"
+        },
+        {
+          "t": "Accelerate the Autonomous Enterprise with SAP BDC",
+          "u": "https://news.sap.com/2026/05/sap-bdc-accelerate-autonomous-enterprise/"
+        },
+        {
+          "t": "SAP to acquire Dremio",
+          "u": "https://news.sap.com/2026/05/sap-to-acquire-dremio-unify-sap-and-non-sap-data-power-agentic-ai/"
+        },
+        {
+          "t": "SAP completes Dremio acquisition",
+          "u": "https://news.sap.com/2026/07/sap-completes-dremio-acquisition/"
+        }
+      ]
+    },
+    {
+      "topic": "How SAP Datasphere feature status is set",
+      "text": "SAP's Datasphere docs on GitHub print no GA or preview labels. The status values mark analytic models, Business Builder, catalog, Generate Semantics and Generate SQL as GA. These features sit in the current docs (updated 2026-10-20) with no preview note. Joule in Datasphere has an explicit GA statement.",
+      "sources": [
+        {
+          "t": "SAP Datasphere documentation source (SAP-docs on GitHub)",
+          "u": "https://github.com/SAP-docs/sap-datasphere"
+        },
+        {
+          "t": "SAP Business AI release highlights Q1 2026",
+          "u": "https://news.sap.com/2026/04/sap-business-ai-release-highlights-q1-2026/"
+        }
+      ]
+    },
+    {
+      "topic": "SAP Datasphere AI features need licensing and enablement",
+      "text": "Datasphere lists AI features for catalog content, natural language search, semantic generation, SQL view generation and pipeline summaries. An admin enables them per tenant. Users need the Data Warehouse AI Consumer privilege. Joule needs separate activation and a Joule consumption privilege.",
+      "sources": [
+        {
+          "t": "Enable SAP Business AI for SAP Datasphere",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Administering/Creating-and-Configuring-Your-Tenant/enable-sap-business-ai-for-sap-datasphere-1b3fe45.md"
+        },
+        {
+          "t": "Generate Semantic Information",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/generate-semantic-information-2fc1d26.md"
+        },
+        {
+          "t": "Generate SQL Code with AI",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/generate-sql-code-with-ai-d153065.md"
+        },
+        {
+          "t": "SAP Business AI release highlights Q1 2026",
+          "u": "https://news.sap.com/2026/04/sap-business-ai-release-highlights-q1-2026/"
+        }
+      ]
+    }
+  ]
+}

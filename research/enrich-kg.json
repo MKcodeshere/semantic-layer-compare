@@ -1,0 +1,700 @@
+{
+  "vendors": [
+    {
+      "id": "neo4j",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "The docs show no generator for schema or column descriptions. KG Builder (Labs) suggests a schema from pasted text only.",
+          "u": "https://neo4j.com/labs/genai-ecosystem/llm-graph-builder-features/"
+        },
+        "bulkMetadata": {
+          "l": 0,
+          "n": "The docs show no native schema comment or tag store. Users edit Aura Agent tool descriptions in a low-code UI.",
+          "u": "https://neo4j.com/docs/aura/aura-agent/"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The docs show no automatic classification of properties.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": 1,
+          "n": "No native feature exists. The langchain-neo4j package can scan the database for example values (enhanced_schema, default off).",
+          "u": "https://raw.githubusercontent.com/langchain-ai/langchain-neo4j/main/libs/neo4j/langchain_neo4j/graphs/neo4j_graph.py"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "The docs show no query-history mining for schema, examples or suggestions.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 1,
+          "n": "Neo4j has no lineage feature. Neo4j pages show lineage as a graph modeling pattern. Customers and partners build it.",
+          "u": "https://neo4j.com/use-cases/master-data-management/"
+        },
+        "evals": {
+          "l": 3,
+          "n": "Aura Agent evaluations use datasets of up to 50 questions and five metrics. The docs show no preview label. The start date is unknown.",
+          "u": "https://neo4j.com/docs/aura/aura-agent/"
+        }
+      },
+      "enrichHowTo": "Neo4j has no table or column comment object. So no bulk description statement exists. Put business meaning in Aura Agent tool descriptions. Also put it in few-shot examples for Text2CypherRetriever. Build an Aura Agent evaluation dataset with expected answers. Use it to test changes.",
+      "bulkSnippet": {
+        "lang": "python",
+        "code": "# Few-shot examples for Text2CypherRetriever (not a schema comment; Neo4j has none)\nexamples = [\n  \"USER INPUT: 'Which actors starred in the Matrix?' \"\n  \"QUERY: MATCH (p:Person)-[:ACTED_IN]->(m:Movie) WHERE m.title = 'The Matrix' RETURN p.name\"\n]\nretriever = Text2CypherRetriever(driver=driver, llm=llm,\n  neo4j_schema=neo4j_schema, examples=examples)",
+        "u": "https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_rag.html"
+      },
+      "sources": [
+        {
+          "t": "Neo4j LLM Knowledge Graph Builder (Labs)",
+          "u": "https://neo4j.com/labs/genai-ecosystem/llm-graph-builder/"
+        },
+        {
+          "t": "LLM Knowledge Graph Builder features",
+          "u": "https://neo4j.com/labs/genai-ecosystem/llm-graph-builder-features/"
+        },
+        {
+          "t": "neo4j-labs/llm-graph-builder (GitHub)",
+          "u": "https://github.com/neo4j-labs/llm-graph-builder"
+        },
+        {
+          "t": "neo4j-labs/text2cypher (GitHub)",
+          "u": "https://github.com/neo4j-labs/text2cypher"
+        },
+        {
+          "t": "neo4j/text2cypher-2025v1 (Hugging Face)",
+          "u": "https://huggingface.co/datasets/neo4j/text2cypher-2025v1"
+        },
+        {
+          "t": "Aura Agent docs",
+          "u": "https://neo4j.com/docs/aura/aura-agent/"
+        },
+        {
+          "t": "Neo4j launches Aura Agent (blog, 2026-02-03)",
+          "u": "https://neo4j.com/blog/agentic-ai/neo4j-launches-aura-agent/"
+        },
+        {
+          "t": "Neo4j official MCP server (GitHub)",
+          "u": "https://github.com/neo4j/mcp"
+        },
+        {
+          "t": "neo4j-graphrag Python user guide",
+          "u": "https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_rag.html"
+        },
+        {
+          "t": "Neo4j use cases: Metadata Management",
+          "u": "https://neo4j.com/use-cases/master-data-management/"
+        }
+      ]
+    },
+    {
+      "id": "stardog",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "Voicebox in Designer drafts classes, relationships and mappings. The docs do not describe AI-written descriptions. Bulk description edits are manual.",
+          "u": "https://docs.stardog.com/stardog-applications/designer/"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "Descriptions are rdfs:comment triples. Load Turtle with stardog data add. Or upload a data model as Turtle in Designer.",
+          "u": "https://docs.stardog.com/operating-stardog/database-administration/adding-data"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The docs show no automatic classification of columns or entities.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Voicebox finds entities in questions by full-text search on labels. The stardog:label property can match fuzzily. No sample-value feature exists.",
+          "u": "https://docs.stardog.com/voicebox/voicebox-dev-guide/"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "Voicebox Reporting exports queries and feedback for manual review. The docs show no automatic suggestion of joins, metrics or examples.",
+          "u": "https://docs.stardog.com/voicebox/"
+        },
+        "lineage": {
+          "l": 0,
+          "n": "Voicebox lineage traces the data behind each answer. The docs show no column-level catalog lineage.",
+          "u": "https://docs.stardog.com/voicebox/"
+        },
+        "evals": {
+          "l": 1,
+          "n": "Thumbs up and down feedback and exportable reporting exist. Users add stored queries by hand. The docs show no benchmark runner.",
+          "u": "https://docs.stardog.com/voicebox/"
+        }
+      },
+      "enrichHowTo": "Write rdfs:label and rdfs:comment on classes and properties. Voicebox reads them. Load them in bulk with stardog data add and a Turtle file. Add 5 to 50 stored queries as few-shot examples. Give each query a system:voiceboxQuestion field.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "# descriptions.ttl holds rdfs:label and rdfs:comment triples for classes and properties\nstardog data add --format turtle myDatabase descriptions.ttl",
+        "u": "https://docs.stardog.com/operating-stardog/database-administration/adding-data"
+      },
+      "sources": [
+        {
+          "t": "Stardog Voicebox",
+          "u": "https://docs.stardog.com/voicebox/"
+        },
+        {
+          "t": "Voicebox Developer Guide",
+          "u": "https://docs.stardog.com/voicebox/voicebox-dev-guide/"
+        },
+        {
+          "t": "Voicebox: Ontology Maintenance and Data Mapping",
+          "u": "https://docs.stardog.com/voicebox/guided-ontology-creation-and-mapping/"
+        },
+        {
+          "t": "Stardog Designer",
+          "u": "https://docs.stardog.com/stardog-applications/designer/"
+        },
+        {
+          "t": "Virtual Graphs",
+          "u": "https://docs.stardog.com/virtual-graphs/"
+        },
+        {
+          "t": "Mapping Data Sources",
+          "u": "https://docs.stardog.com/virtual-graphs/mapping-data-sources"
+        },
+        {
+          "t": "Adding Data",
+          "u": "https://docs.stardog.com/operating-stardog/database-administration/adding-data"
+        },
+        {
+          "t": "Stardog Platform Release Notes",
+          "u": "https://docs.stardog.com/release-notes/stardog-platform"
+        }
+      ]
+    },
+    {
+      "id": "relationalai",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "The docs show no LLM description generator. Verbalizers return model structure and relationship text. They do not return AI-written descriptions.",
+          "u": "https://docs.relational.ai/api/python/v1.37/agent/cortex/index.md"
+        },
+        "bulkMetadata": {
+          "l": 0,
+          "n": "The docs show no metadata import. Models are PyRel Python code. The docs do not describe description fields on concepts.",
+          "u": "https://docs.relational.ai/build/guides/modeling/index.md"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The docs show no classification feature.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "The docs do not describe sample values for the Cortex agent tools.",
+          "u": "https://docs.relational.ai/api/python/v1.37/agent/cortex/index.md"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "The docs show no query-history mining. The modeler pre-defines the catalog queries.",
+          "u": "https://docs.relational.ai/api/python/v1.37/agent/cortex/index.md"
+        },
+        "lineage": {
+          "l": 0,
+          "n": "The RelationalAI docs show no lineage feature.",
+          "u": ""
+        },
+        "evals": {
+          "l": 0,
+          "n": "The docs show no NL-to-SQL eval tooling. The dynamic query tool RAI_QUERY_MODEL is Preview.",
+          "u": "https://docs.relational.ai/api/python/v1.37/agent/cortex/index.md"
+        }
+      },
+      "enrichHowTo": "RelationalAI keeps meaning in PyRel code, not in table comments. Install RelationalAI Agent Skills in a coding agent. Run the rai-ontology skill to draft concepts from Snowflake tables. Review every generated file in model/. The tutorial says the output needs human review.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": "https://docs.relational.ai/build/agents/skills/index.md"
+      },
+      "sources": [
+        {
+          "t": "RelationalAI docs home",
+          "u": "https://docs.relational.ai/"
+        },
+        {
+          "t": "RelationalAI docs index (llms.txt)",
+          "u": "https://docs.relational.ai/llms.txt"
+        },
+        {
+          "t": "RelationalAI Agent Skills",
+          "u": "https://docs.relational.ai/build/agents/skills/index.md"
+        },
+        {
+          "t": "Go further with a coding agent (tutorial)",
+          "u": "https://docs.relational.ai/build/tutorials/get-started-with-coding-agents/index.md"
+        },
+        {
+          "t": "Cortex agent API (PyRel v1.37)",
+          "u": "https://docs.relational.ai/api/python/v1.37/agent/cortex/index.md"
+        },
+        {
+          "t": "Build a semantic model guide",
+          "u": "https://docs.relational.ai/build/guides/modeling/index.md"
+        }
+      ]
+    },
+    {
+      "id": "dataworld",
+      "caps": {
+        "aiDescriptions": {
+          "l": 2,
+          "n": "Archie Enrich drafts descriptions for tables, columns, glossary terms and collections. It is in Public Preview. It is for Enterprise only.",
+          "u": "https://docs.data.world/en/160498-using-archie.html"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "REST bulk endpoints update up to 25 catalog resources per call. Excel bulk upload exists. MCP updates also exist.",
+          "u": "https://developer.data.world/reference/bulkupdate-1.md"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The catalog and governance pages show no automatic classification or PII tagging.",
+          "u": "https://data.world/product/catalog"
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "The docs show no value sampling. Archie SQL generation is a beta feature.",
+          "u": "https://docs.data.world/en/329793-archie-beta-features.html"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "The docs show no query-history mining.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 0,
+          "n": "Collectors build lineage from supported systems. Manual relationships fill gaps. The docs do not confirm column-level lineage.",
+          "u": "https://docs.data.world/en/360706-creating-custom-relationships-for-lineage-in-eureka-explorer--ctk-.html"
+        },
+        "evals": {
+          "l": 0,
+          "n": "The docs show no customer eval tooling. The vendor tests Archie with in-app feedback and its own benchmark metadata.",
+          "u": "https://docs.data.world/en/277381-archie-faq.html"
+        }
+      },
+      "enrichHowTo": "Use Archie Enrich to draft descriptions, up to 50 at a time per collection. Then review each item marked [Archie suggestion]. For scripted writes, call PATCH /v0/metadata/resources/bulk/{owner}. It updates up to 25 resources per call. Archie needs an Enterprise plan. Activate it through your Customer Success Director.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "# placeholders: OWNER, resource IRI, description property IRI\ncurl -X PATCH \"https://api.data.world/v0/metadata/resources/bulk/OWNER?updateListBy=ADD\" \\\n  -H \"Authorization: Bearer $DW_TOKEN\" -H \"Content-Type: application/json\" \\\n  -d '{\"resources\":{\"<resource-iri>\":{\"properties\":{\"<description-property-iri>\":\"Updated quarterly sales dataset\"}}}}'",
+        "u": "https://developer.data.world/reference/bulkupdate-1.md"
+      },
+      "sources": [
+        {
+          "t": "data.world home (now part of ServiceNow banner)",
+          "u": "https://data.world/"
+        },
+        {
+          "t": "Using Archie AI Assistant",
+          "u": "https://docs.data.world/en/160498-using-archie.html"
+        },
+        {
+          "t": "Enriching catalog resources with Archie",
+          "u": "https://docs.data.world/en/160499-enriching-catalog-resources-with-archie.html"
+        },
+        {
+          "t": "Enriching catalog resources in bulk using Archie",
+          "u": "https://docs.data.world/en/317108-adding-descriptions-in-bulk-to-collection-resources.html"
+        },
+        {
+          "t": "Archie beta features",
+          "u": "https://docs.data.world/en/329793-archie-beta-features.html"
+        },
+        {
+          "t": "Archie FAQ",
+          "u": "https://docs.data.world/en/277381-archie-faq.html"
+        },
+        {
+          "t": "data.world MCP server for AI assistants",
+          "u": "https://docs.data.world/en/413220-data-world-mcp-server-for-ai-assistants.html"
+        },
+        {
+          "t": "Bulk uploading collections (CTK)",
+          "u": "https://docs.data.world/en/292299-bulk-uploading-collections--ctk-.html"
+        },
+        {
+          "t": "Custom relationships for lineage (CTK)",
+          "u": "https://docs.data.world/en/360706-creating-custom-relationships-for-lineage-in-eureka-explorer--ctk-.html"
+        },
+        {
+          "t": "data.world developer docs",
+          "u": "https://developer.data.world"
+        },
+        {
+          "t": "Bulk update catalog resources (API)",
+          "u": "https://developer.data.world/reference/bulkupdate-1.md"
+        }
+      ]
+    },
+    {
+      "id": "palantir",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "The docs show no AI description generator. AI FDE edits ontology objects, links and actions by chat. The docs do not state descriptions or status.",
+          "u": "https://www.palantir.com/docs/foundry/ai-fde/overview/"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "Export the Ontology schema as JSON, edit it and import it. Python transforms set column descriptions in code. The JSON format may change.",
+          "u": "https://www.palantir.com/docs/foundry/ontology-manager/export-import/"
+        },
+        "autoClassify": {
+          "l": 3,
+          "n": "Sensitive Data Scanner matches user-defined conditions. Then it applies markings, opens issues or obfuscates data. An admin must enable it.",
+          "u": "https://www.palantir.com/docs/foundry/sensitive-data-scanner/create-match-actions/"
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "The docs do not describe sample values.",
+          "u": ""
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "The docs do not describe query history.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 0,
+          "n": "Data Lineage shows dataset graphs, with column search only. Workflow Lineage tracks property usage. The docs show no column-level lineage.",
+          "u": "https://www.palantir.com/docs/foundry/data-lineage/overview/"
+        },
+        "evals": {
+          "l": 3,
+          "n": "AIP Evals tests Logic, Chatbot and code functions. It uses built-in, LLM-judge and custom evaluators. It is not SQL-specific. It has no status label.",
+          "u": "https://www.palantir.com/docs/foundry/aip-evals/create-suite/"
+        }
+      },
+      "enrichHowTo": "Set descriptions where the data is built. Pass column_descriptions to write_dataframe() in a Python transform (800 characters per column). To describe the Ontology, export it as JSON from Ontology Manager Advanced settings. Edit it and import it. Test agent functions with AIP Evals object-set test cases.",
+      "bulkSnippet": {
+        "lang": "python",
+        "code": "my_output.write_dataframe(\n    my_input.dataframe(),\n    column_descriptions={\n        \"col_1\": \"col 1 description\"\n    }\n)",
+        "u": "https://www.palantir.com/docs/foundry/transforms-python/output-column-metadata/"
+      },
+      "sources": [
+        {
+          "t": "AIP Evals overview",
+          "u": "https://www.palantir.com/docs/foundry/aip-evals/overview/"
+        },
+        {
+          "t": "AIP Evals: create an evaluation suite",
+          "u": "https://www.palantir.com/docs/foundry/aip-evals/create-suite/"
+        },
+        {
+          "t": "AIP Evals: getting started",
+          "u": "https://www.palantir.com/docs/foundry/aip-evals/getting-started/"
+        },
+        {
+          "t": "AIP Evals: Ontology edits",
+          "u": "https://www.palantir.com/docs/foundry/aip-evals/ontology-edits/"
+        },
+        {
+          "t": "AI FDE overview",
+          "u": "https://www.palantir.com/docs/foundry/ai-fde/overview/"
+        },
+        {
+          "t": "AI FDE modes and capabilities",
+          "u": "https://www.palantir.com/docs/foundry/ai-fde/modes-and-capabilities/"
+        },
+        {
+          "t": "Data Lineage overview",
+          "u": "https://www.palantir.com/docs/foundry/data-lineage/overview/"
+        },
+        {
+          "t": "Data Lineage: find datasets with a given column",
+          "u": "https://www.palantir.com/docs/foundry/data-lineage/find-column/"
+        },
+        {
+          "t": "Workflow Lineage",
+          "u": "https://www.palantir.com/docs/foundry/workflow-lineage/refactor-and-understand-workflows/"
+        },
+        {
+          "t": "Sensitive Data Scanner overview",
+          "u": "https://www.palantir.com/docs/foundry/sensitive-data-scanner/overview/"
+        },
+        {
+          "t": "Sensitive Data Scanner: create match actions",
+          "u": "https://www.palantir.com/docs/foundry/sensitive-data-scanner/create-match-actions/"
+        },
+        {
+          "t": "Export, edit, and import an Ontology",
+          "u": "https://www.palantir.com/docs/foundry/ontology-manager/export-import/"
+        },
+        {
+          "t": "Python transforms: output column metadata",
+          "u": "https://www.palantir.com/docs/foundry/transforms-python/output-column-metadata/"
+        },
+        {
+          "t": "AIP overview",
+          "u": "https://www.palantir.com/docs/foundry/aip/overview/"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "topic": "Neo4j LLM Knowledge Graph Builder (lead: schema and descriptions from documents)",
+      "text": "Partly confirmed. It is a Neo4j Labs project. It uses Apache-2.0 and is not in the supported product lineup. It extracts an entity graph from documents with LLMs. Its 'Get Schema From Text' option suggests a schema from pasted text, RDF ontologies or a Cypher/GQL schema. The pages describe no description generation. The pages describe no evaluation.",
+      "sources": [
+        {
+          "t": "LLM Knowledge Graph Builder features",
+          "u": "https://neo4j.com/labs/genai-ecosystem/llm-graph-builder-features/"
+        },
+        {
+          "t": "neo4j-labs/llm-graph-builder (GitHub)",
+          "u": "https://github.com/neo4j-labs/llm-graph-builder"
+        }
+      ]
+    },
+    {
+      "topic": "Neo4j text2cypher evaluation datasets (lead)",
+      "text": "Confirmed as an experimental Labs repo. It has datasets, evaluation notebooks and fine-tuning notebooks. The folders are functional_cypher and synthetic_*_demodbs. The Hugging Face dataset neo4j/text2cypher-2025v1 is Apache-2.0 with 10K to 100K rows. Its card gives no source or intended use. These are datasets and notebooks. They are not an eval service.",
+      "sources": [
+        {
+          "t": "neo4j-labs/text2cypher (GitHub)",
+          "u": "https://github.com/neo4j-labs/text2cypher"
+        },
+        {
+          "t": "text2cypher datasets folder",
+          "u": "https://github.com/neo4j-labs/text2cypher/tree/main/datasets"
+        },
+        {
+          "t": "neo4j/text2cypher-2025v1 (Hugging Face)",
+          "u": "https://huggingface.co/datasets/neo4j/text2cypher-2025v1"
+        }
+      ]
+    },
+    {
+      "topic": "Neo4j lineage use cases (lead)",
+      "text": "Refuted as a product feature. The use-case index has no lineage or catalog page. The Metadata Management page mentions lineage only in customer and partner videos (University of Washington, Adaptive). The videos show lineage as a modeling pattern.",
+      "sources": [
+        {
+          "t": "Neo4j use cases",
+          "u": "https://neo4j.com/use-cases/"
+        },
+        {
+          "t": "Neo4j use cases: Metadata Management",
+          "u": "https://neo4j.com/use-cases/master-data-management/"
+        }
+      ]
+    },
+    {
+      "topic": "Neo4j Aura Agent",
+      "text": "Neo4j announced Aura Agent as generally available on 2026-02-03. It has Cypher Template, Similarity Search and Text2Cypher tools. It also has a REST endpoint and a read-only MCP server. The docs describe agent evaluations with datasets of up to 50 questions and five metrics. The docs show no preview label. The GA blog does not mention evaluations.",
+      "sources": [
+        {
+          "t": "Aura Agent docs",
+          "u": "https://neo4j.com/docs/aura/aura-agent/"
+        },
+        {
+          "t": "Neo4j launches Aura Agent (blog)",
+          "u": "https://neo4j.com/blog/agentic-ai/neo4j-launches-aura-agent/"
+        }
+      ]
+    },
+    {
+      "topic": "Stardog Voicebox generating mappings and descriptions (lead)",
+      "text": "Partly confirmed. Voicebox for Designer needs a Voicebox-enabled endpoint. It lists 'Automated Ontology Generation', which maps data sources to ontology concepts with human review. The docs do not describe AI-written descriptions. The Designer bulk description edit is manual. The dev guide says Voicebox API access is limited.",
+      "sources": [
+        {
+          "t": "Voicebox: Ontology Maintenance and Data Mapping",
+          "u": "https://docs.stardog.com/voicebox/guided-ontology-creation-and-mapping/"
+        },
+        {
+          "t": "Stardog Designer",
+          "u": "https://docs.stardog.com/stardog-applications/designer/"
+        },
+        {
+          "t": "Stardog Voicebox",
+          "u": "https://docs.stardog.com/voicebox/"
+        },
+        {
+          "t": "Voicebox Developer Guide",
+          "u": "https://docs.stardog.com/voicebox/voicebox-dev-guide/"
+        }
+      ]
+    },
+    {
+      "topic": "Stardog virtual graph mapping import (lead)",
+      "text": "Refined. 'virtual add' registers a mapping file. 'virtual import' copies mapped data into Stardog. Neither command imports mapping files as metadata. Relational sources with a built-in schema get automatic R2RML direct mapping. SMS2 is the recommended syntax. The release notes say Stardog removed SMS1 support in 11.0.0 (2025-01-22). The virtual graphs page still names SMS as the default.",
+      "sources": [
+        {
+          "t": "Virtual Graphs",
+          "u": "https://docs.stardog.com/virtual-graphs/"
+        },
+        {
+          "t": "Mapping Data Sources",
+          "u": "https://docs.stardog.com/virtual-graphs/mapping-data-sources"
+        },
+        {
+          "t": "Stardog Platform Release Notes",
+          "u": "https://docs.stardog.com/release-notes/stardog-platform"
+        }
+      ]
+    },
+    {
+      "topic": "RelationalAI model generation (lead)",
+      "text": "Partly confirmed, through coding agents. It is not an in-product generator. The 12 RelationalAI Agent Skills include rai-ontology. It builds ontologies from Snowflake tables or local data. The tutorial tells you to review the generated files in model/. The docs home calls the product a 'decision intelligence platform'. RAI_QUERY_MODEL is Preview. Cortex agent deployment is early access.",
+      "sources": [
+        {
+          "t": "RelationalAI Agent Skills",
+          "u": "https://docs.relational.ai/build/agents/skills/index.md"
+        },
+        {
+          "t": "Go further with a coding agent (tutorial)",
+          "u": "https://docs.relational.ai/build/tutorials/get-started-with-coding-agents/index.md"
+        },
+        {
+          "t": "Cortex agent API (PyRel v1.37)",
+          "u": "https://docs.relational.ai/api/python/v1.37/agent/cortex/index.md"
+        },
+        {
+          "t": "RelationalAI docs home",
+          "u": "https://docs.relational.ai/"
+        }
+      ]
+    },
+    {
+      "topic": "data.world ownership and AI Context Engine (lead)",
+      "text": "The data.world home page shows the banner 'data.world is now part of ServiceNow!' with no date. The name 'AI Context Engine' appears on no data.world page or doc, so it is Unverified. The docs name the AI assistant Archie.",
+      "sources": [
+        {
+          "t": "data.world home",
+          "u": "https://data.world/"
+        },
+        {
+          "t": "Using Archie AI Assistant",
+          "u": "https://docs.data.world/en/160498-using-archie.html"
+        }
+      ]
+    },
+    {
+      "topic": "data.world AI-generated metadata (lead)",
+      "text": "Confirmed as Archie Enrich, in Public Preview for Enterprise customers. It drafts descriptions for tables, columns, glossary terms and collections. It marks output '[Archie suggestion]'. In bulk mode it generates up to 50 descriptions at once. SQL generation and research-question generation are beta. The FAQ says the vendor does not use customer data to train the model.",
+      "sources": [
+        {
+          "t": "Using Archie AI Assistant",
+          "u": "https://docs.data.world/en/160498-using-archie.html"
+        },
+        {
+          "t": "Enriching catalog resources with Archie",
+          "u": "https://docs.data.world/en/160499-enriching-catalog-resources-with-archie.html"
+        },
+        {
+          "t": "Enriching catalog resources in bulk using Archie",
+          "u": "https://docs.data.world/en/317108-adding-descriptions-in-bulk-to-collection-resources.html"
+        },
+        {
+          "t": "Archie beta features",
+          "u": "https://docs.data.world/en/329793-archie-beta-features.html"
+        },
+        {
+          "t": "Archie FAQ",
+          "u": "https://docs.data.world/en/277381-archie-faq.html"
+        }
+      ]
+    },
+    {
+      "topic": "data.world bulk import APIs (lead)",
+      "text": "Confirmed. PATCH /v0/metadata/resources/bulk/{owner} updates up to 25 resources per call. The bulk create endpoint has the same limit. The reference lists no rate limits. The MCP server can edit descriptions, tags and custom properties. Excel bulk upload exists in the Catalog Toolkit.",
+      "sources": [
+        {
+          "t": "data.world developer docs",
+          "u": "https://developer.data.world"
+        },
+        {
+          "t": "Bulk update catalog resources (API)",
+          "u": "https://developer.data.world/reference/bulkupdate-1.md"
+        },
+        {
+          "t": "data.world MCP server for AI assistants",
+          "u": "https://docs.data.world/en/413220-data-world-mcp-server-for-ai-assistants.html"
+        },
+        {
+          "t": "Bulk uploading collections (CTK)",
+          "u": "https://docs.data.world/en/292299-bulk-uploading-collections--ctk-.html"
+        }
+      ]
+    },
+    {
+      "topic": "data.world lineage (lead)",
+      "text": "Partly confirmed. The system collects lineage automatically from supported systems through collectors. Users can add manual relationships. The docs do not say if lineage is column-level. So the lineage level is 0 under the column-level definition.",
+      "sources": [
+        {
+          "t": "Custom relationships for lineage (CTK)",
+          "u": "https://docs.data.world/en/360706-creating-custom-relationships-for-lineage-in-eureka-explorer--ctk-.html"
+        }
+      ]
+    },
+    {
+      "topic": "Palantir AI-assisted ontology creation (lead)",
+      "text": "Partly confirmed. AI FDE has an Ontology editing mode for 'creating or updating the objects, links, and actions'. It needs AIP enabled. It recommends Global Branching. The docs show no beta or GA label. The docs do not name object types or descriptions.",
+      "sources": [
+        {
+          "t": "AI FDE overview",
+          "u": "https://www.palantir.com/docs/foundry/ai-fde/overview/"
+        },
+        {
+          "t": "AI FDE modes and capabilities",
+          "u": "https://www.palantir.com/docs/foundry/ai-fde/modes-and-capabilities/"
+        }
+      ]
+    },
+    {
+      "topic": "Palantir AIP Evals (lead)",
+      "text": "Confirmed. AIP Evals tests AIP Logic, AIP Chatbot and code-authored functions. It uses built-in, LLM-as-judge or custom evaluators. Test cases come from manual entry or Ontology object sets. A 'Generate evals' button exists for eligible Logic functions. The docs show no status label. AIP Chatbot Studio is the new name of AIP Agent Studio.",
+      "sources": [
+        {
+          "t": "AIP Evals overview",
+          "u": "https://www.palantir.com/docs/foundry/aip-evals/overview/"
+        },
+        {
+          "t": "AIP Evals: create an evaluation suite",
+          "u": "https://www.palantir.com/docs/foundry/aip-evals/create-suite/"
+        },
+        {
+          "t": "AIP Evals: getting started",
+          "u": "https://www.palantir.com/docs/foundry/aip-evals/getting-started/"
+        },
+        {
+          "t": "AIP overview",
+          "u": "https://www.palantir.com/docs/foundry/aip/overview/"
+        }
+      ]
+    },
+    {
+      "topic": "Palantir Foundry data lineage (lead)",
+      "text": "Partly confirmed. Data Lineage is a dataset graph with ancestors and descendants. Its column feature only finds datasets that share a column name. Workflow Lineage adds property provenance across Ontology objects, functions, actions and apps. The docs show no column-level lineage.",
+      "sources": [
+        {
+          "t": "Data Lineage overview",
+          "u": "https://www.palantir.com/docs/foundry/data-lineage/overview/"
+        },
+        {
+          "t": "Data Lineage: find datasets with a given column",
+          "u": "https://www.palantir.com/docs/foundry/data-lineage/find-column/"
+        },
+        {
+          "t": "Workflow Lineage",
+          "u": "https://www.palantir.com/docs/foundry/workflow-lineage/refactor-and-understand-workflows/"
+        }
+      ]
+    },
+    {
+      "topic": "Palantir Sensitive Data Scanner rename",
+      "text": "The page says Sensitive Data Scanner was formerly called Foundry Inference. An enrollment may not enable it by default.",
+      "sources": [
+        {
+          "t": "Sensitive Data Scanner overview",
+          "u": "https://www.palantir.com/docs/foundry/sensitive-data-scanner/overview/"
+        }
+      ]
+    }
+  ]
+}
