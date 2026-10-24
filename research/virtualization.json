@@ -88,7 +88,7 @@
         },
         "verifiedQueries": {
           "l": 0,
-          "n": "No verified-query or example-SQL store found in the docs reviewed.",
+          "n": "No verified-query or example-SQL store found in the docs.",
           "u": ""
         },
         "nl2sql": {
@@ -364,7 +364,7 @@
         "One virtual layer reaches many sources, so agents query live data without copying it."
       ],
       "gaps": [
-        "Metric views are new (9.5, July 2026). The AI SDK and MCP docs reviewed do not mention them.",
+        "Metric views are new (9.5, July 2026). The AI SDK and MCP docs do not mention them.",
         "No ontology, verified-query store, or graph query language found.",
         "Metadata search and the AI SDK need an external vector database and an LLM that you configure and run.",
         "9.5 docs list AI and Semantics feature packs under Enterprise Plus. Licensing scope was not checked.",
@@ -537,7 +537,7 @@
         },
         "graph": {
           "l": 0,
-          "n": "No graph query language found in the Starburst or Trino docs reviewed.",
+          "n": "No graph query language found in the Starburst or Trino docs.",
           "u": ""
         },
         "vector": {
@@ -906,7 +906,7 @@
     },
     {
       "topic": "Dremio is now part of SAP",
-      "text": "SAP announced completion of the Dremio acquisition on 6 July 2026. Dremio docs and press pages still use the Dremio name, and a site banner reads 'Dremio is now part of SAP'. No rename was announced in the pages reviewed.",
+      "text": "SAP announced completion of the Dremio acquisition on 6 July 2026. Dremio docs and press pages still use the Dremio name, and a site banner reads 'Dremio is now part of SAP'. No rename was announced in the docs.",
       "sources": [
         {
           "t": "SAP completes Dremio acquisition",
@@ -976,7 +976,7 @@
     },
     {
       "topic": "Starburst editions",
-      "text": "Docs read were mostly Starburst Enterprise 483-e. Starburst Galaxy also documents AIDA, AI data product enrichment, and an MCP server, but its release status was not checked. Open-source Trino views accept a COMMENT clause and nothing else for semantic context.",
+      "text": "The docs cover mostly Starburst Enterprise 483-e. Starburst Galaxy also documents AIDA, AI data product enrichment, and an MCP server, but its release status is unverified. Open-source Trino views accept a COMMENT clause and nothing else for semantic context.",
       "sources": [
         {
           "t": "Starburst Galaxy: AIDA",

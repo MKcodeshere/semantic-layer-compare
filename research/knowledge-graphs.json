@@ -545,12 +545,12 @@
         },
         "synonyms": {
           "l": 0,
-          "n": "None found in pages read. Rel App lets users ask questions over the model (announced Jun 2026).",
+          "n": "None found in the docs. Rel App lets users ask questions over the model (announced Jun 2026).",
           "u": ""
         },
         "verifiedQueries": {
           "l": 0,
-          "n": "None found in pages read.",
+          "n": "None found in the docs.",
           "u": ""
         },
         "nl2sql": {
@@ -570,7 +570,7 @@
         },
         "vector": {
           "l": 0,
-          "n": "None found in pages read.",
+          "n": "None found in the docs.",
           "u": ""
         },
         "mcp": {
@@ -727,12 +727,12 @@
       "caps": {
         "metrics": {
           "l": 0,
-          "n": "No governed business-metric objects found in docs read. Teams use a warehouse semantic layer for metrics.",
+          "n": "No governed business-metric objects found in the docs. Teams use a warehouse semantic layer for metrics.",
           "u": ""
         },
         "dimensions": {
           "l": 0,
-          "n": "None found in docs read.",
+          "n": "None found in the docs.",
           "u": ""
         },
         "relationships": {
@@ -747,7 +747,7 @@
         },
         "verifiedQueries": {
           "l": 0,
-          "n": "None found in docs read.",
+          "n": "None found in the docs.",
           "u": ""
         },
         "nl2sql": {
@@ -757,8 +757,8 @@
         },
         "ontology": {
           "l": 1,
-          "n": "Catalog graph is the model; no domain ontology authoring found in docs read.",
-          "u": ""
+          "n": "Catalog graph is the model; no domain ontology authoring found in the docs.",
+          "u": "https://data.world/product/"
         },
         "graph": {
           "l": 3,
@@ -876,7 +876,7 @@
     },
     {
       "topic": "metrics layer (metrics store)",
-      "text": "A central definition of how each metric is calculated, placed between the warehouse and BI tools, that returns SQL for a metric request (Benn Stancil, April 2021). It covers measures and the dimensions to slice them, not entities, rules, or glossary terms, so it is narrower than a semantic layer. Today it ships inside products such as dbt MetricFlow and Databricks metric views; I found no primary source that defines the label 'metrics store'.",
+      "text": "A central definition of how each metric is calculated, placed between the warehouse and BI tools, that returns SQL for a metric request (Benn Stancil, April 2021). It covers measures and the dimensions to slice them, not entities, rules, or glossary terms, so it is narrower than a semantic layer. Today it ships inside products such as dbt MetricFlow and Databricks metric views; No primary source that defines the label 'metrics store' was found.",
       "sources": [
         {
           "t": "Benn Stancil: The metrics layer (Apr 22, 2021)",

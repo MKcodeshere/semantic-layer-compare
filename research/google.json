@@ -8,33 +8,172 @@
       "verdict": "partial",
       "verdictNote": "Data agents take descriptions, synonyms, verified queries, and glossary terms, but BigQuery has no general metric or semantic view object; graph measures are Preview.",
       "artifacts": [
-        { "name": "Data agents (conversational analytics in BigQuery)", "kind": "agent", "status": "GA", "since": "2026-06", "format": "Console, API", "url": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics" },
-        { "name": "Conversational Analytics API", "kind": "nl2sql", "status": "GA", "since": "2026-06", "format": "REST v1, client libraries", "url": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview" },
-        { "name": "Verified queries (example queries, formerly golden queries)", "kind": "nl2sql", "status": "GA", "since": "2026-06", "format": "JSON, Python SDK", "url": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq" },
-        { "name": "Authored context: table and column descriptions, synonyms, tags", "kind": "annotations", "status": "GA", "since": "2026-06", "format": "JSON, Python SDK", "url": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq" },
-        { "name": "Knowledge Catalog business glossary (formerly Dataplex Universal Catalog)", "kind": "glossary", "status": "Unverified", "since": "", "format": "Console, API", "url": "https://docs.cloud.google.com/dataplex/docs/create-glossary" },
-        { "name": "Knowledge Catalog aspects and aspect types", "kind": "annotations", "status": "GA", "since": "", "format": "API, console", "url": "https://docs.cloud.google.com/knowledge-catalog/docs/catalog-overview" },
-        { "name": "BigQuery Graph (CREATE PROPERTY GRAPH)", "kind": "knowledge-graph", "status": "GA", "since": "2026-08", "format": "SQL DDL", "url": "https://docs.cloud.google.com/bigquery/docs/graph-create" },
-        { "name": "GQL and GRAPH_TABLE graph queries", "kind": "graph-query", "status": "GA", "since": "2026-08", "format": "GQL, SQL", "url": "https://docs.cloud.google.com/bigquery/docs/graph-iso-standards" },
-        { "name": "Graph measures (MEASURE in property graph DDL)", "kind": "metric-view", "status": "Preview", "since": "2026-04", "format": "SQL DDL", "url": "https://docs.cloud.google.com/bigquery/docs/graph-measures" },
-        { "name": "VECTOR_SEARCH and vector indexes", "kind": "vector", "status": "GA", "since": "", "format": "SQL", "url": "https://docs.cloud.google.com/bigquery/docs/vector-search-intro" },
-        { "name": "Remote BigQuery MCP server", "kind": "mcp", "status": "GA", "since": "2026-04", "format": "MCP over Streamable HTTP", "url": "https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp" },
-        { "name": "MCP Toolbox for Databases (BigQuery tools incl. ask_data_insights)", "kind": "mcp", "status": "Unverified", "since": "", "format": "Open source server, Apache-2.0", "url": "https://docs.cloud.google.com/bigquery/docs/pre-built-tools-with-mcp-toolbox" },
-        { "name": "BigQuery data canvas", "kind": "agent", "status": "Unverified", "since": "", "format": "Console", "url": "https://docs.cloud.google.com/bigquery/docs/data-canvas" }
+        {
+          "name": "Data agents (conversational analytics in BigQuery)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "2026-06",
+          "format": "Console, API",
+          "url": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
+        },
+        {
+          "name": "Conversational Analytics API",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "2026-06",
+          "format": "REST v1, client libraries",
+          "url": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview"
+        },
+        {
+          "name": "Verified queries (example queries, formerly golden queries)",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "2026-06",
+          "format": "JSON, Python SDK",
+          "url": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq"
+        },
+        {
+          "name": "Authored context: table and column descriptions, synonyms, tags",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "2026-06",
+          "format": "JSON, Python SDK",
+          "url": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq"
+        },
+        {
+          "name": "Knowledge Catalog business glossary (formerly Dataplex Universal Catalog)",
+          "kind": "glossary",
+          "status": "Unverified",
+          "since": "",
+          "format": "Console, API",
+          "url": "https://docs.cloud.google.com/dataplex/docs/create-glossary"
+        },
+        {
+          "name": "Knowledge Catalog aspects and aspect types",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "API, console",
+          "url": "https://docs.cloud.google.com/knowledge-catalog/docs/catalog-overview"
+        },
+        {
+          "name": "BigQuery Graph (CREATE PROPERTY GRAPH)",
+          "kind": "knowledge-graph",
+          "status": "GA",
+          "since": "2026-08",
+          "format": "SQL DDL",
+          "url": "https://docs.cloud.google.com/bigquery/docs/graph-create"
+        },
+        {
+          "name": "GQL and GRAPH_TABLE graph queries",
+          "kind": "graph-query",
+          "status": "GA",
+          "since": "2026-08",
+          "format": "GQL, SQL",
+          "url": "https://docs.cloud.google.com/bigquery/docs/graph-iso-standards"
+        },
+        {
+          "name": "Graph measures (MEASURE in property graph DDL)",
+          "kind": "metric-view",
+          "status": "Preview",
+          "since": "2026-04",
+          "format": "SQL DDL",
+          "url": "https://docs.cloud.google.com/bigquery/docs/graph-measures"
+        },
+        {
+          "name": "VECTOR_SEARCH and vector indexes",
+          "kind": "vector",
+          "status": "GA",
+          "since": "",
+          "format": "SQL",
+          "url": "https://docs.cloud.google.com/bigquery/docs/vector-search-intro"
+        },
+        {
+          "name": "Remote BigQuery MCP server",
+          "kind": "mcp",
+          "status": "GA",
+          "since": "2026-04",
+          "format": "MCP over Streamable HTTP",
+          "url": "https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp"
+        },
+        {
+          "name": "MCP Toolbox for Databases (BigQuery tools incl. ask_data_insights)",
+          "kind": "mcp",
+          "status": "Unverified",
+          "since": "",
+          "format": "Open source server, Apache-2.0",
+          "url": "https://docs.cloud.google.com/bigquery/docs/pre-built-tools-with-mcp-toolbox"
+        },
+        {
+          "name": "BigQuery data canvas",
+          "kind": "agent",
+          "status": "Unverified",
+          "since": "",
+          "format": "Console",
+          "url": "https://docs.cloud.google.com/bigquery/docs/data-canvas"
+        }
       ],
       "caps": {
-        "metrics": { "l": 2, "n": "Only MEASURE in property graph DDL, Preview since Apr 2026; no general metric object. Query through GRAPH_EXPAND and AGG.", "u": "https://docs.cloud.google.com/bigquery/docs/graph-measures" },
-        "dimensions": { "l": 0, "n": "No dimension, hierarchy, or time-grain object. Teams use column descriptions and agent field context, or LookML.", "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq" },
-        "relationships": { "l": 3, "n": "Property graph edge tables declare links (GA Aug 2026). Agents otherwise read relationships written as YAML in system instructions.", "u": "https://docs.cloud.google.com/bigquery/docs/graph-create" },
-        "synonyms": { "l": 3, "n": "Data agents accept table and column descriptions, synonyms, tags, and system instructions. Custom glossary terms were Preview in Feb 2026.", "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq" },
-        "verifiedQueries": { "l": 3, "n": "Verified queries (formerly golden queries) pair a question with SQL, support parameters, and return matched_query. GA with agents Jun 2026.", "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics" },
-        "nl2sql": { "l": 3, "n": "Conversational analytics and the Conversational Analytics API reached GA on Jun 23, 2026. An agent holds up to 100 sources.", "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/release-notes" },
-        "ontology": { "l": 0, "n": "No ontology object. Closest: property graphs for entities and links, Knowledge Catalog glossary for terms.", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/catalog-overview" },
-        "graph": { "l": 3, "n": "GA Aug 31, 2026, with GQL and SQL/PGQ. Standard edition and on-demand billing end for graph processing Apr 26, 2027.", "u": "https://docs.cloud.google.com/bigquery/docs/release-notes" },
-        "vector": { "l": 3, "n": "VECTOR_SEARCH and vector indexes (IVF, TreeAH) run in SQL. Hybrid search and single-query syntax are Preview.", "u": "https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions" },
-        "mcp": { "l": 3, "n": "GA Apr 20, 2026, with metadata and SQL tools. No conversational analytics tool listed; MCP Toolbox adds ask_data_insights.", "u": "https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp" },
-        "governance": { "l": 3, "n": "Agents see only data the user can query and cannot run DML. Graph metadata syncs to Knowledge Catalog in Preview.", "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics" },
-        "openStandard": { "l": 1, "n": "Graph follows ISO GQL and SQL/PGQ. No OSI or Ossie converter for BigQuery was found in the Ossie converters repo.", "u": "https://docs.cloud.google.com/bigquery/docs/graph-iso-standards" }
+        "metrics": {
+          "l": 2,
+          "n": "Only MEASURE in property graph DDL, Preview since Apr 2026; no general metric object. Query through GRAPH_EXPAND and AGG.",
+          "u": "https://docs.cloud.google.com/bigquery/docs/graph-measures"
+        },
+        "dimensions": {
+          "l": 0,
+          "n": "No dimension, hierarchy, or time-grain object. Teams use column descriptions and agent field context, or LookML.",
+          "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Property graph edge tables declare links (GA Aug 2026). Agents otherwise read relationships written as YAML in system instructions.",
+          "u": "https://docs.cloud.google.com/bigquery/docs/graph-create"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Data agents accept table and column descriptions, synonyms, tags, and system instructions. Custom glossary terms were Preview in Feb 2026.",
+          "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq"
+        },
+        "verifiedQueries": {
+          "l": 3,
+          "n": "Verified queries (formerly golden queries) pair a question with SQL, support parameters, and return matched_query. GA with agents Jun 2026.",
+          "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Conversational analytics and the Conversational Analytics API reached GA on Jun 23, 2026. An agent holds up to 100 sources.",
+          "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/release-notes"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "No ontology object. Closest: property graphs for entities and links, Knowledge Catalog glossary for terms.",
+          "u": "https://docs.cloud.google.com/knowledge-catalog/docs/catalog-overview"
+        },
+        "graph": {
+          "l": 3,
+          "n": "GA Aug 31, 2026, with GQL and SQL/PGQ. Standard edition and on-demand billing end for graph processing Apr 26, 2027.",
+          "u": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+        },
+        "vector": {
+          "l": 3,
+          "n": "VECTOR_SEARCH and vector indexes (IVF, TreeAH) run in SQL. Hybrid search and single-query syntax are Preview.",
+          "u": "https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "GA Apr 20, 2026, with metadata and SQL tools. No conversational analytics tool listed; MCP Toolbox adds ask_data_insights.",
+          "u": "https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Agents see only data the user can query and cannot run DML. Graph metadata syncs to Knowledge Catalog in Preview.",
+          "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
+        },
+        "openStandard": {
+          "l": 1,
+          "n": "Graph follows ISO GQL and SQL/PGQ. No OSI or Ossie converter for BigQuery was found in the Ossie converters repo.",
+          "u": "https://docs.cloud.google.com/bigquery/docs/graph-iso-standards"
+        }
       },
       "offers": [
         "Data agents hold table and column descriptions, synonyms, tags, and parameterized verified queries as context (GA Jun 2026).",
@@ -51,7 +190,12 @@
         "Agent context lives inside each agent. No portable export; no OSI or Ossie converter for BigQuery found.",
         "The BigQuery MCP server doc lists metadata and SQL tools only, with no conversational analytics tool."
       ],
-      "fillWith": ["Looker (LookML)", "dbt Semantic Layer", "Cube", "MCP Toolbox for Databases"],
+      "fillWith": [
+        "Looker (LookML)",
+        "dbt Semantic Layer",
+        "Cube",
+        "MCP Toolbox for Databases"
+      ],
       "nl2sqlPath": "Create a data agent with table descriptions, synonyms, parameterized verified queries, and glossary terms, then call it through the Conversational Analytics API. Give other agents access through the BigQuery MCP server or MCP Toolbox ask_data_insights. For governed metrics, keep them as verified queries or define them in a semantic layer such as LookML.",
       "snippet": {
         "lang": "json",
@@ -60,23 +204,74 @@
         "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq"
       },
       "sources": [
-        { "t": "BigQuery release notes", "u": "https://docs.cloud.google.com/bigquery/docs/release-notes" },
-        { "t": "Conversational analytics in BigQuery", "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics" },
-        { "t": "Conversational Analytics API overview", "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview" },
-        { "t": "Conversational Analytics API release notes", "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/release-notes" },
-        { "t": "Define data agent context for BigQuery data sources", "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq" },
-        { "t": "Create and query a graph (BigQuery Graph)", "u": "https://docs.cloud.google.com/bigquery/docs/graph-create" },
-        { "t": "Graph measures", "u": "https://docs.cloud.google.com/bigquery/docs/graph-measures" },
-        { "t": "BigQuery Graph and ISO standards", "u": "https://docs.cloud.google.com/bigquery/docs/graph-iso-standards" },
-        { "t": "Use the BigQuery remote MCP server", "u": "https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp" },
-        { "t": "Use BigQuery with MCP Toolbox for Databases", "u": "https://docs.cloud.google.com/bigquery/docs/pre-built-tools-with-mcp-toolbox" },
-        { "t": "MCP Toolbox for Databases (GitHub)", "u": "https://github.com/googleapis/genai-toolbox" },
-        { "t": "About metadata in Knowledge Catalog", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/catalog-overview" },
-        { "t": "Knowledge Catalog release notes", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" },
-        { "t": "Create business glossaries and terms", "u": "https://docs.cloud.google.com/dataplex/docs/create-glossary" },
-        { "t": "BigQuery search functions (VECTOR_SEARCH)", "u": "https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions" },
-        { "t": "Gemini in BigQuery overview", "u": "https://docs.cloud.google.com/gemini/docs/bigquery/overview" },
-        { "t": "BigQuery data canvas", "u": "https://docs.cloud.google.com/bigquery/docs/data-canvas" }
+        {
+          "t": "BigQuery release notes",
+          "u": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+        },
+        {
+          "t": "Conversational analytics in BigQuery",
+          "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
+        },
+        {
+          "t": "Conversational Analytics API overview",
+          "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview"
+        },
+        {
+          "t": "Conversational Analytics API release notes",
+          "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/release-notes"
+        },
+        {
+          "t": "Define data agent context for BigQuery data sources",
+          "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq"
+        },
+        {
+          "t": "Create and query a graph (BigQuery Graph)",
+          "u": "https://docs.cloud.google.com/bigquery/docs/graph-create"
+        },
+        {
+          "t": "Graph measures",
+          "u": "https://docs.cloud.google.com/bigquery/docs/graph-measures"
+        },
+        {
+          "t": "BigQuery Graph and ISO standards",
+          "u": "https://docs.cloud.google.com/bigquery/docs/graph-iso-standards"
+        },
+        {
+          "t": "Use the BigQuery remote MCP server",
+          "u": "https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp"
+        },
+        {
+          "t": "Use BigQuery with MCP Toolbox for Databases",
+          "u": "https://docs.cloud.google.com/bigquery/docs/pre-built-tools-with-mcp-toolbox"
+        },
+        {
+          "t": "MCP Toolbox for Databases (GitHub)",
+          "u": "https://github.com/googleapis/genai-toolbox"
+        },
+        {
+          "t": "About metadata in Knowledge Catalog",
+          "u": "https://docs.cloud.google.com/knowledge-catalog/docs/catalog-overview"
+        },
+        {
+          "t": "Knowledge Catalog release notes",
+          "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+        },
+        {
+          "t": "Create business glossaries and terms",
+          "u": "https://docs.cloud.google.com/dataplex/docs/create-glossary"
+        },
+        {
+          "t": "BigQuery search functions (VECTOR_SEARCH)",
+          "u": "https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions"
+        },
+        {
+          "t": "Gemini in BigQuery overview",
+          "u": "https://docs.cloud.google.com/gemini/docs/bigquery/overview"
+        },
+        {
+          "t": "BigQuery data canvas",
+          "u": "https://docs.cloud.google.com/bigquery/docs/data-canvas"
+        }
       ],
       "verified": "2026-10-24"
     },
@@ -88,32 +283,164 @@
       "verdict": "native",
       "verdictNote": "LookML defines metrics, dimensions, joins, and field context in versioned code, and Looker agents read it directly.",
       "artifacts": [
-        { "name": "LookML (models, views, Explores, joins, dimensions, measures)", "kind": "semantic-model", "status": "GA", "since": "", "format": "LookML text files in Git", "url": "https://docs.cloud.google.com/looker/docs/what-is-lookml" },
-        { "name": "LookML field description and label", "kind": "annotations", "status": "GA", "since": "", "format": "LookML", "url": "https://docs.cloud.google.com/looker/docs/reference/param-field-description" },
-        { "name": "Conversational Analytics in Looker (Explore data agents)", "kind": "agent", "status": "GA", "since": "2025-11", "format": "GUI, API", "url": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview" },
-        { "name": "Verified queries (golden queries) for Looker agents", "kind": "nl2sql", "status": "GA", "since": "2026-08", "format": "GUI, JSON via API", "url": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-looker" },
-        { "name": "Conversational Analytics API with Looker sources", "kind": "nl2sql", "status": "GA", "since": "2026-06", "format": "REST v1", "url": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview" },
-        { "name": "Dashboard data agents", "kind": "agent", "status": "GA", "since": "2026-10", "format": "GUI", "url": "https://docs.cloud.google.com/looker/docs/release-notes" },
-        { "name": "Agentic workflows (triggered and scheduled)", "kind": "agent", "status": "Preview", "since": "2026-05", "format": "GUI, natural language", "url": "https://docs.cloud.google.com/looker/docs/release-notes" },
-        { "name": "Looker-managed MCP server", "kind": "mcp", "status": "Preview", "since": "2026-05", "format": "MCP, OAuth 2.1", "url": "https://docs.cloud.google.com/looker/docs/r/mcp" },
-        { "name": "MCP Toolbox for Databases Looker tools", "kind": "mcp", "status": "Unverified", "since": "2025-07", "format": "Open source server", "url": "https://docs.cloud.google.com/looker/docs/connect-ide-to-looker-using-mcp-toolbox" },
-        { "name": "Looker extension for VS Code (LookML authoring with MCP)", "kind": "agent", "status": "GA", "since": "2026-09", "format": "IDE extension", "url": "https://docs.cloud.google.com/looker/docs/release-notes" },
-        { "name": "Open SQL Interface with Tableau and Power BI connectors", "kind": "semantic-model", "status": "GA", "since": "2024-08", "format": "JDBC", "url": "https://docs.cloud.google.com/looker/docs/tableau-connector?hl=en" },
-        { "name": "In-database analytic models (derived_analytic_model to BigQuery Graph or Snowflake semantic view)", "kind": "semantic-model", "status": "Preview", "since": "2026-05", "format": "LookML, SQL DDL", "url": "https://docs.cloud.google.com/looker/docs/analytic-models" }
+        {
+          "name": "LookML (models, views, Explores, joins, dimensions, measures)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "LookML text files in Git",
+          "url": "https://docs.cloud.google.com/looker/docs/what-is-lookml"
+        },
+        {
+          "name": "LookML field description and label",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "LookML",
+          "url": "https://docs.cloud.google.com/looker/docs/reference/param-field-description"
+        },
+        {
+          "name": "Conversational Analytics in Looker (Explore data agents)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "2025-11",
+          "format": "GUI, API",
+          "url": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
+        },
+        {
+          "name": "Verified queries (golden queries) for Looker agents",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "2026-08",
+          "format": "GUI, JSON via API",
+          "url": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-looker"
+        },
+        {
+          "name": "Conversational Analytics API with Looker sources",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "2026-06",
+          "format": "REST v1",
+          "url": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview"
+        },
+        {
+          "name": "Dashboard data agents",
+          "kind": "agent",
+          "status": "GA",
+          "since": "2026-10",
+          "format": "GUI",
+          "url": "https://docs.cloud.google.com/looker/docs/release-notes"
+        },
+        {
+          "name": "Agentic workflows (triggered and scheduled)",
+          "kind": "agent",
+          "status": "Preview",
+          "since": "2026-05",
+          "format": "GUI, natural language",
+          "url": "https://docs.cloud.google.com/looker/docs/release-notes"
+        },
+        {
+          "name": "Looker-managed MCP server",
+          "kind": "mcp",
+          "status": "Preview",
+          "since": "2026-05",
+          "format": "MCP, OAuth 2.1",
+          "url": "https://docs.cloud.google.com/looker/docs/r/mcp"
+        },
+        {
+          "name": "MCP Toolbox for Databases Looker tools",
+          "kind": "mcp",
+          "status": "Unverified",
+          "since": "2025-07",
+          "format": "Open source server",
+          "url": "https://docs.cloud.google.com/looker/docs/connect-ide-to-looker-using-mcp-toolbox"
+        },
+        {
+          "name": "Looker extension for VS Code (LookML authoring with MCP)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "2026-09",
+          "format": "IDE extension",
+          "url": "https://docs.cloud.google.com/looker/docs/release-notes"
+        },
+        {
+          "name": "Open SQL Interface with Tableau and Power BI connectors",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "2024-08",
+          "format": "JDBC",
+          "url": "https://docs.cloud.google.com/looker/docs/tableau-connector?hl=en"
+        },
+        {
+          "name": "In-database analytic models (derived_analytic_model to BigQuery Graph or Snowflake semantic view)",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "2026-05",
+          "format": "LookML, SQL DDL",
+          "url": "https://docs.cloud.google.com/looker/docs/analytic-models"
+        }
       ],
       "caps": {
-        "metrics": { "l": 3, "n": "LookML measures (sum, count, others) are defined once as version-controlled code and reused by every query.", "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts" },
-        "dimensions": { "l": 3, "n": "Dimensions and dimension_group declare fields; one dimension_group creates several time-related dimensions at once.", "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts" },
-        "relationships": { "l": 3, "n": "Explore join declarations with sql_on; Looker generates join SQL when a query uses fields from several views.", "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts" },
-        "synonyms": { "l": 3, "n": "Field description, label, and synonyms parameters plus agent instructions and glossaries feed Conversational Analytics.", "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices" },
-        "verifiedQueries": { "l": 3, "n": "Verified (golden) queries pair questions with Explore queries; GA Aug 28, 2026. Docs advise 30 to 50 pairs at most.", "u": "https://docs.cloud.google.com/looker/docs/release-notes" },
-        "nl2sql": { "l": 3, "n": "Conversational Analytics GA Nov 12, 2025. Looker composes the SQL from LookML; the agent does not write it.", "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview" },
-        "ontology": { "l": 0, "n": "No ontology object. LookML models views, Explores, and fields. Knowledge Catalog ingests Looker metadata (GA Oct 2026).", "u": "https://docs.cloud.google.com/looker/docs/release-notes" },
-        "graph": { "l": 0, "n": "No graph query in LookML. derived_analytic_model can generate BigQuery Graph objects (Preview).", "u": "https://docs.cloud.google.com/looker/docs/reference/param-view-derived-analytic-model" },
-        "vector": { "l": 0, "n": "No vector search on data. Gemini in Looker lists semantic search for saved content, with no stage stated.", "u": "https://docs.cloud.google.com/looker/docs/gemini-overview-looker" },
-        "mcp": { "l": 2, "n": "Looker-managed MCP server is Preview since May 27, 2026, Looker-hosted instances only. Open-source MCP Toolbox covers customer-hosted.", "u": "https://docs.cloud.google.com/looker/docs/r/mcp" },
-        "governance": { "l": 3, "n": "Queries apply model permissions, access grants, and user attributes. LookML lives in Git with CI. Catalog sync GA Oct 2026.", "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview" },
-        "openStandard": { "l": 1, "n": "LookML is Looker-specific. Open SQL Interface, BI connectors, and MCP expose it. No Ossie converter for LookML found.", "u": "https://github.com/apache/ossie-converters" }
+        "metrics": {
+          "l": 3,
+          "n": "LookML measures (sum, count, others) are defined once as version-controlled code and reused by every query.",
+          "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts"
+        },
+        "dimensions": {
+          "l": 3,
+          "n": "Dimensions and dimension_group declare fields; one dimension_group creates several time-related dimensions at once.",
+          "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts"
+        },
+        "relationships": {
+          "l": 3,
+          "n": "Explore join declarations with sql_on; Looker generates join SQL when a query uses fields from several views.",
+          "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "Field description, label, and synonyms parameters plus agent instructions and glossaries feed Conversational Analytics.",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices"
+        },
+        "verifiedQueries": {
+          "l": 3,
+          "n": "Verified (golden) queries pair questions with Explore queries; GA Aug 28, 2026. Docs advise 30 to 50 pairs at most.",
+          "u": "https://docs.cloud.google.com/looker/docs/release-notes"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "Conversational Analytics GA Nov 12, 2025. Looker composes the SQL from LookML; the agent does not write it.",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "No ontology object. LookML models views, Explores, and fields. Knowledge Catalog ingests Looker metadata (GA Oct 2026).",
+          "u": "https://docs.cloud.google.com/looker/docs/release-notes"
+        },
+        "graph": {
+          "l": 0,
+          "n": "No graph query in LookML. derived_analytic_model can generate BigQuery Graph objects (Preview).",
+          "u": "https://docs.cloud.google.com/looker/docs/reference/param-view-derived-analytic-model"
+        },
+        "vector": {
+          "l": 0,
+          "n": "No vector search on data. Gemini in Looker lists semantic search for saved content, with no stage stated.",
+          "u": "https://docs.cloud.google.com/looker/docs/gemini-overview-looker"
+        },
+        "mcp": {
+          "l": 2,
+          "n": "Looker-managed MCP server is Preview since May 27, 2026, Looker-hosted instances only. Open-source MCP Toolbox covers customer-hosted.",
+          "u": "https://docs.cloud.google.com/looker/docs/r/mcp"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Queries apply model permissions, access grants, and user attributes. LookML lives in Git with CI. Catalog sync GA Oct 2026.",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
+        },
+        "openStandard": {
+          "l": 1,
+          "n": "LookML is Looker-specific. Open SQL Interface, BI connectors, and MCP expose it. No Ossie converter for LookML found.",
+          "u": "https://github.com/apache/ossie-converters"
+        }
       },
       "offers": [
         "LookML declares views, dimensions, measures, and Explore joins as version-controlled code, with Looker generating the SQL.",
@@ -129,7 +456,11 @@
         "Agents connect to at most five Explores; no custom fields, no pivots, and 50,000 rows per query.",
         "No ontology, graph, or vector search on data in LookML. Forecasting and prediction are not supported in agents."
       ],
-      "fillWith": ["MCP Toolbox for Databases", "Cube", "dbt Semantic Layer"],
+      "fillWith": [
+        "MCP Toolbox for Databases",
+        "Cube",
+        "dbt Semantic Layer"
+      ],
       "nl2sqlPath": "Model the data in LookML with descriptions, labels, and synonyms, build a curated Explore for each agent, and add instructions and verified queries. Use Conversational Analytics in Looker or the Conversational Analytics API (GA Jun 2026). For your own agents, use the Looker-managed MCP server (Preview) or MCP Toolbox so Looker generates the SQL.",
       "snippet": {
         "lang": "lookml",
@@ -138,24 +469,78 @@
         "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts"
       },
       "sources": [
-        { "t": "LookML terms and concepts", "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts" },
-        { "t": "Introduction to LookML", "u": "https://docs.cloud.google.com/looker/docs/what-is-lookml" },
-        { "t": "Looker release notes", "u": "https://docs.cloud.google.com/looker/docs/release-notes" },
-        { "t": "Conversational Analytics overview (Looker)", "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview" },
-        { "t": "Best practices for configuring Conversational Analytics with Looker", "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices" },
-        { "t": "LookML synonyms parameter", "u": "https://docs.cloud.google.com/looker/docs/reference/param-field-synonyms" },
-        { "t": "LookML description parameter", "u": "https://docs.cloud.google.com/looker/docs/reference/param-field-description" },
-        { "t": "Define data agent context for Looker data sources", "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-looker" },
-        { "t": "Looker-managed MCP server", "u": "https://docs.cloud.google.com/looker/docs/r/mcp" },
-        { "t": "Connect an IDE to Looker using MCP Toolbox", "u": "https://docs.cloud.google.com/looker/docs/connect-ide-to-looker-using-mcp-toolbox" },
-        { "t": "Looker managed MCP server announcement (Google developer forum)", "u": "https://discuss.google.dev/t/unlocking-agentic-ai-for-enterprise-bi-announcing-looker-s-managed-mcp-server-in-preview/367431" },
-        { "t": "Looker updates for agentic BI at Next '26", "u": "https://cloud.google.com/blog/products/business-intelligence/looker-updates-for-agentic-bi-at-next26" },
-        { "t": "Looker-Tableau BI Connector", "u": "https://docs.cloud.google.com/looker/docs/tableau-connector?hl=en" },
-        { "t": "In-database analytic models", "u": "https://docs.cloud.google.com/looker/docs/analytic-models" },
-        { "t": "derived_analytic_model parameter", "u": "https://docs.cloud.google.com/looker/docs/reference/param-view-derived-analytic-model" },
-        { "t": "Gemini in Looker overview", "u": "https://docs.cloud.google.com/looker/docs/gemini-overview-looker" },
-        { "t": "Apache Ossie (formerly Open Semantic Interchange) repo", "u": "https://github.com/open-semantic-interchange/OSI" },
-        { "t": "Ossie converters repo", "u": "https://github.com/apache/ossie-converters" }
+        {
+          "t": "LookML terms and concepts",
+          "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts"
+        },
+        {
+          "t": "Introduction to LookML",
+          "u": "https://docs.cloud.google.com/looker/docs/what-is-lookml"
+        },
+        {
+          "t": "Looker release notes",
+          "u": "https://docs.cloud.google.com/looker/docs/release-notes"
+        },
+        {
+          "t": "Conversational Analytics overview (Looker)",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
+        },
+        {
+          "t": "Best practices for configuring Conversational Analytics with Looker",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices"
+        },
+        {
+          "t": "LookML synonyms parameter",
+          "u": "https://docs.cloud.google.com/looker/docs/reference/param-field-synonyms"
+        },
+        {
+          "t": "LookML description parameter",
+          "u": "https://docs.cloud.google.com/looker/docs/reference/param-field-description"
+        },
+        {
+          "t": "Define data agent context for Looker data sources",
+          "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-looker"
+        },
+        {
+          "t": "Looker-managed MCP server",
+          "u": "https://docs.cloud.google.com/looker/docs/r/mcp"
+        },
+        {
+          "t": "Connect an IDE to Looker using MCP Toolbox",
+          "u": "https://docs.cloud.google.com/looker/docs/connect-ide-to-looker-using-mcp-toolbox"
+        },
+        {
+          "t": "Looker managed MCP server announcement (Google developer forum)",
+          "u": "https://discuss.google.dev/t/unlocking-agentic-ai-for-enterprise-bi-announcing-looker-s-managed-mcp-server-in-preview/367431"
+        },
+        {
+          "t": "Looker updates for agentic BI at Next '26",
+          "u": "https://cloud.google.com/blog/products/business-intelligence/looker-updates-for-agentic-bi-at-next26"
+        },
+        {
+          "t": "Looker-Tableau BI Connector",
+          "u": "https://docs.cloud.google.com/looker/docs/tableau-connector?hl=en"
+        },
+        {
+          "t": "In-database analytic models",
+          "u": "https://docs.cloud.google.com/looker/docs/analytic-models"
+        },
+        {
+          "t": "derived_analytic_model parameter",
+          "u": "https://docs.cloud.google.com/looker/docs/reference/param-view-derived-analytic-model"
+        },
+        {
+          "t": "Gemini in Looker overview",
+          "u": "https://docs.cloud.google.com/looker/docs/gemini-overview-looker"
+        },
+        {
+          "t": "Apache Ossie (formerly Open Semantic Interchange) repo",
+          "u": "https://github.com/open-semantic-interchange/OSI"
+        },
+        {
+          "t": "Ossie converters repo",
+          "u": "https://github.com/apache/ossie-converters"
+        }
       ],
       "verified": "2026-10-24"
     }
@@ -165,142 +550,262 @@
       "topic": "Does BigQuery have a native semantic or metrics object in 2026?",
       "text": "Not found. The closest object is MEASURE inside a property graph (Preview, Apr 22, 2026), queried through GRAPH_EXPAND and AGG, and Looker's derived_analytic_model targets BigQuery Graph (Preview, May 2026). No semantic view or metric view object appears in the BigQuery release notes or docs I fetched.",
       "sources": [
-        { "t": "Graph measures", "u": "https://docs.cloud.google.com/bigquery/docs/graph-measures" },
-        { "t": "BigQuery release notes", "u": "https://docs.cloud.google.com/bigquery/docs/release-notes" },
-        { "t": "In-database analytic models", "u": "https://docs.cloud.google.com/looker/docs/analytic-models" }
+        {
+          "t": "Graph measures",
+          "u": "https://docs.cloud.google.com/bigquery/docs/graph-measures"
+        },
+        {
+          "t": "BigQuery release notes",
+          "u": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+        },
+        {
+          "t": "In-database analytic models",
+          "u": "https://docs.cloud.google.com/looker/docs/analytic-models"
+        }
       ]
     },
     {
       "topic": "Graph measures stage",
-      "text": "Release notes label graph measures Preview on Apr 22, 2026. BigQuery Graph itself went GA on Aug 31, 2026, but I found no note that says measures are GA, so treat measures as Preview.",
+      "text": "Release notes label graph measures Preview on Apr 22, 2026. BigQuery Graph itself went GA on Aug 31, 2026, but no note says measures are GA, so treat measures as Preview.",
       "sources": [
-        { "t": "BigQuery release notes", "u": "https://docs.cloud.google.com/bigquery/docs/release-notes" }
+        {
+          "t": "BigQuery release notes",
+          "u": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+        }
       ]
     },
     {
       "topic": "Product renames",
       "text": "Dataplex Universal Catalog became Knowledge Catalog on Apr 10, 2026 (API, CLI, and IAM names unchanged). Golden queries are now called verified queries. Looker Studio is now Data Studio and BigLake is now Google Cloud Lakehouse (Apr 2026). Gen AI Toolbox for Databases is now MCP Toolbox for Databases (repo mcp-toolbox). Open Semantic Interchange is now Apache Ossie (incubating).",
       "sources": [
-        { "t": "About metadata in Knowledge Catalog", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/catalog-overview" },
-        { "t": "BigQuery release notes", "u": "https://docs.cloud.google.com/bigquery/docs/release-notes" },
-        { "t": "Conversational analytics in BigQuery", "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics" },
-        { "t": "MCP Toolbox for Databases (GitHub)", "u": "https://github.com/googleapis/genai-toolbox" },
-        { "t": "Apache Ossie repo", "u": "https://github.com/open-semantic-interchange/OSI" }
+        {
+          "t": "About metadata in Knowledge Catalog",
+          "u": "https://docs.cloud.google.com/knowledge-catalog/docs/catalog-overview"
+        },
+        {
+          "t": "BigQuery release notes",
+          "u": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+        },
+        {
+          "t": "Conversational analytics in BigQuery",
+          "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
+        },
+        {
+          "t": "MCP Toolbox for Databases (GitHub)",
+          "u": "https://github.com/googleapis/genai-toolbox"
+        },
+        {
+          "t": "Apache Ossie repo",
+          "u": "https://github.com/open-semantic-interchange/OSI"
+        }
       ]
     },
     {
       "topic": "Conversational Analytics API timeline",
       "text": "Private Preview Jun 5, 2025, Public Preview Aug 25, 2025 (BigQuery structured context with example question and SQL pairs), GA for BigQuery and Looker Jun 23, 2026. Database sources (AlloyDB, Cloud SQL, Spanner) were Preview as of Mar 2026. The API release notes list no MCP entry.",
       "sources": [
-        { "t": "Conversational Analytics API release notes", "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/release-notes" },
-        { "t": "Conversational Analytics API overview", "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview" }
+        {
+          "t": "Conversational Analytics API release notes",
+          "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/release-notes"
+        },
+        {
+          "t": "Conversational Analytics API overview",
+          "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview"
+        }
       ]
     },
     {
       "topic": "Agent context limits and glossary use",
       "text": "A BigQuery data agent holds up to 100 knowledge sources (tables, views, graphs, UDFs), per the current doc. A Google codelab says 50, so the codelab is older. With a Knowledge Catalog glossary, an agent imports up to 10 terms per table.",
       "sources": [
-        { "t": "Conversational analytics in BigQuery", "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics" },
-        { "t": "Create business glossaries and terms", "u": "https://docs.cloud.google.com/dataplex/docs/create-glossary" }
+        {
+          "t": "Conversational analytics in BigQuery",
+          "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
+        },
+        {
+          "t": "Create business glossaries and terms",
+          "u": "https://docs.cloud.google.com/dataplex/docs/create-glossary"
+        }
       ]
     },
     {
       "topic": "Knowledge Catalog glossary stage is unverified",
-      "text": "Release notes list the business glossary as Preview on Jan 30, 2023 and I found no GA entry. The glossary doc page shows no stage label. Custom glossary terms and Knowledge Catalog term import for BigQuery agents were Preview on Feb 24, 2026.",
+      "text": "Release notes list the business glossary as Preview on Jan 30, 2023 and no GA entry is listed. The glossary doc page shows no stage label. Custom glossary terms and Knowledge Catalog term import for BigQuery agents were Preview on Feb 24, 2026.",
       "sources": [
-        { "t": "Knowledge Catalog release notes", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" },
-        { "t": "BigQuery release notes", "u": "https://docs.cloud.google.com/bigquery/docs/release-notes" }
+        {
+          "t": "Knowledge Catalog release notes",
+          "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+        },
+        {
+          "t": "BigQuery release notes",
+          "u": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+        }
       ]
     },
     {
       "topic": "Knowledge Catalog lookupContext",
       "text": "The lookupContext method returns an LLM-ready bundle of context for data assets. It is Preview since Jun 4, 2026. Remote MCP servers for Knowledge Catalog data products and lineage are Preview (May 2026).",
       "sources": [
-        { "t": "Knowledge Catalog release notes", "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes" }
+        {
+          "t": "Knowledge Catalog release notes",
+          "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
+        }
       ]
     },
     {
       "topic": "BigQuery Graph edition change",
       "text": "Core graph processing needs an Enterprise or Enterprise Plus reservation. Existing allowlisted users can keep Standard edition or on-demand billing until Apr 26, 2027. The BigQuery MCP execute_sql_readonly tool does not support GQL.",
       "sources": [
-        { "t": "BigQuery release notes", "u": "https://docs.cloud.google.com/bigquery/docs/release-notes" },
-        { "t": "Use the BigQuery remote MCP server", "u": "https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp" }
+        {
+          "t": "BigQuery release notes",
+          "u": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+        },
+        {
+          "t": "Use the BigQuery remote MCP server",
+          "u": "https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp"
+        }
       ]
     },
     {
       "topic": "Vector search stage detail",
       "text": "The VECTOR_SEARCH reference marks the single-query syntax and hybrid search as Preview and does not label the batch syntax. Release notes list TreeAH vector indexes GA (May 2025). Hybrid search was disabled on Jul 9, 2026 and restored Aug 3, 2026.",
       "sources": [
-        { "t": "BigQuery search functions", "u": "https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions" },
-        { "t": "BigQuery release notes", "u": "https://docs.cloud.google.com/bigquery/docs/release-notes" }
+        {
+          "t": "BigQuery search functions",
+          "u": "https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions"
+        },
+        {
+          "t": "BigQuery release notes",
+          "u": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+        }
       ]
     },
     {
       "topic": "Looker MCP: managed server versus MCP Toolbox",
       "text": "The Looker-managed MCP server entered Preview on May 27, 2026 for Looker-hosted instances only, with OAuth 2.1 and no fine-grained scopes. For customer-hosted Looker, Google points to the open-source MCP Toolbox, which Google describes as as-is and not a supported Google Cloud product.",
       "sources": [
-        { "t": "Looker-managed MCP server", "u": "https://docs.cloud.google.com/looker/docs/r/mcp" },
-        { "t": "Connect an IDE to Looker using MCP Toolbox", "u": "https://docs.cloud.google.com/looker/docs/connect-ide-to-looker-using-mcp-toolbox" },
-        { "t": "Looker release notes", "u": "https://docs.cloud.google.com/looker/docs/release-notes" }
+        {
+          "t": "Looker-managed MCP server",
+          "u": "https://docs.cloud.google.com/looker/docs/r/mcp"
+        },
+        {
+          "t": "Connect an IDE to Looker using MCP Toolbox",
+          "u": "https://docs.cloud.google.com/looker/docs/connect-ide-to-looker-using-mcp-toolbox"
+        },
+        {
+          "t": "Looker release notes",
+          "u": "https://docs.cloud.google.com/looker/docs/release-notes"
+        }
       ]
     },
     {
       "topic": "Looker Conversational Analytics timeline",
       "text": "Preview Feb 24, 2025. GA Nov 12, 2025 for Looker 25.18 and later. Verified queries Preview Jul 30, 2026 and GA Aug 28, 2026. Dashboard data agents GA Oct 8, 2026. Agentic workflows (triggered and scheduled) and publishing to Gemini Enterprise are Preview.",
       "sources": [
-        { "t": "Looker release notes", "u": "https://docs.cloud.google.com/looker/docs/release-notes" },
-        { "t": "Conversational Analytics overview (Looker)", "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview" }
+        {
+          "t": "Looker release notes",
+          "u": "https://docs.cloud.google.com/looker/docs/release-notes"
+        },
+        {
+          "t": "Conversational Analytics overview (Looker)",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
+        }
       ]
     },
     {
       "topic": "How Looker agents read LookML",
       "text": "Agents read field labels, descriptions, and synonyms from Explores and ignore hidden fields. Looker, not the model, composes the SQL, and access grants and user attributes apply. The synonyms parameter page shows no stage label and requires the legacy LookML runtime to be off.",
       "sources": [
-        { "t": "Best practices for configuring Conversational Analytics with Looker", "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices" },
-        { "t": "Conversational Analytics overview (Looker)", "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview" },
-        { "t": "LookML synonyms parameter", "u": "https://docs.cloud.google.com/looker/docs/reference/param-field-synonyms" }
+        {
+          "t": "Best practices for configuring Conversational Analytics with Looker",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices"
+        },
+        {
+          "t": "Conversational Analytics overview (Looker)",
+          "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
+        },
+        {
+          "t": "LookML synonyms parameter",
+          "u": "https://docs.cloud.google.com/looker/docs/reference/param-field-synonyms"
+        }
       ]
     },
     {
       "topic": "Looker semantic layer opened to other tools",
-      "text": "The Open SQL Interface was GA on Aug 14, 2024 and backs the Tableau connector (GA Aug 14, 2024; Tableau Cloud Dec 2025). The Power BI connector was GA on Jun 14, 2023. Connected Sheets and Data Studio also read Looker. I could not confirm the current status of Looker Modeler; it does not appear in the Looker release notes or the Next '26 post I fetched.",
+      "text": "The Open SQL Interface was GA on Aug 14, 2024 and backs the Tableau connector (GA Aug 14, 2024; Tableau Cloud Dec 2025). The Power BI connector was GA on Jun 14, 2023. Connected Sheets and Data Studio also read Looker. The current status of Looker Modeler is unconfirmed; it does not appear in the Looker release notes or the Next '26 post.",
       "sources": [
-        { "t": "Looker release notes", "u": "https://docs.cloud.google.com/looker/docs/release-notes" },
-        { "t": "Looker-Tableau BI Connector", "u": "https://docs.cloud.google.com/looker/docs/tableau-connector?hl=en" },
-        { "t": "Looker updates for agentic BI at Next '26", "u": "https://cloud.google.com/blog/products/business-intelligence/looker-updates-for-agentic-bi-at-next26" }
+        {
+          "t": "Looker release notes",
+          "u": "https://docs.cloud.google.com/looker/docs/release-notes"
+        },
+        {
+          "t": "Looker-Tableau BI Connector",
+          "u": "https://docs.cloud.google.com/looker/docs/tableau-connector?hl=en"
+        },
+        {
+          "t": "Looker updates for agentic BI at Next '26",
+          "u": "https://cloud.google.com/blog/products/business-intelligence/looker-updates-for-agentic-bi-at-next26"
+        }
       ]
     },
     {
       "topic": "In-database analytic models link Looker to BigQuery Graph",
       "text": "Since May 27, 2026 (Preview) Looker can reference BigQuery Graph or Snowflake semantic views, or generate them from an Explore with derived_analytic_model. Views become node tables, foreign_key joins become edge tables, and dimensions and measures become node properties. Needs BigQuery or Snowflake, primary keys, and acyclic joins.",
       "sources": [
-        { "t": "In-database analytic models", "u": "https://docs.cloud.google.com/looker/docs/analytic-models" },
-        { "t": "derived_analytic_model parameter", "u": "https://docs.cloud.google.com/looker/docs/reference/param-view-derived-analytic-model" }
+        {
+          "t": "In-database analytic models",
+          "u": "https://docs.cloud.google.com/looker/docs/analytic-models"
+        },
+        {
+          "t": "derived_analytic_model parameter",
+          "u": "https://docs.cloud.google.com/looker/docs/reference/param-view-derived-analytic-model"
+        }
       ]
     },
     {
       "topic": "Looker and open semantic standards",
       "text": "The Apache Ossie README does not mention Google, Looker, or LookML, and the apache/ossie-converters directory list has no LookML or BigQuery converter (it lists Cube, Databricks, dbt, Hex, Omni, Salesforce, Snowflake, ThoughtSpot and others). The Next '26 post mentions MCP but not OSI.",
       "sources": [
-        { "t": "Apache Ossie repo", "u": "https://github.com/open-semantic-interchange/OSI" },
-        { "t": "Ossie converters repo", "u": "https://github.com/apache/ossie-converters" },
-        { "t": "Looker updates for agentic BI at Next '26", "u": "https://cloud.google.com/blog/products/business-intelligence/looker-updates-for-agentic-bi-at-next26" }
+        {
+          "t": "Apache Ossie repo",
+          "u": "https://github.com/open-semantic-interchange/OSI"
+        },
+        {
+          "t": "Ossie converters repo",
+          "u": "https://github.com/apache/ossie-converters"
+        },
+        {
+          "t": "Looker updates for agentic BI at Next '26",
+          "u": "https://cloud.google.com/blog/products/business-intelligence/looker-updates-for-agentic-bi-at-next26"
+        }
       ]
     },
     {
       "topic": "Looker BI agents and Next '26 announcements",
       "text": "At Next '26 (Apr 23, 2026) Google announced Dashboard Agents, agentic workflows, a managed MCP server, a VS Code extension with a LookML AI agent, and Knowledge Catalog integration. Later release notes show dashboard agents GA (Oct 8, 2026) and the VS Code extension GA (Sep 10, 2026), while agentic workflows and the MCP server are still Preview.",
       "sources": [
-        { "t": "Looker updates for agentic BI at Next '26", "u": "https://cloud.google.com/blog/products/business-intelligence/looker-updates-for-agentic-bi-at-next26" },
-        { "t": "Looker release notes", "u": "https://docs.cloud.google.com/looker/docs/release-notes" }
+        {
+          "t": "Looker updates for agentic BI at Next '26",
+          "u": "https://cloud.google.com/blog/products/business-intelligence/looker-updates-for-agentic-bi-at-next26"
+        },
+        {
+          "t": "Looker release notes",
+          "u": "https://docs.cloud.google.com/looker/docs/release-notes"
+        }
       ]
     },
     {
       "topic": "Items not verified",
       "text": "MCP Toolbox for Databases support status (README gives v1.x, Google docs say as-is). BigQuery data canvas stage (page labels only the chat assistant Preview, Apr 2025). Looker Modeler status. The VECTOR_SEARCH original GA date. Web search quota ran out partway, so these were not chased further.",
       "sources": [
-        { "t": "MCP Toolbox for Databases (GitHub)", "u": "https://github.com/googleapis/genai-toolbox" },
-        { "t": "BigQuery data canvas", "u": "https://docs.cloud.google.com/bigquery/docs/data-canvas" }
+        {
+          "t": "MCP Toolbox for Databases (GitHub)",
+          "u": "https://github.com/googleapis/genai-toolbox"
+        },
+        {
+          "t": "BigQuery data canvas",
+          "u": "https://docs.cloud.google.com/bigquery/docs/data-canvas"
+        }
       ]
     }
   ]

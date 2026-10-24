@@ -1,6 +1,6 @@
 # Plan: semantic layer comparison page
 
-Status on 2026-10-24: research for 44 products, one shared `site/data.js`, three design prototypes behind `site/index.html`. This plan covers what to ship, how to build it, how to keep it true, and how to get it read.
+Status on 2026-10-24: research for 44 products and 836 cells (15 still "Not checked yet"), fact-checked and link-checked, one shared `site/data.js`, three design prototypes behind `site/index.html` that pass all verify checks. This plan covers what to ship, how to build it, how to keep it true, and how to get it read.
 
 ## 1. Recommended design
 

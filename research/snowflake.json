@@ -340,7 +340,7 @@
       ]
     },
     {
-      "topic": "OSI founding and early members",
+      "topic": "OSI origins and early members",
       "text": "The Sep 2025 coalition also listed Alation, Atlan, Blue Yonder, Cube, Elementum AI, Hex, Honeydew, Mistral AI, Omni, Select Star, Sigma and ThoughtSpot. The Snowflake Jul 2026 post says 17 launch partners but does not name them, and now counts more than 50 organizations. The press release does not use the term founding members.",
       "sources": [
         {
@@ -549,7 +549,7 @@
     },
     {
       "topic": "BI tool support for semantic views",
-      "text": "Inbound: Autopilot builds a semantic view from a Power BI file (GA 2026-08-18; DAX measures become metrics) or a Tableau file. Outbound: SYSTEM$EXPORT_TDS_FROM_SEMANTIC_VIEW makes a Tableau data source (Preview, Mar 2026). I did not verify native semantic view support inside other BI tools.",
+      "text": "Inbound: Autopilot builds a semantic view from a Power BI file (GA 2026-08-18; DAX measures become metrics) or a Tableau file. Outbound: SYSTEM$EXPORT_TDS_FROM_SEMANTIC_VIEW makes a Tableau data source (Preview, Mar 2026). Native semantic view support inside other BI tools is unverified.",
       "sources": [
         {
           "t": "Power BI ingestion feature support",
@@ -575,7 +575,7 @@
     },
     {
       "topic": "Graph features",
-      "text": "I found no property graph, SQL/PGQ or Cypher feature in the Snowflake SQL command and function indexes. Neo4j documents Graph Analytics for Snowflake (graph algorithms on Snowpark Container Services), and RelationalAI lists a Snowflake Native App with graph reasoning.",
+      "text": "No property graph, SQL/PGQ or Cypher feature appears in the Snowflake SQL command and function indexes. Neo4j documents Graph Analytics for Snowflake (graph algorithms on Snowpark Container Services), and RelationalAI lists a Snowflake Native App with graph reasoning.",
       "sources": [
         {
           "t": "Neo4j Graph Analytics for Snowflake",
@@ -603,7 +603,7 @@
     },
     {
       "topic": "Claims not fully verified",
-      "text": "Semantic View Autopilot has no Preview label in docs and Power BI ingestion for it is GA, but I found no GA release note; Flexera (third party) says GA since Feb 2026. Tableau ingestion status, Cortex Analyst exact GA date (Preview Aug 2024), and third-party BI tools reading semantic views are unverified.",
+      "text": "Semantic View Autopilot has no Preview label in docs and Power BI ingestion for it is GA, but no GA release note was found; Flexera (third party) says GA since Feb 2026. Tableau ingestion status, Cortex Analyst exact GA date (Preview Aug 2024), and third-party BI tools reading semantic views are unverified.",
       "sources": [
         {
           "t": "Semantic View Autopilot",

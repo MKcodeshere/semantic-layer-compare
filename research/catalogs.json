@@ -95,7 +95,7 @@
         },
         "graph": {
           "l": 0,
-          "n": "No graph query language in the docs reviewed. Agents reach lineage and metadata through MCP search and lineage tools.",
+          "n": "No graph query language in the docs. Agents reach lineage and metadata through MCP search and lineage tools.",
           "u": "https://docs.atlan.com/llms/platform/atlan-mcp-overview/mcp-tools/llms.txt"
         },
         "vector": {
@@ -596,7 +596,7 @@
         },
         "relationships": {
           "l": 1,
-          "n": "Asset relations and lineage link assets. No declared join paths for AI found.",
+          "n": "Asset relations and lineage link assets. No declared join paths for AI in the docs.",
           "u": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraDataLineage/co_collibra-data-lineage.htm"
         },
         "synonyms": {
@@ -606,7 +606,7 @@
         },
         "verifiedQueries": {
           "l": 0,
-          "n": "No verified question and SQL pair feature found in the docs reviewed.",
+          "n": "No verified question and SQL pair feature found in the docs.",
           "u": ""
         },
         "nl2sql": {
@@ -626,7 +626,7 @@
         },
         "vector": {
           "l": 0,
-          "n": "No vector search feature found in the docs reviewed.",
+          "n": "No vector search feature found in the docs.",
           "u": ""
         },
         "mcp": {
@@ -666,7 +666,7 @@
         },
         "queryHistory": {
           "l": 0,
-          "n": "No query-history mining for join or metric suggestions found in the docs reviewed.",
+          "n": "No query-history mining for join or metric suggestions found in the docs.",
           "u": ""
         },
         "lineage": {
@@ -676,7 +676,7 @@
         },
         "evals": {
           "l": 0,
-          "n": "No NL-to-SQL eval tooling found in the docs reviewed.",
+          "n": "No NL-to-SQL eval tooling found in the docs.",
           "u": ""
         }
       },
@@ -833,12 +833,12 @@
         },
         "dimensions": {
           "l": 0,
-          "n": "No dimension or time-grain objects found in the docs reviewed.",
+          "n": "No dimension or time-grain objects found in the docs.",
           "u": ""
         },
         "relationships": {
           "l": 1,
-          "n": "Lineage and entity relationships exist. v2.2 adds relationship APIs. No declared join paths for AI found.",
+          "n": "Lineage and entity relationships exist. v2.2 adds relationship APIs. No declared join paths for AI in the docs.",
           "u": "https://docs.datahub.com/docs/managed-datahub/release-notes/v_2_2_0"
         },
         "synonyms": {
@@ -1109,12 +1109,12 @@
         },
         "dimensions": {
           "l": 0,
-          "n": "No dimension or time-grain objects found in the docs reviewed.",
+          "n": "No dimension or time-grain objects found in the docs.",
           "u": ""
         },
         "relationships": {
           "l": 1,
-          "n": "Lineage and entity links exist. No declared join paths for AI found.",
+          "n": "Lineage and entity links exist. No declared join paths for AI in the docs.",
           "u": "https://docs.open-metadata.org/v2.0.x/developers/contribute/codebase-deep-dives/lineage-ingestion.md"
         },
         "synonyms": {
@@ -1124,7 +1124,7 @@
         },
         "verifiedQueries": {
           "l": 0,
-          "n": "No verified question and SQL pair feature found in the docs reviewed.",
+          "n": "No verified question and SQL pair feature found in the docs.",
           "u": ""
         },
         "nl2sql": {

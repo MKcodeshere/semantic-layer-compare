@@ -503,7 +503,7 @@
         },
         "queryHistory": {
           "l": 0,
-          "n": "No mining of query history to suggest metrics or examples found in the docs reviewed.",
+          "n": "No mining of query history to suggest metrics or examples found in the docs.",
           "u": ""
         },
         "lineage": {

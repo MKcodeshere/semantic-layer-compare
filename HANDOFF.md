@@ -67,12 +67,25 @@ Failing, to fix:
 - A hero headline wraps to 3 lines at 1440px. The limit is 2.
 - The script's `errs()` reports a false FAIL. It greps the "no console errors" message itself. Fix the filter.
 
+## Round 2 status (2026-10-24, cloud session)
+
+All 7 items from the old "Remaining work" list are done. Branch: `claude/research-round-2`.
+
+1. Research: the 10 missing files were written, then re-verified against opened vendor pages. `enrich-bi.json` was split into `enrich-bi-enterprise.json` and `enrich-bi-modern.json`.
+2. Data: 44 vendors, 836 cells. 15 cells are still "Not checked yet": 12 for Cognos (ibm.com refuses automated fetches), 2 for Strategy, 1 for Fabric graph (no Learn page states its release status).
+3. Fact-check: `research/FACTCHECK-2026-10-24.md`. 35 items: 24 confirmed, 10 corrected, 1 unconfirmed date. All corrections applied.
+4. Link check: `research/LINKCHECK-2026-10-24.md`. 1,040 URLs, 988 return 200, no 404s. 35 github.com links are blocked in the cloud session but confirmed with git. 17 sites refuse bots; open them in a browser.
+5. Verify: all 27 checks pass with `node tools/verify.mjs shots` (Playwright port of verify.sh). Screenshots are in `shots/`. verify.sh also has the console filter fix.
+6. `PLAN.md` written.
+
+Tooling notes for cloud sessions:
+- Set the environment's Network access to Full, or vendor docs are blocked.
+- WebFetch cannot resolve vendor hosts here, but curl can. Agents should fetch pages with curl (a small HTML-to-text helper worked well).
+- gstack browse is not installed in the cloud; use `tools/verify.mjs`.
+
 ## Remaining work
 
-1. Run the missing research. Use Sonnet subagents, in parallel.
-2. Rebuild data. Fix every "not checked yet" vendor.
-3. Fact-check pass. One independent agent checks the claims above, plus a sample of 20 random cells.
-4. Link check. Run every URL in `research/urls.txt` and list the non-200 results.
-5. Fix the verify failures. Rerun until everything passes. Take desktop and mobile screenshots.
-6. Write `PLAN.md`. Cover the traction strategy, the build stack, the data pipeline, freshness, and the recommended design.
-7. Reply to Muthu. Cover the 3 designs, the tradeoffs, a recommendation, and the coverage ideas beyond this round.
+1. Open the 17 bot-blocked URLs in `research/LINKCHECK-2026-10-24.md` in a browser. Fix any that are dead.
+2. Fill the 15 "Not checked yet" cells by hand from a browser (IBM Cognos docs, Strategy docs, Fabric graph status).
+3. Confirm the Tableau April 2026 feature page (tableau.com/2026-1-april-features), which refuses bots. Three Tableau artifacts are marked Unverified until then.
+4. Pick the design (PLAN.md recommends B with A's ladder and C's path) and start the production build.

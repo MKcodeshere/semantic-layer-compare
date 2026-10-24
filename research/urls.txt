@@ -260,9 +260,11 @@ https://docs.dremio.com/dremio-cloud/api/catalog/tag
 https://docs.dremio.com/dremio-cloud/api/catalog/wiki
 https://docs.dremio.com/dremio-cloud/developer/mcp-server/
 https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent
+https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent/
 https://docs.dremio.com/dremio-cloud/explore-analyze/discover
 https://docs.dremio.com/dremio-cloud/help-support/well-architected-framework/self-serve-semantic-layer
 https://docs.dremio.com/dremio-cloud/manage-govern/lineage
+https://docs.dremio.com/dremio-cloud/manage-govern/lineage/
 https://docs.dremio.com/dremio-cloud/manage-govern/row-column-policies
 https://docs.dremio.com/dremio-cloud/manage-govern/wikis-labels
 https://docs.dremio.com/dremio-cloud/manage-govern/wikis-labels/
@@ -365,7 +367,6 @@ https://docs.snowflake.com/en/release-notes/2025/other/2025-04-17-semantic-views
 https://docs.snowflake.com/en/release-notes/2025/other/2025-09-29-sql-object-descriptions
 https://docs.snowflake.com/en/release-notes/2025/other/2025-11-04-cortex-agents
 https://docs.snowflake.com/en/release-notes/2025/other/2025-11-04-cortex-agents-mcp
-https://docs.snowflake.com/en/release-notes/2025/other/2025-11-04-snowflake-intelligence
 https://docs.snowflake.com/en/release-notes/2026/other/2026-02-05-sensitive-data-classification-json
 https://docs.snowflake.com/en/release-notes/2026/other/2026-03-02-semantic-views-standard-sql
 https://docs.snowflake.com/en/release-notes/2026/other/2026-03-05-semantic-views-tableau-tds
@@ -521,8 +522,6 @@ https://en.wikipedia.org/wiki/Semantic_layer
 https://foundationcapital.com/ideas/
 https://foundationcapital.com/ideas/context-graphs-ais-trillion-dollar-opportunity
 https://foundationcapital.com/member/jaya-gupta/
-https://gateway.maine.gov/cognos/documentation/en/ug_cra_t_configure_lineage.html
-https://gateway.maine.gov/cognos/documentation/en/ug_cra_t_viewadataitemslineage.html
 https://github.com/Canner/WrenAI
 https://github.com/ClickHouse/mcp-clickhouse
 https://github.com/SAP-docs/sap-datasphere
@@ -576,6 +575,7 @@ https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/Qlik
 https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikMCP/Qlik-MCP-server.htm
 https://help.qlik.com/talend/en-US/talend-data-catalog/8.0/Content/MIRBoInformationDesignToolUnxExport.htm
 https://help.qlik.com/talend/en-US/talend-data-catalog/8.1/Content/Bridges/MIRBoInformationDesignToolUnxImport.htm
+https://help.qlik.com/talend/en-US/talend-data-catalog/Cloud/Content/Bridges/MIRBoInformationDesignToolUnxExport.htm
 https://help.salesforce.com/s/articleView?id=analytics.tua_data_sdm_mcp.htm&language=en_US&type=5
 https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf
 https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/f43f4d90c5ee4858ac5c8817d6aff803/459f99766e041014910aba7db0e91070.html?locale=en-US&state=PRODUCTION&version=2025
@@ -610,6 +610,7 @@ https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_metadata.h
 https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_tableau_knowledge_graph.htm
 https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_whats_new.htm
 https://help.tableau.com/current/online/en-us/dm_lineage.htm
+https://help.tableau.com/current/online/en-us/pulse_intro.htm
 https://help.tableau.com/current/server/en-us/dm_labels.htm
 https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm
 https://help.tableau.com/current/tableau/en-us/tableau_gai_data.htm
@@ -638,9 +639,9 @@ https://honeydew.ai/docs/tpch-example.md
 https://huggingface.co/datasets/neo4j/text2cypher-2025v1
 https://ibis-project.org/backends/clickhouse
 https://ibm-data-and-ai.ideas.ibm.com/ideas/CA-I-4846
+https://incubator.apache.org/projects/ossie.html
 https://issues.apache.org/jira/browse/SPARK-54119
 https://itbrief.com.au/story/denodo-9-5-adds-metric-views-for-ai-data-governance
-https://itbrief.com.au/story/snowflake-renames-ai-tools-amid-broader-platform-push
 https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview
 https://learn.microsoft.com/en-us/azure/azure-sql/copilot/copilot-azure-sql-overview
 https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql
@@ -869,6 +870,7 @@ https://techcommunity.microsoft.com/blog/azuresqlblog/announcing-general-availab
 https://techcommunity.microsoft.com/blog/sqlserver/sql-server-2025-is-now-generally-available/4470570
 https://techzine.eu/blogs/data-management/117331/sap-expands-datasphere-with-knowledge-graph-and-compass
 https://timbr.ai/
+https://timbr.ai/news/announcing-active-llm-management-and-accelerated-ontology-generation/
 https://trailhead.salesforce.com/content/learn/modules/semantic-models-in-tableau-next-quick-look/design-your-semantic-model-for-analysis
 https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/create-calculated-fields-and-metrics
 https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/learn-the-basics-of-tableau-semantics
@@ -934,6 +936,7 @@ https://www.getdbt.com/blog/the-osi-spec-updates
 https://www.getdbt.com/blog/what-s-shipped-in-dbt-may-2026
 https://www.getwren.ai/oss
 https://www.getwren.ai/post/wren-ai-2024-year-in-review-a-fruitful-journey-and-exciting-plans-ahead
+https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ug_cr_rptstd.pdf
 https://www.ibm.com/products/cognos-analytics
 https://www.ibm.com/support/pages/node/6326069
 https://www.ibm.com/support/pages/node/737555
@@ -1002,6 +1005,7 @@ https://www.snowflake.com/en/blog/apache-ossie-open-semantic-interchange-incubat
 https://www.snowflake.com/en/blog/engineering/apache-ossie-microsoft-ecosystem-support/
 https://www.snowflake.com/en/blog/open-semantic-interchanges-specs-finalized/
 https://www.snowflake.com/en/blog/osi-initiative-expands-partners/
+https://www.snowflake.com/en/news/press-releases/snowflake-cowork-powers-the-agentic-enterprise-as-the-personal-agent-for-knowledge-workers-to-work-smarter/
 https://www.starburst.io/press-releases/starburst-unveils-enterprise-intelligence-platform-giving-enterprises-a-faster-path-to-trusted-ai/
 https://www.stardog.com/blog/ai-chessboard-every-ai-system-needs-semantic-layer/
 https://www.stardog.com/blog/semantic-control-plane-building-trust-enterprise-ai/

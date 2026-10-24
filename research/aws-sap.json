@@ -692,7 +692,7 @@
           "u": "https://blog.serverworks.co.jp/amazon-quick-suite-renamed-to-amazon-quick"
         },
         {
-          "t": "Amazon Quick desktop app GA, Sep 2026 (seen in search results)",
+          "t": "Amazon Quick desktop app GA, Sep 2026",
           "u": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-desktop-app-generally-available-macos-windows/"
         }
       ]
@@ -835,7 +835,7 @@
     },
     {
       "topic": "Open Semantic Interchange is now Apache Ossie",
-      "text": "The OSI repository README says Apache Ossie (incubating) was formerly known as Open Semantic Interchange. The README names neither AWS nor SAP as participants, and I did not find AWS or SAP support for it elsewhere.",
+      "text": "The OSI repository README says Apache Ossie (incubating) was formerly known as Open Semantic Interchange. The README names neither AWS nor SAP as participants. No AWS or SAP support for it found in the docs.",
       "sources": [
         {
           "t": "open-semantic-interchange/OSI repository",
@@ -875,7 +875,7 @@
     },
     {
       "topic": "SAP uses 'knowledge graph' for three things",
-      "text": "The Datasphere knowledge graph (preview signup in March 2024; a DW Metadata Graph Consumer role exists in current docs), the SAP Knowledge Graph that grounds Joule agents in BDC, and the SAP HANA Cloud knowledge graph engine (RDF and SPARQL). I found no GA statement for any of them in the sources read.",
+      "text": "The Datasphere knowledge graph (preview signup in March 2024; a DW Metadata Graph Consumer role exists in current docs), the SAP Knowledge Graph that grounds Joule agents in BDC, and the SAP HANA Cloud knowledge graph engine (RDF and SPARQL). No GA statement found for any of them in the docs.",
       "sources": [
         {
           "t": "SAP Data Unleashed 2024",

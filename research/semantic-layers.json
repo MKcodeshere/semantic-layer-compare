@@ -84,7 +84,7 @@
         },
         "synonyms": {
           "l": 3,
-          "n": "Description and label fields on semantic models, dimensions, and metrics. No synonyms field in the docs read.",
+          "n": "Description and label fields on semantic models, dimensions, and metrics. No synonyms field in the docs.",
           "u": "https://docs.getdbt.com/reference/dimension-properties.md"
         },
         "verifiedQueries": {

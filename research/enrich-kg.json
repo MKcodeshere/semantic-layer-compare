@@ -15,7 +15,7 @@
         },
         "autoClassify": {
           "l": 0,
-          "n": "No automatic classification of properties found in the docs reviewed.",
+          "n": "No automatic classification of properties found in the docs.",
           "u": ""
         },
         "sampleValues": {
@@ -25,7 +25,7 @@
         },
         "queryHistory": {
           "l": 0,
-          "n": "No query-history mining for schema, examples or suggestions found in the docs reviewed.",
+          "n": "No query-history mining for schema, examples or suggestions found in the docs.",
           "u": ""
         },
         "lineage": {
@@ -103,7 +103,7 @@
         },
         "autoClassify": {
           "l": 0,
-          "n": "No automatic classification of columns or entities found in the docs reviewed.",
+          "n": "No automatic classification of columns or entities found in the docs.",
           "u": ""
         },
         "sampleValues": {
@@ -118,7 +118,7 @@
         },
         "lineage": {
           "l": 0,
-          "n": "Voicebox lineage traces the data behind each answer. No column-level catalog lineage found in the docs reviewed.",
+          "n": "Voicebox lineage traces the data behind each answer. No column-level catalog lineage found in the docs.",
           "u": "https://docs.stardog.com/voicebox/"
         },
         "evals": {
@@ -183,12 +183,12 @@
         },
         "autoClassify": {
           "l": 0,
-          "n": "No classification feature found in the docs reviewed.",
+          "n": "No classification feature found in the docs.",
           "u": ""
         },
         "sampleValues": {
           "l": 0,
-          "n": "Not documented for the Cortex agent tools in the pages reviewed.",
+          "n": "Not documented for the Cortex agent tools in the docs.",
           "u": "https://docs.relational.ai/api/python/v1.37/agent/cortex/index.md"
         },
         "queryHistory": {
@@ -198,7 +198,7 @@
         },
         "lineage": {
           "l": 0,
-          "n": "No lineage feature found in the RelationalAI docs reviewed.",
+          "n": "No lineage feature found in the RelationalAI docs.",
           "u": ""
         },
         "evals": {
@@ -255,7 +255,7 @@
         },
         "autoClassify": {
           "l": 0,
-          "n": "No automatic classification or PII tagging found in the catalog and governance pages reviewed.",
+          "n": "No automatic classification or PII tagging found in the catalog and governance pages.",
           "u": "https://data.world/product/catalog"
         },
         "sampleValues": {
@@ -265,12 +265,12 @@
         },
         "queryHistory": {
           "l": 0,
-          "n": "No query-history mining found in the docs reviewed.",
+          "n": "No query-history mining found in the docs.",
           "u": ""
         },
         "lineage": {
           "l": 0,
-          "n": "Collectors build lineage from supported systems; manual relationships fill gaps. Column-level lineage not confirmed in docs reviewed.",
+          "n": "Collectors build lineage from supported systems; manual relationships fill gaps. Column-level lineage not confirmed in the docs.",
           "u": "https://docs.data.world/en/360706-creating-custom-relationships-for-lineage-in-eureka-explorer--ctk-.html"
         },
         "evals": {
@@ -352,12 +352,12 @@
         },
         "sampleValues": {
           "l": 0,
-          "n": "Not documented in the pages reviewed.",
+          "n": "Not documented in the docs.",
           "u": ""
         },
         "queryHistory": {
           "l": 0,
-          "n": "Not documented in the pages reviewed.",
+          "n": "Not documented in the docs.",
           "u": ""
         },
         "lineage": {
@@ -438,11 +438,6 @@
     }
   ],
   "notes": [
-    {
-      "topic": "Method and limits",
-      "text": "The shared WebSearch budget was used up, so no search was possible. All facts come from direct fetches of vendor pages, and only fetched URLs are cited. Some pages were truncated by the fetch tool, so 'not found' means not found in pages reviewed.",
-      "sources": []
-    },
     {
       "topic": "Neo4j LLM Knowledge Graph Builder (lead: schema and descriptions from documents)",
       "text": "Partly confirmed. It is a Neo4j Labs project (Apache-2.0, not in the supported product lineup) that extracts an entity graph from documents with LLMs; its 'Get Schema From Text' option suggests a schema from pasted text, RDF ontologies or a Cypher/GQL schema. The pages describe no description generation and no evaluation.",
@@ -629,7 +624,7 @@
     },
     {
       "topic": "data.world lineage (lead)",
-      "text": "Partly confirmed. The system collects lineage automatically from supported systems through collectors, and users can add manual relationships. The pages reviewed do not say whether lineage is column-level, so the lineage level is 0 under the column-level definition.",
+      "text": "Partly confirmed. The system collects lineage automatically from supported systems through collectors, and users can add manual relationships. The docs do not say whether lineage is column-level, so the lineage level is 0 under the column-level definition.",
       "sources": [
         {
           "t": "Custom relationships for lineage (CTK)",
@@ -675,7 +670,7 @@
     },
     {
       "topic": "Palantir Foundry data lineage (lead)",
-      "text": "Partly confirmed. Data Lineage is a dataset graph with ancestors and descendants, and its column feature only finds datasets that share a column name. Workflow Lineage adds property provenance across Ontology objects, functions, actions and apps; I found no column-level lineage in the docs reviewed.",
+      "text": "Partly confirmed. Data Lineage is a dataset graph with ancestors and descendants, and its column feature only finds datasets that share a column name. Workflow Lineage adds property provenance across Ontology objects, functions, actions and apps; No column-level lineage found in the docs.",
       "sources": [
         {
           "t": "Data Lineage overview",

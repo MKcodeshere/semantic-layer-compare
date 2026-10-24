@@ -413,7 +413,7 @@
         },
         "graph": {
           "l": 0,
-          "n": "No graph query language found in the docs reviewed. Absence not proven.",
+          "n": "No graph query language found in the docs. Absence not proven.",
           "u": ""
         },
         "vector": {
@@ -446,7 +446,7 @@
         "Agentic Data Stack (2026-03) combines LibreChat chat, ClickHouse data, and Langfuse tracing."
       ],
       "gaps": [
-        "No native semantic layer found in the docs reviewed: no metric, dimension, or join objects.",
+        "No native semantic layer found in the docs: no metric, dimension, or join objects.",
         "No documented store for verified question-to-SQL pairs or business synonyms.",
         "Assistant docs do not describe custom instructions or semantic context inputs.",
         "MetricFlow docs list no ClickHouse support. dbt's v2 adapter table shows ClickHouse as Private beta.",
@@ -863,7 +863,7 @@
     },
     {
       "topic": "Azure Database for PostgreSQL: azure_ai has no NL-to-SQL function",
-      "text": "The azure_ai extension went GA on 2024-05-21. Its docs list embeddings, azure_ai.generate, is_true, extract, and rank (marked Preview), plus Azure language and ML calls. No natural-language-to-SQL function appears in the pages reviewed.",
+      "text": "The azure_ai extension went GA on 2024-05-21. Its docs list embeddings, azure_ai.generate, is_true, extract, and rank (marked Preview), plus Azure language and ML calls. No natural-language-to-SQL function appears in the docs.",
       "sources": [
         {
           "t": "azure_ai extension overview",
@@ -931,7 +931,7 @@
     },
     {
       "topic": "Supabase Assistant status",
-      "text": "Assistant v2 launched on 2024-12-02. The post says no data is sent to the LLM, only schema structure. The Supabase pages reviewed carry no current status label, so status is Unverified.",
+      "text": "Assistant v2 launched on 2024-12-02. The post says no data is sent to the LLM, only schema structure. The Supabase pages carry no current status label, so status is Unverified.",
       "sources": [
         {
           "t": "Supabase blog: Assistant v2",
@@ -1085,7 +1085,7 @@
     },
     {
       "topic": "MotherDuck FixIt not confirmed",
-      "text": "The docs reviewed document prompt_fix_line for fixing SQL errors but do not mention a feature named FixIt. FixIt status is Unverified. The PROMPT function lists models such as gpt-4o-mini (default) and gpt-5 and has no status label.",
+      "text": "The docs document prompt_fix_line for fixing SQL errors but do not mention a feature named FixIt. FixIt status is Unverified. The PROMPT function lists models such as gpt-4o-mini (default) and gpt-5 and has no status label.",
       "sources": [
         {
           "t": "MotherDuck docs: SQL assistant functions",

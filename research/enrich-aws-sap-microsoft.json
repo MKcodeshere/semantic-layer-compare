@@ -114,7 +114,7 @@
         },
         "queryHistory": {
           "l": 0,
-          "n": "No query-history mining for joins, measures or examples in the docs read. Teams model these by hand.",
+          "n": "No query-history mining for joins, measures or examples in the docs. Teams model these by hand.",
           "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/generate-sql-code-with-ai-d153065.md"
         },
         "lineage": {

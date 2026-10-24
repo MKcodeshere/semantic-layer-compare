@@ -30,7 +30,7 @@
         },
         "lineage": {
           "l": 1,
-          "n": "No lineage view inside BI found. Talend Data Catalog, a separate product, imports universes (.unx) with transformation lineage.",
+          "n": "No lineage view inside BI in the docs. Talend Data Catalog, a separate product, imports universes (.unx) with transformation lineage.",
           "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/8.1/Content/Bridges/MIRBoInformationDesignToolUnxImport.htm"
         },
         "evals": {

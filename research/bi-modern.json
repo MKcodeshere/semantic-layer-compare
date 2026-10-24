@@ -73,7 +73,7 @@
         },
         "dimensions": {
           "l": 3,
-          "n": "Calculated dimensions and measures are built in the model. Hierarchies and time grains not described in the pages read.",
+          "n": "Calculated dimensions and measures are built in the model. Hierarchies and time grains not described in the docs.",
           "u": "https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/create-calculated-fields-and-metrics"
         },
         "relationships": {
@@ -829,7 +829,7 @@
         },
         "ontology": {
           "l": 0,
-          "n": "No ontology object in the docs read. ISG reports ontologies are planned under Project Ambience with no date.",
+          "n": "No ontology object in the docs. ISG reports ontologies are planned under Project Ambience with no date.",
           "u": "https://research.isg-one.com/analyst-perspectives/domo-adds-context-to-platform-for-analytics-and-ai"
         },
         "graph": {
@@ -867,7 +867,7 @@
       "gaps": [
         "Modeling integration, Semantic View Integration, and new MCP toolkits are Beta as of Sep 2026.",
         "AI Chat does not join or union DataSets. It queries each one and combines the results.",
-        "No metric, dimension, or verified-query object confirmed in the docs read.",
+        "No metric, dimension, or verified-query object confirmed in the docs.",
         "Domo is not in the Ossie converters repo."
       ],
       "fillWith": [
@@ -1308,7 +1308,7 @@
       ],
       "gaps": [
         "SEMANTIC_LAYERS defaults to False and sits in the Development (experimental) section of the feature flag docs.",
-        "The docs read do not say which release will ship the semantic layers stable.",
+        "The docs do not say which release will ship the semantic layers stable.",
         "MCP docs give no GA or Preview label. Needs Superset 5.0 or later, Python 3.11 or later, and fastmcp.",
         "No first-party NL-to-SQL, synonym, or verified-query feature was found."
       ],
@@ -1494,7 +1494,7 @@
     },
     {
       "topic": "Superset SEMANTIC_LAYERS flag",
-      "text": "SEMANTIC_LAYERS defaults to False and is listed in the Development stage of the feature flag docs, in both the current and 6.1.0 pages. The docs read do not name a release that makes it stable.",
+      "text": "SEMANTIC_LAYERS defaults to False and is listed in the Development stage of the feature flag docs, in both the current and 6.1.0 pages. The docs do not name a release that makes it stable.",
       "sources": [
         {
           "t": "Feature Flags - Apache Superset",

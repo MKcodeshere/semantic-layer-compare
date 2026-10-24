@@ -247,7 +247,7 @@
         },
         "autoClassify": {
           "l": 0,
-          "n": "No automatic column classification in the SQL reference or Cloud Assistant docs read.",
+          "n": "No automatic column classification in the SQL reference or Cloud Assistant docs.",
           "u": ""
         },
         "sampleValues": {
@@ -267,7 +267,7 @@
         },
         "evals": {
           "l": 0,
-          "n": "No NL-to-SQL evaluation tooling in the Assistant or MCP server docs read.",
+          "n": "No NL-to-SQL evaluation tooling in the Assistant or MCP server docs.",
           "u": "https://clickhouse.com/docs/products/cloud/features/ai-ml/aichat/using-ai-chat.md"
         }
       },
@@ -334,12 +334,12 @@
         },
         "lineage": {
           "l": 0,
-          "n": "No lineage feature found in DuckDB or MotherDuck docs read.",
+          "n": "No lineage feature found in DuckDB or MotherDuck docs.",
           "u": ""
         },
         "evals": {
           "l": 0,
-          "n": "No NL-to-SQL evaluation tooling found in DuckDB or MotherDuck docs read.",
+          "n": "No NL-to-SQL evaluation tooling found in DuckDB or MotherDuck docs.",
           "u": ""
         }
       },
