@@ -1,0 +1,105 @@
+{
+  "vendors": [
+    {
+      "id": "dremio",
+      "caps": {
+        "aiDescriptions": { "l": 2, "n": "Generative AI drafts wikis and labels for datasets, folders and sources. A search summary of older Cloud docs says preview. Check current status.", "u": "https://docs.dremio.com/cloud/tutorials/generating-labels-and-wikis" },
+        "bulkMetadata": { "l": 3, "n": "Catalog REST API sets tags per dataset; the overview says wikis too. Column descriptions: only an old forum post, which says roadmap.", "u": "https://docs.dremio.com/dremio-cloud/api/catalog/tag" },
+        "autoClassify": { "l": 0, "n": "No automatic PII or semantic-type classification found in the results reviewed.", "u": "" },
+        "sampleValues": { "l": 0, "n": "No value sampling for NL-to-SQL found. AI wiki generation reads schema and samples data, which is a different use.", "u": "https://docs.dremio.com/cloud/sonar/genai" },
+        "queryHistory": { "l": 0, "n": "No query-history mining for suggestions found in the results reviewed.", "u": "" },
+        "lineage": { "l": 1, "n": "Unverified natively. DataHub docs say its connector reads column-level lineage from Dremio. Dremio's own lineage page was not read.", "u": "https://docs.datahub.com/docs/generated/ingestion/sources/dremio" },
+        "evals": { "l": 0, "n": "No NL-to-SQL eval tooling found in the results reviewed.", "u": "" }
+      },
+      "enrichHowTo": "Turn on the Generative AI preference in Project Settings, then generate wikis and labels per dataset. For scripted writes, call the Catalog API tag endpoint POST /v0/projects/{project_id}/catalog/{id}/collaboration/tag for each dataset. Review all AI text, because Dremio warns it can be wrong.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": "https://docs.dremio.com/dremio-cloud/api/catalog/tag"
+      },
+      "sources": [
+        { "t": "Dremio Generative AI docs", "u": "https://docs.dremio.com/cloud/sonar/genai" },
+        { "t": "Generating labels and wikis", "u": "https://docs.dremio.com/cloud/tutorials/generating-labels-and-wikis" },
+        { "t": "Dremio Cloud Catalog API: tags", "u": "https://docs.dremio.com/dremio-cloud/api/catalog/tag" },
+        { "t": "Dremio community: comments and metadata on columns", "u": "https://community.dremio.com/t/comments-and-metadata-on-columns-and-how-it-helps-ai/12487" },
+        { "t": "DataHub Dremio source", "u": "https://docs.datahub.com/docs/generated/ingestion/sources/dremio" }
+      ]
+    },
+    {
+      "id": "denodo",
+      "caps": {
+        "aiDescriptions": { "l": 3, "n": "Denodo Assistant suggests view and column descriptions from sample data and metadata, in several languages. Added in 9.1 (Nov 2024).", "u": "https://www.denodo.com/en/press-release/2024-11-20/denodo-platform-91-brings-new-advanced-ai-capabilities-and-enhanced-data-lakehouse-performance" },
+        "bulkMetadata": { "l": 3, "n": "Denodo blog says new stored procedures fill empty view and column descriptions in batches. Procedure names not confirmed.", "u": "https://www.datamanagementblog.com/welcome-to-the-era-of-denodo-assistant/" },
+        "autoClassify": { "l": 0, "n": "No automatic classification found in Denodo sources reviewed. Third-party catalogs do this.", "u": "" },
+        "sampleValues": { "l": 3, "n": "AI SDK samples values per view during vectorization. Set examples_per_table = 0 to disable. SDK is a separate download.", "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.2/Denodo%20AI%20SDK%20-%20User%20Manual" },
+        "queryHistory": { "l": 0, "n": "No query-history mining found. Assistant gives personalized catalog recommendations from past user activity, which is not the same.", "u": "https://denodo.com/en/node/28501" },
+        "lineage": { "l": 0, "n": "Not confirmed. Denodo's own lineage docs were not reached. Informatica lists column-level lineage for Denodo in its own product.", "u": "" },
+        "evals": { "l": 3, "n": "AI SDK Evaluator runs questions with ground-truth VQL and scores F1 and overlap. A separate script scores speed.", "u": "https://community.denodo.com/kb/view/document/A%20Quick%20Guide%20to%20the%20Denodo%20AI%20SDK%20Evaluator" }
+      },
+      "enrichHowTo": "Use Denodo Assistant in the Data Catalog to suggest view and column descriptions, then run the batch stored procedures to fill empty ones. Look up the exact procedure names in the 9.1 or later VQL stored procedure docs. Test changes with the AI SDK Evaluator.",
+      "bulkSnippet": {
+        "lang": "sql",
+        "code": "",
+        "u": "https://www.datamanagementblog.com/welcome-to-the-era-of-denodo-assistant/"
+      },
+      "sources": [
+        { "t": "Denodo Platform 9.1 press release", "u": "https://www.denodo.com/en/press-release/2024-11-20/denodo-platform-91-brings-new-advanced-ai-capabilities-and-enhanced-data-lakehouse-performance" },
+        { "t": "Welcome to the era of Denodo Assistant", "u": "https://www.datamanagementblog.com/welcome-to-the-era-of-denodo-assistant/" },
+        { "t": "Denodo AI SDK User Manual 9.2", "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.2/Denodo%20AI%20SDK%20-%20User%20Manual" },
+        { "t": "A Quick Guide to the Denodo AI SDK Evaluator", "u": "https://community.denodo.com/kb/view/document/A%20Quick%20Guide%20to%20the%20Denodo%20AI%20SDK%20Evaluator" }
+      ]
+    },
+    {
+      "id": "starburst",
+      "caps": {
+        "aiDescriptions": { "l": 3, "n": "AI agent enrichment drafts data product and dataset descriptions; Galaxy has Enrich with AIDA. A May 2026 release says Automatic Metadata Enrichment is GA. Link between them unconfirmed.", "u": "https://docs.starburst.io/latest/starburst-ai/data-product-enrichment-ai.html" },
+        "bulkMetadata": { "l": 3, "n": "Trino COMMENT ON TABLE, VIEW, COLUMN sets one object per statement. Support depends on the connector. Python client manages data product tags.", "u": "https://trino.io/docs/current/sql/comment.html" },
+        "autoClassify": { "l": 0, "n": "No automatic column classification found. Galaxy attribute tags are applied by hand.", "u": "https://docs.starburst.io/starburst-galaxy/security-and-compliance/manage-galaxy-access/manage-users-roles-and-tags/create-and-use-attribute-tags" },
+        "sampleValues": { "l": 0, "n": "Unverified. Press coverage says AIDA uses live data sampling. No Starburst docs page confirmed it.", "u": "https://www.businesswire.com/news/home/20260413879669/en/Starburst-Announces-AI-Data-Assistant-AIDA-The-First-AI-Assistant-That-Reasons-Across-All-Enterprise-Data-for-Fast-Accurate-Decisions" },
+        "queryHistory": { "l": 0, "n": "No query-history mining for suggestions found in the results reviewed.", "u": "" },
+        "lineage": { "l": 0, "n": "No Starburst lineage page found. Searches returned unrelated results, so this is not proof of absence.", "u": "" },
+        "evals": { "l": 0, "n": "No NL-to-SQL eval tooling or feedback loop found in the results reviewed.", "u": "" }
+      },
+      "enrichHowTo": "Run the AI agent enrichment on data products, or use Enrich with AIDA in Galaxy, and review the output. For scripted writes, run Trino COMMENT ON COLUMN statements, one per column. Enrichment needs AI workflows and Agentic layer licenses and starburst.agent.enabled=true.",
+      "bulkSnippet": {
+        "lang": "sql",
+        "code": "COMMENT ON TABLE users IS 'master table';\nCOMMENT ON COLUMN users.name IS 'full name';",
+        "u": "https://trino.io/docs/current/sql/comment.html"
+      },
+      "sources": [
+        { "t": "Starburst AI agent-based data product enrichment", "u": "https://docs.starburst.io/latest/starburst-ai/data-product-enrichment-ai.html" },
+        { "t": "Galaxy: browse and organize data products", "u": "https://docs.starburst.io/starburst-galaxy/working-with-data/data-products/browse-organize-data-products.html" },
+        { "t": "Starburst Enterprise Intelligence Platform release", "u": "https://www.starburst.io/press-releases/starburst-unveils-enterprise-intelligence-platform-giving-enterprises-a-faster-path-to-trusted-ai/" },
+        { "t": "Trino COMMENT", "u": "https://trino.io/docs/current/sql/comment.html" },
+        { "t": "starburst-data-products-client (PyPI)", "u": "https://pypi.org/project/starburst-data-products-client/" },
+        { "t": "Galaxy attribute tags", "u": "https://docs.starburst.io/starburst-galaxy/security-and-compliance/manage-galaxy-access/manage-users-roles-and-tags/create-and-use-attribute-tags" }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "topic": "Method and limits",
+      "text": "WebFetch failed on every host (DNS error) and the shared WebSearch budget ran out partway. Facts come from search result summaries only, not from reading full pages. Read each cited page before publishing.",
+      "sources": []
+    },
+    {
+      "topic": "Vendors not covered",
+      "text": "timbr, dbt, cube, atscale, wrenai, malloy and honeydew have no entry. Nothing could be verified for them, and a guessed level 0 would read as a claim of absence. They need a rerun.",
+      "sources": []
+    },
+    {
+      "topic": "Dremio AI wiki status",
+      "text": "The preview label comes from a search summary of older docs.dremio.com/cloud/sonar pages. Newer dremio-cloud pages may differ. Dremio was described as part of SAP in a search result title.",
+      "sources": [
+        { "t": "Dremio Generative AI docs", "u": "https://docs.dremio.com/cloud/sonar/genai" }
+      ]
+    },
+    {
+      "topic": "Starburst AIDA release",
+      "text": "Search summaries say AIDA became GA on Galaxy and SEP in May 2026 and that Data Products as Code is in public preview. One result also dates an AIDA announcement 2026-04-13.",
+      "sources": [
+        { "t": "Starburst Enterprise Intelligence Platform release", "u": "https://www.starburst.io/press-releases/starburst-unveils-enterprise-intelligence-platform-giving-enterprises-a-faster-path-to-trusted-ai/" }
+      ]
+    }
+  ]
+}
