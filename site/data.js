@@ -606,6 +606,40 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": null,
    "worksWith": [],
+   "aliases": [
+    "Amazon Redshift",
+    "AWS",
+    "Amazon Quick",
+    "QuickSight",
+    "Amazon QuickSight",
+    "Quick Sight",
+    "Redshift Serverless",
+    "Query Editor v2"
+   ],
+   "askData": [
+    {
+     "name": "Amazon Q generative SQL in Query Editor v2",
+     "status": "GA",
+     "since": "2024-09",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The agent reads schema metadata, query history, and custom context that the admin supplies.",
+     "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
+    },
+    {
+     "name": "Amazon Quick chat (Dataset Q&A and Topics)",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The agent reads dataset field descriptions, enrichment metadata, Topic relationships, and custom instructions.",
+     "u": "https://docs.aws.amazon.com/quick/latest/userguide/using-quick-chat.html"
+    }
+   ],
    "enrichHowTo": "Write table and column comments in Redshift with COMMENT ON, and add TableAnnotations, ColumnAnnotations and CuratedQueries to the Q generative SQL custom context JSON. To draft descriptions and business names, publish the tables to SageMaker Catalog and run the DataZone StartMetadataGenerationRun API with types BUSINESS_DESCRIPTIONS and BUSINESS_NAMES, then review the drafts. The API takes at most 2 types per call and one asset per call.",
    "bulkSnippet": {
     "lang": "bash",
@@ -952,6 +986,40 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": "googlebigquery",
    "worksWith": [],
+   "aliases": [
+    "BigQuery",
+    "GCP",
+    "Google Cloud",
+    "Gemini in BigQuery",
+    "BigQuery Studio",
+    "Dataplex",
+    "Knowledge Catalog"
+   ],
+   "askData": [
+    {
+     "name": "BigQuery data canvas (Gemini in BigQuery)",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The feature reads table schemas and metadata to turn prompts into queries, charts, and workflow nodes.",
+     "u": "https://docs.cloud.google.com/bigquery/docs/data-canvas"
+    },
+    {
+     "name": "Conversational Analytics API",
+     "status": "GA",
+     "since": "2026-06",
+     "surfaces": [
+      "REST API",
+      "SDK"
+     ],
+     "output": "answer only",
+     "reads": "The data agent reads table metadata, instructions, and verified queries that you give it.",
+     "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview"
+    }
+   ],
    "enrichHowTo": "Run data insights on a table to draft table and column descriptions, edit them, and publish. For scripted writes, run ALTER TABLE ... ALTER COLUMN ... SET OPTIONS (description=...) per column. Then add verified queries and glossary terms to the data agent.",
    "bulkSnippet": {
     "lang": "sql",
@@ -1327,6 +1395,27 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": "sap",
    "worksWith": [],
+   "aliases": [
+    "SAP Datasphere",
+    "SAP Business Data Cloud",
+    "SAP BDC",
+    "SAP Data Warehouse Cloud",
+    "SAP DWC",
+    "SAP HANA Cloud"
+   ],
+   "askData": [
+    {
+     "name": "Generate SQL with AI (SAP Datasphere)",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The feature reads the source views that you drag into the prompt panel and your prompt text.",
+     "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/generate-sql-code-with-ai-d153065.md"
+    }
+   ],
    "enrichHowTo": "Turn on SAP Business AI for the tenant, then use AI-assisted catalog content generation to draft summaries and descriptions for catalog assets. In the Data Builder, run Generate > Generate Semantics to set semantic usage, keys and column semantic types. For scripted edits, export objects to CSN/JSON, edit them, and import them back, or use the datasphere command line."
   },
   {
@@ -1740,12 +1829,328 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": "snowflake",
    "worksWith": [],
+   "aliases": [
+    "Cortex",
+    "Snowflake Intelligence",
+    "CoWork",
+    "Snowflake CoWork",
+    "Cortex Analyst",
+    "Cortex Agents",
+    "Snowflake Cortex AI"
+   ],
+   "askData": [
+    {
+     "name": "Cortex Analyst",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "REST API"
+     ],
+     "output": "SQL",
+     "reads": "The service reads semantic views, including verified queries, and writes SQL for the question.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst"
+    },
+    {
+     "name": "Cortex Agents",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "REST API",
+      "SQL function"
+     ],
+     "output": "answer only",
+     "reads": "The agent uses Cortex Analyst with semantic views for structured data and Cortex Search for documents.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents"
+    },
+    {
+     "name": "Snowflake CoWork",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "The data agents read structured and unstructured data and use verified answers from your data team.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/snowflake-cowork"
+    }
+   ],
    "enrichHowTo": "Call the AI_GENERATE_TABLE_DESC stored procedure on each table with describe_columns set to true to draft table and column descriptions. Review them, then write the final text with ALTER TABLE ... ALTER (col COMMENT '...', ...), many columns per statement.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "ALTER TABLE t1 ALTER (\n  c1 COMMENT 'Customer key',\n  c5 COMMENT '50 character column'\n);",
     "u": "https://docs.snowflake.com/en/sql-reference/sql/alter-table-column"
    }
+  },
+  {
+   "id": "cloudera",
+   "name": "Cloudera",
+   "category": "lakehouse",
+   "aliases": [
+    "Cloudera Data Platform",
+    "CDP",
+    "Cloudera Data Warehouse",
+    "CDW",
+    "Cloudera Data Explorer",
+    "Hue",
+    "Cloudera Data Lineage",
+    "Octopai",
+    "Cloudera Anywhere Cloud"
+   ],
+   "tagline": "Hybrid data platform with Impala, Hive, Iceberg, a catalog, and a Hue SQL assistant.",
+   "verdict": "none",
+   "verdictNote": "No semantic layer or metric model was found. The SQL AI Assistant reads table metadata and three sample rows, and an Iceberg MCP server gives raw SQL access.",
+   "artifacts": [
+    {
+     "name": "SQL AI Assistant in Cloudera Data Explorer (Hue)",
+     "kind": "nl2sql",
+     "status": "Unverified",
+     "since": "2024-01",
+     "format": "UI; admin picks an LLM host; launched as tech preview, current docs show no stage label",
+     "url": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-ai-generate-sql-natural-language.html"
+    },
+    {
+     "name": "AI visual in Cloudera Data Visualization",
+     "kind": "nl2sql",
+     "status": "Unverified",
+     "since": "",
+     "format": "UI; admin enables it under AI Settings; version 7 docs said technical preview, version 8 docs show no label",
+     "url": "https://docs.cloudera.com/data-visualization/8/howto-visuals/topics/viz-visual-ai-assistant.html"
+    },
+    {
+     "name": "Cloudera Iceberg MCP server (via Impala)",
+     "kind": "mcp",
+     "status": "Preview",
+     "since": "2025",
+     "format": "Open-source Python server; tools execute_query and get_schema; read-only",
+     "url": "https://raw.githubusercontent.com/cloudera/iceberg-mcp-server/main/README.md"
+    },
+    {
+     "name": "Cloudera Semantic Search",
+     "kind": "vector",
+     "status": "Preview",
+     "since": "2026-05",
+     "format": "Vector database service on OpenSearch; docs call it a technical preview",
+     "url": "https://docs.cloudera.com/runtime/7.3.2/css-overview/css-overview.pdf"
+    },
+    {
+     "name": "Atlas glossary, tags and business metadata",
+     "kind": "glossary",
+     "status": "GA",
+     "since": "",
+     "format": "UI, CSV import, Atlas REST API",
+     "url": "https://docs.cloudera.com/runtime/7.1.1/atlas-managing-business-terms-with-glossaries/topics/atlas-terms-bulk-import.html"
+    },
+    {
+     "name": "Cloudera Data Lineage (formerly Octopai)",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2024-11",
+     "format": "Lineage platform with connectors; acquired from Octopai",
+     "url": "https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 0,
+     "n": "No governed metric objects found. Teams define metrics in BI tools or SQL views.",
+     "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-sql-ai-assistant-setup.html"
+    },
+    "dimensions": {
+     "l": 0,
+     "n": "No dimension or hierarchy objects found in the lakehouse docs read.",
+     "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-sql-ai-assistant-setup.html"
+    },
+    "relationships": {
+     "l": 1,
+     "n": "The SQL AI Assistant sends keys and constraints from the schema. Atlas holds no declared join model for AI.",
+     "u": "https://www.cloudera.com/blog/technical/setting-up-and-getting-started-with-cloudera-s-new-sql-ai-assist.html"
+    },
+    "synonyms": {
+     "l": 1,
+     "n": "Atlas glossary terms and business metadata exist. No doc says the SQL AI Assistant reads them.",
+     "u": "https://docs.cloudera.com/runtime/7.1.1/atlas-managing-business-terms-with-glossaries/topics/atlas-terms-bulk-import.html"
+    },
+    "verifiedQueries": {
+     "l": 0,
+     "n": "No verified query feature found in the SQL AI Assistant or Data Visualization docs.",
+     "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-sql-ai-assistant-setup.html"
+    },
+    "nl2sql": {
+     "l": 2,
+     "n": "SQL AI Assistant launched as tech preview in 2024. Current docs show no stage label, so the level stays at 2.",
+     "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-ai-generate-sql-natural-language.html"
+    },
+    "ontology": {
+     "l": 1,
+     "n": "Atlas glossary and classifications only. No object, link, or action model was found.",
+     "u": "https://docs.cloudera.com/data-catalog/1.5.5/core-concepts/topics/dc-atlas-tags-overview.html"
+    },
+    "graph": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "vector": {
+     "l": 2,
+     "n": "Cloudera Semantic Search offers vector and lexical search on OpenSearch. Docs call it a technical preview.",
+     "u": "https://docs.cloudera.com/runtime/7.3.2/css-overview/css-overview.pdf"
+    },
+    "mcp": {
+     "l": 2,
+     "n": "The Iceberg MCP server for Impala is in preview. It gives execute_query and get_schema, read-only.",
+     "u": "https://raw.githubusercontent.com/cloudera/iceberg-mcp-server/main/README.md"
+    },
+    "governance": {
+     "l": 3,
+     "n": "Cloudera says its MCP servers keep SDX policies. The assistant shares only data the signed-in user can see.",
+     "u": "https://www.cloudera.com/blog/technical/bringing-context-to-genai-with-cloudera-mpc-servers.html"
+    },
+    "openStandard": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "aiDescriptions": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "Atlas imports glossary terms and business metadata in bulk from CSV or XLS. The Atlas REST API also writes tags.",
+     "u": "https://docs.cloudera.com/runtime/7.1.1/atlas-managing-business-terms-with-glossaries/topics/atlas-terms-bulk-import.html"
+    },
+    "autoClassify": {
+     "l": 3,
+     "n": "Data Catalog profilers apply Atlas tags automatically. The Data Compliance and Cluster Sensitivity profilers do this.",
+     "u": "https://docs.cloudera.com/data-catalog/1.5.5/core-concepts/topics/dc-atlas-tags-overview.html"
+    },
+    "sampleValues": {
+     "l": 2,
+     "n": "The SQL AI Assistant sends three sample rows per table to the LLM. It does not match literals to values.",
+     "u": "https://www.cloudera.com/blog/technical/setting-up-and-getting-started-with-cloudera-s-new-sql-ai-assist.html"
+    },
+    "queryHistory": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "lineage": {
+     "l": 3,
+     "n": "Cloudera Data Lineage (Octopai) adds lineage for Spark, Hive, Impala, Databricks, and Snowflake. Column-level depth is not confirmed.",
+     "u": "https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html"
+    },
+    "evals": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    }
+   },
+   "enrichHowTo": "Write descriptions into the table with SQL comments in Hive or Impala, then import glossary terms and business metadata through the Atlas CSV import. Apply tags in bulk with the Atlas bulk classification REST endpoint. The SQL AI Assistant does not document a way to read glossary terms.",
+   "bulkSnippet": {
+    "lang": "bash",
+    "code": "curl -u \"$USER:$PASS\" -X POST \"$ATLAS_URL/api/atlas/v2/entity/bulk/classification\" \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"classification\":{\"typeName\":\"PII\"},\"entityGuids\":[\"<guid1>\",\"<guid2>\"]}'",
+    "u": "https://community.cloudera.com/t5/Support-Questions/REST-API-for-assigning-tag-to-an-entity/m-p/183828"
+   },
+   "offers": [
+    "The SQL AI Assistant in Hue writes, edits, fixes, and explains Hive and Impala SQL from a prompt.",
+    "The assistant uses RAG. It sends table names, column types, keys, partitions, constraints, and three sample rows to the LLM.",
+    "An open-source Iceberg MCP server lets agents list tables and run read-only SQL on Impala.",
+    "Atlas gives tags, glossary, and business metadata. Octopai-based Cloudera Data Lineage gives cross-system lineage.",
+    "Cloudera Semantic Search gives vector and keyword search for RAG, in technical preview."
+   ],
+   "gaps": [
+    "No semantic model, metric definitions, or declared join paths exist for AI to read.",
+    "The assistant cannot exclude chosen tables from its context, according to the 2024 launch blog.",
+    "The MCP server and Semantic Search are in preview. The MCP server gives only two tools.",
+    "No evals, verified queries, or query history mining were found in the docs read."
+   ],
+   "fillWith": [
+    "Cube",
+    "dbt Semantic Layer",
+    "AtScale"
+   ],
+   "nl2sqlPath": "Use the Iceberg MCP server so an agent reads the schema and runs read-only SQL on Impala. Put a semantic layer such as Cube or dbt on top, because Cloudera has none. Keep descriptions in table comments and the Atlas glossary.",
+   "snippet": {
+    "lang": "json",
+    "title": "Connect Claude Desktop to the Cloudera Iceberg MCP server",
+    "code": "{\n \"mcpServers\": {\n  \"iceberg-mcp-server\": {\n   \"command\": \"uvx\",\n   \"args\": [\n    \"--from\",\n    \"git+https://github.com/cloudera/iceberg-mcp-server@main\",\n    \"run-server\"\n   ],\n   \"env\": {\n    \"IMPALA_HOST\": \"coordinator-default-impala.example.com\",\n    \"IMPALA_PORT\": \"443\",\n    \"IMPALA_USER\": \"username\",\n    \"IMPALA_PASSWORD\": \"password\",\n    \"IMPALA_DATABASE\": \"default\"\n   }\n  }\n }\n}",
+    "u": "https://raw.githubusercontent.com/cloudera/iceberg-mcp-server/main/README.md"
+   },
+   "askData": [
+    {
+     "name": "SQL AI Assistant",
+     "status": "Unverified",
+     "since": "2024-01",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "Table names, column names and types, keys, partitions, constraints, and three sample rows per table.",
+     "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-ai-generate-sql-natural-language.html"
+    },
+    {
+     "name": "AI visual in Cloudera Data Visualization",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The dataset behind the visual. The similarity search mode needs a vectorized dataset.",
+     "u": "https://docs.cloudera.com/data-visualization/8/howto-visuals/topics/viz-create-ai-visual.html"
+    }
+   ],
+   "sources": [
+    {
+     "t": "Generating SQL from natural language in Cloudera Data Explorer (Hue)",
+     "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-ai-generate-sql-natural-language.html"
+    },
+    {
+     "t": "Setting up the Hue SQL AI Assistant",
+     "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-sql-ai-assistant-setup.html"
+    },
+    {
+     "t": "Getting started with Cloudera SQL AI Assistant (blog)",
+     "u": "https://www.cloudera.com/blog/technical/setting-up-and-getting-started-with-cloudera-s-new-sql-ai-assist.html"
+    },
+    {
+     "t": "Bringing Context to GenAI with MCP Servers (Cloudera blog)",
+     "u": "https://www.cloudera.com/blog/technical/bringing-context-to-genai-with-cloudera-mpc-servers.html"
+    },
+    {
+     "t": "Cloudera Iceberg MCP server (GitHub)",
+     "u": "https://raw.githubusercontent.com/cloudera/iceberg-mcp-server/main/README.md"
+    },
+    {
+     "t": "Cloudera Octopai release notes, January 2026",
+     "u": "https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html"
+    },
+    {
+     "t": "Cloudera Semantic Search overview",
+     "u": "https://docs.cloudera.com/runtime/7.3.2/css-overview/css-overview.pdf"
+    },
+    {
+     "t": "AI visual in Cloudera Data Visualization 8",
+     "u": "https://docs.cloudera.com/data-visualization/8/howto-visuals/topics/viz-visual-ai-assistant.html"
+    },
+    {
+     "t": "Importing glossary terms in bulk (Atlas)",
+     "u": "https://docs.cloudera.com/runtime/7.1.1/atlas-managing-business-terms-with-glossaries/topics/atlas-terms-bulk-import.html"
+    },
+    {
+     "t": "Atlas tags in Cloudera Data Catalog",
+     "u": "https://docs.cloudera.com/data-catalog/1.5.5/core-concepts/topics/dc-atlas-tags-overview.html"
+    },
+    {
+     "t": "Cloudera to acquire Octopai (press release)",
+     "u": "https://www.aap.com.au/aapreleases/globenewswire9273697/"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null,
+   "worksWith": []
   },
   {
    "id": "databricks",
@@ -2122,12 +2527,328 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": "databricks",
    "worksWith": [],
+   "aliases": [
+    "Azure Databricks",
+    "Unity Catalog",
+    "Genie",
+    "Genie One",
+    "Genie Agents",
+    "Genie Spaces",
+    "AI/BI Genie",
+    "Databricks One",
+    "Databricks SQL"
+   ],
+   "askData": [
+    {
+     "name": "Genie Agents",
+     "status": "GA",
+     "since": "2026-06",
+     "surfaces": [
+      "UI",
+      "REST API"
+     ],
+     "output": "SQL",
+     "reads": "The agent reads Unity Catalog tables and metric views, example SQL, and instructions that the analyst sets.",
+     "u": "https://docs.databricks.com/aws/en/genie-agents/set-up"
+    },
+    {
+     "name": "Genie One",
+     "status": "GA",
+     "since": "2026-06",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "Chat searches Genie Agents first, then dashboards, queries, and metric views, to answer the question.",
+     "u": "https://docs.databricks.com/aws/en/genie-one/chat"
+    }
+   ],
    "enrichHowTo": "Generate comments in Catalog Explorer with AI-generated comments, review each one, then save. For scripted writes, run ALTER TABLE ... ALTER COLUMN with several COMMENT clauses in one statement. Then add a Genie benchmark set and re-run it after each metadata change.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "ALTER TABLE students ALTER COLUMN\n  name COMMENT 'full name',\n  email COMMENT 'primary email';",
     "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-alter-table-manage-column"
    }
+  },
+  {
+   "id": "ibm-watsonx-data",
+   "name": "IBM watsonx.data",
+   "category": "lakehouse",
+   "aliases": [
+    "watsonx.data",
+    "IBM watsonx.data intelligence",
+    "watsonx.data integration",
+    "IBM Knowledge Catalog",
+    "IBM Data Intelligence",
+    "IBM Db2 Genius Hub",
+    "watsonx BI"
+   ],
+   "tagline": "IBM open lakehouse. A separate governance product adds glossary, text-to-SQL, and MCP.",
+   "verdict": "partial",
+   "verdictNote": "The lakehouse has no semantic model, but watsonx.data intelligence adds a glossary, enrichment, text-to-SQL, and an MCP server, and watsonx BI adds a metrics catalog.",
+   "artifacts": [
+    {
+     "name": "watsonx.data intelligence MCP server (managed)",
+     "kind": "mcp",
+     "status": "Preview",
+     "since": "2026-03",
+     "format": "Remote MCP endpoint with API key; IBM calls it tech preview; Software edition planned for June 2026",
+     "url": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+    },
+    {
+     "name": "Data Intelligence MCP server (open source)",
+     "kind": "mcp",
+     "status": "GA",
+     "since": "2025-09",
+     "format": "Python package on PyPI; stdio or HTTP; SaaS or Cloud Pak for Data 5.2.1 and later",
+     "url": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/README.md"
+    },
+    {
+     "name": "watsonx.data MCP server (managed, SaaS)",
+     "kind": "mcp",
+     "status": "Unverified",
+     "since": "2026-04",
+     "format": "Remote MCP for engines, catalogs, SQL and Spark; IBM gives no stage label",
+     "url": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2026/04/28/watsonxdata-mcp-server"
+    },
+    {
+     "name": "Text2SQL in watsonx.data intelligence",
+     "kind": "nl2sql",
+     "status": "Unverified",
+     "since": "2025-08",
+     "format": "UI and MCP tools; container must be enabled for text-to-SQL; no stage label found",
+     "url": "https://www.ibm.com/new/announcements/ibm-launches-ai-powered-text2sql-to-democratize-and-accelerate-data-access"
+    },
+    {
+     "name": "Metadata enrichment and business glossary",
+     "kind": "glossary",
+     "status": "GA",
+     "since": "",
+     "format": "UI, MCP tools, CSV import; AI-generated names, descriptions and term assignments",
+     "url": "https://community.ibm.com/community/user/blogs/gupta-neeru/2024/06/24/enrich-your-metadata-using-foundation-models-and-g"
+    },
+    {
+     "name": "watsonx BI metrics catalog",
+     "kind": "semantic-model",
+     "status": "Unverified",
+     "since": "2025-07",
+     "format": "UI; metrics and business concepts; separate product from watsonx.data",
+     "url": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
+    },
+    {
+     "name": "Milvus vector database in watsonx.data",
+     "kind": "vector",
+     "status": "GA",
+     "since": "2024-05",
+     "format": "Managed Milvus service in the console",
+     "url": "https://www.ibm.com/blog/announcements/watsonx-data-think"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 1,
+     "n": "The metrics catalog is in watsonx BI, a separate product. watsonx.data itself holds no metric objects.",
+     "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
+    },
+    "dimensions": {
+     "l": 1,
+     "n": "watsonx BI models business concepts and metrics. The lakehouse has no dimension or hierarchy objects.",
+     "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
+    },
+    "relationships": {
+     "l": 3,
+     "n": "Metadata enrichment runs primary key and foreign key analysis. The semantic model tool returns foreign keys to the text-to-SQL agent.",
+     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "Glossary terms and AI-generated descriptions attach to assets. The MCP server returns them to agents.",
+     "u": "https://community.ibm.com/community/user/blogs/gupta-neeru/2024/06/24/enrich-your-metadata-using-foundation-models-and-g"
+    },
+    "verifiedQueries": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "nl2sql": {
+     "l": 2,
+     "n": "Text2SQL launched in 2025. Docs and sources show no stage label, so the level stays at 2.",
+     "u": "https://www.ibm.com/new/announcements/ibm-launches-ai-powered-text2sql-to-democratize-and-accelerate-data-access"
+    },
+    "ontology": {
+     "l": 1,
+     "n": "Glossary terms, classifications, data classes, and data products. No object, link, or action model was found.",
+     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
+    },
+    "graph": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "vector": {
+     "l": 3,
+     "n": "Managed Milvus ships in watsonx.data. Enrichment also vectorizes metadata for text-to-SQL.",
+     "u": "https://www.ibm.com/blog/announcements/watsonx-data-think"
+    },
+    "mcp": {
+     "l": 3,
+     "n": "An open-source server on PyPI covers glossary, lineage, enrichment and text-to-SQL. A managed endpoint is in tech preview.",
+     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/README.md"
+    },
+    "governance": {
+     "l": 3,
+     "n": "MCP calls use the caller's permissions. IBM says masking and protection rules apply at query time.",
+     "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+    },
+    "openStandard": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "aiDescriptions": {
+     "l": 3,
+     "n": "Gen AI enrichment drafts table names, column names, descriptions, glossary terms, and term assignments.",
+     "u": "https://community.ibm.com/community/user/blogs/gupta-neeru/2024/06/24/enrich-your-metadata-using-foundation-models-and-g"
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "MCP tools import glossary CSV files and run enrichment jobs. Enrichment also runs from the UI.",
+     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
+    },
+    "autoClassify": {
+     "l": 3,
+     "n": "Enrichment assigns data classes and classifications. An MCP tool applies sensitivity labels to assets.",
+     "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+    },
+    "sampleValues": {
+     "l": 2,
+     "n": "The semantic model tool returns profiling data and sample values when they exist. It depends on the text-to-SQL feature.",
+     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
+    },
+    "queryHistory": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "lineage": {
+     "l": 3,
+     "n": "The catalog gives upstream and downstream lineage graphs through MCP. Column-level depth is not confirmed in the sources.",
+     "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+    },
+    "evals": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    }
+   },
+   "enrichHowTo": "Run a metadata enrichment job in watsonx.data intelligence on the target tables. It drafts names, descriptions, and glossary term assignments with an LLM. Then import business terms in bulk with the glossary CSV import tool and enable the project for text-to-SQL.",
+   "bulkSnippet": {
+    "lang": "json",
+    "code": "{\n \"tool\": \"import_glossary_from_csv\",\n \"prompt\": \"Validate this CSV before importing: <CSV content>\",\n \"note\": \"Set validate_only to check the format. Then run the import again to write the terms.\"\n}",
+    "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
+   },
+   "offers": [
+    "Glossary, classifications, and data classes in watsonx.data intelligence give an agent business meaning for columns.",
+    "Gen AI enrichment drafts names, descriptions, and term assignments, and vectorizes metadata for text-to-SQL.",
+    "An open-source MCP server exposes search, lineage, quality, glossary, and text-to-SQL tools to any MCP client.",
+    "Text-to-SQL tools read a semantic model with keys, foreign keys, profiling data, and sample values.",
+    "Milvus runs as a service in watsonx.data for vector search."
+   ],
+   "gaps": [
+    "The lakehouse has no declared metric or dimension objects. Metrics sit in watsonx BI, a separate product.",
+    "The managed MCP endpoint is in tech preview. Some text-to-SQL tools do not work in the AWS US East region.",
+    "No verified question and SQL pair feature was found in the sources read.",
+    "Key IBM docs pages return 403 to scripts, so stage labels are hard to confirm."
+   ],
+   "fillWith": [
+    "Cube",
+    "dbt Semantic Layer",
+    "Open Semantic Interchange tools"
+   ],
+   "nl2sqlPath": "Enrich the tables in watsonx.data intelligence and assign glossary terms. Enable the project for text-to-SQL. Then connect your agent through the open-source MCP server so it reads the semantic model before it writes SQL.",
+   "snippet": {
+    "lang": "json",
+    "title": "Connect an MCP client to the managed watsonx.data intelligence endpoint",
+    "code": "{\n \"mcpServers\": {\n  \"watsonx-di\": {\n   \"command\": \"npx\",\n   \"args\": [\n    \"mcp-remote\",\n    \"https://api.dataplatform.cloud.ibm.com/semantic_agents/public/v1/mcp_server/mcp\",\n    \"--header\",\n    \"x-api-key:<your-api-key>\"\n   ]\n  }\n }\n}",
+    "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+   },
+   "askData": [
+    {
+     "name": "Text2SQL in watsonx.data intelligence",
+     "status": "Unverified",
+     "since": "2025-08",
+     "surfaces": [
+      "UI",
+      "MCP"
+     ],
+     "output": "SQL",
+     "reads": "Enriched asset descriptions, glossary terms, vectorized metadata, keys, foreign keys, profiling data, and sample values.",
+     "u": "https://www.ibm.com/new/announcements/ibm-launches-ai-powered-text2sql-to-democratize-and-accelerate-data-access"
+    },
+    {
+     "name": "watsonx BI",
+     "status": "Unverified",
+     "since": "2025-07",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The metrics catalog, business concepts, display names, descriptions, and business terms.",
+     "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
+    },
+    {
+     "name": "Db2 Genius Hub Text-to-SQL Agent",
+     "status": "Unverified",
+     "since": "2026-04",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "Db2 schema context, table relationships, and the conversation so far.",
+     "u": "https://community.ibm.com/community/user/blogs/aditya-patil/2026/04/15/text2sql-db2-ai-assistant"
+    }
+   ],
+   "sources": [
+    {
+     "t": "From Chat to Action: watsonx.data intelligence MCP Server (IBM Community)",
+     "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+    },
+    {
+     "t": "watsonx.data MCP Server (IBM Community)",
+     "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2026/04/28/watsonxdata-mcp-server"
+    },
+    {
+     "t": "IBM Data Intelligence MCP server README",
+     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/README.md"
+    },
+    {
+     "t": "IBM Data Intelligence MCP server tools reference",
+     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
+    },
+    {
+     "t": "IBM launches AI-powered Text2SQL",
+     "u": "https://www.ibm.com/new/announcements/ibm-launches-ai-powered-text2sql-to-democratize-and-accelerate-data-access"
+    },
+    {
+     "t": "IBM watsonx BI (IBM Community)",
+     "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
+    },
+    {
+     "t": "watsonx.data at Think 2024 (IBM blog)",
+     "u": "https://www.ibm.com/blog/announcements/watsonx-data-think"
+    },
+    {
+     "t": "Enrich your metadata using generative AI (IBM Community)",
+     "u": "https://community.ibm.com/community/user/blogs/gupta-neeru/2024/06/24/enrich-your-metadata-using-foundation-models-and-g"
+    },
+    {
+     "t": "Text-2-SQL in Db2 Genius Hub (IBM Community)",
+     "u": "https://community.ibm.com/community/user/blogs/aditya-patil/2026/04/15/text2sql-db2-ai-assistant"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null,
+   "worksWith": []
   },
   {
    "id": "fabric",
@@ -2564,6 +3285,41 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": null,
    "worksWith": [],
+   "aliases": [
+    "Azure",
+    "OneLake",
+    "Synapse Data Warehouse in Fabric",
+    "Fabric Data Warehouse",
+    "Microsoft Fabric",
+    "Azure Synapse",
+    "Synapse Analytics",
+    "Fabric Lakehouse",
+    "Copilot in Fabric"
+   ],
+   "askData": [
+    {
+     "name": "Fabric data agent",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The agent reads schemas of up to five data sources, plus your instructions and example queries.",
+     "u": "https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent"
+    },
+    {
+     "name": "Copilot in Fabric Data Warehouse",
+     "status": "Preview",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "Copilot reads the schema of your warehouse and turns a natural language question into a SQL query.",
+     "u": "https://learn.microsoft.com/en-us/fabric/data-warehouse/copilot-chat-pane"
+    }
+   ],
    "enrichHowTo": "Add descriptions and synonyms to tables, columns and measures in the semantic model. Draft measure descriptions with Copilot or with generate_measure_descriptions in semantic-link-labs (needs F64 or higher), then review them. For SQL sources, set schema descriptions with update_description and add example queries with add_fewshots in the data agent SDK.",
    "bulkSnippet": {
     "lang": "python",
@@ -2829,12 +3585,284 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": "teradata",
    "worksWith": [],
+   "aliases": [
+    "Teradata Vantage",
+    "Vantage",
+    "VantageCloud",
+    "Teradata Autonomous Knowledge Platform",
+    "Teradata AI Studio",
+    "Teradata Cloud"
+   ],
+   "askData": [
+    {
+     "name": "Tera natural language workspace",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "Tera uses governed enterprise context to answer questions in natural language.",
+     "u": "https://www.teradata.com/press-releases/2026/introducing-the-autonomous-knowledge-platform"
+    }
+   ],
    "enrichHowTo": "Write column and table comments with the COMMENT statement, one statement per object, from a script. Comment text is capped at 255 characters. The Teradata MCP server can also load descriptions, glossary terms and cubes from YAML for an agent. Draft text with your own LLM job and review it by hand.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "COMMENT ON COLUMN sales.orders.status IS 'open, shipped, or cancelled. Exclude cancelled from revenue.';",
     "u": "https://docs.teradata.com/r/SQL-Data-Definition-Language-Syntax-and-Examples/July-2021/Comment-Help-and-Show-Statements/COMMENT-Comment-Placing-Form/COMMENT-Syntax-Comment-Placing-Form"
    }
+  },
+  {
+   "id": "mongodb",
+   "name": "MongoDB Atlas",
+   "category": "oltp",
+   "tagline": "Document database with natural-language query tools, a MCP server and Vector Search.",
+   "verdict": "none",
+   "verdictNote": "Atlas has no semantic model. Its natural-language tools turn a question into an MQL query from the schema, and the MCP server exposes collection schema.",
+   "artifacts": [
+    {
+     "name": "Natural language querying in Compass",
+     "kind": "nl2sql",
+     "status": "Unverified",
+     "since": "",
+     "format": "UI; Compass 1.40 or later; output is MQL filters and aggregations; docs show no stage label and a rolling release",
+     "url": "https://www.mongodb.com/docs/compass/query-with-natural-language.md"
+    },
+    {
+     "name": "Natural language querying in Atlas Data Explorer",
+     "kind": "nl2sql",
+     "status": "Unverified",
+     "since": "",
+     "format": "UI; output is MQL; docs show no stage label and a rolling release",
+     "url": "https://www.mongodb.com/docs/atlas/atlas-ui/query-with-natural-language.md"
+    },
+    {
+     "name": "MongoDB MCP Server (local and Atlas managed)",
+     "kind": "mcp",
+     "status": "Unverified",
+     "since": "",
+     "format": "MCP tools for find, aggregate, collection-schema, vector search indexes; local or Atlas hosted; docs show no stage label",
+     "url": "https://www.mongodb.com/docs/mcp-server/tools.md"
+    },
+    {
+     "name": "MongoDB Vector Search",
+     "kind": "vector",
+     "status": "GA",
+     "since": "",
+     "format": "Vector indexes, hybrid search with $rankFusion and $scoreFusion, Automated Embedding with Voyage AI models",
+     "url": "https://www.mongodb.com/docs/vector-search/llms.txt"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 0,
+     "n": "No metric object. Teams write aggregation pipelines or use outside tools.",
+     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+    },
+    "dimensions": {
+     "l": 0,
+     "n": "No dimension or hierarchy object in the docs read.",
+     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+    },
+    "relationships": {
+     "l": 0,
+     "n": "No declared joins. Queries use $lookup at run time.",
+     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+    },
+    "synonyms": {
+     "l": 0,
+     "n": "The natural-language tools read schema details. The docs read show no store for business descriptions.",
+     "u": "https://www.mongodb.com/docs/atlas/atlas-ui/query-with-natural-language.md"
+    },
+    "verifiedQueries": {
+     "l": 0,
+     "n": "No verified query store in the natural-language tools. The docs give prompt tips only.",
+     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+    },
+    "nl2sql": {
+     "l": 2,
+     "n": "Compass and Atlas Data Explorer turn a question into MQL. Docs show no stage label and a rolling release.",
+     "u": "https://www.mongodb.com/docs/compass/query-with-natural-language.md"
+    },
+    "ontology": {
+     "l": 0,
+     "n": "No entity or link model above collections.",
+     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query language in the docs read. Teams use $graphLookup or a graph database.",
+     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+    },
+    "vector": {
+     "l": 3,
+     "n": "Vector Search has vector indexes and hybrid search. Automated Embedding creates embeddings with Voyage AI models.",
+     "u": "https://www.mongodb.com/docs/vector-search/llms.txt"
+    },
+    "mcp": {
+     "l": 3,
+     "n": "The official MongoDB MCP Server runs locally or as an Atlas managed server. It has query, schema and vector tools.",
+     "u": "https://www.mongodb.com/docs/mcp-server/tools.md"
+    },
+    "governance": {
+     "l": 3,
+     "n": "Docs advise read-only mode and a read-only database user for the MCP server, so database roles apply.",
+     "u": "https://www.mongodb.com/docs/mcp-server/local-mcp/security-best-practices.md"
+    },
+    "openStandard": {
+     "l": 0,
+     "n": "No portable semantic format. No Open Semantic Interchange support found.",
+     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+    },
+    "aiDescriptions": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "bulkMetadata": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "autoClassify": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "sampleValues": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "queryHistory": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "lineage": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "evals": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    }
+   },
+   "offers": [
+    "Compass and Atlas Data Explorer generate MQL filters and aggregation pipelines from a question.",
+    "The MongoDB MCP Server has tools for find, aggregate, collection-schema and vector search indexes.",
+    "The MCP server has a read-only mode, and it works with Atlas, Community and Enterprise Advanced.",
+    "Vector Search supports hybrid search and Automated Embedding with Voyage AI models.",
+    "The natural-language guide gives prompt tips for MQL generation."
+   ],
+   "gaps": [
+    "No semantic model for metrics, dimensions or relationships.",
+    "No store for business descriptions or synonyms that the AI reads.",
+    "No verified query store for examples.",
+    "NL output is MQL, so SQL-based tools do not use it.",
+    "The docs show no stage label for the natural-language tools."
+   ],
+   "fillWith": [
+    "Cube",
+    "Atlas SQL interface with a SQL semantic layer",
+    "Custom prompt layer with schema notes"
+   ],
+   "nl2sqlPath": "Use Compass or Atlas Data Explorer to draft MQL. For agents, connect the MongoDB MCP Server in read-only mode and let the agent call collection-schema first. Add your own field notes in the prompt.",
+   "snippet": {
+    "lang": "other",
+    "title": "Natural language question and the MQL that Compass generates",
+    "code": "// Prompt: Show me the genres and runtime of 10 movies\n// from 2015 that have the most comments\ndb.movies.aggregate([\n  { $match: { year: 2015 } },\n  { $sort: { num_mflix_comments: -1 } },\n  { $limit: 10 },\n  { $project: { _id: 0, genres: 1, runtime: 1 } }\n]);",
+    "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+   },
+   "sources": [
+    {
+     "t": "Natural Language to MongoDB Queries",
+     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+    },
+    {
+     "t": "Compass natural language querying",
+     "u": "https://www.mongodb.com/docs/compass/query-with-natural-language.md"
+    },
+    {
+     "t": "Atlas natural language querying",
+     "u": "https://www.mongodb.com/docs/atlas/atlas-ui/query-with-natural-language.md"
+    },
+    {
+     "t": "MongoDB MCP Server tools",
+     "u": "https://www.mongodb.com/docs/mcp-server/tools.md"
+    },
+    {
+     "t": "MongoDB MCP Server overview",
+     "u": "https://www.mongodb.com/docs/mcp-server/overview.md"
+    },
+    {
+     "t": "MCP Server security best practices",
+     "u": "https://www.mongodb.com/docs/mcp-server/local-mcp/security-best-practices.md"
+    },
+    {
+     "t": "MongoDB Vector Search docs index",
+     "u": "https://www.mongodb.com/docs/vector-search/llms.txt"
+    },
+    {
+     "t": "Automated Embedding",
+     "u": "https://www.mongodb.com/docs/vector-search/crud-embeddings/automated-embedding/overview.md"
+    }
+   ],
+   "verified": "2026-10-24",
+   "enrichHowTo": "The docs read show no bulk metadata API for the natural-language tools. Keep field notes in your own prompt file. The MCP collection-schema tool returns schema information that an agent can read.",
+   "bulkSnippet": {
+    "lang": "json",
+    "code": "{\n  \"mcpServers\": {\n    \"MongoDB\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"mongodb-mcp-server@latest\", \"--readOnly\"]\n    }\n  }\n}",
+    "u": "https://www.mongodb.com/docs/mcp-server/local-mcp/security-best-practices.md"
+   },
+   "aliases": [
+    "MongoDB",
+    "Atlas",
+    "MongoDB Atlas Vector Search",
+    "MongoDB MCP Server",
+    "Atlas Data Explorer",
+    "MongoDB Compass"
+   ],
+   "askData": [
+    {
+     "name": "Natural language querying in Compass",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "MQL",
+     "reads": "Collection schema details from the connected database. Docs show no semantic model or verified queries.",
+     "u": "https://www.mongodb.com/docs/compass/query-with-natural-language.md"
+    },
+    {
+     "name": "Natural language querying in Atlas Data Explorer",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "MQL",
+     "reads": "Collection schema details from the Atlas cluster. Docs show no semantic model or verified queries.",
+     "u": "https://www.mongodb.com/docs/atlas/atlas-ui/query-with-natural-language.md"
+    },
+    {
+     "name": "MongoDB MCP Server",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "MCP"
+     ],
+     "output": "answer only",
+     "reads": "Collection schema from the collection-schema tool. The client LLM writes the queries and the server runs them.",
+     "u": "https://www.mongodb.com/docs/mcp-server/tools.md"
+    }
+   ],
+   "logo": null,
+   "worksWith": []
   },
   {
    "id": "oracle",
@@ -3106,12 +4134,251 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": null,
    "worksWith": [],
+   "aliases": [
+    "Oracle Autonomous Database",
+    "Oracle AI Database",
+    "Oracle Database 26ai",
+    "Autonomous AI Database",
+    "Select AI",
+    "OCI",
+    "Oracle Database 23ai"
+   ],
+   "askData": [
+    {
+     "name": "Select AI",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "SQL function",
+      "SDK"
+     ],
+     "output": "SQL",
+     "reads": "Select AI reads the object list of your AI profile and sends the schema metadata to the LLM.",
+     "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/select-ai.html"
+    }
+   ],
    "enrichHowTo": "Write business meaning into table and column annotations and COMMENT ON text, then set comments and annotations to true in the Select AI profile. Add annotations with ALTER TABLE ... ANNOTATIONS (ADD name 'value'), and column ones with ALTER TABLE ... MODIFY col ANNOTATIONS (ADD name 'value'). Record good answers with DBMS_CLOUD_AI.FEEDBACK.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "ALTER TABLE Table1 ANNOTATIONS(ADD JoinOperations 'Join');\nALTER TABLE Table1 MODIFY T ANNOTATIONS(ADD Label, DROP Identity);\n-- then in the Select AI profile attributes: \"annotations\": \"true\"",
     "u": "https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/registering-application-data-usage-database.html"
    }
+  },
+  {
+   "id": "mysql-heatwave",
+   "name": "Oracle MySQL HeatWave",
+   "category": "oltp",
+   "tagline": "Managed MySQL with in-database analytics, machine learning, GenAI, vector store and Lakehouse.",
+   "verdict": "none",
+   "verdictNote": "HeatWave has no semantic model object. Its NL_SQL routine reads schema names and table and column comments, but teams define no metrics or joins.",
+   "artifacts": [
+    {
+     "name": "NL_SQL routine (sys.NL_SQL)",
+     "kind": "nl2sql",
+     "status": "GA",
+     "since": "",
+     "format": "SQL stored procedure; select statements only; available as of MySQL 9.4.1; docs show no preview label",
+     "url": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+    },
+    {
+     "name": "ML_RETRIEVE_SCHEMA_METADATA routine",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "SQL stored procedure; ranks relevant tables for a question; available as of MySQL 9.5.2",
+     "url": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-ml-retrieve-schema-metadata.html"
+    },
+    {
+     "name": "HeatWave GenAI vector store",
+     "kind": "vector",
+     "status": "GA",
+     "since": "",
+     "format": "SQL routines; embeddings in VECTOR columns; retrieval-augmented generation",
+     "url": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
+    },
+    {
+     "name": "MySQL MCP server (Oracle reference implementation)",
+     "kind": "mcp",
+     "status": "Preview",
+     "since": "",
+     "format": "Python MCP server over stdio; Oracle states it is a proof of concept, not for production",
+     "url": "https://raw.githubusercontent.com/oracle/mcp/main/src/mysql-mcp-server/README.md"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 0,
+     "n": "No metric object. Teams use SQL views or an outside semantic layer.",
+     "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
+    },
+    "dimensions": {
+     "l": 0,
+     "n": "No dimension or hierarchy object. NL_SQL reads table and column names only.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+    },
+    "relationships": {
+     "l": 0,
+     "n": "No join model. NL_SQL collects schema, table and column data for the prompt.",
+     "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "NL_SQL option include_comments is true by default, so table and column comments reach the LLM.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+    },
+    "verifiedQueries": {
+     "l": 0,
+     "n": "NL_SQL has no store for verified question and SQL pairs.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+    },
+    "nl2sql": {
+     "l": 3,
+     "n": "CALL sys.NL_SQL generates and runs SELECT statements, with up to 3 retries. Docs show no preview label.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+    },
+    "ontology": {
+     "l": 0,
+     "n": "No entity, link or action model in the docs read.",
+     "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query language in the HeatWave docs read.",
+     "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
+    },
+    "vector": {
+     "l": 3,
+     "n": "HeatWave GenAI has a vector store, embeddings in VECTOR columns and retrieval-augmented generation routines.",
+     "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
+    },
+    "mcp": {
+     "l": 1,
+     "n": "Oracle publishes a reference MySQL MCP server with an NL-to-SQL tool. Oracle says it is a proof of concept.",
+     "u": "https://raw.githubusercontent.com/oracle/mcp/main/src/mysql-mcp-server/README.md"
+    },
+    "governance": {
+     "l": 3,
+     "n": "NL_SQL works only on databases and tables that the caller can access.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+    },
+    "openStandard": {
+     "l": 0,
+     "n": "No portable semantic format. No Open Semantic Interchange support found.",
+     "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
+    },
+    "aiDescriptions": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "Table and column comments are plain MySQL DDL, and NL_SQL reads them. Teams script ALTER TABLE statements.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+    },
+    "autoClassify": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "sampleValues": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "queryHistory": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "lineage": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "evals": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    }
+   },
+   "offers": [
+    "NL_SQL turns a question into a SELECT statement and runs it inside the database.",
+    "The schemas and tables options limit the context to up to 5 databases and 50 tables.",
+    "ML_RETRIEVE_SCHEMA_METADATA ranks the tables that fit a question and returns short CREATE TABLE text.",
+    "The include_comments option sends table and column comments to the LLM.",
+    "The vector store and Lakehouse keep documents and object storage files near the data."
+   ],
+   "gaps": [
+    "No semantic model with metrics, dimensions or declared joins.",
+    "No verified query store for few-shot examples.",
+    "NL_SQL generates SELECT statements only.",
+    "Oracle MCP server is a proof of concept and not for production."
+   ],
+   "fillWith": [
+    "Cube",
+    "dbt Semantic Layer",
+    "Custom prompt layer with table comments"
+   ],
+   "nl2sqlPath": "Write clear comments on tables and columns. Call sys.NL_SQL with the schemas or tables option to limit context. For metrics and joins, add an outside semantic layer and send its SQL to HeatWave.",
+   "snippet": {
+    "lang": "sql",
+    "title": "Generate and run SQL from a question with NL_SQL",
+    "code": "CALL sys.NL_SQL(\n  \"How many flights are there in total?\",\n  @output,\n  JSON_OBJECT('schemas', JSON_ARRAY('airportdb'),\n              'model_id', 'llama3.2-3b-instruct-v1'));\nSELECT JSON_PRETTY(@output);",
+    "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
+   },
+   "sources": [
+    {
+     "t": "HeatWave NL_SQL routine",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+    },
+    {
+     "t": "HeatWave ML_RETRIEVE_SCHEMA_METADATA",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-ml-retrieve-schema-metadata.html"
+    },
+    {
+     "t": "MySQL AI User Guide, NL-to-SQL",
+     "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
+    },
+    {
+     "t": "Oracle MySQL MCP server README",
+     "u": "https://raw.githubusercontent.com/oracle/mcp/main/src/mysql-mcp-server/README.md"
+    },
+    {
+     "t": "MySQL HeatWave on OCI",
+     "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
+    }
+   ],
+   "verified": "2026-10-24",
+   "enrichHowTo": "Write table and column comments with ALTER TABLE statements, for example ALTER TABLE t MODIFY col INT COMMENT 'text'. NL_SQL reads these comments when include_comments is true. Use the schemas option to limit the tables that the LLM sees.",
+   "bulkSnippet": {
+    "lang": "sql",
+    "code": "ALTER TABLE airportdb.flight\n  COMMENT = 'One row for each scheduled flight';\n-- NL_SQL reads comments by default\nCALL sys.NL_SQL('List flights by airline', @out,\n  JSON_OBJECT('include_comments', true));",
+    "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+   },
+   "aliases": [
+    "HeatWave",
+    "MySQL HeatWave Lakehouse",
+    "HeatWave GenAI",
+    "MySQL AI",
+    "Oracle MySQL Database Service"
+   ],
+   "askData": [
+    {
+     "name": "HeatWave GenAI NL_SQL",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "SQL function",
+      "MCP"
+     ],
+     "output": "SQL",
+     "reads": "Schema, table and column names, plus table and column comments. It has no semantic model or verified queries.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+    }
+   ],
+   "logo": null,
+   "worksWith": []
   },
   {
    "id": "postgres",
@@ -3475,12 +4742,252 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": "postgresql",
    "worksWith": [],
+   "aliases": [
+    "Postgres",
+    "PostgreSQL"
+   ],
+   "askData": [],
    "enrichHowTo": "Run COMMENT ON TABLE and COMMENT ON COLUMN for each object from a script that reads descriptions from a file or catalog. Read them back with obj_description and col_description when you build the prompt. Postgres has no AI generator, so draft text with your own LLM job and review it.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "COMMENT ON TABLE my_schema.my_table IS 'Employee Information';\nCOMMENT ON COLUMN my_table.my_column IS 'Employee ID number';\nCOMMENT ON TABLE mytable IS NULL;  -- removes a comment",
     "u": "https://raw.githubusercontent.com/postgres/postgres/master/doc/src/sgml/ref/comment.sgml"
    }
+  },
+  {
+   "id": "singlestore",
+   "name": "SingleStore",
+   "category": "oltp",
+   "tagline": "Distributed SQL database for transactions, analytics and vector search, with a managed AI analyst.",
+   "verdict": "partial",
+   "verdictNote": "Analyst gives a Domain with descriptions, relationships, business rules and trained queries, but it is a context service and not a metric model.",
+   "artifacts": [
+    {
+     "name": "Analyst Domain (formerly Aura Analyst)",
+     "kind": "nl2sql",
+     "status": "Unverified",
+     "since": "",
+     "format": "UI Creator Mode: Business Rules, Learned Context, Semantic Layer, Trained Queries; docs show no stage label",
+     "url": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    {
+     "name": "Analyst API",
+     "kind": "agent",
+     "status": "Preview",
+     "since": "",
+     "format": "REST with streaming chat endpoint and API keys; docs say Preview",
+     "url": "https://docs.singlestore.com/cloud/ai/analyst/analyst-api.md"
+    },
+    {
+     "name": "SingleStore MCP Server",
+     "kind": "mcp",
+     "status": "Unverified",
+     "since": "",
+     "format": "Python MCP server for database, notebook and job tools; docs show no stage label",
+     "url": "https://docs.singlestore.com/cloud/ai/singlestore-mcp-server.md"
+    },
+    {
+     "name": "Vector type and ANN index",
+     "kind": "vector",
+     "status": "GA",
+     "since": "",
+     "format": "VECTOR column type and indexed approximate-nearest-neighbor search in SQL",
+     "url": "https://docs.singlestore.com/cloud/developer-resources/functional-extensions/working-with-vector-data.md"
+    },
+    {
+     "name": "AI and ML Functions",
+     "kind": "annotations",
+     "status": "Unverified",
+     "since": "",
+     "format": "SQL functions that run GenAI, embedding and ML models in managed Python UDFs",
+     "url": "https://docs.singlestore.com/cloud/ai/ai-ml-functions.md"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 1,
+     "n": "No metric object. Formulas live in Business Rules text and in Trained Queries.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    "dimensions": {
+     "l": 0,
+     "n": "No dimension or hierarchy object in the docs read.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    "relationships": {
+     "l": 2,
+     "n": "Semantic Layer holds join relationships with cardinality. A crawler finds joins and gives a confidence score. No stage label.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    "synonyms": {
+     "l": 2,
+     "n": "Business Rules hold vocabulary and term mapping. AI drafts table and column descriptions. No stage label.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    "verifiedQueries": {
+     "l": 2,
+     "n": "Trained Queries store SQL patterns and metric formulas that Analyst reuses. No stage label.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    "nl2sql": {
+     "l": 2,
+     "n": "Analyst turns questions into SQL and runs them. The Analyst API is Preview and the app shows no stage label.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    "ontology": {
+     "l": 0,
+     "n": "A Domain scopes tables and rules. It has no entity, link or action model.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query language in the docs read.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    "vector": {
+     "l": 3,
+     "n": "Native VECTOR type and indexed approximate-nearest-neighbor search in SQL.",
+     "u": "https://docs.singlestore.com/cloud/developer-resources/functional-extensions/working-with-vector-data.md"
+    },
+    "mcp": {
+     "l": 2,
+     "n": "SingleStore MCP server covers database, notebook and job tools. Docs show no stage label.",
+     "u": "https://docs.singlestore.com/cloud/ai/singlestore-mcp-server.md"
+    },
+    "governance": {
+     "l": 2,
+     "n": "Analyst runs queries as a Domain user with SELECT on chosen tables. Domain roles control access.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    "openStandard": {
+     "l": 0,
+     "n": "No portable semantic format. No Open Semantic Interchange support found.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    "aiDescriptions": {
+     "l": 2,
+     "n": "Analyst uses AI to infer table and column descriptions when a Domain is created. Owners should review them.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    "bulkMetadata": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "autoClassify": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "sampleValues": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "queryHistory": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "lineage": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "evals": {
+     "l": 2,
+     "n": "The Accuracy page reviews recorded conversations and feedback. Owners approve Learned Context. A preview chat tests changes.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    }
+   },
+   "offers": [
+    "A Domain limits Analyst to chosen tables and holds descriptions, joins and rules.",
+    "Learned Context proposes facts from user chats, and an owner must approve each one.",
+    "Trained Queries give Analyst proven SQL for key metrics and frequent questions.",
+    "Draft and published versions let owners test changes before users see them.",
+    "The Analyst API and the MCP server give programs access to the feature."
+   ],
+   "gaps": [
+    "No metric or dimension objects. Formulas are text rules or SQL examples.",
+    "The docs show no stage label for the Analyst app. The Analyst API is Preview.",
+    "Analyst keeps the cluster active, because it collects metadata every hour.",
+    "No open semantic format is documented."
+   ],
+   "fillWith": [
+    "Cube",
+    "dbt Semantic Layer"
+   ],
+   "nl2sqlPath": "Create an Analyst Domain on a read-only cluster, review the AI descriptions, check the relationships and add Business Rules. Add Trained Queries for key metrics. Use the Analyst API to embed it.",
+   "snippet": {
+    "lang": "sql",
+    "title": "Vector column for semantic search in SingleStore",
+    "code": "CREATE TABLE comments(id INT,\n  comment TEXT,\n  comment_embedding VECTOR(4),\n  category VARCHAR(256));",
+    "u": "https://docs.singlestore.com/cloud/developer-resources/functional-extensions/working-with-vector-data.md"
+   },
+   "sources": [
+    {
+     "t": "SingleStore Analyst",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    {
+     "t": "Analyst API",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst/analyst-api.md"
+    },
+    {
+     "t": "SingleStore MCP Server",
+     "u": "https://docs.singlestore.com/cloud/ai/singlestore-mcp-server.md"
+    },
+    {
+     "t": "Working with Vector Data",
+     "u": "https://docs.singlestore.com/cloud/developer-resources/functional-extensions/working-with-vector-data.md"
+    },
+    {
+     "t": "AI and ML Functions",
+     "u": "https://docs.singlestore.com/cloud/ai/ai-ml-functions.md"
+    }
+   ],
+   "verified": "2026-10-24",
+   "enrichHowTo": "Create an Analyst Domain and let it draft table and column descriptions with AI. Then edit them in the Semantic Layer Database tab. You can add relationships one by one or in bulk.",
+   "bulkSnippet": {
+    "lang": "sql",
+    "code": "-- Analyst Domain: connect a read-only cluster, then select tables.\n-- Descriptions are drafted by AI and edited in Creator Mode.\n-- No bulk SQL or API for descriptions found in the docs read.",
+    "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+   },
+   "aliases": [
+    "SingleStore Helios",
+    "SingleStoreDB",
+    "MemSQL",
+    "SingleStore Aura",
+    "Aura Analyst",
+    "SingleStore Analyst"
+   ],
+   "askData": [
+    {
+     "name": "Analyst",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "REST API"
+     ],
+     "output": "SQL",
+     "reads": "Domain schema descriptions, joins, Business Rules, approved Learned Context and Trained Queries.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    {
+     "name": "Analyst API",
+     "status": "Preview",
+     "since": "",
+     "surfaces": [
+      "REST API"
+     ],
+     "output": "SQL",
+     "reads": "The same Domain context as Analyst, through an API key bound to one Domain.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst/analyst-api.md"
+    }
+   ],
+   "logo": null,
+   "worksWith": []
   },
   {
    "id": "sqlserver",
@@ -3786,6 +5293,39 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": null,
    "worksWith": [],
+   "aliases": [
+    "Azure SQL Database",
+    "Azure SQL Managed Instance",
+    "MSSQL",
+    "Microsoft SQL Server",
+    "SQL Server",
+    "SSMS",
+    "SQL database in Fabric"
+   ],
+   "askData": [
+    {
+     "name": "GitHub Copilot in SSMS",
+     "status": "GA",
+     "since": "2026-03",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "Copilot reads the context of the connected database and the active query editor, plus your custom instructions.",
+     "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/overview"
+    },
+    {
+     "name": "Microsoft Copilot in Azure for Azure SQL Database",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "Copilot reads database context, catalog views, dynamic management views, and Query Store data.",
+     "u": "https://learn.microsoft.com/en-us/azure/azure-sql/copilot/copilot-azure-sql-overview"
+    }
+   ],
    "enrichHowTo": "Store business meaning as extended properties with sys.sp_addextendedproperty and the name MS_Description, and loop over a metadata table to write many. Update existing ones with sys.sp_updateextendedproperty. For GitHub Copilot in SSMS, store instructions as extended properties named AGENTS.md per object or CONSTITUTION.md per database. Run Data Discovery and Classification in SSMS to tag sensitive columns.",
    "bulkSnippet": {
     "lang": "sql",
@@ -4101,12 +5641,274 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": "clickhouse",
    "worksWith": [],
+   "aliases": [
+    "ClickHouse Cloud",
+    "ClickHouse Agents",
+    "ClickHouse Assistant"
+   ],
+   "askData": [
+    {
+     "name": "ClickHouse Assistant",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The Assistant reads active tabs, saved queries, schemas, and dashboards in the Cloud console.",
+     "u": "https://clickhouse.com/docs/products/cloud/features/ai-ml/aichat/using-ai-chat"
+    },
+    {
+     "name": "ClickHouse Agents",
+     "status": "Preview",
+     "since": "2026-06",
+     "surfaces": [
+      "UI",
+      "MCP"
+     ],
+     "output": "answer only",
+     "reads": "The agent follows your instructions and calls the tools that you attach, then returns results.",
+     "u": "https://clickhouse.com/docs/products/cloud/features/ai-ml/agents/index.md"
+    }
+   ],
    "enrichHowTo": "Set column text with ALTER TABLE ... COMMENT COLUMN, one statement per column, and table text with ALTER TABLE ... MODIFY COMMENT, from a script. Read comments from system.columns when you build the prompt. ClickHouse has no description generator, so draft with your own LLM job.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "ALTER TABLE visits COMMENT COLUMN browser 'This column shows the browser used for accessing the site.'",
     "u": "https://clickhouse.com/docs/reference/statements/alter/column.md"
    }
+  },
+  {
+   "id": "startree",
+   "name": "StarTree",
+   "category": "realtime-olap",
+   "aliases": [
+    "StarTree Cloud",
+    "Apache Pinot",
+    "Pinot",
+    "CosmiQ",
+    "StarTree MCP Server"
+   ],
+   "tagline": "Managed Apache Pinot for real-time analytics, with an AI agent and Spaces.",
+   "verdict": "partial",
+   "verdictNote": "CosmiQ Spaces hold descriptions, rules, joins, and verified queries for Pinot tables, but Spaces are a proprietary text context and not a typed metric model.",
+   "artifacts": [
+    {
+     "name": "CosmiQ Spaces",
+     "kind": "semantic-model",
+     "status": "Unverified",
+     "since": "",
+     "format": "UI editor and REST API; descriptions, synonyms, rules, joins, query policy, verified queries; docs show no stage label",
+     "url": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    },
+    {
+     "name": "CosmiQ conversational analytics agent",
+     "kind": "agent",
+     "status": "Unverified",
+     "since": "",
+     "format": "Chat UI, REST API, and a text_to_sql MCP tool; runs Claude on AWS Bedrock",
+     "url": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    },
+    {
+     "name": "StarTree MCP Server for Apache Pinot",
+     "kind": "mcp",
+     "status": "GA",
+     "since": "2025-05",
+     "format": "Hosted at mcp.<domain>/mcp with OAuth; open-source base mcp-pinot; install through StarTree",
+     "url": "https://docs.startree.ai/corecapabilities/ai/mcp/overview.md"
+    },
+    {
+     "name": "Vector index",
+     "kind": "vector",
+     "status": "GA",
+     "since": "",
+     "format": "Table index config; approximate nearest neighbor search",
+     "url": "https://docs.startree.ai/corecapabilities/manage-data/indexes/vector-index.md"
+    },
+    {
+     "name": "Native Vector Auto Embedding",
+     "kind": "vector",
+     "status": "Announced",
+     "since": "",
+     "format": "Docs say coming soon",
+     "url": "https://docs.startree.ai/corecapabilities/ai/overview.md"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 2,
+     "n": "A Space holds canonical metric definitions as plain-text business rules. They are not typed metric objects.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    },
+    "dimensions": {
+     "l": 2,
+     "n": "Spaces store column descriptions, sample values, and time formats. No hierarchy or time grain objects were found.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    },
+    "relationships": {
+     "l": 2,
+     "n": "A Space lists explicit join paths between tables so the agent does not guess.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    },
+    "synonyms": {
+     "l": 2,
+     "n": "Bootstrap and the editor store column descriptions and synonyms. The agent reads them in its prompt.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    },
+    "verifiedQueries": {
+     "l": 2,
+     "n": "Spaces keep question and SQL pairs. Matching uses token overlap and embedding similarity.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    },
+    "nl2sql": {
+     "l": 2,
+     "n": "CosmiQ writes and runs Pinot SQL from plain English. The docs show no stage label.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    },
+    "ontology": {
+     "l": 0,
+     "n": "No entity, link, or action model in the CosmiQ or MCP docs read. Teams use Spaces.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    },
+    "graph": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "vector": {
+     "l": 3,
+     "n": "Pinot vector index supports similarity search in StarTree Cloud. Auto embedding is announced, not shipped.",
+     "u": "https://docs.startree.ai/corecapabilities/manage-data/indexes/vector-index.md"
+    },
+    "mcp": {
+     "l": 3,
+     "n": "The hosted MCP server lists tables, reads table details, and runs SELECT queries. StarTree installs it for you.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/mcp/overview.md"
+    },
+    "governance": {
+     "l": 2,
+     "n": "Space policy sets read-only mode, row limits, timeouts, and do_not_use columns. Docs do not say Spaces inherit row security.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    },
+    "openStandard": {
+     "l": 0,
+     "n": "Spaces are a StarTree format with no export spec found. The MCP server follows the open MCP protocol.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    },
+    "aiDescriptions": {
+     "l": 2,
+     "n": "Bootstrap samples live data and drafts column descriptions, synonyms, rules, and starter verified queries with an LLM.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    },
+    "bulkMetadata": {
+     "l": 2,
+     "n": "The PATCH Spaces endpoint edits tables, rules, joins, policy, and verified queries through the API.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md"
+    },
+    "autoClassify": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "sampleValues": {
+     "l": 2,
+     "n": "Bootstrap reads distinct counts, ranges, and sample values for low-cardinality columns and stores them in the Space.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    },
+    "queryHistory": {
+     "l": 0,
+     "n": "The Query Analyzer mines slow queries for tuning advice. No doc says it builds semantic context.",
+     "u": "https://docs.startree.ai/llms.txt"
+    },
+    "lineage": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "evals": {
+     "l": 2,
+     "n": "Thumbs up and down ratings feed a suggestions endpoint that proposes verified queries. No benchmark tool was found.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md"
+    }
+   },
+   "enrichHowTo": "Call POST /api/bootstrap/space on the Pinot tables. It drafts descriptions, synonyms, joins, rules, and starter verified queries. Review the draft, then edit it with PATCH /api/spaces/{id}.",
+   "bulkSnippet": {
+    "lang": "bash",
+    "code": "curl -X PATCH \"https://<cosmiq-host>/api/spaces/<id>\" \\\n  -H \"Authorization: Bearer <token>\" \\\n  -H \"Content-Type: application/json\" \\\n  -d @space-edits.json",
+    "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md"
+   },
+   "offers": [
+    "Spaces give the agent column descriptions, synonyms, business rules, join paths, and verified queries for each Pinot table.",
+    "Bootstrap drafts a Space from table schema, config, and sampled live data, so teams review instead of write.",
+    "Query policy sets read-only mode, row limits, timeouts, and columns the agent must not select.",
+    "CosmiQ exposes a text_to_sql MCP tool, and the StarTree MCP server exposes read-only Pinot tools.",
+    "Pinot has a vector index for similarity search next to real-time analytics."
+   ],
+   "gaps": [
+    "Spaces are free text rules, not typed metrics or dimensions, and no export format was found.",
+    "CosmiQ docs show no stage label and no launch date. It runs on Claude through AWS Bedrock.",
+    "The StarTree MCP server is installed through StarTree, and the custom context and guardrails features were listed as coming soon.",
+    "No lineage, classification, or catalog feature was found in the docs read."
+   ],
+   "fillWith": [
+    "Cube",
+    "dbt Semantic Layer"
+   ],
+   "nl2sqlPath": "Bootstrap a Space for the Pinot tables and review the draft rules and joins. Add verified queries for the questions people ask most. Then call CosmiQ through its text_to_sql MCP tool or the REST API.",
+   "snippet": {
+    "lang": "json",
+    "title": "Add the CosmiQ text_to_sql tool to an MCP client",
+    "code": "{\n \"mcpServers\": {\n  \"cosmiq\": {\n   \"type\": \"http\",\n   \"url\": \"http://<cosmiq-host>/mcp\"\n  }\n }\n}",
+    "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/usage.md"
+   },
+   "askData": [
+    {
+     "name": "CosmiQ",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "REST API",
+      "MCP"
+     ],
+     "output": "SQL",
+     "reads": "The Space: column descriptions, synonyms, sample values, business rules, join paths, query policy, and verified queries.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    }
+   ],
+   "sources": [
+    {
+     "t": "CosmiQ overview (StarTree docs)",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    },
+    {
+     "t": "CosmiQ API reference",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md"
+    },
+    {
+     "t": "How to use CosmiQ",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/usage.md"
+    },
+    {
+     "t": "StarTree MCP Server overview",
+     "u": "https://docs.startree.ai/corecapabilities/ai/mcp/overview.md"
+    },
+    {
+     "t": "AI-Powered Analytics at StarTree",
+     "u": "https://docs.startree.ai/corecapabilities/ai/overview.md"
+    },
+    {
+     "t": "Vector index (StarTree docs)",
+     "u": "https://docs.startree.ai/corecapabilities/manage-data/indexes/vector-index.md"
+    },
+    {
+     "t": "Introducing StarTree's MCP Server for Apache Pinot",
+     "u": "https://startree.ai/resources/startree-mcp-server-for-apache-pinot/"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null,
+   "worksWith": []
   },
   {
    "id": "duckdb",
@@ -4378,6 +6180,11 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": "duckdb",
    "worksWith": [],
+   "aliases": [
+    "DuckDB",
+    "DuckLake"
+   ],
+   "askData": [],
    "enrichHowTo": "Write COMMENT ON TABLE and COMMENT ON COLUMN statements from a script, and read them back through duckdb_tables() or duckdb_columns() when you build the prompt. There is no AI generator, so draft with your own LLM job. Comments cannot be set on schemas or databases.",
    "bulkSnippet": {
     "lang": "sql",
@@ -4662,6 +6469,39 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": null,
    "worksWith": [],
+   "aliases": [
+    "Denodo Platform",
+    "Virtual DataPort",
+    "VDP",
+    "Denodo Data Marketplace",
+    "Denodo Assistant",
+    "Denodo AI SDK"
+   ],
+   "askData": [
+    {
+     "name": "Denodo Assistant",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "VQL",
+     "reads": "The Assistant reads view metadata and metric views, and uses the LLM that you configure.",
+     "u": "https://community.denodo.com/docs/html/browse/9.5/en/platform/new_features/what_is_new_9_5"
+    },
+    {
+     "name": "Denodo AI SDK",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "REST API",
+      "SDK"
+     ],
+     "output": "VQL",
+     "reads": "The SDK indexes view metadata as vectors and uses an LLM that you supply to write VQL.",
+     "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20AI%20SDK%20-%20User%20Manual"
+    }
+   ],
    "enrichHowTo": "Configure Denodo Assistant, then call DENODO_ASSISTANT_GENERATE_VIEW_DESCRIPTION and DENODO_ASSISTANT_GENERATE_FIELDS_DESCRIPTION for each view, or use the Assistant in Design Studio. Review the text and write it back with the VQL DESCRIPTION clause. Maximum description length is 4,000 characters.",
    "bulkSnippet": {
     "lang": "sql",
@@ -4950,6 +6790,24 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": null,
    "worksWith": [],
+   "aliases": [
+    "Dremio Cloud",
+    "Dremio Software",
+    "Dremio Enterprise Lakehouse"
+   ],
+   "askData": [
+    {
+     "name": "Dremio AI agent",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The agent works on data and entities that you can access, and uses project context and instructions.",
+     "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent/"
+    }
+   ],
    "enrichHowTo": "Turn on AI under Admin > Project > AI, then use Generate wiki and Generate labels on each dataset and review the text. For scripted writes, call the Catalog API: POST /v0/projects/{project_id}/catalog/{id}/collaboration/wiki for wikis and .../collaboration/tag for labels, one dataset per call.",
    "bulkSnippet": {
     "lang": "bash",
@@ -5238,6 +7096,27 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": "trino",
    "worksWith": [],
+   "aliases": [
+    "Starburst Galaxy",
+    "Starburst Enterprise",
+    "SEP",
+    "Starburst AI",
+    "AIDA",
+    "Starburst AI Data Assistant"
+   ],
+   "askData": [
+    {
+     "name": "AI Data Assistant (AIDA)",
+     "status": "GA",
+     "since": "2025-11",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "AIDA reads the chosen data product, its business rules, and the persona that you select.",
+     "u": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
+    }
+   ],
    "enrichHowTo": "In the Data products tab, select a data product and click Enrich with AI (Enrich with AIDA in Galaxy), enable data sampling if allowed, then review and save. For scripted writes, run Trino COMMENT ON COLUMN statements, one per column. Enrichment needs AI workflows and Agentic layer licenses and starburst.agent.enabled=true.",
    "bulkSnippet": {
     "lang": "sql",
@@ -5546,6 +7425,36 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": null,
    "worksWith": [],
+   "aliases": [
+    "Timbr.ai",
+    "Timbr ontology",
+    "Ask Timbr",
+    "Timbr SQL"
+   ],
+   "askData": [
+    {
+     "name": "Ask Timbr",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "Timbr SQL",
+     "reads": "Ask Timbr reads the ontology, the knowledge base rules, and the examples in your Timbr platform.",
+     "u": "https://docs.timbr.ai/doc/docs/general/changelog/"
+    },
+    {
+     "name": "Timbr LangChain SDK",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "SDK"
+     ],
+     "output": "Timbr SQL",
+     "reads": "The SDK reads the ontology concepts, relationships, and annotations, and uses your LLM to write Timbr SQL.",
+     "u": "https://docs.timbr.ai/doc/docs/integration/langchain-sdk/"
+    }
+   ],
    "enrichHowTo": "Use Ontology Explorer to generate descriptions for concepts, properties and measures with the active LLM, then review them. For scripted writes, use SQL DDL: CREATE OR REPLACE CONCEPT ... DESCRIPTION, ALTER CONSTRAINT ... SET DESCRIPTION for relationships, and ALTER CONCEPT ... UPDATE TAG for tags.",
    "bulkSnippet": {
     "lang": "sql",
@@ -5788,6 +7697,25 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "AtScale Semantic Layer",
+    "AtScale Design Center",
+    "SML",
+    "Semantic Modeling Language"
+   ],
+   "askData": [
+    {
+     "name": "Natural Language Query (NLQ)",
+     "status": "Unverified",
+     "since": "2024-09",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The feature uses the AtScale semantic layer metadata and business context to write simple SQL.",
+     "u": "https://www.atscale.com/press/new-natural-language-query-capabilities-with-semantic-layer-integration/"
+    }
+   ],
    "enrichHowTo": "Add description and label to each SML object (model, dimension, metric) in the Git repository and deploy. For many objects, script the edits with the open-source SML SDK or CLI, or convert an existing model with the SML converters. Review changes in pull requests.",
    "bulkSnippet": {
     "lang": "yaml",
@@ -6110,6 +8038,26 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "Cube Cloud",
+    "Cube Core",
+    "Cube.js",
+    "Cube Analytics Chat"
+   ],
+   "askData": [
+    {
+     "name": "Analytics Chat",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "REST API"
+     ],
+     "output": "semantic model query",
+     "reads": "The agent queries the Cube semantic model and follows its access control and security context.",
+     "u": "https://docs.cube.dev/docs/explore-analyze/analytics-chat.md"
+    }
+   ],
    "enrichHowTo": "Write description on every cube, view, measure and dimension, and add meta.ai_context on views and members for agent-only hints such as synonyms. If you use dbt, cube_dbt can render cubes from manifest.json including model descriptions. Commit the YAML to Git and review changes there.",
    "bulkSnippet": {
     "lang": "python",
@@ -6380,6 +8328,42 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "dbt Labs",
+    "dbt Cloud",
+    "dbt platform",
+    "dbt Semantic Layer",
+    "MetricFlow",
+    "dbt Copilot",
+    "dbt Wizard",
+    "dbt Core"
+   ],
+   "askData": [
+    {
+     "name": "dbt Wizard",
+     "status": "Preview",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "CLI",
+      "MCP"
+     ],
+     "output": "answer only",
+     "reads": "The agent reads project lineage, documentation, tests, and semantic definitions. Explore mode answers questions about production data.",
+     "u": "https://docs.getdbt.com/docs/platform/wizard-platform"
+    },
+    {
+     "name": "dbt MCP text_to_sql tool",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "MCP"
+     ],
+     "output": "SQL",
+     "reads": "The tool generates SQL from natural language and uses dbt project context. It uses the dbt Copilot action allotment.",
+     "u": "https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools"
+    }
+   ],
    "enrichHowTo": "Generate model YAML with the dbt-codegen macro generate_model_yaml (upstream_descriptions copies matching column descriptions), fill in descriptions with dbt Wizard or by hand, then set persist_docs for relation and columns so dbt writes them as database comments on each run.",
    "bulkSnippet": {
     "lang": "bash",
@@ -6655,6 +8639,25 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "Honeydew AI"
+   ],
+   "askData": [
+    {
+     "name": "Deep Analysis",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "Slack",
+      "Teams",
+      "GraphQL API",
+      "MCP"
+     ],
+     "output": "SQL",
+     "reads": "The agent queries the entities, attributes, and metrics of its domain. The semantic compiler writes the SQL.",
+     "u": "https://honeydew.ai/docs/integration/context-layer/deep-analysis.md"
+    }
+   ],
    "enrichHowTo": "Put an AI-specific description, synonyms and allowed values in the honeydew_ai metadata block of each attribute, metric and entity, in Studio or in the YAML files. Use an AI coding agent through the Honeydew MCP server to draft them, then review in Git. Descriptive object names matter most.",
    "bulkSnippet": {
     "lang": "yaml",
@@ -6983,6 +8986,27 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": "looker",
    "worksWith": [],
+   "aliases": [
+    "LookML",
+    "Google Looker",
+    "Looker (Google Cloud core)",
+    "Looker (original)"
+   ],
+   "askData": [
+    {
+     "name": "Conversational Analytics in Looker",
+     "status": "GA",
+     "since": "2025-11",
+     "surfaces": [
+      "UI",
+      "REST API",
+      "Embed"
+     ],
+     "output": "LookML query",
+     "reads": "The agent queries up to five Explores. It reads agent instructions and verified queries.",
+     "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
+    }
+   ],
    "enrichHowTo": "Write description, label and synonyms parameters on LookML fields, keep text short and in business words, and hide internal ID fields. Commit the files through the Looker IDE and Git. Add verified queries to the conversational analytics agent as examples."
   },
   {
@@ -7197,6 +9221,10 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "Malloy Publisher"
+   ],
+   "askData": [],
    "enrichHowTo": "Write a #\" annotation above each source and field you want described; the explorer renders it as Markdown. Edit the .malloy files in bulk with scripts or an AI coding agent and review in Git. Malloy does not have a metadata API.",
    "bulkSnippet": {
     "lang": "other",
@@ -7433,6 +9461,26 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "Wren AI",
+    "WrenAI",
+    "Wren Engine",
+    "Wren AI Cloud"
+   ],
+   "askData": [
+    {
+     "name": "Wren AI Cloud GenBI",
+     "status": "GA",
+     "since": "2024-10",
+     "surfaces": [
+      "UI",
+      "REST API"
+     ],
+     "output": "SQL",
+     "reads": "The text-to-SQL engine reads the MDL semantic model with metric definitions, joins, and worked examples.",
+     "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
+    }
+   ],
    "enrichHowTo": "If you use dbt, run wren context import dbt to carry model and column descriptions and tests into the project. Then add definitions, enums and example NL-SQL pairs with the enrich-context skill or by editing instructions.md and knowledge/ files, and review them in Git.",
    "bulkSnippet": {
     "lang": "bash",
@@ -7678,6 +9726,10 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": "apachesuperset",
+   "aliases": [
+    "Apache Superset"
+   ],
+   "askData": [],
    "enrichHowTo": "Export datasets with superset export_datasources, edit the column and metric description fields in the YAML, and import them back with superset import_datasources. The same data model is available over the REST API. Superset has no AI description feature, so draft descriptions elsewhere and load them this way.",
    "bulkSnippet": {
     "lang": "bash",
@@ -8023,7 +10075,359 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "Domo AI",
+    "Domo AI Chat",
+    "DomoGPT"
+   ],
+   "askData": [
+    {
+     "name": "AI Chat",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "The feature queries each DataSet the user selects. It also reads Documents and the Knowledge Base.",
+     "u": "https://www.domo.com/docs/s/article/AI-Chat-v2.md"
+    }
+   ],
    "enrichHowTo": "Open the AI Readiness tab on each DataSet, add DataSet context, synonyms and column context, and switch on AI Enabled for the columns Domo AI should use. If column descriptions live in Snowflake, ask your Domo account team to turn on Schema tab metadata sync. Governance Toolkit Tag Management jobs apply tags to many DataSets at once."
+  },
+  {
+   "id": "hex",
+   "name": "Hex",
+   "category": "bi",
+   "tagline": "Collaborative notebook and BI platform with semantic models, Threads, Context Studio, and an MCP server.",
+   "aliases": [
+    "Hex Technologies"
+   ],
+   "verdict": "partial",
+   "verdictNote": "Hex Threads is GA and reads semantic models and endorsed data, but native semantic authoring, Snowflake sync, and the MCP server are Beta.",
+   "artifacts": [
+    {
+     "name": "Semantic projects (authored in the Modeling Workbench, YAML)",
+     "kind": "semantic-model",
+     "status": "Preview",
+     "since": "",
+     "format": "GUI, YAML",
+     "url": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-authoring/modeling-specification"
+    },
+    {
+     "name": "Semantic Model Sync (dbt MetricFlow, Cube, Snowflake Semantic Views)",
+     "kind": "semantic-model",
+     "status": "Preview",
+     "since": "",
+     "format": "YAML, hex context CLI",
+     "url": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/intro"
+    },
+    {
+     "name": "Apache Ossie sync (convert with the Hex CLI)",
+     "kind": "semantic-model",
+     "status": "Preview",
+     "since": "",
+     "format": "YAML, CLI",
+     "url": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/ossie"
+    },
+    {
+     "name": "Threads (conversational analytics agent)",
+     "kind": "agent",
+     "status": "GA",
+     "since": "",
+     "format": "GUI, Slack",
+     "url": "https://learn.hex.tech/docs/explore-data/threads"
+    },
+    {
+     "name": "Notebook agent",
+     "kind": "agent",
+     "status": "GA",
+     "since": "",
+     "format": "GUI",
+     "url": "https://learn.hex.tech/docs/explore-data/notebook-view/notebook-agent"
+    },
+    {
+     "name": "Context Studio (guides, endorsements, models, suggestions)",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "GUI, CLI",
+     "url": "https://learn.hex.tech/docs/agent-management/context-studio"
+    },
+    {
+     "name": "Hex MCP server",
+     "kind": "mcp",
+     "status": "Preview",
+     "since": "",
+     "format": "MCP, OAuth",
+     "url": "https://learn.hex.tech/docs/api-integrations/mcp-server"
+    },
+    {
+     "name": "Evals (agent test suites)",
+     "kind": "agent",
+     "status": "GA",
+     "since": "2026-08",
+     "format": "YAML, CLI",
+     "url": "https://learn.hex.tech/docs/agent-management/evals"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 2,
+     "n": "Measures are defined in semantic projects. Native authoring and sync from MetricFlow, Cube, and Snowflake are Beta.",
+     "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/intro"
+    },
+    "dimensions": {
+     "l": 2,
+     "n": "Dimensions are typed columns or expressions in a model. The YAML spec is Beta. No hierarchy object was read.",
+     "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-authoring/modeling-specification"
+    },
+    "relationships": {
+     "l": 2,
+     "n": "Joins link models in one semantic project. The YAML spec has many_to_one relations. Joins across projects are not possible.",
+     "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/intro"
+    },
+    "synonyms": {
+     "l": 2,
+     "n": "Models, dimensions, and measures have a description field. Guides and workspace rules add context. No synonym field was found.",
+     "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-authoring/modeling-specification"
+    },
+    "verifiedQueries": {
+     "l": 3,
+     "n": "Endorsements mark trusted tables, projects, and semantic models. Agents rank endorsed assets first. Endorsed Mode limits agents to them.",
+     "u": "https://learn.hex.tech/docs/agent-management/context-management/endorsements-in-context-studio"
+    },
+    "nl2sql": {
+     "l": 3,
+     "n": "Threads is available on all plans and prioritizes semantic models and endorsed data. The Notebook agent writes code.",
+     "u": "https://learn.hex.tech/docs/explore-data/threads"
+    },
+    "ontology": {
+     "l": 0,
+     "n": "The Hex documentation index has no ontology object. Teams use semantic projects with guides.",
+     "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/intro-to-semantic-models"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query feature in the Hex documentation index.",
+     "u": ""
+    },
+    "vector": {
+     "l": 0,
+     "n": "No vector search feature in the Hex documentation index.",
+     "u": ""
+    },
+    "mcp": {
+     "l": 2,
+     "n": "The Hex MCP server is in Beta on Team and Enterprise plans. It runs Threads, searches projects, and edits notebooks.",
+     "u": "https://learn.hex.tech/docs/api-integrations/mcp-server"
+    },
+    "governance": {
+     "l": 3,
+     "n": "The MCP server enforces workspace roles and project permissions. Endorsements and Context Studio observability show which context agents use.",
+     "u": "https://learn.hex.tech/docs/api-integrations/mcp-server"
+    },
+    "openStandard": {
+     "l": 2,
+     "n": "Hex imports Apache Ossie files through a CLI conversion step (Alpha). It also syncs dbt MetricFlow, Cube, and Snowflake Semantic Views.",
+     "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/ossie"
+    },
+    "aiDescriptions": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "The hex context CLI syncs guides, semantic projects, and evals from Git. Hex also reads dbt Cloud model and column descriptions.",
+     "u": "https://learn.hex.tech/docs/agent-management/context-management/context-sync"
+    },
+    "autoClassify": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "sampleValues": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "queryHistory": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "lineage": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "evals": {
+     "l": 3,
+     "n": "Eval suites in YAML grade agent threads with rubrics. Teams run them on a schedule or against a Context Preview.",
+     "u": "https://learn.hex.tech/docs/agent-management/evals"
+    }
+   },
+   "enrichHowTo": "Connect dbt Cloud so Hex reads model and column descriptions. Keep guides, semantic projects, and eval suites in Git and sync them with the hex context CLI. Then endorse the trusted tables in Context Studio.",
+   "bulkSnippet": {
+    "lang": "bash",
+    "code": "",
+    "u": "https://learn.hex.tech/docs/agent-management/context-management/context-sync"
+   },
+   "askData": [
+    {
+     "name": "Threads",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "MCP"
+     ],
+     "output": "answer only",
+     "reads": "Semantic models, endorsed tables and projects, guides, and workspace rules. Endorsed Mode limits the agent to endorsed assets.",
+     "u": "https://learn.hex.tech/docs/explore-data/threads"
+    },
+    {
+     "name": "Notebook agent",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "Data connections, semantic models, project context, warehouse schema, and the workspace rules file.",
+     "u": "https://learn.hex.tech/docs/explore-data/notebook-view/notebook-agent"
+    }
+   ],
+   "offers": [
+    "Threads reads semantic models and endorsed data, and each Thread opens as a notebook for review.",
+    "Semantic Model Sync imports dbt MetricFlow, Cube, and Snowflake Semantic Views into Explore.",
+    "Context Studio holds guides, endorsements, and Suggestions that the data team can approve.",
+    "Evals test agent answers with rubrics and run from the CLI or on a schedule.",
+    "The Hex MCP server lets outside assistants search projects and run Threads."
+   ],
+   "gaps": [
+    "Native semantic authoring, Snowflake Semantic Views sync, and the MCP server are Beta.",
+    "Unity Catalog metric views appear in the Data browser, but sync of these views is not supported yet.",
+    "No synonym field was found in the semantic YAML spec.",
+    "Ossie import needs a CLI conversion step and is Alpha."
+   ],
+   "fillWith": [
+    "Cube",
+    "dbt MetricFlow",
+    "Snowflake Semantic Views"
+   ],
+   "nl2sqlPath": "Define or sync a semantic project, then endorse the trusted tables and add guides in Context Studio. Test the agent with an eval suite before each context change. For your own agent, use the Hex MCP server and expect Beta limits.",
+   "snippet": {
+    "lang": "yaml",
+    "title": "Hex semantic model with a dimension, a measure, and a relation",
+    "code": "id: users\ntype: model\nbase_sql_table: public.users\ndimensions:\n  - id: email\n    type: string\n    unique: true\nmeasures:\n  - id: total_users\n    func: count\nrelations:\n  - id: organizations\n    type: many_to_one\n    join_sql: org_id = ${organizations}.id",
+    "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-authoring/modeling-specification"
+   },
+   "worksWith": [
+    "Snowflake",
+    "Databricks",
+    "BigQuery",
+    "Amazon Redshift",
+    "Amazon Athena",
+    "PostgreSQL",
+    "MySQL",
+    "MariaDB",
+    "Microsoft SQL Server",
+    "ClickHouse",
+    "MotherDuck",
+    "AlloyDB",
+    "Cloud SQL",
+    "Presto",
+    "Starburst",
+    "Trino"
+   ],
+   "worksWithUrl": "https://learn.hex.tech/docs/connect-to-data/data-connections/data-connections-introduction",
+   "openToOtherTools": {
+    "l": 2,
+    "n": "The Hex MCP server (Beta) lets Claude, Cursor, ChatGPT, and others run Threads. A Hex converter exists in the Ossie repo.",
+    "u": "https://learn.hex.tech/docs/api-integrations/mcp-server"
+   },
+   "sources": [
+    {
+     "t": "Hex MCP Server",
+     "u": "https://learn.hex.tech/docs/api-integrations/mcp-server"
+    },
+    {
+     "t": "Intro to Semantic Modeling",
+     "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/intro-to-semantic-models"
+    },
+    {
+     "t": "Introduction to Semantic Model Sync",
+     "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/intro"
+    },
+    {
+     "t": "Semantic YAML specification",
+     "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-authoring/modeling-specification"
+    },
+    {
+     "t": "Syncing from Apache Ossie",
+     "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/ossie"
+    },
+    {
+     "t": "Syncing from Snowflake Semantic Views",
+     "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/snowflake-semantic-views"
+    },
+    {
+     "t": "Databricks Unity Catalog Metric Views",
+     "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/unity-catalog-metric-views"
+    },
+    {
+     "t": "Threads",
+     "u": "https://learn.hex.tech/docs/explore-data/threads"
+    },
+    {
+     "t": "Notebook agent",
+     "u": "https://learn.hex.tech/docs/explore-data/notebook-view/notebook-agent"
+    },
+    {
+     "t": "Context Studio",
+     "u": "https://learn.hex.tech/docs/agent-management/context-studio"
+    },
+    {
+     "t": "Context Sync",
+     "u": "https://learn.hex.tech/docs/agent-management/context-management/context-sync"
+    },
+    {
+     "t": "Endorsements",
+     "u": "https://learn.hex.tech/docs/agent-management/context-management/endorsements-in-context-studio"
+    },
+    {
+     "t": "Suggestions",
+     "u": "https://learn.hex.tech/docs/agent-management/suggestions"
+    },
+    {
+     "t": "Evals",
+     "u": "https://learn.hex.tech/docs/agent-management/evals"
+    },
+    {
+     "t": "Introducing Evals (Hex blog)",
+     "u": "https://hex.tech/blog/evals/"
+    },
+    {
+     "t": "dbt Integrations",
+     "u": "https://learn.hex.tech/docs/connect-to-data/data-connections/dbt-integration"
+    },
+    {
+     "t": "Data connections introduction",
+     "u": "https://learn.hex.tech/docs/connect-to-data/data-connections/data-connections-introduction"
+    },
+    {
+     "t": "Hex llms.txt",
+     "u": "https://hex.tech/llms.txt"
+    },
+    {
+     "t": "Apache Ossie converters repo",
+     "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null
   },
   {
    "id": "cognos",
@@ -8248,7 +10652,342 @@ window.SL = {
    },
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "IBM Cognos",
+    "Cognos Analytics",
+    "IBM Cognos Analytics"
+   ],
+   "askData": [
+    {
+     "name": "Cognos Analytics AI Assistant",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "The assistant answers questions from governed data in certified data models. Release 12.1.3 adds reporting agents.",
+     "u": "https://www.ibm.com/products/cognos-analytics"
+    }
+   ],
    "enrichHowTo": "No supported bulk method for descriptions is confirmed for this product yet."
+  },
+  {
+   "id": "lightdash",
+   "name": "Lightdash",
+   "category": "bi",
+   "tagline": "Open-source BI on dbt or YAML with a metrics layer, AI agents, and an MCP server.",
+   "aliases": [
+    "Lightdash BI"
+   ],
+   "verdict": "native",
+   "verdictNote": "Lightdash defines metrics, dimensions, joins, and ai_hint in YAML, and its AI agents, verified answers, evals, and MCP server all read that layer.",
+   "artifacts": [
+    {
+     "name": "Lightdash semantic layer (dbt YAML or native Lightdash YAML)",
+     "kind": "semantic-model",
+     "status": "GA",
+     "since": "",
+     "format": "YAML",
+     "url": "https://docs.lightdash.com/semantic-layer.md"
+    },
+    {
+     "name": "ai_hint and agent context",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "YAML",
+     "url": "https://docs.lightdash.com/semantic-layer/writing-descriptions.md"
+    },
+    {
+     "name": "dbt MetricFlow metric translation",
+     "kind": "metric-view",
+     "status": "Preview",
+     "since": "",
+     "format": "dbt YAML",
+     "url": "https://docs.lightdash.com/integrations/dbt/metricflow.md"
+    },
+    {
+     "name": "AI agents",
+     "kind": "agent",
+     "status": "GA",
+     "since": "",
+     "format": "GUI, Slack",
+     "url": "https://docs.lightdash.com/agents.md"
+    },
+    {
+     "name": "Verified answers",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "GUI",
+     "url": "https://docs.lightdash.com/agents/verified-answers.md"
+    },
+    {
+     "name": "Evaluation suites for agents",
+     "kind": "agent",
+     "status": "GA",
+     "since": "",
+     "format": "GUI",
+     "url": "https://docs.lightdash.com/agents/create-evaluation-suites.md"
+    },
+    {
+     "name": "Lightdash MCP server",
+     "kind": "mcp",
+     "status": "GA",
+     "since": "",
+     "format": "MCP, OAuth",
+     "url": "https://docs.lightdash.com/agents/lightdash-mcp.md"
+    },
+    {
+     "name": "Metrics SQL API (Postgres wire protocol)",
+     "kind": "semantic-model",
+     "status": "Preview",
+     "since": "",
+     "format": "SQL over Postgres protocol",
+     "url": "https://docs.lightdash.com/integrations/metrics-sql-api.md"
+    },
+    {
+     "name": "Apache Ossie import and export",
+     "kind": "semantic-model",
+     "status": "Announced",
+     "since": "",
+     "format": "YAML",
+     "url": "https://docs.lightdash.com/integrations/apache-ossie.md"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 3,
+     "n": "Metrics are defined in YAML with types, filters, and formatting. They compile to SQL at query time.",
+     "u": "https://docs.lightdash.com/semantic-layer.md"
+    },
+    "dimensions": {
+     "l": 3,
+     "n": "Dimensions are columns with options. Date dimensions take time_intervals and custom granularities.",
+     "u": "https://docs.lightdash.com/semantic-layer/dimensions.md"
+    },
+    "relationships": {
+     "l": 3,
+     "n": "Joins in model YAML carry a relationship value such as one-to-many. Lightdash adds fanout protection.",
+     "u": "https://docs.lightdash.com/semantic-layer/joins.md"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "An ai_hint field at model, group, dimension, and metric level adds AI-only context. Agent context holds shared terms. No synonym field was found.",
+     "u": "https://docs.lightdash.com/semantic-layer/writing-descriptions.md"
+    },
+    "verifiedQueries": {
+     "l": 3,
+     "n": "Verified answers train the agent and become verified content. The MCP tool list_verified_content returns them.",
+     "u": "https://docs.lightdash.com/agents/verified-answers.md"
+    },
+    "nl2sql": {
+     "l": 3,
+     "n": "AI agents answer questions through the semantic layer and return charts, tables, and data apps. They are an add-on on all plans.",
+     "u": "https://docs.lightdash.com/agents.md"
+    },
+    "ontology": {
+     "l": 0,
+     "n": "No ontology object in the Lightdash documentation index.",
+     "u": "https://docs.lightdash.com/llms.txt"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query feature. Saved Trees only show how metrics relate.",
+     "u": "https://docs.lightdash.com/explore/metrics-catalog/build-saved-trees.md"
+    },
+    "vector": {
+     "l": 0,
+     "n": "No vector search feature in the Lightdash documentation index.",
+     "u": "https://docs.lightdash.com/llms.txt"
+    },
+    "mcp": {
+     "l": 3,
+     "n": "The MCP server runs on Lightdash Cloud. Self-hosted instances need an Enterprise license. Access uses OAuth and existing permissions.",
+     "u": "https://docs.lightdash.com/agents/lightdash-mcp.md"
+    },
+    "governance": {
+     "l": 3,
+     "n": "Agent answers follow project permissions and user attributes. Admins can scope agents with tags and set the identity an agent uses in the warehouse.",
+     "u": "https://docs.lightdash.com/agents.md"
+    },
+    "openStandard": {
+     "l": 1,
+     "n": "Native YAML and content as code are open to Git. dbt MetricFlow translation is Beta. Ossie support is Experimental and not released.",
+     "u": "https://docs.lightdash.com/integrations/apache-ossie.md"
+    },
+    "aiDescriptions": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "The lightdash generate command syncs schema.yml files. Content as code downloads and uploads charts, dashboards, and agents.",
+     "u": "https://docs.lightdash.com/workflow/cli/generate.md"
+    },
+    "autoClassify": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "sampleValues": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "queryHistory": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "lineage": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "evals": {
+     "l": 3,
+     "n": "Evaluation suites run test prompts in batch. An LLM judge scores each result when an expected response exists.",
+     "u": "https://docs.lightdash.com/agents/create-evaluation-suites.md"
+    }
+   },
+   "enrichHowTo": "Write descriptions and ai_hint values in dbt or Lightdash YAML. Run the lightdash generate command to create and sync schema.yml files, then review them in a pull request. Add an evaluation suite to test the agent.",
+   "bulkSnippet": {
+    "lang": "bash",
+    "code": "lightdash generate",
+    "u": "https://docs.lightdash.com/workflow/cli/generate.md"
+   },
+   "askData": [
+    {
+     "name": "Lightdash AI agents",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "MCP"
+     ],
+     "output": "answer only",
+     "reads": "Semantic layer metrics, dimensions, joins, descriptions, ai_hint, agent context, and verified answers.",
+     "u": "https://docs.lightdash.com/agents.md"
+    }
+   ],
+   "offers": [
+    "YAML metrics and dimensions compile to SQL, so the agent does not write raw SQL.",
+    "ai_hint gives the agent rules that people do not need to see.",
+    "Verified answers train the agent and mark saved charts as trusted content.",
+    "Evaluation suites test agents in batch with an LLM judge.",
+    "The MCP server serves Claude, ChatGPT, Codex, and Cursor with OAuth and existing permissions."
+   ],
+   "gaps": [
+    "AI agents are a paid add-on.",
+    "Apache Ossie import and export are Experimental and not released.",
+    "The Metrics SQL API is Beta and Enterprise only.",
+    "No synonym field was found. Teams use description, ai_hint, and agent context.",
+    "dbt MetricFlow translation is Beta."
+   ],
+   "fillWith": [
+    "dbt",
+    "dbt MetricFlow"
+   ],
+   "nl2sqlPath": "Model tables in dbt or Lightdash YAML with metrics, joins, descriptions, and ai_hint. Set up an agent, verify good answers, and add an evaluation suite. For your own agent, use the Lightdash MCP server.",
+   "snippet": {
+    "lang": "yaml",
+    "title": "Metric with an ai_hint in dbt YAML",
+    "code": "columns:\n  - name: revenue_usd\n    meta:\n      metrics:\n        total_revenue_usd:\n          type: sum\n          description: >\n            Sum of revenue_usd for orders where completed_at IS NOT NULL.\n          ai_hint:\n            - Use this for any question about revenue, sales, or top-line numbers.",
+    "u": "https://docs.lightdash.com/semantic-layer/writing-descriptions.md"
+   },
+   "worksWith": [
+    "BigQuery",
+    "PostgreSQL",
+    "Supabase",
+    "Amazon Redshift",
+    "Snowflake",
+    "Databricks",
+    "Trino",
+    "ClickHouse",
+    "DuckDB",
+    "Amazon Athena"
+   ],
+   "worksWithUrl": "https://docs.lightdash.com/integrations/connect-project.md",
+   "openToOtherTools": {
+    "l": 3,
+    "n": "The Lightdash MCP server is available to all Cloud users. A Beta Postgres wire protocol API queries the semantic layer. Ossie support is not released.",
+    "u": "https://docs.lightdash.com/agents/lightdash-mcp.md"
+   },
+   "sources": [
+    {
+     "t": "Lightdash AI agents",
+     "u": "https://docs.lightdash.com/agents.md"
+    },
+    {
+     "t": "Lightdash MCP server",
+     "u": "https://docs.lightdash.com/agents/lightdash-mcp.md"
+    },
+    {
+     "t": "Verified Answers",
+     "u": "https://docs.lightdash.com/agents/verified-answers.md"
+    },
+    {
+     "t": "Create evaluation suites",
+     "u": "https://docs.lightdash.com/agents/create-evaluation-suites.md"
+    },
+    {
+     "t": "Writing useful descriptions in your semantic layer",
+     "u": "https://docs.lightdash.com/semantic-layer/writing-descriptions.md"
+    },
+    {
+     "t": "Agent context",
+     "u": "https://docs.lightdash.com/agents/agent-context.md"
+    },
+    {
+     "t": "Lightdash semantic layer",
+     "u": "https://docs.lightdash.com/semantic-layer.md"
+    },
+    {
+     "t": "Joins reference",
+     "u": "https://docs.lightdash.com/semantic-layer/joins.md"
+    },
+    {
+     "t": "Dimensions reference",
+     "u": "https://docs.lightdash.com/semantic-layer/dimensions.md"
+    },
+    {
+     "t": "dbt MetricFlow metrics",
+     "u": "https://docs.lightdash.com/integrations/dbt/metricflow.md"
+    },
+    {
+     "t": "Metrics SQL API",
+     "u": "https://docs.lightdash.com/integrations/metrics-sql-api.md"
+    },
+    {
+     "t": "Apache Ossie in Lightdash",
+     "u": "https://docs.lightdash.com/integrations/apache-ossie.md"
+    },
+    {
+     "t": "Connect your warehouse and project",
+     "u": "https://docs.lightdash.com/integrations/connect-project.md"
+    },
+    {
+     "t": "Generate semantic layer YAML",
+     "u": "https://docs.lightdash.com/workflow/cli/generate.md"
+    },
+    {
+     "t": "AI writeback",
+     "u": "https://docs.lightdash.com/agents/ai-writeback.md"
+    },
+    {
+     "t": "Saved Trees",
+     "u": "https://docs.lightdash.com/explore/metrics-catalog/build-saved-trees.md"
+    },
+    {
+     "t": "Lightdash documentation index",
+     "u": "https://docs.lightdash.com/llms.txt"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null
   },
   {
    "id": "metabase",
@@ -8552,12 +11291,361 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": "metabase",
+   "aliases": [
+    "Metabot",
+    "Metabase Cloud"
+   ],
+   "askData": [
+    {
+     "name": "Metabot",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "Slack"
+     ],
+     "output": "SQL",
+     "reads": "Metabot searches tables, metrics, models, questions, and dashboards. It also reads the glossary.",
+     "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/metabot.md"
+    }
+   ],
    "enrichHowTo": "Edit table and field descriptions in Data Studio, Connected data, and ask Metabot to draft them. To write descriptions at scale, run a script or the dbt-metabase package after each dbt run, calling PUT /api/table/{id} and PUT /api/field/{id}. Define business terms in the Glossary, which Metabot reads.",
    "bulkSnippet": {
     "lang": "python",
     "code": "for column in node[\"columns\"].values():\n    field_id = fields.get(column[\"name\"].lower())\n    if field_id and column.get(\"description\"):\n        requests.put(\n            f\"{MB_URL}/api/field/{field_id}\",\n            json={\"description\": column[\"description\"]},\n            headers=HEADERS,\n        ).raise_for_status()",
     "u": "https://www.metabase.com/articles/metabase-on-dbt"
    }
+  },
+  {
+   "id": "omni",
+   "name": "Omni Analytics",
+   "category": "bi",
+   "tagline": "BI platform with a YAML semantic model, the Omni Agent, evals, and an MCP server.",
+   "aliases": [
+    "Omni",
+    "Omni BI"
+   ],
+   "verdict": "native",
+   "verdictNote": "Omni models hold topics, joins, synonyms, sample values, and ai_context that the Omni Agent and the MCP server read, with evals to test them.",
+   "artifacts": [
+    {
+     "name": "Omni semantic model (YAML models, topics, views)",
+     "kind": "semantic-model",
+     "status": "GA",
+     "since": "",
+     "format": "YAML, GUI, Git",
+     "url": "https://docs.omni.co/modeling/develop/ai-optimization.md"
+    },
+    {
+     "name": "ai_context, synonyms, and sample_values on model, topic, view, and field",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "YAML",
+     "url": "https://docs.omni.co/modeling/develop/ai-optimization.md"
+    },
+    {
+     "name": "Omni Agent (standalone chat) and Workbook Agent",
+     "kind": "agent",
+     "status": "GA",
+     "since": "",
+     "format": "GUI, Slack",
+     "url": "https://docs.omni.co/ai/index.md"
+    },
+    {
+     "name": "Modeling Agent (drafts measures and topics in the model IDE)",
+     "kind": "agent",
+     "status": "GA",
+     "since": "",
+     "format": "GUI",
+     "url": "https://docs.omni.co/ai/index.md"
+    },
+    {
+     "name": "Omni MCP server",
+     "kind": "mcp",
+     "status": "GA",
+     "since": "",
+     "format": "MCP, OAuth 2.1 or API key",
+     "url": "https://docs.omni.co/ai/mcp/index.md"
+    },
+    {
+     "name": "Evals (prompt sets and judged runs)",
+     "kind": "agent",
+     "status": "GA",
+     "since": "",
+     "format": "GUI",
+     "url": "https://docs.omni.co/ai/evals.md"
+    },
+    {
+     "name": "Suggestions (model changes from user feedback)",
+     "kind": "agent",
+     "status": "GA",
+     "since": "",
+     "format": "GUI",
+     "url": "https://docs.omni.co/ai/suggestions.md"
+    },
+    {
+     "name": "Snowflake semantic view import as topics",
+     "kind": "semantic-model",
+     "status": "GA",
+     "since": "",
+     "format": "Schema refresh",
+     "url": "https://docs.omni.co/connect-data/snowflake-semantic-views/index.md"
+    },
+    {
+     "name": "Databricks Unity Catalog metric view import as topics",
+     "kind": "metric-view",
+     "status": "GA",
+     "since": "",
+     "format": "Schema refresh",
+     "url": "https://docs.omni.co/connect-data/databricks-unity-catalog-integration.md"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 3,
+     "n": "Measures live in the YAML model. Omni also imports dbt semantic layer metrics and Databricks metric views.",
+     "u": "https://docs.omni.co/integrations/dbt/semantic-layer.md"
+    },
+    "dimensions": {
+     "l": 3,
+     "n": "Dimensions live in views. Omni supports custom calendars for fiscal periods. No hierarchy object was read.",
+     "u": "https://docs.omni.co/guides/modeling/custom-calendars.md"
+    },
+    "relationships": {
+     "l": 3,
+     "n": "Topics define governed joins. Omni imports relationships from Snowflake semantic views.",
+     "u": "https://docs.omni.co/connect-data/snowflake-semantic-views/index.md"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "Fields take synonyms, descriptions, and ai_context at model, topic, view, and field level. Omni never prunes ai_context.",
+     "u": "https://docs.omni.co/modeling/develop/ai-optimization.md"
+    },
+    "verifiedQueries": {
+     "l": 3,
+     "n": "Topics take sample_queries that the AI reads as context. The evals guide tells teams to tune them.",
+     "u": "https://docs.omni.co/ai/evals.md"
+    },
+    "nl2sql": {
+     "l": 3,
+     "n": "The Omni Agent answers questions over topics. The Workbook Agent builds queries from natural language.",
+     "u": "https://docs.omni.co/ai/index.md"
+    },
+    "ontology": {
+     "l": 0,
+     "n": "No ontology object in the Omni documentation index. Teams use topics with ai_context.",
+     "u": "https://docs.omni.co/llms.txt"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query feature in the Omni documentation index.",
+     "u": "https://docs.omni.co/llms.txt"
+    },
+    "vector": {
+     "l": 0,
+     "n": "No vector search feature in the Omni documentation index.",
+     "u": "https://docs.omni.co/llms.txt"
+    },
+    "mcp": {
+     "l": 3,
+     "n": "The MCP server has tools for model and topic choice, queries, and docs search. An admin enables each tool in the AI Hub.",
+     "u": "https://docs.omni.co/ai/mcp/tools.md"
+    },
+    "governance": {
+     "l": 3,
+     "n": "MCP queries use the permissions of the authenticated user. Omni states that user permissions apply to every AI surface.",
+     "u": "https://docs.omni.co/ai/mcp/index.md"
+    },
+    "openStandard": {
+     "l": 1,
+     "n": "The Apache Ossie converters repo has a two-way Omni converter. Omni documents no native Ossie import or export.",
+     "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/omni/README.md"
+    },
+    "aiDescriptions": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "The REST API writes one YAML file per request. A model branch batches many writes into one Git sync.",
+     "u": "https://docs.omni.co/guides/api/bulk-update-model-yaml.md"
+    },
+    "autoClassify": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "sampleValues": {
+     "l": 3,
+     "n": "Fields take sample_values and all_values. The AI can also fetch field values on demand.",
+     "u": "https://docs.omni.co/modeling/develop/ai-optimization.md"
+    },
+    "queryHistory": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "lineage": {
+     "l": 1,
+     "n": "A guide shows how to build a lineage integration with the REST API for OpenMetadata or DataHub.",
+     "u": "https://docs.omni.co/guides/api/data-lineage-integration.md"
+    },
+    "evals": {
+     "l": 3,
+     "n": "Prompt sets hold up to 25 prompts. A judge scores runs against a model branch. Suggestions turn feedback into model changes.",
+     "u": "https://docs.omni.co/ai/evals.md"
+    }
+   },
+   "enrichHowTo": "Write descriptions, synonyms, sample_values, and ai_context in the model YAML. For many files, write to a model branch with the Create or update YAML files endpoint, then merge once. Run an eval prompt set on the branch before the merge.",
+   "bulkSnippet": {
+    "lang": "bash",
+    "code": "# Create or update one YAML file for a model branch\n# POST https://{instance}.omniapp.co/api/v1/models/{modelId}/yaml",
+    "u": "https://docs.omni.co/guides/api/bulk-update-model-yaml.md"
+   },
+   "askData": [
+    {
+     "name": "Omni Agent",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "REST API",
+      "MCP"
+     ],
+     "output": "answer only",
+     "reads": "Topics, field descriptions, synonyms, sample values, ai_context, and sample queries from the semantic model.",
+     "u": "https://docs.omni.co/ai/chat.md"
+    },
+    {
+     "name": "Workbook Agent",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "The same semantic model context. It builds and refines queries and filters inside a workbook.",
+     "u": "https://docs.omni.co/ai/queries.md"
+    }
+   ],
+   "offers": [
+    "ai_context, synonyms, and sample_values at four model levels give the agent business wording.",
+    "Evals score AI answers with a judge and compare runs across model branches.",
+    "The MCP server passes user permissions to external tools such as Claude, Cursor, and Codex.",
+    "Omni imports Snowflake semantic views, Databricks metric views, and dbt semantic layer metrics.",
+    "A skill and a Python SDK push Omni topics out to Snowflake semantic views and Databricks metric views."
+   ],
+   "gaps": [
+    "Omni documents no native Apache Ossie import or export. A converter exists in the Ossie repo.",
+    "A prompt set holds at most 25 prompts.",
+    "The agent can fail on a topic with a large amount of ai_context, because Omni never trims it.",
+    "Single shot query generation (getData) is off by default in the MCP settings."
+   ],
+   "fillWith": [
+    "dbt Semantic Layer",
+    "Snowflake Semantic Views",
+    "Databricks Metric Views"
+   ],
+   "nl2sqlPath": "Build topics in the Omni model, add synonyms, sample values, and ai_context, and limit each topic with ai_fields. Test with an eval prompt set on a branch, then merge. For your own agent, use the Omni MCP server.",
+   "snippet": {
+    "lang": "yaml",
+    "title": "Topic ai_context that uses a user attribute",
+    "code": "ai_context: |\n  You are a sales analyst. When someone asks about their team or pipeline,\n  always filter by account.segment = {{omni_attributes.segment}} and\n  account.region = {{omni_attributes.region}}.",
+    "u": "https://docs.omni.co/modeling/develop/ai-optimization.md"
+   },
+   "worksWith": [
+    "Snowflake",
+    "Databricks",
+    "Google BigQuery",
+    "Amazon Redshift",
+    "Amazon Athena",
+    "PostgreSQL",
+    "MySQL",
+    "MariaDB",
+    "Microsoft SQL Server",
+    "Microsoft Fabric",
+    "ClickHouse",
+    "Exasol",
+    "MotherDuck",
+    "Starburst Galaxy",
+    "StarRocks"
+   ],
+   "worksWithUrl": "https://docs.omni.co/connect-data/index.md",
+   "openToOtherTools": {
+    "l": 3,
+    "n": "The Omni MCP server and the Omni AI API serve outside agents with user permissions. A two-way Ossie converter exists.",
+    "u": "https://docs.omni.co/ai/mcp/index.md"
+   },
+   "sources": [
+    {
+     "t": "AI in Omni",
+     "u": "https://docs.omni.co/ai/index.md"
+    },
+    {
+     "t": "Optimize models for Omni AI",
+     "u": "https://docs.omni.co/modeling/develop/ai-optimization.md"
+    },
+    {
+     "t": "Omni AI MCP Server",
+     "u": "https://docs.omni.co/ai/mcp/index.md"
+    },
+    {
+     "t": "MCP server tools",
+     "u": "https://docs.omni.co/ai/mcp/tools.md"
+    },
+    {
+     "t": "Omni Evals",
+     "u": "https://docs.omni.co/ai/evals.md"
+    },
+    {
+     "t": "Omni Suggestions",
+     "u": "https://docs.omni.co/ai/suggestions.md"
+    },
+    {
+     "t": "Bulk update model YAML files with the API",
+     "u": "https://docs.omni.co/guides/api/bulk-update-model-yaml.md"
+    },
+    {
+     "t": "Create or update YAML files (API)",
+     "u": "https://docs.omni.co/api/models/create-or-update-yaml-files.md"
+    },
+    {
+     "t": "Integrating dbt's semantic layer with Omni",
+     "u": "https://docs.omni.co/integrations/dbt/semantic-layer.md"
+    },
+    {
+     "t": "Snowflake semantic views in Omni",
+     "u": "https://docs.omni.co/connect-data/snowflake-semantic-views/index.md"
+    },
+    {
+     "t": "Databricks metric views in Omni",
+     "u": "https://docs.omni.co/connect-data/databricks-unity-catalog-integration.md"
+    },
+    {
+     "t": "Build a data lineage integration with the Omni API",
+     "u": "https://docs.omni.co/guides/api/data-lineage-integration.md"
+    },
+    {
+     "t": "Connect data",
+     "u": "https://docs.omni.co/connect-data/index.md"
+    },
+    {
+     "t": "Omni documentation index",
+     "u": "https://docs.omni.co/llms.txt"
+    },
+    {
+     "t": "Ossie to Omni converter",
+     "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/omni/README.md"
+    },
+    {
+     "t": "Apache Ossie converters repo",
+     "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null
   },
   {
    "id": "oracleanalytics",
@@ -8837,6 +11925,27 @@ window.SL = {
    },
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "Oracle Analytics Cloud",
+    "OAC",
+    "Oracle Analytics Server",
+    "OAS",
+    "Oracle BI",
+    "OBIEE"
+   ],
+   "askData": [
+    {
+     "name": "Oracle Analytics AI Assistant",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "The assistant reads indexed datasets and subject areas. Synonyms in the index improve results.",
+     "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/oracle-analytics-ai-assistant.html"
+    }
+   ],
    "enrichHowTo": "In Console, open Search Index, select the data model and Export a CSV. Fill the Synonyms and AI Description columns, then Import it. Indexing restarts on import, and the file also moves AI-ready metadata between environments."
   },
   {
@@ -9121,6 +12230,25 @@ window.SL = {
    },
    "verified": "2026-10-24",
    "logo": "qlik",
+   "aliases": [
+    "Qlik Sense",
+    "Qlik Cloud",
+    "Qlik Answers"
+   ],
+   "askData": [
+    {
+     "name": "Qlik Answers",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "MCP"
+     ],
+     "output": "answer only",
+     "reads": "Qlik Answers indexes apps. It reads the data model, the logical model, and master items.",
+     "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikAnswers/working-with-apps-in-qlik-answers.htm"
+    }
+   ],
    "enrichHowTo": "Write dataset descriptions and tags with PATCH /api/v1/data-sets/{id} in the Data sets API, and load business terms with the Glossaries API import. Insight Advisor synonyms are edited by hand in each app's Vocabulary, because the REST API list has no vocabulary or logical model endpoint."
   },
   {
@@ -9363,6 +12491,14 @@ window.SL = {
    },
    "verified": "2026-10-24",
    "logo": "sap",
+   "aliases": [
+    "BO",
+    "BOBJ",
+    "SAP BI",
+    "SAP BusinessObjects",
+    "BusinessObjects BI"
+   ],
+   "askData": [],
    "enrichHowTo": "The Semantic Layer Java SDK ships with the BI client tools and reads universes (.unx). Third-party catalog bridges use it to import and export universe metadata."
   },
   {
@@ -9687,6 +12823,24 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "Sigma Computing",
+    "Sigma Assistant",
+    "Ask Sigma"
+   ],
+   "askData": [
+    {
+     "name": "Sigma Assistant",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "The assistant answers from data sources that an admin selects. These include published data models.",
+     "u": "https://help.sigmacomputing.com/docs/ask-natural-language-queries-with-assistant.md"
+    }
+   ],
    "enrichHowTo": "Get the data model with GET /v2/dataModels/{id}/spec, edit table, column and metric descriptions in the JSON or YAML, then send the full spec back with PUT /v2/dataModels/{id}/spec, since partial updates are not supported. Descriptions can also come from warehouse comments or dbt with persist_docs. Add AI context (Beta) for Assistant instructions.",
    "bulkSnippet": {
     "lang": "bash",
@@ -9972,6 +13126,25 @@ window.SL = {
    },
    "verified": "2026-10-24",
    "logo": "microstrategy",
+   "aliases": [
+    "MicroStrategy",
+    "Strategy One",
+    "Mosaic"
+   ],
+   "askData": [
+    {
+     "name": "Agents on AI-enabled Mosaic models",
+     "status": "GA",
+     "since": "2025-12",
+     "surfaces": [
+      "UI",
+      "MCP"
+     ],
+     "output": "answer only",
+     "reads": "The agent finds the relevant data model. It answers from the metrics and relationships in that model.",
+     "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_agent_from_model.htm"
+    }
+   ],
    "enrichHowTo": "Enable the dataset for AI in Workstation or Library to generate dataset and column descriptions. Edit them in the agent data panel, then download the agent tuning file (JSON) to reuse column descriptions in other agents."
   },
   {
@@ -10254,6 +13427,36 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "Tableau Next",
+    "Tableau Pulse",
+    "Tableau Cloud",
+    "Salesforce"
+   ],
+   "askData": [
+    {
+     "name": "Tableau Agent in Pulse",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "The agent answers from Tableau Pulse metrics and pre-computed insights. It needs Tableau+ or the Try AI setting.",
+     "u": "https://help.tableau.com/current/online/en-us/pulse_intro.htm"
+    },
+    {
+     "name": "Concierge: Analytics Q&A",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "The agent answers questions about Tableau Semantics data models in Tableau Next.",
+     "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
+    }
+   ],
    "enrichHowTo": "With a Data Management license, call Update Column to set one column description at a time, or use the REST API 3.30 data source methods to create a work copy, add FieldDescription and TableDescription elements, then publish it. Batch Add Tags tags many assets in one call. In Tableau Next, turn on the Semantic Description Generator (Beta) and review each draft.",
    "bulkSnippet": {
     "lang": "json",
@@ -10611,6 +13814,29 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "Spotter",
+    "Sage",
+    "Ask Sage",
+    "ThoughtSpot Cloud",
+    "SpotterModel"
+   ],
+   "askData": [
+    {
+     "name": "Spotter",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "REST API",
+      "SDK",
+      "MCP"
+     ],
+     "output": "TML search tokens",
+     "reads": "Spotter reads business context from the data Model. It uses relational search over that Model.",
+     "u": "https://developers.thoughtspot.com/docs/spotter-agent-conversation-apis"
+    }
+   ],
    "enrichHowTo": "Export the Model as TML with the TML API, edit column descriptions, synonyms and AI context in the file, then import it back with the import API. Use Generate under Spotter optimization to draft AI context per column, review it, and use the Spotter diagnose prompts to find confusing columns.",
    "bulkSnippet": {
     "lang": "json",
@@ -10886,6 +14112,347 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "worksWith": [],
+   "aliases": [
+    "Alation Data Catalog",
+    "Alation Cloud Service",
+    "Alation Agent Studio"
+   ],
+   "askData": [
+    {
+     "name": "Chat with Data Product",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The chat reads the data product and its Document Hubs content. It runs under the user database credentials.",
+     "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ChatWithDataProduct.md"
+    }
+   ]
+  },
+  {
+   "id": "sagemaker-catalog",
+   "name": "Amazon SageMaker Catalog and AWS Glue Data Catalog",
+   "category": "catalog",
+   "partOf": "redshift",
+   "aliases": [
+    "Amazon SageMaker Catalog",
+    "SageMaker Unified Studio catalog",
+    "Amazon DataZone",
+    "DataZone",
+    "AWS Glue Data Catalog",
+    "Glue Data Catalog",
+    "SageMaker Data Catalog"
+   ],
+   "tagline": "AWS business catalog with glossary, data products and lineage, on top of the Glue technical catalog.",
+   "verdict": "partial",
+   "verdictNote": "SageMaker Catalog gives descriptions, glossary terms, metadata forms and lineage to agents, but it holds no governed metric or join definitions.",
+   "artifacts": [
+    {
+     "name": "SageMaker Catalog business glossary and metadata forms",
+     "kind": "glossary",
+     "status": "GA",
+     "since": "",
+     "format": "Console and DataZone API (CreateGlossary, CreateGlossaryTerm); terms hold synonyms and related terms",
+     "url": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateGlossaryTerm.html"
+    },
+    {
+     "name": "AI recommendations for names, descriptions and glossary terms",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Amazon Bedrock; console and StartMetadataGenerationRun API; limited Regions and quotas",
+     "url": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
+    },
+    {
+     "name": "Data products",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Group assets with metadata and one access request; CreateDataProduct API",
+     "url": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/data-products.html"
+    },
+    {
+     "name": "Data lineage",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2024-12",
+     "format": "OpenLineage compatible; automatic capture from Glue, Redshift and Spark; PostLineageEvent API",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2024/12/data-lineage-amazon-datazone-next-generation-sagemaker/"
+    },
+    {
+     "name": "Asset metadata export",
+     "kind": "annotations",
+     "status": "Unverified",
+     "since": "",
+     "format": "Daily export of catalog assets to an Iceberg table in S3 Tables; PutDataExportConfiguration API. No stage label",
+     "url": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/export-asset-metadata.html"
+    },
+    {
+     "name": "AI classification with glossary terms (PII, PHI)",
+     "kind": "annotations",
+     "status": "Unverified",
+     "since": "2026-03",
+     "format": "Bedrock model suggests glossary terms at publish time. Blog only; no stage label",
+     "url": "https://aws.amazon.com/blogs/big-data/automating-data-classification-in-amazon-sagemaker-catalog-using-an-ai-agent/"
+    },
+    {
+     "name": "AWS Glue Data Catalog",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Technical metadata store; crawlers, Glue APIs, SearchTables, Iceberg REST endpoint",
+     "url": "https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html"
+    },
+    {
+     "name": "Glue Iceberg REST endpoint",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Iceberg REST spec v1 and v2 at glue.<region>.amazonaws.com/iceberg",
+     "url": "https://docs.aws.amazon.com/glue/latest/dg/connect-glu-iceberg-rest.html"
+    },
+    {
+     "name": "Lake Formation tag-based access control (LF-Tags)",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "LF-Tags on Data Catalog resources grant permissions by attribute",
+     "url": "https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html"
+    },
+    {
+     "name": "SageMaker Data Agent",
+     "kind": "nl2sql",
+     "status": "Unverified",
+     "since": "2026-06",
+     "format": "Notebooks and Query Editor; reads SageMaker Catalog business context. No stage label in the announcement",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-sagemaker-data-agent-bdc/"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 0,
+     "n": "No governed metric object in the catalog. Glossary terms and metadata forms can describe a metric in text only.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html"
+    },
+    "dimensions": {
+     "l": 0,
+     "n": "No dimension object. Glossary terms attach to assets and columns, but they define no hierarchies or grains.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html"
+    },
+    "relationships": {
+     "l": 0,
+     "n": "No declared join or relationship object. Glossary terms can relate to other terms, which is not a data join.",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateGlossaryTerm.html"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "Glossary terms hold definitions, synonyms and related terms. Assets carry business names, descriptions, README text and metadata forms.",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateGlossaryTerm.html"
+    },
+    "verifiedQueries": {
+     "l": 0,
+     "n": "The catalog stores no question and SQL pairs. Redshift Q generative SQL custom context holds them instead.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html"
+    },
+    "nl2sql": {
+     "l": 1,
+     "n": "SageMaker Data Agent reads catalog business context to write SQL and Python. It is a separate product and has no stage label.",
+     "u": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-sagemaker-data-agent-bdc/"
+    },
+    "ontology": {
+     "l": 1,
+     "n": "Glossaries with related terms and metadata forms approximate business concepts. No object, link or action model.",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateGlossaryTerm.html"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query language in the catalog. Lineage shows as a graph in the UI. Neptune is a separate service.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/datazone-data-lineage.html"
+    },
+    "vector": {
+     "l": 0,
+     "n": "No vector or semantic search feature found in the catalog docs.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html"
+    },
+    "mcp": {
+     "l": 0,
+     "n": "AWS documents no first-party MCP server for SageMaker Catalog. The AWS Data Processing MCP server manages Glue Data Catalog databases and tables.",
+     "u": "https://raw.githubusercontent.com/awslabs/mcp/main/src/aws-dataprocessing-mcp-server/README.md"
+    },
+    "governance": {
+     "l": 3,
+     "n": "Publish and subscribe workflow, fine-grained access control, Lake Formation LF-Tags on Glue resources, and OpenLineage compatible lineage.",
+     "u": "https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html"
+    },
+    "openStandard": {
+     "l": 2,
+     "n": "Lineage accepts OpenLineage events, and Glue offers an Iceberg REST endpoint. No open semantic spec such as OSI.",
+     "u": "https://docs.aws.amazon.com/glue/latest/dg/connect-glu-iceberg-rest.html"
+    },
+    "aiDescriptions": {
+     "l": 3,
+     "n": "Bedrock drafts business names, descriptions and glossary terms for Glue and custom assets. Reviewers accept or reject. Region limits and quotas apply.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "StartMetadataGenerationRun and glossary, asset and data product APIs run in bulk. Glue UpdateTable sets table and column comments.",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_StartMetadataGenerationRun.html"
+    },
+    "autoClassify": {
+     "l": 2,
+     "n": "A Bedrock agent suggests glossary terms, including PII and PHI, from schema at publish time. Only a blog describes it.",
+     "u": "https://aws.amazon.com/blogs/big-data/automating-data-classification-in-amazon-sagemaker-catalog-using-an-ai-agent/"
+    },
+    "sampleValues": {
+     "l": 0,
+     "n": "No sample value or entity matching feature found in the catalog docs.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
+    },
+    "queryHistory": {
+     "l": 0,
+     "n": "The catalog does not mine query history to suggest joins or metrics. Redshift Query Editor v2 uses history separately.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html"
+    },
+    "lineage": {
+     "l": 3,
+     "n": "Column-level lineage from Glue, Redshift and Spark. It is OpenLineage compatible and has a PostLineageEvent API.",
+     "u": "https://aws.amazon.com/about-aws/whats-new/2024/12/data-lineage-amazon-datazone-next-generation-sagemaker/"
+    },
+    "evals": {
+     "l": 0,
+     "n": "No NL-to-SQL evaluation tooling in the catalog. A catalog export lets you query description coverage with SQL.",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/export-asset-metadata.html"
+    }
+   },
+   "offers": [
+    "A business glossary with terms, synonyms and related terms that you can link to assets and columns.",
+    "Bedrock drafts business names, descriptions and glossary terms for catalog assets.",
+    "Data products group assets with metadata and one access request path.",
+    "OpenLineage compatible lineage with a PostLineageEvent API for jobs outside AWS.",
+    "Daily export of asset metadata to an Iceberg table that SQL, Athena or an agent can query.",
+    "The Glue Data Catalog serves Iceberg REST clients and supports LF-Tags for attribute-based access."
+   ],
+   "gaps": [
+    "No governed metric, dimension or join object. Business meaning stays in text fields.",
+    "AWS documents no first-party MCP server for the catalog.",
+    "AI recommendations cover limited Regions and have quotas. The default quota is 10,000 description runs a month.",
+    "No stored question and SQL pairs, sample value matching or query history mining in the catalog.",
+    "AI glossary classification for PII and PHI appears only in an AWS blog."
+   ],
+   "fillWith": [
+    "Atlan",
+    "Collibra",
+    "Alation",
+    "Redshift Q generative SQL custom context",
+    "dbt Semantic Layer",
+    "Cube"
+   ],
+   "nl2sqlPath": "Keep descriptions, glossary terms and lineage in SageMaker Catalog and build metrics in a separate layer such as dbt or Cube. Pass the catalog business context and curated question and SQL pairs to your agent, for example through Redshift custom context.",
+   "snippet": {
+    "lang": "bash",
+    "title": "Start AI generation of descriptions and names for an asset",
+    "code": "aws datazone start-metadata-generation-run \\\n  --domain-identifier dzd_example123 \\\n  --owning-project-identifier prj_example123 \\\n  --types BUSINESS_DESCRIPTIONS BUSINESS_NAMES \\\n  --target '{\"identifier\":\"asset_example123\",\"type\":\"ASSET\"}'",
+    "u": "https://docs.aws.amazon.com/cli/latest/reference/datazone/start-metadata-generation-run.html"
+   },
+   "askData": [
+    {
+     "name": "SageMaker Data Agent",
+     "status": "Unverified",
+     "since": "2026-06",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "Glossary terms, custom metadata forms, asset summaries and README text in SageMaker Catalog.",
+     "u": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-sagemaker-data-agent-bdc/"
+    }
+   ],
+   "enrichHowTo": "Call the DataZone StartMetadataGenerationRun API for each Glue table asset with types BUSINESS_DESCRIPTIONS, BUSINESS_NAMES and BUSINESS_GLOSSARY_ASSOCIATIONS. Review the drafts in the project, then publish the assets. Create glossary terms first, because the AI suggests only existing terms.",
+   "bulkSnippet": {
+    "lang": "bash",
+    "code": "aws datazone start-metadata-generation-run \\\n  --domain-identifier dzd_example123 \\\n  --owning-project-identifier prj_example123 \\\n  --types BUSINESS_DESCRIPTIONS BUSINESS_GLOSSARY_ASSOCIATIONS \\\n  --target '{\"identifier\":\"asset_example123\",\"type\":\"ASSET\"}'",
+    "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_StartMetadataGenerationRun.html"
+   },
+   "sources": [
+    {
+     "t": "Catalog in IDC-based domains",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html"
+    },
+    {
+     "t": "AI recommendations in SageMaker Unified Studio",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
+    },
+    {
+     "t": "Data products",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/data-products.html"
+    },
+    {
+     "t": "Data lineage in SageMaker Unified Studio",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/datazone-data-lineage.html"
+    },
+    {
+     "t": "Data lineage GA announcement, Dec 2024",
+     "u": "https://aws.amazon.com/about-aws/whats-new/2024/12/data-lineage-amazon-datazone-next-generation-sagemaker/"
+    },
+    {
+     "t": "Exporting asset metadata",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/export-asset-metadata.html"
+    },
+    {
+     "t": "Automating data classification in SageMaker Catalog",
+     "u": "https://aws.amazon.com/blogs/big-data/automating-data-classification-in-amazon-sagemaker-catalog-using-an-ai-agent/"
+    },
+    {
+     "t": "SageMaker Data Agent business context announcement, Jun 2026",
+     "u": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-sagemaker-data-agent-bdc/"
+    },
+    {
+     "t": "StartMetadataGenerationRun API",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_StartMetadataGenerationRun.html"
+    },
+    {
+     "t": "CreateGlossaryTerm API",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateGlossaryTerm.html"
+    },
+    {
+     "t": "CreateDataProduct API",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateDataProduct.html"
+    },
+    {
+     "t": "PostLineageEvent API",
+     "u": "https://docs.aws.amazon.com/datazone/latest/APIReference/API_PostLineageEvent.html"
+    },
+    {
+     "t": "AWS CLI start-metadata-generation-run",
+     "u": "https://docs.aws.amazon.com/cli/latest/reference/datazone/start-metadata-generation-run.html"
+    },
+    {
+     "t": "Data discovery and cataloging in AWS Glue",
+     "u": "https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html"
+    },
+    {
+     "t": "Glue Iceberg REST endpoint",
+     "u": "https://docs.aws.amazon.com/glue/latest/dg/connect-glu-iceberg-rest.html"
+    },
+    {
+     "t": "Glue SearchTables API",
+     "u": "https://docs.aws.amazon.com/glue/latest/webapi/API_SearchTables.html"
+    },
+    {
+     "t": "Lake Formation tag-based access control",
+     "u": "https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html"
+    },
+    {
+     "t": "AWS Data Processing MCP server",
+     "u": "https://raw.githubusercontent.com/awslabs/mcp/main/src/aws-dataprocessing-mcp-server/README.md"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null,
    "worksWith": []
   },
   {
@@ -11146,7 +14713,26 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
-   "worksWith": []
+   "worksWith": [],
+   "aliases": [
+    "Atlan AI",
+    "Atlan Data Catalog"
+   ],
+   "askData": [
+    {
+     "name": "Conversational AI",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "Slack",
+      "Teams"
+     ],
+     "output": "SQL",
+     "reads": "The chat writes SQL from catalog metadata, lineage, and glossary terms. The admin enables it in Labs.",
+     "u": "https://docs.atlan.com/llms/platform/conversational-ai/use-conversational-ai/llms.txt"
+    }
+   ]
   },
   {
    "id": "collibra",
@@ -11382,7 +14968,13 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
-   "worksWith": []
+   "worksWith": [],
+   "aliases": [
+    "Collibra Data Intelligence Platform",
+    "Collibra Maestro",
+    "Collibra AI Copilot"
+   ],
+   "askData": []
   },
   {
    "id": "datahub",
@@ -11632,6 +15224,261 @@ window.SL = {
     {
      "t": "DataHub updating notes (semantic search and embeddings)",
      "u": "https://docs.datahub.com/docs/how/updating-datahub"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null,
+   "worksWith": [],
+   "aliases": [
+    "Acryl",
+    "DataHub Cloud"
+   ],
+   "askData": [
+    {
+     "name": "Ask DataHub",
+     "status": "Preview",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "Slack",
+      "Teams",
+      "Chrome extension"
+     ],
+     "output": "SQL",
+     "reads": "The assistant reads the metadata graph and Context Documents. It drafts first SQL queries.",
+     "u": "https://docs.datahub.com/docs/features/feature-guides/ask-datahub"
+    },
+    {
+     "name": "Analytics Agent",
+     "status": "Unverified",
+     "since": "2026-04",
+     "surfaces": [
+      "UI",
+      "CLI"
+     ],
+     "output": "SQL",
+     "reads": "The agent searches DataHub for context. It writes SQL, runs the SQL, and renders a chart.",
+     "u": "https://docs.datahub.com/docs/features/feature-guides/analytics-agent"
+    }
+   ]
+  },
+  {
+   "id": "informatica",
+   "name": "Informatica Intelligent Data Management Cloud",
+   "category": "catalog",
+   "aliases": [
+    "Informatica",
+    "IDMC",
+    "Informatica IDMC",
+    "Cloud Data Governance and Catalog",
+    "CDGC",
+    "CLAIRE",
+    "CLAIRE GPT",
+    "Informatica Data Catalog"
+   ],
+   "tagline": "Enterprise data catalog and governance service with CLAIRE AI, now owned by Salesforce.",
+   "verdict": "partial",
+   "verdictNote": "CDGC holds glossary terms, descriptions, lineage and classification, and it exposes them to agents, but it has no metric or semantic model object.",
+   "artifacts": [
+    {
+     "name": "Cloud Data Governance and Catalog (CDGC)",
+     "kind": "glossary",
+     "status": "GA",
+     "since": "",
+     "format": "UI and REST APIs (asset search, lineage, bulk import and export)",
+     "url": "https://www.informatica.com/products/data-governance/cloud-data-governance-and-catalog.html"
+    },
+    {
+     "name": "CLAIRE GPT",
+     "kind": "nl2sql",
+     "status": "Unverified",
+     "since": "",
+     "format": "UI chat; the sources do not state a stage for the CDGC use",
+     "url": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+    },
+    {
+     "name": "CLAIRE Agents (Data Exploration, Enterprise Discovery, Data Quality)",
+     "kind": "agent",
+     "status": "Preview",
+     "since": "2025-10",
+     "format": "UI; the Fall 2025 release lists some agents as public or private preview",
+     "url": "https://itwire.com/business-it-news/data/informatica-announces-%E2%80%98latest-innovations%E2%80%99-to-intelligent-data-management-cloud.html"
+    },
+    {
+     "name": "Informatica MCP servers (CDGC Metadata Search)",
+     "kind": "mcp",
+     "status": "Preview",
+     "since": "2025-07",
+     "format": "MCP 2025-06-18 over streamable HTTP; tools get_asset_details and search_metadata",
+     "url": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "dimensions": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "relationships": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "synonyms": {
+     "l": 2,
+     "n": "The CDGC MCP server returns asset details and searches metadata, which include glossary terms and descriptions. The server stage is not confirmed as GA.",
+     "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
+    },
+    "verifiedQueries": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "nl2sql": {
+     "l": 2,
+     "n": "CLAIRE GPT answers natural-language questions about catalog assets, quality and lineage, and shows data samples. The sources do not show a SQL output.",
+     "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+    },
+    "ontology": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "graph": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "vector": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "mcp": {
+     "l": 2,
+     "n": "Informatica MCP servers include a CDGC Metadata Search server. An earlier release note shows private preview; GA is not confirmed.",
+     "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
+    },
+    "governance": {
+     "l": 3,
+     "n": "CDGC covers lineage, classification, policies and data quality. TechTarget reports that CLAIRE MCP calls use the caller's security context.",
+     "u": "https://www.techtarget.com/data-technologies/news/366628006/Informatica-adds-MCP-support-spate-of-AI-fueled-features"
+    },
+    "openStandard": {
+     "l": 1,
+     "n": "MCP is an open standard and CDGC has REST APIs. No OSI or semantic model export was found.",
+     "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
+    },
+    "aiDescriptions": {
+     "l": 3,
+     "n": "CLAIRE generates descriptions and business names for technical assets in CDGC. The slide deck does not state a stage.",
+     "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "CDGC has a Bulk Import and Export API and a Metadata Management API for programmatic writes.",
+     "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+    },
+    "autoClassify": {
+     "l": 3,
+     "n": "CLAIRE generates a classification tag for each data element during a metadata scan, and teams can promote it.",
+     "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+    },
+    "sampleValues": {
+     "l": 2,
+     "n": "CLAIRE GPT shows live data samples in answers. The sources do not show value matching for SQL literals.",
+     "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+    },
+    "queryHistory": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "lineage": {
+     "l": 3,
+     "n": "CDGC gives end-to-end lineage and AI-inferred lineage across catalog sources without ETL code.",
+     "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+    },
+    "evals": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    }
+   },
+   "offers": [
+    "CDGC stores technical metadata, business glossary terms, classification tags and lineage in one governed catalog.",
+    "CLAIRE generates descriptions, business names and classification tags, and it links data elements to glossary terms.",
+    "The CDGC MCP server lets an agent search metadata and read asset details with the caller's permissions.",
+    "CDGC REST APIs cover asset search, lineage, bulk import and export, and data quality for custom agents.",
+    "CLAIRE GPT answers catalog questions in natural language for people who do not write SQL."
+   ],
+   "gaps": [
+    "No metric, dimension or join model object was found, so an agent cannot read governed measures from CDGC.",
+    "No verified question and SQL pairs and no NL-to-SQL accuracy test tool was found.",
+    "The MCP servers and several CLAIRE agents show preview stages in the sources, and GA dates are unclear.",
+    "CLAIRE GPT output is an answer in chat. The sources do not show SQL that runs on the warehouse."
+   ],
+   "fillWith": [
+    "Snowflake semantic views",
+    "Databricks metric views",
+    "dbt Semantic Layer",
+    "Cube"
+   ],
+   "nl2sqlPath": "Use CDGC as the source of descriptions, glossary terms, classification and lineage. Read them through the CDGC MCP server or REST APIs. Build metrics and joins in a warehouse semantic layer, and let the agent query that layer.",
+   "snippet": {
+    "lang": "json",
+    "title": "MCP client entry for an Informatica MCP server (shape only)",
+    "code": "{\n  \"mcpServers\": {\n    \"informatica-cdgc\": {\n      \"url\": \"<MCP server URL from IDMC>\",\n      \"headers\": { \"Authorization\": \"Bearer <token>\" }\n    }\n  }\n}",
+    "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
+   },
+   "enrichHowTo": "Turn on CLAIRE generated descriptions and classifications in Metadata Command Center, then scan the source. Review the output in CDGC. For large corrections, use the CDGC Bulk Import and Export API.",
+   "bulkSnippet": {
+    "lang": "bash",
+    "code": "# CDGC Bulk Import and Export API: export assets, edit descriptions in the file, import the file back.\n# Exact endpoints: see the Informatica CDGC REST API reference.",
+    "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+   },
+   "askData": [
+    {
+     "name": "CLAIRE GPT",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "Catalog assets, glossary terms, descriptions, quality scores, lineage and live data samples in CDGC.",
+     "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+    }
+   ],
+   "sources": [
+    {
+     "t": "Cloud Data Governance and Catalog product page",
+     "u": "https://www.informatica.com/products/data-governance/cloud-data-governance-and-catalog.html"
+    },
+    {
+     "t": "Introduction to Informatica MCP servers",
+     "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
+    },
+    {
+     "t": "AI for the Catalog, Catalog for the AI (Informatica slides)",
+     "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
+    },
+    {
+     "t": "TechTarget: Informatica adds MCP support",
+     "u": "https://www.techtarget.com/data-technologies/news/366628006/Informatica-adds-MCP-support-spate-of-AI-fueled-features"
+    },
+    {
+     "t": "ITWire: Informatica Fall 2025 release",
+     "u": "https://itwire.com/business-it-news/data/informatica-announces-%E2%80%98latest-innovations%E2%80%99-to-intelligent-data-management-cloud.html"
+    },
+    {
+     "t": "Salesforce completes acquisition of Informatica",
+     "u": "https://www.salesforce.com/news/press-releases/2025/11/18/salesforce-completes-acquisition-of-informatica/"
     }
    ],
    "verified": "2026-10-24",
@@ -11942,6 +15789,1144 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "worksWith": [],
+   "aliases": [
+    "Collate"
+   ],
+   "askData": [
+    {
+     "name": "Collate AI Chat",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SQL",
+     "reads": "The chat reads glossary terms, lineage, table schemas, and profiler data. It runs read-only SQL.",
+     "u": "https://docs.getcollate.io/ai-2-0/collate-ai/collate-ai-chat.md"
+    }
+   ]
+  },
+  {
+   "id": "secoda",
+   "name": "Secoda",
+   "category": "catalog",
+   "aliases": [
+    "Secoda AI",
+    "Secoda Data Catalog",
+    "Atlassian Secoda"
+   ],
+   "tagline": "AI data catalog with lineage, glossary, monitors and an MCP server, now part of Atlassian.",
+   "verdict": "partial",
+   "verdictNote": "Secoda gives agents glossary terms, descriptions, lineage and a run_sql tool through MCP, but the docs show no metric or semantic model object.",
+   "artifacts": [
+    {
+     "name": "Secoda AI",
+     "kind": "nl2sql",
+     "status": "Unverified",
+     "since": "",
+     "format": "UI chat; admin turns it on in Settings; docs give no stage label",
+     "url": "https://docs.secoda.co/features/ai-assistant.md"
+    },
+    {
+     "name": "Secoda MCP server",
+     "kind": "mcp",
+     "status": "Unverified",
+     "since": "",
+     "format": "MCP tools: search_data_assets, run_sql, entity_lineage, glossary; docs give no stage label",
+     "url": "https://docs.secoda.co/features/ai-assistant/secoda-mcp-server.md"
+    },
+    {
+     "name": "AI-powered Automations",
+     "kind": "agent",
+     "status": "Unverified",
+     "since": "",
+     "format": "UI; AI rules write descriptions, tags and PII classes in bulk",
+     "url": "https://docs.secoda.co/features/automations/ai-powered-automations.md"
+    },
+    {
+     "name": "Secoda AI Agents",
+     "kind": "agent",
+     "status": "Unverified",
+     "since": "",
+     "format": "UI; scheduled prompts that deliver results to the inbox",
+     "url": "https://docs.secoda.co/features/ai-assistant/secoda-ai-agents.md"
+    },
+    {
+     "name": "Business glossary",
+     "kind": "glossary",
+     "status": "GA",
+     "since": "",
+     "format": "UI and API",
+     "url": "https://docs.secoda.co/features/glossary.md"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 0,
+     "n": "No metric or semantic model feature appears in the docs index. Glossary terms hold definitions.",
+     "u": "https://docs.secoda.co/llms.txt"
+    },
+    "dimensions": {
+     "l": 0,
+     "n": "No dimension object appears in the docs index.",
+     "u": "https://docs.secoda.co/llms.txt"
+    },
+    "relationships": {
+     "l": 0,
+     "n": "No declared join model appears in the docs index. Lineage shows data flow.",
+     "u": "https://docs.secoda.co/llms.txt"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "Descriptions, glossary terms and admin custom instructions are context for Secoda AI and the MCP glossary tool.",
+     "u": "https://docs.secoda.co/features/ai-assistant.md"
+    },
+    "verifiedQueries": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "nl2sql": {
+     "l": 3,
+     "n": "Secoda AI answers questions, builds queries and runs SQL on connected sources. The docs give no stage label.",
+     "u": "https://docs.secoda.co/features/ai-assistant.md"
+    },
+    "ontology": {
+     "l": 0,
+     "n": "Glossary, collections and tags exist. No object, link or action model appears in the docs index.",
+     "u": "https://docs.secoda.co/llms.txt"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query language in the docs index. Lineage is available in the UI and MCP.",
+     "u": "https://docs.secoda.co/llms.txt"
+    },
+    "vector": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "mcp": {
+     "l": 3,
+     "n": "The MCP server searches assets, runs SQL, returns lineage and glossary terms, and respects workspace permissions. No stage label in docs.",
+     "u": "https://docs.secoda.co/features/ai-assistant/secoda-mcp-server.md"
+    },
+    "governance": {
+     "l": 3,
+     "n": "Admins set filter rules for what AI can see. AI follows team permissions, and run_sql needs query access.",
+     "u": "https://docs.secoda.co/features/ai-assistant.md"
+    },
+    "openStandard": {
+     "l": 1,
+     "n": "MCP and a REST API with CSV export exist. No OSI or semantic model export was found.",
+     "u": "https://docs.secoda.co/api.md"
+    },
+    "aiDescriptions": {
+     "l": 3,
+     "n": "The AI Description Editor generates descriptions in bulk and follows admin style instructions.",
+     "u": "https://docs.secoda.co/resource-and-metadata-management/add-documentation/ai-description-editor.md"
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "CSV import and export, bulk editing, rule-based Automations, and a REST API with column endpoints.",
+     "u": "https://docs.secoda.co/resource-and-metadata-management/import-and-export-data.md"
+    },
+    "autoClassify": {
+     "l": 3,
+     "n": "AI Automations detect and classify PII and apply tags by rule.",
+     "u": "https://docs.secoda.co/features/automations/ai-powered-automations.md"
+    },
+    "sampleValues": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "queryHistory": {
+     "l": 1,
+     "n": "Secoda AI reports query usage patterns and costly queries. The docs do not show join or metric suggestions from query history.",
+     "u": "https://docs.secoda.co/features/ai-assistant/secoda-ai-capabilities.md"
+    },
+    "lineage": {
+     "l": 3,
+     "n": "Table and column lineage is extracted from queries. Manual lineage is also available.",
+     "u": "https://docs.secoda.co/features/data-lineage.md"
+    },
+    "evals": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    }
+   },
+   "offers": [
+    "Secoda AI reads catalog metadata, glossary, lineage, monitors and query logs, and it can run SQL on connected sources.",
+    "The MCP server gives agents asset search, entity lineage, glossary terms and a run_sql tool.",
+    "Admin filters and custom instructions limit and steer what the AI reads.",
+    "The AI Description Editor and AI Automations write descriptions, tags and PII classes in bulk.",
+    "Advanced Memory lets the AI learn from past successful chats in a workspace."
+   ],
+   "gaps": [
+    "No metric, dimension or declared join object appears in the docs index, so measures stay in SQL or the glossary.",
+    "The docs give no stage label for Secoda AI or the MCP server.",
+    "No NL-to-SQL accuracy test tool and no verified question and SQL pairs were found.",
+    "Atlassian bought Secoda in December 2025, and the infrastructure is moving, so plans may change."
+   ],
+   "fillWith": [
+    "dbt Semantic Layer",
+    "Cube",
+    "Snowflake semantic views"
+   ],
+   "nl2sqlPath": "Document tables and columns in Secoda with the AI Description Editor and glossary terms. Set AI filters so the agent sees only certified resources. Define metrics in a separate semantic layer, and let agents use both through the MCP server.",
+   "snippet": {
+    "lang": "bash",
+    "title": "Secoda API key header (shape from docs)",
+    "code": "# Create an API key in Workspace Settings > API in Secoda.\n# Send it as a bearer token on Secoda API requests:\n#   Authorization: Bearer <your_api_key>",
+    "u": "https://docs.secoda.co/api/authentication.md"
+   },
+   "enrichHowTo": "Filter the tables to document, then use the AI Description Editor or an Automation with a Generate AI output rule. Turn on review before publish. For exact edits, export resources to CSV, edit them and import the file.",
+   "bulkSnippet": {
+    "lang": "bash",
+    "code": "# Secoda: Export resources to CSV, edit the description column, then import the file.\n# Docs: Import and export resources.",
+    "u": "https://docs.secoda.co/resource-and-metadata-management/import-and-export-data.md"
+   },
+   "askData": [
+    {
+     "name": "Secoda AI",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "MCP"
+     ],
+     "output": "SQL",
+     "reads": "Catalog metadata, descriptions, glossary, lineage, monitors, query logs and admin custom instructions.",
+     "u": "https://docs.secoda.co/features/ai-assistant.md"
+    }
+   ],
+   "sources": [
+    {
+     "t": "Secoda AI",
+     "u": "https://docs.secoda.co/features/ai-assistant.md"
+    },
+    {
+     "t": "Secoda MCP server",
+     "u": "https://docs.secoda.co/features/ai-assistant/secoda-mcp-server.md"
+    },
+    {
+     "t": "Secoda AI capabilities",
+     "u": "https://docs.secoda.co/features/ai-assistant/secoda-ai-capabilities.md"
+    },
+    {
+     "t": "AI-powered automations",
+     "u": "https://docs.secoda.co/features/automations/ai-powered-automations.md"
+    },
+    {
+     "t": "AI description editor",
+     "u": "https://docs.secoda.co/resource-and-metadata-management/add-documentation/ai-description-editor.md"
+    },
+    {
+     "t": "Import and export resources",
+     "u": "https://docs.secoda.co/resource-and-metadata-management/import-and-export-data.md"
+    },
+    {
+     "t": "Atlassian acquires Secoda",
+     "u": "https://www.secoda.co/blog/atlassian-acquires-secoda"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null,
+   "worksWith": []
+  },
+  {
+   "id": "selectstar",
+   "name": "Select Star",
+   "category": "catalog",
+   "aliases": [
+    "Select Star Metadata Context Platform",
+    "selectstar.com"
+   ],
+   "tagline": "Automated data catalog with lineage, semantic models and an MCP server, now part of Snowflake.",
+   "verdict": "partial",
+   "verdictNote": "Select Star builds semantic models with entities, metrics, relationships and example queries, but the feature is in Beta and exports to the Snowflake format.",
+   "artifacts": [
+    {
+     "name": "Semantic Models",
+     "kind": "semantic-model",
+     "status": "Preview",
+     "since": "",
+     "format": "UI; AI-generated; YAML in the Snowflake Cortex Analyst specification",
+     "url": "https://docs.selectstar.com/features/semantic-models.md"
+    },
+    {
+     "name": "Ask AI Chatbot",
+     "kind": "nl2sql",
+     "status": "Unverified",
+     "since": "",
+     "format": "UI and Slack; docs give no stage label",
+     "url": "https://docs.selectstar.com/features/ask-ai-chatbot.md"
+    },
+    {
+     "name": "MCP Server",
+     "kind": "mcp",
+     "status": "GA",
+     "since": "",
+     "format": "Remote MCP at mcp.production.selectstar.com with API token",
+     "url": "https://docs.selectstar.com/features/mcp-server.md"
+    },
+    {
+     "name": "Metrics Generation",
+     "kind": "semantic-model",
+     "status": "Preview",
+     "since": "",
+     "format": "UI; reads Power BI and Tableau dashboards",
+     "url": "https://docs.selectstar.com/features/documents/metrics/metrics-generation.md"
+    },
+    {
+     "name": "AI Agents (tagging rules)",
+     "kind": "agent",
+     "status": "Preview",
+     "since": "",
+     "format": "UI; private beta",
+     "url": "https://docs.selectstar.com/features/ai-tagging-agent.md"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 2,
+     "n": "Semantic models hold metrics with definitions, synonyms and SQL expressions. Metrics Generation reads Power BI and Tableau dashboards. Both are Beta.",
+     "u": "https://docs.selectstar.com/features/semantic-models.md"
+    },
+    "dimensions": {
+     "l": 2,
+     "n": "Semantic model entities list their columns, and metrics list dimensions. The feature is Beta.",
+     "u": "https://docs.selectstar.com/features/semantic-models.md"
+    },
+    "relationships": {
+     "l": 2,
+     "n": "A Relationships tab shows joins inferred from primary and foreign keys in the ERD. The feature is Beta.",
+     "u": "https://docs.selectstar.com/features/semantic-models.md"
+    },
+    "synonyms": {
+     "l": 2,
+     "n": "Semantic models take descriptions, synonyms, sample business questions and custom instructions. The feature is Beta.",
+     "u": "https://docs.selectstar.com/features/semantic-models.md"
+    },
+    "verifiedQueries": {
+     "l": 2,
+     "n": "Semantic models hold example queries with SQL that help Ask AI. The feature is Beta.",
+     "u": "https://docs.selectstar.com/features/semantic-models.md"
+    },
+    "nl2sql": {
+     "l": 3,
+     "n": "Ask AI writes queries from metadata and recommends joins. The docs give no stage label and say the chatbot can be enabled per organization.",
+     "u": "https://docs.selectstar.com/features/ask-ai-chatbot.md"
+    },
+    "ontology": {
+     "l": 1,
+     "n": "Semantic models define entities and a glossary exists, but no object, link or action model was found.",
+     "u": "https://docs.selectstar.com/features/semantic-models.md"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query language in the docs index. Lineage is shown in the UI and the MCP server.",
+     "u": "https://docs.selectstar.com/llms.txt"
+    },
+    "vector": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "mcp": {
+     "l": 3,
+     "n": "The MCP server searches tables, dashboards and columns, returns asset details and lineage, and supports dbt workflows.",
+     "u": "https://docs.selectstar.com/features/mcp-server.md"
+    },
+    "governance": {
+     "l": 2,
+     "n": "Admins can limit which assets Ask AI sees, and tags carry certification. The sources do not show row-level security inheritance.",
+     "u": "https://docs.selectstar.com/features/ai-features-and-settings.md"
+    },
+    "openStandard": {
+     "l": 2,
+     "n": "Each semantic model has YAML in the Snowflake Cortex Analyst specification, with export to a stage or a view. No OSI support found.",
+     "u": "https://docs.selectstar.com/features/semantic-models.md"
+    },
+    "aiDescriptions": {
+     "l": 3,
+     "n": "AI generates table, column, dashboard and chart descriptions from metadata, SQL queries and existing documentation.",
+     "u": "https://docs.selectstar.com/features/auto-documentation.md"
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "CSV upload for table and column descriptions, a REST API, and dbt docs sync. Snowflake tag sync and BigQuery description sync are Beta.",
+     "u": "https://docs.selectstar.com/data-management/add-documentation/csv-metadata-upload.md"
+    },
+    "autoClassify": {
+     "l": 3,
+     "n": "Automated PII rules tag columns by regular expression on column names. Rules run daily after metadata sync.",
+     "u": "https://docs.selectstar.com/data-management/automated-pii-detection-beta.md"
+    },
+    "sampleValues": {
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
+    },
+    "queryHistory": {
+     "l": 3,
+     "n": "AI documentation, popularity and lineage use SQL query history. Semantic models draw on dashboards and downstream use.",
+     "u": "https://docs.selectstar.com/features/ask-ai-chatbot.md"
+    },
+    "lineage": {
+     "l": 3,
+     "n": "Column-level lineage from query logs and BI tools, with OpenLineage input in Beta.",
+     "u": "https://docs.selectstar.com/features/lineage.md"
+    },
+    "evals": {
+     "l": 0,
+     "n": "Users can rate Ask AI answers. No test set tool or rating-to-example loop was found.",
+     "u": "https://docs.selectstar.com/features/ask-ai-chatbot.md"
+    }
+   },
+   "offers": [
+    "Semantic Models: AI generates entities, metrics, joins and example queries from warehouse tables or BI dashboards.",
+    "Ask AI reads the semantic model, descriptions and glossary to answer data questions and write queries.",
+    "The MCP server gives agents catalog search, asset details, lineage and semantic model context.",
+    "Export of a semantic model as Snowflake Cortex Analyst YAML, to a stage or as a view.",
+    "CSV upload and a REST API write descriptions and tags in bulk."
+   ],
+   "gaps": [
+    "Semantic Models and Metrics Generation are Beta, and Metrics Generation covers Power BI and Tableau only.",
+    "The YAML format follows Snowflake Cortex Analyst, so other engines need a conversion step.",
+    "PII detection matches column names with regular expressions, not data values.",
+    "No NL-to-SQL accuracy test tool was found."
+   ],
+   "fillWith": [
+    "Snowflake semantic views",
+    "dbt Semantic Layer",
+    "Cube"
+   ],
+   "nl2sqlPath": "Generate a semantic model from key tables or dashboards, review the metrics and joins, and turn on Ask AI for it. For a Snowflake warehouse, export the YAML to Cortex Analyst. For other agents, connect through the MCP server.",
+   "snippet": {
+    "lang": "bash",
+    "title": "Add the Select Star MCP server to Claude Code",
+    "code": "claude mcp add --transport http select-star https://mcp.production.selectstar.com/mcp \\\n  --header \"Authorization: Bearer <your_api_token>\" -s user",
+    "u": "https://docs.selectstar.com/features/mcp-server.md"
+   },
+   "enrichHowTo": "Use the AI generation icon on a table to draft descriptions, or turn on AI documentation for a new data source. For corrections at scale, use CSV Metadata Upload or the Select Star API.",
+   "bulkSnippet": {
+    "lang": "bash",
+    "code": "# Select Star CSV Metadata Upload: export descriptions, edit the CSV, upload it in Data Management.\n# API: see the Select Star API quick start for table and column description updates.",
+    "u": "https://docs.selectstar.com/data-management/add-documentation/csv-metadata-upload.md"
+   },
+   "askData": [
+    {
+     "name": "Ask AI",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "Slack"
+     ],
+     "output": "SQL",
+     "reads": "Metadata, descriptions, glossary, popularity, lineage, query history and the enabled semantic model.",
+     "u": "https://docs.selectstar.com/features/ask-ai-chatbot.md"
+    }
+   ],
+   "sources": [
+    {
+     "t": "Semantic Models",
+     "u": "https://docs.selectstar.com/features/semantic-models.md"
+    },
+    {
+     "t": "Ask AI Chatbot",
+     "u": "https://docs.selectstar.com/features/ask-ai-chatbot.md"
+    },
+    {
+     "t": "MCP Server",
+     "u": "https://docs.selectstar.com/features/mcp-server.md"
+    },
+    {
+     "t": "Automated Documentation",
+     "u": "https://docs.selectstar.com/features/auto-documentation.md"
+    },
+    {
+     "t": "Automated PII Detection",
+     "u": "https://docs.selectstar.com/data-management/automated-pii-detection-beta.md"
+    },
+    {
+     "t": "Metrics Generation",
+     "u": "https://docs.selectstar.com/features/documents/metrics/metrics-generation.md"
+    },
+    {
+     "t": "Cortex Analyst (beta)",
+     "u": "https://docs.selectstar.com/integrations/snowflake/cortex-analyst.md"
+    },
+    {
+     "t": "Snowflake to acquire Select Star",
+     "u": "https://www.snowflake.com/en/blog/snowflake-acquire-select-star/"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null,
+   "worksWith": []
+  },
+  {
+   "id": "horizon",
+   "name": "Snowflake Horizon Catalog",
+   "category": "catalog",
+   "partOf": "snowflake",
+   "aliases": [
+    "Horizon",
+    "Horizon Catalog",
+    "Horizon Context",
+    "Snowflake Horizon",
+    "Snowflake Data Catalog"
+   ],
+   "tagline": "Snowflake built-in catalog for discovery, semantic views, lineage, governance and an Iceberg REST endpoint.",
+   "verdict": "native",
+   "verdictNote": "Horizon Catalog stores semantic views as schema objects and adds tags, descriptions, classification and lineage that Cortex and MCP clients read.",
+   "artifacts": [
+    {
+     "name": "Semantic views",
+     "kind": "semantic-model",
+     "status": "GA",
+     "since": "2025",
+     "format": "SQL DDL (CREATE SEMANTIC VIEW) or YAML; schema-level objects with grants and tags",
+     "url": "https://docs.snowflake.com/en/user-guide/views-semantic/overview"
+    },
+    {
+     "name": "Semantic View Autopilot",
+     "kind": "nl2sql",
+     "status": "GA",
+     "since": "",
+     "format": "Snowsight wizard that drafts tables, relationships and metrics",
+     "url": "https://docs.snowflake.com/en/user-guide/views-semantic/autopilot"
+    },
+    {
+     "name": "Auto-generated descriptions (AI_GENERATE_TABLE_DESC)",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2025-09",
+     "format": "Stored procedure and Snowsight; optional sample data",
+     "url": "https://docs.snowflake.com/en/user-guide/sql-cortex-descriptions"
+    },
+    {
+     "name": "Object tagging and Snowflake-provided tags",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "SQL; tags inherit and propagate. SNOWFLAKE.TAGS.CERTIFICATION_STATUS marks trusted assets",
+     "url": "https://docs.snowflake.com/en/user-guide/object-tagging/introduction"
+    },
+    {
+     "name": "Sensitive data classification",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2025-08",
+     "format": "Classification profiles and Trust Center; Enterprise Edition",
+     "url": "https://docs.snowflake.com/en/user-guide/classify-intro"
+    },
+    {
+     "name": "Data lineage and GET_LINEAGE",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Snowsight graph and SNOWFLAKE.CORE.GET_LINEAGE; Enterprise Edition",
+     "url": "https://docs.snowflake.com/en/sql-reference/functions/get_lineage-snowflake-core"
+    },
+    {
+     "name": "Metadata connectors",
+     "kind": "annotations",
+     "status": "Preview",
+     "since": "",
+     "format": "Collect schemas, query logs and dashboards from PostgreSQL, SQL Server, Tableau, Power BI and dbt",
+     "url": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+    },
+    {
+     "name": "Horizon Iceberg REST Catalog API",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Iceberg REST endpoint for Snowflake-managed Iceberg tables; vended credentials",
+     "url": "https://docs.snowflake.com/en/user-guide/tables-iceberg-use-external-query-engine"
+    },
+    {
+     "name": "Catalog-linked databases",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Sync Iceberg tables from an external Iceberg REST catalog, such as AWS Glue",
+     "url": "https://docs.snowflake.com/en/user-guide/tables-iceberg-catalog-linked-database"
+    },
+    {
+     "name": "Snowflake-managed MCP server",
+     "kind": "mcp",
+     "status": "GA",
+     "since": "2025-11",
+     "format": "Tools for Cortex Analyst, Cortex Search, Cortex Agents and SQL; RBAC per tool",
+     "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 3,
+     "n": "Semantic views define metrics, including derived metrics, as schema objects with grants.",
+     "u": "https://docs.snowflake.com/en/user-guide/views-semantic/overview"
+    },
+    "dimensions": {
+     "l": 3,
+     "n": "Semantic views declare dimensions and facts on logical tables.",
+     "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+    },
+    "relationships": {
+     "l": 3,
+     "n": "CREATE SEMANTIC VIEW has a RELATIONSHIPS clause that declares joins between logical tables.",
+     "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "Semantic views take synonyms, comments, and the AI_SQL_GENERATION instruction text. Tags and table comments add more context.",
+     "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+    },
+    "verifiedQueries": {
+     "l": 3,
+     "n": "The AI_VERIFIED_QUERIES clause stores question and SQL pairs inside the semantic view.",
+     "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+    },
+    "nl2sql": {
+     "l": 1,
+     "n": "Cortex Analyst and Cortex Agents answer questions against semantic views. They are Snowflake AI products, not catalog features.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+    },
+    "ontology": {
+     "l": 0,
+     "n": "No object, link or action model. Semantic views, tags and certification status are the closest features.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+    },
+    "graph": {
+     "l": 0,
+     "n": "The catalog has a lineage graph in Snowsight. No graph query language for business data was found in the docs.",
+     "u": "https://docs.snowflake.com/en/user-guide/ui-snowsight-lineage"
+    },
+    "vector": {
+     "l": 1,
+     "n": "Cortex Search is a separate service that a semantic view can use. Universal Search is not described as vector search in the docs.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+    },
+    "mcp": {
+     "l": 3,
+     "n": "The managed MCP server is GA and exposes Cortex Analyst on semantic views. The docs list no catalog-only search tool.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+    },
+    "governance": {
+     "l": 3,
+     "n": "Masking and row access policies apply to every caller. Tags, certification status, classification, and lineage cover semantic views.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon"
+    },
+    "openStandard": {
+     "l": 3,
+     "n": "Horizon exposes an Iceberg REST Catalog API built on Apache Polaris. Semantic view YAML import is separate.",
+     "u": "https://docs.snowflake.com/en/user-guide/tables-iceberg-access-using-external-query-engine-snowflake-horizon"
+    },
+    "aiDescriptions": {
+     "l": 3,
+     "n": "AI_GENERATE_TABLE_DESC drafts table and column descriptions, optionally from sample data. Snowsight has a matching UI path.",
+     "u": "https://docs.snowflake.com/en/user-guide/sql-cortex-descriptions"
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "One ALTER TABLE ... ALTER statement sets comments on many columns. SET TAG and tag propagation scale tags. No file import tool.",
+     "u": "https://docs.snowflake.com/en/sql-reference/sql/alter-table-column"
+    },
+    "autoClassify": {
+     "l": 3,
+     "n": "Classification profiles tag sensitive columns automatically. The feature needs Enterprise Edition.",
+     "u": "https://docs.snowflake.com/en/user-guide/classify-intro"
+    },
+    "sampleValues": {
+     "l": 3,
+     "n": "Semantic view dimensions accept SAMPLE_VALUES and IS_ENUM. Authors write the values; Snowflake does not sample them for you.",
+     "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl"
+    },
+    "queryHistory": {
+     "l": 3,
+     "n": "Horizon Context collects query history and popularity. Autopilot uses query history to suggest relationships and verified queries.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+    },
+    "lineage": {
+     "l": 3,
+     "n": "Column-level lineage from Snowflake, external databases, BI tools, and OpenLineage feeds. GET_LINEAGE accepts the SEMANTIC_VIEW domain.",
+     "u": "https://docs.snowflake.com/en/sql-reference/functions/get_lineage-snowflake-core"
+    },
+    "evals": {
+     "l": 1,
+     "n": "Cortex Analyst evaluations run a semantic view against verified queries. They are an AI product feature, not a catalog feature.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst-evaluations"
+    }
+   },
+   "offers": [
+    "Semantic views are schema objects, so grants, tags, sharing and lineage apply to them.",
+    "AI_GENERATE_TABLE_DESC writes table and column descriptions from metadata and sample data.",
+    "The SNOWFLAKE.TAGS.CERTIFICATION_STATUS tag gives agents a fixed trust signal for CERTIFIED and DEPRECATED assets.",
+    "The Horizon Iceberg REST Catalog API lets Spark and other engines read Snowflake-managed Iceberg tables under Snowflake roles.",
+    "Catalog-linked databases pull in Iceberg tables from an external Iceberg REST catalog, such as AWS Glue.",
+    "Column-level lineage covers Snowflake objects and OpenLineage feeds, and GET_LINEAGE returns it in SQL."
+   ],
+   "gaps": [
+    "Metadata connectors for PostgreSQL, SQL Server, Tableau, Power BI and dbt are Preview.",
+    "The docs describe no business glossary object. Teams use tags and semantic view comments.",
+    "Writes through the Horizon Iceberg REST API and access to externally managed Iceberg tables are Preview in the release notes.",
+    "Lineage, tagging, and classification need Enterprise Edition or higher.",
+    "No ontology layer with objects, links or actions."
+   ],
+   "fillWith": [
+    "Atlan",
+    "Collibra",
+    "Alation",
+    "DataHub",
+    "dbt Semantic Layer",
+    "Cube"
+   ],
+   "nl2sqlPath": "Create a semantic view over certified tables, add synonyms, comments and verified queries, and tag it. Then give agents access through the Snowflake-managed MCP server so Cortex Analyst reads the view under the caller's role.",
+   "snippet": {
+    "lang": "sql",
+    "title": "Create a semantic view with a synonym and a verified query clause",
+    "code": "CREATE SEMANTIC VIEW tpch_rev_analysis\n  TABLES (\n    orders AS SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS\n      PRIMARY KEY (o_orderkey)\n      WITH SYNONYMS ('sales orders')\n      COMMENT = 'All orders table for the sales domain',\n    customers AS SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER\n      PRIMARY KEY (c_custkey)\n  )\n  RELATIONSHIPS (\n    orders_to_customers AS orders (o_custkey) REFERENCES customers\n  )\n  METRICS (\n    orders.order_count AS COUNT(orders.o_orderkey)\n  );",
+    "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+   },
+   "askData": [
+    {
+     "name": "Cortex Analyst",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "REST API",
+      "MCP"
+     ],
+     "output": "SQL",
+     "reads": "Semantic view metrics, dimensions, relationships, synonyms, comments, and verified queries.",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+    },
+    {
+     "name": "Cortex Agents",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "MCP"
+     ],
+     "output": "SQL",
+     "reads": "Semantic views as tools. The agent generates SQL against the physical tables from the view definition.",
+     "u": "https://docs.snowflake.com/en/user-guide/views-semantic/overview"
+    }
+   ],
+   "enrichHowTo": "Run CALL AI_GENERATE_TABLE_DESC on each table to draft descriptions, review them, and apply them with ALTER TABLE ... ALTER (column COMMENT ...). Set the CERTIFICATION_STATUS tag on trusted tables. Build a semantic view over those tables.",
+   "bulkSnippet": {
+    "lang": "sql",
+    "code": "ALTER TABLE t1 ALTER (\n  c1 COMMENT 'Customer key',\n  c5 COMMENT '50 character column'\n);\nALTER TABLE t1 SET TAG SNOWFLAKE.TAGS.CERTIFICATION_STATUS = 'CERTIFIED';",
+    "u": "https://docs.snowflake.com/en/sql-reference/sql/alter-table-column"
+   },
+   "sources": [
+    {
+     "t": "Snowflake Horizon Catalog",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon"
+    },
+    {
+     "t": "Horizon Context",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+    },
+    {
+     "t": "Overview of semantic views",
+     "u": "https://docs.snowflake.com/en/user-guide/views-semantic/overview"
+    },
+    {
+     "t": "CREATE SEMANTIC VIEW",
+     "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
+    },
+    {
+     "t": "Semantic View Autopilot",
+     "u": "https://docs.snowflake.com/en/user-guide/views-semantic/autopilot"
+    },
+    {
+     "t": "Generate object descriptions with SQL",
+     "u": "https://docs.snowflake.com/en/user-guide/sql-cortex-descriptions"
+    },
+    {
+     "t": "Introduction to object tagging",
+     "u": "https://docs.snowflake.com/en/user-guide/object-tagging/introduction"
+    },
+    {
+     "t": "Sensitive data classification",
+     "u": "https://docs.snowflake.com/en/user-guide/classify-intro"
+    },
+    {
+     "t": "Data lineage",
+     "u": "https://docs.snowflake.com/en/user-guide/ui-snowsight-lineage"
+    },
+    {
+     "t": "GET_LINEAGE",
+     "u": "https://docs.snowflake.com/en/sql-reference/functions/get_lineage-snowflake-core"
+    },
+    {
+     "t": "Use an external query engine with Iceberg tables",
+     "u": "https://docs.snowflake.com/en/user-guide/tables-iceberg-use-external-query-engine"
+    },
+    {
+     "t": "Access Iceberg tables with an external engine through Horizon",
+     "u": "https://docs.snowflake.com/en/user-guide/tables-iceberg-access-using-external-query-engine-snowflake-horizon"
+    },
+    {
+     "t": "Aug 18, 2026 release note: externally managed Iceberg tables through Horizon",
+     "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-08-18-externally-managed-iceberg-tables-horizon-irc-preview"
+    },
+    {
+     "t": "Catalog-linked database for Iceberg tables",
+     "u": "https://docs.snowflake.com/en/user-guide/tables-iceberg-catalog-linked-database"
+    },
+    {
+     "t": "Snowflake-managed MCP server",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+    },
+    {
+     "t": "ALTER TABLE ... COLUMN",
+     "u": "https://docs.snowflake.com/en/sql-reference/sql/alter-table-column"
+    },
+    {
+     "t": "Data Governance in Snowflake",
+     "u": "https://docs.snowflake.com/en/guides-overview-govern.md"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null,
+   "worksWith": []
+  },
+  {
+   "id": "unity-catalog",
+   "name": "Unity Catalog",
+   "category": "catalog",
+   "partOf": "databricks",
+   "aliases": [
+    "Databricks Unity Catalog",
+    "UC",
+    "Unity Catalog OSS",
+    "Unity Catalog Business Semantics",
+    "Unity Catalog semantics"
+   ],
+   "tagline": "Databricks governance catalog for tables, metric views, models and MCP services, with an open source edition.",
+   "verdict": "native",
+   "verdictNote": "Unity Catalog stores metric views as governed objects, adds tags, domains and AI comments, and serves them to agents through governed MCP services.",
+   "artifacts": [
+    {
+     "name": "Unity Catalog metric views",
+     "kind": "metric-view",
+     "status": "GA",
+     "since": "2026-04",
+     "format": "SQL DDL (CREATE VIEW ... WITH METRICS) or YAML 1.1; Catalog Explorer editor",
+     "url": "https://docs.databricks.com/aws/en/uc-semantics/metric-views"
+    },
+    {
+     "name": "Tags and governed tags",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "SQL, UI, REST API; governed tags enforce allowed keys and values",
+     "url": "https://docs.databricks.com/aws/en/database-objects/tags"
+    },
+    {
+     "name": "AI-generated comments",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2024-06",
+     "format": "Catalog Explorer; the owner reviews each draft before saving",
+     "url": "https://docs.databricks.com/aws/en/comments/ai-comments"
+    },
+    {
+     "name": "Pages (governed business definitions)",
+     "kind": "glossary",
+     "status": "Preview",
+     "since": "",
+     "format": "UI; Beta, enabled by an account admin",
+     "url": "https://docs.databricks.com/aws/en/uc-semantics/pages"
+    },
+    {
+     "name": "Domains and subdomains",
+     "kind": "glossary",
+     "status": "Unverified",
+     "since": "",
+     "format": "UI; governed tags place assets in a domain. No stage label in docs",
+     "url": "https://docs.databricks.com/aws/en/uc-semantics/domains"
+    },
+    {
+     "name": "Certified and deprecated flags",
+     "kind": "annotations",
+     "status": "Unverified",
+     "since": "",
+     "format": "System tag system.certification_status. No stage label in docs",
+     "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/certify-deprecate-data"
+    },
+    {
+     "name": "Data Classification",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "2026-04",
+     "format": "Agentic scan that applies sensitivity tags to tables",
+     "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-classification"
+    },
+    {
+     "name": "Lineage and lineage system tables",
+     "kind": "annotations",
+     "status": "GA",
+     "since": "",
+     "format": "Column-level lineage in UI and REST API; system.access.table_lineage and column_lineage",
+     "url": "https://docs.databricks.com/aws/en/admin/system-tables/lineage"
+    },
+    {
+     "name": "Databricks-provided MCPs (Genie One MCP and others)",
+     "kind": "mcp",
+     "status": "GA",
+     "since": "2026-09",
+     "format": "Each MCP is a Unity Catalog securable behind Unity Gateway; some servers need the Unity Gateway beta",
+     "url": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services"
+    },
+    {
+     "name": "Unity Catalog OSS metric views",
+     "kind": "metric-view",
+     "status": "Unverified",
+     "since": "",
+     "format": "Open source server; metric view YAML stored through REST API and Spark. No stage label",
+     "url": "https://docs.unitycatalog.io/explanation/views-and-metric-views.md"
+    }
+   ],
+   "caps": {
+    "metrics": {
+     "l": 3,
+     "n": "Metric views hold measures as Unity Catalog securables. Standard privileges apply. Open source Unity Catalog also stores metric view YAML.",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views"
+    },
+    "dimensions": {
+     "l": 3,
+     "n": "Metric views declare dimensions as fields, with a join list. The docs do not describe hierarchies or time grains.",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/create/"
+    },
+    "relationships": {
+     "l": 3,
+     "n": "Metric view YAML declares joins and join cardinality. The catalog itself does not expose a separate relationship object.",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/create/"
+    },
+    "synonyms": {
+     "l": 3,
+     "n": "Comments, tags, and metric view synonyms are readable by agents. Pages add authoritative term definitions but are Beta.",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/pages"
+    },
+    "verifiedQueries": {
+     "l": 1,
+     "n": "Example SQL and trusted assets live in Genie Agents, not in the catalog. The catalog supplies certification flags only.",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/certify-deprecate-data"
+    },
+    "nl2sql": {
+     "l": 1,
+     "n": "Genie One answers questions with Unity Catalog semantics. It is a separate Databricks product, not a catalog feature.",
+     "u": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services"
+    },
+    "ontology": {
+     "l": 2,
+     "n": "Domains and Pages form the human-modeled layer of Genie Ontology. Pages are Beta. No user-defined object or link types.",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/"
+    },
+    "graph": {
+     "l": 0,
+     "n": "No graph query language. Lineage is a graph in the UI and API, but users cannot run graph queries on business data.",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-lineage"
+    },
+    "vector": {
+     "l": 1,
+     "n": "Vector search is a separate Databricks product that uses Unity Catalog governance. The catalog search is not documented as semantic search.",
+     "u": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services"
+    },
+    "mcp": {
+     "l": 3,
+     "n": "Databricks-provided MCPs are Unity Catalog securables. The Genie One MCP is GA. The SQL MCP needs the Unity Gateway beta.",
+     "u": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services"
+    },
+    "governance": {
+     "l": 3,
+     "n": "Grants, ABAC row filters and column masks, certification tags, audit logs, and lineage apply to tables and metric views.",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/abac/"
+    },
+    "openStandard": {
+     "l": 3,
+     "n": "Open source Unity Catalog is Apache 2.0 with an OpenAPI spec. Databricks also exposes an Iceberg REST catalog endpoint.",
+     "u": "https://docs.databricks.com/aws/en/external-access/iceberg"
+    },
+    "aiDescriptions": {
+     "l": 3,
+     "n": "Catalog Explorer drafts comments for catalogs, schemas, tables, columns, functions, models and volumes. Saving runs ALTER, which can disrupt jobs.",
+     "u": "https://docs.databricks.com/aws/en/comments/ai-comments"
+    },
+    "bulkMetadata": {
+     "l": 3,
+     "n": "COMMENT ON, ALTER TABLE ... ALTER COLUMN and SET TAGS write metadata in SQL. REST API and SDKs also work. No file import tool.",
+     "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-comment"
+    },
+    "autoClassify": {
+     "l": 3,
+     "n": "Data Classification tags sensitive data on a schedule. Scanning views is Beta. Tags feed ABAC policies.",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-classification"
+    },
+    "sampleValues": {
+     "l": 1,
+     "n": "Value matching and sampling are Genie Agents features. The catalog does not sample values for AI.",
+     "u": "https://docs.databricks.com/aws/en/genie-agents/tune-quality"
+    },
+    "queryHistory": {
+     "l": 1,
+     "n": "Genie suggests example queries from workspace query history. The catalog itself only records lineage from queries.",
+     "u": "https://docs.databricks.com/aws/en/genie-agents/set-up"
+    },
+    "lineage": {
+     "l": 3,
+     "n": "Automatic column-level lineage across workspaces, a lineage API, external lineage, and system tables with a one-year rolling window.",
+     "u": "https://docs.databricks.com/aws/en/admin/system-tables/lineage"
+    },
+    "evals": {
+     "l": 1,
+     "n": "Genie benchmarks score a Genie Agent against reference SQL. This is a Genie feature, not a catalog feature.",
+     "u": "https://docs.databricks.com/aws/en/genie-agents/monitor"
+    }
+   },
+   "offers": [
+    "Metric views are governed catalog objects with standard grants, so agents see only what the caller can see.",
+    "Governed tags, domains, certification flags and Pages give an agent machine-readable trust and business meaning.",
+    "Catalog Explorer drafts AI comments for tables and columns that an owner can review and save.",
+    "Lineage system tables let an agent or a script query upstream and downstream tables with SQL.",
+    "Databricks-provided MCPs run under Unity Catalog permissions and grants.",
+    "The open source edition serves Iceberg REST clients and stores metric view definitions."
+   ],
+   "gaps": [
+    "Pages are Beta, and the docs show no stage label for domains or certification flags.",
+    "The catalog does not store verified question and SQL pairs. Genie Agents hold them.",
+    "Natural language SQL, value sampling and evals belong to Genie, which is a separate product from the catalog.",
+    "The open source edition lists no AI comments, tags, lineage, or MCP server in its docs index.",
+    "AI comments need human review, and the docs warn against using them to detect PII."
+   ],
+   "fillWith": [
+    "Genie Agents",
+    "Atlan",
+    "Collibra",
+    "Alation",
+    "dbt Semantic Layer",
+    "Cube"
+   ],
+   "nl2sqlPath": "Define metrics as metric views and add comments, tags and certification flags. Then connect the agent through the Genie One MCP server so it reads those definitions under the caller's permissions. Use the SQL MCP only for queries you already wrote.",
+   "snippet": {
+    "lang": "sql",
+    "title": "Create a metric view in Unity Catalog",
+    "code": "CREATE OR REPLACE VIEW orders_metric_view WITH METRICS LANGUAGE YAML AS\n$$\nversion: 1.1\ncomment: \"Orders KPIs for sales analysis\"\nsource: samples.tpch.orders\nfields:\n  - name: Order Month\n    expr: DATE_TRUNC('MONTH', source.o_orderdate)\n    comment: 'Month of order'\nmeasures:\n  - name: Order Count\n    expr: COUNT(1)\n    comment: 'Total number of orders'\n$$",
+    "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/create/"
+   },
+   "askData": [
+    {
+     "name": "Genie One",
+     "status": "GA",
+     "since": "2026-06",
+     "surfaces": [
+      "UI",
+      "MCP"
+     ],
+     "output": "SQL",
+     "reads": "Genie Ontology, metric views, Pages, certified assets, table and column comments in Unity Catalog.",
+     "u": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services"
+    }
+   ],
+   "enrichHowTo": "Open Catalog Explorer, generate AI comments for each table and column, and review them. For scripted writes, run ALTER TABLE ... ALTER COLUMN ... COMMENT and SET TAGS in one statement for each table. Certify trusted assets with the system.certification_status tag.",
+   "bulkSnippet": {
+    "lang": "sql",
+    "code": "ALTER TABLE main.sales.orders\n  ALTER COLUMN o_custkey COMMENT 'Customer key',\n  ALTER COLUMN o_orderdate COMMENT 'Date the order was placed';\nALTER TABLE main.sales.orders SET TAGS ('system.certification_status' = 'certified');",
+    "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-alter-table-manage-column"
+   },
+   "sources": [
+    {
+     "t": "What is Unity Catalog?",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog"
+    },
+    {
+     "t": "Unity Catalog semantics",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/"
+    },
+    {
+     "t": "Unity Catalog metric views",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views"
+    },
+    {
+     "t": "Create a metric view",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/create/"
+    },
+    {
+     "t": "Pages",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/pages"
+    },
+    {
+     "t": "Domains and subdomains",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/domains"
+    },
+    {
+     "t": "Apply tags to Unity Catalog securable objects",
+     "u": "https://docs.databricks.com/aws/en/database-objects/tags"
+    },
+    {
+     "t": "Flag data as certified or deprecated",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/certify-deprecate-data"
+    },
+    {
+     "t": "AI-generated comments",
+     "u": "https://docs.databricks.com/aws/en/comments/ai-comments"
+    },
+    {
+     "t": "Data Classification",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-classification"
+    },
+    {
+     "t": "Lineage in Unity Catalog",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-lineage"
+    },
+    {
+     "t": "Lineage system tables reference",
+     "u": "https://docs.databricks.com/aws/en/admin/system-tables/lineage"
+    },
+    {
+     "t": "Databricks-provided MCPs",
+     "u": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services"
+    },
+    {
+     "t": "MCPs overview",
+     "u": "https://docs.databricks.com/aws/en/agents/mcp-tools/"
+    },
+    {
+     "t": "Attribute-based access control",
+     "u": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/abac/"
+    },
+    {
+     "t": "Access Databricks tables from Iceberg clients",
+     "u": "https://docs.databricks.com/aws/en/external-access/iceberg"
+    },
+    {
+     "t": "COMMENT ON",
+     "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-comment"
+    },
+    {
+     "t": "Unity Catalog OSS docs index",
+     "u": "https://docs.unitycatalog.io/llms.txt"
+    },
+    {
+     "t": "Unity Catalog OSS README",
+     "u": "https://raw.githubusercontent.com/unitycatalog/unitycatalog/main/README.md"
+    },
+    {
+     "t": "Unity Catalog OSS roadmap",
+     "u": "https://raw.githubusercontent.com/unitycatalog/unitycatalog/main/roadmap.md"
+    }
+   ],
+   "verified": "2026-10-24",
+   "logo": null,
    "worksWith": []
   },
   {
@@ -12190,6 +17175,24 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "data.world",
+    "Archie",
+    "Archie AI Assistant"
+   ],
+   "askData": [
+    {
+     "name": "Archie Chat",
+     "status": "Preview",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "Archie combines the data.world knowledge graph and an LLM to answer questions about catalog resources.",
+     "u": "https://docs.data.world/en/160498-using-archie.html"
+    }
+   ],
    "enrichHowTo": "Use Archie Enrich to draft descriptions, up to 50 at a time per collection, then review each item marked [Archie suggestion]. For scripted writes, call PATCH /v0/metadata/resources/bulk/{owner}, which updates up to 25 resources per call. Archie needs an Enterprise plan and activation through your Customer Success Director.",
    "bulkSnippet": {
     "lang": "bash",
@@ -12522,6 +17525,28 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": "neo4j",
+   "aliases": [
+    "Neo4j Aura",
+    "AuraDB",
+    "Aura Agent",
+    "Text2Cypher",
+    "AuraDS"
+   ],
+   "askData": [
+    {
+     "name": "Aura Agent (Text2Cypher tool)",
+     "status": "GA",
+     "since": "2026-02",
+     "surfaces": [
+      "UI",
+      "REST API",
+      "MCP"
+     ],
+     "output": "Cypher",
+     "reads": "The Text2Cypher tool adds the database schema and your tool instructions to the question, then writes Cypher.",
+     "u": "https://neo4j.com/docs/aura/aura-agent/"
+    }
+   ],
    "enrichHowTo": "Neo4j has no table or column comment object, so there is no bulk description statement. Put business meaning in Aura Agent tool descriptions and in few-shot examples for Text2CypherRetriever. Build an Aura Agent evaluation dataset with expected answers to test changes.",
    "bulkSnippet": {
     "lang": "python",
@@ -12833,6 +17858,31 @@ window.SL = {
    "verified": "2026-10-24",
    "logo": "palantir",
    "worksWith": [],
+   "aliases": [
+    "Palantir Foundry",
+    "Foundry",
+    "AIP",
+    "Palantir AIP",
+    "Ontology",
+    "AIP Chatbot Studio",
+    "AIP Agent Studio",
+    "Palantir Gotham"
+   ],
+   "askData": [
+    {
+     "name": "AIP Chatbot Studio",
+     "status": "GA",
+     "since": "",
+     "surfaces": [
+      "UI",
+      "SDK",
+      "REST API"
+     ],
+     "output": "answer only",
+     "reads": "The chatbot uses an LLM with the Ontology, documents, and tools that you attach.",
+     "u": "https://www.palantir.com/docs/foundry/chatbot-studio/overview"
+    }
+   ],
    "enrichHowTo": "Set descriptions where the data is built: pass column_descriptions to write_dataframe() in a Python transform (800 characters per column). For the Ontology, export it as JSON from Ontology Manager Advanced settings, edit it, and import it. Test agent functions with AIP Evals object-set test cases.",
    "bulkSnippet": {
     "lang": "python",
@@ -13095,6 +18145,26 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "RelationalAI",
+    "Relational AI",
+    "RAI",
+    "Rel",
+    "Rel App"
+   ],
+   "askData": [
+    {
+     "name": "Conversational decision intelligence in Snowflake CoWork",
+     "status": "Unverified",
+     "since": "2026-06",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "answer only",
+     "reads": "RelationalAI reasoners answer the question from the semantic model of the enterprise in Snowflake.",
+     "u": "https://www.relational.ai/post/relationalai-closes-the-ai-value-gap-with-new-agentic-decision-intelligence-capabilities-for-the-snowflake-ai-data-cloud"
+    }
+   ],
    "enrichHowTo": "RelationalAI keeps meaning in PyRel code, not in table comments. Install RelationalAI Agent Skills in a coding agent and run the rai-ontology skill to draft concepts from Snowflake tables. Review every generated file in model/, because the tutorial says the output needs human review."
   },
   {
@@ -13357,6 +18427,25 @@ window.SL = {
    ],
    "verified": "2026-10-24",
    "logo": null,
+   "aliases": [
+    "Stardog Cloud",
+    "Voicebox",
+    "Stardog Voicebox",
+    "Stardog Enterprise Knowledge Graph"
+   ],
+   "askData": [
+    {
+     "name": "Stardog Voicebox",
+     "status": "Unverified",
+     "since": "",
+     "surfaces": [
+      "UI"
+     ],
+     "output": "SPARQL",
+     "reads": "Voicebox reads the knowledge graph model and the few-shot examples that you give, then writes SPARQL.",
+     "u": "https://docs.stardog.com/voicebox/"
+    }
+   ],
    "enrichHowTo": "Write rdfs:label and rdfs:comment on classes and properties, because Voicebox reads them. Load them in bulk with stardog data add and a Turtle file. Add 5 to 50 stored queries, each with a system:voiceboxQuestion field, as few-shot examples.",
    "bulkSnippet": {
     "lang": "bash",
@@ -15707,6 +20796,346 @@ window.SL = {
     }
    ],
    "from": "postgres-clickhouse-duckdb.json"
+  },
+  {
+   "topic": "Apache Ossie support",
+   "text": "The Ossie converters repo lists Omni and Hex as vendors. Hex documents Ossie import as Alpha through a CLI conversion. Lightdash documents Ossie as Experimental and not released.",
+   "sources": [
+    {
+     "t": "Apache Ossie converters repo",
+     "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+    },
+    {
+     "t": "Syncing from Apache Ossie (Hex)",
+     "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/ossie"
+    },
+    {
+     "t": "Apache Ossie in Lightdash",
+     "u": "https://docs.lightdash.com/integrations/apache-ossie.md"
+    }
+   ],
+   "from": "r3-bi.json"
+  },
+  {
+   "topic": "Hex naming",
+   "text": "Current Hex docs call the AI features Threads, the Notebook agent, and Context Studio. The docs read do not use the name Hex Magic, so it is not an alias here.",
+   "sources": [
+    {
+     "t": "Hex llms.txt",
+     "u": "https://hex.tech/llms.txt"
+    },
+    {
+     "t": "Notebook agent",
+     "u": "https://learn.hex.tech/docs/explore-data/notebook-view/notebook-agent"
+    }
+   ],
+   "from": "r3-bi.json"
+  },
+  {
+   "topic": "Two-way exchange with warehouse semantic layers",
+   "text": "Omni imports Snowflake semantic views and Databricks metric views, and it can push Omni topics back to both. Hex syncs Snowflake Semantic Views as Beta.",
+   "sources": [
+    {
+     "t": "Snowflake semantic views in Omni",
+     "u": "https://docs.omni.co/connect-data/snowflake-semantic-views/index.md"
+    },
+    {
+     "t": "Push Omni topics to Databricks as metric views",
+     "u": "https://docs.omni.co/guides/modeling/push-to-databricks-metric-views.md"
+    },
+    {
+     "t": "Syncing from Snowflake Semantic Views (Hex)",
+     "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/snowflake-semantic-views"
+    }
+   ],
+   "from": "r3-bi.json"
+  },
+  {
+   "topic": "Open source Unity Catalog",
+   "text": "Open source Unity Catalog (unitycatalog.io) is an Apache 2.0 server with an OpenAPI spec and an Iceberg REST API. Its docs list metric view tutorials but no AI comments, lineage or MCP server. The README calls it a Linux Foundation AI and Data sandbox project.",
+   "sources": [
+    {
+     "t": "Unity Catalog OSS docs index",
+     "u": "https://docs.unitycatalog.io/llms.txt"
+    },
+    {
+     "t": "Unity Catalog OSS README",
+     "u": "https://raw.githubusercontent.com/unitycatalog/unitycatalog/main/README.md"
+    },
+    {
+     "t": "Unity Catalog OSS home",
+     "u": "https://unitycatalog.io/"
+    }
+   ],
+   "from": "r3-catalogs-platform-1.json"
+  },
+  {
+   "topic": "Unity Catalog semantics",
+   "text": "Databricks groups metric views, domains, Pages and certification flags as Unity Catalog semantics. Genie One uses them as the human-modeled layer of Genie Ontology. Pages are Beta.",
+   "sources": [
+    {
+     "t": "Unity Catalog semantics",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/"
+    },
+    {
+     "t": "Pages",
+     "u": "https://docs.databricks.com/aws/en/uc-semantics/pages"
+    }
+   ],
+   "from": "r3-catalogs-platform-1.json"
+  },
+  {
+   "topic": "Unity Catalog MCP",
+   "text": "Databricks-provided MCPs are Unity Catalog securables under system.ai, and Unity Gateway governs calls. The Genie One MCP is GA. The SQL, sandbox and web search MCPs need the Unity Gateway beta.",
+   "sources": [
+    {
+     "t": "Databricks-provided MCPs",
+     "u": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services"
+    }
+   ],
+   "from": "r3-catalogs-platform-1.json"
+  },
+  {
+   "topic": "Horizon Catalog scope",
+   "text": "Snowflake describes Horizon Catalog as the agentic catalog, with Horizon Context as its governed context layer. Context collects, enriches and activates metadata for people, BI tools and agents.",
+   "sources": [
+    {
+     "t": "Snowflake Horizon Catalog",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon"
+    },
+    {
+     "t": "Horizon Context",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
+    }
+   ],
+   "from": "r3-catalogs-platform-1.json"
+  },
+  {
+   "topic": "Horizon Iceberg REST status",
+   "text": "The docs mark external engine access to Snowflake-managed Iceberg tables as GA. Write support (Mar 2026) and externally managed tables through Horizon (Aug 2026) have Preview release notes.",
+   "sources": [
+    {
+     "t": "Use an external query engine",
+     "u": "https://docs.snowflake.com/en/user-guide/tables-iceberg-use-external-query-engine"
+    },
+    {
+     "t": "Aug 18, 2026 release note",
+     "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-08-18-externally-managed-iceberg-tables-horizon-irc-preview"
+    }
+   ],
+   "from": "r3-catalogs-platform-1.json"
+  },
+  {
+   "topic": "Horizon external catalog federation",
+   "text": "A catalog-linked database connects Snowflake to an external Iceberg REST catalog and syncs its tables. Snowflake names AWS Glue and Azure OneLake as examples.",
+   "sources": [
+    {
+     "t": "Catalog-linked database",
+     "u": "https://docs.snowflake.com/en/user-guide/tables-iceberg-catalog-linked-database"
+    },
+    {
+     "t": "Snowflake Horizon Catalog",
+     "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon"
+    }
+   ],
+   "from": "r3-catalogs-platform-1.json"
+  },
+  {
+   "topic": "SageMaker Catalog naming",
+   "text": "SageMaker Catalog is built on Amazon DataZone, and the DataZone API reference still documents its APIs. The Glue Data Catalog is a separate technical metadata store that SageMaker Catalog reads.",
+   "sources": [
+    {
+     "t": "What is Amazon DataZone?",
+     "u": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html"
+    },
+    {
+     "t": "Catalog in IDC-based domains",
+     "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html"
+    }
+   ],
+   "from": "r3-catalogs-platform-1.json"
+  },
+  {
+   "topic": "SageMaker Catalog and agents",
+   "text": "AWS announced in June 2026 that SageMaker Data Agent reads catalog glossary terms, metadata forms and README text. The announcement says the business context can sync from Collibra, Atlan and Alation.",
+   "sources": [
+    {
+     "t": "SageMaker Data Agent announcement",
+     "u": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-sagemaker-data-agent-bdc/"
+    }
+   ],
+   "from": "r3-catalogs-platform-1.json"
+  },
+  {
+   "topic": "Salesforce acquired Informatica",
+   "text": "Salesforce completed the acquisition of Informatica on 2025-11-18. Informatica adds its catalog, integration, governance and MDM services to the Salesforce platform.",
+   "sources": [
+    {
+     "t": "Salesforce completes acquisition of Informatica",
+     "u": "https://www.salesforce.com/news/press-releases/2025/11/18/salesforce-completes-acquisition-of-informatica/"
+    }
+   ],
+   "from": "r3-catalogs-standalone.json"
+  },
+  {
+   "topic": "Snowflake acquires Select Star",
+   "text": "Snowflake announced a definitive agreement to buy the Select Star team and platform on 2025-11-24. The Select Star site now says it is part of Snowflake. A completion date was not found.",
+   "sources": [
+    {
+     "t": "Snowflake to Acquire Select Star",
+     "u": "https://www.snowflake.com/en/blog/snowflake-acquire-select-star/"
+    },
+    {
+     "t": "Select Star home page",
+     "u": "https://www.selectstar.com/"
+    }
+   ],
+   "from": "r3-catalogs-standalone.json"
+  },
+  {
+   "topic": "Atlassian acquires Secoda",
+   "text": "Secoda announced on 2025-12-04 that Atlassian acquired it. The Secoda home page repeats this.",
+   "sources": [
+    {
+     "t": "Atlassian acquires Secoda",
+     "u": "https://www.secoda.co/blog/atlassian-acquires-secoda"
+    },
+    {
+     "t": "Secoda home page",
+     "u": "https://www.secoda.co/"
+    }
+   ],
+   "from": "r3-catalogs-standalone.json"
+  },
+  {
+   "topic": "Informatica MCP stage",
+   "text": "An Informatica MCP server page lists a CDGC Metadata Search server. A search summary of a different doc version showed private preview from the November 2025 release. TechTarget reported MCP support in the July 2025 release.",
+   "sources": [
+    {
+     "t": "Introduction to Informatica MCP servers",
+     "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
+    },
+    {
+     "t": "TechTarget: Informatica adds MCP support",
+     "u": "https://www.techtarget.com/data-technologies/news/366628006/Informatica-adds-MCP-support-spate-of-AI-fueled-features"
+    }
+   ],
+   "from": "r3-catalogs-standalone.json"
+  },
+  {
+   "topic": "Select Star semantic models",
+   "text": "Select Star semantic models are Beta. Their YAML follows the Snowflake Cortex Analyst specification.",
+   "sources": [
+    {
+     "t": "Semantic Models",
+     "u": "https://docs.selectstar.com/features/semantic-models.md"
+    }
+   ],
+   "from": "r3-catalogs-standalone.json"
+  },
+  {
+   "topic": "IBM has three separate products",
+   "text": "The lakehouse is watsonx.data. Governance, glossary, text-to-SQL, and the MCP server are in watsonx.data intelligence. Metrics are in watsonx BI. The page treats them as one vendor.",
+   "sources": [
+    {
+     "t": "watsonx.data intelligence MCP server",
+     "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+    },
+    {
+     "t": "IBM watsonx BI",
+     "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2025/07/29/introducing-watsonxbi"
+    }
+   ],
+   "from": "r3-ibm-cloudera-startree.json"
+  },
+  {
+   "topic": "IBM MCP servers",
+   "text": "IBM has two managed MCP servers. One is for watsonx.data intelligence metadata, in tech preview. One is for watsonx.data engines and queries, in SaaS 2.3.2.",
+   "sources": [
+    {
+     "t": "watsonx.data intelligence MCP server",
+     "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
+    },
+    {
+     "t": "watsonx.data MCP Server",
+     "u": "https://community.ibm.com/community/user/blogs/rodrigo-de-andrade/2026/04/28/watsonxdata-mcp-server"
+    }
+   ],
+   "from": "r3-ibm-cloudera-startree.json"
+  },
+  {
+   "topic": "Cloudera rename",
+   "text": "Octopai became Cloudera Data Lineage. Cloudera announced the acquisition in November 2024. Hue is now called Cloudera Data Explorer in recent docs.",
+   "sources": [
+    {
+     "t": "Cloudera Octopai release notes",
+     "u": "https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html"
+    },
+    {
+     "t": "Cloudera to acquire Octopai",
+     "u": "https://www.aap.com.au/aapreleases/globenewswire9273697/"
+    }
+   ],
+   "from": "r3-ibm-cloudera-startree.json"
+  },
+  {
+   "topic": "StarTree CosmiQ",
+   "text": "CosmiQ is a Claude-based agent with a Space as its semantic layer. The docs give no stage label or launch date.",
+   "sources": [
+    {
+     "t": "CosmiQ overview",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
+    }
+   ],
+   "from": "r3-ibm-cloudera-startree.json"
+  },
+  {
+   "topic": "Oracle docs access",
+   "text": "dev.mysql.com returned an error page. The HeatWave facts come from the docs.oracle.com copy of the HeatWave and MySQL AI user guides.",
+   "sources": [
+    {
+     "t": "HeatWave NL_SQL routine",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+    }
+   ],
+   "from": "r3-operational.json"
+  },
+  {
+   "topic": "HeatWave rename",
+   "text": "Oracle now publishes a MySQL AI User Guide for the self-managed product. The HeatWave guide covers the managed service. Both use the NL_SQL routine.",
+   "sources": [
+    {
+     "t": "MySQL AI User Guide",
+     "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
+    }
+   ],
+   "from": "r3-operational.json"
+  },
+  {
+   "topic": "MongoDB output",
+   "text": "MongoDB natural-language tools output MQL and not SQL.",
+   "sources": [
+    {
+     "t": "Natural Language to MongoDB Queries",
+     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+    }
+   ],
+   "from": "r3-operational.json"
+  },
+  {
+   "topic": "SingleStore rename",
+   "text": "Aura Analyst is now called Analyst. Only the Analyst API page has a Preview label.",
+   "sources": [
+    {
+     "t": "SingleStore Analyst",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+    },
+    {
+     "t": "Analyst API",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst/analyst-api.md"
+    }
+   ],
+   "from": "r3-operational.json"
   },
   {
    "topic": "benchmark: dbt",
