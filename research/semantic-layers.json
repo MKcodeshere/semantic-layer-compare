@@ -6,7 +6,7 @@
       "category": "semantic-layer",
       "tagline": "Metric definitions in dbt projects, compiled to SQL by the open-source MetricFlow engine.",
       "verdict": "native",
-      "verdictNote": "MetricFlow gives governed metrics that agents can query through the dbt MCP server, but serving them to tools needs a paid dbt plan.",
+      "verdictNote": "MetricFlow gives governed metrics that agents query through the dbt MCP server, but the Semantic Layer APIs need a dbt Starter or higher plan.",
       "worksWith": [
         "Snowflake",
         "BigQuery",
@@ -23,7 +23,7 @@
           "status": "GA",
           "since": "",
           "format": "YAML",
-          "url": "https://docs.getdbt.com/reference/semantic-layer-reference"
+          "url": "https://docs.getdbt.com/docs/build/semantic-models"
         },
         {
           "name": "MetricFlow (open source, Apache 2.0)",
@@ -34,15 +34,15 @@
           "url": "https://www.getdbt.com/blog/open-source-metricflow-governed-metrics"
         },
         {
-          "name": "dbt MCP server (semantic layer tools, text_to_sql tool)",
+          "name": "dbt MCP server (self-hosted and remote)",
           "kind": "mcp",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
           "format": "API",
           "url": "https://docs.getdbt.com/docs/dbt-ai/about-mcp"
         },
         {
-          "name": "dbt Remote MCP server with OAuth",
+          "name": "dbt MCP server OAuth for AI tools (labeled Beta)",
           "kind": "mcp",
           "status": "Preview",
           "since": "2026-05",
@@ -50,107 +50,140 @@
           "url": "https://www.getdbt.com/blog/what-s-shipped-in-dbt-may-2026"
         },
         {
-          "name": "Apache Ossie converter for dbt",
+          "name": "Apache Ossie semantic layer documents (dbt v1.12 and later)",
           "kind": "semantic-model",
-          "status": "Unverified",
+          "status": "GA",
+          "since": "",
+          "format": "JSON",
+          "url": "https://docs.getdbt.com/docs/build/ossie-semantic-models.md"
+        },
+        {
+          "name": "Saved queries",
+          "kind": "semantic-model",
+          "status": "GA",
           "since": "",
           "format": "YAML",
-          "url": "https://www.dremio.com/blog/apache-ossie-the-open-semantic-interchange-joins-the-apache-incubator"
+          "url": "https://docs.getdbt.com/docs/build/saved-queries.md"
         }
       ],
       "caps": {
         "metrics": {
           "l": 3,
-          "n": "Governed metrics in YAML. MetricFlow compiles them to dialect-specific SQL. Reference page seen in search only.",
-          "u": "https://docs.getdbt.com/reference/semantic-layer-reference"
+          "n": "Metrics are defined in YAML (simple, ratio, derived, cumulative, conversion). MetricFlow compiles them to SQL for each warehouse.",
+          "u": "https://docs.getdbt.com/docs/build/metrics-overview.md"
         },
         "dimensions": {
           "l": 3,
-          "n": "Semantic models declare dimensions. Detail page was not read this session.",
-          "u": "https://docs.getdbt.com/reference/semantic-layer-reference"
+          "n": "Categorical and time dimensions are declared on model columns, with time granularity. MetricFlow adds joins at query time.",
+          "u": "https://docs.getdbt.com/docs/build/semantic-models"
         },
         "relationships": {
           "l": 3,
-          "n": "Semantic models declare entities used to join. Detail page was not read this session.",
-          "u": "https://docs.getdbt.com/reference/semantic-layer-reference"
+          "n": "Entities (primary, foreign, unique, natural) mark join keys. MetricFlow builds joins across semantic models from them.",
+          "u": "https://docs.getdbt.com/docs/build/semantic-models"
         },
         "synonyms": {
-          "l": null,
-          "n": "Not confirmed. No synonym or AI-context field was found in the pages seen.",
-          "u": ""
+          "l": 3,
+          "n": "Description and label fields on semantic models, dimensions, and metrics. No synonyms field in the docs read.",
+          "u": "https://docs.getdbt.com/reference/dimension-properties.md"
         },
         "verifiedQueries": {
-          "l": null,
-          "n": "Not confirmed. No verified question-to-SQL store was found in the pages seen.",
-          "u": ""
+          "l": 1,
+          "n": "No question-to-SQL store. Saved queries (GA) group metrics, dimensions, and filters, and the MCP list_saved_queries tool returns them.",
+          "u": "https://docs.getdbt.com/docs/build/saved-queries.md"
         },
         "nl2sql": {
           "l": 3,
-          "n": "MCP text_to_sql tool generates SQL from project context. Status label not found.",
+          "n": "The MCP text_to_sql tool generates SQL from project context. It uses dbt Copilot actions and is hidden if admins turn AI features off.",
           "u": "https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools"
         },
         "ontology": {
           "l": 0,
-          "n": "No ontology layer found. Teams use semantic models and metrics.",
-          "u": ""
+          "n": "No separate ontology layer. Teams model entities, dimensions, and metrics in semantic models.",
+          "u": "https://docs.getdbt.com/docs/build/semantic-models"
         },
         "graph": {
           "l": 0,
-          "n": "No graph query language found.",
-          "u": ""
+          "n": "No graph query language. Semantic models form a join graph that MetricFlow uses internally.",
+          "u": "https://docs.getdbt.com/docs/build/semantic-models"
         },
         "vector": {
-          "l": 0,
-          "n": "No vector search found in the pages seen.",
-          "u": ""
+          "l": 2,
+          "n": "The MCP get_related_models tool finds similar models with semantic search. The broader search tool is labeled Alpha.",
+          "u": "https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools"
         },
         "mcp": {
           "l": 3,
-          "n": "dbt MCP server exposes semantic layer, Discovery API, SQL tools. OAuth for remote server was labeled beta in May 2026.",
+          "n": "dbt MCP server exposes Semantic Layer, Discovery API, SQL, and Admin API tools. Remote server is on all plans, tools depend on plan.",
           "u": "https://docs.getdbt.com/docs/dbt-ai/about-mcp"
         },
         "governance": {
-          "l": null,
-          "n": "Not confirmed. Docs say Discovery and Semantic Layer API access depends on plan type.",
-          "u": ""
+          "l": 3,
+          "n": "Queries run under a warehouse credential, so platform access policies apply. Discovery API and MCP expose lineage. Plan limits apply.",
+          "u": "https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md"
         },
         "openStandard": {
           "l": 3,
-          "n": "MetricFlow is Apache 2.0 since Oct 2025. dbt Labs co-leads Apache Ossie. A dbt converter is reported merged.",
-          "u": "https://www.getdbt.com/blog/open-source-metricflow-governed-metrics"
+          "n": "MetricFlow is Apache 2.0. dbt v1.12 and later also read Apache Ossie JSON documents as semantic models.",
+          "u": "https://docs.getdbt.com/docs/build/ossie-semantic-models.md"
         }
       },
       "offers": [
-        "Metrics defined once in YAML and compiled to SQL by MetricFlow, so agents do not write joins or aggregations.",
-        "MCP server lets agents list metrics and query the semantic layer.",
-        "MetricFlow is open source under Apache 2.0, so definitions are not locked to one tool.",
-        "Works with six platforms listed in the official FAQ."
+        "Metrics, entities, and dimensions defined once in YAML and compiled to SQL by MetricFlow, so agents do not write joins.",
+        "MCP server tools list metrics, get dimensions, query metrics, and run text_to_sql.",
+        "Saved queries group common metric and dimension combinations and are listed over MCP.",
+        "MetricFlow is Apache 2.0, and dbt v1.12 reads Apache Ossie documents.",
+        "Works with Snowflake, BigQuery, Databricks, Redshift, Postgres, and Trino."
       ],
       "gaps": [
-        "Semantic Layer only answers questions inside the modeled scope. dbt's own benchmark states this trade-off.",
-        "Serving metrics to BI and AI tools needs a paid dbt plan, per a third-party guide.",
-        "No synonym, verified-query, ontology, or vector feature was found in the pages seen.",
-        "Product pages were not readable this session, so status labels are partly Unverified."
+        "Only answers questions inside the modeled scope. In dbt's April 2026 benchmark, questions needing too many entity hops got no answer.",
+        "Semantic Layer APIs and integrations need a dbt Starter, Enterprise, or Enterprise+ plan.",
+        "No synonyms field. Only description and label carry business wording.",
+        "No stored question-to-SQL pairs and no ontology layer."
       ],
       "fillWith": [
-        "Apache Ossie YAML",
-        "A catalog tool for business glossary"
+        "Data catalog for glossary terms",
+        "Text-to-SQL for questions outside the model"
       ],
       "nl2sqlPath": "Model your core metrics and dimensions in dbt, then connect an agent through the dbt MCP server. Let the agent query metrics for modeled questions. Fall back to text-to-SQL only for questions outside the model.",
       "snippet": {
         "lang": "yaml",
-        "title": "Not retrieved. Docs could not be fetched this session. See the reference page.",
-        "code": "# Snippet not retrieved this session.",
-        "u": "https://docs.getdbt.com/reference/semantic-layer-reference"
+        "title": "Semantic model on a dbt model (dbt v1.12 and later)",
+        "code": "models:\n  - name: fact_transactions\n    semantic_model:\n      enabled: true\n    agg_time_dimension: transaction_date\n    columns:\n      - name: transaction_date\n        granularity: day\n        dimension:\n          type: time\n    metrics:\n      - name: transaction_total\n        type: simple\n        agg: sum\n        expr: transaction_total",
+        "u": "https://docs.getdbt.com/docs/build/semantic-models"
       },
       "sources": [
         {
-          "t": "dbt Semantic Layer FAQs (supported platforms)",
+          "t": "dbt Semantic Layer FAQs (supported platforms, plans)",
           "u": "https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-faqs"
+        },
+        {
+          "t": "Semantic models",
+          "u": "https://docs.getdbt.com/docs/build/semantic-models"
         },
         {
           "t": "Semantic layer reference",
           "u": "https://docs.getdbt.com/reference/semantic-layer-reference"
+        },
+        {
+          "t": "Metrics overview",
+          "u": "https://docs.getdbt.com/docs/build/metrics-overview.md"
+        },
+        {
+          "t": "Dimension properties",
+          "u": "https://docs.getdbt.com/reference/dimension-properties.md"
+        },
+        {
+          "t": "Saved queries",
+          "u": "https://docs.getdbt.com/docs/build/saved-queries.md"
+        },
+        {
+          "t": "Administer the Semantic Layer",
+          "u": "https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md"
+        },
+        {
+          "t": "Apache Ossie semantic layer documents",
+          "u": "https://docs.getdbt.com/docs/build/ossie-semantic-models.md"
         },
         {
           "t": "About dbt MCP server",
@@ -165,35 +198,19 @@
           "u": "https://www.getdbt.com/blog/open-source-metricflow-governed-metrics"
         },
         {
-          "t": "dbt Labs affirms commitment to OSI by open sourcing MetricFlow",
-          "u": "https://www.getdbt.com/blog/dbt-labs-affirms-commitment-to-open-semantic-interchange-by-open-sourcing-metricflow"
-        },
-        {
           "t": "What's shipped in dbt, May 2026",
           "u": "https://www.getdbt.com/blog/what-s-shipped-in-dbt-may-2026"
-        },
-        {
-          "t": "OSI is now Apache Ossie (dbt)",
-          "u": "https://www.getdbt.com/blog/osi-is-now-apache-ossie"
-        },
-        {
-          "t": "Apache Ossie: Realizing Semantic Layer Portability (dbt Summit)",
-          "u": "https://www.getdbt.com/dbt-summit/sessions/apache-ossie-realizing-semantic-layer-portability"
-        },
-        {
-          "t": "Dremio: Apache Ossie joins the Apache Incubator",
-          "u": "https://www.dremio.com/blog/apache-ossie-the-open-semantic-interchange-joins-the-apache-incubator"
         }
       ],
       "verified": "2026-10-24"
     },
     {
       "id": "cube",
-      "name": "Cube (Core and Cloud, D3)",
+      "name": "Cube (Core and Cloud)",
       "category": "semantic-layer",
-      "tagline": "Semantic layer with cubes and views, plus a Cloud agent platform (D3) and MCP.",
+      "tagline": "Semantic layer with cubes and views, plus Cloud agents, Analytics Chat, and MCP.",
       "verdict": "native",
-      "verdictNote": "Cubes, views, access policies, certified queries, a chat API, a hosted MCP server, and Ossie import and export are documented.",
+      "verdictNote": "Cubes, views, access policies, AI context, certified queries, a Chat API, a hosted MCP server, and Ossie conversion (Preview) are documented.",
       "worksWith": [
         "Amazon Redshift",
         "Google BigQuery",
@@ -236,23 +253,39 @@
           "url": "https://docs.cube.dev/reference/data-modeling/cube.md"
         },
         {
-          "name": "Cube D3 agentic analytics platform",
-          "kind": "agent",
-          "status": "Unverified",
-          "since": "2025-06",
+          "name": "Analytics Chat (Cube agent)",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "",
           "format": "GUI",
+          "url": "https://docs.cube.dev/docs/explore-analyze/analytics-chat.md"
+        },
+        {
+          "name": "Chat API for Cube agents (Premium and Enterprise plans)",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "",
+          "format": "API",
+          "url": "https://docs.cube.dev/reference/embed-apis/chat-api.md"
+        },
+        {
+          "name": "AI context and certified queries (code-first agent config)",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "2026-04",
+          "format": "YAML, Markdown",
           "url": "https://docs.cube.dev/admin/ai"
         },
         {
-          "name": "Chat API (AI API) for Cube agents",
+          "name": "Evals (agent accuracy benchmarks)",
           "kind": "nl2sql",
-          "status": "Unverified",
+          "status": "Preview",
           "since": "",
-          "format": "API",
-          "url": "https://docs.cube.dev/embed/chat"
+          "format": "YAML",
+          "url": "https://docs.cube.dev/admin/ai/evals.md"
         },
         {
-          "name": "Cube Remote MCP server (cubecloud.dev/mcp)",
+          "name": "Remote MCP server (cubecloud.dev/mcp)",
           "kind": "mcp",
           "status": "GA",
           "since": "",
@@ -265,101 +298,102 @@
           "status": "Deprecated",
           "since": "",
           "format": "API",
-          "url": "https://github.com/cubedevinc/cube-mcp-server"
+          "url": "https://raw.githubusercontent.com/cubedevinc/cube-mcp-server/main/README.md"
         },
         {
-          "name": "Apache Ossie import and export",
+          "name": "Apache Ossie conversion (import and export)",
           "kind": "semantic-model",
-          "status": "GA",
+          "status": "Preview",
           "since": "2026-10",
           "format": "CLI, API",
-          "url": "https://cube.dev/changelog/2026-10-16-changelog-apache-ossie-integration"
+          "url": "https://docs.cube.dev/docs/integrations/apache-ossie.md"
         }
       ],
       "caps": {
         "metrics": {
           "l": 3,
-          "n": "Measures are declared in cubes. Views expose them to consumers.",
+          "n": "Measures are declared in cubes (count, sum, filtered measures). Views expose them to consumers.",
           "u": "https://docs.cube.dev/reference/data-modeling/cube.md"
         },
         "dimensions": {
           "l": 3,
-          "n": "Dimensions are declared in cubes and included in views.",
+          "n": "Dimensions, hierarchies, and time dimensions are declared in cubes and included in views.",
           "u": "https://docs.cube.dev/reference/data-modeling/cube.md"
         },
         "relationships": {
           "l": 3,
-          "n": "Directed joins such as many_to_one between cubes. Views use join_path.",
+          "n": "Joins between cubes declare relationship (such as many_to_one). Views use join_path to pick the route.",
           "u": "https://docs.cube.dev/docs/data-modeling/joins.md"
         },
         "synonyms": {
           "l": 3,
-          "n": "Agents take rules and accessible views as configuration. A dedicated synonym field was not confirmed.",
-          "u": "https://docs.cube.dev/embed/chat"
+          "n": "Descriptions are read by the agent. ai_context in meta on views and members is agent-only, up to 2,000 characters.",
+          "u": "https://docs.cube.dev/docs/data-modeling/ai-context.md"
         },
         "verifiedQueries": {
           "l": 3,
-          "n": "Agent configuration supports certified queries. Status label not seen.",
-          "u": "https://docs.cube.dev/embed/chat"
+          "n": "Certified queries are Markdown files with a user_request and SQL. The agent uses them as trusted examples.",
+          "u": "https://docs.cube.dev/admin/ai/certified-queries.md"
         },
         "nl2sql": {
           "l": 3,
-          "n": "D3 AI Data Analyst and the Chat API answer questions over the semantic layer. Launched June 2025.",
-          "u": "https://cube.dev/events/introducing-d3-the-first-agentic-analytics-platform-built-on-a-universal"
+          "n": "Analytics Chat and the Chat API answer questions over the semantic layer. Chat API needs a Premium or Enterprise plan.",
+          "u": "https://docs.cube.dev/docs/explore-analyze/analytics-chat.md"
         },
         "ontology": {
           "l": 0,
-          "n": "No ontology layer found. Cubes and views are the modeling objects.",
-          "u": ""
+          "n": "No ontology layer found in the docs. Cubes and views are the modeling objects.",
+          "u": "https://docs.cube.dev/docs/data-modeling/overview.md"
         },
         "graph": {
           "l": 0,
-          "n": "No graph query language found.",
-          "u": ""
+          "n": "No graph query language found in the docs.",
+          "u": "https://docs.cube.dev/docs/data-modeling/overview.md"
         },
         "vector": {
           "l": 0,
-          "n": "No vector search found in the pages seen.",
-          "u": ""
+          "n": "No vector or semantic search feature found in the docs index.",
+          "u": "https://docs.cube.dev/llms.txt"
         },
         "mcp": {
           "l": 3,
-          "n": "Hosted remote MCP server with OAuth, listed as available on all plans in Cube docs. Local server is deprecated.",
+          "n": "Hosted MCP server with OAuth, available on all plans. The earlier local npm server is deprecated.",
           "u": "https://docs.cube.dev/docs/integrations/mcp-server"
         },
         "governance": {
           "l": 3,
-          "n": "Row-level security, data access policies, and user attributes are enforced by Cube, not by the agent.",
-          "u": "https://docs.cube.dev/embed/chat"
+          "n": "Access policies combine member access, row filters, and masking by group. Analytics Chat honors the active security context.",
+          "u": "https://docs.cube.dev/docs/data-modeling/data-access-policies.md"
         },
         "openStandard": {
-          "l": 3,
-          "n": "Export and import Apache Ossie models through the Cube CLI and Platform API (changelog 16 Oct 2026).",
-          "u": "https://cube.dev/changelog/2026-10-16-changelog-apache-ossie-integration"
+          "l": 2,
+          "n": "Export to and import from Apache Ossie through the Cube CLI and Platform API. Docs label it Preview and ask you to contact support.",
+          "u": "https://docs.cube.dev/docs/integrations/apache-ossie.md"
         }
       },
       "offers": [
         "Cubes and views give agents a curated, joined model with measures and dimensions defined once.",
-        "Hosted MCP server lets Claude, ChatGPT, and Cursor query governed data.",
-        "Chat API runs Cube agents with rules, certified queries, and chosen views.",
-        "Access policies and row-level security apply to agent queries.",
-        "Ossie import and export moves models in and out of Cube."
+        "Hosted MCP server lets Claude, ChatGPT, and Cursor query governed data over OAuth.",
+        "Agent configuration lives in the repo: rules, certified queries, and accessible views.",
+        "Descriptions and agent-only ai_context in meta guide the agent.",
+        "Access policies with row filters and masking apply to agent queries."
       ],
       "gaps": [
-        "Cube only reads SQL-queryable sources, per the data sources page.",
-        "D3 and the Chat API carry no GA or beta label in the pages seen.",
-        "Agent UI configuration is deprecated in favor of code-first setup, per Chat API docs.",
+        "Cube reads only SQL-queryable sources, not files or REST APIs directly.",
+        "Chat API needs a Premium or Enterprise plan.",
+        "Configuring the agent in the UI is deprecated in favor of code-first setup.",
+        "Ossie conversion and Evals are Preview, and Ossie conversion is activated by Cube support.",
         "No ontology, graph, or vector feature found."
       ],
       "fillWith": [
         "Apache Ossie YAML",
         "dbt for upstream transformations"
       ],
-      "nl2sqlPath": "Model cubes and views on your warehouse, then expose a small set of views to an agent. Use the hosted MCP server or the Chat API. Add rules and certified queries in the agent configuration.",
+      "nl2sqlPath": "Model cubes and views on your warehouse, then expose a small set of views to an agent. Use the hosted MCP server or the Chat API. Add rules, ai_context, and certified queries under the agents directory.",
       "snippet": {
         "lang": "yaml",
-        "title": "Not retrieved. Docs could not be fetched this session. See the cube reference.",
-        "code": "# Snippet not retrieved this session.",
+        "title": "A cube with a join, a measure, and a dimension",
+        "code": "cubes:\n  - name: users\n    sql_table: users\n\n    joins:\n      - name: organizations\n        relationship: many_to_one\n        sql: \"{CUBE.organization_id} = {organizations.id}\"\n\n    measures:\n      - name: count\n        type: count\n        sql: id\n\n    dimensions:\n      - name: country\n        sql: country\n        type: string",
         "u": "https://docs.cube.dev/reference/data-modeling/cube.md"
       },
       "sources": [
@@ -368,7 +402,7 @@
           "u": "https://docs.cube.dev/admin/connect-to-data/data-sources"
         },
         {
-          "t": "Cube reference (cube)",
+          "t": "Cubes reference",
           "u": "https://docs.cube.dev/reference/data-modeling/cube.md"
         },
         {
@@ -376,32 +410,48 @@
           "u": "https://docs.cube.dev/docs/data-modeling/joins.md"
         },
         {
+          "t": "AI context",
+          "u": "https://docs.cube.dev/docs/data-modeling/ai-context.md"
+        },
+        {
+          "t": "Access policies",
+          "u": "https://docs.cube.dev/docs/data-modeling/data-access-policies.md"
+        },
+        {
+          "t": "Agent overview",
+          "u": "https://docs.cube.dev/admin/ai"
+        },
+        {
+          "t": "Certified queries",
+          "u": "https://docs.cube.dev/admin/ai/certified-queries.md"
+        },
+        {
+          "t": "Evals",
+          "u": "https://docs.cube.dev/admin/ai/evals.md"
+        },
+        {
+          "t": "Analytics Chat",
+          "u": "https://docs.cube.dev/docs/explore-analyze/analytics-chat.md"
+        },
+        {
+          "t": "Chat API",
+          "u": "https://docs.cube.dev/reference/embed-apis/chat-api.md"
+        },
+        {
           "t": "Cube MCP server",
           "u": "https://docs.cube.dev/docs/integrations/mcp-server"
         },
         {
-          "t": "Cube MCP connectors",
-          "u": "https://docs.cube.dev/admin/ai/mcp-connectors"
-        },
-        {
-          "t": "Cube Chat API",
-          "u": "https://docs.cube.dev/embed/chat"
-        },
-        {
-          "t": "Cube AI docs",
-          "u": "https://docs.cube.dev/admin/ai"
-        },
-        {
-          "t": "Cube D3 launch event page",
-          "u": "https://cube.dev/events/introducing-d3-the-first-agentic-analytics-platform-built-on-a-universal"
+          "t": "Cube Apache Ossie integration",
+          "u": "https://docs.cube.dev/docs/integrations/apache-ossie.md"
         },
         {
           "t": "Cube changelog: Apache Ossie integration (16 Oct 2026)",
           "u": "https://cube.dev/changelog/2026-10-16-changelog-apache-ossie-integration"
         },
         {
-          "t": "Cube MCP server GitHub (deprecated local server)",
-          "u": "https://github.com/cubedevinc/cube-mcp-server"
+          "t": "Cube MCP server GitHub (deprecation notice)",
+          "u": "https://raw.githubusercontent.com/cubedevinc/cube-mcp-server/main/README.md"
         }
       ],
       "verified": "2026-10-24"
@@ -412,36 +462,24 @@
       "category": "semantic-layer",
       "tagline": "Enterprise semantic layer with an open modeling language (SML) and an MCP server.",
       "verdict": "native",
-      "verdictNote": "AtScale serves governed metrics over SQL, DAX, MDX, and MCP, and publishes SML as an open format.",
+      "verdictNote": "AtScale models governed metrics in SML, an open YAML format, and serves them to agents through an MCP server.",
       "worksWith": [
-        "Amazon Redshift",
-        "Azure Synapse",
-        "Databricks",
+        "Databricks SQL",
         "Google BigQuery",
-        "Microsoft SQL Server",
-        "PostgreSQL",
         "Snowflake",
-        "Db2",
-        "Hadoop",
-        "InterSystems IRIS"
+        "InterSystems IRIS",
+        "PostgreSQL",
+        "Amazon Redshift"
       ],
-      "worksWithUrl": "https://documentation.atscale.com/installer/deploying-and-configuring-atscale/adding-data-warehouses",
+      "worksWithUrl": "https://documentation.atscale.com/container/product-requirements/supported-tools-and-platforms",
       "artifacts": [
         {
-          "name": "AtScale semantic models",
-          "kind": "semantic-model",
-          "status": "GA",
-          "since": "",
-          "format": "GUI, SML YAML",
-          "url": "https://www.atscale.com/press/atscale-databricks-mcp-marketplace-semantic-layer/"
-        },
-        {
-          "name": "Semantic Modeling Language (SML), open source",
+          "name": "Semantic models in Semantic Modeling Language (SML), Apache open source",
           "kind": "semantic-model",
           "status": "GA",
           "since": "",
           "format": "YAML",
-          "url": "https://github.com/semanticdatalayer/sml"
+          "url": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/README.md"
         },
         {
           "name": "AtScale MCP server",
@@ -449,133 +487,159 @@
           "status": "GA",
           "since": "2025-12",
           "format": "API",
-          "url": "https://www.atscale.com/press/atscale-databricks-mcp-marketplace-semantic-layer/"
+          "url": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
         },
         {
-          "name": "ACE engine inside Snowflake Semantic Views",
+          "name": "Natural Language Query (NLQ), announced as private preview",
+          "kind": "nl2sql",
+          "status": "Unverified",
+          "since": "2024-09",
+          "format": "GUI",
+          "url": "https://www.atscale.com/press/new-natural-language-query-capabilities-with-semantic-layer-integration/"
+        },
+        {
+          "name": "AtScale for Snowflake Semantic Views (XMLA endpoint, private preview coming soon)",
           "kind": "semantic-model",
-          "status": "Preview",
-          "since": "2026-06",
-          "format": "SQL",
-          "url": "https://atlan.com/know/ai-agent/semantic-layer/atscale-vs-cube-semantic-layer/"
+          "status": "Announced",
+          "since": "",
+          "format": "API",
+          "url": "https://snowflake.atscale.com/"
         }
       ],
       "caps": {
         "metrics": {
           "l": 3,
-          "n": "Governed metrics and business logic served over SQL, DAX, MDX, and MCP, per the Databricks listing.",
-          "u": "https://marketplace.databricks.com/details/39527f4f-9be7-4b53-80f4-8d334175966d/AtScale-Inc_AtScale-MCP"
+          "n": "Metric and calculation objects in SML define aggregated and derived values, including semi-additive and non-additive metrics.",
+          "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/metric.md"
         },
         "dimensions": {
-          "l": null,
-          "n": "Not confirmed in the pages seen. Details were not read.",
-          "u": ""
+          "l": 3,
+          "n": "Dimension objects declare attributes and hierarchies for drill-down. SML also covers time-based levels.",
+          "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/dimension.md"
         },
         "relationships": {
-          "l": null,
-          "n": "Not confirmed in the pages seen. Details were not read.",
-          "u": ""
+          "l": 3,
+          "n": "Model files declare relationships between fact datasets and dimensions, including role-playing relationships.",
+          "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/model.md"
         },
         "synonyms": {
-          "l": null,
-          "n": "Not confirmed. No AI-context field was found.",
-          "u": ""
+          "l": 3,
+          "n": "Models, dimensions, and metrics have description and label fields. MCP column tools return descriptions. No synonyms field found.",
+          "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
         },
         "verifiedQueries": {
-          "l": null,
-          "n": "Not confirmed. No verified-query store was found.",
-          "u": ""
+          "l": 0,
+          "n": "No stored question-to-SQL examples in the SML reference or MCP tools. The MCP get_sml_skills tool serves query guidance.",
+          "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
         },
         "nl2sql": {
           "l": 1,
-          "n": "AtScale press describes natural language query on its semantic layer. Product status and LLM setup not checked.",
-          "u": "https://www.atscale.com/press/new-natural-language-query-capabilities-with-semantic-layer-integration/"
+          "n": "External LLM agents write SQL through the MCP run_query tool. A first-party NLQ feature was announced as a private preview in Sept 2024.",
+          "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
         },
         "ontology": {
           "l": 0,
-          "n": "No ontology layer found.",
-          "u": ""
+          "n": "No ontology layer in the SML object list. Objects are models, dimensions, metrics, calculations, and datasets.",
+          "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/README.md"
         },
         "graph": {
           "l": 0,
-          "n": "No graph query language found.",
-          "u": ""
+          "n": "No graph query language found in the SML reference or MCP tools.",
+          "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
         },
         "vector": {
           "l": 0,
-          "n": "No vector search found.",
-          "u": ""
+          "n": "No vector search found in the MCP tools or SML reference.",
+          "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
         },
         "mcp": {
           "l": 3,
-          "n": "MCP server announced available 1 Dec 2025 in the Databricks MCP Marketplace. Customers connect existing models.",
-          "u": "https://www.atscale.com/press/atscale-databricks-mcp-marketplace-semantic-layer/"
+          "n": "MCP server tools: list_models, explore_columns, focus_columns, run_query, get_outbound_queries. Enabled through Helm values.",
+          "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
         },
         "governance": {
-          "l": null,
-          "n": "Not confirmed in the pages seen.",
-          "u": ""
+          "l": 3,
+          "n": "Row security objects restrict rows by user or group. MCP outbound query audit needs the queries_view role.",
+          "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/row-security.md"
         },
         "openStandard": {
           "l": 3,
-          "n": "SML is open source (Apache license per a secondary source). AtScale joined OSI on 27 Jan 2026.",
+          "n": "SML is Apache open source with converters and a CLI. AtScale joined the Open Semantic Interchange on 27 Jan 2026.",
           "u": "https://snowflake.atscale.com/press/atscale-joins-open-semantic-interchange-open-standards/"
         }
       },
       "offers": [
-        "Governed metrics reachable through SQL, DAX, MDX, and MCP.",
-        "MCP server in the Databricks MCP Marketplace since Dec 2025.",
-        "SML is open source and Git-friendly.",
-        "Runs on Snowflake, Databricks, and BigQuery among other warehouses."
+        "Metrics, dimensions with hierarchies, and relationships modeled in SML, a YAML format kept in Git.",
+        "MCP run_query checks agent SQL against the model before it reaches the warehouse.",
+        "MCP column tools return descriptions and sampled values for each column.",
+        "Row security objects restrict data by user or group.",
+        "MCP server listed in the Databricks MCP Marketplace since Dec 2025."
       ],
       "gaps": [
-        "Dimension, relationship, and synonym detail was not confirmed this session.",
-        "The platform is closed source. Only SML is open, per a secondary source.",
-        "Snowflake Semantic Views integration is Preview since June 2026, per Atlan (a competitor).",
-        "Supported warehouse list comes from versioned installer docs, not a current matrix."
+        "No stored question-to-SQL examples and no synonyms field found in the docs.",
+        "First-party NLQ was announced as a private preview in Sept 2024. Current docs describe MCP access for external agents.",
+        "MCP queries must be SELECT only, one model per query, with no CTEs or subqueries.",
+        "Current docs list six warehouses. The Snowflake Semantic Views endpoint is announced, not shipped.",
+        "Only SML is open source. The engine is a commercial product."
       ],
       "fillWith": [
         "Apache Ossie YAML"
       ],
-      "nl2sqlPath": "Model metrics in AtScale and expose them through the MCP server to your agent. Keep the agent on governed metrics instead of raw tables. Check current NLQ product status with AtScale.",
+      "nl2sqlPath": "Model metrics in AtScale and enable the MCP server in your Helm values. Point your agent at list_models, explore_columns, and run_query so it stays on governed metrics instead of raw tables.",
       "snippet": {
         "lang": "yaml",
-        "title": "Not retrieved. SML repository could not be fetched this session.",
-        "code": "# Snippet not retrieved this session.",
-        "u": "https://github.com/semanticdatalayer/sml"
+        "title": "An SML metric object",
+        "code": "unique_name: m_catalog_sales_coupon_amount_avg\nobject_type: metric\nlabel: Catalog Sales Average Coupon Amount\ncalculation_method: average\ndataset: catalog_sales\ncolumn: cs_sales_price",
+        "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/metric.md"
       },
       "sources": [
         {
-          "t": "AtScale: adding data warehouses",
-          "u": "https://documentation.atscale.com/installer/deploying-and-configuring-atscale/adding-data-warehouses"
+          "t": "AtScale supported tools and platforms",
+          "u": "https://documentation.atscale.com/container/product-requirements/supported-tools-and-platforms"
         },
         {
-          "t": "AtScale supported tools and platforms (2023.4.1)",
-          "u": "https://documentation.atscale.com/installer/I2023.4.1/product-requirements/supported-tools-and-platforms"
+          "t": "SML README",
+          "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/README.md"
+        },
+        {
+          "t": "SML metric reference",
+          "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/metric.md"
+        },
+        {
+          "t": "SML dimension reference",
+          "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/dimension.md"
+        },
+        {
+          "t": "SML model reference",
+          "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/model.md"
+        },
+        {
+          "t": "SML row security reference",
+          "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/row-security.md"
+        },
+        {
+          "t": "AtScale MCP server tools reference",
+          "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
+        },
+        {
+          "t": "Enabling the AtScale MCP server",
+          "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/manage-mcp-server/enable-mcp-server"
         },
         {
           "t": "AtScale delivers semantic intelligence to Databricks MCP Marketplace",
           "u": "https://www.atscale.com/press/atscale-databricks-mcp-marketplace-semantic-layer/"
         },
         {
-          "t": "AtScale MCP on Databricks Marketplace",
-          "u": "https://marketplace.databricks.com/details/39527f4f-9be7-4b53-80f4-8d334175966d/AtScale-Inc_AtScale-MCP"
-        },
-        {
           "t": "AtScale joins Open Semantic Interchange",
           "u": "https://snowflake.atscale.com/press/atscale-joins-open-semantic-interchange-open-standards/"
         },
         {
-          "t": "AtScale NLQ with semantic layer integration",
+          "t": "AtScale NLQ private preview announcement",
           "u": "https://www.atscale.com/press/new-natural-language-query-capabilities-with-semantic-layer-integration/"
         },
         {
-          "t": "SML GitHub repository",
-          "u": "https://github.com/semanticdatalayer/sml"
-        },
-        {
-          "t": "Atlan: AtScale vs Cube (competitor view)",
-          "u": "https://atlan.com/know/ai-agent/semantic-layer/atscale-vs-cube-semantic-layer/"
+          "t": "AtScale and Snowflake Semantic Views",
+          "u": "https://snowflake.atscale.com/"
         }
       ],
       "verified": "2026-10-24"
@@ -584,27 +648,60 @@
       "id": "wrenai",
       "name": "Wren AI / Wren Engine",
       "category": "semantic-layer",
-      "tagline": "Open-core GenBI agent and context engine with a modeling definition language (MDL).",
+      "tagline": "Open-core GenBI engine and context layer with a modeling definition language (MDL).",
       "verdict": "native",
-      "verdictNote": "Wren Engine is an open-source semantic engine with MDL models and relationships and an MCP server, but official docs were not readable this session.",
-      "worksWith": [],
-      "worksWithUrl": "",
+      "verdictNote": "Wren is an open-source semantic engine with MDL models, relationships, cubes, NL-to-SQL pairs, an MCP server, and Apache Ossie import and export.",
+      "worksWith": [
+        "DuckDB",
+        "PostgreSQL",
+        "MySQL",
+        "Doris",
+        "StarRocks",
+        "BigQuery",
+        "Snowflake",
+        "ClickHouse",
+        "Trino",
+        "Presto",
+        "SQL Server",
+        "Databricks",
+        "Redshift",
+        "Oracle",
+        "Athena",
+        "Spark"
+      ],
+      "worksWithUrl": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/connect.md",
       "artifacts": [
         {
-          "name": "Modeling Definition Language (MDL) models and relationships",
+          "name": "Modeling Definition Language (MDL) project: models, relationships, views, cubes",
           "kind": "semantic-model",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
-          "format": "JSON, YAML",
-          "url": "https://www.getwren.ai/oss"
+          "format": "YAML, compiled to JSON",
+          "url": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
         },
         {
-          "name": "Wren Engine MCP server (open source tier)",
+          "name": "Knowledge base: rules and NL-to-SQL pairs with memory index",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "Markdown, YAML",
+          "url": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
+        },
+        {
+          "name": "Wren MCP server (wren serve mcp)",
           "kind": "mcp",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
           "format": "API",
-          "url": "https://www.getwren.ai/oss"
+          "url": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/cli.md"
+        },
+        {
+          "name": "Apache Ossie import and export",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "YAML",
+          "url": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/ossie.md"
         },
         {
           "name": "Wren AI Cloud (GenBI)",
@@ -617,111 +714,118 @@
       ],
       "caps": {
         "metrics": {
-          "l": null,
-          "n": "Not confirmed. A third party says MDL covers metrics, but no MDL metric schema was found.",
-          "u": ""
+          "l": 3,
+          "n": "Cubes declare measures as expression plus type on a base model or view. Queried with wren cube query.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
         },
         "dimensions": {
-          "l": null,
-          "n": "Not confirmed. Columns are declared on models.",
-          "u": ""
+          "l": 3,
+          "n": "Cubes declare dimensions, time dimensions with query-time granularity, and hierarchies. Models declare typed columns.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
         },
         "relationships": {
           "l": 3,
-          "n": "MDL relationships declare join type and condition. Seen on a third-party skill page.",
-          "u": "https://tessl.io/registry/skills/github/Canner/WrenAI/generate-mdl"
+          "n": "relationships.yml declares join type (such as MANY_TO_ONE) and an equality condition between two models.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
         },
         "synonyms": {
-          "l": null,
-          "n": "Not confirmed.",
-          "u": ""
+          "l": 3,
+          "n": "properties.description on models and columns, plus Markdown rules and glossary files under knowledge/ that agents retrieve.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
         },
         "verifiedQueries": {
-          "l": null,
-          "n": "Not confirmed.",
-          "u": ""
+          "l": 3,
+          "n": "NL-to-SQL pairs are Markdown files under knowledge/sql/. The wren memory store command writes them.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
         },
         "nl2sql": {
           "l": 3,
-          "n": "Wren AI is an open-source GenBI agent. Cloud launched Oct 2024.",
-          "u": "https://www.getwren.ai/post/wren-ai-2024-year-in-review-a-fruitful-journey-and-exciting-plans-ahead"
+          "n": "Agents generate governed SQL through wren query and wren ask. Wren AI Cloud adds a GenBI UI.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
         },
         "ontology": {
           "l": 0,
-          "n": "No ontology layer found.",
-          "u": ""
+          "n": "No ontology layer in the MDL reference. Models, relationships, views, and cubes are the objects.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
         },
         "graph": {
           "l": 0,
-          "n": "No graph query language found.",
-          "u": ""
+          "n": "No graph query language in the MDL reference or CLI.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
         },
         "vector": {
-          "l": null,
-          "n": "Not confirmed.",
-          "u": ""
+          "l": 3,
+          "n": "A local LanceDB memory index gives hybrid retrieval over schema and stored pairs. Needs the memory extra.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
         },
         "mcp": {
           "l": 3,
-          "n": "Wren's site lists an MCP server in the free open-source tier, with the context engine, MDL, and CLI.",
-          "u": "https://www.getwren.ai/oss"
+          "n": "wren serve mcp exposes query, dry-run, schema, and knowledge tools over stdio or HTTP. Needs the mcp extra.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/cli.md"
         },
         "governance": {
-          "l": null,
-          "n": "A third party mentions access rules. Not confirmed in official pages.",
-          "u": ""
+          "l": 3,
+          "n": "Row and column security is in Wren AI Cloud and Enterprise Plus, not the open-source tier. OSS can omit columns from a model.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
         },
         "openStandard": {
-          "l": 0,
-          "n": "Engine is Apache 2.0 per a secondary source. No Ossie support found.",
-          "u": ""
+          "l": 3,
+          "n": "Engine, SDK, and skills are Apache 2.0. Reads and writes Apache Ossie 0.1.1 and the 0.2.0.dev0 draft.",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/ossie.md"
         }
       },
       "offers": [
-        "Open-source context engine on Apache DataFusion that agents query through MCP.",
-        "MDL models and relationships so agents reason over business concepts.",
-        "Open-core: the commercial platform runs the same engine."
+        "MDL models, relationships, views, and cubes kept as YAML in Git.",
+        "NL-to-SQL pairs and business rules stored under knowledge/ and recalled by agents.",
+        "Local MCP server with query, dry-run, schema, and knowledge tools.",
+        "Imports from dbt, OpenMetadata, and Apache Ossie, and exports to Ossie.",
+        "Connects to the data sources in the connect guide on one Apache DataFusion engine."
       ],
       "gaps": [
-        "Official docs were not readable this session. Metric and dimension support is unconfirmed.",
-        "Connector count differs by source (15+, 18, 20+, 22+). No official list confirmed.",
-        "No Ossie or OSI support found.",
-        "The open-source tier has no UI, per Wren's own page."
+        "Row and column security, the GenBI UI, and dashboards are commercial (Wren AI Cloud or Enterprise Plus).",
+        "Traversing a relationship handle directly in a query is not supported yet (issue 2688).",
+        "The golden NL-SQL eval runner is listed as in development.",
+        "The connect guide lists fewer data sources than the README figure of 22+.",
+        "No ontology or graph feature."
       ],
       "fillWith": [
         "dbt for upstream models"
       ],
-      "nl2sqlPath": "Describe tables as MDL models with relationships, then connect your agent through the Wren MCP server. Check the official MDL reference for metrics before relying on them.",
+      "nl2sqlPath": "Install the CLI with pip install wrenai, generate or import an MDL project, and add rules and NL-to-SQL pairs under knowledge/. Connect your agent through wren serve mcp or the Wren skills, and query with wren query.",
       "snippet": {
-        "lang": "json",
-        "title": "Not retrieved. Official MDL docs could not be fetched this session.",
-        "code": "// Snippet not retrieved this session.",
-        "u": "https://www.getwren.ai/oss"
+        "lang": "yaml",
+        "title": "MDL model on a physical table",
+        "code": "name: customers\ntable_reference:\n  catalog: jaffle_shop\n  schema: main\n  table: customers\nprimary_key: customer_id\ncolumns:\n  - name: customer_id\n    type: INTEGER\n    is_primary_key: true\n    not_null: true\n  - name: first_name\n    type: VARCHAR",
+        "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
       },
       "sources": [
         {
-          "t": "Wren AI open core strategy",
+          "t": "WrenAI README",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
+        },
+        {
+          "t": "MDL schema reference",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
+        },
+        {
+          "t": "Wren CLI reference",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/cli.md"
+        },
+        {
+          "t": "Connect your database",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/connect.md"
+        },
+        {
+          "t": "Apache Ossie guide",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/ossie.md"
+        },
+        {
+          "t": "Wren AI open core",
           "u": "https://www.getwren.ai/oss"
-        },
-        {
-          "t": "Wren: building the foundation for MCP clients",
-          "u": "https://www.getwren.ai/post/fueling-the-next-wave-of-ai-agents-building-the-foundation-for-future-mcp-clients-and-enterprise-data-access"
-        },
-        {
-          "t": "Wren: semantic SQL for AI agents with Apache DataFusion",
-          "u": "https://www.getwren.ai/post/powering-semantic-sql-for-ai-agents-with-apache-datafusion"
         },
         {
           "t": "Wren AI 2024 year in review",
           "u": "https://www.getwren.ai/post/wren-ai-2024-year-in-review-a-fruitful-journey-and-exciting-plans-ahead"
-        },
-        {
-          "t": "generate-mdl skill (third party)",
-          "u": "https://tessl.io/registry/skills/github/Canner/WrenAI/generate-mdl"
-        },
-        {
-          "t": "Wren Engine documentation mirror (third party)",
-          "u": "https://docsearch.algolia.com/mcp/docs/repo/canner/wren-engine"
         }
       ],
       "verified": "2026-10-24"
@@ -732,7 +836,7 @@
       "category": "semantic-layer",
       "tagline": "Open-source semantic modeling and query language; Publisher serves models with an MCP endpoint.",
       "verdict": "native",
-      "verdictNote": "Malloy models define sources, joins, and measures in code, and Publisher exposes them to agents through a built-in MCP endpoint.",
+      "verdictNote": "Malloy models define sources, joins, and measures in code, and Publisher serves them to agents through an MCP endpoint.",
       "worksWith": [
         "DuckDB",
         "MotherDuck",
@@ -748,17 +852,17 @@
       "worksWithUrl": "https://docs.malloydata.dev/documentation/setup/database_support",
       "artifacts": [
         {
-          "name": "Malloy semantic models (sources, joins, measures)",
+          "name": "Malloy semantic models (sources, joins, dimensions, measures, views)",
           "kind": "semantic-model",
           "status": "GA",
           "since": "",
           "format": "Malloy language",
-          "url": "https://docs.malloydata.dev/documentation/user_guides/publishing/publishing"
+          "url": "https://docs.malloydata.dev/documentation/language/statement"
         },
         {
           "name": "Malloy Publisher (server, REST API, web UI)",
           "kind": "semantic-model",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
           "format": "API, GUI",
           "url": "https://docs.malloydata.dev/documentation/user_guides/publishing/publishing"
@@ -766,7 +870,7 @@
         {
           "name": "Publisher built-in MCP server",
           "kind": "mcp",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
           "format": "API",
           "url": "https://docs.malloydata.dev/documentation/user_guides/publishing/mcp_agents"
@@ -775,83 +879,85 @@
       "caps": {
         "metrics": {
           "l": 3,
-          "n": "Publisher docs describe measures defined in Malloy. Language reference was not read.",
-          "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/publishing"
+          "n": "Measures are declared on sources with aggregate expressions and saved with the model.",
+          "u": "https://docs.malloydata.dev/documentation/language/statement"
         },
         "dimensions": {
           "l": 3,
-          "n": "Dimensions and measures are the building blocks of queries, per a Malloy author's post.",
-          "u": "https://lloydtabb.substack.com/p/composing-with-queries"
+          "n": "Dimensions and views are declared on sources. Views are saved queries that agents can reuse.",
+          "u": "https://docs.malloydata.dev/documentation/language/statement"
         },
         "relationships": {
           "l": 3,
-          "n": "Joins are defined in the model. Publisher docs list joins among model contents.",
-          "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/publishing"
+          "n": "join_one, join_many, and join_cross declare joins on a source. Primary keys enable the with shortcut.",
+          "u": "https://docs.malloydata.dev/documentation/language/join"
         },
         "synonyms": {
-          "l": null,
-          "n": "Not confirmed in official docs. Third parties mention doc annotations.",
-          "u": ""
+          "l": 3,
+          "n": "Annotations on fields and sources carry descriptions that agents read through Publisher. No synonyms field found.",
+          "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/mcp_agents"
         },
         "verifiedQueries": {
-          "l": null,
-          "n": "Not confirmed.",
-          "u": ""
+          "l": 1,
+          "n": "No question-to-query store. Named views and queries are returned by malloy_getContext to guide agents.",
+          "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/mcp_agents"
         },
         "nl2sql": {
           "l": 0,
-          "n": "No first-party NL-to-SQL feature found. Agents use the MCP endpoint.",
-          "u": ""
+          "n": "No first-party NL-to-query generation. malloy_getContext retrieves relevant fields for a question, and the agent writes the Malloy.",
+          "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/mcp_agents"
         },
         "ontology": {
           "l": 0,
-          "n": "No ontology layer found.",
-          "u": ""
+          "n": "No ontology layer found in the language reference or Publisher docs.",
+          "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/publishing"
         },
         "graph": {
           "l": 0,
-          "n": "No graph query language found.",
-          "u": ""
+          "n": "No graph query language. Joins are modeled as a data graph for correct aggregation, but queries are not graph queries.",
+          "u": "https://docs.malloydata.dev/documentation/language/join"
         },
         "vector": {
           "l": 0,
-          "n": "No vector search found.",
-          "u": ""
+          "n": "No vector search found in the Malloy or Publisher docs.",
+          "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/publishing"
         },
         "mcp": {
           "l": 3,
-          "n": "Publisher runs an MCP server, default localhost:4040/mcp, over packages under server_root.",
+          "n": "Publisher serves MCP at localhost:4040/mcp with discovery, query, compile, reload, and docs search tools.",
           "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/mcp_agents"
         },
         "governance": {
-          "l": null,
-          "n": "Publisher docs mention access controls in models. Details not confirmed.",
-          "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/publishing"
+          "l": 2,
+          "n": "Givens, #(authorize), and #(access_filter) gate sources and rows. Givens are behind an experimental flag. Publisher has no built-in authentication.",
+          "u": "https://raw.githubusercontent.com/malloydata/publisher/main/docs/authorize.md"
         },
         "openStandard": {
-          "l": 0,
-          "n": "Language is open source. No Ossie support found.",
-          "u": ""
+          "l": 3,
+          "n": "Malloy is MIT-licensed open source. No Apache Ossie import or export found in the docs.",
+          "u": "https://raw.githubusercontent.com/malloydata/malloy/main/LICENSE"
         }
       },
       "offers": [
-        "Models in code with sources, joins, and measures, compiled to each database's SQL.",
+        "Models in code with sources, joins, dimensions, and measures, compiled to each database dialect.",
         "Publisher serves models over REST, a web UI, and MCP.",
+        "malloy_getContext finds relevant sources, views, and fields for a plain-English question.",
+        "malloy_compile checks agent-written Malloy and returns diagnostics without running a query.",
         "Supports DuckDB, BigQuery, Snowflake, Databricks, Postgres, MySQL, Trino, and Presto."
       ],
       "gaps": [
-        "No first-party NL-to-SQL, synonym, or verified-query feature found.",
-        "Agents must write Malloy, not SQL. A community MCP server notes Malloy-only support.",
-        "No Ossie or OSI support found.",
-        "Language reference pages were not readable this session."
+        "No first-party NL-to-SQL, verified-query store, or synonyms field. The agent writes Malloy.",
+        "Publisher has no built-in authentication and its MCP port is open. Put a gateway in front.",
+        "Row-level access relies on givens, which sit behind an experimental flag.",
+        "No Apache Ossie import or export found."
       ],
       "fillWith": [],
-      "nl2sqlPath": "Write Malloy models for your core sources, run Publisher, and point your agent at its MCP endpoint. Test that your LLM writes valid Malloy queries before relying on it.",
+      "nl2sqlPath": "Write Malloy models for your core sources, run Publisher, and point your agent at its MCP endpoint. Add annotations and named views so the agent finds the right fields, and test that your LLM writes valid Malloy.",
       "snippet": {
         "lang": "other",
-        "title": "Not retrieved. Malloy docs could not be fetched this session.",
-        "code": "// Snippet not retrieved this session.",
-        "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/publishing"
+        "title": "Malloy sources with a primary key, a measure, and a join",
+        "code": "source: carriers is duckdb.table('../data/carriers.parquet') extend {\n  primary_key: code\n  measure: carrier_count is count()\n}\n\nsource: flights is duckdb.table('../data/flights.parquet') extend {\n  join_one: carriers with carrier\n}",
+        "u": "https://docs.malloydata.dev/documentation/language/join"
       },
       "sources": [
         {
@@ -859,24 +965,36 @@
           "u": "https://docs.malloydata.dev/documentation/setup/database_support"
         },
         {
-          "t": "Malloy Publisher: MCP agents",
-          "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/mcp_agents"
+          "t": "Malloy models",
+          "u": "https://docs.malloydata.dev/documentation/language/statement"
+        },
+        {
+          "t": "Malloy joins",
+          "u": "https://docs.malloydata.dev/documentation/language/join"
         },
         {
           "t": "Malloy Publisher: publishing",
           "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/publishing"
         },
         {
-          "t": "Malloy Publisher: connections",
-          "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/connections"
+          "t": "Malloy Publisher: MCP agents",
+          "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/mcp_agents"
         },
         {
-          "t": "Composing with Queries (Lloyd Tabb)",
-          "u": "https://lloydtabb.substack.com/p/composing-with-queries"
+          "t": "Publisher README",
+          "u": "https://raw.githubusercontent.com/malloydata/publisher/main/README.md"
         },
         {
-          "t": "Malloy MCP Server (community)",
-          "u": "https://glama.ai/mcp/servers/namabile/malloy-mcp-server"
+          "t": "Publisher authorize and access_filter",
+          "u": "https://raw.githubusercontent.com/malloydata/publisher/main/docs/authorize.md"
+        },
+        {
+          "t": "Publisher row-level access",
+          "u": "https://raw.githubusercontent.com/malloydata/publisher/main/docs/row-level-access.md"
+        },
+        {
+          "t": "Malloy license",
+          "u": "https://raw.githubusercontent.com/malloydata/malloy/main/LICENSE"
         }
       ],
       "verified": "2026-10-24"
@@ -885,11 +1003,15 @@
       "id": "honeydew",
       "name": "Honeydew",
       "category": "semantic-layer",
-      "tagline": "Semantic layer defined in YAML with a Snowflake Native App, APIs, and an MCP server.",
+      "tagline": "Semantic layer defined in YAML, with an AI analyst, APIs, and an MCP server.",
       "verdict": "native",
-      "verdictNote": "Entities, metrics, and relations are first-party objects, with a Text-to-Data API, an MCP server, and Apache Ossie import and export.",
-      "worksWith": [],
-      "worksWithUrl": "",
+      "verdictNote": "Entities, attributes, metrics, and relations are first-party objects, with Deep Analysis, an MCP server, row-level security, and Apache Ossie import and export.",
+      "worksWith": [
+        "Snowflake",
+        "Databricks (Beta)",
+        "Google BigQuery (Beta)"
+      ],
+      "worksWithUrl": "https://honeydew.ai/docs/integration/data-sources/snowflake",
       "artifacts": [
         {
           "name": "Honeydew workspace (entities, attributes, metrics, domains)",
@@ -897,153 +1019,195 @@
           "status": "GA",
           "since": "",
           "format": "YAML",
-          "url": "https://honeydew.ai/docs/yaml-schema"
+          "url": "https://honeydew.ai/docs/tpch-example.md"
         },
         {
-          "name": "Snowflake Native App with Text-to-Data API",
+          "name": "Deep Analysis and agents (AI analyst)",
           "kind": "nl2sql",
-          "status": "Unverified",
+          "status": "GA",
+          "since": "2025-12",
+          "format": "GUI, API",
+          "url": "https://honeydew.ai/docs/integration/context-layer/deep-analysis.md"
+        },
+        {
+          "name": "Context layer (instructions, skills, external knowledge, memory)",
+          "kind": "annotations",
+          "status": "GA",
           "since": "",
-          "format": "API",
-          "url": "https://honeydew.ai/docs/integration/snowflake-native-app"
+          "format": "YAML",
+          "url": "https://honeydew.ai/docs/integration/context-layer/context-management.md"
         },
         {
           "name": "Honeydew MCP server",
           "kind": "mcp",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
           "format": "API",
-          "url": "https://honeydew.ai/docs/integration/mcp"
+          "url": "https://honeydew.ai/docs/integration/mcp.md"
         },
         {
-          "name": "Apache Ossie import and export",
+          "name": "Snowflake Native App (semantic query and model update API)",
           "kind": "semantic-model",
-          "status": "Unverified",
+          "status": "GA",
+          "since": "",
+          "format": "SQL",
+          "url": "https://honeydew.ai/docs/integration/snowflake-native-app.md"
+        },
+        {
+          "name": "Apache Ossie converter (import and export, tracks draft spec)",
+          "kind": "semantic-model",
+          "status": "GA",
           "since": "",
           "format": "YAML",
-          "url": "https://honeydew.ai/docs/integration/apache-ossie-osi"
+          "url": "https://honeydew.ai/docs/integration/apache-ossie-osi.md"
         }
       ],
       "caps": {
         "metrics": {
           "l": 3,
-          "n": "Metrics are aggregations on an entity, tied to its key granularity.",
-          "u": "https://honeydew.ai/docs/calculations/metrics"
+          "n": "Metrics are aggregations defined once at an entity granularity and recomputed for any slice or join.",
+          "u": "https://honeydew.ai/docs/calculations/metrics.md"
         },
         "dimensions": {
           "l": 3,
-          "n": "Source and calculated attributes on entities. YAML schema lists attributes, datasets, domains, entities.",
-          "u": "https://honeydew.ai/docs/yaml-schema"
+          "n": "Source and calculated attributes on entities. Domains choose which fields are exposed.",
+          "u": "https://honeydew.ai/docs/tpch-example.md"
         },
         "relationships": {
           "l": 3,
-          "n": "Relations between entities are declared. Honeydew finds the join path from them.",
+          "n": "Entities declare relations with rel_type and key fields. Honeydew finds the join path from them.",
           "u": "https://honeydew.ai/docs/tpch-example.md"
         },
         "synonyms": {
           "l": 3,
-          "n": "Metrics carry description fields. Whether they feed the AI as context was not confirmed.",
-          "u": "https://honeydew.ai/docs/tpch-example.md"
+          "n": "AI metadata on domains, entities, attributes, and metrics holds descriptions, synonyms, and allowed values.",
+          "u": "https://honeydew.ai/docs/integration/context-layer/ai-metadata.md"
         },
         "verifiedQueries": {
-          "l": null,
-          "n": "Not confirmed.",
-          "u": ""
+          "l": 0,
+          "n": "No verified question-to-SQL store in the docs. Agents take sample questions for routing, and context items hold instructions and skills.",
+          "u": "https://honeydew.ai/docs/integration/context-layer/agents.md"
         },
         "nl2sql": {
           "l": 3,
-          "n": "Text-to-Data API returns SQL from a question using Snowflake Cortex LLM, inside the Native App.",
-          "u": "https://honeydew.ai/docs/integration/snowflake-native-app"
+          "n": "Deep Analysis runs multi-step analysis. The semantic compiler writes the SQL, not the LLM. Also reachable from Slack, Teams, and MCP.",
+          "u": "https://honeydew.ai/docs/integration/context-layer/deep-analysis.md"
         },
         "ontology": {
           "l": 0,
-          "n": "No ontology layer found.",
-          "u": ""
+          "n": "No ontology layer found. Entities, relations, and domains are the modeling objects.",
+          "u": "https://honeydew.ai/docs/architecture.md"
         },
         "graph": {
           "l": 0,
-          "n": "No graph query language found.",
-          "u": ""
+          "n": "No graph query language found. GraphQL API exposes the platform, not graph queries.",
+          "u": "https://honeydew.ai/docs/integration/graphql-api.md"
         },
         "vector": {
           "l": 0,
-          "n": "No vector search found.",
-          "u": ""
+          "n": "No vector search found in the docs.",
+          "u": "https://honeydew.ai/docs/integration/context-layer/context-management.md"
         },
         "mcp": {
           "l": 3,
-          "n": "MCP server docs exist. Release notes say it now includes documentation tools. Works with Snowflake Cortex Agents.",
-          "u": "https://honeydew.ai/docs/integration/mcp"
+          "n": "MCP server at mcp.honeydew.cloud with OAuth. Tools cover analysis, model browsing, warehouse discovery, and model editing.",
+          "u": "https://honeydew.ai/docs/integration/mcp.md"
         },
         "governance": {
-          "l": null,
-          "n": "Not confirmed. Native App docs say data processing stays in your Snowflake account.",
-          "u": "https://honeydew.ai/docs/integration/snowflake-native-app"
+          "l": 3,
+          "n": "Row-level security via domain filters or warehouse policies, user access control, Git change approval, and CI/CD.",
+          "u": "https://honeydew.ai/docs/security/row-level-security.md"
         },
         "openStandard": {
           "l": 3,
-          "n": "Docs describe import from and export to Apache Ossie semantic models.",
-          "u": "https://honeydew.ai/docs/integration/apache-ossie-osi"
+          "n": "Bidirectional Apache Ossie converter kept in the Ossie repository. It tracks a draft spec that may change.",
+          "u": "https://honeydew.ai/docs/integration/apache-ossie-osi.md"
         }
       },
       "offers": [
         "Metrics defined once per entity, with join paths resolved from declared relations.",
-        "Text-to-Data API runs inside Snowflake with Cortex LLM.",
-        "MCP server for Snowflake Intelligence and Cortex Agents, plus agent plugins.",
+        "AI metadata holds descriptions, synonyms, and allowed values on entities, attributes, and metrics.",
+        "Deep Analysis and agents answer questions, with SQL compiled by the semantic compiler.",
+        "MCP server works with Claude, Cursor, Snowflake Intelligence, and other clients.",
+        "Row-level security, user access control, and Git workflows for model changes.",
         "Import and export with Apache Ossie."
       ],
       "gaps": [
-        "Supported platform list not confirmed in official docs this session.",
-        "Text-to-Data API is documented for the Snowflake Native App only.",
-        "No verified-query store, ontology, or vector feature found.",
-        "Honeydew's own accuracy claim is a blog statement, not a published benchmark."
+        "Snowflake is the GA platform. Databricks and BigQuery support are Beta and need support to enable.",
+        "No stored question-to-SQL pairs. Sample questions only route questions to agents.",
+        "The Apache Ossie spec is an early draft, so the converter may change.",
+        "No ontology, graph, or vector feature found in the docs."
       ],
       "fillWith": [
         "Apache Ossie YAML"
       ],
-      "nl2sqlPath": "Define entities, metrics, and relations in a Honeydew workspace. On Snowflake, use the Native App Text-to-Data API or connect Cortex Agents through the MCP server. Elsewhere, connect your agent to the MCP server.",
+      "nl2sqlPath": "Define entities, relations, and metrics in a Honeydew workspace, expose a domain to an agent, and add AI metadata with synonyms. Use Deep Analysis, or connect your own agent or Snowflake Cortex Agents through the MCP server.",
       "snippet": {
         "lang": "yaml",
-        "title": "Not retrieved. Docs could not be fetched this session. See the TPC-H example.",
-        "code": "# Snippet not retrieved this session.",
+        "title": "A metric defined on an entity",
+        "code": "type: metric\nentity: lineitem\nname: revenue\ndescription: revenue, as defined in TPC-H Q3, Q5 and others\ndatatype: number\nsql: |-\n  sum(lineitem.l_extendedprice * (1 - lineitem.l_discount))",
         "u": "https://honeydew.ai/docs/tpch-example.md"
       },
       "sources": [
         {
-          "t": "Honeydew YAML schema",
-          "u": "https://honeydew.ai/docs/yaml-schema"
+          "t": "Honeydew introduction",
+          "u": "https://honeydew.ai/docs/introduction.md"
         },
         {
-          "t": "Honeydew metrics",
-          "u": "https://honeydew.ai/docs/calculations/metrics"
-        },
-        {
-          "t": "Honeydew TPC-H example",
+          "t": "Honeydew TPC-H walkthrough",
           "u": "https://honeydew.ai/docs/tpch-example.md"
         },
         {
-          "t": "Honeydew architecture",
-          "u": "https://honeydew.ai/docs/architecture"
+          "t": "Honeydew metrics",
+          "u": "https://honeydew.ai/docs/calculations/metrics.md"
         },
         {
-          "t": "Honeydew Snowflake Native App",
-          "u": "https://honeydew.ai/docs/integration/snowflake-native-app"
+          "t": "Honeydew AI metadata",
+          "u": "https://honeydew.ai/docs/integration/context-layer/ai-metadata.md"
+        },
+        {
+          "t": "Honeydew context management",
+          "u": "https://honeydew.ai/docs/integration/context-layer/context-management.md"
+        },
+        {
+          "t": "Honeydew agents",
+          "u": "https://honeydew.ai/docs/integration/context-layer/agents.md"
+        },
+        {
+          "t": "Honeydew Deep Analysis",
+          "u": "https://honeydew.ai/docs/integration/context-layer/deep-analysis.md"
         },
         {
           "t": "Honeydew MCP server",
-          "u": "https://honeydew.ai/docs/integration/mcp"
+          "u": "https://honeydew.ai/docs/integration/mcp.md"
+        },
+        {
+          "t": "Honeydew Snowflake Native App",
+          "u": "https://honeydew.ai/docs/integration/snowflake-native-app.md"
+        },
+        {
+          "t": "Honeydew Snowflake setup",
+          "u": "https://honeydew.ai/docs/integration/data-sources/snowflake.md"
+        },
+        {
+          "t": "Honeydew Databricks setup",
+          "u": "https://honeydew.ai/docs/integration/data-sources/databricks.md"
+        },
+        {
+          "t": "Honeydew BigQuery setup",
+          "u": "https://honeydew.ai/docs/integration/data-sources/bigquery.md"
+        },
+        {
+          "t": "Honeydew row-level security",
+          "u": "https://honeydew.ai/docs/security/row-level-security.md"
         },
         {
           "t": "Honeydew Apache Ossie (OSI)",
-          "u": "https://honeydew.ai/docs/integration/apache-ossie-osi"
+          "u": "https://honeydew.ai/docs/integration/apache-ossie-osi.md"
         },
         {
           "t": "Honeydew release notes",
-          "u": "https://honeydew.ai/docs/release-notes"
-        },
-        {
-          "t": "Talk to your data: why LLMs need a semantic compiler (Honeydew blog)",
-          "u": "https://honeydew.ai/blog/talk-to-your-data-loudly/"
+          "u": "https://honeydew.ai/docs/release-notes.md"
         }
       ],
       "verified": "2026-10-24"
@@ -1052,7 +1216,7 @@
   "notes": [
     {
       "topic": "benchmark: dbt",
-      "text": "Vendor-run by dbt Labs. Dataset: ACME Insurance (from data.world), 11 questions run 20 times each, dated 7 Apr 2026 by secondary sources. On modeled questions, Claude Sonnet 4.6 went from 90.0% (text-to-SQL) to 98.2% (semantic layer), and GPT-5.3-Codex from 84.1% to 100.0%. Overall figures for the full question set were reported inconsistently, so they are not given here.",
+      "text": "Vendor-run by dbt Labs, blog dated 7 Apr 2026. Dataset: ACME Insurance (from data.world), 11 questions run 20 times each. On the original schema, text-to-SQL scored 64.5% and the Semantic Layer 72.7% for both Sonnet 4.6 and GPT-5.3 Codex; after 3 added models, Sonnet 4.6 went from 90.0% to 98.2% and GPT-5.3 Codex from 84.1% to 100.0%. Bodo (Sep 2026) reported 220 of 220 correct with its own PyDough pipeline on a local SQLite replica, which is not the dbt setup.",
       "sources": [
         {
           "t": "Semantic Layer vs. Text-to-SQL: 2026 Benchmark Update (dbt)",
@@ -1070,7 +1234,7 @@
     },
     {
       "topic": "benchmark: cube",
-      "text": "Vendor-run by Cube employees (blog and arXiv paper). Dataset: Cleaned Contoso Retail in ClickHouse, 100 questions. Schema only vs schema plus a 4 KB hand-written markdown semantic doc: Opus 4.7 50.5% to 67.7%, Sonnet 4.6 46.5% to 68.7%, GPT-5.4 45.5% to 68.7%. The semantic layer here is a markdown file, not a running Cube deployment. Publication date was not confirmed.",
+      "text": "Vendor-run by Cube staff, blog and arXiv paper dated 28 Apr 2026. Dataset: Cleaned Contoso Retail in ClickHouse, 100 questions, single-shot. Adding a 4 KB hand-written markdown semantic document to the schema raised accuracy: Opus 4.7 50.5% to 67.7%, Sonnet 4.6 46.5% to 68.7%, GPT-5.4 45.5% to 68.7%. The semantic layer in this test was the markdown file, not a running Cube deployment.",
       "sources": [
         {
           "t": "Cube blog: paired benchmark across three frontier models",
@@ -1078,22 +1242,14 @@
         },
         {
           "t": "arXiv 2604.25149",
-          "u": "https://arxiv.org/pdf/2604.25149"
-        },
-        {
-          "t": "cubedevinc/semantic-layer-benchmark",
-          "u": "https://github.com/cubedevinc/semantic-layer-benchmark"
+          "u": "https://arxiv.org/abs/2604.25149"
         }
       ]
     },
     {
       "topic": "benchmark: atscale",
-      "text": "Vendor-run by AtScale. White paper announced 8 Aug 2024: Google Gemini Pro 1.5 on TPC-DS, 40 questions, 92.5% with the semantic layer vs 20% on raw schemas with few-shot prompts. A public leaderboard followed on 6 Nov 2024. No independent replication found.",
+      "text": "Vendor-run by AtScale, white paper blog dated 8 Aug 2024. Dataset: TPC-DS, 40 questions, with 3 retries allowed on SQL syntax errors. A control given only table schemas and primary and foreign keys scored 20%, and the AtScale semantic layer with its query engine scored 92.5%. The blog does not name the LLM. AtScale launched a public text-to-SQL leaderboard on 6 Nov 2024.",
       "sources": [
-        {
-          "t": "BigDATAwire: AtScale claims text-to-SQL breakthrough",
-          "u": "https://bigdatawire.com/2024/08/15/atscale-claims-text-to-sql-breakthrough-with-semantic-layer"
-        },
         {
           "t": "AtScale: natural language prompting with semantic layer and GenAI",
           "u": "https://www.atscale.com/blog/enable-natural-language-prompting-with-semantic-layer-genai/"
@@ -1106,34 +1262,37 @@
     },
     {
       "topic": "Apache Ossie status for these vendors",
-      "text": "OSI is renamed Apache Ossie (incubating). Cube shipped Ossie import and export on 16 Oct 2026. Honeydew docs describe import and export. AtScale joined OSI on 27 Jan 2026. dbt Labs co-leads, and a dbt converter is reported merged. No Ossie support was found for Wren or Malloy.",
+      "text": "OSI is renamed Apache Ossie (incubating). dbt v1.12 reads Ossie JSON documents, Wren and Honeydew document import and export, and Cube documents conversion as Preview (changelog 16 Oct 2026). AtScale joined OSI on 27 Jan 2026. No Ossie support was found in the Malloy docs.",
       "sources": [
+        {
+          "t": "dbt: Apache Ossie semantic layer documents",
+          "u": "https://docs.getdbt.com/docs/build/ossie-semantic-models.md"
+        },
+        {
+          "t": "Wren: Apache Ossie guide",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/ossie.md"
+        },
+        {
+          "t": "Honeydew Apache Ossie docs",
+          "u": "https://honeydew.ai/docs/integration/apache-ossie-osi.md"
+        },
+        {
+          "t": "Cube Apache Ossie integration",
+          "u": "https://docs.cube.dev/docs/integrations/apache-ossie.md"
+        },
         {
           "t": "Cube changelog: Apache Ossie integration",
           "u": "https://cube.dev/changelog/2026-10-16-changelog-apache-ossie-integration"
         },
         {
-          "t": "Honeydew Apache Ossie docs",
-          "u": "https://honeydew.ai/docs/integration/apache-ossie-osi"
-        },
-        {
           "t": "AtScale joins Open Semantic Interchange",
           "u": "https://snowflake.atscale.com/press/atscale-joins-open-semantic-interchange-open-standards/"
-        },
-        {
-          "t": "Dremio: Apache Ossie joins the Apache Incubator",
-          "u": "https://www.dremio.com/blog/apache-ossie-the-open-semantic-interchange-joins-the-apache-incubator"
         }
       ]
     },
     {
-      "topic": "Research limits for this file",
-      "text": "WebFetch was blocked for docs hosts in this session, so claims come from WebSearch result summaries only. Pages marked Unverified or l=0 with 'not confirmed' were not read. Features with no Preview label in the seen text are marked GA, as in the other research files.",
-      "sources": []
-    },
-    {
       "topic": "Cube MCP naming",
-      "text": "Cube Software (finance product) also has an MCP server, which is a different company. The Cube semantic layer MCP server is the cubecloud.dev one in Cube docs. The local npm server for Cube is deprecated.",
+      "text": "Cube hosts a remote MCP server at cubecloud.dev/mcp with OAuth. The earlier local npm package is deprecated in favor of it, per its README.",
       "sources": [
         {
           "t": "Cube MCP server docs",
@@ -1141,7 +1300,31 @@
         },
         {
           "t": "Cube MCP server GitHub (deprecation notice)",
-          "u": "https://github.com/cubedevinc/cube-mcp-server"
+          "u": "https://raw.githubusercontent.com/cubedevinc/cube-mcp-server/main/README.md"
+        }
+      ]
+    },
+    {
+      "topic": "Honeydew data platform support",
+      "text": "Honeydew docs mark Snowflake as the supported platform and label Databricks and Google BigQuery support as Beta, available through support.",
+      "sources": [
+        {
+          "t": "Honeydew Databricks setup",
+          "u": "https://honeydew.ai/docs/integration/data-sources/databricks.md"
+        },
+        {
+          "t": "Honeydew BigQuery setup",
+          "u": "https://honeydew.ai/docs/integration/data-sources/bigquery.md"
+        }
+      ]
+    },
+    {
+      "topic": "Wren docs moved to YAML",
+      "text": "Current Wren docs define MDL as YAML files that compile to target/mdl.json. Older material shows MDL as JSON.",
+      "sources": [
+        {
+          "t": "MDL schema reference",
+          "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
         }
       ]
     }
