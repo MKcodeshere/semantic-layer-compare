@@ -304,9 +304,9 @@
           "u": ""
         },
         "graph": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 1,
+          "n": "PageRank and shortest-path functions run in the separate Machine Learning Engine (SQL-GR). Function-based, not a graph query language.",
+          "u": "https://docs.teradata.com/r/Machine-Learning-Engine-Analytic-Function-Reference/February-2022/Graph-Analysis"
         },
         "vector": {
           "l": 3,
@@ -392,6 +392,10 @@
         {
           "t": "Open Semantic Interchange community update, April 2026",
           "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
+        },
+        {
+          "t": "Machine Learning Engine: Graph Analysis (Feb 2022)",
+          "u": "https://docs.teradata.com/r/Machine-Learning-Engine-Analytic-Function-Reference/February-2022/Graph-Analysis"
         }
       ],
       "verified": "2026-10-24"

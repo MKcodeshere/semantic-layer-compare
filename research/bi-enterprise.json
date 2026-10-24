@@ -236,9 +236,9 @@
       ],
       "caps": {
         "metrics": {
-          "l": 3,
-          "n": "Data modules hold measures and calculations, including relative-time measures generated from a lookup reference.",
-          "u": "https://community.ibm.com/community/user/discussion/relative-time-logic-lookup-reference-generated-measures-in-enterprise-model-1"
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
         },
         "dimensions": {
           "l": 3,
@@ -251,9 +251,9 @@
           "u": "https://community.ibm.com:443/community/user/blogs/shaveta-srivastava/2025/10/30/cognos-1211-smarter-reporting-faster-dashboards-an?hlmlt=VT"
         },
         "synonyms": {
-          "l": 3,
-          "n": "Community posts report the AI Assistant uses synonyms defined in the model. Sharing synonyms across modules was reported as unsupported in 11.2.3.",
-          "u": "https://community.ibm.com/community/user/discussion/your-experiences-with-cognos-analytics-ai-assistant"
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
         },
         "verifiedQueries": {
           "l": null,

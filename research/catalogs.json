@@ -867,9 +867,9 @@
           "u": "https://docs.datahub.com/docs/managed-datahub/release-notes/v_2_2_0"
         },
         "vector": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Opt-in semantic search embeds documents via a configured embedding provider on OpenSearch or Elasticsearch. Documents are the default vectorized type.",
+          "u": "https://docs.datahub.com/docs/how/updating-datahub"
         },
         "mcp": {
           "l": 3,
@@ -1004,6 +1004,10 @@
         {
           "t": "DataHub docs index",
           "u": "https://docs.datahub.com/llms.txt"
+        },
+        {
+          "t": "DataHub updating notes (semantic search and embeddings)",
+          "u": "https://docs.datahub.com/docs/how/updating-datahub"
         }
       ],
       "verified": "2026-10-24"

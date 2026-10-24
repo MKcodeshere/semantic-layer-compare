@@ -4,9 +4,9 @@
       "id": "businessobjects",
       "caps": {
         "aiDescriptions": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No AI description generation. Universe object descriptions are written by hand in the Information Design Tool.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
         },
         "bulkMetadata": {
           "l": 1,
@@ -14,19 +14,19 @@
           "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/8.0/Content/MIRBoInformationDesignToolUnxExport.htm"
         },
         "autoClassify": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No automatic classification or PII tagging. Sensitivity is handled with manual security profiles.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
         },
         "sampleValues": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No NL-to-SQL literal matching. Universe objects have lists of values for query prompts only.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 1,
+          "n": "Data Federation Administration Tool browses executed queries for monitoring. Any mining for joins or metrics is DIY.",
+          "u": "https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/f43f4d90c5ee4858ac5c8817d6aff803/459f99766e041014910aba7db0e91070.html?locale=en-US&state=PRODUCTION&version=2025"
         },
         "lineage": {
           "l": 1,
@@ -34,9 +34,9 @@
           "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/8.1/Content/Bridges/MIRBoInformationDesignToolUnxImport.htm"
         },
         "evals": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No NL-to-SQL, so no accuracy tests or feedback loop.",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
         }
       },
       "enrichHowTo": "The Semantic Layer Java SDK ships with the BI client tools and reads universes (.unx). Third-party catalog bridges use it to import and export universe metadata.",
@@ -53,6 +53,14 @@
         {
           "t": "Talend Data Catalog: SAP BusinessObjects IDT (File) export",
           "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/8.0/Content/MIRBoInformationDesignToolUnxExport.htm"
+        },
+        {
+          "t": "Information Design Tool User Guide, BI 4.3 SP4 (SAP Help)",
+          "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
+        },
+        {
+          "t": "Browsing the query history (SAP Help, BI platform 2025)",
+          "u": "https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/f43f4d90c5ee4858ac5c8817d6aff803/459f99766e041014910aba7db0e91070.html?locale=en-US&state=PRODUCTION&version=2025"
         }
       ],
       "verified": "2026-10-24"
@@ -133,9 +141,9 @@
           "u": ""
         },
         "sampleValues": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Agent auto complete lists matching columns and attribute elements as users type, so a typed value picks the exact element.",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_bots_new_general.htm"
         },
         "queryHistory": {
           "l": null,
@@ -183,6 +191,10 @@
         {
           "t": "Use Suggestions",
           "u": "https://www2.strategy.com/producthelp/Current/Library/en-us/Content/auto_answers_use_suggestions.htm"
+        },
+        {
+          "t": "Customize Agent Display Using the General Panel",
+          "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_bots_new_general.htm"
         }
       ],
       "verified": "2026-10-24"
@@ -211,9 +223,9 @@
           "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/InsightAdvisorBestPractices/best-practice-create-business-logic.htm"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Default logical model learns from charts users add or edit. Precedents are per user and unavailable once business logic is on.",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/insight-advisor-create-visualizations.htm"
         },
         "lineage": {
           "l": 3,
@@ -221,9 +233,9 @@
           "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Catalog/lineage.htm"
         },
         "evals": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 1,
+          "n": "Feedback and questions are logged for audit admins via the Natural Language API; docs point to manual model fixes.",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/insight-advisor-usage-metrics.htm"
         }
       },
       "enrichHowTo": "Write dataset descriptions and tags with PATCH /api/v1/data-sets/{id} in the Data sets API, and load business terms with the Glossaries API import. Insight Advisor synonyms are edited by hand in each app's Vocabulary, because the REST API list has no vocabulary or logical model endpoint.",
@@ -268,6 +280,14 @@
         {
           "t": "Building logical models for Insight Advisor with Business logic",
           "u": "https://help.qlik.com/en-US/sense/May2026/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business-logic-logical-models.htm"
+        },
+        {
+          "t": "Creating visualizations with Insight Advisor",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/insight-advisor-create-visualizations.htm"
+        },
+        {
+          "t": "Using feedback and usage metrics to improve application usability",
+          "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/insight-advisor-usage-metrics.htm"
         }
       ],
       "verified": "2026-10-24"
@@ -296,19 +316,19 @@
           "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/managing-data-model-indexing-synonyms-ai-descriptions-using-csv-file.html"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 1,
+          "n": "Usage Tracking logs logical and physical queries to a database you specify. Analyzing it is up to the team.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/usage-tracking-database.html"
         },
         "lineage": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 3,
+          "n": "Semantic Modeler lineage viewer and Export Lineage CSV map presentation columns to logical and physical columns. Scope is the semantic model.",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/generate-document-repository-mappings.html"
         },
         "evals": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 1,
+          "n": "AI Assistant feedback is written to OCI logs with category and details. Docs do not say it improves future answers.",
+          "u": "https://docs.oracle.com/en-us/iaas/analytics-cloud/doc/audit-and-diagnostic-logs-oracle-analytics-cloud.html"
         }
       },
       "enrichHowTo": "In Console, open Search Index, select the data model and Export a CSV. Fill the Synonyms and AI Description columns, then Import it. Indexing restarts on import, and the file also moves AI-ready metadata between environments.",
@@ -341,6 +361,18 @@
         {
           "t": "What's New for Oracle Analytics Cloud",
           "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acswn/"
+        },
+        {
+          "t": "About the Usage Tracking Database",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/usage-tracking-database.html"
+        },
+        {
+          "t": "Generate a Document of Semantic Model Mappings",
+          "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/generate-document-repository-mappings.html"
+        },
+        {
+          "t": "Audit and diagnostic logs for Oracle Analytics Cloud",
+          "u": "https://docs.oracle.com/en-us/iaas/analytics-cloud/doc/audit-and-diagnostic-logs-oracle-analytics-cloud.html"
         }
       ],
       "verified": "2026-10-24"

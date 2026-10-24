@@ -88,9 +88,9 @@
       "id": "teradata",
       "caps": {
         "aiDescriptions": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 1,
+          "n": "AI Studio Enterprise MCP ships prompts for table and database descriptions. An agent drafts text, then COMMENT writes it.",
+          "u": "https://docs.teradata.com/r/Teradata-AI-Studio-Release-Notes/AI-Studio-Release-Notes/New-Features"
         },
         "bulkMetadata": {
           "l": 3,
@@ -98,9 +98,9 @@
           "u": "https://docs.teradata.com/r/SQL-Data-Definition-Language-Syntax-and-Examples/July-2021/Comment-Help-and-Show-Statements/COMMENT-Comment-Placing-Form/COMMENT-Syntax-Elements-Comment-Placing-Form"
         },
         "autoClassify": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 1,
+          "n": "Teradata Package for Generative AI offers recognize_pii_entities and mask_pii to detect PII in a DataFrame column, called from Python.",
+          "u": "https://docs.teradata.com/r/VMware/Teradata-Package-for-Generative-AI-Function-Reference/text_analytics/teradatagenai.TextAnalyticsAI.recognize_pii_entities.html"
         },
         "sampleValues": {
           "l": 1,
@@ -108,9 +108,9 @@
           "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/src/teradata_mcp_server/tools/qlty/README.md"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 1,
+          "n": "DBQL logs queries with SQL text and objects once BEGIN QUERY LOGGING is set. Teams mine it themselves.",
+          "u": "https://docs.teradata.com/r/Lake-Database-Reference/Database-Administration/Setting-Up-Database-Query-Logging"
         },
         "lineage": {
           "l": 1,
@@ -153,6 +153,18 @@
         {
           "t": "DataHub Teradata source",
           "u": "https://docs.datahub.com/docs/generated/ingestion/sources/teradata.md"
+        },
+        {
+          "t": "Teradata AI Studio release notes: New Features",
+          "u": "https://docs.teradata.com/r/Teradata-AI-Studio-Release-Notes/AI-Studio-Release-Notes/New-Features"
+        },
+        {
+          "t": "Teradata Package for Generative AI: recognize_pii_entities",
+          "u": "https://docs.teradata.com/r/VMware/Teradata-Package-for-Generative-AI-Function-Reference/text_analytics/teradatagenai.TextAnalyticsAI.recognize_pii_entities.html"
+        },
+        {
+          "t": "Setting Up Database Query Logging (DBQL)",
+          "u": "https://docs.teradata.com/r/Lake-Database-Reference/Database-Administration/Setting-Up-Database-Query-Logging"
         }
       ]
     },

@@ -263,9 +263,9 @@
           "u": "https://docs.timbr.ai/doc/docs/platform/modeling/ontology-explorer/"
         },
         "queryHistory": {
-          "l": null,
-          "n": "Not checked yet.",
-          "u": ""
+          "l": 0,
+          "n": "No query-log mining. Benchmarks import questions from agent conversation history, and Knowledge Base suggestions come from user feedback.",
+          "u": "https://docs.timbr.ai/doc/docs/platform/managing/benchmarks/"
         },
         "lineage": {
           "l": 3,
