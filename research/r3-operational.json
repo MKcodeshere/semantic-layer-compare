@@ -1,778 +1,778 @@
 {
- "vendors": [
-  {
-   "id": "mysql-heatwave",
-   "name": "Oracle MySQL HeatWave",
-   "category": "oltp",
-   "tagline": "Managed MySQL with in-database analytics, machine learning, GenAI, vector store and Lakehouse.",
-   "verdict": "none",
-   "verdictNote": "HeatWave has no semantic model object. Its NL_SQL routine reads schema names and table and column comments, but teams define no metrics or joins.",
-   "artifacts": [
+  "vendors": [
     {
-     "name": "NL_SQL routine (sys.NL_SQL)",
-     "kind": "nl2sql",
-     "status": "GA",
-     "since": "",
-     "format": "SQL stored procedure; select statements only; available as of MySQL 9.4.1; docs show no preview label",
-     "url": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+      "id": "mysql-heatwave",
+      "name": "Oracle MySQL HeatWave",
+      "category": "oltp",
+      "tagline": "Managed MySQL with in-database analytics, machine learning, GenAI, vector store and Lakehouse.",
+      "verdict": "none",
+      "verdictNote": "HeatWave has no semantic model object. Its NL_SQL routine reads schema names and table and column comments, but teams define no metrics or joins.",
+      "artifacts": [
+        {
+          "name": "NL_SQL routine (sys.NL_SQL)",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "",
+          "format": "SQL stored procedure; select statements only; available as of MySQL 9.4.1; docs show no preview label",
+          "url": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+        },
+        {
+          "name": "ML_RETRIEVE_SCHEMA_METADATA routine",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "SQL stored procedure; ranks relevant tables for a question; available as of MySQL 9.5.2",
+          "url": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-ml-retrieve-schema-metadata.html"
+        },
+        {
+          "name": "HeatWave GenAI vector store",
+          "kind": "vector",
+          "status": "GA",
+          "since": "",
+          "format": "SQL routines; embeddings in VECTOR columns; retrieval-augmented generation",
+          "url": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
+        },
+        {
+          "name": "MySQL MCP server (Oracle reference implementation)",
+          "kind": "mcp",
+          "status": "Preview",
+          "since": "",
+          "format": "Python MCP server over stdio; Oracle states it is a proof of concept, not for production",
+          "url": "https://raw.githubusercontent.com/oracle/mcp/main/src/mysql-mcp-server/README.md"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 0,
+          "n": "No metric object. Teams use SQL views or an outside semantic layer.",
+          "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
+        },
+        "dimensions": {
+          "l": 0,
+          "n": "No dimension or hierarchy object. NL_SQL reads table and column names only.",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+        },
+        "relationships": {
+          "l": 0,
+          "n": "No join model. NL_SQL collects schema, table and column data for the prompt.",
+          "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
+        },
+        "synonyms": {
+          "l": 3,
+          "n": "NL_SQL option include_comments is true by default, so table and column comments reach the LLM.",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "NL_SQL has no store for verified question and SQL pairs.",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+        },
+        "nl2sql": {
+          "l": 3,
+          "n": "CALL sys.NL_SQL generates and runs SELECT statements, with up to 3 retries. Docs show no preview label.",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "No entity, link or action model in the docs.",
+          "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
+        },
+        "graph": {
+          "l": 0,
+          "n": "No graph query language in the HeatWave docs.",
+          "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
+        },
+        "vector": {
+          "l": 3,
+          "n": "HeatWave GenAI has a vector store, embeddings in VECTOR columns and retrieval-augmented generation routines.",
+          "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
+        },
+        "mcp": {
+          "l": 1,
+          "n": "Oracle publishes a reference MySQL MCP server with an NL-to-SQL tool. Oracle says it is a proof of concept.",
+          "u": "https://raw.githubusercontent.com/oracle/mcp/main/src/mysql-mcp-server/README.md"
+        },
+        "governance": {
+          "l": 3,
+          "n": "NL_SQL works only on databases and tables that the caller can access.",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "No portable semantic format. No Open Semantic Interchange support found.",
+          "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
+        },
+        "aiDescriptions": {
+          "l": 0,
+          "n": "No routine drafts table or column comments. Teams write comments with DDL, and NL_SQL reads them.",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "Table and column comments are plain MySQL DDL, and NL_SQL reads them. Teams script ALTER TABLE statements.",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "No column classification for PII or semantic type. Data masking functions exist, but you apply them by hand.",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/"
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "NL_SQL reads schema, table, column, and comment data. The docs show no value index or literal matching.",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "Query history keeps the last 1000 queries for performance monitoring. NL_SQL does not use it to suggest models.",
+          "u": "https://dev.mysql.com/doc/heatwave/en/mys-hw-metadata-queries-query-history.html"
+        },
+        "lineage": {
+          "l": 0,
+          "n": "The user guide has no lineage topic.",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/"
+        },
+        "evals": {
+          "l": 0,
+          "n": "The user guide has no NL_SQL accuracy test tool and no feedback loop.",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+        }
+      },
+      "offers": [
+        "NL_SQL turns a question into a SELECT statement and runs it inside the database.",
+        "The schemas and tables options limit the context to up to 5 databases and 50 tables.",
+        "ML_RETRIEVE_SCHEMA_METADATA ranks the tables that fit a question and returns short CREATE TABLE text.",
+        "The include_comments option sends table and column comments to the LLM.",
+        "The vector store and Lakehouse keep documents and object storage files near the data."
+      ],
+      "gaps": [
+        "No semantic model with metrics, dimensions or declared joins.",
+        "No verified query store for few-shot examples.",
+        "NL_SQL generates SELECT statements only.",
+        "Oracle MCP server is a proof of concept and not for production."
+      ],
+      "fillWith": [
+        "Cube",
+        "dbt Semantic Layer",
+        "Custom prompt layer with table comments"
+      ],
+      "nl2sqlPath": "Write clear comments on tables and columns. Call sys.NL_SQL with the schemas or tables option to limit context. For metrics and joins, add an outside semantic layer and send its SQL to HeatWave.",
+      "snippet": {
+        "lang": "sql",
+        "title": "Generate and run SQL from a question with NL_SQL",
+        "code": "CALL sys.NL_SQL(\n  \"How many flights are there in total?\",\n  @output,\n  JSON_OBJECT('schemas', JSON_ARRAY('airportdb'),\n              'model_id', 'llama3.2-3b-instruct-v1'));\nSELECT JSON_PRETTY(@output);",
+        "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
+      },
+      "sources": [
+        {
+          "t": "HeatWave NL_SQL routine",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+        },
+        {
+          "t": "HeatWave ML_RETRIEVE_SCHEMA_METADATA",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-ml-retrieve-schema-metadata.html"
+        },
+        {
+          "t": "MySQL AI User Guide, NL-to-SQL",
+          "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
+        },
+        {
+          "t": "Oracle MySQL MCP server README",
+          "u": "https://raw.githubusercontent.com/oracle/mcp/main/src/mysql-mcp-server/README.md"
+        },
+        {
+          "t": "MySQL HeatWave on OCI",
+          "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
+        },
+        {
+          "t": "HeatWave Query History and Statistics Monitoring",
+          "u": "https://dev.mysql.com/doc/heatwave/en/mys-hw-metadata-queries-query-history.html"
+        }
+      ],
+      "verified": "2026-10-24",
+      "enrichHowTo": "Write table and column comments with ALTER TABLE statements, for example ALTER TABLE t MODIFY col INT COMMENT 'text'. NL_SQL reads these comments when include_comments is true. Use the schemas option to limit the tables that the LLM sees.",
+      "bulkSnippet": {
+        "lang": "sql",
+        "code": "ALTER TABLE airportdb.flight\n  COMMENT = 'One row for each scheduled flight';\n-- NL_SQL reads comments by default\nCALL sys.NL_SQL('List flights by airline', @out,\n  JSON_OBJECT('include_comments', true));",
+        "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+      },
+      "aliases": [
+        "HeatWave",
+        "MySQL HeatWave Lakehouse",
+        "HeatWave GenAI",
+        "MySQL AI",
+        "Oracle MySQL Database Service"
+      ],
+      "askData": [
+        {
+          "name": "HeatWave GenAI NL_SQL",
+          "status": "GA",
+          "since": "",
+          "surfaces": [
+            "SQL function",
+            "MCP"
+          ],
+          "output": "SQL",
+          "reads": "Schema, table and column names, plus table and column comments. It has no semantic model or verified queries.",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+        }
+      ]
     },
     {
-     "name": "ML_RETRIEVE_SCHEMA_METADATA routine",
-     "kind": "annotations",
-     "status": "GA",
-     "since": "",
-     "format": "SQL stored procedure; ranks relevant tables for a question; available as of MySQL 9.5.2",
-     "url": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-ml-retrieve-schema-metadata.html"
+      "id": "mongodb",
+      "name": "MongoDB Atlas",
+      "category": "oltp",
+      "tagline": "Document database with natural-language query tools, a MCP server and Vector Search.",
+      "verdict": "none",
+      "verdictNote": "Atlas has no semantic model. Its natural-language tools turn a question into an MQL query from the schema, and the MCP server exposes collection schema.",
+      "artifacts": [
+        {
+          "name": "Natural language querying in Compass",
+          "kind": "nl2sql",
+          "status": "Unverified",
+          "since": "",
+          "format": "UI; Compass 1.40 or later; output is MQL filters and aggregations; docs show no stage label and a rolling release",
+          "url": "https://www.mongodb.com/docs/compass/query-with-natural-language.md"
+        },
+        {
+          "name": "Natural language querying in Atlas Data Explorer",
+          "kind": "nl2sql",
+          "status": "Unverified",
+          "since": "",
+          "format": "UI; output is MQL; docs show no stage label and a rolling release",
+          "url": "https://www.mongodb.com/docs/atlas/atlas-ui/query-with-natural-language.md"
+        },
+        {
+          "name": "MongoDB MCP Server (local and Atlas managed)",
+          "kind": "mcp",
+          "status": "Unverified",
+          "since": "",
+          "format": "MCP tools for find, aggregate, collection-schema, vector search indexes; local or Atlas hosted; docs show no stage label",
+          "url": "https://www.mongodb.com/docs/mcp-server/tools.md"
+        },
+        {
+          "name": "MongoDB Vector Search",
+          "kind": "vector",
+          "status": "GA",
+          "since": "",
+          "format": "Vector indexes, hybrid search with $rankFusion and $scoreFusion, Automated Embedding with Voyage AI models",
+          "url": "https://www.mongodb.com/docs/vector-search/llms.txt"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 0,
+          "n": "No metric object. Teams write aggregation pipelines or use outside tools.",
+          "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+        },
+        "dimensions": {
+          "l": 0,
+          "n": "No dimension or hierarchy object in the docs.",
+          "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+        },
+        "relationships": {
+          "l": 0,
+          "n": "No declared joins. Queries use $lookup at run time.",
+          "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+        },
+        "synonyms": {
+          "l": 0,
+          "n": "The natural-language tools read schema details. The docs show no store for business descriptions.",
+          "u": "https://www.mongodb.com/docs/atlas/atlas-ui/query-with-natural-language.md"
+        },
+        "verifiedQueries": {
+          "l": 0,
+          "n": "No verified query store in the natural-language tools. The docs give prompt tips only.",
+          "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+        },
+        "nl2sql": {
+          "l": 2,
+          "n": "Compass and Atlas Data Explorer turn a question into MQL. Docs show no stage label and a rolling release.",
+          "u": "https://www.mongodb.com/docs/compass/query-with-natural-language.md"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "No entity or link model above collections.",
+          "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+        },
+        "graph": {
+          "l": 0,
+          "n": "No graph query language in the docs. Teams use $graphLookup or a graph database.",
+          "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+        },
+        "vector": {
+          "l": 3,
+          "n": "Vector Search has vector indexes and hybrid search. Automated Embedding creates embeddings with Voyage AI models.",
+          "u": "https://www.mongodb.com/docs/vector-search/llms.txt"
+        },
+        "mcp": {
+          "l": 3,
+          "n": "The official MongoDB MCP Server runs locally or as an Atlas managed server. It has query, schema and vector tools.",
+          "u": "https://www.mongodb.com/docs/mcp-server/tools.md"
+        },
+        "governance": {
+          "l": 3,
+          "n": "Docs advise read-only mode and a read-only database user for the MCP server, so database roles apply.",
+          "u": "https://www.mongodb.com/docs/mcp-server/local-mcp/security-best-practices.md"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "No portable semantic format. No Open Semantic Interchange support found.",
+          "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+        },
+        "aiDescriptions": {
+          "l": 0,
+          "n": "No feature drafts descriptions for collections or fields. The NL guide tells teams to write annotated schema types by hand.",
+          "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+        },
+        "bulkMetadata": {
+          "l": 1,
+          "n": "A $jsonSchema validator can hold title and description text per field. The docs name no field comment store.",
+          "u": "https://www.mongodb.com/docs/manual/core/schema-validation.md"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "No automatic PII or semantic classification. Teams choose fields for Queryable Encryption by hand.",
+          "u": "https://www.mongodb.com/docs/manual/core/queryable-encryption.md"
+        },
+        "sampleValues": {
+          "l": 1,
+          "n": "The NL guide says to add two or three sample documents to the prompt. The NL Querying agent skill uses sample documents.",
+          "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "Performance Advisor reads slow queries to suggest indexes and schema changes. It does not suggest semantic context.",
+          "u": "https://www.mongodb.com/docs/mcp-server/tools.md"
+        },
+        "lineage": {
+          "l": 0,
+          "n": "The MongoDB documentation index lists no lineage feature.",
+          "u": "https://www.mongodb.com/docs/llms.txt"
+        },
+        "evals": {
+          "l": 1,
+          "n": "MongoDB publishes a public NL-to-mongosh benchmark dataset on Hugging Face. The docs list no in-product accuracy test.",
+          "u": "https://huggingface.co/datasets/mongodb-eai/natural-language-to-mongosh"
+        }
+      },
+      "offers": [
+        "Compass and Atlas Data Explorer generate MQL filters and aggregation pipelines from a question.",
+        "The MongoDB MCP Server has tools for find, aggregate, collection-schema and vector search indexes.",
+        "The MCP server has a read-only mode, and it works with Atlas, Community and Enterprise Advanced.",
+        "Vector Search supports hybrid search and Automated Embedding with Voyage AI models.",
+        "The natural-language guide gives prompt tips for MQL generation."
+      ],
+      "gaps": [
+        "No semantic model for metrics, dimensions or relationships.",
+        "No store for business descriptions or synonyms that the AI reads.",
+        "No verified query store for examples.",
+        "NL output is MQL, so SQL-based tools do not use it.",
+        "The docs show no stage label for the natural-language tools."
+      ],
+      "fillWith": [
+        "Cube",
+        "Atlas SQL interface with a SQL semantic layer",
+        "Custom prompt layer with schema notes"
+      ],
+      "nl2sqlPath": "Use Compass or Atlas Data Explorer to draft MQL. For agents, connect the MongoDB MCP Server in read-only mode and let the agent call collection-schema first. Add your own field notes in the prompt.",
+      "snippet": {
+        "lang": "other",
+        "title": "Natural language question and the MQL that Compass generates",
+        "code": "// Prompt: Show me the genres and runtime of 10 movies\n// from 2015 that have the most comments\ndb.movies.aggregate([\n  { $match: { year: 2015 } },\n  { $sort: { num_mflix_comments: -1 } },\n  { $limit: 10 },\n  { $project: { _id: 0, genres: 1, runtime: 1 } }\n]);",
+        "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+      },
+      "sources": [
+        {
+          "t": "Natural Language to MongoDB Queries",
+          "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+        },
+        {
+          "t": "Compass natural language querying",
+          "u": "https://www.mongodb.com/docs/compass/query-with-natural-language.md"
+        },
+        {
+          "t": "Atlas natural language querying",
+          "u": "https://www.mongodb.com/docs/atlas/atlas-ui/query-with-natural-language.md"
+        },
+        {
+          "t": "MongoDB MCP Server tools",
+          "u": "https://www.mongodb.com/docs/mcp-server/tools.md"
+        },
+        {
+          "t": "MongoDB MCP Server overview",
+          "u": "https://www.mongodb.com/docs/mcp-server/overview.md"
+        },
+        {
+          "t": "MCP Server security best practices",
+          "u": "https://www.mongodb.com/docs/mcp-server/local-mcp/security-best-practices.md"
+        },
+        {
+          "t": "MongoDB Vector Search docs index",
+          "u": "https://www.mongodb.com/docs/vector-search/llms.txt"
+        },
+        {
+          "t": "Automated Embedding",
+          "u": "https://www.mongodb.com/docs/vector-search/crud-embeddings/automated-embedding/overview.md"
+        },
+        {
+          "t": "Schema Validation (MongoDB)",
+          "u": "https://www.mongodb.com/docs/manual/core/schema-validation.md"
+        },
+        {
+          "t": "Queryable Encryption (MongoDB)",
+          "u": "https://www.mongodb.com/docs/manual/core/queryable-encryption.md"
+        },
+        {
+          "t": "MongoDB docs index (llms.txt)",
+          "u": "https://www.mongodb.com/docs/llms.txt"
+        },
+        {
+          "t": "MongoDB NL-to-mongosh benchmark (Hugging Face)",
+          "u": "https://huggingface.co/datasets/mongodb-eai/natural-language-to-mongosh"
+        }
+      ],
+      "verified": "2026-10-24",
+      "enrichHowTo": "The docs show no bulk metadata API for the natural-language tools. Keep field notes in your own prompt file. The MCP collection-schema tool returns schema information that an agent can read.",
+      "bulkSnippet": {
+        "lang": "json",
+        "code": "{\n  \"mcpServers\": {\n    \"MongoDB\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"mongodb-mcp-server@latest\", \"--readOnly\"]\n    }\n  }\n}",
+        "u": "https://www.mongodb.com/docs/mcp-server/local-mcp/security-best-practices.md"
+      },
+      "aliases": [
+        "MongoDB",
+        "Atlas",
+        "MongoDB Atlas Vector Search",
+        "MongoDB MCP Server",
+        "Atlas Data Explorer",
+        "MongoDB Compass"
+      ],
+      "askData": [
+        {
+          "name": "Natural language querying in Compass",
+          "status": "Unverified",
+          "since": "",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "MQL",
+          "reads": "Collection schema details from the connected database. Docs show no semantic model or verified queries.",
+          "u": "https://www.mongodb.com/docs/compass/query-with-natural-language.md"
+        },
+        {
+          "name": "Natural language querying in Atlas Data Explorer",
+          "status": "Unverified",
+          "since": "",
+          "surfaces": [
+            "UI"
+          ],
+          "output": "MQL",
+          "reads": "Collection schema details from the Atlas cluster. Docs show no semantic model or verified queries.",
+          "u": "https://www.mongodb.com/docs/atlas/atlas-ui/query-with-natural-language.md"
+        },
+        {
+          "name": "MongoDB MCP Server",
+          "status": "Unverified",
+          "since": "",
+          "surfaces": [
+            "MCP"
+          ],
+          "output": "answer only",
+          "reads": "Collection schema from the collection-schema tool. The client LLM writes the queries and the server runs them.",
+          "u": "https://www.mongodb.com/docs/mcp-server/tools.md"
+        }
+      ]
     },
     {
-     "name": "HeatWave GenAI vector store",
-     "kind": "vector",
-     "status": "GA",
-     "since": "",
-     "format": "SQL routines; embeddings in VECTOR columns; retrieval-augmented generation",
-     "url": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
-    },
-    {
-     "name": "MySQL MCP server (Oracle reference implementation)",
-     "kind": "mcp",
-     "status": "Preview",
-     "since": "",
-     "format": "Python MCP server over stdio; Oracle states it is a proof of concept, not for production",
-     "url": "https://raw.githubusercontent.com/oracle/mcp/main/src/mysql-mcp-server/README.md"
+      "id": "singlestore",
+      "name": "SingleStore",
+      "category": "oltp",
+      "tagline": "Distributed SQL database for transactions, analytics and vector search, with a managed AI analyst.",
+      "verdict": "partial",
+      "verdictNote": "Analyst gives a Domain with descriptions, relationships, business rules and trained queries, but it is a context service and not a metric model.",
+      "artifacts": [
+        {
+          "name": "Analyst Domain (formerly Aura Analyst)",
+          "kind": "nl2sql",
+          "status": "Unverified",
+          "since": "",
+          "format": "UI Creator Mode: Business Rules, Learned Context, Semantic Layer, Trained Queries; docs show no stage label",
+          "url": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        {
+          "name": "Analyst API",
+          "kind": "agent",
+          "status": "Preview",
+          "since": "",
+          "format": "REST with streaming chat endpoint and API keys; docs say Preview",
+          "url": "https://docs.singlestore.com/cloud/ai/analyst/analyst-api.md"
+        },
+        {
+          "name": "SingleStore MCP Server",
+          "kind": "mcp",
+          "status": "Unverified",
+          "since": "",
+          "format": "Python MCP server for database, notebook and job tools; docs show no stage label",
+          "url": "https://docs.singlestore.com/cloud/ai/singlestore-mcp-server.md"
+        },
+        {
+          "name": "Vector type and ANN index",
+          "kind": "vector",
+          "status": "GA",
+          "since": "",
+          "format": "VECTOR column type and indexed approximate-nearest-neighbor search in SQL",
+          "url": "https://docs.singlestore.com/cloud/developer-resources/functional-extensions/working-with-vector-data.md"
+        },
+        {
+          "name": "AI and ML Functions",
+          "kind": "annotations",
+          "status": "Unverified",
+          "since": "",
+          "format": "SQL functions that run GenAI, embedding and ML models in managed Python UDFs",
+          "url": "https://docs.singlestore.com/cloud/ai/ai-ml-functions.md"
+        }
+      ],
+      "caps": {
+        "metrics": {
+          "l": 1,
+          "n": "No metric object. Formulas live in Business Rules text and in Trained Queries.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        "dimensions": {
+          "l": 0,
+          "n": "No dimension or hierarchy object in the docs.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        "relationships": {
+          "l": 2,
+          "n": "Semantic Layer holds join relationships with cardinality. A crawler finds joins and gives a confidence score. No stage label.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        "synonyms": {
+          "l": 2,
+          "n": "Business Rules hold vocabulary and term mapping. AI drafts table and column descriptions. No stage label.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        "verifiedQueries": {
+          "l": 2,
+          "n": "Trained Queries store SQL patterns and metric formulas that Analyst reuses. No stage label.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        "nl2sql": {
+          "l": 2,
+          "n": "Analyst turns questions into SQL and runs them. The Analyst API is Preview and the app shows no stage label.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        "ontology": {
+          "l": 0,
+          "n": "A Domain scopes tables and rules. It has no entity, link or action model.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        "graph": {
+          "l": 0,
+          "n": "No graph query language in the docs.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        "vector": {
+          "l": 3,
+          "n": "Native VECTOR type and indexed approximate-nearest-neighbor search in SQL.",
+          "u": "https://docs.singlestore.com/cloud/developer-resources/functional-extensions/working-with-vector-data.md"
+        },
+        "mcp": {
+          "l": 2,
+          "n": "SingleStore MCP server covers database, notebook and job tools. Docs show no stage label.",
+          "u": "https://docs.singlestore.com/cloud/ai/singlestore-mcp-server.md"
+        },
+        "governance": {
+          "l": 2,
+          "n": "Analyst runs queries as a Domain user with SELECT on chosen tables. Domain roles control access.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        "openStandard": {
+          "l": 0,
+          "n": "No portable semantic format. No Open Semantic Interchange support found.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        "aiDescriptions": {
+          "l": 2,
+          "n": "Analyst uses AI to infer table and column descriptions when a Domain is created. Owners should review them.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        "bulkMetadata": {
+          "l": 1,
+          "n": "SQL accepts COMMENT on tables and columns. Analyst docs show description edits one table or column at a time.",
+          "u": "https://docs.singlestore.com/cloud/reference/sql-reference/data-definition-language-ddl/alter-table.md"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "The Analyst docs name no PII or semantic type classifier. Domain owners set descriptions and Business Rules by hand.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "Analyst reads schema metadata, descriptions, and rules. The docs show no sample value store. Owners map terms in Business Rules.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "Query History traces slow and failed queries. Analyst learns from user questions and feedback, not from warehouse query history.",
+          "u": "https://docs.singlestore.com/cloud/query-data/query-tuning/query-history.md"
+        },
+        "lineage": {
+          "l": 0,
+          "n": "The SingleStore documentation index lists no lineage feature.",
+          "u": "https://docs.singlestore.com/llms.txt"
+        },
+        "evals": {
+          "l": 2,
+          "n": "The Accuracy page reviews recorded conversations and feedback. Owners approve Learned Context. A preview chat tests changes.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        }
+      },
+      "offers": [
+        "A Domain limits Analyst to chosen tables and holds descriptions, joins and rules.",
+        "Learned Context proposes facts from user chats, and an owner must approve each one.",
+        "Trained Queries give Analyst proven SQL for key metrics and frequent questions.",
+        "Draft and published versions let owners test changes before users see them.",
+        "The Analyst API and the MCP server give programs access to the feature."
+      ],
+      "gaps": [
+        "No metric or dimension objects. Formulas are text rules or SQL examples.",
+        "The docs show no stage label for the Analyst app. The Analyst API is Preview.",
+        "Analyst keeps the cluster active, because it collects metadata every hour.",
+        "No open semantic format is documented."
+      ],
+      "fillWith": [
+        "Cube",
+        "dbt Semantic Layer"
+      ],
+      "nl2sqlPath": "Create an Analyst Domain on a read-only cluster, review the AI descriptions, check the relationships and add Business Rules. Add Trained Queries for key metrics. Use the Analyst API to embed it.",
+      "snippet": {
+        "lang": "sql",
+        "title": "Vector column for semantic search in SingleStore",
+        "code": "CREATE TABLE comments(id INT,\n  comment TEXT,\n  comment_embedding VECTOR(4),\n  category VARCHAR(256));",
+        "u": "https://docs.singlestore.com/cloud/developer-resources/functional-extensions/working-with-vector-data.md"
+      },
+      "sources": [
+        {
+          "t": "SingleStore Analyst",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        {
+          "t": "Analyst API",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst/analyst-api.md"
+        },
+        {
+          "t": "SingleStore MCP Server",
+          "u": "https://docs.singlestore.com/cloud/ai/singlestore-mcp-server.md"
+        },
+        {
+          "t": "Working with Vector Data",
+          "u": "https://docs.singlestore.com/cloud/developer-resources/functional-extensions/working-with-vector-data.md"
+        },
+        {
+          "t": "AI and ML Functions",
+          "u": "https://docs.singlestore.com/cloud/ai/ai-ml-functions.md"
+        },
+        {
+          "t": "ALTER TABLE (SingleStore)",
+          "u": "https://docs.singlestore.com/cloud/reference/sql-reference/data-definition-language-ddl/alter-table.md"
+        },
+        {
+          "t": "Query History (SingleStore)",
+          "u": "https://docs.singlestore.com/cloud/query-data/query-tuning/query-history.md"
+        },
+        {
+          "t": "SingleStore docs index (llms.txt)",
+          "u": "https://docs.singlestore.com/llms.txt"
+        }
+      ],
+      "verified": "2026-10-24",
+      "enrichHowTo": "Create an Analyst Domain and let it draft table and column descriptions with AI. Then edit them in the Semantic Layer Database tab. You can add relationships one by one or in bulk.",
+      "bulkSnippet": {
+        "lang": "sql",
+        "code": "-- Analyst Domain: connect a read-only cluster, then select tables.\n-- Descriptions are drafted by AI and edited in Creator Mode.\n-- No bulk SQL or API for descriptions found in the docs read.",
+        "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+      },
+      "aliases": [
+        "SingleStore Helios",
+        "SingleStoreDB",
+        "MemSQL",
+        "SingleStore Aura",
+        "Aura Analyst",
+        "SingleStore Analyst"
+      ],
+      "askData": [
+        {
+          "name": "Analyst",
+          "status": "Unverified",
+          "since": "",
+          "surfaces": [
+            "UI",
+            "REST API"
+          ],
+          "output": "SQL",
+          "reads": "Domain schema descriptions, joins, Business Rules, approved Learned Context and Trained Queries.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        {
+          "name": "Analyst API",
+          "status": "Preview",
+          "since": "",
+          "surfaces": [
+            "REST API"
+          ],
+          "output": "SQL",
+          "reads": "The same Domain context as Analyst, through an API key bound to one Domain.",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst/analyst-api.md"
+        }
+      ]
     }
-   ],
-   "caps": {
-    "metrics": {
-     "l": 0,
-     "n": "No metric object. Teams use SQL views or an outside semantic layer.",
-     "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
+  ],
+  "notes": [
+    {
+      "topic": "Oracle docs access",
+      "text": "dev.mysql.com returned an error page. The HeatWave facts come from the docs.oracle.com copy of the HeatWave and MySQL AI user guides.",
+      "sources": [
+        {
+          "t": "HeatWave NL_SQL routine",
+          "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+        }
+      ]
     },
-    "dimensions": {
-     "l": 0,
-     "n": "No dimension or hierarchy object. NL_SQL reads table and column names only.",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+    {
+      "topic": "HeatWave rename",
+      "text": "Oracle now publishes a MySQL AI User Guide for the self-managed product. The HeatWave guide covers the managed service. Both use the NL_SQL routine.",
+      "sources": [
+        {
+          "t": "MySQL AI User Guide",
+          "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
+        }
+      ]
     },
-    "relationships": {
-     "l": 0,
-     "n": "No join model. NL_SQL collects schema, table and column data for the prompt.",
-     "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
+    {
+      "topic": "MongoDB output",
+      "text": "MongoDB natural-language tools output MQL and not SQL.",
+      "sources": [
+        {
+          "t": "Natural Language to MongoDB Queries",
+          "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
+        }
+      ]
     },
-    "synonyms": {
-     "l": 3,
-     "n": "NL_SQL option include_comments is true by default, so table and column comments reach the LLM.",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
-    },
-    "verifiedQueries": {
-     "l": 0,
-     "n": "NL_SQL has no store for verified question and SQL pairs.",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
-    },
-    "nl2sql": {
-     "l": 3,
-     "n": "CALL sys.NL_SQL generates and runs SELECT statements, with up to 3 retries. Docs show no preview label.",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
-    },
-    "ontology": {
-     "l": 0,
-     "n": "No entity, link or action model in the docs read.",
-     "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
-    },
-    "graph": {
-     "l": 0,
-     "n": "No graph query language in the HeatWave docs read.",
-     "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
-    },
-    "vector": {
-     "l": 3,
-     "n": "HeatWave GenAI has a vector store, embeddings in VECTOR columns and retrieval-augmented generation routines.",
-     "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
-    },
-    "mcp": {
-     "l": 1,
-     "n": "Oracle publishes a reference MySQL MCP server with an NL-to-SQL tool. Oracle says it is a proof of concept.",
-     "u": "https://raw.githubusercontent.com/oracle/mcp/main/src/mysql-mcp-server/README.md"
-    },
-    "governance": {
-     "l": 3,
-     "n": "NL_SQL works only on databases and tables that the caller can access.",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
-    },
-    "openStandard": {
-     "l": 0,
-     "n": "No portable semantic format. No Open Semantic Interchange support found.",
-     "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
-    },
-    "aiDescriptions": {
-     "l": 0,
-     "n": "No routine drafts table or column comments. Teams write comments with DDL, and NL_SQL reads them.",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
-    },
-    "bulkMetadata": {
-     "l": 3,
-     "n": "Table and column comments are plain MySQL DDL, and NL_SQL reads them. Teams script ALTER TABLE statements.",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
-    },
-    "autoClassify": {
-     "l": 0,
-     "n": "No column classification for PII or semantic type. Data masking functions exist, but you apply them by hand.",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/"
-    },
-    "sampleValues": {
-     "l": 0,
-     "n": "NL_SQL reads schema, table, column, and comment data. The docs show no value index or literal matching.",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
-    },
-    "queryHistory": {
-     "l": 0,
-     "n": "Query history keeps the last 1000 queries for performance monitoring. NL_SQL does not use it to suggest models.",
-     "u": "https://dev.mysql.com/doc/heatwave/en/mys-hw-metadata-queries-query-history.html"
-    },
-    "lineage": {
-     "l": 0,
-     "n": "The user guide has no lineage topic.",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/"
-    },
-    "evals": {
-     "l": 0,
-     "n": "The user guide has no NL_SQL accuracy test tool and no feedback loop.",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
+    {
+      "topic": "SingleStore rename",
+      "text": "Aura Analyst is now called Analyst. Only the Analyst API page has a Preview label.",
+      "sources": [
+        {
+          "t": "SingleStore Analyst",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
+        },
+        {
+          "t": "Analyst API",
+          "u": "https://docs.singlestore.com/cloud/ai/analyst/analyst-api.md"
+        }
+      ]
     }
-   },
-   "offers": [
-    "NL_SQL turns a question into a SELECT statement and runs it inside the database.",
-    "The schemas and tables options limit the context to up to 5 databases and 50 tables.",
-    "ML_RETRIEVE_SCHEMA_METADATA ranks the tables that fit a question and returns short CREATE TABLE text.",
-    "The include_comments option sends table and column comments to the LLM.",
-    "The vector store and Lakehouse keep documents and object storage files near the data."
-   ],
-   "gaps": [
-    "No semantic model with metrics, dimensions or declared joins.",
-    "No verified query store for few-shot examples.",
-    "NL_SQL generates SELECT statements only.",
-    "Oracle MCP server is a proof of concept and not for production."
-   ],
-   "fillWith": [
-    "Cube",
-    "dbt Semantic Layer",
-    "Custom prompt layer with table comments"
-   ],
-   "nl2sqlPath": "Write clear comments on tables and columns. Call sys.NL_SQL with the schemas or tables option to limit context. For metrics and joins, add an outside semantic layer and send its SQL to HeatWave.",
-   "snippet": {
-    "lang": "sql",
-    "title": "Generate and run SQL from a question with NL_SQL",
-    "code": "CALL sys.NL_SQL(\n  \"How many flights are there in total?\",\n  @output,\n  JSON_OBJECT('schemas', JSON_ARRAY('airportdb'),\n              'model_id', 'llama3.2-3b-instruct-v1'));\nSELECT JSON_PRETTY(@output);",
-    "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
-   },
-   "sources": [
-    {
-     "t": "HeatWave NL_SQL routine",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
-    },
-    {
-     "t": "HeatWave ML_RETRIEVE_SCHEMA_METADATA",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-ml-retrieve-schema-metadata.html"
-    },
-    {
-     "t": "MySQL AI User Guide, NL-to-SQL",
-     "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
-    },
-    {
-     "t": "Oracle MySQL MCP server README",
-     "u": "https://raw.githubusercontent.com/oracle/mcp/main/src/mysql-mcp-server/README.md"
-    },
-    {
-     "t": "MySQL HeatWave on OCI",
-     "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
-    },
-    {
-     "t": "HeatWave Query History and Statistics Monitoring",
-     "u": "https://dev.mysql.com/doc/heatwave/en/mys-hw-metadata-queries-query-history.html"
-    }
-   ],
-   "verified": "2026-10-24",
-   "enrichHowTo": "Write table and column comments with ALTER TABLE statements, for example ALTER TABLE t MODIFY col INT COMMENT 'text'. NL_SQL reads these comments when include_comments is true. Use the schemas option to limit the tables that the LLM sees.",
-   "bulkSnippet": {
-    "lang": "sql",
-    "code": "ALTER TABLE airportdb.flight\n  COMMENT = 'One row for each scheduled flight';\n-- NL_SQL reads comments by default\nCALL sys.NL_SQL('List flights by airline', @out,\n  JSON_OBJECT('include_comments', true));",
-    "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
-   },
-   "aliases": [
-    "HeatWave",
-    "MySQL HeatWave Lakehouse",
-    "HeatWave GenAI",
-    "MySQL AI",
-    "Oracle MySQL Database Service"
-   ],
-   "askData": [
-    {
-     "name": "HeatWave GenAI NL_SQL",
-     "status": "GA",
-     "since": "",
-     "surfaces": [
-      "SQL function",
-      "MCP"
-     ],
-     "output": "SQL",
-     "reads": "Schema, table and column names, plus table and column comments. It has no semantic model or verified queries.",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
-    }
-   ]
-  },
-  {
-   "id": "mongodb",
-   "name": "MongoDB Atlas",
-   "category": "oltp",
-   "tagline": "Document database with natural-language query tools, a MCP server and Vector Search.",
-   "verdict": "none",
-   "verdictNote": "Atlas has no semantic model. Its natural-language tools turn a question into an MQL query from the schema, and the MCP server exposes collection schema.",
-   "artifacts": [
-    {
-     "name": "Natural language querying in Compass",
-     "kind": "nl2sql",
-     "status": "Unverified",
-     "since": "",
-     "format": "UI; Compass 1.40 or later; output is MQL filters and aggregations; docs show no stage label and a rolling release",
-     "url": "https://www.mongodb.com/docs/compass/query-with-natural-language.md"
-    },
-    {
-     "name": "Natural language querying in Atlas Data Explorer",
-     "kind": "nl2sql",
-     "status": "Unverified",
-     "since": "",
-     "format": "UI; output is MQL; docs show no stage label and a rolling release",
-     "url": "https://www.mongodb.com/docs/atlas/atlas-ui/query-with-natural-language.md"
-    },
-    {
-     "name": "MongoDB MCP Server (local and Atlas managed)",
-     "kind": "mcp",
-     "status": "Unverified",
-     "since": "",
-     "format": "MCP tools for find, aggregate, collection-schema, vector search indexes; local or Atlas hosted; docs show no stage label",
-     "url": "https://www.mongodb.com/docs/mcp-server/tools.md"
-    },
-    {
-     "name": "MongoDB Vector Search",
-     "kind": "vector",
-     "status": "GA",
-     "since": "",
-     "format": "Vector indexes, hybrid search with $rankFusion and $scoreFusion, Automated Embedding with Voyage AI models",
-     "url": "https://www.mongodb.com/docs/vector-search/llms.txt"
-    }
-   ],
-   "caps": {
-    "metrics": {
-     "l": 0,
-     "n": "No metric object. Teams write aggregation pipelines or use outside tools.",
-     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
-    },
-    "dimensions": {
-     "l": 0,
-     "n": "No dimension or hierarchy object in the docs read.",
-     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
-    },
-    "relationships": {
-     "l": 0,
-     "n": "No declared joins. Queries use $lookup at run time.",
-     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
-    },
-    "synonyms": {
-     "l": 0,
-     "n": "The natural-language tools read schema details. The docs read show no store for business descriptions.",
-     "u": "https://www.mongodb.com/docs/atlas/atlas-ui/query-with-natural-language.md"
-    },
-    "verifiedQueries": {
-     "l": 0,
-     "n": "No verified query store in the natural-language tools. The docs give prompt tips only.",
-     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
-    },
-    "nl2sql": {
-     "l": 2,
-     "n": "Compass and Atlas Data Explorer turn a question into MQL. Docs show no stage label and a rolling release.",
-     "u": "https://www.mongodb.com/docs/compass/query-with-natural-language.md"
-    },
-    "ontology": {
-     "l": 0,
-     "n": "No entity or link model above collections.",
-     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
-    },
-    "graph": {
-     "l": 0,
-     "n": "No graph query language in the docs read. Teams use $graphLookup or a graph database.",
-     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
-    },
-    "vector": {
-     "l": 3,
-     "n": "Vector Search has vector indexes and hybrid search. Automated Embedding creates embeddings with Voyage AI models.",
-     "u": "https://www.mongodb.com/docs/vector-search/llms.txt"
-    },
-    "mcp": {
-     "l": 3,
-     "n": "The official MongoDB MCP Server runs locally or as an Atlas managed server. It has query, schema and vector tools.",
-     "u": "https://www.mongodb.com/docs/mcp-server/tools.md"
-    },
-    "governance": {
-     "l": 3,
-     "n": "Docs advise read-only mode and a read-only database user for the MCP server, so database roles apply.",
-     "u": "https://www.mongodb.com/docs/mcp-server/local-mcp/security-best-practices.md"
-    },
-    "openStandard": {
-     "l": 0,
-     "n": "No portable semantic format. No Open Semantic Interchange support found.",
-     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
-    },
-    "aiDescriptions": {
-     "l": 0,
-     "n": "No feature drafts descriptions for collections or fields. The NL guide tells teams to write annotated schema types by hand.",
-     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
-    },
-    "bulkMetadata": {
-     "l": 1,
-     "n": "A $jsonSchema validator can hold title and description text per field. The docs name no field comment store.",
-     "u": "https://www.mongodb.com/docs/manual/core/schema-validation.md"
-    },
-    "autoClassify": {
-     "l": 0,
-     "n": "No automatic PII or semantic classification. Teams choose fields for Queryable Encryption by hand.",
-     "u": "https://www.mongodb.com/docs/manual/core/queryable-encryption.md"
-    },
-    "sampleValues": {
-     "l": 1,
-     "n": "The NL guide says to add two or three sample documents to the prompt. The NL Querying agent skill uses sample documents.",
-     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
-    },
-    "queryHistory": {
-     "l": 0,
-     "n": "Performance Advisor reads slow queries to suggest indexes and schema changes. It does not suggest semantic context.",
-     "u": "https://www.mongodb.com/docs/mcp-server/tools.md"
-    },
-    "lineage": {
-     "l": 0,
-     "n": "The MongoDB documentation index lists no lineage feature.",
-     "u": "https://www.mongodb.com/docs/llms.txt"
-    },
-    "evals": {
-     "l": 1,
-     "n": "MongoDB publishes a public NL-to-mongosh benchmark dataset on Hugging Face. The docs list no in-product accuracy test.",
-     "u": "https://huggingface.co/datasets/mongodb-eai/natural-language-to-mongosh"
-    }
-   },
-   "offers": [
-    "Compass and Atlas Data Explorer generate MQL filters and aggregation pipelines from a question.",
-    "The MongoDB MCP Server has tools for find, aggregate, collection-schema and vector search indexes.",
-    "The MCP server has a read-only mode, and it works with Atlas, Community and Enterprise Advanced.",
-    "Vector Search supports hybrid search and Automated Embedding with Voyage AI models.",
-    "The natural-language guide gives prompt tips for MQL generation."
-   ],
-   "gaps": [
-    "No semantic model for metrics, dimensions or relationships.",
-    "No store for business descriptions or synonyms that the AI reads.",
-    "No verified query store for examples.",
-    "NL output is MQL, so SQL-based tools do not use it.",
-    "The docs show no stage label for the natural-language tools."
-   ],
-   "fillWith": [
-    "Cube",
-    "Atlas SQL interface with a SQL semantic layer",
-    "Custom prompt layer with schema notes"
-   ],
-   "nl2sqlPath": "Use Compass or Atlas Data Explorer to draft MQL. For agents, connect the MongoDB MCP Server in read-only mode and let the agent call collection-schema first. Add your own field notes in the prompt.",
-   "snippet": {
-    "lang": "other",
-    "title": "Natural language question and the MQL that Compass generates",
-    "code": "// Prompt: Show me the genres and runtime of 10 movies\n// from 2015 that have the most comments\ndb.movies.aggregate([\n  { $match: { year: 2015 } },\n  { $sort: { num_mflix_comments: -1 } },\n  { $limit: 10 },\n  { $project: { _id: 0, genres: 1, runtime: 1 } }\n]);",
-    "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
-   },
-   "sources": [
-    {
-     "t": "Natural Language to MongoDB Queries",
-     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
-    },
-    {
-     "t": "Compass natural language querying",
-     "u": "https://www.mongodb.com/docs/compass/query-with-natural-language.md"
-    },
-    {
-     "t": "Atlas natural language querying",
-     "u": "https://www.mongodb.com/docs/atlas/atlas-ui/query-with-natural-language.md"
-    },
-    {
-     "t": "MongoDB MCP Server tools",
-     "u": "https://www.mongodb.com/docs/mcp-server/tools.md"
-    },
-    {
-     "t": "MongoDB MCP Server overview",
-     "u": "https://www.mongodb.com/docs/mcp-server/overview.md"
-    },
-    {
-     "t": "MCP Server security best practices",
-     "u": "https://www.mongodb.com/docs/mcp-server/local-mcp/security-best-practices.md"
-    },
-    {
-     "t": "MongoDB Vector Search docs index",
-     "u": "https://www.mongodb.com/docs/vector-search/llms.txt"
-    },
-    {
-     "t": "Automated Embedding",
-     "u": "https://www.mongodb.com/docs/vector-search/crud-embeddings/automated-embedding/overview.md"
-    },
-    {
-     "t": "Schema Validation (MongoDB)",
-     "u": "https://www.mongodb.com/docs/manual/core/schema-validation.md"
-    },
-    {
-     "t": "Queryable Encryption (MongoDB)",
-     "u": "https://www.mongodb.com/docs/manual/core/queryable-encryption.md"
-    },
-    {
-     "t": "MongoDB docs index (llms.txt)",
-     "u": "https://www.mongodb.com/docs/llms.txt"
-    },
-    {
-     "t": "MongoDB NL-to-mongosh benchmark (Hugging Face)",
-     "u": "https://huggingface.co/datasets/mongodb-eai/natural-language-to-mongosh"
-    }
-   ],
-   "verified": "2026-10-24",
-   "enrichHowTo": "The docs read show no bulk metadata API for the natural-language tools. Keep field notes in your own prompt file. The MCP collection-schema tool returns schema information that an agent can read.",
-   "bulkSnippet": {
-    "lang": "json",
-    "code": "{\n  \"mcpServers\": {\n    \"MongoDB\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"mongodb-mcp-server@latest\", \"--readOnly\"]\n    }\n  }\n}",
-    "u": "https://www.mongodb.com/docs/mcp-server/local-mcp/security-best-practices.md"
-   },
-   "aliases": [
-    "MongoDB",
-    "Atlas",
-    "MongoDB Atlas Vector Search",
-    "MongoDB MCP Server",
-    "Atlas Data Explorer",
-    "MongoDB Compass"
-   ],
-   "askData": [
-    {
-     "name": "Natural language querying in Compass",
-     "status": "Unverified",
-     "since": "",
-     "surfaces": [
-      "UI"
-     ],
-     "output": "MQL",
-     "reads": "Collection schema details from the connected database. Docs show no semantic model or verified queries.",
-     "u": "https://www.mongodb.com/docs/compass/query-with-natural-language.md"
-    },
-    {
-     "name": "Natural language querying in Atlas Data Explorer",
-     "status": "Unverified",
-     "since": "",
-     "surfaces": [
-      "UI"
-     ],
-     "output": "MQL",
-     "reads": "Collection schema details from the Atlas cluster. Docs show no semantic model or verified queries.",
-     "u": "https://www.mongodb.com/docs/atlas/atlas-ui/query-with-natural-language.md"
-    },
-    {
-     "name": "MongoDB MCP Server",
-     "status": "Unverified",
-     "since": "",
-     "surfaces": [
-      "MCP"
-     ],
-     "output": "answer only",
-     "reads": "Collection schema from the collection-schema tool. The client LLM writes the queries and the server runs them.",
-     "u": "https://www.mongodb.com/docs/mcp-server/tools.md"
-    }
-   ]
-  },
-  {
-   "id": "singlestore",
-   "name": "SingleStore",
-   "category": "oltp",
-   "tagline": "Distributed SQL database for transactions, analytics and vector search, with a managed AI analyst.",
-   "verdict": "partial",
-   "verdictNote": "Analyst gives a Domain with descriptions, relationships, business rules and trained queries, but it is a context service and not a metric model.",
-   "artifacts": [
-    {
-     "name": "Analyst Domain (formerly Aura Analyst)",
-     "kind": "nl2sql",
-     "status": "Unverified",
-     "since": "",
-     "format": "UI Creator Mode: Business Rules, Learned Context, Semantic Layer, Trained Queries; docs show no stage label",
-     "url": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    {
-     "name": "Analyst API",
-     "kind": "agent",
-     "status": "Preview",
-     "since": "",
-     "format": "REST with streaming chat endpoint and API keys; docs say Preview",
-     "url": "https://docs.singlestore.com/cloud/ai/analyst/analyst-api.md"
-    },
-    {
-     "name": "SingleStore MCP Server",
-     "kind": "mcp",
-     "status": "Unverified",
-     "since": "",
-     "format": "Python MCP server for database, notebook and job tools; docs show no stage label",
-     "url": "https://docs.singlestore.com/cloud/ai/singlestore-mcp-server.md"
-    },
-    {
-     "name": "Vector type and ANN index",
-     "kind": "vector",
-     "status": "GA",
-     "since": "",
-     "format": "VECTOR column type and indexed approximate-nearest-neighbor search in SQL",
-     "url": "https://docs.singlestore.com/cloud/developer-resources/functional-extensions/working-with-vector-data.md"
-    },
-    {
-     "name": "AI and ML Functions",
-     "kind": "annotations",
-     "status": "Unverified",
-     "since": "",
-     "format": "SQL functions that run GenAI, embedding and ML models in managed Python UDFs",
-     "url": "https://docs.singlestore.com/cloud/ai/ai-ml-functions.md"
-    }
-   ],
-   "caps": {
-    "metrics": {
-     "l": 1,
-     "n": "No metric object. Formulas live in Business Rules text and in Trained Queries.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    "dimensions": {
-     "l": 0,
-     "n": "No dimension or hierarchy object in the docs read.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    "relationships": {
-     "l": 2,
-     "n": "Semantic Layer holds join relationships with cardinality. A crawler finds joins and gives a confidence score. No stage label.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    "synonyms": {
-     "l": 2,
-     "n": "Business Rules hold vocabulary and term mapping. AI drafts table and column descriptions. No stage label.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    "verifiedQueries": {
-     "l": 2,
-     "n": "Trained Queries store SQL patterns and metric formulas that Analyst reuses. No stage label.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    "nl2sql": {
-     "l": 2,
-     "n": "Analyst turns questions into SQL and runs them. The Analyst API is Preview and the app shows no stage label.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    "ontology": {
-     "l": 0,
-     "n": "A Domain scopes tables and rules. It has no entity, link or action model.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    "graph": {
-     "l": 0,
-     "n": "No graph query language in the docs read.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    "vector": {
-     "l": 3,
-     "n": "Native VECTOR type and indexed approximate-nearest-neighbor search in SQL.",
-     "u": "https://docs.singlestore.com/cloud/developer-resources/functional-extensions/working-with-vector-data.md"
-    },
-    "mcp": {
-     "l": 2,
-     "n": "SingleStore MCP server covers database, notebook and job tools. Docs show no stage label.",
-     "u": "https://docs.singlestore.com/cloud/ai/singlestore-mcp-server.md"
-    },
-    "governance": {
-     "l": 2,
-     "n": "Analyst runs queries as a Domain user with SELECT on chosen tables. Domain roles control access.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    "openStandard": {
-     "l": 0,
-     "n": "No portable semantic format. No Open Semantic Interchange support found.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    "aiDescriptions": {
-     "l": 2,
-     "n": "Analyst uses AI to infer table and column descriptions when a Domain is created. Owners should review them.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    "bulkMetadata": {
-     "l": 1,
-     "n": "SQL accepts COMMENT on tables and columns. Analyst docs show description edits one table or column at a time.",
-     "u": "https://docs.singlestore.com/cloud/reference/sql-reference/data-definition-language-ddl/alter-table.md"
-    },
-    "autoClassify": {
-     "l": 0,
-     "n": "The Analyst docs name no PII or semantic type classifier. Domain owners set descriptions and Business Rules by hand.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    "sampleValues": {
-     "l": 0,
-     "n": "Analyst reads schema metadata, descriptions, and rules. The docs show no sample value store. Owners map terms in Business Rules.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    "queryHistory": {
-     "l": 0,
-     "n": "Query History traces slow and failed queries. Analyst learns from user questions and feedback, not from warehouse query history.",
-     "u": "https://docs.singlestore.com/cloud/query-data/query-tuning/query-history.md"
-    },
-    "lineage": {
-     "l": 0,
-     "n": "The SingleStore documentation index lists no lineage feature.",
-     "u": "https://docs.singlestore.com/llms.txt"
-    },
-    "evals": {
-     "l": 2,
-     "n": "The Accuracy page reviews recorded conversations and feedback. Owners approve Learned Context. A preview chat tests changes.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    }
-   },
-   "offers": [
-    "A Domain limits Analyst to chosen tables and holds descriptions, joins and rules.",
-    "Learned Context proposes facts from user chats, and an owner must approve each one.",
-    "Trained Queries give Analyst proven SQL for key metrics and frequent questions.",
-    "Draft and published versions let owners test changes before users see them.",
-    "The Analyst API and the MCP server give programs access to the feature."
-   ],
-   "gaps": [
-    "No metric or dimension objects. Formulas are text rules or SQL examples.",
-    "The docs show no stage label for the Analyst app. The Analyst API is Preview.",
-    "Analyst keeps the cluster active, because it collects metadata every hour.",
-    "No open semantic format is documented."
-   ],
-   "fillWith": [
-    "Cube",
-    "dbt Semantic Layer"
-   ],
-   "nl2sqlPath": "Create an Analyst Domain on a read-only cluster, review the AI descriptions, check the relationships and add Business Rules. Add Trained Queries for key metrics. Use the Analyst API to embed it.",
-   "snippet": {
-    "lang": "sql",
-    "title": "Vector column for semantic search in SingleStore",
-    "code": "CREATE TABLE comments(id INT,\n  comment TEXT,\n  comment_embedding VECTOR(4),\n  category VARCHAR(256));",
-    "u": "https://docs.singlestore.com/cloud/developer-resources/functional-extensions/working-with-vector-data.md"
-   },
-   "sources": [
-    {
-     "t": "SingleStore Analyst",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    {
-     "t": "Analyst API",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst/analyst-api.md"
-    },
-    {
-     "t": "SingleStore MCP Server",
-     "u": "https://docs.singlestore.com/cloud/ai/singlestore-mcp-server.md"
-    },
-    {
-     "t": "Working with Vector Data",
-     "u": "https://docs.singlestore.com/cloud/developer-resources/functional-extensions/working-with-vector-data.md"
-    },
-    {
-     "t": "AI and ML Functions",
-     "u": "https://docs.singlestore.com/cloud/ai/ai-ml-functions.md"
-    },
-    {
-     "t": "ALTER TABLE (SingleStore)",
-     "u": "https://docs.singlestore.com/cloud/reference/sql-reference/data-definition-language-ddl/alter-table.md"
-    },
-    {
-     "t": "Query History (SingleStore)",
-     "u": "https://docs.singlestore.com/cloud/query-data/query-tuning/query-history.md"
-    },
-    {
-     "t": "SingleStore docs index (llms.txt)",
-     "u": "https://docs.singlestore.com/llms.txt"
-    }
-   ],
-   "verified": "2026-10-24",
-   "enrichHowTo": "Create an Analyst Domain and let it draft table and column descriptions with AI. Then edit them in the Semantic Layer Database tab. You can add relationships one by one or in bulk.",
-   "bulkSnippet": {
-    "lang": "sql",
-    "code": "-- Analyst Domain: connect a read-only cluster, then select tables.\n-- Descriptions are drafted by AI and edited in Creator Mode.\n-- No bulk SQL or API for descriptions found in the docs read.",
-    "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-   },
-   "aliases": [
-    "SingleStore Helios",
-    "SingleStoreDB",
-    "MemSQL",
-    "SingleStore Aura",
-    "Aura Analyst",
-    "SingleStore Analyst"
-   ],
-   "askData": [
-    {
-     "name": "Analyst",
-     "status": "Unverified",
-     "since": "",
-     "surfaces": [
-      "UI",
-      "REST API"
-     ],
-     "output": "SQL",
-     "reads": "Domain schema descriptions, joins, Business Rules, approved Learned Context and Trained Queries.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    {
-     "name": "Analyst API",
-     "status": "Preview",
-     "since": "",
-     "surfaces": [
-      "REST API"
-     ],
-     "output": "SQL",
-     "reads": "The same Domain context as Analyst, through an API key bound to one Domain.",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst/analyst-api.md"
-    }
-   ]
-  }
- ],
- "notes": [
-  {
-   "topic": "Oracle docs access",
-   "text": "dev.mysql.com returned an error page. The HeatWave facts come from the docs.oracle.com copy of the HeatWave and MySQL AI user guides.",
-   "sources": [
-    {
-     "t": "HeatWave NL_SQL routine",
-     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
-    }
-   ]
-  },
-  {
-   "topic": "HeatWave rename",
-   "text": "Oracle now publishes a MySQL AI User Guide for the self-managed product. The HeatWave guide covers the managed service. Both use the NL_SQL routine.",
-   "sources": [
-    {
-     "t": "MySQL AI User Guide",
-     "u": "https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html"
-    }
-   ]
-  },
-  {
-   "topic": "MongoDB output",
-   "text": "MongoDB natural-language tools output MQL and not SQL.",
-   "sources": [
-    {
-     "t": "Natural Language to MongoDB Queries",
-     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
-    }
-   ]
-  },
-  {
-   "topic": "SingleStore rename",
-   "text": "Aura Analyst is now called Analyst. Only the Analyst API page has a Preview label.",
-   "sources": [
-    {
-     "t": "SingleStore Analyst",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
-    },
-    {
-     "t": "Analyst API",
-     "u": "https://docs.singlestore.com/cloud/ai/analyst/analyst-api.md"
-    }
-   ]
-  }
- ]
+  ]
 }

@@ -203,9 +203,9 @@ window.SL = {
    "id": "redshift",
    "name": "AWS (Redshift + ecosystem)",
    "category": "cloud-dw",
-   "tagline": "AWS cloud data warehouse plus separate AI, BI, catalog and graph services around it.",
+   "tagline": "Redshift is an AWS cloud data warehouse. AI, BI, catalog and graph services run separately around it.",
    "verdict": "partial",
-   "verdictNote": "Redshift has no semantic layer object; context sits in separate AWS features (Q custom context, Bedrock Knowledge Bases, Quick Topics, SageMaker Catalog), each with its own config.",
+   "verdictNote": "Redshift has no semantic layer object. Context sits in separate AWS features, each with its own config. The features are Q custom context, Bedrock Knowledge Bases, Quick Topics and SageMaker Catalog.",
    "artifacts": [
     {
      "name": "Amazon Q generative SQL (Redshift Query Editor v2)",
@@ -331,12 +331,12 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 1,
-     "n": "No metric object in Redshift. Quick Sight calculated fields and Topic instructions hold metric logic, usable only inside Quick.",
+     "n": "Redshift has no metric object. Quick Sight calculated fields and Topic instructions hold metric logic. Only Quick can use them.",
      "u": "https://docs.aws.amazon.com/quick/latest/userguide/legacy-topics.html"
     },
     "dimensions": {
      "l": 1,
-     "n": "Redshift has none. Quick Sight dataset enrichment sets semantic types and descriptions. Topic docs show no hierarchy or time-grain object.",
+     "n": "Redshift has none. Quick Sight dataset enrichment sets semantic types and descriptions. The Topic docs show no hierarchy or time-grain object.",
      "u": "https://docs.aws.amazon.com/quick/latest/userguide/topics.html"
     },
     "relationships": {
@@ -346,98 +346,98 @@ window.SL = {
     },
     "synonyms": {
      "l": 3,
-     "n": "Query Editor v2 custom context: table and column annotations, custom documents and prompt text that the SQL generator reads.",
+     "n": "Query Editor v2 custom context holds table and column annotations, custom documents and prompt text. The SQL generator reads them.",
      "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
     },
     "verifiedQueries": {
      "l": 3,
-     "n": "CuratedQueries in Q custom context and curatedQueries in Bedrock KB generation context. Both are question-to-SQL pairs.",
+     "n": "Q custom context has CuratedQueries. Bedrock KB generation context has curatedQueries. Both are question-to-SQL pairs.",
      "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Amazon Q generative SQL in Query Editor v2 (GA Sep 2024) and Bedrock Knowledge Bases structured retrieval (GA Dec 2024).",
+     "n": "Amazon Q generative SQL in Query Editor v2 is GA (Sep 2024). Bedrock Knowledge Bases structured retrieval is GA (Dec 2024).",
      "u": "https://aws.amazon.com/es/about-aws/whats-new/2024/09/amazon-q-generative-sql-amazon-redshift/"
     },
     "ontology": {
      "l": 1,
-     "n": "No ontology object. SageMaker Catalog holds glossary terms and metadata forms. Teams build graphs in Neptune or add Stardog.",
+     "n": "There is no ontology object. SageMaker Catalog holds glossary terms and metadata forms. Teams build graphs in Neptune or add Stardog.",
      "u": "https://aws.amazon.com/blogs/aws/new-business-metadata-features-in-amazon-sagemaker-catalog-to-improve-discoverability-across-organizations"
     },
     "graph": {
      "l": 1,
-     "n": "Not in Redshift. Neptune (openCypher, Gremlin, SPARQL) and Neptune Analytics (openCypher) are separate GA services.",
+     "n": "Redshift has no graph feature. Neptune (openCypher, Gremlin, SPARQL) and Neptune Analytics (openCypher) are separate GA services.",
      "u": "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html"
     },
     "vector": {
      "l": 1,
-     "n": "Redshift's data types page lists no vector type. Neptune Analytics offers vector search inside graph traversals.",
+     "n": "The Redshift data types page lists no vector type. Neptune Analytics offers vector search inside graph traversals.",
      "u": "https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html"
     },
     "mcp": {
      "l": 3,
-     "n": "AWS Labs Redshift MCP server: schema discovery and SQL, read-only by default. Exposes structure only, no business definitions.",
+     "n": "The AWS Labs Redshift MCP server offers schema discovery and SQL. It is read-only by default. It exposes structure only, with no business definitions.",
      "u": "https://github.com/awslabs/mcp/tree/main/src/redshift-mcp-server"
     },
     "governance": {
      "l": 3,
-     "n": "Q generative SQL is limited to each user's data permissions. Quick Topics reuse dataset RLS and CLS. Catalog adds lineage.",
+     "n": "Q generative SQL is limited to each user's data permissions. Quick Topics reuse dataset RLS and CLS. The catalog adds lineage.",
      "u": "https://aws.amazon.com/es/about-aws/whats-new/2024/09/amazon-q-generative-sql-amazon-redshift/"
     },
     "openStandard": {
      "l": 0,
-     "n": "No OSI or Apache Ossie support found. Custom context JSON and the Topic API are AWS-specific.",
+     "n": "The docs show no OSI or Apache Ossie support. Custom context JSON and the Topic API are AWS-specific.",
      "u": "https://github.com/apache/ossie"
     },
     "aiDescriptions": {
      "l": 1,
-     "n": "SageMaker Catalog (separate product) drafts descriptions, business names and glossary terms with Bedrock for Glue and Redshift assets. Default quota 10K description runs a month.",
+     "n": "SageMaker Catalog (separate product) drafts descriptions, business names and glossary terms with Bedrock for Glue and Redshift assets. The default quota is 10K description runs a month.",
      "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "COMMENT ON sets table, column and view comments in SQL. Not supported on external tables or late binding view columns. Q generative SQL also takes admin-uploaded JSON custom context.",
+     "n": "COMMENT ON sets table, column and view comments in SQL. It is not supported on external tables or late binding view columns. Q generative SQL also takes admin-uploaded JSON custom context.",
      "u": "https://docs.aws.amazon.com/redshift/latest/dg/r_COMMENT.html"
     },
     "autoClassify": {
      "l": 1,
-     "n": "No Redshift-native column classifier found. SageMaker Catalog (separate product) suggests glossary terms, including PII and PHI, from column names and schema at publish time.",
+     "n": "The docs show no Redshift-native column classifier. SageMaker Catalog (separate product) suggests glossary terms from column names and schema at publish time. The terms include PII and PHI.",
      "u": "https://aws.amazon.com/blogs/big-data/automating-data-classification-in-amazon-sagemaker-catalog-using-an-ai-agent/"
     },
     "sampleValues": {
      "l": 1,
-     "n": "Only in Amazon Quick Topics: authors set CellValueSynonyms by hand. No automatic value sampling found for Redshift.",
+     "n": "This exists only in Amazon Quick Topics. Authors set CellValueSynonyms by hand. The docs show no automatic value sampling for Redshift.",
      "u": "https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/quicksight/2018-04-01/service-2.json"
     },
     "queryHistory": {
      "l": 3,
-     "n": "Q generative SQL in Query Editor v2 can use other users' query history to improve SQL. Admin grants SYS:MONITOR. Not documented as suggesting joins or metrics.",
+     "n": "Q generative SQL in Query Editor v2 can use the query history of other users to improve SQL. An admin grants SYS:MONITOR. The docs do not describe it as suggesting joins or metrics.",
      "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
     },
     "lineage": {
      "l": 3,
-     "n": "SageMaker Catalog captures column-level lineage from Redshift, Glue and Spark (GA Dec 2024, OpenLineage compatible). Redshift is named as a source.",
+     "n": "SageMaker Catalog captures column-level lineage from Redshift, Glue and Spark (GA Dec 2024, OpenLineage compatible). It names Redshift as a source.",
      "u": "https://aws.amazon.com/about-aws/whats-new/2024/12/data-lineage-amazon-datazone-next-generation-sagemaker"
     },
     "evals": {
      "l": 1,
-     "n": "Query Editor v2 has helpful and not helpful feedback with error categories. No eval set tooling. Curated question and SQL pairs go in custom context by hand.",
+     "n": "Query Editor v2 has helpful and not helpful feedback with error categories. No eval set tooling exists. Users add curated question and SQL pairs to custom context by hand.",
      "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai-interact.html"
     }
    },
    "offers": [
-    "Amazon Q generative SQL custom context: JSON with table and column annotations, curated question-SQL pairs, extra documents and prompt guardrails.",
-    "Bedrock Knowledge Bases turns questions into SQL on Redshift, with GenerateQuery API, descriptions, include/exclude lists and curated queries.",
-    "Amazon Quick Topics (GA Aug 2026): up to 12 datasets, join keys, custom instructions, and generated SQL shown in chat.",
-    "SageMaker Catalog: business glossary, metadata forms, and Bedrock-generated names and descriptions for assets and columns.",
-    "Open-source Redshift MCP server lists schemas and runs SQL read-only; a Neptune MCP server covers graph queries."
+    "Amazon Q generative SQL custom context is JSON. It holds table and column annotations, curated question-SQL pairs, extra documents and prompt guardrails.",
+    "Bedrock Knowledge Bases turns questions into SQL on Redshift. It offers the GenerateQuery API, descriptions, include and exclude lists, and curated queries.",
+    "Amazon Quick Topics (GA Aug 2026) take up to 12 datasets, join keys and custom instructions. Chat shows the generated SQL.",
+    "SageMaker Catalog has a business glossary and metadata forms. Bedrock generates names and descriptions for assets and columns.",
+    "The open-source Redshift MCP server lists schemas and runs SQL read-only. A Neptune MCP server covers graph queries."
    ],
    "gaps": [
-    "No semantic layer object in Redshift: metrics, dimensions and joins are not declared in the warehouse.",
-    "Semantic context is split across four products with four config formats; nothing is shared between them.",
-    "Q generative SQL is English-only, notebook-bound, and cannot reference external schemas.",
-    "Bedrock generation context is non-deterministic and only meant to improve accuracy; AWS says verify generated SQL.",
-    "No vector type in Redshift and no OSI or Ossie support found."
+    "Redshift has no semantic layer object. The warehouse does not declare metrics, dimensions and joins.",
+    "Semantic context is split across four products with four config formats. The products share nothing.",
+    "Q generative SQL is English-only and notebook-bound. It cannot reference external schemas.",
+    "Bedrock generation context is non-deterministic. It is only meant to improve accuracy. AWS says to verify generated SQL.",
+    "Redshift has no vector type. The docs show no OSI or Ossie support."
    ],
    "fillWith": [
     "AtScale",
@@ -446,10 +446,10 @@ window.SL = {
     "Stardog",
     "dbt Semantic Layer"
    ],
-   "nl2sqlPath": "Start with Bedrock Knowledge Bases structured retrieval or Q generative SQL custom context, and put table and column descriptions and curated question-SQL pairs in the config. Test with the GenerateQuery API and check every generated query. For governed metrics, AWS blog posts show partner semantic layers (AtScale, Denodo, Strategy Mosaic) between the agent and Redshift.",
+   "nl2sqlPath": "Start with Bedrock Knowledge Bases structured retrieval or Q generative SQL custom context. Put table and column descriptions and curated question-SQL pairs in the config. Test with the GenerateQuery API. Check every generated query. For governed metrics, AWS blog posts show partner semantic layers (AtScale, Denodo, Strategy Mosaic) between the agent and Redshift.",
    "snippet": {
     "lang": "json",
-    "title": "Amazon Q generative SQL custom context for a Redshift cluster (trimmed from the official example)",
+    "title": "Amazon Q generative SQL custom context for a Redshift cluster, trimmed from the official example",
     "code": "{\n  \"resources\": [{\n    \"ResourceId\": \"mycluster\",\n    \"ResourceType\": \"REDSHIFT_WAREHOUSE\",\n    \"TablesToInclude\": [\"database.schema.table1\"],\n    \"TableAnnotations\": { \"database.schema.table1\": \"table1 refers to Q3 sales\" },\n    \"ColumnAnnotations\": { \"database.schema.table1\": { \"col1\": \"col1 refers to Q3 sale total\" } },\n    \"CuratedQueries\": [\n      { \"Question\": \"what is the sales data for Q3\", \"Answer\": \"SELECT * FROM table1\" }\n    ],\n    \"CustomDocuments\": [\"in manufacturing division total sales is price * revenue\"],\n    \"AppendToPrompt\": \"Apply these guardrails: Queries should never return the secretId field of a user.\"\n  }]\n}",
     "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
    },
@@ -640,7 +640,7 @@ window.SL = {
      "u": "https://docs.aws.amazon.com/quick/latest/userguide/using-quick-chat.html"
     }
    ],
-   "enrichHowTo": "Write table and column comments in Redshift with COMMENT ON, and add TableAnnotations, ColumnAnnotations and CuratedQueries to the Q generative SQL custom context JSON. To draft descriptions and business names, publish the tables to SageMaker Catalog and run the DataZone StartMetadataGenerationRun API with types BUSINESS_DESCRIPTIONS and BUSINESS_NAMES, then review the drafts. The API takes at most 2 types per call and one asset per call.",
+   "enrichHowTo": "Write table and column comments in Redshift with COMMENT ON. Add TableAnnotations, ColumnAnnotations and CuratedQueries to the Q generative SQL custom context JSON. To draft descriptions and business names, publish the tables to SageMaker Catalog. Then run the DataZone StartMetadataGenerationRun API with types BUSINESS_DESCRIPTIONS and BUSINESS_NAMES. Review the drafts. The API takes at most 2 types per call. It takes one asset per call.",
    "bulkSnippet": {
     "lang": "bash",
     "code": "# One asset per call. types accepts at most 2 values.\naws datazone start-metadata-generation-run \\\n  --domain-identifier $DOMAIN_ID \\\n  --owning-project-identifier $PROJECT_ID \\\n  --target type=ASSET,identifier=$ASSET_ID \\\n  --types BUSINESS_DESCRIPTIONS BUSINESS_NAMES",
@@ -896,9 +896,9 @@ window.SL = {
    "id": "bigquery",
    "name": "Google BigQuery",
    "category": "cloud-dw",
-   "tagline": "Google Cloud serverless data warehouse with built-in Gemini agents, graph, and vector search.",
+   "tagline": "BigQuery is a Google Cloud serverless data warehouse. It has built-in Gemini agents, graph and vector search.",
    "verdict": "partial",
-   "verdictNote": "Data agents take descriptions, synonyms, verified queries, and glossary terms, but BigQuery has no general metric or semantic view object; graph measures are Preview.",
+   "verdictNote": "Data agents take descriptions, synonyms, verified queries and glossary terms. BigQuery has no general metric or semantic view object. Graph measures are Preview.",
    "artifacts": [
     {
      "name": "Data agents (conversational analytics in BigQuery)",
@@ -1008,12 +1008,12 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 2,
-     "n": "Only MEASURE in property graph DDL, Preview since Apr 2026; no general metric object. Query through GRAPH_EXPAND and AGG.",
+     "n": "MEASURE exists only in property graph DDL, Preview since Apr 2026. There is no general metric object. Query it through GRAPH_EXPAND and AGG.",
      "u": "https://docs.cloud.google.com/bigquery/docs/graph-measures"
     },
     "dimensions": {
      "l": 0,
-     "n": "No dimension, hierarchy, or time-grain object. Teams use column descriptions and agent field context, or LookML.",
+     "n": "There is no dimension, hierarchy or time-grain object. Teams use column descriptions and agent field context, or LookML.",
      "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq"
     },
     "relationships": {
@@ -1023,12 +1023,12 @@ window.SL = {
     },
     "synonyms": {
      "l": 3,
-     "n": "Data agents accept table and column descriptions, synonyms, tags, and system instructions. Custom glossary terms were Preview in Feb 2026.",
+     "n": "Data agents accept table and column descriptions, synonyms, tags and system instructions. Custom glossary terms were Preview in Feb 2026.",
      "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-bq"
     },
     "verifiedQueries": {
      "l": 3,
-     "n": "Verified queries (formerly golden queries) pair a question with SQL, support parameters, and return matched_query. GA with agents Jun 2026.",
+     "n": "Verified queries (formerly golden queries) pair a question with SQL. They support parameters and return matched_query. They are GA with agents since Jun 2026.",
      "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
     },
     "nl2sql": {
@@ -1038,12 +1038,12 @@ window.SL = {
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology object. Closest: property graphs for entities and links, Knowledge Catalog glossary for terms.",
+     "n": "There is no ontology object. The closest items are property graphs for entities and links, and the Knowledge Catalog glossary for terms.",
      "u": "https://docs.cloud.google.com/knowledge-catalog/docs/catalog-overview"
     },
     "graph": {
      "l": 3,
-     "n": "GA Aug 31, 2026, with GQL and SQL/PGQ. Standard edition and on-demand billing end for graph processing Apr 26, 2027.",
+     "n": "Graph is GA since Aug 31, 2026, with GQL and SQL/PGQ. Standard edition and on-demand billing end for graph processing on Apr 26, 2027.",
      "u": "https://docs.cloud.google.com/bigquery/docs/release-notes"
     },
     "vector": {
@@ -1053,17 +1053,17 @@ window.SL = {
     },
     "mcp": {
      "l": 3,
-     "n": "GA Apr 20, 2026, with metadata and SQL tools. No conversational analytics tool listed; MCP Toolbox adds ask_data_insights.",
+     "n": "GA since Apr 20, 2026, with metadata and SQL tools. The server lists no conversational analytics tool. MCP Toolbox adds ask_data_insights.",
      "u": "https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp"
     },
     "governance": {
      "l": 3,
-     "n": "Agents see only data the user can query and cannot run DML. Graph metadata syncs to Knowledge Catalog in Preview.",
+     "n": "Agents see only data that the user can query. Agents cannot run DML. Graph metadata syncs to Knowledge Catalog in Preview.",
      "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
     },
     "openStandard": {
      "l": 1,
-     "n": "Graph follows ISO GQL and SQL/PGQ. No OSI or Ossie converter for BigQuery was found in the Ossie converters repo.",
+     "n": "Graph follows ISO GQL and SQL/PGQ. The Ossie converters repo has no OSI or Ossie converter for BigQuery.",
      "u": "https://docs.cloud.google.com/bigquery/docs/graph-iso-standards"
     },
     "aiDescriptions": {
@@ -1073,49 +1073,49 @@ window.SL = {
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "ALTER TABLE ... ALTER COLUMN ... SET OPTIONS (description=...) sets a column description; tables and views are covered. One column per statement, so script it.",
+     "n": "ALTER TABLE ... ALTER COLUMN ... SET OPTIONS (description=...) sets a column description. It covers tables and views. It sets one column per statement, so script it.",
      "u": "https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language"
     },
     "autoClassify": {
      "l": 1,
-     "n": "Sensitive Data Protection discovery profiles BigQuery (GA) and can auto-attach sensitivity tags. It is a separate product from BigQuery.",
+     "n": "Sensitive Data Protection discovery profiles BigQuery (GA). It can auto-attach sensitivity tags. It is a separate product from BigQuery.",
      "u": "https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles"
     },
     "sampleValues": {
      "l": 1,
-     "n": "Agents can match terms to values using existing embeddings of your column values (for example Texas to TX). You must create the embeddings.",
+     "n": "Agents can match terms to values with existing embeddings of your column values (for example Texas to TX). You must create the embeddings.",
      "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
     },
     "queryHistory": {
      "l": 0,
-     "n": "No query-history mining for agent context found. Teams add verified queries (formerly golden queries), glossaries and instructions by hand.",
+     "n": "The docs show no query-history mining for agent context. Teams add verified queries (formerly golden queries), glossaries and instructions by hand.",
      "u": "https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/bigquery"
     },
     "lineage": {
      "l": 3,
-     "n": "Column-level lineage GA 2025-09-29 for BigQuery jobs, in Knowledge Catalog. Custom sources support table level only.",
+     "n": "Column-level lineage for BigQuery jobs is GA since 2025-09-29, in Knowledge Catalog. Custom sources support table level only.",
      "u": "https://docs.cloud.google.com/knowledge-catalog/docs/release-notes"
     },
     "evals": {
      "l": 0,
-     "n": "No eval runner found. Verified queries guide the agent, and the chat shows the agent's reasoning for each answer.",
+     "n": "The docs show no eval runner. Verified queries guide the agent. The chat shows the reasoning of the agent for each answer.",
      "u": "https://docs.cloud.google.com/bigquery/docs/conversational-analytics"
     }
    },
    "offers": [
-    "Data agents hold table and column descriptions, synonyms, tags, and parameterized verified queries as context (GA Jun 2026).",
-    "Conversational Analytics API v1 lets your own app call the same agents, over BigQuery and Looker sources.",
-    "Remote BigQuery MCP server (GA Apr 2026) exposes metadata and SQL tools; MCP Toolbox adds ask_data_insights.",
-    "Property graphs (GA Aug 2026) declare entities and relationships over tables and can be a data agent source.",
-    "Knowledge Catalog glossary terms can be imported into agents, up to 10 terms per table.",
+    "Data agents hold table and column descriptions, synonyms, tags and parameterized verified queries as context (GA Jun 2026).",
+    "Conversational Analytics API v1 lets your own app call the same agents. The agents work over BigQuery and Looker sources.",
+    "The remote BigQuery MCP server (GA Apr 2026) exposes metadata and SQL tools. MCP Toolbox adds ask_data_insights.",
+    "Property graphs (GA Aug 2026) declare entities and relationships over tables. A property graph can be a data agent source.",
+    "Users can import Knowledge Catalog glossary terms into agents. The limit is 10 terms per table.",
     "VECTOR_SEARCH and vector indexes give semantic search in SQL."
    ],
    "gaps": [
-    "No general metric or semantic view object. Only graph MEASURE inside property graphs, which is Preview.",
-    "No declared dimension, hierarchy, or time-grain object. Agents rely on column metadata and instructions.",
-    "Relationships and glossary entries in system instructions are free YAML text, not typed fields.",
-    "Agent context lives inside each agent. No portable export; no OSI or Ossie converter for BigQuery found.",
-    "The BigQuery MCP server doc lists metadata and SQL tools only, with no conversational analytics tool."
+    "There is no general metric or semantic view object. Only graph MEASURE inside property graphs exists, and it is Preview.",
+    "There is no declared dimension, hierarchy or time-grain object. Agents rely on column metadata and instructions.",
+    "Relationships and glossary entries in system instructions are free YAML text. They are not typed fields.",
+    "Agent context lives inside each agent. There is no portable export. There is no OSI or Ossie converter for BigQuery.",
+    "The BigQuery MCP server doc lists metadata and SQL tools only. It lists no conversational analytics tool."
    ],
    "fillWith": [
     "Looker (LookML)",
@@ -1123,7 +1123,7 @@ window.SL = {
     "Cube",
     "MCP Toolbox for Databases"
    ],
-   "nl2sqlPath": "Create a data agent with table descriptions, synonyms, parameterized verified queries, and glossary terms, then call it through the Conversational Analytics API. Give other agents access through the BigQuery MCP server or MCP Toolbox ask_data_insights. For governed metrics, keep them as verified queries or define them in a semantic layer such as LookML.",
+   "nl2sqlPath": "Create a data agent with table descriptions, synonyms, parameterized verified queries and glossary terms. Call it through the Conversational Analytics API. Give other agents access through the BigQuery MCP server or MCP Toolbox ask_data_insights. For governed metrics, keep them as verified queries. You can also define them in a semantic layer such as LookML.",
    "snippet": {
     "lang": "json",
     "title": "Data agent context: table metadata plus one verified example query",
@@ -1265,7 +1265,7 @@ window.SL = {
      "u": "https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview"
     }
    ],
-   "enrichHowTo": "Run data insights on a table to draft table and column descriptions, edit them, and publish. For scripted writes, run ALTER TABLE ... ALTER COLUMN ... SET OPTIONS (description=...) per column. Then add verified queries and glossary terms to the data agent.",
+   "enrichHowTo": "Run data insights on a table to draft table and column descriptions. Edit them and publish. For scripted writes, run ALTER TABLE ... ALTER COLUMN ... SET OPTIONS (description=...) per column. Then add verified queries and glossary terms to the data agent.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "ALTER TABLE mydataset.mytable\nALTER COLUMN price\nSET OPTIONS (description = 'Price per unit');",
@@ -1276,9 +1276,9 @@ window.SL = {
    "id": "sap",
    "name": "SAP Business Data Cloud / Datasphere",
    "category": "cloud-dw",
-   "tagline": "SAP data platform with semantic modeling, data products, and SAP HANA Cloud engines.",
+   "tagline": "SAP offers a data platform with semantic modeling, data products and SAP HANA Cloud engines.",
    "verdict": "native",
-   "verdictNote": "Analytic models and the Business Builder layer declare measures, dimensions and associations natively, but public docs show little AI access to them beyond Joule tenant help.",
+   "verdictNote": "Analytic models and the Business Builder layer declare measures, dimensions and associations natively. Public docs show little AI access to them beyond Joule tenant help.",
    "artifacts": [
     {
      "name": "SAP Datasphere analytic model",
@@ -1382,110 +1382,110 @@ window.SL = {
     },
     "relationships": {
      "l": 3,
-     "n": "Associations define semantic relationships between entities in the Data Builder and between business entities for consumption models.",
+     "n": "Associations define semantic relationships between entities in the Data Builder. They also define relationships between business entities for consumption models.",
      "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/Buisiness-Builder/creating-a-business-entity-c912cdc.md"
     },
     "synonyms": {
      "l": 3,
-     "n": "Asset names, short and long descriptions, semantic types, catalog terms, KPIs and tags. AI drafts descriptions. No synonym field found.",
+     "n": "Asset names, short and long descriptions, semantic types, catalog terms, KPIs and tags exist. AI drafts descriptions. The docs show no synonym field.",
      "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Administering/Creating-and-Configuring-Your-Tenant/enable-sap-business-ai-for-sap-datasphere-1b3fe45.md"
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "None found. Datasphere AI SQL generation takes free-text prompts and source objects only.",
+     "n": "The docs show none. Datasphere AI SQL generation takes free-text prompts and source objects only.",
      "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/generate-sql-code-with-ai-d153065.md"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Generate SQL with AI drafts SQL views. Joule in Datasphere is GA; documented uses are tenant help, navigation and actions.",
+     "n": "Generate SQL with AI drafts SQL views. Joule in Datasphere is GA. The documented uses are tenant help, navigation and actions.",
      "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/generate-sql-code-with-ai-d153065.md"
     },
     "ontology": {
      "l": 2,
-     "n": "SAP Knowledge Graph exists in BDC and Datasphere, but no GA statement found. It started as a 2024 preview.",
+     "n": "SAP Knowledge Graph exists in BDC and Datasphere. The docs show no GA statement. It started as a 2024 preview.",
      "u": "https://news.sap.com/2024/03/latest-sap-data-and-analytics-innovations-sap-data-unleashed/"
     },
     "graph": {
      "l": 2,
-     "n": "SAP HANA Cloud runs SPARQL on RDF in its knowledge graph engine, inside SQL. Engine GA label not found.",
+     "n": "SAP HANA Cloud runs SPARQL on RDF in its knowledge graph engine, inside SQL. The docs show no GA label for the engine.",
      "u": "https://news.sap.com/2025/07/unifying-ai-workloads-sap-hana-cloud-one-database/"
     },
     "vector": {
      "l": 3,
-     "n": "SAP HANA Cloud vector engine is GA (April 2024) and is queried with SQL functions.",
+     "n": "The SAP HANA Cloud vector engine is GA (April 2024). Users query it with SQL functions.",
      "u": "https://news.sap.com/2024/04/sap-hana-cloud-vector-engine-ai-with-business-context/"
     },
     "mcp": {
      "l": 3,
-     "n": "MCP support for SAP HANA Cloud is GA (Nov 2025). No MCP server for Datasphere models found.",
+     "n": "MCP support for SAP HANA Cloud is GA (Nov 2025). The docs show no MCP server for Datasphere models.",
      "u": "https://news.sap.com/2025/11/business-ai-innovation-unveiled-at-sap-teched/"
     },
     "governance": {
      "l": 3,
-     "n": "Data access controls apply to analytic models; consumption models support authorization scenarios; catalog, data products and lineage views exist.",
+     "n": "Data access controls apply to analytic models. Consumption models support authorization scenarios. Catalog, data products and lineage views exist.",
      "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/apply-a-data-access-control-to-an-analytic-model-8d8e2f9.md"
     },
     "openStandard": {
      "l": 1,
-     "n": "CSN/JSON export and import; CSN is defined in SAP's CAP docs. No OSI or Ossie support found.",
+     "n": "CSN/JSON export and import exist. SAP's CAP docs define CSN. The docs show no OSI or Ossie support.",
      "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/creating-an-analytic-model-e5fbe9e.md"
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "AI-assisted catalog content generation drafts asset summaries and descriptions and assigns tags. Needs AI Units and tenant enablement. Docs show no status label.",
+     "n": "AI-assisted catalog content generation drafts asset summaries and descriptions and assigns tags. It needs AI Units and tenant enablement. The docs show no status label.",
      "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Administering/Creating-and-Configuring-Your-Tenant/enable-sap-business-ai-for-sap-datasphere-1b3fe45.md"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "Export and import objects as CSN/JSON files, or use the datasphere CLI. Import can overwrite existing objects; import does not deploy.",
+     "n": "Export and import objects as CSN/JSON files, or use the datasphere CLI. Import can overwrite existing objects. Import does not deploy.",
      "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Creating-Finding-Sharing-Objects/importing-objects-from-a-csn-json-file-23599e6.md"
     },
     "autoClassify": {
      "l": 3,
-     "n": "Catalog auto-tags data products with Personal Data and Sensitive Personal Data. Generate Semantics sets column semantic types. Manual tagging of privacy tags is blocked.",
+     "n": "Catalog auto-tags data products with Personal Data and Sensitive Personal Data. Generate Semantics sets column semantic types. The system blocks manual tagging of privacy tags.",
      "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/data-protection-and-privacy-tagging-6c00246.md"
     },
     "sampleValues": {
      "l": 0,
-     "n": "No sample-value or literal-matching feature found. Natural language search filters object metadata only, not data values.",
+     "n": "The docs show no sample-value or literal-matching feature. Natural language search filters object metadata only, not data values.",
      "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Creating-Finding-Sharing-Objects/natural-language-search-04170c6.md"
     },
     "queryHistory": {
      "l": 0,
-     "n": "No query-history mining for joins, measures or examples in the docs. Teams model these by hand.",
+     "n": "The docs show no query-history mining for joins, measures or examples. Teams model these by hand.",
      "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/generate-sql-code-with-ai-d153065.md"
     },
     "lineage": {
      "l": 3,
-     "n": "Impact and Lineage Analysis supports column-level analysis, but only for tables, graphical and SQL views, and analytic models.",
+     "n": "Impact and Lineage Analysis supports column-level analysis. It works only for tables, graphical and SQL views, and analytic models.",
      "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/impact-and-lineage-analysis-9da4892.md"
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL eval tooling or feedback loop found. AI SQL view generation takes free-text prompts only.",
+     "n": "The docs show no NL-to-SQL eval tooling or feedback loop. AI SQL view generation takes free-text prompts only.",
      "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/generate-sql-code-with-ai-d153065.md"
     }
    },
    "offers": [
-    "Analytic models: measures (calculated, restricted, count distinct), dimensions, hierarchies, filters and variables; exportable as CSN/JSON and manageable by CLI.",
-    "Business Builder layers business entities, fact models and consumption models with associations and authorization scenarios.",
-    "Catalog with terms, KPIs, tags and data products; AI drafts descriptions and supports natural language search (needs AI Units license).",
+    "Analytic models hold measures (calculated, restricted, count distinct), dimensions, hierarchies, filters and variables. Users can export them as CSN/JSON and manage them by CLI.",
+    "Business Builder layers business entities, fact models and consumption models. It adds associations and authorization scenarios.",
+    "The catalog has terms, KPIs, tags and data products. AI drafts descriptions and supports natural language search. This needs an AI Units license.",
     "SAP HANA Cloud combines a vector engine, a knowledge graph engine (SPARQL) and MCP support in one database inside BDC.",
-    "BDC Connect shares data products zero-copy with Databricks (GA Oct 2025); BigQuery, Snowflake, Fabric listed as partners; Athena planned."
+    "BDC Connect shares data products zero-copy with Databricks (GA Oct 2025). SAP lists BigQuery, Snowflake and Fabric as partners. Athena is planned."
    ],
    "gaps": [
-    "No verified question-to-SQL pairs and no synonym field found for analytic models.",
-    "Knowledge graph GA status unclear: Datasphere graph began as a 2024 preview; HANA Cloud auto-build was planned for Q1 2026.",
-    "No MCP server for Datasphere or analytic models found; MCP is documented for SAP HANA Cloud only.",
-    "Public docs show Joule in Datasphere for tenant help and actions, not question answering over analytic models.",
-    "AI features need an AI Units license and tenant enablement; model export is SAP CSN, not an open spec."
+    "The docs show no verified question-to-SQL pairs and no synonym field for analytic models.",
+    "Knowledge graph GA status is unclear. The Datasphere graph began as a 2024 preview. HANA Cloud auto-build was planned for Q1 2026.",
+    "The docs show no MCP server for Datasphere or analytic models. MCP is documented for SAP HANA Cloud only.",
+    "Public docs show Joule in Datasphere for tenant help and actions. They do not show question answering over analytic models.",
+    "AI features need an AI Units license and tenant enablement. Model export is SAP CSN. It is not an open spec."
    ],
    "fillWith": [
     "SAP Databricks (inside BDC)",
     "SAP Snowflake (inside BDC)",
     "BDC Connect to Google BigQuery, Microsoft Fabric or Amazon Athena"
    ],
-   "nl2sqlPath": "Model measures, dimensions and associations in Datasphere analytic models and the Business Builder layer. For AI question answering, SAP's own posts point to sharing data products into Databricks or Snowflake with BDC Connect, or building agents on SAP HANA Cloud through its MCP support. Confirm Joule and SAP Knowledge Graph status with SAP before relying on them.",
+   "nl2sqlPath": "Model measures, dimensions and associations in Datasphere analytic models and the Business Builder layer. For AI question answering, SAP's own posts point to two paths. One path shares data products into Databricks or Snowflake with BDC Connect. The other builds agents on SAP HANA Cloud through its MCP support. Confirm Joule and SAP Knowledge Graph status with SAP before you rely on them.",
    "snippet": null,
    "sources": [
     {
@@ -1661,15 +1661,15 @@ window.SL = {
      "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/generate-sql-code-with-ai-d153065.md"
     }
    ],
-   "enrichHowTo": "Turn on SAP Business AI for the tenant, then use AI-assisted catalog content generation to draft summaries and descriptions for catalog assets. In the Data Builder, run Generate > Generate Semantics to set semantic usage, keys and column semantic types. For scripted edits, export objects to CSN/JSON, edit them, and import them back, or use the datasphere command line."
+   "enrichHowTo": "Turn on SAP Business AI for the tenant. Then use AI-assisted catalog content generation to draft summaries and descriptions for catalog assets. In the Data Builder, run Generate > Generate Semantics. This sets semantic usage, keys and column semantic types. For scripted edits, export objects to CSN/JSON, edit them, and import them back. Or use the datasphere command line."
   },
   {
    "id": "snowflake",
    "name": "Snowflake",
    "category": "cloud-dw",
-   "tagline": "Cloud data platform with built-in semantic views, Cortex AI agents, and managed MCP.",
+   "tagline": "Snowflake is a cloud data platform. It has built-in semantic views, Cortex AI agents and a managed MCP server.",
    "verdict": "native",
-   "verdictNote": "Semantic Views are GA schema-level objects with metrics, dimensions, relationships, synonyms and verified queries that Cortex Agents and the managed MCP server read.",
+   "verdictNote": "Semantic Views are GA schema-level objects. They contain metrics, dimensions, relationships, synonyms and verified queries. Cortex Agents and the managed MCP server read them.",
    "artifacts": [
     {
      "name": "Semantic View",
@@ -1827,92 +1827,92 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "METRICS clause: aggregate, derived, window and semi-additive metrics, with PUBLIC or PRIVATE access modifiers.",
+     "n": "The METRICS clause supports aggregate, derived, window and semi-additive metrics. Access modifiers are PUBLIC or PRIVATE.",
      "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl"
     },
     "dimensions": {
      "l": 3,
-     "n": "DIMENSIONS and FACTS with filters, sample values, enum flags. YAML adds time_dimensions. No hierarchy construct in the spec.",
+     "n": "DIMENSIONS and FACTS support filters, sample values and enum flags. YAML adds time_dimensions. The spec has no hierarchy construct.",
      "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl"
     },
     "relationships": {
      "l": 3,
-     "n": "RELATIONSHIPS with primary keys, many-to-one, one-to-one, ASOF, bridge tables. USING relationship path and range joins are Preview.",
+     "n": "RELATIONSHIPS support primary keys, many-to-one, one-to-one, ASOF and bridge tables. The USING relationship path and range joins are Preview.",
      "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
     },
     "synonyms": {
      "l": 3,
-     "n": "WITH SYNONYMS, COMMENT, SAMPLE_VALUES, IS_ENUM, plus free-text AI_SQL_GENERATION and AI_QUESTION_CATEGORIZATION instructions.",
+     "n": "Synonyms use WITH SYNONYMS, COMMENT, SAMPLE_VALUES and IS_ENUM. Free-text instructions use AI_SQL_GENERATION and AI_QUESTION_CATEGORIZATION.",
      "u": "https://docs.snowflake.com/en/user-guide/views-semantic/custom-instructions"
     },
     "verifiedQueries": {
      "l": 3,
-     "n": "AI_VERIFIED_QUERIES stored in the semantic view; Verified Query Repository. Optimization from verified queries is Preview.",
+     "n": "AI_VERIFIED_QUERIES are stored in the semantic view. A Verified Query Repository also exists. Optimization from verified queries is Preview.",
      "u": "https://docs.snowflake.com/en/user-guide/views-semantic/verified-query-repository"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Cortex Analyst API, Cortex Agents, CoWork. Since Aug 2026 Snowflake recommends Cortex Agents over standalone Cortex Analyst.",
+     "n": "Tools: Cortex Analyst API, Cortex Agents, CoWork. Since Aug 2026, Snowflake recommends Cortex Agents over standalone Cortex Analyst.",
      "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-08-28-cortex-analyst-transition-cortex-agents"
     },
     "ontology": {
      "l": 0,
-     "n": "No object, link or action layer. Semantic views cover tables, relationships, metrics. Ossie has an Ontology working group.",
+     "n": "There is no object, link or action layer. Semantic views cover tables, relationships and metrics. Ossie has an Ontology working group.",
      "u": "https://ossie.apache.org/updates/ossie-enters-apache-incubator/"
     },
     "graph": {
      "l": 1,
-     "n": "No graph query feature in SQL command or function indexes. Partner apps: Neo4j Graph Analytics, RelationalAI.",
+     "n": "The SQL command and function indexes show no graph query feature. Partner apps are Neo4j Graph Analytics and RelationalAI.",
      "u": "https://neo4j.com/docs/snowflake-graph-analytics/current/"
     },
     "vector": {
      "l": 3,
-     "n": "VECTOR type GA May 2024. Cortex Search (vector plus keyword) GA Oct 2024. Dimensions can bind a Search service.",
+     "n": "The VECTOR type is GA since May 2024. Cortex Search (vector plus keyword) is GA since Oct 2024. Dimensions can bind a Search service.",
      "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview"
     },
     "mcp": {
      "l": 3,
-     "n": "Managed MCP server GA Nov 2025. Tools: Cortex Analyst on a semantic view, Search, Agents, SQL, custom. Limit 50 tools.",
+     "n": "The managed MCP server is GA since Nov 2025. Tools: Cortex Analyst on a semantic view, Search, Agents, SQL, custom. Limit: 50 tools.",
      "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
     },
     "governance": {
      "l": 3,
-     "n": "RBAC grants, tags, ACCOUNT_USAGE views, agent lineage. Masking and row access policies apply at query time. verified_by is free text.",
+     "n": "RBAC grants, tags, ACCOUNT_USAGE views and agent lineage apply. Masking and row access policies apply at query time. The verified_by field is free text.",
      "u": "https://docs.snowflake.com/en/user-guide/snowflake-horizon/horizon-context"
     },
     "openStandard": {
      "l": 2,
-     "n": "Ossie (formerly OSI) YAML import and export, Preview since Jun 2026. Native YAML, GET_DDL, dbt package and Terraform also exist.",
+     "n": "Ossie (formerly OSI) YAML import and export is Preview since Jun 2026. Native YAML, GET_DDL, a dbt package and Terraform also exist.",
      "u": "https://docs.snowflake.com/en/sql-reference/stored-procedures/system_create_semantic_view_from_ossie_yaml"
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "AI_GENERATE_TABLE_DESC drafts table, view and column descriptions, optionally from sample data. SQL path GA 2025-09-29. Snowsight UI path also exists.",
+     "n": "AI_GENERATE_TABLE_DESC drafts table, view and column descriptions, optionally from sample data. The SQL path is GA since 2025-09-29. A Snowsight UI path also exists.",
      "u": "https://docs.snowflake.com/en/user-guide/sql-cortex-descriptions"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "One ALTER TABLE ... ALTER (...) statement sets COMMENT on many columns. COMMENT ON handles one object. No file import tool.",
+     "n": "One ALTER TABLE ... ALTER (...) statement sets COMMENT on many columns. COMMENT ON handles one object. No file import tool exists.",
      "u": "https://docs.snowflake.com/en/sql-reference/sql/alter-table-column"
     },
     "autoClassify": {
      "l": 3,
-     "n": "A classification profile set on a database auto-classifies its tables (GA Aug 2025). Semi-structured data support GA 2026-02-05.",
+     "n": "A classification profile set on a database auto-classifies its tables (GA Aug 2025). Support for semi-structured data is GA since 2026-02-05.",
      "u": "https://docs.snowflake.com/en/release-notes/2026/other/2026-02-05-sensitive-data-classification-json"
     },
     "sampleValues": {
      "l": 3,
-     "n": "Semantic views accept SAMPLE_VALUES and IS_ENUM on dimensions, in both YAML and DDL. The values are authored, not auto-sampled by this setting.",
+     "n": "Semantic views accept SAMPLE_VALUES and IS_ENUM on dimensions, in both YAML and DDL. The author writes the values. This setting does not auto-sample them.",
      "u": "https://docs.snowflake.com/en/user-guide/views-semantic/yaml-vs-ddl"
     },
     "queryHistory": {
      "l": 3,
-     "n": "Semantic View Autopilot uses query history visible to the creating role to suggest relationships and verified queries. No preview label on the page.",
+     "n": "Semantic View Autopilot uses query history visible to the creating role. It suggests relationships and verified queries. The page shows no preview label.",
      "u": "https://docs.snowflake.com/en/user-guide/views-semantic/autopilot"
     },
     "lineage": {
      "l": 3,
-     "n": "Snowsight Lineage tab shows column lineage. GET_LINEAGE accepts the COLUMN domain, with a default and maximum distance of 5. Enterprise Edition or higher.",
+     "n": "The Snowsight Lineage tab shows column lineage. GET_LINEAGE accepts the COLUMN domain. The default and maximum distance is 5. It needs Enterprise Edition or higher.",
      "u": "https://docs.snowflake.com/en/sql-reference/functions/get_lineage-snowflake-core"
     },
     "evals": {
@@ -1922,19 +1922,19 @@ window.SL = {
     }
    },
    "offers": [
-    "Semantic Views: schema-level objects with logical tables, relationships, facts, dimensions, metrics and synonyms that agents read as context.",
-    "Verified queries and text instructions live inside the semantic view, so they follow its grants and shares.",
-    "Cortex Agents and CoWork generate SQL directly from semantic views and run it under Snowflake roles.",
-    "Managed MCP server exposes semantic views, Cortex Search, agents and SQL execution to external MCP clients with RBAC.",
+    "Semantic Views are schema-level objects. They have logical tables, relationships, facts, dimensions, metrics and synonyms. Agents read them as context.",
+    "Verified queries and text instructions live inside the semantic view. They follow its grants and shares.",
+    "Cortex Agents and CoWork generate SQL directly from semantic views. They run the SQL under Snowflake roles.",
+    "The managed MCP server exposes semantic views, Cortex Search, agents and SQL execution to external MCP clients. It uses RBAC.",
     "Autopilot drafts a semantic view from tables, query history, example SQL, Power BI files or Tableau files.",
-    "Plain SQL queries on semantic views (SEMANTIC_VIEW clause or AGG) work from any SQL client."
+    "Plain SQL queries on semantic views work from any SQL client. They use the SEMANTIC_VIEW clause or AGG."
    ],
    "gaps": [
-    "No ontology layer (objects, links, actions) and no native graph query. Graph work needs a partner Native App.",
+    "There is no ontology layer (objects, links, actions). There is no native graph query. Graph work needs a partner Native App.",
     "Semantic views live inside Snowflake. A metric layer shared with other warehouses needs an external tool.",
-    "Ossie spec is pre-1.0 (0.1.1 released, 0.2.0 draft) and Snowflake import and export is Preview.",
-    "Several parts are Preview: relationship paths, range joins, materializations, TDS export, Horizon Context, verified-query optimization.",
-    "Names and entry points changed in 2026 (Intelligence to CoWork, Analyst to Agents), so older tutorials and response formats lag."
+    "The Ossie spec is pre-1.0. Release 0.1.1 is out and 0.2.0 is a draft. Snowflake import and export is Preview.",
+    "Several parts are Preview: relationship paths, range joins, materializations, TDS export, Horizon Context and verified-query optimization.",
+    "Names and entry points changed in 2026: Intelligence became CoWork and Analyst became Agents. Older tutorials and response formats do not match."
    ],
    "fillWith": [
     "dbt Semantic Layer (MetricFlow)",
@@ -1946,10 +1946,10 @@ window.SL = {
     "RelationalAI",
     "Neo4j Graph Analytics"
    ],
-   "nl2sqlPath": "Model the data as a semantic view with synonyms, sample values, verified queries and instructions, then add it as a tool on a Cortex Agent. Call the agent through the Agents Run API, CoWork or the managed MCP server. Use Autopilot or Semantic Studio to draft the view and keep the definition in Git through dbt or Terraform.",
+   "nl2sqlPath": "Model the data as a semantic view with synonyms, sample values, verified queries and instructions. Add the view as a tool on a Cortex Agent. Call the agent through the Agents Run API, CoWork or the managed MCP server. Use Autopilot or Semantic Studio to draft the view. Keep the definition in Git through dbt or Terraform.",
    "snippet": {
     "lang": "sql",
-    "title": "Minimal CREATE SEMANTIC VIEW over TPC-H sample data (adapted from the official example)",
+    "title": "Minimal CREATE SEMANTIC VIEW over TPC-H sample data, adapted from the official example",
     "code": "CREATE SEMANTIC VIEW tpch_rev_analysis\n  TABLES (\n    orders AS SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS PRIMARY KEY (o_orderkey) WITH SYNONYMS ('sales orders'),\n    customers AS SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER PRIMARY KEY (c_custkey)\n  )\n  RELATIONSHIPS ( orders_to_customers AS orders (o_custkey) REFERENCES customers )\n  DIMENSIONS (\n    customers.customer_name AS customers.c_name WITH SYNONYMS = ('customer name'),\n    orders.order_year AS YEAR(o_orderdate) COMMENT = 'Year when the order was placed'\n  )\n  METRICS (\n    orders.order_average_value AS AVG(orders.o_totalprice) COMMENT = 'Average order value across all orders'\n  )\n  COMMENT = 'Semantic view for revenue analysis';",
     "u": "https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view"
    },
@@ -2120,7 +2120,7 @@ window.SL = {
      "u": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/snowflake-cowork"
     }
    ],
-   "enrichHowTo": "Call the AI_GENERATE_TABLE_DESC stored procedure on each table with describe_columns set to true to draft table and column descriptions. Review them, then write the final text with ALTER TABLE ... ALTER (col COMMENT '...', ...), many columns per statement.",
+   "enrichHowTo": "Call the AI_GENERATE_TABLE_DESC stored procedure on each table with describe_columns set to true. This drafts table and column descriptions. Review them. Then write the final text with ALTER TABLE ... ALTER (col COMMENT '...', ...), with many columns per statement.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "ALTER TABLE t1 ALTER (\n  c1 COMMENT 'Customer key',\n  c5 COMMENT '50 character column'\n);",
@@ -2203,7 +2203,7 @@ window.SL = {
     },
     "dimensions": {
      "l": 0,
-     "n": "No dimension or hierarchy objects found in the lakehouse docs read.",
+     "n": "No dimension or hierarchy objects found in the lakehouse docs.",
      "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-sql-ai-assistant-setup.html"
     },
     "relationships": {
@@ -2232,9 +2232,9 @@ window.SL = {
      "u": "https://docs.cloudera.com/data-catalog/1.5.5/core-concepts/topics/dc-atlas-tags-overview.html"
     },
     "graph": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Atlas keeps metadata in JanusGraph and shows lineage graphs. The docs show no graph query language for users.",
+     "u": "https://docs.cloudera.com/runtime/7.3.1/cdp-governance-overview/atlas-concepts.pdf"
     },
     "vector": {
      "l": 2,
@@ -2252,14 +2252,14 @@ window.SL = {
      "u": "https://www.cloudera.com/blog/technical/bringing-context-to-genai-with-cloudera-mpc-servers.html"
     },
     "openStandard": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Cloudera joined the Apache Ossie working group in 2026. The docs show no Ossie import or export in a product.",
+     "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
     },
     "aiDescriptions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The SQL AI Assistant summarizes queries but does not write table or column descriptions. Data Catalog descriptions are manual.",
+     "u": "https://docs.cloudera.com/runtime/7.3.1/administering-hue/topics/dw-hue-sql-ai-assistant-overview.html"
     },
     "bulkMetadata": {
      "l": 3,
@@ -2277,9 +2277,9 @@ window.SL = {
      "u": "https://www.cloudera.com/blog/technical/setting-up-and-getting-started-with-cloudera-s-new-sql-ai-assist.html"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Hue shows query history to users. The docs do not say the SQL AI Assistant mines it for context.",
+     "u": "https://docs.cloudera.com/runtime/7.3.1/administering-hue/topics/dw-hue-sql-ai-assistant-overview.html"
     },
     "lineage": {
      "l": 3,
@@ -2287,9 +2287,9 @@ window.SL = {
      "u": "https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html"
     },
     "evals": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The docs list model limits such as hallucination. No feedback loop or test set tool appears.",
+     "u": "https://docs.cloudera.com/runtime/7.3.1/administering-hue/topics/dw-hue-sql-ai-assistant-overview.html"
     }
    },
    "enrichHowTo": "Write descriptions into the table with SQL comments in Hive or Impala, then import glossary terms and business metadata through the Atlas CSV import. Apply tags in bulk with the Atlas bulk classification REST endpoint. The SQL AI Assistant does not document a way to read glossary terms.",
@@ -2309,7 +2309,7 @@ window.SL = {
     "No semantic model, metric definitions, or declared join paths exist for AI to read.",
     "The assistant cannot exclude chosen tables from its context, according to the 2024 launch blog.",
     "The MCP server and Semantic Search are in preview. The MCP server gives only two tools.",
-    "No evals, verified queries, or query history mining were found in the docs read."
+    "No evals, verified queries, or query history mining were found in the docs."
    ],
    "fillWith": [
     "Cube",
@@ -2391,6 +2391,18 @@ window.SL = {
     {
      "t": "Cloudera to acquire Octopai (press release)",
      "u": "https://www.aap.com.au/aapreleases/globenewswire9273697/"
+    },
+    {
+     "t": "About the Hue SQL AI Assistant",
+     "u": "https://docs.cloudera.com/runtime/7.3.1/administering-hue/topics/dw-hue-sql-ai-assistant-overview.html"
+    },
+    {
+     "t": "Apache Ossie community update, April 2026",
+     "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
+    },
+    {
+     "t": "Cloudera Runtime Atlas use cases",
+     "u": "https://docs.cloudera.com/runtime/7.3.1/cdp-governance-overview/atlas-concepts.pdf"
     }
    ],
    "verified": "2026-10-24",
@@ -2401,9 +2413,9 @@ window.SL = {
    "id": "databricks",
    "name": "Databricks",
    "category": "lakehouse",
-   "tagline": "Lakehouse platform with Unity Catalog governance, metric views, Genie conversational analytics, and managed MCP.",
+   "tagline": "Databricks is a lakehouse platform. It has Unity Catalog governance, metric views, Genie conversational analytics and managed MCP.",
    "verdict": "native",
-   "verdictNote": "Metric views, agent metadata, and Genie are GA; Genie Ontology is Public Preview and is inferred context, not a user-modeled schema.",
+   "verdictNote": "Metric views, agent metadata and Genie are GA. Genie Ontology is Public Preview. It is inferred context and not a user-modeled schema.",
    "artifacts": [
     {
      "name": "Unity Catalog metric views (part of Unity Catalog Business Semantics)",
@@ -2521,77 +2533,77 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Metric views are GA via Unity Catalog Business Semantics (April 2026). YAML spec 1.1; base support from DBR 16.4.",
+     "n": "Metric views are GA through Unity Catalog Business Semantics (April 2026). The YAML spec is 1.1. Base support starts from DBR 16.4.",
      "u": "https://www.databricks.com/blog/redefining-semantics-data-layer-future-bi-and-ai"
     },
     "dimensions": {
      "l": 3,
-     "n": "Fields declared in YAML; 'dimensions' is accepted as an alias. Hierarchies and time grains are not documented in the docs.",
+     "n": "Fields are declared in YAML. The name 'dimensions' is accepted as an alias. The docs do not describe hierarchies or time grains.",
      "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/yaml-reference"
     },
     "relationships": {
      "l": 3,
-     "n": "Star and snowflake joins in YAML; one-to-many needs DBR 18.1. Genie also stores join relationships in its knowledge store.",
+     "n": "YAML supports star and snowflake joins. One-to-many joins need DBR 18.1. Genie also stores join relationships in its knowledge store.",
      "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/yaml-reference"
     },
     "synonyms": {
      "l": 3,
-     "n": "Agent metadata: comment, display_name, synonyms, format. Needs DBR 17.3 and YAML 1.1. Genie imports synonyms automatically.",
+     "n": "Agent metadata: comment, display_name, synonyms, format. It needs DBR 17.3 and YAML 1.1. Genie imports synonyms automatically.",
      "u": "https://docs.databricks.com/aws/en/uc-semantics/agent-metadata"
     },
     "verifiedQueries": {
      "l": 3,
-     "n": "Genie example SQL, parameterized queries, SQL functions as trusted assets, and benchmarks (limit raised to 500 questions in Oct 2025).",
+     "n": "Genie uses example SQL, parameterized queries, SQL functions as trusted assets, and benchmarks. The benchmark limit rose to 500 questions in Oct 2025.",
      "u": "https://docs.databricks.com/aws/en/genie-agents/tune-quality"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Genie One, Genie Agents, and Genie Code are GA per the June 2026 launch FAQ.",
+     "n": "Genie One, Genie Agents and Genie Code are GA, according to the June 2026 launch FAQ.",
      "u": "https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents"
     },
     "ontology": {
      "l": 2,
-     "n": "Genie Ontology is Public Preview. It is inferred context plus Unity Catalog semantics; no user-defined object or link types documented.",
+     "n": "Genie Ontology is Public Preview. It is inferred context plus Unity Catalog semantics. The docs describe no user-defined object or link types.",
      "u": "https://docs.databricks.com/aws/en/genie/genie-ontology"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language documented. Genie Ontology docs describe a map of snippets, not a queryable graph.",
+     "n": "The docs describe no graph query language. The Genie Ontology docs describe a map of snippets, not a queryable graph.",
      "u": "https://docs.databricks.com/aws/en/genie/genie-ontology"
     },
     "vector": {
      "l": 3,
-     "n": "AI Search (formerly Vector Search): hybrid search, reranker GA Dec 2025. Full-text keyword search is Beta.",
+     "n": "AI Search (formerly Vector Search) offers hybrid search. The reranker is GA since Dec 2025. Full-text keyword search is Beta.",
      "u": "https://docs.databricks.com/aws/en/vector-search/vector-search"
     },
     "mcp": {
      "l": 3,
-     "n": "Genie One MCP server GA Sept 2026, grounded in Genie Ontology. Some managed servers need the Unity Gateway beta.",
+     "n": "The Genie One MCP server is GA since Sept 2026. It is grounded in Genie Ontology. Some managed servers need the Unity Gateway beta.",
      "u": "https://docs.databricks.com/aws/en/generative-ai/mcp/managed-mcp"
     },
     "governance": {
      "l": 3,
-     "n": "Metric views are Unity Catalog securables with standard privileges. Governed tags and ABAC GA April 2026. Certification flags trusted assets.",
+     "n": "Metric views are Unity Catalog securables with standard privileges. Governed tags and ABAC are GA since April 2026. Certification flags trusted assets.",
      "u": "https://docs.databricks.com/aws/en/release-notes/product/2026/april"
     },
     "openStandard": {
      "l": 2,
-     "n": "Metric views open-sourced in Apache Spark (SPARK-54119, fix 4.2.0). Joined Apache Ossie (incubating). Spark 4.2.0 release not checked.",
+     "n": "Metric views are open-sourced in Apache Spark (SPARK-54119, fix 4.2.0). Databricks joined Apache Ossie (incubating). The Spark 4.2.0 release is unchecked.",
      "u": "https://issues.apache.org/jira/browse/SPARK-54119"
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "AI-generated comments for catalogs, schemas, tables, views, columns and more, in Catalog Explorer. GA 2024-06-27. Review advised. Saving runs ALTER, which can disrupt jobs.",
+     "n": "Catalog Explorer has AI-generated comments for catalogs, schemas, tables, views, columns and more. It is GA since 2024-06-27. Databricks advises review. Saving runs ALTER, which can disrupt jobs.",
      "u": "https://docs.databricks.com/aws/en/comments/ai-comments"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "One ALTER TABLE ... ALTER COLUMN statement can set COMMENT on several columns (Runtime 16.3 and above). SET TAGS also works. No file import tool.",
+     "n": "One ALTER TABLE ... ALTER COLUMN statement can set COMMENT on several columns (Runtime 16.3 and above). SET TAGS also works. No file import tool exists.",
      "u": "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-alter-table-manage-column"
     },
     "autoClassify": {
      "l": 3,
-     "n": "Data Classification GA 2026-04-20, an agentic AI system that tags sensitive data. Scanning views is Beta (2026-09-15). Auto-tag configuration in the API is Public Preview.",
+     "n": "Data Classification is GA since 2026-04-20. It is an agentic AI system that tags sensitive data. Scanning views is Beta (2026-09-15). Auto-tag configuration in the API is Public Preview.",
      "u": "https://docs.databricks.com/aws/en/release-notes/data-classification"
     },
     "sampleValues": {
@@ -2601,34 +2613,34 @@ window.SL = {
     },
     "queryHistory": {
      "l": 3,
-     "n": "When you add tables, Genie searches popular workspace queries you can view and suggests them as example queries. You accept or reject each one.",
+     "n": "When you add tables, Genie searches popular workspace queries that you can view. It suggests them as example queries. You accept or reject each one.",
      "u": "https://docs.databricks.com/aws/en/genie-agents/set-up"
     },
     "lineage": {
      "l": 3,
-     "n": "system.access.column_lineage table with a rolling 1-year window. Records only when lineage can be inferred.",
+     "n": "The system.access.column_lineage table has a rolling 1-year window. It records only when the system can infer lineage.",
      "u": "https://docs.databricks.com/aws/en/admin/system-tables/lineage"
     },
     "evals": {
      "l": 3,
-     "n": "Genie benchmarks: up to 500 questions per agent, scored against reference SQL, with an Evaluations tab to track runs. No preview label on the page.",
+     "n": "Genie benchmarks allow up to 500 questions per agent. Reference SQL scores them. An Evaluations tab tracks runs. The page shows no preview label.",
      "u": "https://docs.databricks.com/aws/en/genie-agents/monitor"
     }
    },
    "offers": [
-    "Metric views: governed measures, joins, and filters in YAML, queried with MEASURE() under Unity Catalog privileges.",
-    "Agent metadata gives synonyms, display names, and formats that Genie reads automatically.",
-    "Genie Agents take up to 50 tables or metric views, example SQL, SQL expressions, join relationships, and benchmarks.",
-    "Genie One MCP server exposes governed analytics to outside agents, with Unity Gateway policies and audit logging.",
-    "Metric views run in Power BI, Tableau, Sigma, Excel, and Google Sheets through MEASURE() or BI compatibility mode.",
-    "AI Search (formerly Vector Search) is GA for retrieval over documents next to structured data."
+    "Metric views hold governed measures, joins and filters in YAML. Users query them with MEASURE() under Unity Catalog privileges.",
+    "Agent metadata gives synonyms, display names and formats. Genie reads them automatically.",
+    "Genie Agents take up to 50 tables or metric views. They also take example SQL, SQL expressions, join relationships and benchmarks.",
+    "The Genie One MCP server exposes governed analytics to outside agents. It uses Unity Gateway policies and audit logging.",
+    "Metric views run in Power BI, Tableau, Sigma, Excel and Google Sheets. They use MEASURE() or BI compatibility mode.",
+    "AI Search (formerly Vector Search) is GA. It retrieves documents next to structured data."
    ],
    "gaps": [
-    "Genie Ontology is Public Preview and inferred; no user-defined object types, link types, or actions are documented.",
-    "Business Glossary was announced as coming soon in June 2026; the status of Pages is not stated.",
-    "Metric views cannot be joined directly at query time; every measure needs MEASURE(); SELECT * is not allowed.",
+    "Genie Ontology is Public Preview and inferred. The docs describe no user-defined object types, link types or actions.",
+    "Databricks announced Business Glossary as coming soon in June 2026. The docs do not state the status of Pages.",
+    "A metric view cannot be joined directly at query time. Every measure needs MEASURE(). SELECT * is not allowed.",
     "Genie Agent limits: 50 tables, 100 instructions, 200 knowledge store snippets.",
-    "BI integration is thin: Power BI and Tableau need pass-through SQL; Tableau delegated semantics is planned for late 2026."
+    "BI integration is thin. Power BI and Tableau need pass-through SQL. Tableau delegated semantics is planned for late 2026."
    ],
    "fillWith": [
     "Cube",
@@ -2636,10 +2648,10 @@ window.SL = {
     "Atlan",
     "Collibra"
    ],
-   "nl2sqlPath": "Model data in Unity Catalog with table and column comments, then define metric views with synonyms and display names. Add those metric views and key tables to a Genie Agent with example SQL, SQL expressions, and benchmarks. Expose it to outside agents through the Genie One MCP server, and treat Genie Ontology as Preview.",
+   "nl2sqlPath": "Model data in Unity Catalog with table and column comments. Define metric views with synonyms and display names. Add those metric views and key tables to a Genie Agent with example SQL, SQL expressions and benchmarks. Expose the agent to outside agents through the Genie One MCP server. Treat Genie Ontology as Preview.",
    "snippet": {
     "lang": "yaml",
-    "title": "Metric view YAML body (wrapped in CREATE VIEW ... WITH METRICS LANGUAGE YAML AS $$ ... $$)",
+    "title": "Metric view YAML body, wrapped in CREATE VIEW ... WITH METRICS LANGUAGE YAML AS $$ ... $$",
     "code": "version: 1.1\nsource: samples.tpch.orders\njoins:\n  - name: customer\n    source: samples.tpch.customer\n    'on': source.o_custkey = customer.c_custkey\nfields:\n  - name: customer_segment\n    expr: customer.c_mktsegment\n    synonyms: ['segment']\nmeasures:\n  - name: total_revenue\n    expr: SUM(o_totalprice)\n    display_name: 'Total Revenue'\n    synonyms: ['revenue', 'total sales']",
     "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/yaml-reference"
    },
@@ -2808,7 +2820,7 @@ window.SL = {
      "u": "https://docs.databricks.com/aws/en/genie-one/chat"
     }
    ],
-   "enrichHowTo": "Generate comments in Catalog Explorer with AI-generated comments, review each one, then save. For scripted writes, run ALTER TABLE ... ALTER COLUMN with several COMMENT clauses in one statement. Then add a Genie benchmark set and re-run it after each metadata change.",
+   "enrichHowTo": "Generate comments in Catalog Explorer with AI-generated comments. Review each one. Then save. For scripted writes, run ALTER TABLE ... ALTER COLUMN with several COMMENT clauses in one statement. Then add a Genie benchmark set. Re-run it after each metadata change.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "ALTER TABLE students ALTER COLUMN\n  name COMMENT 'full name',\n  email COMMENT 'primary email';",
@@ -2911,9 +2923,9 @@ window.SL = {
      "u": "https://community.ibm.com/community/user/blogs/gupta-neeru/2024/06/24/enrich-your-metadata-using-foundation-models-and-g"
     },
     "verifiedQueries": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No store of approved question and SQL pairs appears in the install guide or MCP tool list. Text-to-SQL context comes from enriched metadata.",
+     "u": "https://www.ibm.com/docs/SSNFH6_5.4.x/svc-wxd-intell/wxd-intell-prep-install.html"
     },
     "nl2sql": {
      "l": 2,
@@ -2926,9 +2938,9 @@ window.SL = {
      "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
     },
     "graph": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No graph query language appears in the watsonx.data intelligence docs. Lineage graphs exist in the catalog.",
+     "u": "https://www.ibm.com/docs/en/watsonx/wdi/saas?topic=intelligence-getting-started-watsonxdata-mcp-server"
     },
     "vector": {
      "l": 3,
@@ -2946,9 +2958,9 @@ window.SL = {
      "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
     },
     "openStandard": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "IBM does not appear in the Apache Ossie working group lists. No semantic model export appears in the docs.",
+     "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
     },
     "aiDescriptions": {
      "l": 3,
@@ -2971,9 +2983,9 @@ window.SL = {
      "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The Text-to-SQL and MCP tool docs show no mining of query history. Context comes from enrichment and vectors.",
+     "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
     },
     "lineage": {
      "l": 3,
@@ -2981,9 +2993,9 @@ window.SL = {
      "u": "https://community.ibm.com/community/user/blogs/raviprasad-pentakota/2026/04/07/fromchattoaction"
     },
     "evals": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "IBM certifies models for Text-to-SQL, but no customer test set or rating loop appears in the docs.",
+     "u": "https://www.ibm.com/docs/SSNFH6_5.4.x/svc-wxd-intell/wxd-intell-prep-install.html"
     }
    },
    "enrichHowTo": "Run a metadata enrichment job in watsonx.data intelligence on the target tables. It drafts names, descriptions, and glossary term assignments with an LLM. Then import business terms in bulk with the glossary CSV import tool and enable the project for text-to-SQL.",
@@ -3089,6 +3101,22 @@ window.SL = {
     {
      "t": "Text-2-SQL in Db2 Genius Hub (IBM Community)",
      "u": "https://community.ibm.com/community/user/blogs/aditya-patil/2026/04/15/text2sql-db2-ai-assistant"
+    },
+    {
+     "t": "watsonx.data intelligence installation settings",
+     "u": "https://www.ibm.com/docs/SSNFH6_5.4.x/svc-wxd-intell/wxd-intell-prep-install.html"
+    },
+    {
+     "t": "watsonx.data intelligence MCP server",
+     "u": "https://www.ibm.com/docs/en/watsonx/wdi/saas?topic=intelligence-getting-started-watsonxdata-mcp-server"
+    },
+    {
+     "t": "Apache Ossie community update, April 2026",
+     "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
+    },
+    {
+     "t": "Snowflake: OSI partners expand",
+     "u": "https://www.snowflake.com/en/blog/osi-initiative-expands-partners/"
     }
    ],
    "verified": "2026-10-24",
@@ -3099,9 +3127,9 @@ window.SL = {
    "id": "fabric",
    "name": "Microsoft Fabric + Power BI",
    "category": "lakehouse",
-   "tagline": "Unified analytics platform with OneLake, Power BI semantic models, and AI agents.",
+   "tagline": "Microsoft Fabric is a unified analytics platform with OneLake, Power BI semantic models and AI agents.",
    "verdict": "native",
-   "verdictNote": "Power BI semantic models are a native, governed semantic layer that Copilot, data agents and Fabric IQ MCP read, though Prep data for AI and the ontology item are Preview.",
+   "verdictNote": "Power BI semantic models are a native, governed semantic layer. Copilot, data agents and Fabric IQ MCP read them. Prep data for AI and the ontology item are Preview.",
    "artifacts": [
     {
      "name": "Power BI semantic model (TMDL, DAX measures, relationships)",
@@ -3232,32 +3260,32 @@ window.SL = {
     },
     "dimensions": {
      "l": 3,
-     "n": "Columns, hierarchies, display folders, sort-by-column and perspectives are declared in TMDL.",
+     "n": "TMDL declares columns, hierarchies, display folders, sort-by-column and perspectives.",
      "u": "https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview"
     },
     "relationships": {
      "l": 3,
-     "n": "Declared model relationships (fromColumn, toColumn). Copilot still uses them for fields outside the AI data schema.",
+     "n": "Declared model relationships use fromColumn and toColumn. Copilot still uses them for fields outside the AI data schema.",
      "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-data-schema"
     },
     "synonyms": {
      "l": 2,
-     "n": "AI instructions, synonyms, descriptions read by Copilot and data agent. Prep data for AI is Preview.",
+     "n": "Copilot and the data agent read AI instructions, synonyms and descriptions. Prep data for AI is Preview.",
      "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai"
     },
     "verifiedQueries": {
      "l": 2,
-     "n": "Verified answers bind phrases to visuals (Preview). Data agent takes question-query pairs for SQL and KQL sources, not semantic models.",
+     "n": "Verified answers bind phrases to visuals (Preview). The data agent takes question-query pairs for SQL and KQL sources, not semantic models.",
      "u": "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-add-datasources"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Copilot in Power BI is GA. Data agent does NL2SQL, NL2DAX, NL2KQL; docs conflict on GA or Preview.",
+     "n": "Copilot in Power BI is GA. The data agent does NL2SQL, NL2DAX and NL2KQL. The docs conflict on GA or Preview.",
      "u": "https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent"
     },
     "ontology": {
      "l": 2,
-     "n": "Ontology item: entity types, relationships, rules, metrics, data bindings. Preview since Ignite, November 2025.",
+     "n": "Ontology item: entity types, relationships, rules, metrics, data bindings. It is Preview since Ignite, November 2025.",
      "u": "https://learn.microsoft.com/en-us/fabric/iq/ontology/overview"
     },
     "graph": {
@@ -3267,74 +3295,74 @@ window.SL = {
     },
     "vector": {
      "l": 3,
-     "n": "SQL database in Fabric: GA vector type and vector index. Data agent reads Azure AI Search index (Preview).",
+     "n": "SQL database in Fabric has a GA vector type and vector index. The data agent reads an Azure AI Search index (Preview).",
      "u": "https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors"
     },
     "mcp": {
      "l": 3,
-     "n": "Fabric IQ MCP is GA and read-only. Authoring MCP: local GA, hosted Preview. Ontology MCP is Preview.",
+     "n": "Fabric IQ MCP is GA and read-only. Authoring MCP is GA for local and Preview for hosted. Ontology MCP is Preview.",
      "u": "https://learn.microsoft.com/en-us/rest/api/fabric/articles/mcp-servers/fabric-mcp-servers-list"
     },
     "governance": {
      "l": 3,
-     "n": "RLS and OLS apply via Fabric IQ MCP; RLS and CLS via data agent. Verified answers are no security boundary.",
+     "n": "RLS and OLS apply through Fabric IQ MCP. RLS and CLS apply through the data agent. Verified answers are no security boundary.",
      "u": "https://learn.microsoft.com/en-us/fabric/iq/connectors/fabric-iq-mcp"
     },
     "openStandard": {
      "l": 2,
-     "n": "TMDL is a documented text format. Ossie converter is initial and open source. Ontology imports RDF, OWL (Preview).",
+     "n": "TMDL is a documented text format. The Ossie converter is initial and open source. The ontology imports RDF and OWL (Preview).",
      "u": "https://www.snowflake.com/en/blog/engineering/apache-ossie-microsoft-ecosystem-support/"
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "Copilot creates measure descriptions from the DAX formula in Power BI Desktop or web modeling (GA). Measures only. Needs Fabric capacity. semantic-link-labs can batch them.",
+     "n": "Copilot creates measure descriptions from the DAX formula in Power BI Desktop or web modeling (GA). It covers measures only. It needs Fabric capacity. semantic-link-labs can batch them.",
      "u": "https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-measure-copilot-descriptions"
     },
     "bulkMetadata": {
      "l": 2,
-     "n": "Data agent Python SDK update_description sets table and column descriptions for a data agent (Preview, preview runtime). semantic-link-labs edits semantic models in code.",
+     "n": "The data agent Python SDK update_description sets table and column descriptions for a data agent (Preview, preview runtime). semantic-link-labs edits semantic models in code.",
      "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/data-agent-schema-object-descriptions.md"
     },
     "autoClassify": {
      "l": 1,
-     "n": "Microsoft Purview (separate product) classifies and labels. Fabric labels inherit at item level from Azure SQL or Synapse sources. Column-level classification not stated.",
+     "n": "Microsoft Purview (separate product) classifies and labels. Fabric labels inherit at item level from Azure SQL or Synapse sources. The docs do not state column-level classification.",
      "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/governance/service-security-sensitivity-label-inheritance-from-data-sources.md"
     },
     "sampleValues": {
      "l": 2,
-     "n": "Instance value indexing (Preview runtime) searches semantic model column values to build DAX filters. Needs the Q&A setting, which retires in February 2027.",
+     "n": "Instance value indexing (Preview runtime) searches semantic model column values to build DAX filters. It needs the Q&A setting, which retires in February 2027.",
      "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/semantic-model-best-practices.md"
     },
     "queryHistory": {
      "l": 0,
-     "n": "No query-history mining found. NL2SQL retrieves from your example query library, not from past queries.",
+     "n": "The docs show no query-history mining. NL2SQL retrieves from your example query library, not from past queries.",
      "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/data-agent-sql-sources.md"
     },
     "lineage": {
      "l": 0,
-     "n": "Fabric lineage view is item level. Purview scans of Fabric items give item-level lineage, and sub-item lineage is not supported.",
+     "n": "The Fabric lineage view is item level. Purview scans of Fabric items give item-level lineage. Fabric does not support sub-item lineage.",
      "u": "https://learn.microsoft.com/en-us/purview/data-map-lineage-fabric"
     },
     "evals": {
      "l": 2,
-     "n": "Data agent evaluation SDK (Preview): ground truth DataFrame, evaluate_data_agent, results logging. evaluate_few_shots checks example SQL pairs. Feedback in Copilot (Preview) is read with list_feedback.",
+     "n": "The data agent evaluation SDK (Preview) has a ground truth DataFrame, evaluate_data_agent and results logging. evaluate_few_shots checks example SQL pairs. list_feedback reads feedback in Copilot (Preview).",
      "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/evaluate-data-agent.md"
     }
    },
    "offers": [
     "Power BI semantic models hold DAX measures, relationships, hierarchies, descriptions and synonyms in TMDL text files under Git.",
-    "Prep data for AI saves AI instructions, AI data schema and verified answers in the model for Copilot and agents.",
-    "Fabric data agent turns questions into SQL, DAX or KQL over up to five sources, with instructions and example queries.",
-    "Fabric IQ MCP (GA) is a read-only remote server: schema lookup, value search and DAX execution under the caller's RLS.",
-    "Ontology (Preview) models entities, relationships, rules and DAX-backed metrics, and binds them to lakehouse, warehouse and SQL sources.",
-    "Graph in Fabric runs GQL over OneLake tables; the data agent can use it as a source (Preview)."
+    "Prep data for AI saves AI instructions, AI data schema and verified answers in the model. Copilot and agents use them.",
+    "The Fabric data agent turns questions into SQL, DAX or KQL over up to five sources. It uses instructions and example queries.",
+    "Fabric IQ MCP (GA) is a read-only remote server. It offers schema lookup, value search and DAX execution under the caller's RLS.",
+    "The ontology (Preview) models entities, relationships, rules and DAX-backed metrics. It binds them to lakehouse, warehouse and SQL sources.",
+    "Graph in Fabric runs GQL over OneLake tables. The data agent can use it as a source (Preview)."
    ],
    "gaps": [
-    "Prep data for AI and the ontology item are Preview; Learn pages disagree on some GA labels.",
-    "Data agent accepts no example queries for semantic models; verified answers are visual-based, capped at 250 per model.",
-    "Q&A retires in February 2027; Prep data for AI still requires Q&A enabled.",
-    "Data agent replies cap at 25 rows and 25 columns, English only, read-only, up to five sources.",
-    "Fabric IQ MCP covers reports and semantic models only; it does not support ontologies or data agents."
+    "Prep data for AI and the ontology item are Preview. Learn pages disagree on some GA labels.",
+    "The data agent accepts no example queries for semantic models. Verified answers are visual-based and capped at 250 per model.",
+    "Q&A retires in February 2027. Prep data for AI still requires Q&A enabled.",
+    "Data agent replies are limited to 25 rows and 25 columns. The agent is English only and read-only. It takes up to five sources.",
+    "Fabric IQ MCP covers reports and semantic models only. It does not support ontologies or data agents."
    ],
    "fillWith": [
     "Semantic Link Labs (Best Practice Analyzer, TMDL edits from notebooks)",
@@ -3342,7 +3370,7 @@ window.SL = {
     "Purview Unified Catalog (business glossary)",
     "Apache Ossie converter (semantic model interchange)"
    ],
-   "nl2sqlPath": "Publish a Fabric data agent over a Power BI semantic model, and keep AI instructions, AI data schema and verified answers in Prep data for AI, because the DAX tool ignores data agent level instructions for semantic models. For lakehouse or warehouse tables, add data source instructions and example queries to the data agent. Test the generated DAX or SQL with the data agent Python SDK, then expose the agent through its MCP endpoint or use Fabric IQ MCP for read-only DAX access.",
+   "nl2sqlPath": "Publish a Fabric data agent over a Power BI semantic model. Keep AI instructions, AI data schema and verified answers in Prep data for AI. The DAX tool ignores data agent level instructions for semantic models. For lakehouse or warehouse tables, add data source instructions and example queries to the data agent. Test the generated DAX or SQL with the data agent Python SDK. Then expose the agent through its MCP endpoint. You can also use Fabric IQ MCP for read-only DAX access.",
    "snippet": {
     "lang": "other",
     "title": "TMDL table with a description, a DAX measure and a relationship",
@@ -3569,7 +3597,7 @@ window.SL = {
      "u": "https://learn.microsoft.com/en-us/fabric/data-warehouse/copilot-chat-pane"
     }
    ],
-   "enrichHowTo": "Add descriptions and synonyms to tables, columns and measures in the semantic model. Draft measure descriptions with Copilot or with generate_measure_descriptions in semantic-link-labs (needs F64 or higher), then review them. For SQL sources, set schema descriptions with update_description and add example queries with add_fewshots in the data agent SDK.",
+   "enrichHowTo": "Add descriptions and synonyms to tables, columns and measures in the semantic model. Draft measure descriptions with Copilot or with generate_measure_descriptions in semantic-link-labs (needs F64 or higher). Then review them. For SQL sources, set schema descriptions with update_description. Add example queries with add_fewshots in the data agent SDK.",
    "bulkSnippet": {
     "lang": "python",
     "code": "from fabric.dataagent.client import FabricDataAgentManagement\n\nagent = FabricDataAgentManagement(\"<data-agent-name>\")\ndatasource = agent.get_datasources()[0]\ntable_path = (\"Schemas\", \"dbo\", \"Tables\", \"adoptions\")\ndatasource.update_description({\n    table_path: \"Contains one row for each pet adoption transaction.\"\n})",
@@ -3580,9 +3608,9 @@ window.SL = {
    "id": "teradata",
    "name": "Teradata Vantage / VantageCloud",
    "category": "mpp",
-   "tagline": "MPP analytics platform with an open-source MCP server and Enterprise Vector Store.",
+   "tagline": "Teradata is an MPP analytics platform. It has an open-source MCP server and Enterprise Vector Store.",
    "verdict": "partial",
-   "verdictNote": "Vantage has no native semantic model object, but Teradata's open-source MCP server adds YAML cubes, a glossary and predefined SQL tools that an agent can call.",
+   "verdictNote": "Vantage has no native semantic model object. Teradata's open-source MCP server adds YAML cubes, a glossary and predefined SQL tools. An agent can call these tools.",
    "artifacts": [
     {
      "name": "Teradata MCP Server (MIT license)",
@@ -3636,12 +3664,12 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 1,
-     "n": "MCP server cubes declare measures with SQL expressions in YAML. Open-source add-on, not a Vantage object.",
+     "n": "MCP server cubes declare measures with SQL expressions in YAML. This is an open-source add-on, not a Vantage object.",
      "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/docs/server_guide/CUSTOMIZING.md"
     },
     "dimensions": {
      "l": 1,
-     "n": "MCP server cubes declare named dimensions with descriptions and SQL expressions. No hierarchy or time grain object.",
+     "n": "MCP server cubes declare named dimensions with descriptions and SQL expressions. There is no hierarchy or time grain object.",
      "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/docs/server_guide/CUSTOMIZING.md"
     },
     "relationships": {
@@ -3661,57 +3689,57 @@ window.SL = {
     },
     "nl2sql": {
      "l": 1,
-     "n": "Teradata lists natural-language agentic analytics for AI Studio (GA Jul 2026) and announced Tera. No SQL generation docs found; MCP server route available.",
+     "n": "Teradata lists natural-language agentic analytics for AI Studio (GA Jul 2026) and announced Tera. No SQL generation docs exist. The MCP server route exists.",
      "u": "https://www.teradata.com/press-releases/2026/introducing-the-autonomous-knowledge-platform"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology or entity-model object in the MCP server docs or the 2026 platform releases.",
+     "n": "The MCP server docs and the 2026 platform releases show no ontology or entity-model object.",
      "u": ""
     },
     "graph": {
      "l": 1,
-     "n": "PageRank and shortest-path functions run in the separate Machine Learning Engine (SQL-GR). Function-based, not a graph query language.",
+     "n": "PageRank and shortest-path functions run in the separate Machine Learning Engine (SQL-GR). They are function-based, not a graph query language.",
      "u": "https://docs.teradata.com/r/Machine-Learning-Engine-Analytic-Function-Reference/February-2022/Graph-Analysis"
     },
     "vector": {
      "l": 3,
-     "n": "Enterprise Vector Store adds hybrid search, multimodal embeddings and up to 8K dimensions. Generally available from April 2026.",
+     "n": "Enterprise Vector Store adds hybrid search, multimodal embeddings and up to 8K dimensions. It is generally available from April 2026.",
      "u": "https://www.teradata.com/press-releases/2026/teradata-enables-ai-agents"
     },
     "mcp": {
      "l": 2,
-     "n": "First-party open-source MCP server (MIT). Versions are 0.x on PyPI and the repo states no GA or SLA.",
+     "n": "This is a first-party open-source MCP server (MIT). Versions are 0.x on PyPI. The repo states no GA or SLA.",
      "u": "https://pypi.org/pypi/teradata-mcp-server/json"
     },
     "governance": {
      "l": 2,
-     "n": "MCP server can run queries under each user's own database credentials, keeping existing RBAC and row-level security.",
+     "n": "The MCP server can run queries under each user's own database credentials. This keeps existing RBAC and row-level security.",
      "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/docs/server_guide/SECURITY.md"
     },
     "openStandard": {
      "l": 0,
-     "n": "Cube YAML is specific to the Teradata MCP server. Teradata is not named on the Apache Ossie pages read.",
+     "n": "Cube YAML is specific to the Teradata MCP server. The Apache Ossie pages do not name Teradata.",
      "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
     },
     "aiDescriptions": {
      "l": 1,
-     "n": "AI Studio Enterprise MCP ships prompts for table and database descriptions. An agent drafts text, then COMMENT writes it.",
+     "n": "AI Studio Enterprise MCP ships prompts for table and database descriptions. An agent drafts text. Then COMMENT writes it.",
      "u": "https://docs.teradata.com/r/Teradata-AI-Studio-Release-Notes/AI-Studio-Release-Notes/New-Features"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "COMMENT ON object AS or IS 'text' sets comments on columns, tables and views by SQL. Comment text is limited to 255 characters. No bulk import found.",
+     "n": "COMMENT ON object AS or IS 'text' sets comments on columns, tables and views by SQL. Comment text has a limit of 255 characters. The docs show no bulk import.",
      "u": "https://docs.teradata.com/r/SQL-Data-Definition-Language-Syntax-and-Examples/July-2021/Comment-Help-and-Show-Statements/COMMENT-Comment-Placing-Form/COMMENT-Syntax-Elements-Comment-Placing-Form"
     },
     "autoClassify": {
      "l": 1,
-     "n": "Teradata Package for Generative AI offers recognize_pii_entities and mask_pii to detect PII in a DataFrame column, called from Python.",
+     "n": "Teradata Package for Generative AI offers recognize_pii_entities and mask_pii. Python code calls them to detect PII in a DataFrame column.",
      "u": "https://docs.teradata.com/r/VMware/Teradata-Package-for-Generative-AI-Function-Reference/text_analytics/teradatagenai.TextAnalyticsAI.recognize_pii_entities.html"
     },
     "sampleValues": {
      "l": 1,
-     "n": "MCP server tool qlty_distinctCategories lists distinct values of a column for an agent. No automatic literal matching.",
+     "n": "The MCP server tool qlty_distinctCategories lists distinct values of a column for an agent. No automatic literal matching exists.",
      "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/src/teradata_mcp_server/tools/qlty/README.md"
     },
     "queryHistory": {
@@ -3721,27 +3749,27 @@ window.SL = {
     },
     "lineage": {
      "l": 1,
-     "n": "Platform releases mention lineage but no docs page was found. DataHub's Teradata source extracts table and column lineage from query logs.",
+     "n": "Platform releases mention lineage, but no docs page describes it. The Teradata source of DataHub extracts table and column lineage from query logs.",
      "u": "https://docs.datahub.com/docs/generated/ingestion/sources/teradata.md"
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL evaluation tooling in the MCP server README or docs index.",
+     "n": "The MCP server README and docs index show no NL-to-SQL evaluation tooling.",
      "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/docs/README.md"
     }
    },
    "offers": [
-    "Open-source MCP server with tool groups for queries, data quality, RAG, vector store, feature store and admin.",
+    "The open-source MCP server has tool groups for queries, data quality, RAG, vector store, feature store and admin.",
     "YAML defines cubes (measures, dimensions, joins), glossary terms, prompts and tools without Python code.",
-    "Cubes compile to SQL at run time and reject unknown dimension or measure names before the query is sent.",
-    "Enterprise Vector Store for vector and hybrid search, generally available from April 2026.",
-    "Per-user database credentials can be passed through, so existing permissions apply to tool calls."
+    "Cubes compile to SQL at run time. They reject unknown dimension or measure names before the query is sent.",
+    "Enterprise Vector Store offers vector and hybrid search. It is generally available from April 2026.",
+    "The server can pass through per-user database credentials. Existing permissions then apply to tool calls."
    ],
    "gaps": [
-    "No native semantic model object in Vantage with metrics, dimensions and joins. Cubes live in the MCP server only.",
-    "MCP server is 0.x software; the repo gives no SLA or GA statement.",
-    "No verified question-to-SQL store. Predefined tools and prompts are the nearest thing.",
-    "Tera natural-language workspace is not in the July 2026 availability list, and SQL generation docs were not found."
+    "Vantage has no native semantic model object with metrics, dimensions and joins. Cubes live in the MCP server only.",
+    "The MCP server is 0.x software. The repo gives no SLA or GA statement.",
+    "There is no verified question-to-SQL store. Predefined tools and prompts are the nearest thing.",
+    "The July 2026 availability list does not include the Tera natural-language workspace. The docs show no SQL generation for it."
    ],
    "fillWith": [
     "Cube",
@@ -3750,7 +3778,7 @@ window.SL = {
     "Custom MCP YAML tools",
     "LangChain"
    ],
-   "nl2sqlPath": "Run the Teradata MCP server, define cubes, glossary terms and prompts in YAML, and let an agent call those tools instead of writing free SQL. Use an external semantic layer if you need governed metrics across many tools. Check Tera and AI Studio docs for your deployment before depending on them.",
+   "nl2sqlPath": "Run the Teradata MCP server. Define cubes, glossary terms and prompts in YAML. Let an agent call those tools instead of writing free SQL. Use an external semantic layer if you need governed metrics across many tools. Check the Tera and AI Studio docs for your deployment before you depend on them.",
    "snippet": {
     "lang": "yaml",
     "title": "Cube with a dimension and a measure in Teradata MCP server YAML",
@@ -3855,7 +3883,7 @@ window.SL = {
      "u": "https://www.teradata.com/press-releases/2026/introducing-the-autonomous-knowledge-platform"
     }
    ],
-   "enrichHowTo": "Write column and table comments with the COMMENT statement, one statement per object, from a script. Comment text is capped at 255 characters. The Teradata MCP server can also load descriptions, glossary terms and cubes from YAML for an agent. Draft text with your own LLM job and review it by hand.",
+   "enrichHowTo": "Write column and table comments with the COMMENT statement. Use one statement per object, from a script. Comment text has a limit of 255 characters. The Teradata MCP server can also load descriptions, glossary terms and cubes from YAML for an agent. Draft text with your own LLM job. Review it by hand.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "COMMENT ON COLUMN sales.orders.status IS 'open, shipped, or cancelled. Exclude cancelled from revenue.';",
@@ -3911,7 +3939,7 @@ window.SL = {
     },
     "dimensions": {
      "l": 0,
-     "n": "No dimension or hierarchy object in the docs read.",
+     "n": "No dimension or hierarchy object in the docs.",
      "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
     },
     "relationships": {
@@ -3921,7 +3949,7 @@ window.SL = {
     },
     "synonyms": {
      "l": 0,
-     "n": "The natural-language tools read schema details. The docs read show no store for business descriptions.",
+     "n": "The natural-language tools read schema details. The docs show no store for business descriptions.",
      "u": "https://www.mongodb.com/docs/atlas/atlas-ui/query-with-natural-language.md"
     },
     "verifiedQueries": {
@@ -3941,7 +3969,7 @@ window.SL = {
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language in the docs read. Teams use $graphLookup or a graph database.",
+     "n": "No graph query language in the docs. Teams use $graphLookup or a graph database.",
      "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
     },
     "vector": {
@@ -3965,39 +3993,39 @@ window.SL = {
      "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
     },
     "aiDescriptions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No feature drafts descriptions for collections or fields. The NL guide tells teams to write annotated schema types by hand.",
+     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
     },
     "bulkMetadata": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "A $jsonSchema validator can hold title and description text per field. The docs name no field comment store.",
+     "u": "https://www.mongodb.com/docs/manual/core/schema-validation.md"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No automatic PII or semantic classification. Teams choose fields for Queryable Encryption by hand.",
+     "u": "https://www.mongodb.com/docs/manual/core/queryable-encryption.md"
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "The NL guide says to add two or three sample documents to the prompt. The NL Querying agent skill uses sample documents.",
+     "u": "https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Performance Advisor reads slow queries to suggest indexes and schema changes. It does not suggest semantic context.",
+     "u": "https://www.mongodb.com/docs/mcp-server/tools.md"
     },
     "lineage": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The MongoDB documentation index lists no lineage feature.",
+     "u": "https://www.mongodb.com/docs/llms.txt"
     },
     "evals": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "MongoDB publishes a public NL-to-mongosh benchmark dataset on Hugging Face. The docs list no in-product accuracy test.",
+     "u": "https://huggingface.co/datasets/mongodb-eai/natural-language-to-mongosh"
     }
    },
    "offers": [
@@ -4058,10 +4086,26 @@ window.SL = {
     {
      "t": "Automated Embedding",
      "u": "https://www.mongodb.com/docs/vector-search/crud-embeddings/automated-embedding/overview.md"
+    },
+    {
+     "t": "Schema Validation (MongoDB)",
+     "u": "https://www.mongodb.com/docs/manual/core/schema-validation.md"
+    },
+    {
+     "t": "Queryable Encryption (MongoDB)",
+     "u": "https://www.mongodb.com/docs/manual/core/queryable-encryption.md"
+    },
+    {
+     "t": "MongoDB docs index (llms.txt)",
+     "u": "https://www.mongodb.com/docs/llms.txt"
+    },
+    {
+     "t": "MongoDB NL-to-mongosh benchmark (Hugging Face)",
+     "u": "https://huggingface.co/datasets/mongodb-eai/natural-language-to-mongosh"
     }
    ],
    "verified": "2026-10-24",
-   "enrichHowTo": "The docs read show no bulk metadata API for the natural-language tools. Keep field notes in your own prompt file. The MCP collection-schema tool returns schema information that an agent can read.",
+   "enrichHowTo": "The docs show no bulk metadata API for the natural-language tools. Keep field notes in your own prompt file. The MCP collection-schema tool returns schema information that an agent can read.",
    "bulkSnippet": {
     "lang": "json",
     "code": "{\n  \"mcpServers\": {\n    \"MongoDB\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"mongodb-mcp-server@latest\", \"--readOnly\"]\n    }\n  }\n}",
@@ -4117,9 +4161,9 @@ window.SL = {
    "id": "oracle",
    "name": "Oracle Database / Autonomous AI Database",
    "category": "oltp",
-   "tagline": "Converged database with analytic views, Select AI, SQL property graphs, vector search and an MCP server.",
+   "tagline": "Oracle is a converged database. It has analytic views, Select AI, SQL property graphs, vector search and an MCP server.",
    "verdict": "partial",
-   "verdictNote": "Analytic Views are an in-database semantic layer and Select AI reads comments, annotations and constraints, but Oracle docs do not show Select AI reading analytic view definitions.",
+   "verdictNote": "Analytic Views are an in-database semantic layer. Select AI reads comments, annotations and constraints. Oracle docs do not show Select AI reading analytic view definitions.",
    "artifacts": [
     {
      "name": "Analytic Views",
@@ -4204,57 +4248,57 @@ window.SL = {
     },
     "synonyms": {
      "l": 3,
-     "n": "Profile attributes comments and annotations add table and column text to the prompt. Annotations need 26ai. No synonym list object.",
+     "n": "The profile attributes comments and annotations add table and column text to the prompt. Annotations need 26ai. There is no synonym list object.",
      "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/dbms-cloud-ai-package.html"
     },
     "verifiedQueries": {
      "l": 3,
-     "n": "DBMS_CLOUD_AI.FEEDBACK stores confirmed or corrected SQL in a per-profile vector index and sends similar ones as hints. 26ai only.",
+     "n": "DBMS_CLOUD_AI.FEEDBACK stores confirmed or corrected SQL in a per-profile vector index. It sends similar SQL as hints. This works on 26ai only.",
      "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/select-ai-feedback.html"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Select AI generates, runs and explains SQL from a prompt (runsql, showsql, explainsql). Needs an AI profile and an LLM provider.",
+     "n": "Select AI generates, runs and explains SQL from a prompt (runsql, showsql, explainsql). It needs an AI profile and an LLM provider.",
      "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/select-ai.html"
     },
     "ontology": {
      "l": 0,
-     "n": "No object, link or action layer in the Select AI or analytic view docs. Teams combine analytic views with property graphs.",
+     "n": "The Select AI and analytic view docs show no object, link or action layer. Teams combine analytic views with property graphs.",
      "u": ""
     },
     "graph": {
      "l": 3,
-     "n": "Oracle AI Database 26ai supports SQL property graphs and the SQL/PGQ standard, with GraphRAG and graph algorithm packages.",
+     "n": "Oracle AI Database 26ai supports SQL property graphs and the SQL/PGQ standard. It has GraphRAG and graph algorithm packages.",
      "u": "https://docs.oracle.com/en/database/oracle/oracle-database/26/nfcoa/graph.html"
     },
     "vector": {
      "l": 3,
-     "n": "VECTOR data type introduced with 26ai. COMPATIBLE must be 23.4.0 or higher. ONNX embedding models can run in the database.",
+     "n": "The VECTOR data type was introduced with 26ai. COMPATIBLE must be 23.4.0 or higher. ONNX embedding models can run in the database.",
      "u": "https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/overview-ai-vector-search.html"
     },
     "mcp": {
      "l": 3,
-     "n": "Managed MCP server for Autonomous AI Database (Serverless, Dedicated Region, multicloud). Exposes custom and built-in Select AI Agent tools.",
+     "n": "The managed MCP server runs on Autonomous AI Database (Serverless, Dedicated Region, multicloud). It exposes custom and built-in Select AI Agent tools.",
      "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/about-mcp-server.html"
     },
     "governance": {
      "l": 3,
-     "n": "Oracle says MCP access honors RBAC, auditing, VPD and redaction. Grants on analytic views specifically are not covered by that page.",
+     "n": "Oracle says MCP access honors RBAC, auditing, VPD and redaction. That page does not cover grants on analytic views.",
      "u": "https://www.oracle.com/autonomous-database/mcp-server/"
     },
     "openStandard": {
      "l": 0,
-     "n": "Analytic view DDL is Oracle SQL. Oracle is listed as a participant in the Apache Ossie (OSI) working groups, but no Oracle converter is shown.",
+     "n": "Analytic view DDL is Oracle SQL. Oracle is listed as a participant in the Apache Ossie (OSI) working groups. No Oracle converter is shown.",
      "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
     },
     "aiDescriptions": {
      "l": 0,
-     "n": "No DBMS_CLOUD_AI procedure or console feature drafts comments or annotations. Select AI reads text you write. Teams draft with their own LLM job.",
+     "n": "No DBMS_CLOUD_AI procedure or console feature drafts comments or annotations. Select AI reads text that you write. Teams draft with their own LLM job.",
      "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/dbms-cloud-ai-package.html"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "COMMENT ON and annotation DDL (CREATE or ALTER TABLE ... ANNOTATIONS) by SQL script. Annotations apply to tables, views, columns and indexes. No bulk API.",
+     "n": "SQL scripts use COMMENT ON and annotation DDL (CREATE or ALTER TABLE ... ANNOTATIONS). Annotations apply to tables, views, columns and indexes. No bulk API exists.",
      "u": "https://docs.oracle.com/en/database/oracle/oracle-database/26/sqlrf/annotations_clause.html"
     },
     "autoClassify": {
@@ -4264,7 +4308,7 @@ window.SL = {
     },
     "sampleValues": {
      "l": 0,
-     "n": "No value sampling. Profile attribute case_sensitive_values only tells the LLM whether to generate case-insensitive string comparisons.",
+     "n": "No value sampling exists. The profile attribute case_sensitive_values only tells the LLM whether to generate case-insensitive string comparisons.",
      "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/dbms-cloud-ai-package.html"
     },
     "queryHistory": {
@@ -4274,27 +4318,27 @@ window.SL = {
     },
     "lineage": {
      "l": 1,
-     "n": "OCI Data Catalog, a separate service, shows table and column lineage for Data Integration and Data Flow jobs. No lineage view inside the database.",
+     "n": "OCI Data Catalog, a separate service, shows table and column lineage for Data Integration and Data Flow jobs. The database has no lineage view.",
      "u": "https://docs.oracle.com/en-us/iaas/Content/data-catalog/using/view-data-lineage-dis.htm"
     },
     "evals": {
      "l": 3,
-     "n": "DBMS_CLOUD_AI.FEEDBACK stores confirmed or corrected SQL per profile and reuses it as hints. 26ai only. No benchmark runner.",
+     "n": "DBMS_CLOUD_AI.FEEDBACK stores confirmed or corrected SQL per profile. It reuses the SQL as hints. It works on 26ai only. No benchmark runner exists.",
      "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/select-ai-feedback.html"
     }
    },
    "offers": [
-    "Analytic Views: measures, dimensions and hierarchies stored in the database and queried with SQL.",
-    "Select AI generates SQL from questions using table metadata, comments, annotations and foreign key constraints from an AI profile.",
-    "Select AI feedback stores corrected SQL and reuses it as hints for similar prompts (26ai).",
-    "Managed MCP server exposes Select AI Agent tools under database roles, VPD and auditing.",
+    "Analytic Views store measures, dimensions and hierarchies in the database. Users query them with SQL.",
+    "Select AI generates SQL from questions. It uses table metadata, comments, annotations and foreign key constraints from an AI profile.",
+    "Select AI feedback stores corrected SQL. It reuses the SQL as hints for similar prompts (26ai).",
+    "The managed MCP server exposes Select AI Agent tools under database roles, VPD and auditing.",
     "SQL property graphs (SQL/PGQ) and AI Vector Search run in the same engine as the data."
    ],
    "gaps": [
     "Oracle docs do not show Select AI reading analytic view definitions as semantic context.",
     "Annotations, feedback and several profile options need 26ai.",
-    "No ontology layer. Analytic view DDL is Oracle specific, with no Oracle converter listed for Apache Ossie.",
-    "The built-in MCP server is a feature of Autonomous AI Database, not of self-managed databases."
+    "There is no ontology layer. Analytic view DDL is Oracle specific. No Oracle converter is listed for Apache Ossie.",
+    "The built-in MCP server is a feature of Autonomous AI Database. Self-managed databases do not have it."
    ],
    "fillWith": [
     "Cube",
@@ -4303,7 +4347,7 @@ window.SL = {
     "Oracle APEX review step",
     "Custom prompt examples"
    ],
-   "nl2sqlPath": "Add comments and annotations to tables and columns, create a Select AI profile with comments, annotations and constraints set to true, and limit it to a known object list. Record corrected SQL with DBMS_CLOUD_AI.FEEDBACK and expose tools through Select AI Agent and the MCP server. Test whether analytic views help generation before relying on them.",
+   "nl2sqlPath": "Add comments and annotations to tables and columns. Create a Select AI profile with comments, annotations and constraints set to true. Limit the profile to a known object list. Record corrected SQL with DBMS_CLOUD_AI.FEEDBACK. Expose tools through Select AI Agent and the MCP server. Test whether analytic views help generation before you rely on them.",
    "snippet": {
     "lang": "sql",
     "title": "Analytic view over a fact table with one time dimension, two measures and one calculated measure",
@@ -4406,7 +4450,7 @@ window.SL = {
      "u": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/select-ai.html"
     }
    ],
-   "enrichHowTo": "Write business meaning into table and column annotations and COMMENT ON text, then set comments and annotations to true in the Select AI profile. Add annotations with ALTER TABLE ... ANNOTATIONS (ADD name 'value'), and column ones with ALTER TABLE ... MODIFY col ANNOTATIONS (ADD name 'value'). Record good answers with DBMS_CLOUD_AI.FEEDBACK.",
+   "enrichHowTo": "Write business meaning into table and column annotations and COMMENT ON text. Then set comments and annotations to true in the Select AI profile. Add annotations with ALTER TABLE ... ANNOTATIONS (ADD name 'value'). Add column annotations with ALTER TABLE ... MODIFY col ANNOTATIONS (ADD name 'value'). Record good answers with DBMS_CLOUD_AI.FEEDBACK.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "ALTER TABLE Table1 ANNOTATIONS(ADD JoinOperations 'Join');\nALTER TABLE Table1 MODIFY T ANNOTATIONS(ADD Label, DROP Identity);\n-- then in the Select AI profile attributes: \"annotations\": \"true\"",
@@ -4487,12 +4531,12 @@ window.SL = {
     },
     "ontology": {
      "l": 0,
-     "n": "No entity, link or action model in the docs read.",
+     "n": "No entity, link or action model in the docs.",
      "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language in the HeatWave docs read.",
+     "n": "No graph query language in the HeatWave docs.",
      "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
     },
     "vector": {
@@ -4516,9 +4560,9 @@ window.SL = {
      "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
     },
     "aiDescriptions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No routine drafts table or column comments. Teams write comments with DDL, and NL_SQL reads them.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
     },
     "bulkMetadata": {
      "l": 3,
@@ -4526,29 +4570,29 @@ window.SL = {
      "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No column classification for PII or semantic type. Data masking functions exist, but you apply them by hand.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/"
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "NL_SQL reads schema, table, column, and comment data. The docs show no value index or literal matching.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Query history keeps the last 1000 queries for performance monitoring. NL_SQL does not use it to suggest models.",
+     "u": "https://dev.mysql.com/doc/heatwave/en/mys-hw-metadata-queries-query-history.html"
     },
     "lineage": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The user guide has no lineage topic.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/"
     },
     "evals": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The user guide has no NL_SQL accuracy test tool and no feedback loop.",
+     "u": "https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html"
     }
    },
    "offers": [
@@ -4596,6 +4640,10 @@ window.SL = {
     {
      "t": "MySQL HeatWave on OCI",
      "u": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
+    },
+    {
+     "t": "HeatWave Query History and Statistics Monitoring",
+     "u": "https://dev.mysql.com/doc/heatwave/en/mys-hw-metadata-queries-query-history.html"
     }
    ],
    "verified": "2026-10-24",
@@ -4633,9 +4681,9 @@ window.SL = {
    "id": "postgres",
    "name": "PostgreSQL",
    "category": "oltp",
-   "tagline": "Open-source relational database, the default OLTP store for application data.",
+   "tagline": "Postgres is an open-source relational database. It is the default OLTP store for application data.",
    "verdict": "none",
-   "verdictNote": "Core Postgres has only COMMENT ON and views; it has no metric, dimension, or semantic-model object.",
+   "verdictNote": "Core Postgres has only COMMENT ON and views. It has no metric, dimension or semantic-model object.",
    "artifacts": [
     {
      "name": "COMMENT ON (table and column comments)",
@@ -4729,12 +4777,12 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 1,
-     "n": "No metric objects in core Postgres. Teams define metrics in Cube, dbt MetricFlow, or Wren AI MDL.",
+     "n": "Core Postgres has no metric objects. Teams define metrics in Cube, dbt MetricFlow or Wren AI MDL.",
      "u": "https://docs.getdbt.com/docs/build/about-metricflow"
     },
     "dimensions": {
      "l": 1,
-     "n": "No dimension or time-grain objects. Cube, MetricFlow, and Wren AI MDL declare them outside the database.",
+     "n": "There are no dimension or time-grain objects. Cube, MetricFlow and Wren AI MDL declare them outside the database.",
      "u": "https://docs.cube.dev/docs/data-modeling/overview"
     },
     "relationships": {
@@ -4744,47 +4792,47 @@ window.SL = {
     },
     "synonyms": {
      "l": 3,
-     "n": "COMMENT ON stores free text on tables and columns. No synonym field. Every connected role can read comments.",
+     "n": "COMMENT ON stores free text on tables and columns. There is no synonym field. Every connected role can read comments.",
      "u": "https://www.postgresql.org/docs/current/sql-comment.html"
     },
     "verifiedQueries": {
      "l": 1,
-     "n": "No store in core Postgres. AlloyDB offers query blueprints and templates in Preview.",
+     "n": "Core Postgres has no store. AlloyDB offers query blueprints and templates in Preview.",
      "u": "https://docs.cloud.google.com/alloydb/docs/ai/data-agent-overview"
     },
     "nl2sql": {
      "l": 1,
-     "n": "None in core. AlloyDB QueryData is Preview (2026-04), alloydb_ai_nl is Pre-GA, Supabase Assistant is dashboard-only.",
+     "n": "Core has none. AlloyDB QueryData is Preview (2026-04). alloydb_ai_nl is Pre-GA. Supabase Assistant is dashboard-only.",
      "u": "https://cloud.google.com/blog/products/databases/introducing-querydata-for-near-100-percent-accurate-data-agents"
     },
     "ontology": {
      "l": 0,
-     "n": "None. Cube and Wren AI MDL model entities above tables, but these are semantic models, not ontologies.",
+     "n": "None. Cube and Wren AI MDL model entities above tables. These are semantic models, not ontologies.",
      "u": "https://github.com/Canner/WrenAI"
     },
     "graph": {
      "l": 1,
-     "n": "Apache AGE adds openCypher. SQL/PGQ was committed 2026-03-16, reverted 2026-09-07, and is absent from PostgreSQL 19.",
+     "n": "Apache AGE adds openCypher. SQL/PGQ was committed 2026-03-16 and reverted 2026-09-07. It is absent from PostgreSQL 19.",
      "u": "https://www.postgresql.org/message-id/E1x3f62-00000003sxF-0zQO@gemulon.postgresql.org"
     },
     "vector": {
      "l": 1,
-     "n": "pgvector extension: vector, halfvec, bit, and sparsevec types with HNSW and IVFFlat indexes. Not in core.",
+     "n": "The pgvector extension has vector, halfvec, bit and sparsevec types with HNSW and IVFFlat indexes. It is not in core.",
      "u": "https://github.com/pgvector/pgvector"
     },
     "mcp": {
      "l": 1,
-     "n": "No first-party server. Reference server archived 2025-05-29. Use Postgres MCP Pro, Supabase MCP, Neon MCP, or MCP Toolbox.",
+     "n": "There is no first-party server. The reference server was archived 2025-05-29. Use Postgres MCP Pro, Supabase MCP, Neon MCP or MCP Toolbox.",
      "u": "https://github.com/modelcontextprotocol/servers-archived"
     },
     "governance": {
      "l": 3,
-     "n": "Roles, GRANT, and row-level security apply to the agent role. Comments are visible to every connected role.",
+     "n": "Roles, GRANT and row-level security apply to the agent role. Comments are visible to every connected role.",
      "u": "https://www.postgresql.org/docs/current/ddl-rowsecurity.html"
     },
     "openStandard": {
      "l": 1,
-     "n": "No semantic spec in Postgres. MetricFlow (Apache-2.0) and the Wren AI engine (Apache-2.0) are open-source options.",
+     "n": "Postgres has no semantic spec. MetricFlow (Apache-2.0) and the Wren AI engine (Apache-2.0) are open-source options.",
      "u": "https://docs.getdbt.com/docs/build/about-metricflow"
     },
     "aiDescriptions": {
@@ -4794,17 +4842,17 @@ window.SL = {
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "COMMENT ON TABLE and COLUMN by SQL script. No bulk or file-import command. Any user connected to the database can read all comments.",
+     "n": "COMMENT ON TABLE and COLUMN work by SQL script. No bulk or file-import command exists. Any user connected to the database can read all comments.",
      "u": "https://raw.githubusercontent.com/postgres/postgres/master/doc/src/sgml/ref/comment.sgml"
     },
     "autoClassify": {
      "l": 1,
-     "n": "The postgresql_anonymizer extension has an anon.detect() function that flags identifier columns from a name dictionary. Early stage, heuristic.",
+     "n": "The postgresql_anonymizer extension has an anon.detect() function. It flags identifier columns from a name dictionary. It is early stage and heuristic.",
      "u": "https://postgresql-anonymizer.readthedocs.io/en/latest/detection/"
     },
     "sampleValues": {
      "l": 0,
-     "n": "No sample-value or entity-matching feature in core PostgreSQL.",
+     "n": "Core PostgreSQL has no sample-value or entity-matching feature.",
      "u": ""
     },
     "queryHistory": {
@@ -4814,29 +4862,29 @@ window.SL = {
     },
     "lineage": {
      "l": 0,
-     "n": "No lineage feature. pg_depend records dependencies between database objects, which is not data lineage.",
+     "n": "No lineage feature exists. pg_depend records dependencies between database objects. This is not data lineage.",
      "u": "https://raw.githubusercontent.com/postgres/postgres/master/doc/src/sgml/catalogs.sgml"
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL evaluation tooling in core PostgreSQL.",
+     "n": "Core PostgreSQL has no NL-to-SQL evaluation tooling.",
      "u": ""
     }
    },
    "offers": [
     "COMMENT ON stores free-text descriptions on tables and columns. Any connected role can read them.",
-    "Foreign keys, constraints, and information_schema give an agent declared join paths and types.",
-    "Roles, GRANT, and row-level security apply to every query an agent runs.",
-    "pgvector adds vector columns with HNSW and IVFFlat indexes for retrieval over data or metadata.",
+    "Foreign keys, constraints and information_schema give an agent declared join paths and types.",
+    "Roles, GRANT and row-level security apply to every query that an agent runs.",
+    "pgvector adds vector columns with HNSW and IVFFlat indexes. They support retrieval over data or metadata.",
     "Managed services add NL-to-SQL, for example AlloyDB QueryData (Preview, 2026-04) with context sets and query blueprints.",
-    "Several MCP servers exist: Postgres MCP Pro, Supabase MCP, Neon MCP, and Google MCP Toolbox for Databases."
+    "Several MCP servers exist: Postgres MCP Pro, Supabase MCP, Neon MCP and Google MCP Toolbox for Databases."
    ],
    "gaps": [
-    "No metric, dimension, or synonym objects. Business definitions live only in free-text comments.",
+    "Postgres has no metric, dimension or synonym objects. Business definitions live only in free-text comments.",
     "SQL/PGQ was committed 2026-03-16 and reverted 2026-09-07. PostgreSQL 19 ships without graph queries.",
-    "No first-party MCP server. The reference Postgres MCP server was archived on 2025-05-29.",
+    "There is no first-party MCP server. The reference Postgres MCP server was archived on 2025-05-29.",
     "Core has no NL-to-SQL. AlloyDB and Supabase features work only on those services.",
-    "Comments are visible to every connected role, so they cannot hold sensitive context."
+    "Comments are visible to every connected role. They cannot hold sensitive context."
    ],
    "fillWith": [
     "Cube",
@@ -4847,7 +4895,7 @@ window.SL = {
     "Apache AGE",
     "pgvector"
    ],
-   "nl2sqlPath": "Put short COMMENT ON text on every table and column, then add a governed layer for metrics and joins: Cube, MetricFlow, or Wren AI MDL. Expose that layer to the agent through its MCP server or API, and run raw SQL only under a read-only role with row-level security. On Google Cloud, evaluate AlloyDB QueryData (Preview) for managed context sets and query blueprints.",
+   "nl2sqlPath": "Put short COMMENT ON text on every table and column. Then add a governed layer for metrics and joins: Cube, MetricFlow or Wren AI MDL. Expose that layer to the agent through its MCP server or API. Run raw SQL only under a read-only role with row-level security. On Google Cloud, evaluate AlloyDB QueryData (Preview) for managed context sets and query blueprints.",
    "snippet": {
     "lang": "sql",
     "title": "COMMENT ON as AI context, and the call that reads it back",
@@ -4996,7 +5044,7 @@ window.SL = {
     "PostgreSQL"
    ],
    "askData": [],
-   "enrichHowTo": "Run COMMENT ON TABLE and COMMENT ON COLUMN for each object from a script that reads descriptions from a file or catalog. Read them back with obj_description and col_description when you build the prompt. Postgres has no AI generator, so draft text with your own LLM job and review it.",
+   "enrichHowTo": "Run COMMENT ON TABLE and COMMENT ON COLUMN for each object. Use a script that reads descriptions from a file or catalog. Read them back with obj_description and col_description when you build the prompt. Postgres has no AI generator. Draft text with your own LLM job and review it.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "COMMENT ON TABLE my_schema.my_table IS 'Employee Information';\nCOMMENT ON COLUMN my_table.my_column IS 'Employee ID number';\nCOMMENT ON TABLE mytable IS NULL;  -- removes a comment",
@@ -5060,7 +5108,7 @@ window.SL = {
     },
     "dimensions": {
      "l": 0,
-     "n": "No dimension or hierarchy object in the docs read.",
+     "n": "No dimension or hierarchy object in the docs.",
      "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
     },
     "relationships": {
@@ -5090,7 +5138,7 @@ window.SL = {
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language in the docs read.",
+     "n": "No graph query language in the docs.",
      "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
     },
     "vector": {
@@ -5119,29 +5167,29 @@ window.SL = {
      "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
     },
     "bulkMetadata": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "SQL accepts COMMENT on tables and columns. Analyst docs show description edits one table or column at a time.",
+     "u": "https://docs.singlestore.com/cloud/reference/sql-reference/data-definition-language-ddl/alter-table.md"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The Analyst docs name no PII or semantic type classifier. Domain owners set descriptions and Business Rules by hand.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Analyst reads schema metadata, descriptions, and rules. The docs show no sample value store. Owners map terms in Business Rules.",
+     "u": "https://docs.singlestore.com/cloud/ai/analyst.md"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Query History traces slow and failed queries. Analyst learns from user questions and feedback, not from warehouse query history.",
+     "u": "https://docs.singlestore.com/cloud/query-data/query-tuning/query-history.md"
     },
     "lineage": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The SingleStore documentation index lists no lineage feature.",
+     "u": "https://docs.singlestore.com/llms.txt"
     },
     "evals": {
      "l": 2,
@@ -5193,6 +5241,18 @@ window.SL = {
     {
      "t": "AI and ML Functions",
      "u": "https://docs.singlestore.com/cloud/ai/ai-ml-functions.md"
+    },
+    {
+     "t": "ALTER TABLE (SingleStore)",
+     "u": "https://docs.singlestore.com/cloud/reference/sql-reference/data-definition-language-ddl/alter-table.md"
+    },
+    {
+     "t": "Query History (SingleStore)",
+     "u": "https://docs.singlestore.com/cloud/query-data/query-tuning/query-history.md"
+    },
+    {
+     "t": "SingleStore docs index (llms.txt)",
+     "u": "https://docs.singlestore.com/llms.txt"
     }
    ],
    "verified": "2026-10-24",
@@ -5242,9 +5302,9 @@ window.SL = {
    "id": "sqlserver",
    "name": "SQL Server 2025 / Azure SQL",
    "category": "oltp",
-   "tagline": "Relational OLTP engine with native vector type, SQL graph tables, and T-SQL AI functions.",
+   "tagline": "SQL Server is a relational OLTP engine. It has a native vector type, SQL graph tables and T-SQL AI functions.",
    "verdict": "none",
-   "verdictNote": "No semantic model, metric or ontology object appears in the SQL Server 2025 or Azure SQL docs; only text annotations read by one IDE tool and an optional open source MCP layer exist.",
+   "verdictNote": "The SQL Server 2025 and Azure SQL docs show no semantic model, metric or ontology object. Only text annotations and an optional open source MCP layer exist. One IDE tool reads the annotations.",
    "artifacts": [
     {
      "name": "vector data type and VECTOR_DISTANCE",
@@ -5330,17 +5390,17 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 0,
-     "n": "No metric or measure object in the T-SQL docs. Use views or an external semantic layer.",
+     "n": "The T-SQL docs show no metric or measure object. Use views or an external semantic layer.",
      "u": ""
     },
     "dimensions": {
      "l": 0,
-     "n": "No declared dimensions, hierarchies or time grains. Star schema exists only as table design.",
+     "n": "There are no declared dimensions, hierarchies or time grains. Star schema exists only as table design.",
      "u": ""
     },
     "relationships": {
      "l": 3,
-     "n": "Foreign keys and SQL graph edge tables declare joins. Fabric SQL database Copilot reads PK and FK metadata.",
+     "n": "Foreign keys and SQL graph edge tables declare joins. Copilot for Fabric SQL database reads PK and FK metadata.",
      "u": "https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql"
     },
     "synonyms": {
@@ -5350,32 +5410,32 @@ window.SL = {
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No verified question-to-SQL store. SQL MCP Server uses configured entities, not example queries.",
+     "n": "There is no verified question-to-SQL store. SQL MCP Server uses configured entities, not example queries.",
      "u": "https://learn.microsoft.com/en-us/azure/data-api-builder/mcp/overview"
     },
     "nl2sql": {
      "l": 3,
-     "n": "GitHub Copilot in SSMS is GA (March 2026). It is an IDE tool, not an in-database or embeddable API.",
+     "n": "GitHub Copilot in SSMS is GA (March 2026). It is an IDE tool. It is not an in-database or embeddable API.",
      "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/overview"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology or class model in the engine. SQL graph tables store nodes and edges as data, not business classes.",
+     "n": "The engine has no ontology or class model. SQL graph tables store nodes and edges as data, not business classes.",
      "u": "https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-architecture"
     },
     "graph": {
      "l": 3,
-     "n": "SQL Graph node and edge tables with ASCII-art MATCH syntax. SHORTEST_PATH needs SQL Server 2019 or later.",
+     "n": "SQL Graph uses node and edge tables with ASCII-art MATCH syntax. SHORTEST_PATH needs SQL Server 2019 or later.",
      "u": "https://learn.microsoft.com/en-us/sql/t-sql/queries/match-sql-graph"
     },
     "vector": {
      "l": 3,
-     "n": "Vector type and VECTOR_DISTANCE: GA. Vector index and VECTOR_SEARCH: GA in Azure SQL Database, Preview in SQL Server 2025.",
+     "n": "Vector type and VECTOR_DISTANCE are GA. Vector index and VECTOR_SEARCH are GA in Azure SQL Database and Preview in SQL Server 2025.",
      "u": "https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors"
     },
     "mcp": {
      "l": 1,
-     "n": "SQL MCP Server is part of Data API builder, an open source separate product you host. No NL2SQL by design.",
+     "n": "SQL MCP Server is part of Data API builder, a separate open source product that you host. It has no NL2SQL by design.",
      "u": "https://learn.microsoft.com/en-us/azure/data-api-builder/mcp/overview"
     },
     "governance": {
@@ -5385,17 +5445,17 @@ window.SL = {
     },
     "openStandard": {
      "l": 0,
-     "n": "No semantic-layer object to export or import. SQL Graph queries use the T-SQL MATCH syntax.",
+     "n": "There is no semantic-layer object to export or import. SQL Graph queries use the T-SQL MATCH syntax.",
      "u": ""
     },
     "aiDescriptions": {
      "l": 1,
-     "n": "GitHub Copilot in SSMS (separate product, SSMS 22.3+) writes database instructions as T-SQL you run to save as extended properties. No dedicated description generator.",
+     "n": "GitHub Copilot in SSMS (separate product, SSMS 22.3+) writes database instructions as T-SQL. You run the T-SQL to save them as extended properties. No dedicated description generator exists.",
      "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/database-instructions"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "sp_addextendedproperty writes MS_Description per table or column, value up to 7,500 bytes. Not allowed on memory-optimized tables.",
+     "n": "sp_addextendedproperty writes MS_Description per table or column. The value can be up to 7,500 bytes. It is not allowed on memory-optimized tables.",
      "u": "https://raw.githubusercontent.com/MicrosoftDocs/sql-docs/live/docs/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql.md"
     },
     "autoClassify": {
@@ -5405,37 +5465,37 @@ window.SL = {
     },
     "sampleValues": {
      "l": 0,
-     "n": "No value sampling or literal matching documented. Copilot in SSMS Agent mode can run queries you approve, but that is not a sampling feature.",
+     "n": "The docs show no value sampling or literal matching. Copilot in SSMS Agent mode can run queries that you approve. That is not a sampling feature.",
      "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/overview"
     },
     "queryHistory": {
      "l": 0,
-     "n": "No mining of query history for semantic suggestions documented. Query Store is not described as an AI input.",
+     "n": "The docs show no mining of query history for semantic suggestions. The docs do not describe Query Store as an AI input.",
      "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/overview"
     },
     "lineage": {
      "l": 0,
-     "n": "No built-in column lineage in SQL Server. Mirroring into Fabric gives item-level lineage only.",
+     "n": "SQL Server has no built-in column lineage. Mirroring into Fabric gives item-level lineage only.",
      "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/governance/lineage.md"
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL eval tooling for SQL Server or Azure SQL. Fabric data agent evaluation needs Fabric items.",
+     "n": "SQL Server and Azure SQL have no NL-to-SQL eval tooling. Fabric data agent evaluation needs Fabric items.",
      "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/overview"
     }
    },
    "offers": [
-    "Native vector type (float32 up to 1,998 dimensions, float16 up to 3,996) with VECTOR_DISTANCE for exact search.",
-    "AI_GENERATE_EMBEDDINGS calls Azure OpenAI, OpenAI, Ollama or ONNX models registered with CREATE EXTERNAL MODEL; AI_GENERATE_CHUNKS splits text.",
+    "The native vector type holds float32 up to 1,998 dimensions and float16 up to 3,996. VECTOR_DISTANCE gives exact search.",
+    "AI_GENERATE_EMBEDDINGS calls Azure OpenAI, OpenAI, Ollama or ONNX models registered with CREATE EXTERNAL MODEL. AI_GENERATE_CHUNKS splits text.",
     "SQL Graph node and edge tables with MATCH and SHORTEST_PATH query connected data in T-SQL.",
-    "GitHub Copilot in SSMS (GA) writes T-SQL from natural language and reads database instructions stored as AGENTS.md extended properties.",
-    "SQL MCP Server (Data API builder) exposes configured entities with descriptions, roles and seven DML tools; no NL2SQL by design."
+    "GitHub Copilot in SSMS (GA) writes T-SQL from natural language. It reads database instructions stored as AGENTS.md extended properties.",
+    "SQL MCP Server (Data API builder) exposes configured entities with descriptions, roles and seven DML tools. It has no NL2SQL by design."
    ],
    "gaps": [
-    "No semantic model, metric, dimension or ontology object found in the SQL Server 2025 or Azure SQL docs.",
-    "CREATE EXTERNAL MODEL accepts only MODEL_TYPE = EMBEDDINGS. No NL-to-SQL function appears in the T-SQL docs.",
-    "Copilot in Azure SQL Database status is unclear: one page says preview for early adopters, a blog title says GA.",
-    "Vector index and VECTOR_SEARCH are Preview on SQL Server 2025 and need PREVIEW_FEATURES; GA in Azure SQL Database.",
+    "The SQL Server 2025 and Azure SQL docs show no semantic model, metric, dimension or ontology object.",
+    "CREATE EXTERNAL MODEL accepts only MODEL_TYPE = EMBEDDINGS. The T-SQL docs show no NL-to-SQL function.",
+    "Copilot in Azure SQL Database status is unclear. One page says preview for early adopters. A blog title says GA.",
+    "Vector index and VECTOR_SEARCH are Preview on SQL Server 2025 and need PREVIEW_FEATURES. They are GA in Azure SQL Database.",
     "SQL Graph does not support cross-database queries, temporal tables or memory-optimized tables."
    ],
    "fillWith": [
@@ -5446,7 +5506,7 @@ window.SL = {
     "Semantic Kernel",
     "LangChain (langchain-sqlserver)"
    ],
-   "nl2sqlPath": "The engine has no built-in NL-to-SQL for applications, so teams either call an LLM from the app with schema and business rules in the prompt, or expose configured entities through SQL MCP Server, which skips NL2SQL on purpose. For interactive work, use GitHub Copilot in SSMS and store business rules as AGENTS.md extended properties. For governed metrics, mirror the data into Fabric and use a Power BI semantic model with a data agent.",
+   "nl2sqlPath": "The engine has no built-in NL-to-SQL for applications. Teams either call an LLM from the app with schema and business rules in the prompt, or expose configured entities through SQL MCP Server. SQL MCP Server skips NL2SQL on purpose. For interactive work, use GitHub Copilot in SSMS and store business rules as AGENTS.md extended properties. For governed metrics, mirror the data into Fabric. Then use a Power BI semantic model with a data agent.",
    "snippet": {
     "lang": "sql",
     "title": "Vector column and exact nearest-neighbor query",
@@ -5575,7 +5635,7 @@ window.SL = {
      "u": "https://learn.microsoft.com/en-us/azure/azure-sql/copilot/copilot-azure-sql-overview"
     }
    ],
-   "enrichHowTo": "Store business meaning as extended properties with sys.sp_addextendedproperty and the name MS_Description, and loop over a metadata table to write many. Update existing ones with sys.sp_updateextendedproperty. For GitHub Copilot in SSMS, store instructions as extended properties named AGENTS.md per object or CONSTITUTION.md per database. Run Data Discovery and Classification in SSMS to tag sensitive columns.",
+   "enrichHowTo": "Store business meaning as extended properties with sys.sp_addextendedproperty and the name MS_Description. Loop over a metadata table to write many. Update existing ones with sys.sp_updateextendedproperty. For GitHub Copilot in SSMS, store instructions as extended properties. Name them AGENTS.md per object or CONSTITUTION.md per database. Run Data Discovery and Classification in SSMS to tag sensitive columns.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "EXECUTE sys.sp_addextendedproperty\n    @name = N'MS_Description',\n    @value = N'Postal code for the customer address.',\n    @level0type = 'SCHEMA', @level0name = N'Person',\n    @level1type = 'TABLE', @level1name = N'Address',\n    @level2type = 'COLUMN', @level2name = N'PostalCode';",
@@ -5916,9 +5976,9 @@ window.SL = {
    "id": "clickhouse",
    "name": "ClickHouse",
    "category": "realtime-olap",
-   "tagline": "Open-source column-oriented database for real-time analytics, also sold as ClickHouse Cloud.",
+   "tagline": "ClickHouse is an open-source column-oriented database for real-time analytics. It is also sold as ClickHouse Cloud.",
    "verdict": "none",
-   "verdictNote": "No semantic layer object found in ClickHouse docs; context comes from column comments and external layers.",
+   "verdictNote": "The ClickHouse docs show no semantic layer object. Context comes from column comments and external layers.",
    "artifacts": [
     {
      "name": "Column COMMENT",
@@ -5980,27 +6040,27 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 1,
-     "n": "No metric objects found in ClickHouse docs. Rill metrics views (Apache-2.0) and Cube define them over ClickHouse.",
+     "n": "The ClickHouse docs show no metric objects. Rill metrics views (Apache-2.0) and Cube define them over ClickHouse.",
      "u": "https://docs.rilldata.com/developers/build/metrics-view/what-are-metrics-views"
     },
     "dimensions": {
      "l": 1,
-     "n": "No dimension objects found. Rill metrics views declare dimensions and a timeseries column over a ClickHouse model.",
+     "n": "The docs show no dimension objects. Rill metrics views declare dimensions and a timeseries column over a ClickHouse model.",
      "u": "https://docs.rilldata.com/developers/build/metrics-view/what-are-metrics-views"
     },
     "relationships": {
      "l": 1,
-     "n": "No join-path objects found in docs. Cube and Wren AI MDL declare relationships over ClickHouse.",
+     "n": "The docs show no join-path objects. Cube and Wren AI MDL declare relationships over ClickHouse.",
      "u": "https://github.com/Canner/WrenAI"
     },
     "synonyms": {
      "l": 3,
-     "n": "Column COMMENT is native. Assistant docs list no custom-instruction field; Agents (Beta) take written instructions and memory.",
+     "n": "Column COMMENT is native. Assistant docs list no custom-instruction field. Agents (Beta) take written instructions and memory.",
      "u": "https://clickhouse.com/docs/sql-reference/statements/alter/column"
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No verified question-to-SQL store found. ClickHouse Agents (Beta) keep a prompt library and memory.",
+     "n": "The docs show no verified question-to-SQL store. ClickHouse Agents (Beta) keep a prompt library and memory.",
      "u": "https://clickhouse.com/docs/products/cloud/features/ai-ml/agents/index.md"
     },
     "nl2sql": {
@@ -6010,22 +6070,22 @@ window.SL = {
     },
     "ontology": {
      "l": 0,
-     "n": "None. Rill, Cube, and Wren AI offer semantic models above tables, which are not ontologies.",
+     "n": "None. Rill, Cube and Wren AI offer semantic models above tables. These are not ontologies.",
      "u": ""
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language found in the docs. Absence not proven.",
+     "n": "The docs show no graph query language. Absence is not proven.",
      "u": ""
     },
     "vector": {
      "l": 3,
-     "n": "HNSW vector similarity index, available in 25.8 and later. Docs give no beta label; quantized codec is experimental.",
+     "n": "The HNSW vector similarity index is available in 25.8 and later. The docs give no beta label. The quantized codec is experimental.",
      "u": "https://clickhouse.com/docs/engines/table-engines/mergetree-family/annindexes"
     },
     "mcp": {
      "l": 3,
-     "n": "Official mcp-clickhouse (Apache-2.0, read-only by default) and a Cloud remote MCP server with 13 read-only tools.",
+     "n": "Official mcp-clickhouse (Apache-2.0) is read-only by default. A Cloud remote MCP server has 13 read-only tools.",
      "u": "https://github.com/ClickHouse/mcp-clickhouse"
     },
     "governance": {
@@ -6035,7 +6095,7 @@ window.SL = {
     },
     "openStandard": {
      "l": 1,
-     "n": "Rill (Apache-2.0), Boring Semantic Layer (MIT), and the Wren AI engine (Apache-2.0) are open-source options.",
+     "n": "Rill (Apache-2.0), Boring Semantic Layer (MIT) and the Wren AI engine (Apache-2.0) are open-source options.",
      "u": "https://github.com/rilldata/rill"
     },
     "aiDescriptions": {
@@ -6045,17 +6105,17 @@ window.SL = {
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "ALTER TABLE ... COMMENT COLUMN and ALTER TABLE ... MODIFY COMMENT by SQL. Comments show in system.columns. No bulk API.",
+     "n": "ALTER TABLE ... COMMENT COLUMN and ALTER TABLE ... MODIFY COMMENT work by SQL. Comments show in system.columns. No bulk API exists.",
      "u": "https://clickhouse.com/docs/reference/statements/alter/column.md"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic column classification in the SQL reference or Cloud Assistant docs.",
+     "n": "The SQL reference and Cloud Assistant docs show no automatic column classification.",
      "u": ""
     },
     "sampleValues": {
      "l": 0,
-     "n": "No sample-value feature. The mcp-clickhouse list_tables tool returns column metadata and the CREATE statement only.",
+     "n": "No sample-value feature exists. The mcp-clickhouse list_tables tool returns column metadata and the CREATE statement only.",
      "u": "https://raw.githubusercontent.com/ClickHouse/mcp-clickhouse/main/README.md"
     },
     "queryHistory": {
@@ -6065,29 +6125,29 @@ window.SL = {
     },
     "lineage": {
      "l": 0,
-     "n": "No lineage feature. system.query_log lists tables, columns and views per query, which is not a lineage graph.",
+     "n": "No lineage feature exists. system.query_log lists tables, columns and views per query. This is not a lineage graph.",
      "u": "https://clickhouse.com/docs/reference/system-tables/query_log.md"
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL evaluation tooling in the Assistant or MCP server docs.",
+     "n": "The Assistant and MCP server docs show no NL-to-SQL evaluation tooling.",
      "u": "https://clickhouse.com/docs/products/cloud/features/ai-ml/aichat/using-ai-chat.md"
     }
    },
    "offers": [
-    "Column comments store descriptions. ClickHouse's agent post grounds LLMs with schema metadata, table comments, and a system prompt.",
-    "Official mcp-clickhouse server (Apache-2.0) is read-only by default with list_databases, list_tables, and run_query tools.",
-    "Cloud remote MCP server has 13 read-only tools, OAuth or API key access, and is enabled per service.",
-    "ClickHouse Agents (Public Beta, 2026-06): no-code builder with MCP tools, skills, memory, and scheduled chats.",
-    "HNSW vector similarity index, available in 25.8 and later, with L2, cosine, and dot product distance.",
-    "Agentic Data Stack (2026-03) combines LibreChat chat, ClickHouse data, and Langfuse tracing."
+    "Column comments store descriptions. ClickHouse's agent post grounds LLMs with schema metadata, table comments and a system prompt.",
+    "The official mcp-clickhouse server (Apache-2.0) is read-only by default. It has the tools list_databases, list_tables and run_query.",
+    "The Cloud remote MCP server has 13 read-only tools. It uses OAuth or API key access. Admins enable it per service.",
+    "ClickHouse Agents (Public Beta, 2026-06) is a no-code builder. It offers MCP tools, skills, memory and scheduled chats.",
+    "The HNSW vector similarity index is available in 25.8 and later. It supports L2, cosine and dot product distance.",
+    "The Agentic Data Stack (2026-03) combines LibreChat chat, ClickHouse data and Langfuse tracing."
    ],
    "gaps": [
-    "No native semantic layer found in the docs: no metric, dimension, or join objects.",
-    "No documented store for verified question-to-SQL pairs or business synonyms.",
+    "The docs show no native semantic layer: no metric, dimension or join objects.",
+    "The docs show no store for verified question-to-SQL pairs or business synonyms.",
     "Assistant docs do not describe custom instructions or semantic context inputs.",
-    "MetricFlow docs list no ClickHouse support. dbt's v2 adapter table shows ClickHouse as Private beta.",
-    "Vector index docs give no status label, and the quantized codec is experimental."
+    "MetricFlow docs list no ClickHouse support. The dbt v2 adapter table shows ClickHouse as Private beta.",
+    "Vector index docs give no status label. The quantized codec is experimental."
    ],
    "fillWith": [
     "Rill metrics views",
@@ -6096,7 +6156,7 @@ window.SL = {
     "Wren AI",
     "dbt (transformations only)"
    ],
-   "nl2sqlPath": "Add column and table comments in ClickHouse. Define metrics and dimensions in a layer such as Rill metrics views, Cube, or Wren AI, and point the agent at that layer's MCP server or API. Use mcp-clickhouse with a least-privilege read-only user for direct SQL, or test ClickHouse Agents (Public Beta) with the Cloud remote MCP server.",
+   "nl2sqlPath": "Add column and table comments in ClickHouse. Define metrics and dimensions in a layer such as Rill metrics views, Cube or Wren AI. Point the agent at that layer's MCP server or API. For direct SQL, use mcp-clickhouse with a least-privilege read-only user. You can also test ClickHouse Agents (Public Beta) with the Cloud remote MCP server.",
    "snippet": {
     "lang": "yaml",
     "title": "Rill metrics view over a ClickHouse model (rill.yaml sets olap_connector: clickhouse)",
@@ -6250,7 +6310,7 @@ window.SL = {
      "u": "https://clickhouse.com/docs/products/cloud/features/ai-ml/agents/index.md"
     }
    ],
-   "enrichHowTo": "Set column text with ALTER TABLE ... COMMENT COLUMN, one statement per column, and table text with ALTER TABLE ... MODIFY COMMENT, from a script. Read comments from system.columns when you build the prompt. ClickHouse has no description generator, so draft with your own LLM job.",
+   "enrichHowTo": "Set column text with ALTER TABLE ... COMMENT COLUMN, one statement per column. Set table text with ALTER TABLE ... MODIFY COMMENT. Use a script. Read comments from system.columns when you build the prompt. ClickHouse has no description generator. Draft with your own LLM job.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "ALTER TABLE visits COMMENT COLUMN browser 'This column shows the browser used for accessing the site.'",
@@ -6346,13 +6406,13 @@ window.SL = {
     },
     "ontology": {
      "l": 0,
-     "n": "No entity, link, or action model in the CosmiQ or MCP docs read. Teams use Spaces.",
+     "n": "No entity, link, or action model in the CosmiQ or MCP docs. Teams use Spaces.",
      "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
     },
     "graph": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Pinot queries use SQL. The StarTree Cloud docs index lists no graph query feature.",
+     "u": "https://docs.startree.ai/_llms/star-tree-cloud.txt"
     },
     "vector": {
      "l": 3,
@@ -6385,9 +6445,9 @@ window.SL = {
      "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "An author can flag columns as do_not_use by hand. The docs show no automatic PII or sensitivity tagging.",
+     "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
     },
     "sampleValues": {
      "l": 2,
@@ -6400,9 +6460,9 @@ window.SL = {
      "u": "https://docs.startree.ai/llms.txt"
     },
     "lineage": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The StarTree Cloud docs index lists no lineage page. Teams use an external catalog for lineage.",
+     "u": "https://docs.startree.ai/_llms/star-tree-cloud.txt"
     },
     "evals": {
      "l": 2,
@@ -6427,7 +6487,7 @@ window.SL = {
     "Spaces are free text rules, not typed metrics or dimensions, and no export format was found.",
     "CosmiQ docs show no stage label and no launch date. It runs on Claude through AWS Bedrock.",
     "The StarTree MCP server is installed through StarTree, and the custom context and guardrails features were listed as coming soon.",
-    "No lineage, classification, or catalog feature was found in the docs read."
+    "No lineage, classification, or catalog feature was found in the docs."
    ],
    "fillWith": [
     "Cube",
@@ -6483,6 +6543,10 @@ window.SL = {
     {
      "t": "Introducing StarTree's MCP Server for Apache Pinot",
      "u": "https://startree.ai/resources/startree-mcp-server-for-apache-pinot/"
+    },
+    {
+     "t": "StarTree Cloud docs index",
+     "u": "https://docs.startree.ai/_llms/star-tree-cloud.txt"
     }
    ],
    "verified": "2026-10-24",
@@ -6493,9 +6557,9 @@ window.SL = {
    "id": "duckdb",
    "name": "DuckDB / MotherDuck",
    "category": "embedded",
-   "tagline": "In-process analytical SQL engine, with MotherDuck as its managed cloud service.",
+   "tagline": "DuckDB is an in-process analytical SQL engine. MotherDuck is its managed cloud service.",
    "verdict": "partial",
-   "verdictNote": "No structured semantic layer, but MotherDuck Guides store metric definitions and join rules as markdown that agents read through MCP.",
+   "verdictNote": "DuckDB has no structured semantic layer. MotherDuck Guides store metric definitions and join rules as markdown. Agents read the Guides through MCP.",
    "artifacts": [
     {
      "name": "COMMENT ON (table and column comments)",
@@ -6565,12 +6629,12 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 1,
-     "n": "No metric objects. Guides hold definitions as markdown. Boring Semantic Layer, Cube, or Rill define metrics as code.",
+     "n": "There are no metric objects. Guides hold definitions as markdown. Boring Semantic Layer, Cube or Rill define metrics as code.",
      "u": "https://motherduck.com/docs/key-tasks/guides/"
     },
     "dimensions": {
      "l": 1,
-     "n": "No dimension objects. Cube and Rill list DuckDB and MotherDuck as supported sources.",
+     "n": "There are no dimension objects. Cube and Rill list DuckDB and MotherDuck as supported sources.",
      "u": "https://docs.cube.dev/admin/connect-to-data/data-sources"
     },
     "relationships": {
@@ -6580,32 +6644,32 @@ window.SL = {
     },
     "synonyms": {
      "l": 3,
-     "n": "COMMENT ON for tables and columns. Guides add user or organization markdown context. No synonym field.",
+     "n": "COMMENT ON works for tables and columns. Guides add user or organization markdown context. There is no synonym field.",
      "u": "https://motherduck.com/docs/key-tasks/ai-and-motherduck/building-analytics-agents"
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No verified-query store found. Guides can hold trusted tables and join restrictions as text.",
+     "n": "The docs show no verified-query store. Guides can hold trusted tables and join restrictions as text.",
      "u": "https://motherduck.com/docs/key-tasks/ai-and-motherduck/building-analytics-agents"
     },
     "nl2sql": {
      "l": 3,
-     "n": "prompt_sql, prompt_query, prompt_schema, prompt_fix_line run through Azure OpenAI. Docs give no status label.",
+     "n": "prompt_sql, prompt_query, prompt_schema and prompt_fix_line run through Azure OpenAI. The docs give no status label.",
      "u": "https://motherduck.com/docs/sql-reference/motherduck-sql-reference/ai-functions/sql-assistant/"
     },
     "ontology": {
      "l": 0,
-     "n": "None found.",
+     "n": "None. The docs show no ontology object.",
      "u": ""
     },
     "graph": {
      "l": 1,
-     "n": "DuckPGQ community extension adds SQL/PGQ. Its docs call it a research project and work in progress.",
+     "n": "The DuckPGQ community extension adds SQL/PGQ. Its docs call it a research project and work in progress.",
      "u": "https://duckdb.org/community_extensions/extensions/duckpgq.html"
     },
     "vector": {
      "l": 1,
-     "n": "vss extension has HNSW indexes; on-disk persistence is experimental and not advised for production.",
+     "n": "The vss extension has HNSW indexes. On-disk persistence is experimental and not advised for production.",
      "u": "https://duckdb.org/docs/2.0/core_extensions/vss.html"
     },
     "mcp": {
@@ -6615,12 +6679,12 @@ window.SL = {
     },
     "governance": {
      "l": 0,
-     "n": "Guides have user or organization visibility. No row or column security or lineage for semantic context found in docs.",
+     "n": "Guides have user or organization visibility. The docs show no row or column security or lineage for semantic context.",
      "u": "https://motherduck.com/docs/key-tasks/guides/"
     },
     "openStandard": {
      "l": 1,
-     "n": "Boring Semantic Layer (MIT), Cube, Rill (Apache-2.0), and the Wren AI engine (Apache-2.0) are open-source options.",
+     "n": "Boring Semantic Layer (MIT), Cube, Rill (Apache-2.0) and the Wren AI engine (Apache-2.0) are open-source options.",
      "u": "https://github.com/boringdata/boring-semantic-layer"
     },
     "aiDescriptions": {
@@ -6630,17 +6694,17 @@ window.SL = {
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "COMMENT ON for tables, columns, views and more by SQL, readable from duckdb_tables() and similar functions. No schema or database comments. No bulk import.",
+     "n": "COMMENT ON works for tables, columns, views and more by SQL. Functions such as duckdb_tables() read the comments. Schemas and databases take no comments. No bulk import exists.",
      "u": "https://duckdb.org/docs/2.0/sql/statements/comment_on.html"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic column classification. MotherDuck prompt_jev classifies text values, not columns.",
+     "n": "No automatic column classification exists. MotherDuck prompt_jev classifies text values, not columns.",
      "u": ""
     },
     "sampleValues": {
      "l": 0,
-     "n": "No sample-value feature. MotherDuck prompt_sql reads schema and lets you limit tables and columns with include_tables.",
+     "n": "No sample-value feature exists. MotherDuck prompt_sql reads the schema. It lets you limit tables and columns with include_tables.",
      "u": "https://motherduck.com/docs/sql-reference/motherduck-sql-reference/ai-functions/sql-assistant/prompt-sql/"
     },
     "queryHistory": {
@@ -6650,28 +6714,28 @@ window.SL = {
     },
     "lineage": {
      "l": 0,
-     "n": "No lineage feature found in DuckDB or MotherDuck docs.",
+     "n": "The DuckDB and MotherDuck docs show no lineage feature.",
      "u": ""
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL evaluation tooling found in DuckDB or MotherDuck docs.",
+     "n": "The DuckDB and MotherDuck docs show no NL-to-SQL evaluation tooling.",
      "u": ""
     }
    },
    "offers": [
-    "COMMENT ON on tables and columns. MotherDuck advises one-sentence comments because agents read them on every schema introspection.",
-    "Guides: markdown with metric definitions, join conventions, and domain context, shared per user or per organization.",
-    "Remote MCP server at api.motherduck.com/mcp with SQL, schema, catalog search, Guides, Dives, and Flights tools.",
-    "SQL functions prompt_sql, prompt_query, prompt_schema, and prompt_fix_line generate, answer, describe, and fix SQL.",
-    "Local mcp-server-motherduck (MIT) reads DuckDB files, S3, and MotherDuck, and is read-only by default.",
+    "COMMENT ON works on tables and columns. MotherDuck advises one-sentence comments because agents read them on every schema introspection.",
+    "Guides are markdown with metric definitions, join conventions and domain context. Users or organizations share them.",
+    "The remote MCP server at api.motherduck.com/mcp has SQL, schema, catalog search, Guides, Dives and Flights tools.",
+    "The SQL functions prompt_sql, prompt_query, prompt_schema and prompt_fix_line generate, answer, describe and fix SQL.",
+    "The local mcp-server-motherduck (MIT) reads DuckDB files, S3 and MotherDuck. It is read-only by default.",
     "Community DuckPGQ adds SQL/PGQ graph queries. The core vss extension adds HNSW vector indexes (experimental)."
    ],
    "gaps": [
-    "No structured metric, dimension, or relationship objects. Guides hold definitions as free text.",
+    "There are no structured metric, dimension or relationship objects. Guides hold definitions as free text.",
     "DuckPGQ is a research project. vss HNSW persistence is experimental and not advised for production.",
-    "Docs for Guides, the remote MCP server, and prompt_* functions give no status label.",
-    "Read-only MCP mode alone is not enough for third-party access; the README advises service accounts or SaaS mode."
+    "Docs for Guides, the remote MCP server and the prompt_* functions give no status label.",
+    "Read-only MCP mode alone is not enough for third-party access. The README advises service accounts or SaaS mode."
    ],
    "fillWith": [
     "Boring Semantic Layer",
@@ -6679,7 +6743,7 @@ window.SL = {
     "Rill metrics views",
     "Wren AI"
    ],
-   "nl2sqlPath": "Let the agent generate SQL. Add short COMMENT ON text, write Guides for metric definitions and join rules, and connect through the MotherDuck MCP server with a read-scaling token. Add Boring Semantic Layer, Cube, or Rill for governed metrics, and check generated SQL with try_bind() before it runs.",
+   "nl2sqlPath": "Let the agent generate SQL. Add short COMMENT ON text. Write Guides for metric definitions and join rules. Connect through the MotherDuck MCP server with a read-scaling token. Add Boring Semantic Layer, Cube or Rill for governed metrics. Check generated SQL with try_bind() before it runs.",
    "snippet": {
     "lang": "sql",
     "title": "MotherDuck: table and column comments, then generate SQL from a question",
@@ -6764,7 +6828,7 @@ window.SL = {
     "DuckLake"
    ],
    "askData": [],
-   "enrichHowTo": "Write COMMENT ON TABLE and COMMENT ON COLUMN statements from a script, and read them back through duckdb_tables() or duckdb_columns() when you build the prompt. There is no AI generator, so draft with your own LLM job. Comments cannot be set on schemas or databases.",
+   "enrichHowTo": "Write COMMENT ON TABLE and COMMENT ON COLUMN statements from a script. Read them back through duckdb_tables() or duckdb_columns() when you build the prompt. There is no AI generator. Draft with your own LLM job. You cannot set comments on schemas or databases.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "COMMENT ON TABLE test_table IS 'very nice table';\nCOMMENT ON COLUMN test_table.test_table_column IS 'very nice column';\nCOMMENT ON TABLE test_table IS NULL;",
@@ -6775,9 +6839,9 @@ window.SL = {
    "id": "denodo",
    "name": "Denodo Platform",
    "category": "virtualization",
-   "tagline": "Logical data management platform with a semantic layer of views, associations, and metric views.",
+   "tagline": "Logical data management platform. Its semantic layer has views, associations, and metric views.",
    "verdict": "native",
-   "verdictNote": "Since 9.5 (July 2026), metric views plus associations and view metadata form a semantic layer, and the Data Marketplace assistant queries metric views.",
+   "verdictNote": "Since 9.5 (July 2026), metric views, associations, and view metadata form a semantic layer. The Data Marketplace assistant queries metric views.",
    "artifacts": [
     {
      "name": "Metric View (CREATE METRIC VIEW)",
@@ -6847,12 +6911,12 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Metric views (9.5, July 2026) declare metrics over fact and dimension views, reusable across BI and AI.",
+     "n": "Metric views (9.5, July 2026) declare metrics over fact and dimension views. BI and AI tools reuse them.",
      "u": "https://community.denodo.com/docs/html/accessible/9.5/vdp/vql/defining_a_derived_view/defining_a_metric_view/defining_a_metric_view.html"
     },
     "dimensions": {
      "l": 3,
-     "n": "Metric views declare dimensions and dimension groups. No hierarchy or time-grain clause found in the syntax.",
+     "n": "Metric views declare dimensions and dimension groups. The syntax shows no hierarchy or time-grain clause.",
      "u": "https://community.denodo.com/docs/html/accessible/9.5/vdp/vql/defining_a_derived_view/defining_a_metric_view/defining_a_metric_view.html"
     },
     "relationships": {
@@ -6862,108 +6926,108 @@ window.SL = {
     },
     "synonyms": {
      "l": 3,
-     "n": "View and column descriptions, tags, logical names, and Assistant custom instructions. No dedicated synonym field found.",
+     "n": "Sources are view and column descriptions, tags, logical names, and Assistant custom instructions. The docs show no dedicated synonym field.",
      "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/Denodo%20AI%20SDK%20-%20User%20Manual"
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No verified question-to-SQL store found in the AI SDK manual or the 9.4 and 9.5 release notes.",
+     "n": "The AI SDK manual and the 9.4 and 9.5 release notes show no verified question-to-SQL store.",
      "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/Denodo%20AI%20SDK%20-%20User%20Manual"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Denodo Assistant and metric view assisted query write VQL; open-source AI SDK adds text-to-VQL. You supply the LLM.",
+     "n": "Denodo Assistant and metric view assisted query write VQL. The open-source AI SDK adds text-to-VQL. You supply the LLM.",
      "u": "https://community.denodo.com/docs/html/browse/9.5/en/vdp/data_catalog/metric_views/assisted_query"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology layer. Views, associations, and metric views are the modeling objects. 360 Graph maps assets and lineage.",
+     "n": "No ontology layer exists. Views, associations, and metric views are the modeling objects. 360 Graph maps assets and lineage.",
      "u": "https://itbrief.com.au/story/denodo-9-5-adds-metric-views-for-ai-data-governance"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language found. 360 Graph (renamed from Reference Lineage) is a lineage and asset map.",
+     "n": "The docs show no graph query language. 360 Graph (renamed from Reference Lineage) is a lineage and asset map.",
      "u": "https://community.denodo.com/docs/html/browse/9.5/en/platform/new_features/what_is_new_9_5"
     },
     "vector": {
      "l": 3,
-     "n": "Vector data type with distance functions (9.4). Metadata search needs a configured external vector database such as PGVector.",
+     "n": "Version 9.4 added a vector data type with distance functions. Metadata search needs a configured external vector database such as PGVector.",
      "u": "https://community.denodo.com/docs/html/browse/9.5/en/platform/new_features/what_is_new_9_4"
     },
     "mcp": {
      "l": 3,
-     "n": "Standalone read-only MCP server and AI SDK MCP endpoint. Tools include run_vql_query, metadata_search, generate_vql.",
+     "n": "A standalone read-only MCP server and an AI SDK MCP endpoint exist. Tools include run_vql_query, metadata_search, generate_vql.",
      "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/Denodo%20MCP%20Server%20-%20User%20Manual"
     },
     "governance": {
      "l": 3,
-     "n": "Denodo privileges are the final filter for MCP. AI SDK retrieves only views the user may access. Tags set visibility.",
+     "n": "Denodo privileges are the final filter for MCP. The AI SDK retrieves only views that the user may access. Tags set visibility.",
      "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/Denodo%20MCP%20Server%20-%20User%20Manual"
     },
     "openStandard": {
      "l": 0,
-     "n": "Listed in the Apache Ossie ecosystem and working group, but no converter or Ossie export found.",
+     "n": "Denodo is in the Apache Ossie ecosystem and working group. The docs show no converter or Ossie export.",
      "u": "https://ossie.apache.org/ecosystem/"
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "Denodo Assistant suggests view and column descriptions from sample data and metadata. Added in 9.1 (Nov 2024). Needs the AI & Denodo Assistant FeaturePack.",
+     "n": "Denodo Assistant suggests view and column descriptions from sample data and metadata. Denodo added it in 9.1 (Nov 2024). It needs the AI & Denodo Assistant FeaturePack.",
      "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/administration/denodo_platform_feature_packs/denodo_platform_feature_packs"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "VQL DESCRIPTION clause sets view descriptions. Stored procedures DENODO_ASSISTANT_GENERATE_VIEW_DESCRIPTION and _FIELDS_DESCRIPTION draft text per view.",
+     "n": "The VQL DESCRIPTION clause sets view descriptions. The stored procedures DENODO_ASSISTANT_GENERATE_VIEW_DESCRIPTION and _FIELDS_DESCRIPTION draft text per view.",
      "u": "https://community.denodo.com/docs/html/browse/latest/en/vdp/vql/language_for_defining_and_processing_data_vql/object_descriptions/object_descriptions"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic column classification in the feature pack list. Tags are applied by hand and drive Global Security Policies.",
+     "n": "The feature pack list shows no automatic column classification. Users apply tags by hand. The tags drive Global Security Policies.",
      "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/administration/denodo_platform_feature_packs/denodo_platform_feature_packs"
     },
     "sampleValues": {
      "l": 3,
-     "n": "AI SDK samples values per view when it vectorizes metadata. Set examples_per_table = 0 to turn it off. SDK is a separate download.",
+     "n": "AI SDK samples values per view when it vectorizes metadata. Set examples_per_table = 0 to turn it off. The SDK is a separate download.",
      "u": "https://community.denodo.com/docs/html/document/denodoconnects/latest/en/Denodo%20AI%20SDK%20-%20User%20Manual"
     },
     "queryHistory": {
      "l": 3,
-     "n": "Assistant suggests filters, derived fields and cached summaries from past query activity. Needs the AI & Denodo Assistant FeaturePack (Enterprise Plus).",
+     "n": "The Assistant suggests filters, derived fields and cached summaries from past query activity. It needs the AI & Denodo Assistant FeaturePack (Enterprise Plus).",
      "u": "https://community.denodo.com/docs/html/browse/latest/en/platform/administration/denodo_platform_feature_packs/denodo_platform_feature_packs"
     },
     "lineage": {
      "l": 3,
-     "n": "COLUMN_DEPENDENCIES returns column-level lineage for derived views, the same data as the Data Lineage dialog in Design Studio.",
+     "n": "COLUMN_DEPENDENCIES returns column-level lineage for derived views. It gives the same data as the Data Lineage dialog in Design Studio.",
      "u": "https://community.denodo.com/docs/html/browse/latest/en/vdp/vql/stored_procedures/predefined_stored_procedures/column_dependencies"
     },
     "evals": {
      "l": 3,
-     "n": "AI SDK Evaluator runs questions against ground-truth VQL and reports F1, overlap and efficiency score in an Excel report.",
+     "n": "The AI SDK Evaluator runs questions against ground-truth VQL. It reports F1, overlap and efficiency score in an Excel report.",
      "u": "https://community.denodo.com/kb/en/view/document/A%20Quick%20Guide%20to%20the%20Denodo%20AI%20SDK%20Evaluator"
     }
    },
    "offers": [
-    "Metric views define KPIs once over joined views; the Data Marketplace assistant turns plain-language requests into VQL against them.",
-    "Open-source AI SDK provides text-to-VQL, vector metadata search, and a DeepQuery agent for multi-step questions.",
-    "Standalone read-only MCP server exposes view metadata, semantic metadata search, and tools to validate and run VQL.",
-    "Views carry descriptions, tags, and associations. The AI SDK passes this schema to the LLM and filters by user permission.",
-    "One virtual layer reaches many sources, so agents query live data without copying it."
+    "Metric views define KPIs once over joined views. The Data Marketplace assistant turns plain-language requests into VQL against them.",
+    "The open-source AI SDK provides text-to-VQL, vector metadata search, and a DeepQuery agent. DeepQuery answers multi-step questions.",
+    "The standalone read-only MCP server exposes view metadata and semantic metadata search. It also has tools to validate and run VQL.",
+    "Views carry descriptions, tags, and associations. The AI SDK passes this schema to the LLM. It filters by user permission.",
+    "One virtual layer reaches many sources. Agents query live data without copying it."
    ],
    "gaps": [
     "Metric views are new (9.5, July 2026). The AI SDK and MCP docs do not mention them.",
-    "No ontology, verified-query store, or graph query language found.",
-    "Metadata search and the AI SDK need an external vector database and an LLM that you configure and run.",
-    "9.5 docs list AI and Semantics feature packs under Enterprise Plus. Licensing scope was not checked.",
-    "The manual says the sample chatbot is not for production, and Chroma is for demos only."
+    "The docs show no ontology, no verified-query store, and no graph query language.",
+    "Metadata search and the AI SDK need an external vector database and an LLM. You configure and run both.",
+    "The 9.5 docs list AI and Semantics feature packs under Enterprise Plus. The licensing scope is unverified.",
+    "The manual says the sample chatbot is not for production. It also says Chroma is for demos only."
    ],
    "fillWith": [
     "dbt Denodo adapter (DenodoConnect component)",
     "PGVector or OpenSearch as the metadata vector store",
     "Apache Ossie (Denodo is a listed participant, no converter found)"
    ],
-   "nl2sqlPath": "Model facts and dimensions as metric views, fill in view and column descriptions, and tag the views. Then run the Denodo AI SDK or MCP server with a vector store you host, so the LLM sees view schemas and descriptions. Use DeepQuery only for multi-step questions, because it needs a thinking model with at least 128k context.",
+   "nl2sqlPath": "Model facts and dimensions as metric views. Fill in view and column descriptions. Tag the views. Then run the Denodo AI SDK or MCP server with a vector store that you host. The LLM then sees view schemas and descriptions. Use DeepQuery only for multi-step questions. DeepQuery needs a thinking model with at least 128k context.",
    "snippet": {
     "lang": "sql",
-    "title": "Metric view in VQL (shortened from the 9.5 VQL Guide example)",
+    "title": "Metric view in VQL, shortened from the 9.5 VQL Guide example",
     "code": "CREATE OR REPLACE METRIC VIEW sales_view\n  DESCRIPTION = 'Example of metric view'\n  SOURCES (\n    orders AS vdb_tpch.psql_tpch_orders,\n    customer AS vdb_tpch.psql_tpch_customer )\n  ASSOCIATIONS (\n    orders customer vdb_tpch.psql_tpch_customer_psql_tpch_orders INNER )\n  DIMENSIONS (\n    customer_dim( customer_name AS customer.c_name ),\n    order_date AS orders.o_orderdate )\n  METRICS (\n    count_order_keys AS count(orders.o_orderkey),\n    order_average_value AS avg(orders.o_totalprice) );",
     "u": "https://community.denodo.com/docs/html/accessible/9.5/vdp/vql/defining_a_derived_view/defining_a_metric_view/defining_a_metric_view.html"
    },
@@ -7081,7 +7145,7 @@ window.SL = {
      "u": "https://community.denodo.com/docs/html/document/denodoconnects/9.5/en/Denodo%20AI%20SDK%20-%20User%20Manual"
     }
    ],
-   "enrichHowTo": "Configure Denodo Assistant, then call DENODO_ASSISTANT_GENERATE_VIEW_DESCRIPTION and DENODO_ASSISTANT_GENERATE_FIELDS_DESCRIPTION for each view, or use the Assistant in Design Studio. Review the text and write it back with the VQL DESCRIPTION clause. Maximum description length is 4,000 characters.",
+   "enrichHowTo": "Configure Denodo Assistant. Then call DENODO_ASSISTANT_GENERATE_VIEW_DESCRIPTION and DENODO_ASSISTANT_GENERATE_FIELDS_DESCRIPTION for each view. Or use the Assistant in Design Studio. Review the text. Write it back with the VQL DESCRIPTION clause. The maximum description length is 4,000 characters.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "CREATE OR REPLACE VIEW customer360\n DESCRIPTION = 'This is the view that business users need to use to obtain all the information of the customer'\nAS SELECT ...",
@@ -7092,9 +7156,9 @@ window.SL = {
    "id": "dremio",
    "name": "Dremio",
    "category": "virtualization",
-   "tagline": "Iceberg lakehouse and query engine; semantic layer is views, wikis, and labels.",
+   "tagline": "Iceberg lakehouse and query engine. Its semantic layer is views, wikis, and labels.",
    "verdict": "partial",
-   "verdictNote": "Views, wikis, labels, and semantic search give an AI agent business context, but Dremio has no metric, dimension, or relationship objects.",
+   "verdictNote": "Views, wikis, labels, and semantic search give an AI agent business context. Dremio has no metric, dimension, or relationship objects.",
    "artifacts": [
     {
      "name": "Views in spaces and folders",
@@ -7156,123 +7220,123 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 0,
-     "n": "No metric object found in docs. Metric logic lives as SQL expressions inside views.",
+     "n": "The docs show no metric object. Metric logic is in SQL expressions inside views.",
      "u": "https://docs.dremio.com/dremio-cloud/about/concepts"
     },
     "dimensions": {
      "l": 0,
-     "n": "No declared dimensions or hierarchies found in docs. Views expose plain columns.",
+     "n": "The docs show no declared dimensions or hierarchies. Views expose plain columns.",
      "u": "https://docs.dremio.com/dremio-cloud/about/concepts"
     },
     "relationships": {
      "l": 0,
-     "n": "No declared join paths found in docs. Joins are written inside view SQL.",
+     "n": "The docs show no declared join paths. Users write joins inside view SQL.",
      "u": "https://docs.dremio.com/dremio-cloud/help-support/well-architected-framework/self-serve-semantic-layer"
     },
     "synonyms": {
      "l": 3,
-     "n": "Markdown wikis and labels on datasets and folders. The AI Agent reads them as context.",
+     "n": "Markdown wikis and labels exist on datasets and folders. The AI Agent reads them as context.",
      "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent"
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No verified-query or example-SQL store found in the docs.",
+     "n": "The docs show no verified-query or example-SQL store.",
      "u": ""
     },
     "nl2sql": {
      "l": 3,
-     "n": "Built-in AI Agent writes SQL, charts, and explanations. Needs the CALL MODEL privilege; built-in or external LLM.",
+     "n": "The built-in AI Agent writes SQL, charts, and explanations. It needs the CALL MODEL privilege. It uses a built-in or external LLM.",
      "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology layer. Spaces, folders, views, wikis, and labels are the modeling objects.",
+     "n": "No ontology layer exists. Spaces, folders, views, wikis, and labels are the modeling objects.",
      "u": "https://docs.dremio.com/dremio-cloud/about/concepts"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language found. A lineage graph exists for datasets only.",
+     "n": "The docs show no graph query language. A lineage graph exists for datasets only.",
      "u": "https://docs.dremio.com/llms-full.txt"
     },
     "vector": {
      "l": 3,
-     "n": "AI semantic search over names, wikis, labels, and metadata. English-optimized; index can lag a few hours.",
+     "n": "AI semantic search covers names, wikis, labels, and metadata. It is English-optimized. The index can be a few hours late.",
      "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/discover"
     },
     "mcp": {
      "l": 3,
-     "n": "Hosted MCP server with OAuth, plus self-hosted open-source server. Tools include RunSqlQuery and GetSchemaOfTable.",
+     "n": "The hosted MCP server uses OAuth. A self-hosted open-source server also exists. Tools include RunSqlQuery and GetSchemaOfTable.",
      "u": "https://docs.dremio.com/dremio-cloud/developer/mcp-server/"
     },
     "governance": {
      "l": 3,
-     "n": "Agent acts with the user's privileges. Row-access and column-masking policies apply to views. Dataset-level lineage is available.",
+     "n": "The agent acts with the privileges of the user. Row-access and column-masking policies apply to views. Dataset-level lineage is available.",
      "u": "https://docs.dremio.com/dremio-cloud/manage-govern/row-column-policies"
     },
     "openStandard": {
      "l": 0,
-     "n": "Listed in Apache Ossie ecosystem, but no Dremio converter or export found. Catalog follows Iceberg REST on Apache Polaris.",
+     "n": "Dremio is in the Apache Ossie ecosystem list. The docs show no Dremio converter or export. The catalog follows Iceberg REST on Apache Polaris.",
      "u": "https://ossie.apache.org/ecosystem/"
     },
     "aiDescriptions": {
      "l": 2,
-     "n": "Generate wiki and Generate labels buttons on a dataset draft text from schema and data. Docs mark the feature Preview.",
+     "n": "Generate wiki and Generate labels buttons on a dataset draft text from schema and data. The docs mark the feature Preview.",
      "u": "https://docs.dremio.com/dremio-cloud/manage-govern/wikis-labels"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "Catalog REST API creates wikis and tags per dataset. Wikis cover sources, folders and datasets. No SQL COMMENT or column descriptions found.",
+     "n": "The Catalog REST API creates wikis and tags per dataset. Wikis cover sources, folders and datasets. The docs show no SQL COMMENT or column descriptions.",
      "u": "https://docs.dremio.com/dremio-cloud/api/catalog/wiki"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic PII classification found. Labels such as PII are added by hand or drafted by the AI label generator.",
+     "n": "The docs show no automatic PII classification. Users add labels such as PII by hand. The AI label generator can also draft them.",
      "u": "https://docs.dremio.com/dremio-cloud/manage-govern/wikis-labels"
     },
     "sampleValues": {
      "l": 0,
-     "n": "Docs say the AI agent uses wikis, labels and sampling to judge relevance. No value matching or stored sample values documented.",
+     "n": "The docs say the AI agent uses wikis, labels and sampling to judge relevance. The docs describe no value matching or stored sample values.",
      "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent"
     },
     "queryHistory": {
      "l": 0,
-     "n": "No mining of query history to suggest joins, metrics or examples documented. The AI agent keeps per-user chat history only.",
+     "n": "The docs describe no mining of query history to suggest joins, metrics or examples. The AI agent keeps per-user chat history only.",
      "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent"
     },
     "lineage": {
      "l": 0,
-     "n": "Lineage graph shows source, parent and child datasets. Docs describe no column-level lineage.",
+     "n": "The lineage graph shows source, parent and child datasets. The docs describe no column-level lineage.",
      "u": "https://docs.dremio.com/dremio-cloud/manage-govern/lineage"
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL eval tooling documented. The AI agent has a feedback dialog that sends chat data to Dremio.",
+     "n": "The docs describe no NL-to-SQL eval tooling. The AI agent has a feedback dialog that sends chat data to Dremio.",
      "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent"
     }
    },
    "offers": [
-    "Views in spaces and folders, layered as preparation, business, and application, give agents curated tables to query.",
-    "Markdown wikis and labels on datasets add descriptions that the AI Agent reads for discovery and SQL generation.",
-    "Hosted MCP server with OAuth lets Claude or ChatGPT query governed data under the user's own privileges.",
-    "Built-in AI Agent turns questions into SQL and charts, and explains SQL or past jobs inside the console.",
-    "Row-access and column-masking policies on tables and views are applied by the query planner at run time.",
-    "Semantic search finds tables, views, and folders from natural-language terms using names, wikis, and labels."
+    "Views in spaces and folders give agents curated tables to query. The views are in three layers: preparation, business, and application.",
+    "Markdown wikis and labels on datasets add descriptions. The AI Agent reads them for discovery and SQL generation.",
+    "The hosted MCP server uses OAuth. It lets Claude or ChatGPT query governed data with the privileges of the user.",
+    "The built-in AI Agent turns questions into SQL and charts. It also explains SQL or past jobs in the console.",
+    "The query planner applies row-access and column-masking policies on tables and views at run time.",
+    "Semantic search finds tables, views, and folders from natural-language terms. It uses names, wikis, and labels."
    ],
    "gaps": [
-    "No metric, dimension, or join-path objects. Business logic stays inside view SQL, so agents must infer joins and metric rules.",
-    "AI generation of wikis and labels is Preview. Docs warn that table names, tags, and wikis may reach the model.",
-    "No verified question-to-SQL store, no ontology layer, and no graph query language found.",
-    "No Dremio converter for Apache Ossie found, so semantic definitions are not portable.",
-    "The self-hosted MCP server is open source and outside Dremio support policies."
+    "Dremio has no metric, dimension, or join-path objects. Business logic stays inside view SQL. Agents must infer joins and metric rules.",
+    "AI generation of wikis and labels is Preview. The docs warn that table names, tags, and wikis can reach the model.",
+    "The docs show no verified question-to-SQL store, no ontology layer, and no graph query language.",
+    "The docs show no Dremio converter for Apache Ossie. Semantic definitions are therefore not portable.",
+    "The self-hosted MCP server is open source. It is outside the Dremio support policies."
    ],
    "fillWith": [
     "dbt (dbt-dremio adapter, maintained by Dremio)",
     "Apache Ossie YAML (spec only, no Dremio converter found)"
    ],
-   "nl2sqlPath": "Model business logic as business-layer views, then write a wiki and labels for each view and column. Point the AI Agent or the hosted MCP server at that space. Put metric formulas and join rules in the wikis, because Dremio has no object for them.",
+   "nl2sqlPath": "Model business logic as business-layer views. Write a wiki and labels for each view and column. Point the AI Agent or the hosted MCP server at that space. Put metric formulas and join rules in the wikis. Dremio has no object for them.",
    "snippet": {
     "lang": "sql",
-    "title": "A view in a space, from the CREATE VIEW reference (wikis and labels are edited in the console, REST API, or CLI)",
+    "title": "A view in a space, from the CREATE VIEW reference. The console, REST API, or CLI edit wikis and labels.",
     "code": "-- Dremio docs example: a view stored in a space or folder\nCREATE VIEW demo.jobs_view AS SELECT * FROM \"oracle_e2e\".DREMIO.JOBS",
     "u": "https://docs.dremio.com/current/reference/sql/commands/create-view"
    },
@@ -7387,7 +7451,7 @@ window.SL = {
      "u": "https://docs.dremio.com/dremio-cloud/explore-analyze/ai-agent/"
     }
    ],
-   "enrichHowTo": "Turn on AI under Admin > Project > AI, then use Generate wiki and Generate labels on each dataset and review the text. For scripted writes, call the Catalog API: POST /v0/projects/{project_id}/catalog/{id}/collaboration/wiki for wikis and .../collaboration/tag for labels, one dataset per call.",
+   "enrichHowTo": "Turn on AI under Admin > Project > AI. Then use Generate wiki and Generate labels on each dataset. Review the text. For scripted writes, call the Catalog API. Use POST /v0/projects/{project_id}/catalog/{id}/collaboration/wiki for wikis. Use .../collaboration/tag for labels. Send one dataset per call.",
    "bulkSnippet": {
     "lang": "bash",
     "code": "curl -X POST \"https://api.dremio.cloud/v0/projects/$PROJECT_ID/catalog/$DATASET_ID/collaboration/tag\" \\\n-H \"Authorization: Bearer $DREMIO_TOKEN\" \\\n-H 'Content-Type: application/json' \\\n--data-raw '{\"tags\": [\"NYC\", \"taxi\", \"2023\"]}'",
@@ -7398,9 +7462,9 @@ window.SL = {
    "id": "starburst",
    "name": "Starburst / Trino",
    "category": "virtualization",
-   "tagline": "Trino-based federated query engine with data products, an AI agent, and an MCP server.",
+   "tagline": "Trino-based federated query engine. It has data products, an AI agent, and an MCP server.",
    "verdict": "partial",
-   "verdictNote": "Data products (views plus descriptions, tags, sample queries, and business rules) feed the AI agent, but there are no metric, dimension, or relationship objects, and open-source Trino has none of it.",
+   "verdictNote": "Data products feed the AI agent. A data product is views plus descriptions, tags, sample queries, and business rules. Starburst has no metric, dimension, or relationship objects. Open-source Trino has none of these features.",
    "artifacts": [
     {
      "name": "Data product (views and materialized views in a schema)",
@@ -7470,77 +7534,77 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 0,
-     "n": "No metric object. Metric rules go in view SQL or in free-text business rules that AIDA reads.",
+     "n": "No metric object exists. Metric rules go in view SQL or in free-text business rules. AIDA reads the business rules.",
      "u": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
     },
     "dimensions": {
      "l": 0,
-     "n": "No dimension or hierarchy objects. Columns and column descriptions are the only structure.",
+     "n": "No dimension or hierarchy objects exist. Columns and column descriptions are the only structure.",
      "u": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
     },
     "relationships": {
      "l": 0,
-     "n": "No declared join paths. Dataset descriptions can explain relations in free text.",
+     "n": "No declared join paths exist. Dataset descriptions can explain relations in free text.",
      "u": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
     },
     "synonyms": {
      "l": 3,
-     "n": "Data product and column descriptions, tags, and business rules (up to 60,000 characters) give AIDA context.",
+     "n": "Data product and column descriptions, tags, and business rules give AIDA context. Business rules can have up to 60,000 characters.",
      "u": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "Data products store sample queries. AIDA uses only their descriptions as suggested prompts, not the SQL as few-shot context.",
+     "n": "Data products store sample queries. AIDA uses only their descriptions as suggested prompts. It does not use the SQL as few-shot context.",
      "u": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
     },
     "nl2sql": {
      "l": 3,
-     "n": "AIDA turns questions into SQL over a chosen data product. GA since 477-e; needs AI workflows and agentic-layer licenses.",
+     "n": "AIDA turns questions into SQL over a chosen data product. It is GA since 477-e. It needs AI workflows and agentic-layer licenses.",
      "u": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology. Data products group into domains, but no entity or class model was found.",
+     "n": "No ontology exists. Data products group into domains. The docs show no entity or class model.",
      "u": "https://docs.starburst.io/latest/data-products/index.html"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language found in the Starburst or Trino docs.",
+     "n": "The Starburst and Trino docs show no graph query language.",
      "u": ""
     },
     "vector": {
      "l": 1,
-     "n": "AI functions include starburst.ai.generate_embedding(). No native vector index found; data product search is keyword.",
+     "n": "AI functions include starburst.ai.generate_embedding(). The docs show no native vector index. Data product search uses keywords.",
      "u": "https://docs.starburst.io/latest/starburst-ai/mcp-server.html"
     },
     "mcp": {
      "l": 3,
-     "n": "Integrated MCP server, GA since 477-e: read-only query tool plus data product search and retrieval. Needs an MCP license.",
+     "n": "The integrated MCP server is GA since 477-e. It has a read-only query tool and data product search and retrieval tools. It needs an MCP license.",
      "u": "https://docs.starburst.io/latest/starburst-ai/mcp-server.html"
     },
     "governance": {
      "l": 3,
-     "n": "AIDA runs under the user's role and logs agent interactions. Data product privileges grant no table access.",
+     "n": "AIDA runs under the role of the user. It logs agent interactions. Data product privileges grant no table access.",
      "u": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
     },
     "openStandard": {
      "l": 0,
-     "n": "Data Products as Code is Starburst-specific YAML (sep/v1). Starburst Data is listed in the Ossie ecosystem; no converter found.",
+     "n": "Data Products as Code is Starburst-specific YAML (sep/v1). Starburst Data is in the Ossie ecosystem list. The docs show no converter.",
      "u": "https://ossie.apache.org/ecosystem/"
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "AI agent enrichment drafts data product, dataset and column descriptions. Automatic Metadata Enrichment announced GA May 2026. Galaxy has Enrich with AIDA.",
+     "n": "AI agent enrichment drafts data product, dataset and column descriptions. Starburst announced Automatic Metadata Enrichment as GA in May 2026. Galaxy has Enrich with AIDA.",
      "u": "https://docs.starburst.io/latest/starburst-ai/data-product-enrichment-ai.html"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "Trino COMMENT ON TABLE, VIEW, MATERIALIZED VIEW, COLUMN sets one object per statement. Connector support is not covered on that page.",
+     "n": "Trino COMMENT ON TABLE, VIEW, MATERIALIZED VIEW, COLUMN sets one object per statement. That page does not cover connector support.",
      "u": "https://trino.io/docs/current/sql/comment.html"
     },
     "autoClassify": {
      "l": 3,
-     "n": "Galaxy data classifier jobs scan catalogs, schemas and tables, then propose attribute tags for PII and location columns. Admins accept or reject.",
+     "n": "Galaxy data classifier jobs scan catalogs, schemas and tables. Then they propose attribute tags for PII and location columns. Admins accept or reject them.",
      "u": "https://docs.starburst.io/starburst-galaxy/security-and-compliance/manage-galaxy-access/manage-users-roles-and-tags/data-classifier-jobs.html"
     },
     "sampleValues": {
@@ -7550,43 +7614,43 @@ window.SL = {
     },
     "queryHistory": {
      "l": 0,
-     "n": "AIDA keeps chat history and audit logs. Docs describe no mining of query history for suggestions. Enrichment infers joins from dataset SQL.",
+     "n": "AIDA keeps chat history and audit logs. The docs describe no mining of query history for suggestions. Enrichment infers joins from dataset SQL.",
      "u": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
     },
     "lineage": {
      "l": 2,
-     "n": "Galaxy data lineage shows table and column lineage, one hop each way. Public preview, Galaxy only.",
+     "n": "Galaxy data lineage shows table and column lineage, one hop each way. It is public preview and Galaxy only.",
      "u": "https://docs.starburst.io/starburst-galaxy/working-with-data/explore-data/data-lineage.html"
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL eval tooling or rating loop found in AIDA docs. Business rules and skills steer answers.",
+     "n": "The AIDA docs show no NL-to-SQL eval tooling or rating loop. Business rules and skills steer answers.",
      "u": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
     }
    },
    "offers": [
     "Data products bundle views with descriptions, tags, owners, sample queries, and business rules. AIDA reads them as context.",
-    "AIDA generates and runs SQL over a chosen data product, with personas and an audit log of agent interactions.",
-    "Integrated MCP server (GA since 477-e) offers read-only query plus data product search and retrieval tools.",
-    "Agent-based enrichment drafts descriptions for data products, datasets, and columns from schema, SQL, and optional data samples.",
-    "Data Products as Code exports and imports data products as YAML, which supports versioning and auditing."
+    "AIDA generates and runs SQL over a chosen data product. It has personas and an audit log of agent interactions.",
+    "The integrated MCP server (GA since 477-e) offers a read-only query tool. It also offers data product search and retrieval tools.",
+    "Agent-based enrichment drafts descriptions for data products, datasets, and columns. It uses the schema, SQL, and optional data samples.",
+    "Data Products as Code exports and imports data products as YAML. This supports versioning and auditing."
    ],
    "gaps": [
-    "No metric, dimension, or join-path objects. Metric logic lives in view SQL or free-text business rules.",
-    "Open-source Trino has no semantic layer; views accept only a COMMENT. Data products, AIDA, and MCP are Starburst products.",
+    "No metric, dimension, or join-path objects exist. Metric logic lives in view SQL or in free-text business rules.",
+    "Open-source Trino has no semantic layer. Its views accept only a COMMENT. Data products, AIDA, and MCP are Starburst products.",
     "Data products need a Hive or Iceberg catalog. AIDA and MCP need separate licenses.",
     "AIDA skills, external MCP servers, and data sampling in enrichment are public preview (August 2026).",
-    "No documented use of sample queries as AI context, and no native vector search."
+    "The docs show no use of sample queries as AI context. They also show no native vector search."
    ],
    "fillWith": [
     "dbt (dbt-trino adapter, maintained by Starburst)",
     "Cube (has a Trino connector)",
     "Apache Ossie (Starburst Data is listed, no converter found)"
    ],
-   "nl2sqlPath": "Build data products on Hive or Iceberg catalogs, write column descriptions and business rules, then use AIDA or the Starburst MCP server against those products. Put metric formulas in business rules or view SQL, because no metric object exists. On open-source Trino, you must build the semantic context yourself, for example with dbt or Cube.",
+   "nl2sqlPath": "Build data products on Hive or Iceberg catalogs. Write column descriptions and business rules. Then use AIDA or the Starburst MCP server against those products. Put metric formulas in business rules or view SQL, because no metric object exists. On open-source Trino, build the semantic context yourself, for example with dbt or Cube.",
    "snippet": {
     "lang": "yaml",
-    "title": "Data Products as Code excerpt (shortened; publishing also needs summary and owners)",
+    "title": "Data Products as Code excerpt, shortened. Publishing also needs a summary and owners.",
     "code": "apiVersion: sep/v1\nkind: DataProduct\nmetadata:\n  name: Comprehensive Data Product\n  catalogName: analytics_catalog\n  dataDomainName: Enterprise Analytics Domain\n  businessContext: Revenue is gross_sales - returns - discounts in USD.\ndatasets:\n  views:\n    - name: sales_summary\n      definitionQuery: SELECT product_id, SUM(amount) AS total_revenue FROM raw.transactions.sales GROUP BY 1\n      columns:\n        - name: total_revenue\n          type: decimal(18,2)\n          description: Total revenue in USD",
     "u": "https://docs.starburst.io/latest/data-products/manage-data-products.html"
    },
@@ -7696,7 +7760,7 @@ window.SL = {
      "u": "https://docs.starburst.io/latest/starburst-ai/aida-ai.html"
     }
    ],
-   "enrichHowTo": "In the Data products tab, select a data product and click Enrich with AI (Enrich with AIDA in Galaxy), enable data sampling if allowed, then review and save. For scripted writes, run Trino COMMENT ON COLUMN statements, one per column. Enrichment needs AI workflows and Agentic layer licenses and starburst.agent.enabled=true.",
+   "enrichHowTo": "In the Data products tab, select a data product and click Enrich with AI (Enrich with AIDA in Galaxy). Enable data sampling if allowed. Then review and save. For scripted writes, run Trino COMMENT ON COLUMN statements, one per column. Enrichment needs AI workflows and Agentic layer licenses. It also needs starburst.agent.enabled=true.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "COMMENT ON TABLE users IS 'master table';\nCOMMENT ON COLUMN users.name IS 'full name';",
@@ -7707,9 +7771,9 @@ window.SL = {
    "id": "timbr",
    "name": "Timbr.ai",
    "category": "virtualization",
-   "tagline": "SQL-native ontology and virtual knowledge graph over existing SQL sources, with data agents and MCP.",
+   "tagline": "SQL-native ontology and virtual knowledge graph over existing SQL sources. It has data agents and MCP.",
    "verdict": "native",
-   "verdictNote": "Concepts, relationships, measures, cubes, and a Knowledge Base of approved examples are first-party objects that Timbr's own agents and MCP server read.",
+   "verdictNote": "Concepts, relationships, measures, cubes, and a Knowledge Base of approved examples are first-party objects. The Timbr agents and MCP server read them.",
    "artifacts": [
     {
      "name": "Ontology concept (CREATE CONCEPT)",
@@ -7792,7 +7856,7 @@ window.SL = {
     },
     "dimensions": {
      "l": 3,
-     "n": "Cubes expose properties of a concept and related concepts as dimensions; grouping is chosen at query time.",
+     "n": "Cubes expose properties of a concept and related concepts as dimensions. The user chooses the grouping at query time.",
      "u": "https://docs.timbr.ai/doc/docs/sql/cubes"
     },
     "relationships": {
@@ -7802,77 +7866,77 @@ window.SL = {
     },
     "synonyms": {
      "l": 3,
-     "n": "Concept descriptions, tags, and Knowledge Base instructions that define business terms. No dedicated synonym field found.",
+     "n": "Concept descriptions, tags, and Knowledge Base instructions define business terms. The docs show no dedicated synonym field.",
      "u": "https://docs.timbr.ai/doc/docs/sql/knowledge-bases"
     },
     "verifiedQueries": {
      "l": 3,
-     "n": "Knowledge Base holds approved question-SQL examples. Agents reuse or follow them before generating SQL.",
+     "n": "The Knowledge Base holds approved question-SQL examples. Agents reuse or follow them before they generate SQL.",
      "u": "https://docs.timbr.ai/doc/docs/sql/knowledge-bases"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Data agents, Ask Timbr, and the LangChain SDK generate Timbr SQL over the ontology with your LLM.",
+     "n": "Data agents, Ask Timbr, and the LangChain SDK generate Timbr SQL over the ontology. They use your LLM.",
      "u": "https://docs.timbr.ai/doc/docs/integration/langchain-sdk"
     },
     "ontology": {
      "l": 3,
-     "n": "SQL-native ontology: concepts with inheritance, relationships, and inference, exposed as a virtual schema over JDBC, ODBC, REST.",
+     "n": "SQL-native ontology with concepts, inheritance, relationships, and inference. It is a virtual schema over JDBC, ODBC, and REST.",
      "u": "https://docs.timbr.ai/doc/docs/getting-started/intro-timbr"
     },
     "graph": {
      "l": 3,
-     "n": "Graph traversal in SQL and graph algorithms in the gtimbr schema. No SPARQL or Cypher found in the docs.",
+     "n": "Graph traversal in SQL and graph algorithms are in the gtimbr schema. The docs show no SPARQL or Cypher.",
      "u": "https://docs.timbr.ai/doc/docs/sql/graph-algorithms"
     },
     "vector": {
      "l": 0,
-     "n": "No vector index or embedding search found in the docs. GraphRAG Extract maps entities from unstructured data.",
+     "n": "The docs show no vector index or embedding search. GraphRAG Extract maps entities from unstructured data.",
      "u": "https://docs.timbr.ai/doc/docs/general/changelog"
     },
     "mcp": {
      "l": 3,
-     "n": "First-party MCP server with API key or OAuth. Tools include query_data, generate_sql, describe_knowledge_graph, execute_sql.",
+     "n": "The first-party MCP server uses an API key or OAuth. Tools include query_data, generate_sql, describe_knowledge_graph, execute_sql.",
      "u": "https://docs.timbr.ai/doc/docs/integration/mcp/overview"
     },
     "governance": {
      "l": 3,
-     "n": "RBAC on ontologies, agents, and Knowledge Bases, plus row-level security policies that also cover views.",
+     "n": "RBAC applies to ontologies, agents, and Knowledge Bases. Row-level security policies also cover views.",
      "u": "https://docs.timbr.ai/doc/docs/sql/permissions"
     },
     "openStandard": {
      "l": 0,
-     "n": "No Ossie listing found. Intro says ERD and OWL import exists; ontology Git export arrived in 2.69.0 (Oct 2026).",
+     "n": "The docs show no Ossie listing. The intro says ERD and OWL import exists. Ontology Git export arrived in 2.69.0 (Oct 2026).",
      "u": "https://docs.timbr.ai/doc/docs/getting-started/intro-timbr"
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "Auto-generated descriptions for concepts, properties, relationships, measures, views and cubes (release 2.52.0, Jan 2026). Bulk generation in Ontology Explorer.",
+     "n": "Release 2.52.0 (Jan 2026) auto-generates descriptions for concepts, properties, relationships, measures, views and cubes. Ontology Explorer does bulk generation.",
      "u": "https://docs.timbr.ai/doc/docs/general/changelog/"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "SQL DDL sets concept descriptions, relationship descriptions and tags. Property-level description DDL not found. Bulk AI description generation announced March 2026.",
+     "n": "SQL DDL sets concept descriptions, relationship descriptions and tags. The docs show no property-level description DDL. Timbr announced bulk AI description generation in March 2026.",
      "u": "https://docs.timbr.ai/doc/docs/sql/sql-ddl/"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic PII or semantic-type classification found in docs or changelog. Tags are set by hand with ALTER CONCEPT ... TAG.",
+     "n": "The docs and changelog show no automatic PII or semantic-type classification. Users set tags by hand with ALTER CONCEPT ... TAG.",
      "u": "https://docs.timbr.ai/doc/docs/sql/sql-ddl/"
     },
     "sampleValues": {
      "l": 0,
-     "n": "Ontology Explorer fetches 50 sample rows for people. Knowledge Base instructions map business terms to measures. No value matching for NL-to-SQL found.",
+     "n": "Ontology Explorer fetches 50 sample rows for people. Knowledge Base instructions map business terms to measures. The docs show no value matching for NL-to-SQL.",
      "u": "https://docs.timbr.ai/doc/docs/platform/modeling/ontology-explorer/"
     },
     "queryHistory": {
      "l": 0,
-     "n": "No query-log mining. Benchmarks import questions from agent conversation history, and Knowledge Base suggestions come from user feedback.",
+     "n": "The docs show no query-log mining. Benchmarks import questions from agent conversation history. Knowledge Base suggestions come from user feedback.",
      "u": "https://docs.timbr.ai/doc/docs/platform/managing/benchmarks/"
     },
     "lineage": {
      "l": 3,
-     "n": "Data Lineage view and SYS_LINEAGE table cover datasources, tables, mappings, concepts, views and properties. Source-column depth not stated.",
+     "n": "The Data Lineage view and SYS_LINEAGE table cover datasources, tables, mappings, concepts, views and properties. The docs do not state source-column depth.",
      "u": "https://docs.timbr.ai/doc/docs/platform/visualizing/data-lineage/"
     },
     "evals": {
@@ -7882,24 +7946,24 @@ window.SL = {
     }
    },
    "offers": [
-    "Ontology of concepts, relationships, and measures over many SQL sources, so agents write short semantic SQL instead of joins.",
-    "Knowledge Base stores approved question-SQL examples and rules that agents look up before they generate SQL.",
-    "MCP server exposes natural-language tools (query_data, generate_sql) and metadata tools (describe_knowledge_graph, list_ontologies).",
-    "Cubes and measures define aggregations once and serve SQL and BI tools over JDBC, ODBC, and REST.",
+    "An ontology of concepts, relationships, and measures covers many SQL sources. Agents write short semantic SQL instead of joins.",
+    "The Knowledge Base stores approved question-SQL examples and rules. Agents look them up before they generate SQL.",
+    "The MCP server exposes natural-language tools (query_data, generate_sql). It also exposes metadata tools (describe_knowledge_graph, list_ontologies).",
+    "Cubes and measures define aggregations once. They serve SQL and BI tools over JDBC, ODBC, and REST.",
     "Row-level security policies and RBAC apply to ontologies, agents, and Knowledge Bases."
    ],
    "gaps": [
-    "Ontology DDL is Timbr-specific SQL. No Ossie or OSI support found, so models are not portable.",
-    "AI features need a customer-provided LLM. MCP docs say outputs are probabilistic and need review.",
-    "No vector or embedding search found in the docs.",
-    "Docs give no GA or beta label for MCP or Knowledge Base. Solomon is in private preview.",
-    "Graph support is SQL traversal and algorithms; no SPARQL or Cypher found."
+    "Ontology DDL is Timbr-specific SQL. The docs show no Ossie or OSI support, so models are not portable.",
+    "AI features need an LLM that the customer provides. The MCP docs say outputs are probabilistic and need review.",
+    "The docs show no vector or embedding search.",
+    "The docs give no GA or beta label for MCP or the Knowledge Base. Solomon is in private preview.",
+    "Graph support is SQL traversal and algorithms. The docs show no SPARQL or Cypher."
    ],
    "fillWith": [],
-   "nl2sqlPath": "Map your sources to concepts, add relationships and measures, and describe each concept. Create a Knowledge Base of approved examples and bind it to the ontology or to a data agent. Then connect an LLM through a data agent, the LangChain SDK, or the MCP server.",
+   "nl2sqlPath": "Map your sources to concepts. Add relationships and measures. Describe each concept. Create a Knowledge Base of approved examples. Bind it to the ontology or to a data agent. Then connect an LLM through a data agent, the LangChain SDK, or the MCP server.",
    "snippet": {
     "lang": "sql",
-    "title": "Concept with a relationship (placeholders as written in the Timbr docs)",
+    "title": "Concept with a relationship, with placeholders as written in the Timbr docs",
     "code": "CREATE OR REPLACE CONCEPT `{concept_name}` (\n  `{property_name}` {property_type},\n  `{property_name2}` {property_type2},\n  PRIMARY KEY(`{property_name}`),\n  LABEL(`{property_name2}`),\n  CONSTRAINT `{relationship_name}`\n    FOREIGN KEY (`{property_name2}`)\n    REFERENCES `{target_concept}` (`{target_concept_property}`)\n    INVERSEOF `{inverse_relationship_name}`\n) INHERITS (`{inherits_from_concept}`)\nDESCRIPTION '{concept_description}';",
     "u": "https://docs.timbr.ai/doc/docs/sql/sql-ddl"
    },
@@ -8034,7 +8098,7 @@ window.SL = {
      "u": "https://docs.timbr.ai/doc/docs/integration/langchain-sdk/"
     }
    ],
-   "enrichHowTo": "Use Ontology Explorer to generate descriptions for concepts, properties and measures with the active LLM, then review them. For scripted writes, use SQL DDL: CREATE OR REPLACE CONCEPT ... DESCRIPTION, ALTER CONSTRAINT ... SET DESCRIPTION for relationships, and ALTER CONCEPT ... UPDATE TAG for tags.",
+   "enrichHowTo": "Use Ontology Explorer to generate descriptions for concepts, properties and measures with the active LLM. Then review them. For scripted writes, use SQL DDL. Use CREATE OR REPLACE CONCEPT ... DESCRIPTION. Use ALTER CONSTRAINT ... SET DESCRIPTION for relationships. Use ALTER CONCEPT ... UPDATE TAG for tags.",
    "bulkSnippet": {
     "lang": "sql",
     "code": "ALTER CONSTRAINT `{relationship_name}` SET DESCRIPTION = '{description value}';\nALTER CONCEPT `{concept_name}` UPDATE TAG `{tag_name}` = '{tag_value}';",
@@ -8047,7 +8111,7 @@ window.SL = {
    "category": "semantic-layer",
    "tagline": "Enterprise semantic layer with an open modeling language (SML) and an MCP server.",
    "verdict": "native",
-   "verdictNote": "AtScale models governed metrics in SML, an open YAML format, and serves them to agents through an MCP server.",
+   "verdictNote": "AtScale models governed metrics in SML, an open YAML format. It serves them to agents through an MCP server.",
    "worksWith": [
     "Databricks SQL",
     "Google BigQuery",
@@ -8094,7 +8158,7 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Metric and calculation objects in SML define aggregated and derived values, including semi-additive and non-additive metrics.",
+     "n": "Metric and calculation objects in SML define aggregated and derived values. These include semi-additive and non-additive metrics.",
      "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/metric.md"
     },
     "dimensions": {
@@ -8104,47 +8168,47 @@ window.SL = {
     },
     "relationships": {
      "l": 3,
-     "n": "Model files declare relationships between fact datasets and dimensions, including role-playing relationships.",
+     "n": "Model files declare relationships between fact datasets and dimensions. These include role-playing relationships.",
      "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/model.md"
     },
     "synonyms": {
      "l": 3,
-     "n": "Models, dimensions, and metrics have description and label fields. MCP column tools return descriptions. No synonyms field found.",
+     "n": "Models, dimensions, and metrics have description and label fields. MCP column tools return descriptions. The docs show no synonyms field.",
      "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No stored question-to-SQL examples in the SML reference or MCP tools. The MCP get_sml_skills tool serves query guidance.",
+     "n": "The SML reference and MCP tools show no stored question-to-SQL examples. The MCP get_sml_skills tool serves query guidance.",
      "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
     },
     "nl2sql": {
      "l": 1,
-     "n": "External agents write SQL through MCP run_query. A first-party NLQ feature was announced as private preview in Sept 2024.",
+     "n": "External agents write SQL through MCP run_query. AtScale announced a first-party NLQ feature as private preview in Sept 2024.",
      "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology layer in the SML object list. Objects are models, dimensions, metrics, calculations, and datasets.",
+     "n": "The SML object list shows no ontology layer. Objects are models, dimensions, metrics, calculations, and datasets.",
      "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/README.md"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language found in the SML reference or MCP tools.",
+     "n": "The SML reference and MCP tools show no graph query language.",
      "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
     },
     "vector": {
      "l": 0,
-     "n": "No vector search found in the MCP tools or SML reference.",
+     "n": "The MCP tools and SML reference show no vector search.",
      "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
     },
     "mcp": {
      "l": 3,
-     "n": "MCP server tools: list_models, explore_columns, focus_columns, run_query, get_outbound_queries. Enabled through Helm values.",
+     "n": "MCP server tools: list_models, explore_columns, focus_columns, run_query, get_outbound_queries. Helm values enable them.",
      "u": "https://documentation.atscale.com/container/connect-integrate/connecting-with-ai/mcp-tools-reference"
     },
     "governance": {
      "l": 3,
-     "n": "Row security objects restrict rows by user or group. MCP outbound query audit needs the queries_view role.",
+     "n": "Row security objects restrict rows by user or group. The MCP outbound query audit needs the queries_view role.",
      "u": "https://raw.githubusercontent.com/semanticdatalayer/sml/main/sml-reference/row-security.md"
     },
     "openStandard": {
@@ -8154,7 +8218,7 @@ window.SL = {
     },
     "aiDescriptions": {
      "l": 0,
-     "n": "No description generator found in AtScale docs. One-Click Modeling (2025) proposes metrics, dimensions and relationships, not descriptions.",
+     "n": "The AtScale docs show no description generator. One-Click Modeling (2025) proposes metrics, dimensions and relationships, not descriptions.",
      "u": "https://www.atscale.com/press/atscale-2025-semantic-layer-summit-innovations/"
     },
     "bulkMetadata": {
@@ -8164,7 +8228,7 @@ window.SL = {
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic column classification found in AtScale docs.",
+     "n": "The AtScale docs show no automatic column classification.",
      "u": ""
     },
     "sampleValues": {
@@ -8174,38 +8238,38 @@ window.SL = {
     },
     "queryHistory": {
      "l": 0,
-     "n": "No mining of query history to suggest metrics or examples found in the docs.",
+     "n": "The docs show no mining of query history to suggest metrics or examples.",
      "u": ""
     },
     "lineage": {
      "l": 0,
-     "n": "Lineage panel shows dependencies between SML objects, not source columns. Alation and Collibra connectors export model metadata.",
+     "n": "The Lineage panel shows dependencies between SML objects, not source columns. Alation and Collibra connectors export model metadata.",
      "u": "https://documentation.atscale.com/container/creating-and-sharing-cubes/navigating-the-cube-designer-canvas/lineage"
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL eval tooling found in AtScale or AI-Link docs.",
+     "n": "The AtScale and AI-Link docs show no NL-to-SQL eval tooling.",
      "u": ""
     }
    },
    "offers": [
-    "Metrics, dimensions with hierarchies, and relationships modeled in SML, a YAML format kept in Git.",
+    "SML models metrics, dimensions with hierarchies, and relationships. SML is a YAML format that teams keep in Git.",
     "MCP run_query checks agent SQL against the model before it reaches the warehouse.",
     "MCP column tools return descriptions and sampled values for each column.",
     "Row security objects restrict data by user or group.",
-    "MCP server listed in the Databricks MCP Marketplace since Dec 2025."
+    "The MCP server is in the Databricks MCP Marketplace. The listing dates from Dec 2025."
    ],
    "gaps": [
-    "No stored question-to-SQL examples and no synonyms field found in the docs.",
-    "First-party NLQ was announced as a private preview in Sept 2024. Current docs describe MCP access for external agents.",
-    "MCP queries must be SELECT only, one model per query, with no CTEs or subqueries.",
-    "Current docs list six warehouses. The Snowflake Semantic Views endpoint is announced, not shipped.",
+    "The docs show no stored question-to-SQL examples and no synonyms field.",
+    "AtScale announced first-party NLQ as a private preview in Sept 2024. The current docs describe MCP access for external agents.",
+    "MCP queries must be SELECT only. They must use one model per query. They must not use CTEs or subqueries.",
+    "The current docs list six warehouses. AtScale announced the Snowflake Semantic Views endpoint but did not ship it.",
     "Only SML is open source. The engine is a commercial product."
    ],
    "fillWith": [
     "Apache Ossie YAML"
    ],
-   "nl2sqlPath": "Model metrics in AtScale and enable the MCP server in your Helm values. Point your agent at list_models, explore_columns, and run_query so it stays on governed metrics instead of raw tables.",
+   "nl2sqlPath": "Model metrics in AtScale. Enable the MCP server in your Helm values. Point your agent at list_models, explore_columns, and run_query. The agent then uses governed metrics instead of raw tables.",
    "snippet": {
     "lang": "yaml",
     "title": "An SML metric object",
@@ -8295,7 +8359,7 @@ window.SL = {
      "u": "https://www.atscale.com/press/new-natural-language-query-capabilities-with-semantic-layer-integration/"
     }
    ],
-   "enrichHowTo": "Add description and label to each SML object (model, dimension, metric) in the Git repository and deploy. For many objects, script the edits with the open-source SML SDK or CLI, or convert an existing model with the SML converters. Review changes in pull requests.",
+   "enrichHowTo": "Add description and label to each SML object (model, dimension, metric) in the Git repository. Then deploy. For many objects, script the edits with the open-source SML SDK or CLI. Or convert an existing model with the SML converters. Review changes in pull requests.",
    "bulkSnippet": {
     "lang": "yaml",
     "code": "unique_name: m_catalog_sales_coupon_amount_avg\nobject_type: metric\nlabel: Catalog Sales Average Coupon Amount\ndescription: Average coupon amount per catalog sale\ncalculation_method: average\ndataset: catalog_sales\ncolumn: cs_sales_price",
@@ -8308,7 +8372,7 @@ window.SL = {
    "category": "semantic-layer",
    "tagline": "Semantic layer with cubes and views, plus Cloud agents, Analytics Chat, and MCP.",
    "verdict": "native",
-   "verdictNote": "Cubes, views, access policies, AI context, certified queries, a Chat API, a hosted MCP server, and Ossie conversion (Preview) are documented.",
+   "verdictNote": "The docs describe cubes, views, access policies, AI context, certified queries, a Chat API, a hosted MCP server, and Ossie conversion (Preview).",
    "worksWith": [
     "Amazon Redshift",
     "Google BigQuery",
@@ -8410,22 +8474,22 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Measures are declared in cubes (count, sum, filtered measures). Views expose them to consumers.",
+     "n": "Users declare measures in cubes (count, sum, filtered measures). Views expose them to consumers.",
      "u": "https://docs.cube.dev/reference/data-modeling/cube.md"
     },
     "dimensions": {
      "l": 3,
-     "n": "Dimensions, hierarchies, and time dimensions are declared in cubes and included in views.",
+     "n": "Users declare dimensions, hierarchies, and time dimensions in cubes. Views include them.",
      "u": "https://docs.cube.dev/reference/data-modeling/cube.md"
     },
     "relationships": {
      "l": 3,
-     "n": "Joins between cubes declare relationship (such as many_to_one). Views use join_path to pick the route.",
+     "n": "Joins between cubes declare a relationship (such as many_to_one). Views use join_path to pick the route.",
      "u": "https://docs.cube.dev/docs/data-modeling/joins.md"
     },
     "synonyms": {
      "l": 3,
-     "n": "Descriptions are read by the agent. ai_context in meta on views and members is agent-only, up to 2,000 characters.",
+     "n": "The agent reads descriptions. The ai_context field in meta on views and members is agent-only. It has up to 2,000 characters.",
      "u": "https://docs.cube.dev/docs/data-modeling/ai-context.md"
     },
     "verifiedQueries": {
@@ -8435,27 +8499,27 @@ window.SL = {
     },
     "nl2sql": {
      "l": 3,
-     "n": "Analytics Chat and the Chat API answer questions over the semantic layer. Chat API needs a Premium or Enterprise plan.",
+     "n": "Analytics Chat and the Chat API answer questions over the semantic layer. The Chat API needs a Premium or Enterprise plan.",
      "u": "https://docs.cube.dev/docs/explore-analyze/analytics-chat.md"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology layer found in the docs. Cubes and views are the modeling objects.",
+     "n": "The docs show no ontology layer. Cubes and views are the modeling objects.",
      "u": "https://docs.cube.dev/docs/data-modeling/overview.md"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language found in the docs.",
+     "n": "The docs show no graph query language.",
      "u": "https://docs.cube.dev/docs/data-modeling/overview.md"
     },
     "vector": {
      "l": 0,
-     "n": "No vector or semantic search feature found in the docs index.",
+     "n": "The docs index shows no vector or semantic search feature.",
      "u": "https://docs.cube.dev/llms.txt"
     },
     "mcp": {
      "l": 3,
-     "n": "Hosted MCP server with OAuth, available on all plans. The earlier local npm server is deprecated.",
+     "n": "The hosted MCP server uses OAuth and is available on all plans. The earlier local npm server is deprecated.",
      "u": "https://docs.cube.dev/docs/integrations/mcp-server"
     },
     "governance": {
@@ -8465,12 +8529,12 @@ window.SL = {
     },
     "openStandard": {
      "l": 2,
-     "n": "Apache Ossie export and import through the Cube CLI and Platform API. Docs label it Preview; contact support to enable.",
+     "n": "Apache Ossie export and import work through the Cube CLI and Platform API. The docs label it Preview. Contact support to enable it.",
      "u": "https://docs.cube.dev/docs/integrations/apache-ossie.md"
     },
     "aiDescriptions": {
      "l": 1,
-     "n": "No dedicated generate-description action found. The Cube Cloud IDE agent edits data model files on request.",
+     "n": "The docs show no dedicated generate-description action. The Cube Cloud IDE agent edits data model files on request.",
      "u": "https://docs.cube.dev/docs/getting-started/develop-in-ide"
     },
     "bulkMetadata": {
@@ -8480,49 +8544,49 @@ window.SL = {
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic column classification found in Cube docs. Teams tag by hand in meta or use a catalog.",
+     "n": "The Cube docs show no automatic column classification. Teams tag by hand in meta or use a catalog.",
      "u": ""
     },
     "sampleValues": {
      "l": 0,
-     "n": "No automatic value sampling found. Docs suggest listing allowed values in description or ai_context text.",
+     "n": "The docs show no automatic value sampling. They suggest listing allowed values in description or ai_context text.",
      "u": "https://docs.cube.dev/docs/data-modeling/ai-context"
     },
     "queryHistory": {
      "l": 0,
-     "n": "Query History and Chats History are monitoring views. No mining of history to suggest metrics or examples found.",
+     "n": "Query History and Chats History are monitoring views. The docs show no mining of history to suggest metrics or examples.",
      "u": "https://docs.cube.dev/admin/monitoring/query-history"
     },
     "lineage": {
      "l": 0,
-     "n": "No lineage feature found in Cube docs index. Pre-aggregation and query monitoring exist, not column lineage.",
+     "n": "The Cube docs index shows no lineage feature. Pre-aggregation and query monitoring exist, not column lineage.",
      "u": ""
     },
     "evals": {
      "l": 3,
-     "n": "Evals tab benchmarks the agent against questions with ground-truth SQL or certified queries and reports accuracy per run.",
+     "n": "The Evals tab benchmarks the agent against questions with ground-truth SQL or certified queries. It reports accuracy per run.",
      "u": "https://docs.cube.dev/admin/ai/evals"
     }
    },
    "offers": [
-    "Cubes and views give agents a curated, joined model with measures and dimensions defined once.",
-    "Hosted MCP server lets Claude, ChatGPT, and Cursor query governed data over OAuth.",
-    "Agent configuration lives in the repo: rules, certified queries, and accessible views.",
-    "Descriptions and agent-only ai_context in meta guide the agent.",
+    "Cubes and views give agents a curated, joined model. Users define measures and dimensions once.",
+    "The hosted MCP server lets Claude, ChatGPT, and Cursor query governed data over OAuth.",
+    "Agent configuration lives in the repo. It has rules, certified queries, and accessible views.",
+    "Descriptions and the agent-only ai_context in meta guide the agent.",
     "Access policies with row filters and masking apply to agent queries."
    ],
    "gaps": [
-    "Cube reads only SQL-queryable sources, not files or REST APIs directly.",
-    "Chat API needs a Premium or Enterprise plan.",
-    "Configuring the agent in the UI is deprecated in favor of code-first setup.",
-    "Ossie conversion and Evals are Preview, and Ossie conversion is activated by Cube support.",
-    "No ontology, graph, or vector feature found."
+    "Cube reads only SQL-queryable sources. It does not read files or REST APIs directly.",
+    "The Chat API needs a Premium or Enterprise plan.",
+    "Cube deprecated agent configuration in the UI. Code-first setup replaces it.",
+    "Ossie conversion and Evals are Preview. Cube support activates Ossie conversion.",
+    "The docs show no ontology, graph, or vector feature."
    ],
    "fillWith": [
     "Apache Ossie YAML",
     "dbt for upstream transformations"
    ],
-   "nl2sqlPath": "Model cubes and views on your warehouse, then expose a small set of views to an agent. Use the hosted MCP server or the Chat API. Add rules, ai_context, and certified queries under the agents directory.",
+   "nl2sqlPath": "Model cubes and views on your warehouse. Then expose a small set of views to an agent. Use the hosted MCP server or the Chat API. Add rules, ai_context, and certified queries under the agents directory.",
    "snippet": {
     "lang": "yaml",
     "title": "A cube with a join, a measure, and a dimension",
@@ -8637,7 +8701,7 @@ window.SL = {
      "u": "https://docs.cube.dev/docs/explore-analyze/analytics-chat.md"
     }
    ],
-   "enrichHowTo": "Write description on every cube, view, measure and dimension, and add meta.ai_context on views and members for agent-only hints such as synonyms. If you use dbt, cube_dbt can render cubes from manifest.json including model descriptions. Commit the YAML to Git and review changes there.",
+   "enrichHowTo": "Write description on every cube, view, measure and dimension. Add meta.ai_context on views and members for agent-only hints such as synonyms. If you use dbt, cube_dbt can render cubes from manifest.json, including model descriptions. Commit the YAML to Git. Review changes there.",
    "bulkSnippet": {
     "lang": "python",
     "code": "from cube_dbt import Dbt\n\ndbt = Dbt.from_url(manifest_url)\nmodel = dbt.model('orders')\nprint(model.as_cube())  # name, description, sql_table",
@@ -8648,9 +8712,9 @@ window.SL = {
    "id": "dbt",
    "name": "dbt Semantic Layer (MetricFlow)",
    "category": "semantic-layer",
-   "tagline": "Metric definitions in dbt projects, compiled to SQL by the open-source MetricFlow engine.",
+   "tagline": "Metric definitions in dbt projects. The open-source MetricFlow engine compiles them to SQL.",
    "verdict": "native",
-   "verdictNote": "MetricFlow gives governed metrics that agents query through the dbt MCP server, but the Semantic Layer APIs need a dbt Starter or higher plan.",
+   "verdictNote": "MetricFlow gives governed metrics. Agents query them through the dbt MCP server. The Semantic Layer APIs need a dbt Starter or higher plan.",
    "worksWith": [
     "Snowflake",
     "BigQuery",
@@ -8713,12 +8777,12 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Metrics are defined in YAML (simple, ratio, derived, cumulative, conversion). MetricFlow compiles them to SQL for each warehouse.",
+     "n": "Users define metrics in YAML (simple, ratio, derived, cumulative, conversion). MetricFlow compiles them to SQL for each warehouse.",
      "u": "https://docs.getdbt.com/docs/build/metrics-overview.md"
     },
     "dimensions": {
      "l": 3,
-     "n": "Categorical and time dimensions are declared on model columns, with time granularity. MetricFlow adds joins at query time.",
+     "n": "Users declare categorical and time dimensions on model columns, with time granularity. MetricFlow adds joins at query time.",
      "u": "https://docs.getdbt.com/docs/build/semantic-models"
     },
     "relationships": {
@@ -8728,27 +8792,27 @@ window.SL = {
     },
     "synonyms": {
      "l": 3,
-     "n": "Description and label fields on semantic models, dimensions, and metrics. No synonyms field in the docs.",
+     "n": "Semantic models, dimensions, and metrics have description and label fields. The docs show no synonyms field.",
      "u": "https://docs.getdbt.com/reference/dimension-properties.md"
     },
     "verifiedQueries": {
      "l": 1,
-     "n": "No question-to-SQL store. Saved queries (GA) group metrics, dimensions, and filters, and the MCP list_saved_queries tool returns them.",
+     "n": "No question-to-SQL store exists. Saved queries (GA) group metrics, dimensions, and filters. The MCP list_saved_queries tool returns them.",
      "u": "https://docs.getdbt.com/docs/build/saved-queries.md"
     },
     "nl2sql": {
      "l": 3,
-     "n": "MCP text_to_sql tool generates SQL from project context. It uses dbt Copilot actions and is off when AI is disabled.",
+     "n": "The MCP text_to_sql tool generates SQL from project context. It uses dbt Copilot actions. It is off when AI is disabled.",
      "u": "https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools"
     },
     "ontology": {
      "l": 0,
-     "n": "No separate ontology layer. Teams model entities, dimensions, and metrics in semantic models.",
+     "n": "No separate ontology layer exists. Teams model entities, dimensions, and metrics in semantic models.",
      "u": "https://docs.getdbt.com/docs/build/semantic-models"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language. Semantic models form a join graph that MetricFlow uses internally.",
+     "n": "No graph query language exists. Semantic models form a join graph that MetricFlow uses internally.",
      "u": "https://docs.getdbt.com/docs/build/semantic-models"
     },
     "vector": {
@@ -8758,12 +8822,12 @@ window.SL = {
     },
     "mcp": {
      "l": 3,
-     "n": "MCP server exposes Semantic Layer, Discovery, SQL, and Admin API tools. Remote server is on all plans; tools vary.",
+     "n": "The MCP server has Semantic Layer, Discovery, SQL, and Admin API tools. The remote server is on all plans. Tools vary by plan.",
      "u": "https://docs.getdbt.com/docs/dbt-ai/about-mcp"
     },
     "governance": {
      "l": 3,
-     "n": "Queries run under a warehouse credential, so platform access policies apply. Discovery API and MCP expose lineage. Plan limits apply.",
+     "n": "Queries run under a warehouse credential, so platform access policies apply. The Discovery API and MCP expose lineage. Plan limits apply.",
      "u": "https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md"
     },
     "openStandard": {
@@ -8773,58 +8837,58 @@ window.SL = {
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "dbt Copilot and dbt Wizard generate documentation, tests and semantic models. Copilot in Insights is Beta; Wizard is the recommended agent.",
+     "n": "dbt Copilot and dbt Wizard generate documentation, tests and semantic models. Copilot in Insights is Beta. Wizard is the recommended agent.",
      "u": "https://docs.getdbt.com/docs/dbt-ai/copilot-overview"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "Descriptions live in YAML. persist_docs writes them as database comments on supported adapters. dbt-codegen generates model YAML for many models.",
+     "n": "Descriptions live in YAML. On supported adapters, persist_docs writes them as database comments. dbt-codegen generates model YAML for many models.",
      "u": "https://docs.getdbt.com/reference/resource-configs/persist_docs"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic column classification in dbt docs. Teams set tags and meta in YAML by hand or use a catalog tool.",
+     "n": "The dbt docs show no automatic column classification. Teams set tags and meta in YAML by hand or use a catalog tool.",
      "u": ""
     },
     "sampleValues": {
      "l": 3,
-     "n": "dbt MCP get_dimension_values returns distinct values for a Semantic Layer dimension, so agents can match literals.",
+     "n": "dbt MCP get_dimension_values returns distinct values for a Semantic Layer dimension. Agents can use them to match literals.",
      "u": "https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools"
     },
     "queryHistory": {
      "l": 0,
-     "n": "No mining of query history to suggest metrics or examples found in dbt docs.",
+     "n": "The dbt docs show no mining of query history to suggest metrics or examples.",
      "u": ""
     },
     "lineage": {
      "l": 3,
-     "n": "Column-level lineage in dbt Catalog (Enterprise plans) and locally with dbt v2 and the VS Code extension.",
+     "n": "dbt Catalog (Enterprise plans) has column-level lineage. It is also available locally with dbt v2 and the VS Code extension.",
      "u": "https://docs.getdbt.com/docs/explore/column-level-lineage"
     },
     "evals": {
      "l": 0,
-     "n": "dbt data tests check models, not NL-to-SQL accuracy. No eval set tooling for the text_to_sql tool found.",
+     "n": "dbt data tests check models, not NL-to-SQL accuracy. The docs show no eval set tooling for the text_to_sql tool.",
      "u": "https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools"
     }
    },
    "offers": [
-    "Metrics, entities, and dimensions defined once in YAML and compiled to SQL by MetricFlow, so agents do not write joins.",
-    "MCP server tools list metrics, get dimensions, query metrics, and run text_to_sql.",
-    "Saved queries group common metric and dimension combinations and are listed over MCP.",
-    "MetricFlow is Apache 2.0, and dbt v1.12 reads Apache Ossie documents.",
-    "Works with Snowflake, BigQuery, Databricks, Redshift, Postgres, and Trino."
+    "Users define metrics, entities, and dimensions once in YAML. MetricFlow compiles them to SQL, so agents do not write joins.",
+    "The MCP server tools list metrics, get dimensions, query metrics, and run text_to_sql.",
+    "Saved queries group common metric and dimension combinations. MCP lists them.",
+    "MetricFlow is Apache 2.0. dbt v1.12 reads Apache Ossie documents.",
+    "It works with Snowflake, BigQuery, Databricks, Redshift, Postgres, and Trino."
    ],
    "gaps": [
-    "Answers only modeled questions. In dbt's April 2026 benchmark, questions needing too many entity hops got no answer.",
-    "Semantic Layer APIs and integrations need a dbt Starter, Enterprise, or Enterprise+ plan.",
-    "No synonyms field. Only description and label carry business wording.",
-    "No stored question-to-SQL pairs and no ontology layer."
+    "It answers only modeled questions. In the dbt April 2026 benchmark, questions that needed too many entity hops got no answer.",
+    "The Semantic Layer APIs and integrations need a dbt Starter, Enterprise, or Enterprise+ plan.",
+    "No synonyms field exists. Only description and label carry business wording.",
+    "The product has no stored question-to-SQL pairs and no ontology layer."
    ],
    "fillWith": [
     "Data catalog for glossary terms",
     "Text-to-SQL for questions outside the model"
    ],
-   "nl2sqlPath": "Model your core metrics and dimensions in dbt, then connect an agent through the dbt MCP server. Let the agent query metrics for modeled questions. Fall back to text-to-SQL only for questions outside the model.",
+   "nl2sqlPath": "Model your core metrics and dimensions in dbt. Then connect an agent through the dbt MCP server. Let the agent query metrics for modeled questions. Use text-to-SQL only for questions outside the model.",
    "snippet": {
     "lang": "yaml",
     "title": "Semantic model on a dbt model (dbt v1.12 and later)",
@@ -8943,7 +9007,7 @@ window.SL = {
      "u": "https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools"
     }
    ],
-   "enrichHowTo": "Generate model YAML with the dbt-codegen macro generate_model_yaml (upstream_descriptions copies matching column descriptions), fill in descriptions with dbt Wizard or by hand, then set persist_docs for relation and columns so dbt writes them as database comments on each run.",
+   "enrichHowTo": "Generate model YAML with the dbt-codegen macro generate_model_yaml. The upstream_descriptions option copies matching column descriptions. Fill in descriptions with dbt Wizard or by hand. Then set persist_docs for relation and columns. dbt then writes them as database comments on each run.",
    "bulkSnippet": {
     "lang": "bash",
     "code": "dbt run-operation generate_model_yaml --args '{\"model_names\": [\"customers\"], \"upstream_descriptions\": true}'",
@@ -8956,7 +9020,7 @@ window.SL = {
    "category": "semantic-layer",
    "tagline": "Semantic layer defined in YAML, with an AI analyst, APIs, and an MCP server.",
    "verdict": "native",
-   "verdictNote": "Entities, attributes, metrics, and relations are first-party objects, with Deep Analysis, an MCP server, row-level security, and Apache Ossie import and export.",
+   "verdictNote": "Entities, attributes, metrics, and relations are first-party objects. The product also has Deep Analysis, an MCP server, row-level security, and Apache Ossie import and export.",
    "worksWith": [
     "Snowflake",
     "Databricks (Beta)",
@@ -9016,12 +9080,12 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Metrics are aggregations defined once at an entity granularity and recomputed for any slice or join.",
+     "n": "Metrics are aggregations. Users define them once at an entity granularity. The engine recomputes them for any slice or join.",
      "u": "https://honeydew.ai/docs/calculations/metrics.md"
     },
     "dimensions": {
      "l": 3,
-     "n": "Source and calculated attributes on entities. Domains choose which fields are exposed.",
+     "n": "Entities have source and calculated attributes. Domains choose which fields the model exposes.",
      "u": "https://honeydew.ai/docs/tpch-example.md"
     },
     "relationships": {
@@ -9036,67 +9100,67 @@ window.SL = {
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No verified question-to-SQL store in the docs. Agents take sample questions for routing, and context items hold instructions and skills.",
+     "n": "The docs show no verified question-to-SQL store. Agents take sample questions for routing. Context items hold instructions and skills.",
      "u": "https://honeydew.ai/docs/integration/context-layer/agents.md"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Deep Analysis runs multi-step analysis. The semantic compiler writes the SQL, not the LLM. Also reachable from Slack, Teams, MCP.",
+     "n": "Deep Analysis runs multi-step analysis. The semantic compiler writes the SQL, not the LLM. Users also reach it from Slack, Teams, and MCP.",
      "u": "https://honeydew.ai/docs/integration/context-layer/deep-analysis.md"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology layer found. Entities, relations, and domains are the modeling objects.",
+     "n": "No ontology layer exists. Entities, relations, and domains are the modeling objects.",
      "u": "https://honeydew.ai/docs/architecture.md"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language found. GraphQL API exposes the platform, not graph queries.",
+     "n": "No graph query language exists. The GraphQL API exposes the platform, not graph queries.",
      "u": "https://honeydew.ai/docs/integration/graphql-api.md"
     },
     "vector": {
      "l": 0,
-     "n": "No vector search found in the docs.",
+     "n": "The docs show no vector search.",
      "u": "https://honeydew.ai/docs/integration/context-layer/context-management.md"
     },
     "mcp": {
      "l": 3,
-     "n": "MCP server at mcp.honeydew.cloud with OAuth. Tools cover analysis, model browsing, warehouse discovery, and model editing.",
+     "n": "The MCP server at mcp.honeydew.cloud uses OAuth. Tools cover analysis, model browsing, warehouse discovery, and model editing.",
      "u": "https://honeydew.ai/docs/integration/mcp.md"
     },
     "governance": {
      "l": 3,
-     "n": "Row-level security via domain filters or warehouse policies, user access control, Git change approval, and CI/CD.",
+     "n": "Security includes row-level security via domain filters or warehouse policies, user access control, Git change approval, and CI/CD.",
      "u": "https://honeydew.ai/docs/security/row-level-security.md"
     },
     "openStandard": {
      "l": 3,
-     "n": "Bidirectional Apache Ossie converter kept in the Ossie repository. It tracks a draft spec that may change.",
+     "n": "A bidirectional Apache Ossie converter lives in the Ossie repository. It tracks a draft spec that may change.",
      "u": "https://honeydew.ai/docs/integration/apache-ossie-osi.md"
     },
     "aiDescriptions": {
      "l": 1,
-     "n": "AI-specific descriptions are written in Studio or YAML. An AI coding agent connected through the Honeydew MCP server can add and refine them.",
+     "n": "Users write AI-specific descriptions in Studio or YAML. An AI coding agent connected through the Honeydew MCP server can add and refine them.",
      "u": "https://honeydew.ai/docs/integration/context-layer/building-with-ai.md"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "Metadata (description, synonyms, values, labels) is YAML in Git. GraphQL API can import metadata from another system.",
+     "n": "Metadata (description, synonyms, values, labels) is YAML in Git. The GraphQL API can import metadata from another system.",
      "u": "https://honeydew.ai/docs/integration/context-layer/ai-metadata.md"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic column classification found in Honeydew docs. Labels are set by hand for lightweight governance.",
+     "n": "The Honeydew docs show no automatic column classification. Users set labels by hand for lightweight governance.",
      "u": "https://honeydew.ai/docs/governance/metadata.md"
     },
     "sampleValues": {
      "l": 3,
-     "n": "AI metadata has a values list per field. Studio page for semantic context loads sample values (release note, Jan 2026).",
+     "n": "AI metadata has a values list per field. The Studio page for semantic context loads sample values (release note, Jan 2026).",
      "u": "https://honeydew.ai/docs/integration/context-layer/ai-metadata.md"
     },
     "queryHistory": {
      "l": 0,
-     "n": "Query history (14 days) and question history are monitoring views. No mining of them to suggest metrics or examples found.",
+     "n": "Query history (14 days) and question history are monitoring views. The docs show no mining of them to suggest metrics or examples.",
      "u": "https://honeydew.ai/docs/monitoring/question-history.md"
     },
     "lineage": {
@@ -9106,28 +9170,28 @@ window.SL = {
     },
     "evals": {
      "l": 0,
-     "n": "Deep Analysis answers can be rated and commented on. Feedback is stored for the team to review, not turned into examples.",
+     "n": "Users can rate and comment on Deep Analysis answers. The system stores feedback for the team to review. It does not turn feedback into examples.",
      "u": "https://honeydew.ai/docs/integration/context-layer/deep-analysis.md"
     }
    },
    "offers": [
-    "Metrics defined once per entity, with join paths resolved from declared relations.",
+    "Users define metrics once per entity. The engine resolves join paths from declared relations.",
     "AI metadata holds descriptions, synonyms, and allowed values on entities, attributes, and metrics.",
-    "Deep Analysis and agents answer questions, with SQL compiled by the semantic compiler.",
-    "MCP server works with Claude, Cursor, Snowflake Intelligence, and other clients.",
-    "Row-level security, user access control, and Git workflows for model changes.",
-    "Import and export with Apache Ossie."
+    "Deep Analysis and agents answer questions. The semantic compiler compiles the SQL.",
+    "The MCP server works with Claude, Cursor, Snowflake Intelligence, and other clients.",
+    "Honeydew has row-level security, user access control, and Git workflows for model changes.",
+    "Honeydew imports and exports with Apache Ossie."
    ],
    "gaps": [
-    "Snowflake is the GA platform. Databricks and BigQuery support are Beta and need support to enable.",
-    "No stored question-to-SQL pairs. Sample questions only route questions to agents.",
+    "Snowflake is the GA platform. Databricks and BigQuery support are Beta. Support must enable them.",
+    "No stored question-to-SQL pairs exist. Sample questions only route questions to agents.",
     "The Apache Ossie spec is an early draft, so the converter may change.",
-    "No ontology, graph, or vector feature found in the docs."
+    "The docs show no ontology, graph, or vector feature."
    ],
    "fillWith": [
     "Apache Ossie YAML"
    ],
-   "nl2sqlPath": "Define entities, relations, and metrics in a Honeydew workspace, expose a domain to an agent, and add AI metadata with synonyms. Use Deep Analysis, or connect your own agent or Snowflake Cortex Agents through the MCP server.",
+   "nl2sqlPath": "Define entities, relations, and metrics in a Honeydew workspace. Expose a domain to an agent. Add AI metadata with synonyms. Use Deep Analysis, or connect your own agent or Snowflake Cortex Agents through the MCP server.",
    "snippet": {
     "lang": "yaml",
     "title": "A metric defined on an entity",
@@ -9237,7 +9301,7 @@ window.SL = {
      "u": "https://honeydew.ai/docs/integration/context-layer/deep-analysis.md"
     }
    ],
-   "enrichHowTo": "Put an AI-specific description, synonyms and allowed values in the honeydew_ai metadata block of each attribute, metric and entity, in Studio or in the YAML files. Use an AI coding agent through the Honeydew MCP server to draft them, then review in Git. Descriptive object names matter most.",
+   "enrichHowTo": "Put an AI-specific description, synonyms and allowed values in the honeydew_ai metadata block of each attribute, metric and entity. Use Studio or the YAML files. Use an AI coding agent through the Honeydew MCP server to draft them. Then review in Git. Descriptive object names matter most.",
    "bulkSnippet": {
     "lang": "yaml",
     "code": "metadata:\n  - name: honeydew_ai\n    metadata:\n      - name: description\n        value: This is an AI-specific description for the attribute\n      - name: synonyms\n        value: synonym1, synonym2",
@@ -9248,9 +9312,9 @@ window.SL = {
    "id": "looker",
    "name": "Looker (Google Cloud)",
    "category": "semantic-layer",
-   "tagline": "BI platform with LookML, a code-defined semantic layer used by Gemini agents.",
+   "tagline": "Looker is a BI platform with LookML. LookML is a code-defined semantic layer that Gemini agents use.",
    "verdict": "native",
-   "verdictNote": "LookML defines metrics, dimensions, joins, and field context in versioned code, and Looker agents read it directly.",
+   "verdictNote": "LookML defines metrics, dimensions, joins and field context in versioned code. Looker agents read it directly.",
    "artifacts": [
     {
      "name": "LookML (models, views, Explores, joins, dimensions, measures)",
@@ -9352,120 +9416,120 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "LookML measures (sum, count, others) are defined once as version-controlled code and reused by every query.",
+     "n": "LookML measures (sum, count and others) are defined once as version-controlled code. Every query reuses them.",
      "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts"
     },
     "dimensions": {
      "l": 3,
-     "n": "Dimensions and dimension_group declare fields; one dimension_group creates several time-related dimensions at once.",
+     "n": "Dimensions and dimension_group declare fields. One dimension_group creates several time-related dimensions at once.",
      "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts"
     },
     "relationships": {
      "l": 3,
-     "n": "Explore join declarations with sql_on; Looker generates join SQL when a query uses fields from several views.",
+     "n": "Explore join declarations use sql_on. Looker generates join SQL when a query uses fields from several views.",
      "u": "https://docs.cloud.google.com/looker/docs/lookml-terms-and-concepts"
     },
     "synonyms": {
      "l": 3,
-     "n": "Field description, label, and synonyms parameters plus agent instructions and glossaries feed Conversational Analytics.",
+     "n": "Field description, label and synonyms parameters feed Conversational Analytics. Agent instructions and glossaries also feed it.",
      "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices"
     },
     "verifiedQueries": {
      "l": 3,
-     "n": "Verified (golden) queries pair questions with Explore queries; GA Aug 28, 2026. Docs advise 30 to 50 pairs at most.",
+     "n": "Verified (golden) queries pair questions with Explore queries. They are GA since Aug 28, 2026. The docs advise 30 to 50 pairs at most.",
      "u": "https://docs.cloud.google.com/looker/docs/release-notes"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Conversational Analytics GA Nov 12, 2025. Looker composes the SQL from LookML; the agent does not write it.",
+     "n": "Conversational Analytics is GA since Nov 12, 2025. Looker composes the SQL from LookML. The agent does not write it.",
      "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology object. LookML models views, Explores, and fields. Knowledge Catalog ingests Looker metadata (GA Oct 2026).",
+     "n": "There is no ontology object. LookML models views, Explores and fields. Knowledge Catalog ingests Looker metadata (GA Oct 2026).",
      "u": "https://docs.cloud.google.com/looker/docs/release-notes"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query in LookML. derived_analytic_model can generate BigQuery Graph objects (Preview).",
+     "n": "LookML has no graph query. derived_analytic_model can generate BigQuery Graph objects (Preview).",
      "u": "https://docs.cloud.google.com/looker/docs/reference/param-view-derived-analytic-model"
     },
     "vector": {
      "l": 0,
-     "n": "No vector search on data. Gemini in Looker lists semantic search for saved content, with no stage stated.",
+     "n": "There is no vector search on data. Gemini in Looker lists semantic search for saved content, with no stage stated.",
      "u": "https://docs.cloud.google.com/looker/docs/gemini-overview-looker"
     },
     "mcp": {
      "l": 2,
-     "n": "Looker-managed MCP server is Preview since May 27, 2026, Looker-hosted instances only. Open-source MCP Toolbox covers customer-hosted.",
+     "n": "The Looker-managed MCP server is Preview since May 27, 2026. It works on Looker-hosted instances only. Open-source MCP Toolbox covers customer-hosted instances.",
      "u": "https://docs.cloud.google.com/looker/docs/r/mcp"
     },
     "governance": {
      "l": 3,
-     "n": "Queries apply model permissions, access grants, and user attributes. LookML lives in Git with CI. Catalog sync GA Oct 2026.",
+     "n": "Queries apply model permissions, access grants and user attributes. LookML lives in Git with CI. Catalog sync is GA since Oct 2026.",
      "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
     },
     "openStandard": {
      "l": 1,
-     "n": "LookML is Looker-specific. Open SQL Interface, BI connectors, and MCP expose it. No Ossie converter for LookML found.",
+     "n": "LookML is Looker-specific. Open SQL Interface, BI connectors and MCP expose it. There is no Ossie converter for LookML.",
      "u": "https://github.com/apache/ossie-converters"
     },
     "aiDescriptions": {
      "l": 0,
-     "n": "Gemini LookML assistant (Preview) writes dimensions, dimension groups and measures. No field description or label generation is documented.",
+     "n": "Gemini LookML assistant (Preview) writes dimensions, dimension groups and measures. The docs do not describe field description or label generation.",
      "u": "https://docs.cloud.google.com/looker/docs/write-lookml-gemini"
     },
     "bulkMetadata": {
      "l": 1,
-     "n": "Descriptions, labels and synonyms are LookML text in project files. Bulk edits mean scripting file changes and using Git. No metadata import API.",
+     "n": "Descriptions, labels and synonyms are LookML text in project files. Bulk edits need scripted file changes and Git. No metadata import API exists.",
      "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No classification feature in Looker docs. Teams classify in the warehouse, for example with BigQuery Sensitive Data Protection.",
+     "n": "The Looker docs show no classification feature. Teams classify in the warehouse, for example with BigQuery Sensitive Data Protection.",
      "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
     },
     "sampleValues": {
      "l": 3,
-     "n": "Conversational Analytics can sample field values and fuzzy search them to pick filter values. Conversational Analytics API GA 2026-06-23.",
+     "n": "Conversational Analytics can sample field values and fuzzy search them to pick filter values. Conversational Analytics API is GA since 2026-06-23.",
      "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-best-practices"
     },
     "queryHistory": {
      "l": 0,
-     "n": "No query-history mining for LookML or verified queries documented. System Activity only reports usage.",
+     "n": "The docs do not describe query-history mining for LookML or verified queries. System Activity only reports usage.",
      "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
     },
     "lineage": {
      "l": 0,
-     "n": "Knowledge Catalog lineage for Looker (Google Cloud core) is Preview and object level only. Column-level lineage is not supported.",
+     "n": "Knowledge Catalog lineage for Looker (Google Cloud core) is Preview. It is object level only. Looker does not support column-level lineage.",
      "u": "https://docs.cloud.google.com/looker/docs/looker-core-lineage"
     },
     "evals": {
      "l": 0,
-     "n": "No eval runner found. Verified queries (golden queries) serve as examples; pivots and custom fields are unsupported. Admins can review user feedback (Preview).",
+     "n": "The docs show no eval runner. Verified queries (golden queries) serve as examples. Pivots and custom fields are unsupported. Admins can review user feedback (Preview).",
      "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
     }
    },
    "offers": [
-    "LookML declares views, dimensions, measures, and Explore joins as version-controlled code, with Looker generating the SQL.",
-    "LookML description, label, synonyms, and hidden parameters, plus agent instructions and glossaries, give agents field-level context.",
-    "Verified queries (GA Aug 2026) and up to five Explores per agent keep Conversational Analytics answers scoped.",
+    "LookML declares views, dimensions, measures and Explore joins as version-controlled code. Looker generates the SQL.",
+    "LookML description, label, synonyms and hidden parameters give agents field-level context. Agent instructions and glossaries add more context.",
+    "Verified queries (GA Aug 2026) keep Conversational Analytics answers scoped. Up to five Explores per agent do the same.",
     "Open SQL Interface, Tableau and Power BI connectors expose governed Explores to other BI tools.",
-    "Looker-managed MCP server (Preview) and open-source MCP Toolbox let your own agents query Explores through Looker.",
-    "Model permissions, access grants, and user attributes apply when Looker builds each query."
+    "The Looker-managed MCP server (Preview) and open-source MCP Toolbox let your own agents query Explores through Looker.",
+    "Model permissions, access grants and user attributes apply when Looker builds each query."
    ],
    "gaps": [
-    "LookML is proprietary. The Ossie converters repo lists no LookML converter, so there is no standard export path.",
-    "Looker-managed MCP server is Preview, Looker-hosted only, with no fine-grained OAuth scopes or Dynamic Client Registration.",
-    "Agents connect to at most five Explores; no custom fields, no pivots, and 50,000 rows per query.",
-    "No ontology, graph, or vector search on data in LookML. Forecasting and prediction are not supported in agents."
+    "LookML is proprietary. The Ossie converters repo lists no LookML converter. There is no standard export path.",
+    "The Looker-managed MCP server is Preview and Looker-hosted only. It has no fine-grained OAuth scopes and no Dynamic Client Registration.",
+    "Agents connect to at most five Explores. They support no custom fields and no pivots. The limit is 50,000 rows per query.",
+    "LookML has no ontology, graph or vector search on data. Agents do not support forecasting and prediction."
    ],
    "fillWith": [
     "MCP Toolbox for Databases",
     "Cube",
     "dbt Semantic Layer"
    ],
-   "nl2sqlPath": "Model the data in LookML with descriptions, labels, and synonyms, build a curated Explore for each agent, and add instructions and verified queries. Use Conversational Analytics in Looker or the Conversational Analytics API (GA Jun 2026). For your own agents, use the Looker-managed MCP server (Preview) or MCP Toolbox so Looker generates the SQL.",
+   "nl2sqlPath": "Model the data in LookML with descriptions, labels and synonyms. Build a curated Explore for each agent. Add instructions and verified queries. Use Conversational Analytics in Looker or the Conversational Analytics API (GA Jun 2026). For your own agents, use the Looker-managed MCP server (Preview) or MCP Toolbox. Looker then generates the SQL.",
    "snippet": {
     "lang": "lookml",
     "title": "Minimal view with a dimension (description, synonyms) and a measure",
@@ -9586,15 +9650,15 @@ window.SL = {
      "u": "https://docs.cloud.google.com/looker/docs/conversational-analytics-overview"
     }
    ],
-   "enrichHowTo": "Write description, label and synonyms parameters on LookML fields, keep text short and in business words, and hide internal ID fields. Commit the files through the Looker IDE and Git. Add verified queries to the conversational analytics agent as examples."
+   "enrichHowTo": "Write description, label and synonyms parameters on LookML fields. Keep text short and in business words. Hide internal ID fields. Commit the files through the Looker IDE and Git. Add verified queries to the conversational analytics agent as examples."
   },
   {
    "id": "malloy",
    "name": "Malloy (with Publisher)",
    "category": "semantic-layer",
-   "tagline": "Open-source semantic modeling and query language; Publisher serves models with an MCP endpoint.",
+   "tagline": "Open-source semantic modeling and query language. Publisher serves models with an MCP endpoint.",
    "verdict": "native",
-   "verdictNote": "Malloy models define sources, joins, and measures in code, and Publisher serves them to agents through an MCP endpoint.",
+   "verdictNote": "Malloy models define sources, joins, and measures in code. Publisher serves them to agents through an MCP endpoint.",
    "worksWith": [
     "DuckDB",
     "MotherDuck",
@@ -9637,52 +9701,52 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Measures are declared on sources with aggregate expressions and saved with the model.",
+     "n": "Measures use aggregate expressions on sources. The model stores them.",
      "u": "https://docs.malloydata.dev/documentation/language/statement"
     },
     "dimensions": {
      "l": 3,
-     "n": "Dimensions and views are declared on sources. Views are saved queries that agents can reuse.",
+     "n": "Users declare dimensions and views on sources. Views are saved queries that agents can reuse.",
      "u": "https://docs.malloydata.dev/documentation/language/statement"
     },
     "relationships": {
      "l": 3,
-     "n": "join_one, join_many, and join_cross declare joins on a source. Primary keys enable the with shortcut.",
+     "n": "The join_one, join_many, and join_cross keywords declare joins on a source. Primary keys enable the with shortcut.",
      "u": "https://docs.malloydata.dev/documentation/language/join"
     },
     "synonyms": {
      "l": 3,
-     "n": "Annotations on fields and sources carry descriptions that agents read through Publisher. No synonyms field found.",
+     "n": "Annotations on fields and sources carry descriptions. Agents read them through Publisher. The docs show no synonyms field.",
      "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/mcp_agents"
     },
     "verifiedQueries": {
      "l": 1,
-     "n": "No question-to-query store. Named views and queries are returned by malloy_getContext to guide agents.",
+     "n": "No question-to-query store exists. malloy_getContext returns named views and queries to guide agents.",
      "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/mcp_agents"
     },
     "nl2sql": {
      "l": 0,
-     "n": "No first-party NL-to-query generation. malloy_getContext retrieves relevant fields for a question, and the agent writes the Malloy.",
+     "n": "Malloy has no first-party NL-to-query generation. malloy_getContext retrieves relevant fields for a question. The agent writes the Malloy.",
      "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/mcp_agents"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology layer found in the language reference or Publisher docs.",
+     "n": "The language reference and Publisher docs show no ontology layer.",
      "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/publishing"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language. Joins are modeled as a data graph for correct aggregation, but queries are not graph queries.",
+     "n": "No graph query language exists. Malloy models joins as a data graph for correct aggregation. Queries are not graph queries.",
      "u": "https://docs.malloydata.dev/documentation/language/join"
     },
     "vector": {
      "l": 0,
-     "n": "No vector search found in the Malloy or Publisher docs.",
+     "n": "The Malloy and Publisher docs show no vector search.",
      "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/publishing"
     },
     "mcp": {
      "l": 3,
-     "n": "Publisher serves MCP at localhost:4040/mcp with discovery, query, compile, reload, and docs search tools.",
+     "n": "Publisher serves MCP at localhost:4040/mcp. It has discovery, query, compile, reload, and docs search tools.",
      "u": "https://docs.malloydata.dev/documentation/user_guides/publishing/mcp_agents"
     },
     "governance": {
@@ -9692,60 +9756,60 @@ window.SL = {
     },
     "openStandard": {
      "l": 3,
-     "n": "Malloy is MIT-licensed open source. No Apache Ossie import or export found in the docs.",
+     "n": "Malloy is MIT-licensed open source. The docs show no Apache Ossie import or export.",
      "u": "https://raw.githubusercontent.com/malloydata/malloy/main/LICENSE"
     },
     "aiDescriptions": {
      "l": 0,
-     "n": "No AI description generation found in Malloy docs. Descriptions are written by hand as #\" annotations.",
+     "n": "The Malloy docs show no AI description generation. Users write descriptions by hand as #\" annotations.",
      "u": "https://docs.malloydata.dev/documentation/language/tags"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "Descriptions and tags are #\" and # annotations in .malloy text files, so scripts and Git can edit them in bulk. No metadata API.",
+     "n": "Descriptions and tags are #\" and # annotations in .malloy text files. Scripts and Git can edit them in bulk. No metadata API exists.",
      "u": "https://docs.malloydata.dev/documentation/language/tags"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic column classification found in Malloy docs.",
+     "n": "The Malloy docs show no automatic column classification.",
      "u": ""
     },
     "sampleValues": {
      "l": 3,
-     "n": "The index query operator builds fieldName, fieldValue and weight tables. Docs say LLMs can use it for term-to-column mapping. Run manually.",
+     "n": "The index query operator builds fieldName, fieldValue and weight tables. The docs say LLMs can use it for term-to-column mapping. Users run it manually.",
      "u": "https://docs.malloydata.dev/documentation/patterns/dim_index"
     },
     "queryHistory": {
      "l": 0,
-     "n": "No mining of query history found in Malloy or Publisher docs.",
+     "n": "The Malloy and Publisher docs show no mining of query history.",
      "u": ""
     },
     "lineage": {
      "l": 0,
-     "n": "No lineage feature found in Malloy or Publisher docs.",
+     "n": "The Malloy and Publisher docs show no lineage feature.",
      "u": ""
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL eval tooling found in Malloy or Publisher docs.",
+     "n": "The Malloy and Publisher docs show no NL-to-SQL eval tooling.",
      "u": ""
     }
    },
    "offers": [
-    "Models in code with sources, joins, dimensions, and measures, compiled to each database dialect.",
+    "Users write models in code with sources, joins, dimensions, and measures. Malloy compiles them to each database dialect.",
     "Publisher serves models over REST, a web UI, and MCP.",
     "malloy_getContext finds relevant sources, views, and fields for a plain-English question.",
-    "malloy_compile checks agent-written Malloy and returns diagnostics without running a query.",
-    "Supports DuckDB, BigQuery, Snowflake, Databricks, Postgres, MySQL, Trino, and Presto."
+    "malloy_compile checks agent-written Malloy. It returns diagnostics and does not run a query.",
+    "Malloy supports DuckDB, BigQuery, Snowflake, Databricks, Postgres, MySQL, Trino, and Presto."
    ],
    "gaps": [
-    "No first-party NL-to-SQL, verified-query store, or synonyms field. The agent writes Malloy.",
-    "Publisher has no built-in authentication and its MCP port is open. Put a gateway in front.",
-    "Row-level access relies on givens, which sit behind an experimental flag.",
-    "No Apache Ossie import or export found."
+    "No first-party NL-to-SQL, verified-query store, or synonyms field exists. The agent writes Malloy.",
+    "Publisher has no built-in authentication, and its MCP port is open. Put a gateway in front of it.",
+    "Row-level access relies on givens. Givens are behind an experimental flag.",
+    "The docs show no Apache Ossie import or export."
    ],
    "fillWith": [],
-   "nl2sqlPath": "Write Malloy models for your core sources, run Publisher, and point your agent at its MCP endpoint. Add annotations and named views so the agent finds the right fields, and test that your LLM writes valid Malloy.",
+   "nl2sqlPath": "Write Malloy models for your core sources. Run Publisher. Point your agent at its MCP endpoint. Add annotations and named views so the agent finds the right fields. Test that your LLM writes valid Malloy.",
    "snippet": {
     "lang": "other",
     "title": "Malloy sources with a primary key, a measure, and a join",
@@ -9804,7 +9868,7 @@ window.SL = {
     "Malloy Publisher"
    ],
    "askData": [],
-   "enrichHowTo": "Write a #\" annotation above each source and field you want described; the explorer renders it as Markdown. Edit the .malloy files in bulk with scripts or an AI coding agent and review in Git. Malloy does not have a metadata API.",
+   "enrichHowTo": "Write a #\" annotation above each source and field that you want described. The explorer renders it as Markdown. Edit the .malloy files in bulk with scripts or an AI coding agent. Review in Git. Malloy does not have a metadata API.",
    "bulkSnippet": {
     "lang": "other",
     "code": "#\" Flights fact table\nsource: flights is duckdb.table('flights.parquet') extend {\n  #\" Airline name\n  dimension: carrier_name is carrier\n}",
@@ -9817,7 +9881,7 @@ window.SL = {
    "category": "semantic-layer",
    "tagline": "Open-core GenBI engine and context layer with a modeling definition language (MDL).",
    "verdict": "native",
-   "verdictNote": "Wren is an open-source semantic engine with MDL models, relationships, cubes, NL-to-SQL pairs, an MCP server, and Apache Ossie import and export.",
+   "verdictNote": "Wren is an open-source semantic engine. It has MDL models, relationships, cubes, NL-to-SQL pairs, an MCP server, and Apache Ossie import and export.",
    "worksWith": [
     "DuckDB",
     "PostgreSQL",
@@ -9882,7 +9946,7 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Cubes declare measures as expression plus type on a base model or view. Queried with wren cube query.",
+     "n": "Cubes declare measures as expression plus type on a base model or view. Users query them with wren cube query.",
      "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
     },
     "dimensions": {
@@ -9892,12 +9956,12 @@ window.SL = {
     },
     "relationships": {
      "l": 3,
-     "n": "relationships.yml declares join type (such as MANY_TO_ONE) and an equality condition between two models.",
+     "n": "The relationships.yml file declares a join type (such as MANY_TO_ONE) and an equality condition between two models.",
      "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
     },
     "synonyms": {
      "l": 3,
-     "n": "properties.description on models and columns, plus Markdown rules and glossary files under knowledge/ that agents retrieve.",
+     "n": "Models and columns have properties.description. Agents also retrieve Markdown rules and glossary files under knowledge/.",
      "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
     },
     "verifiedQueries": {
@@ -9912,32 +9976,32 @@ window.SL = {
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology layer in the MDL reference. Models, relationships, views, and cubes are the objects.",
+     "n": "The MDL reference shows no ontology layer. Models, relationships, views, and cubes are the objects.",
      "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language in the MDL reference or CLI.",
+     "n": "The MDL reference and CLI show no graph query language.",
      "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/mdl.md"
     },
     "vector": {
      "l": 3,
-     "n": "A local LanceDB memory index gives hybrid retrieval over schema and stored pairs. Needs the memory extra.",
+     "n": "A local LanceDB memory index gives hybrid retrieval over schema and stored pairs. It needs the memory extra.",
      "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
     },
     "mcp": {
      "l": 3,
-     "n": "wren serve mcp exposes query, dry-run, schema, and knowledge tools over stdio or HTTP. Needs the mcp extra.",
+     "n": "The wren serve mcp command exposes query, dry-run, schema, and knowledge tools over stdio or HTTP. It needs the mcp extra.",
      "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/reference/cli.md"
     },
     "governance": {
      "l": 3,
-     "n": "Row and column security is in Wren AI Cloud and Enterprise Plus, not open source. OSS can omit model columns.",
+     "n": "Row and column security is in Wren AI Cloud and Enterprise Plus. It is not in open source. OSS can omit model columns.",
      "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
     },
     "openStandard": {
      "l": 3,
-     "n": "Engine, SDK, and skills are Apache 2.0. Reads and writes Apache Ossie 0.1.1 and the 0.2.0.dev0 draft.",
+     "n": "The engine, SDK, and skills are Apache 2.0. Wren reads and writes Apache Ossie 0.1.1 and the 0.2.0.dev0 draft.",
      "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/ossie.md"
     },
     "aiDescriptions": {
@@ -9952,48 +10016,48 @@ window.SL = {
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic column classification found in the README or CLI reference.",
+     "n": "The README and CLI reference show no automatic column classification.",
      "u": ""
     },
     "sampleValues": {
      "l": 1,
-     "n": "dbt import carries accepted_values tests as filter values. The README lists value profiling as both shipped and upcoming; the CLI documents no sampling command.",
+     "n": "dbt import carries accepted_values tests as filter values. The README lists value profiling as both shipped and upcoming. The CLI documents no sampling command.",
      "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/dbt-integration.md"
     },
     "queryHistory": {
      "l": 1,
-     "n": "wren memory store saves NL-SQL pairs by hand. Docs list the behavioral layer as in active development. No mining of warehouse query history.",
+     "n": "wren memory store saves NL-SQL pairs by hand. The docs list the behavioral layer as in active development. No mining of warehouse query history exists.",
      "u": "https://docs.getwren.ai/oss/concepts/what_is_context"
     },
     "lineage": {
      "l": 0,
-     "n": "No lineage feature found in the README or CLI reference. dbt import reads refs and tests, not column lineage.",
+     "n": "The README and CLI reference show no lineage feature. dbt import reads refs and tests, not column lineage.",
      "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/docs/core/guides/dbt-integration.md"
     },
     "evals": {
      "l": 0,
-     "n": "Golden eval runner is listed under what is next, not shipped. Docs list evaluation as part of the planned context layer.",
+     "n": "The golden eval runner is listed under what is next, not shipped. The docs list evaluation as part of the planned context layer.",
      "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
     }
    },
    "offers": [
-    "MDL models, relationships, views, and cubes kept as YAML in Git.",
-    "NL-to-SQL pairs and business rules stored under knowledge/ and recalled by agents.",
-    "Local MCP server with query, dry-run, schema, and knowledge tools.",
-    "Imports from dbt, OpenMetadata, and Apache Ossie, and exports to Ossie.",
-    "Connects to the data sources in the connect guide on one Apache DataFusion engine."
+    "MDL models, relationships, views, and cubes live as YAML in Git.",
+    "Agents recall NL-to-SQL pairs and business rules that are stored under knowledge/.",
+    "A local MCP server has query, dry-run, schema, and knowledge tools.",
+    "Wren imports from dbt, OpenMetadata, and Apache Ossie. It exports to Ossie.",
+    "Wren connects to the data sources in the connect guide on one Apache DataFusion engine."
    ],
    "gaps": [
     "Row and column security, the GenBI UI, and dashboards are commercial (Wren AI Cloud or Enterprise Plus).",
-    "Traversing a relationship handle directly in a query is not supported yet (issue 2688).",
-    "The golden NL-SQL eval runner is listed as in development.",
+    "Wren does not support traversal of a relationship handle directly in a query yet (issue 2688).",
+    "The docs list the golden NL-SQL eval runner as in development.",
     "The connect guide lists fewer data sources than the README figure of 22+.",
-    "No ontology or graph feature."
+    "No ontology or graph feature exists."
    ],
    "fillWith": [
     "dbt for upstream models"
    ],
-   "nl2sqlPath": "Install the CLI with pip install wrenai, generate or import an MDL project, and add rules and NL-to-SQL pairs under knowledge/. Connect your agent through wren serve mcp or the Wren skills, and query with wren query.",
+   "nl2sqlPath": "Install the CLI with pip install wrenai. Generate or import an MDL project. Add rules and NL-to-SQL pairs under knowledge/. Connect your agent through wren serve mcp or the Wren skills. Query with wren query.",
    "snippet": {
     "lang": "yaml",
     "title": "MDL model on a physical table",
@@ -10060,7 +10124,7 @@ window.SL = {
      "u": "https://raw.githubusercontent.com/Canner/WrenAI/main/README.md"
     }
    ],
-   "enrichHowTo": "If you use dbt, run wren context import dbt to carry model and column descriptions and tests into the project. Then add definitions, enums and example NL-SQL pairs with the enrich-context skill or by editing instructions.md and knowledge/ files, and review them in Git.",
+   "enrichHowTo": "If you use dbt, run wren context import dbt. This carries model and column descriptions and tests into the project. Then add definitions, enums and example NL-SQL pairs with the enrich-context skill. Or edit instructions.md and knowledge/ files. Review them in Git.",
    "bulkSnippet": {
     "lang": "bash",
     "code": "wren context import dbt --project-dir ./jaffle_shop --path ./wren-jaffle",
@@ -10071,9 +10135,9 @@ window.SL = {
    "id": "superset",
    "name": "Apache Superset",
    "category": "bi",
-   "tagline": "Open-source BI with datasets, an MCP service, and a semantic layer feature still behind a flag.",
+   "tagline": "Open-source BI with datasets, an MCP service, and a semantic layer feature that is still behind a flag.",
    "verdict": "partial",
-   "verdictNote": "Datasets act as a light semantic layer and an MCP server exists, but external semantic layers sit behind the default-off SEMANTIC_LAYERS flag and no first-party NL-to-SQL was found.",
+   "verdictNote": "Datasets act as a light semantic layer, and an MCP server exists. External semantic layers sit behind the default-off SEMANTIC_LAYERS flag. The docs show no first-party NL-to-SQL.",
    "artifacts": [
     {
      "name": "Datasets (lightweight semantic layer: metrics and dimensions)",
@@ -10108,106 +10172,106 @@ window.SL = {
     },
     "dimensions": {
      "l": 3,
-     "n": "Same README line covers dimensions. Hierarchy and time-grain objects not confirmed.",
+     "n": "The same README line covers dimensions. The docs do not confirm hierarchy and time-grain objects.",
      "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
     },
     "relationships": {
      "l": 0,
-     "n": "No declared joins or relationships between datasets. Teams join tables in a SQL virtual dataset.",
+     "n": "No declared joins or relationships between datasets exist. Teams join tables in a SQL virtual dataset.",
      "u": "https://preset.io/blog/understanding-superset-semantic-layer/"
     },
     "synonyms": {
      "l": 3,
-     "n": "Datasets, columns and metrics carry verbose_name and description fields. No separate synonym field.",
+     "n": "Datasets, columns and metrics carry verbose_name and description fields. No separate synonym field exists.",
      "u": "https://raw.githubusercontent.com/apache/superset/master/superset/datasets/schemas.py"
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No verified question-SQL pairs in the README or MCP docs. Teams use MCP clients with their own prompts.",
+     "n": "The README and MCP docs show no verified question-SQL pairs. Teams use MCP clients with their own prompts.",
      "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
     },
     "nl2sql": {
      "l": 0,
-     "n": "No first-party NL-to-SQL in the README feature list or MCP docs. Teams use MCP clients.",
+     "n": "The README feature list and MCP docs show no first-party NL-to-SQL. Teams use MCP clients.",
      "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology object in the README feature list.",
+     "n": "The README feature list shows no ontology object.",
      "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query in the README feature list.",
+     "n": "The README feature list shows no graph query.",
      "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
     },
     "vector": {
      "l": 0,
-     "n": "No vector search in the README feature list.",
+     "n": "The README feature list shows no vector search.",
      "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
     },
     "mcp": {
      "l": 2,
-     "n": "MCP docs list tools for datasets, charts, and SQL, and need Superset 5.0 or later. The page gives no stage label.",
+     "n": "The MCP docs list tools for datasets, charts, and SQL. They need Superset 5.0 or later. The page gives no stage label.",
      "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
     },
     "governance": {
      "l": 3,
-     "n": "MCP_RBAC_ENABLED is True by default, so each tool checks the caller's Superset permissions. Calls are audited.",
+     "n": "MCP_RBAC_ENABLED is True by default, so each tool checks the Superset permissions of the caller. Superset audits calls.",
      "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
     },
     "openStandard": {
      "l": 0,
-     "n": "No Ossie import or export documented. Preset's Aug 2026 post discusses Apache Ossie alongside SIP-182.",
+     "n": "The docs show no Ossie import or export. The Aug 2026 post from Preset discusses Apache Ossie alongside SIP-182.",
      "u": "https://preset.io/blog/semantic-layers-in-superset/"
     },
     "aiDescriptions": {
      "l": 0,
-     "n": "No built-in AI description feature found. The MCP service added in 6.1 lets an external agent work with Superset.",
+     "n": "The docs show no built-in AI description feature. The MCP service added in 6.1 lets an external agent work with Superset.",
      "u": "https://preset.io/blog/apache-superset-6-1-release/"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "superset export_datasources and import_datasources move datasets as YAML, with column and metric descriptions. Docs are for Superset Next.",
+     "n": "superset export_datasources and import_datasources move datasets as YAML, with column and metric descriptions. The docs are for Superset Next.",
      "u": "https://superset.apache.org/admin-docs/configuration/importing-exporting-datasources"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic column classification in the README feature list.",
+     "n": "The README feature list shows no automatic column classification.",
      "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
     },
     "sampleValues": {
      "l": 0,
-     "n": "No built-in NL-to-SQL found in the docs or 6.1 notes, so no value matching. MCP clients bring their own model.",
+     "n": "The docs and 6.1 notes show no built-in NL-to-SQL, so no value matching exists. MCP clients bring their own model.",
      "u": "https://preset.io/blog/apache-superset-6-1-release/"
     },
     "queryHistory": {
      "l": 0,
-     "n": "No feature mines query history to suggest joins, metrics or examples in the README or MCP docs.",
+     "n": "The README and MCP docs show no feature that mines query history to suggest joins, metrics or examples.",
      "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
     },
     "lineage": {
      "l": 0,
-     "n": "Dataset related-objects lists the charts and dashboards that use a dataset. No column-level lineage found.",
+     "n": "Dataset related-objects lists the charts and dashboards that use a dataset. The docs show no column-level lineage.",
      "u": "https://raw.githubusercontent.com/apache/superset/master/superset/datasets/schemas.py"
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL feature, so no eval tooling found.",
+     "n": "Superset has no NL-to-SQL feature, so it has no eval tooling.",
      "u": "https://preset.io/blog/apache-superset-6-1-release/"
     }
    },
    "offers": [
-    "Built-in MCP server (superset mcp run) has tools such as list_datasets, query_dataset, execute_sql, and generate_chart.",
+    "The built-in MCP server (superset mcp run) has tools such as list_datasets, query_dataset, execute_sql, and generate_chart.",
     "MCP supports JWT auth and RBAC checks on every tool call.",
-    "SEMANTIC_LAYERS lets Snowflake semantic views and dbt MetricFlow appear as chartable datasources, delivered as extensions.",
+    "SEMANTIC_LAYERS lets Snowflake semantic views and dbt MetricFlow appear as chartable datasources. Extensions deliver them.",
     "Apache Software Foundation project, self-hosted."
    ],
    "gaps": [
     "SEMANTIC_LAYERS defaults to False and sits in the Development (experimental) section of the feature flag docs.",
-    "The docs do not say which release will ship the semantic layers stable.",
-    "MCP docs give no GA or Preview label. Needs Superset 5.0 or later, Python 3.11 or later, and fastmcp.",
-    "No first-party NL-to-SQL, synonym, or verified-query feature was found."
+    "The docs do not say which release will ship the semantic layers as stable.",
+    "The MCP docs give no GA or Preview label. They need Superset 5.0 or later, Python 3.11 or later, and fastmcp.",
+    "The docs show no first-party NL-to-SQL, synonym, or verified-query feature."
    ],
    "fillWith": [
     "Cube",
@@ -10215,7 +10279,7 @@ window.SL = {
     "Snowflake Semantic Views",
     "MetricFlow"
    ],
-   "nl2sqlPath": "Define metrics and dimensions on datasets and run the built-in MCP service so your agent calls dataset tools. For governed metrics, keep them in Cube or dbt, or try the semantic layers flag in a test environment.",
+   "nl2sqlPath": "Define metrics and dimensions on datasets. Run the built-in MCP service so your agent calls dataset tools. For governed metrics, keep them in Cube or dbt. Or try the semantic layers flag in a test environment.",
    "snippet": {
     "lang": "other",
     "title": "Start the Superset MCP server (from the MCP server doc)",
@@ -10242,7 +10306,7 @@ window.SL = {
    "worksWithUrl": "https://superset.apache.org/docs/databases/",
    "openToOtherTools": {
     "l": 2,
-    "n": "MCP service with dataset and SQL tools and JWT auth. Docs show no stage label. No Ossie export documented.",
+    "n": "MCP service with dataset and SQL tools and JWT auth. The docs show no stage label. The docs show no Ossie export.",
     "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
    },
    "sources": [
@@ -10309,7 +10373,7 @@ window.SL = {
     "Apache Superset"
    ],
    "askData": [],
-   "enrichHowTo": "Export datasets with superset export_datasources, edit the column and metric description fields in the YAML, and import them back with superset import_datasources. The same data model is available over the REST API. Superset has no AI description feature, so draft descriptions elsewhere and load them this way.",
+   "enrichHowTo": "Export datasets with superset export_datasources. Edit the column and metric description fields in the YAML. Import them back with superset import_datasources. The REST API offers the same data model. Superset has no AI description feature. So draft descriptions elsewhere and load them this way.",
    "bulkSnippet": {
     "lang": "bash",
     "code": "superset export_datasources -f datasources.zip\n# edit column descriptions in the exported YAML, then rezip\nsuperset import_datasources -p datasources.zip",
@@ -10320,9 +10384,9 @@ window.SL = {
    "id": "domo",
    "name": "Domo",
    "category": "bi",
-   "tagline": "Cloud BI and data platform with Data Models, AI Chat, an agent builder, and MCP toolkits, many in beta.",
+   "tagline": "Cloud BI and data platform with Data Models, AI Chat, an agent builder, and MCP toolkits. Many are in beta.",
    "verdict": "partial",
-   "verdictNote": "Domo has Data Models with relationships, AI synonyms, and an MCP server, but its Sep 2026 release notes list the modeling integration, Snowflake Semantic View import, and new MCP toolkits as Beta.",
+   "verdictNote": "Domo has Data Models with relationships, AI synonyms, and an MCP server. Its Sep 2026 release notes list the modeling integration, Snowflake Semantic View import, and new MCP toolkits as Beta.",
    "artifacts": [
     {
      "name": "Data Models (relationships between DataSets, with Domo Schema)",
@@ -10400,57 +10464,57 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Beast Mode calculations can be saved to a DataSet and managed in Beast Mode Manager. AI Readiness lists them as columns for AI.",
+     "n": "Users can save Beast Mode calculations to a DataSet and manage them in Beast Mode Manager. AI Readiness lists them as columns for AI.",
      "u": "https://www.domo.com/docs/s/article/360042925474.md"
     },
     "dimensions": {
      "l": 1,
-     "n": "No declared dimension or hierarchy object in Data Models. Teams build date and bucket fields with Beast Mode calculated fields.",
+     "n": "Data Models have no declared dimension or hierarchy object. Teams build date and bucket fields with Beast Mode calculated fields.",
      "u": "https://www.domo.com/docs/s/article/360043429913.md"
     },
     "relationships": {
      "l": 2,
-     "n": "Data Model editor sets relationship keys and cardinality. Sep 2026 notes list the modeling integration as Beta.",
+     "n": "The Data Model editor sets relationship keys and cardinality. The Sep 2026 notes list the modeling integration as Beta.",
      "u": "https://www.domo.com/docs/s/article/Create-and-Use-Data-Models"
     },
     "synonyms": {
      "l": 2,
-     "n": "Domo Schema has AI Enabled, AI Synonyms, and AI Context per field. Data Model docs carry no stage label.",
+     "n": "Domo Schema has AI Enabled, AI Synonyms, and AI Context per field. The Data Model docs carry no stage label.",
      "u": "https://www.domo.com/docs/s/article/Create-and-Use-Data-Models"
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No saved question-SQL pairs. AI Readiness takes DataSet context, synonyms and column context instead.",
+     "n": "No saved question-SQL pairs exist. AI Readiness takes DataSet context, synonyms and column context instead.",
      "u": "https://www.domo.com/docs/s/article/000005561.md"
     },
     "nl2sql": {
      "l": 3,
-     "n": "AI Chat answers over DataSets and queries each one separately. Cross-DataSet joins and unions are not supported (Sep 2026).",
+     "n": "AI Chat answers over DataSets and queries each one separately. AI Chat does not support cross-DataSet joins and unions (Sep 2026).",
      "u": "https://www.domo.com/docs/s/article/Current-Release-Notes"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology object in the docs. ISG reports ontologies are planned under Project Ambience with no date.",
+     "n": "The docs show no ontology object. ISG reports that Project Ambience plans ontologies with no date.",
      "u": "https://research.isg-one.com/analyst-perspectives/domo-adds-context-to-platform-for-analytics-and-ai"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query feature in the Domo Knowledge Base index.",
+     "n": "The Domo Knowledge Base index shows no graph query feature.",
      "u": "https://www.domo.com/docs/_llms/en/knowledge-base.txt"
     },
     "vector": {
      "l": 0,
-     "n": "No vector search feature in the Domo Knowledge Base index.",
+     "n": "The Domo Knowledge Base index shows no vector search feature.",
      "u": "https://www.domo.com/docs/_llms/en/knowledge-base.txt"
     },
     "mcp": {
      "l": 2,
-     "n": "Domo Essentials MCP was listed under Beta Features in May 2026. New toolkits in Sep 2026 are Beta too.",
+     "n": "Domo listed Domo Essentials MCP under Beta Features in May 2026. New toolkits in Sep 2026 are Beta too.",
      "u": "https://www.domo.com/docs/s/article/May-2026-Release.md"
     },
     "governance": {
      "l": 3,
-     "n": "Company and department certification badges for cards and DataSets. AI Chat keeps the same security settings as the rest of Domo.",
+     "n": "Company and department certification badges exist for cards and DataSets. AI Chat keeps the same security settings as the rest of Domo.",
      "u": "https://www.domo.com/docs/s/article/360043430613.md"
     },
     "openStandard": {
@@ -10460,22 +10524,22 @@ window.SL = {
     },
     "aiDescriptions": {
      "l": 0,
-     "n": "No AI description generator found. Synonyms, column context and DataSet context in AI Readiness are written by hand.",
+     "n": "The docs show no AI description generator. Users write synonyms, column context and DataSet context in AI Readiness by hand.",
      "u": "https://www.domo.com/docs/s/article/000005561.md"
     },
     "bulkMetadata": {
      "l": 1,
-     "n": "API sets DataSet description and tags. Column descriptions are edited per DataSet in the UI or synced from Snowflake.",
+     "n": "An API sets DataSet description and tags. Users edit column descriptions per DataSet in the UI or sync them from Snowflake.",
      "u": "https://www.domo.com/docs/s/article/6814561223959.md"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No column classification found. PII Vault, a partner product with Anonomatic, redacts PII at upload.",
+     "n": "The docs show no column classification. PII Vault, a partner product with Anonomatic, redacts PII at upload.",
      "u": "https://www.domo.com/docs/s/article/4409199658263.md"
     },
     "sampleValues": {
      "l": 0,
-     "n": "AI Readiness uses descriptions, synonyms and column context you write. No value sampling documented; the Beast Mode assistant sends only schema.",
+     "n": "AI Readiness uses descriptions, synonyms and column context that you write. The docs describe no value sampling. The Beast Mode assistant sends only schema.",
      "u": "https://www.domo.com/docs/s/article/000005561.md"
     },
     "queryHistory": {
@@ -10485,25 +10549,25 @@ window.SL = {
     },
     "lineage": {
      "l": 1,
-     "n": "Native lineage is DataSet, DataFlow, card and alert level. A column-level lineage agent app is listed on Domo's site.",
+     "n": "Native lineage is DataSet, DataFlow, card and alert level. The Domo site lists a column-level lineage agent app.",
      "u": "https://www.domo.com/ai/apps/lineage-impact-analysis-agent"
     },
     "evals": {
      "l": 0,
-     "n": "No eval set tooling found. AI Playground tests prompts against a DataSet, and AI Chat has a feedback option.",
+     "n": "The docs show no eval set tooling. AI Playground tests prompts against a DataSet. AI Chat has a feedback option.",
      "u": "https://www.domo.com/docs/s/article/000005236.md"
     }
    },
    "offers": [
-    "Data Models define relationships between DataSets once and reuse them in Analyzer and App Studio.",
+    "Data Models define relationships between DataSets once. Users reuse them in Analyzer and App Studio.",
     "Snowflake semantic views register as read-only Data Models with their relationships and metrics (Beta).",
     "Domo MCP exposes DataSet queries, document queries, and search to outside assistants.",
-    "Schema tab holds field descriptions, AI synonyms, and AI context; Snowflake column descriptions can sync in."
+    "The Schema tab holds field descriptions, AI synonyms, and AI context. Snowflake column descriptions can sync in."
    ],
    "gaps": [
     "Modeling integration, Semantic View Integration, and new MCP toolkits are Beta as of Sep 2026.",
     "AI Chat does not join or union DataSets. It queries each one and combines the results.",
-    "No metric, dimension, or verified-query object confirmed in the docs.",
+    "The docs confirm no metric, dimension, or verified-query object.",
     "Domo is not in the Ossie converters repo."
    ],
    "fillWith": [
@@ -10511,7 +10575,7 @@ window.SL = {
     "dbt Semantic Layer",
     "Cube"
    ],
-   "nl2sqlPath": "Define Data Models with relationships, fill in the Domo Schema with descriptions, AI synonyms, and AI context, then use AI Chat. For external agents, use the Domo MCP toolkits and expect beta limits. If you need a stable semantic layer today, keep it in the warehouse and connect Domo to it.",
+   "nl2sqlPath": "Define Data Models with relationships. Fill in the Domo Schema with descriptions, AI synonyms, and AI context. Then use AI Chat. For external agents, use the Domo MCP toolkits and expect beta limits. If you need a stable semantic layer today, keep it in the warehouse and connect Domo to it.",
    "snippet": {
     "lang": "other",
     "title": "",
@@ -10535,7 +10599,7 @@ window.SL = {
    "worksWithUrl": "https://www.domo.com/docs/s/article/4412849158167",
    "openToOtherTools": {
     "l": 2,
-    "n": "Domo Essentials MCP queries DataSets and documents, and was Beta in May 2026. New toolkits in Sep 2026 are Beta.",
+    "n": "Domo Essentials MCP queries DataSets and documents. It was Beta in May 2026. New toolkits in Sep 2026 are Beta.",
     "u": "https://www.domo.com/docs/s/article/May-2026-Release.md"
    },
    "sources": [
@@ -10672,7 +10736,7 @@ window.SL = {
      "u": "https://www.domo.com/docs/s/article/AI-Chat-v2.md"
     }
    ],
-   "enrichHowTo": "Open the AI Readiness tab on each DataSet, add DataSet context, synonyms and column context, and switch on AI Enabled for the columns Domo AI should use. If column descriptions live in Snowflake, ask your Domo account team to turn on Schema tab metadata sync. Governance Toolkit Tag Management jobs apply tags to many DataSets at once."
+   "enrichHowTo": "Open the AI Readiness tab on each DataSet. Add DataSet context, synonyms and column context. Switch on AI Enabled for the columns that Domo AI should use. If column descriptions live in Snowflake, ask your Domo account team to turn on Schema tab metadata sync. Governance Toolkit Tag Management jobs apply tags to many DataSets at once."
   },
   {
    "id": "hex",
@@ -10812,9 +10876,9 @@ window.SL = {
      "u": "https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/ossie"
     },
     "aiDescriptions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Suggestions proposes new table and column descriptions from agent conversation gaps. An admin reviews each change before it applies.",
+     "u": "https://learn.hex.tech/docs/agent-management/suggestions"
     },
     "bulkMetadata": {
      "l": 3,
@@ -10822,24 +10886,24 @@ window.SL = {
      "u": "https://learn.hex.tech/docs/agent-management/context-management/context-sync"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The Data browser shows no PII or sensitivity tags. Admins can exclude data objects from agent context by hand.",
+     "u": "https://learn.hex.tech/docs/explore-data/data-browser"
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Users get a 100-row table preview. The docs name no value index for agents. Teams describe value formats in column descriptions.",
+     "u": "https://learn.hex.tech/docs/explore-data/data-browser"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Suggestions mines agent conversations and warnings to propose guides, descriptions, and endorsements. It does not read warehouse query history.",
+     "u": "https://learn.hex.tech/docs/agent-management/suggestions"
     },
     "lineage": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The Data browser shows dbt run date, source freshness, and test status. The docs name no column-level lineage.",
+     "u": "https://learn.hex.tech/docs/explore-data/data-browser"
     },
     "evals": {
      "l": 3,
@@ -11003,6 +11067,10 @@ window.SL = {
     {
      "t": "Apache Ossie converters repo",
      "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+    },
+    {
+     "t": "Data browser (Hex)",
+     "u": "https://learn.hex.tech/docs/explore-data/data-browser"
     }
    ],
    "verified": "2026-10-24",
@@ -11014,7 +11082,7 @@ window.SL = {
    "category": "bi",
    "tagline": "IBM enterprise BI suite with data modules and an AI Assistant.",
    "verdict": "partial",
-   "verdictNote": "Data modules are a governed model and the AI Assistant answers questions on them, but IBM offers no verified queries and no official MCP server.",
+   "verdictNote": "Data modules are a governed model, and the AI Assistant answers questions on them. IBM offers no verified queries and no official MCP server.",
    "artifacts": [
     {
      "name": "Data modules",
@@ -11057,12 +11125,12 @@ window.SL = {
     },
     "dimensions": {
      "l": 3,
-     "n": "Dimensions are modeled as tables or views with column dependency to define grains and hierarchies.",
+     "n": "Users model dimensions as tables or views with column dependency. This defines grains and hierarchies.",
      "u": "https://community.ibm.com/community/user/blogs/ian-henderson1/2024/08/23/multi-modeler-multi-module-techniques"
     },
     "relationships": {
      "l": 3,
-     "n": "Relationships carry cardinality. 12.1.1 added a relationship expression editor and a Use vs Display value option.",
+     "n": "Relationships carry cardinality. Release 12.1.1 added a relationship expression editor and a Use vs Display value option.",
      "u": "https://community.ibm.com:443/community/user/blogs/shaveta-srivastava/2025/10/30/cognos-1211-smarter-reporting-faster-dashboards-an?hlmlt=VT"
     },
     "synonyms": {
@@ -11077,17 +11145,17 @@ window.SL = {
     },
     "nl2sql": {
      "l": 3,
-     "n": "The AI Assistant answers natural-language questions and builds visualizations and dashboards from governed data.",
+     "n": "The AI Assistant answers natural-language questions. It builds visualizations and dashboards from governed data.",
      "u": "https://www.ibm.com/products/cognos-analytics"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology or business entity layer in data modules. They model tables, columns, calculations and relationships.",
+     "n": "Data modules have no ontology or business entity layer. They model tables, columns, calculations and relationships.",
      "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query feature in data modules or the Assistant.",
+     "n": "Data modules and the Assistant have no graph query feature.",
      "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_gtstd.pdf"
     },
     "vector": {
@@ -11102,12 +11170,12 @@ window.SL = {
     },
     "governance": {
      "l": 3,
-     "n": "IBM lists certified data models, fine-grained access controls and audit trails, and the assistant answers from governed data.",
+     "n": "IBM lists certified data models, fine-grained access controls and audit trails. The assistant answers from governed data.",
      "u": "https://www.ibm.com/products/cognos-analytics"
     },
     "openStandard": {
      "l": 0,
-     "n": "No open semantic export. Cognos does not appear on the Apache Ossie ecosystem page.",
+     "n": "No open semantic export exists. Cognos does not appear on the Apache Ossie ecosystem page.",
      "u": "https://ossie.apache.org/ecosystem/"
     },
     "aiDescriptions": {
@@ -11117,12 +11185,12 @@ window.SL = {
     },
     "bulkMetadata": {
      "l": 1,
-     "n": "Translation CSV export and import covers Label, Description and Screen tip. The REST API has update module calls, not documented for column text.",
+     "n": "Translation CSV export and import covers Label, Description and Screen tip. The REST API has update module calls. The docs do not describe them for column text.",
      "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
     },
     "autoClassify": {
      "l": 3,
-     "n": "Package enrichment sets data characteristics such as Time and Geographic Location. No PII or sensitivity tags are documented.",
+     "n": "Package enrichment sets data characteristics such as Time and Geographic Location. The docs describe no PII or sensitivity tags.",
      "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf"
     },
     "sampleValues": {
@@ -11132,37 +11200,37 @@ window.SL = {
     },
     "queryHistory": {
      "l": 0,
-     "n": "No query history mining in the Assistant, data module or administration guides. Authors model and enrich by hand.",
+     "n": "The Assistant, data module and administration guides show no query history mining. Authors model and enrich by hand.",
      "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_manage.pdf"
     },
     "lineage": {
      "l": 3,
-     "n": "Trace a report data item back through the package to its data sources, in Business or Technical view. Not supported in reports not linked to packages; an admin must configure it.",
+     "n": "Users trace a report data item back through the package to its data sources, in Business or Technical view. This does not work in reports not linked to packages. An admin must configure it.",
      "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ug_cr_rptstd.pdf"
     },
     "evals": {
      "l": 0,
-     "n": "No accuracy testing or feedback loop for the Assistant in the guides. Teams test by asking questions.",
+     "n": "The guides show no accuracy testing or feedback loop for the Assistant. Teams test by asking questions.",
      "u": "https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_gtstd.pdf"
     }
    },
    "offers": [
     "Data modules take relationship expressions and display-value settings (12.1.1, Oct 2025).",
     "The AI Assistant answers natural-language questions from any Cognos view.",
-    "Modules can be built from reusable dimension and fact modules, with aliases for role-playing tables.",
-    "IBM names 12.1.3 as its latest release, with conversational data interaction and reporting agents."
+    "Users can build modules from reusable dimension and fact modules. Aliases serve role-playing tables.",
+    "IBM names 12.1.3 as its latest release. It has conversational data interaction and reporting agents."
    ],
    "gaps": [
-    "No official MCP server. Only a third-party wrapper and an IBM Ideas request.",
+    "No official MCP server exists. Only a third-party wrapper and an IBM Ideas request exist.",
     "Teams on 11.2 and 12.0 reported weak Assistant results on large models with similar column names.",
-    "Synonyms are set per model, and sharing them across modules was reported as unsupported in 11.2.3.",
-    "Reporting agents were Preview in 12.1.1, and their stage in 12.1.3 is not stated by IBM."
+    "Users set synonyms per model. Teams reported that sharing them across modules is unsupported in 11.2.3.",
+    "Reporting agents were Preview in 12.1.1. IBM does not state their stage in 12.1.3."
    ],
    "fillWith": [
     "Cube",
     "dbt Semantic Layer"
    ],
-   "nl2sqlPath": "Model the data in a data module, define unique item names and synonyms, and use the built-in AI Assistant for end users. For your own agents, the only MCP path is a third-party wrapper, so test it carefully. Check IBM's 12.1.3 notes before you commit.",
+   "nl2sqlPath": "Model the data in a data module. Define unique item names and synonyms. Use the built-in AI Assistant for end users. For your own agents, the only MCP path is a third-party wrapper, so test it carefully. Check the IBM 12.1.3 notes before you commit.",
    "snippet": {
     "lang": "other",
     "title": "",
@@ -11242,7 +11310,7 @@ window.SL = {
    "worksWithUrl": "https://community.ibm.com:443/community/user/blogs/shaveta-srivastava/2025/10/30/cognos-1211-smarter-reporting-faster-dashboards-an?hlmlt=VT",
    "openToOtherTools": {
     "l": 1,
-    "n": "A REST API covers content and data sources. The only MCP path is a third-party wrapper. No SQL or OSI route to data modules.",
+    "n": "A REST API covers content and data sources. The only MCP path is a third-party wrapper. No SQL or OSI route to data modules exists.",
     "u": "https://community.ibm.com/community/user/blogs/patrick-neveu/2026/05/07/using-rest-api-with-cognos-analytics-on-cloud"
    },
    "verified": "2026-10-24",
@@ -11265,7 +11333,7 @@ window.SL = {
      "u": "https://www.ibm.com/products/cognos-analytics"
     }
    ],
-   "enrichHowTo": "No supported bulk method for descriptions is confirmed for this product yet."
+   "enrichHowTo": "No source confirms a supported bulk method for descriptions for this product yet."
   },
   {
    "id": "lightdash",
@@ -11413,9 +11481,9 @@ window.SL = {
      "u": "https://docs.lightdash.com/integrations/apache-ossie.md"
     },
     "aiDescriptions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "An agent edits descriptions in dbt or YAML files on request and opens a pull request. It needs a Git repository.",
+     "u": "https://docs.lightdash.com/agents/ai-writeback.md"
     },
     "bulkMetadata": {
      "l": 3,
@@ -11423,24 +11491,24 @@ window.SL = {
      "u": "https://docs.lightdash.com/workflow/cli/generate.md"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The docs name no classifier for PII or sensitivity. Admins scope agents with tags and user attributes by hand.",
+     "u": "https://docs.lightdash.com/agents/data-access.md"
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Agents search real field values to build accurate filters. Dimensions also take a filter_autocomplete list of fixed values.",
+     "u": "https://docs.lightdash.com/agents/data-access.md"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No feature mines warehouse query history for joins or metrics. Autopilot (Beta) drafts charts from repeated AI assistant questions.",
+     "u": "https://docs.lightdash.com/agents/autopilot.md"
     },
     "lineage": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The docs name no column-level lineage. Saved Trees show how metrics feed each other.",
+     "u": "https://docs.lightdash.com/explore/metrics-catalog/drivers.md"
     },
     "evals": {
      "l": 3,
@@ -11579,6 +11647,18 @@ window.SL = {
     {
      "t": "Lightdash documentation index",
      "u": "https://docs.lightdash.com/llms.txt"
+    },
+    {
+     "t": "Data access control (Lightdash)",
+     "u": "https://docs.lightdash.com/agents/data-access.md"
+    },
+    {
+     "t": "Autopilot (Lightdash)",
+     "u": "https://docs.lightdash.com/agents/autopilot.md"
+    },
+    {
+     "t": "Drivers (Lightdash)",
+     "u": "https://docs.lightdash.com/explore/metrics-catalog/drivers.md"
     }
    ],
    "verified": "2026-10-24",
@@ -11590,7 +11670,7 @@ window.SL = {
    "category": "bi",
    "tagline": "Open-source BI with a Library semantic layer, Metabot AI, and an official MCP server.",
    "verdict": "partial",
-   "verdictNote": "Library metrics, measures, segments, and glossary feed Metabot and a permission-scoped MCP server, but no joins or verified query pairs are documented.",
+   "verdictNote": "Library metrics, measures, segments, and glossary feed Metabot and a permission-scoped MCP server. The docs describe no joins or verified query pairs.",
    "artifacts": [
     {
      "name": "Library (published tables, metrics, SQL snippets, Glossary)",
@@ -11644,57 +11724,57 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Library metrics are standardized calculations that rank first in navigation, search, and the query builder.",
+     "n": "Library metrics are standardized calculations. They rank first in navigation, search, and the query builder.",
      "u": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/library.md"
     },
     "dimensions": {
      "l": 0,
-     "n": "No dimension or time-grain object found in docs. Segments are saved filters only.",
+     "n": "The docs show no dimension or time-grain object. Segments are saved filters only.",
      "u": ""
     },
     "relationships": {
      "l": 0,
-     "n": "Published-tables doc defines no joins. Related tables are published together.",
+     "n": "The published-tables doc defines no joins. Users publish related tables together.",
      "u": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/published-tables.md"
     },
     "synonyms": {
      "l": 3,
-     "n": "Glossary terms help Metabot understand your terminology. No separate synonym field found.",
+     "n": "Glossary terms help Metabot understand your terminology. No separate synonym field exists.",
      "u": "https://github.com/metabase/metabase/blob/master/docs/ai/metabot.md"
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No question-to-SQL pairs. Metabot can be limited to verified, official, or Library content.",
+     "n": "No question-to-SQL pairs exist. Admins can limit Metabot to verified, official, or Library content.",
      "u": "https://github.com/metabase/metabase/blob/master/docs/data-modeling/semantic-layer/library.md"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Metabot generates SQL but does not run it. Its search is limited to tables, metrics, questions, models, and dashboards.",
+     "n": "Metabot generates SQL but does not run it. Its search covers only tables, metrics, questions, models, and dashboards.",
      "u": "https://github.com/metabase/metabase/blob/master/docs/ai/metabot.md"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology object found.",
+     "n": "No ontology object exists.",
      "u": ""
     },
     "graph": {
      "l": 0,
-     "n": "No graph query found.",
+     "n": "No graph query exists.",
      "u": ""
     },
     "vector": {
      "l": 0,
-     "n": "No vector search on data found in the Metabase AI docs.",
+     "n": "The Metabase AI docs show no vector search on data.",
      "u": ""
     },
     "mcp": {
      "l": 3,
-     "n": "Official server arrived in Metabase 60 (Apr 16, 2026) and was improved in Metabase 64 (Oct 2026). Admin enables it.",
+     "n": "The official server arrived in Metabase 60 (Apr 16, 2026). Metabase 64 (Oct 2026) improved it. An admin enables it.",
      "u": "https://www.metabase.com/releases/metabase-60"
     },
     "governance": {
      "l": 3,
-     "n": "MCP and OAuth scopes follow the connecting user permissions. Pro and Enterprise can limit tools per group.",
+     "n": "MCP and OAuth scopes follow the permissions of the connecting user. Pro and Enterprise can limit tools per group.",
      "u": "https://github.com/metabase/metabase/blob/master/docs/ai/mcp.md"
     },
     "openStandard": {
@@ -11704,22 +11784,22 @@ window.SL = {
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "Ask Metabot in chat to write descriptions. It only sees database content, so it cannot supply business context.",
+     "n": "Ask Metabot in chat to write descriptions. It sees only database content, so it cannot supply business context.",
      "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/settings.md"
     },
     "bulkMetadata": {
      "l": 1,
-     "n": "No native bulk edit. Scripts call PUT /api/table/{id} and PUT /api/field/{id}; the community dbt-metabase package does this from dbt.",
+     "n": "No native bulk edit exists. Scripts call PUT /api/table/{id} and PUT /api/field/{id}. The community dbt-metabase package does this from dbt.",
      "u": "https://www.metabase.com/articles/metabase-on-dbt"
     },
     "autoClassify": {
      "l": 3,
-     "n": "Sync and fingerprinting assign semantic types to columns automatically. No PII or sensitivity tagging found.",
+     "n": "Sync and fingerprinting assign semantic types to columns automatically. The docs show no PII or sensitivity tagging.",
      "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/databases/sync-scan.md"
     },
     "sampleValues": {
      "l": 3,
-     "n": "Metabase sends sampled field values to the AI, so Metabot can check if a state is WI or Wisconsin.",
+     "n": "Metabase sends sampled field values to the AI. So Metabot can check if a state is WI or Wisconsin.",
      "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/privacy.md"
     },
     "queryHistory": {
@@ -11729,26 +11809,26 @@ window.SL = {
     },
     "lineage": {
      "l": 0,
-     "n": "Dependency graph links questions, models, metrics, dashboards, transforms and their source tables. No column-level lineage is described.",
+     "n": "The dependency graph links questions, models, metrics, dashboards, transforms and their source tables. The docs describe no column-level lineage.",
      "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/data-modeling/tools/graph.md"
     },
     "evals": {
      "l": 0,
-     "n": "Thumbs feedback on Metabot answers goes to Metabase, not into verified examples. No eval set tooling found.",
+     "n": "Thumbs feedback on Metabot answers goes to Metabase, not into verified examples. The docs show no eval set tooling.",
      "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/metabot.md"
     }
    },
    "offers": [
-    "Library holds curated tables, metrics, and SQL snippets; admins can limit Metabot to Library content.",
+    "Library holds curated tables, metrics, and SQL snippets. Admins can limit Metabot to Library content.",
     "Measures give one official formula per table, for example Net Promoter Score.",
-    "Official MCP server needs no AI provider in Metabase. The client supplies the model.",
+    "The official MCP server needs no AI provider in Metabase. The client supplies the model.",
     "Library, measures, segments, and glossary sync to Git when Library sync is on.",
     "MCP also offers raw SQL, which admins can turn off."
    ],
    "gaps": [
-    "Measures only work on questions that query the measure table directly. No joins or nested queries.",
-    "Metabot checks only the first 100 tables when no table is named, and may invent tables beyond that.",
-    "No synonyms field or verified question-SQL pairs found; the Glossary is the main text context.",
+    "Measures work only on questions that query the measure table directly. They do not work with joins or nested queries.",
+    "Metabot checks only the first 100 tables when no table is named. It may invent tables beyond that.",
+    "No synonyms field or verified question-SQL pairs exist. The Glossary is the main text context.",
     "Metabot cannot find segments, measures, documents, or collections on its own.",
     "MCP tool access controls and analytics need Pro or Enterprise."
    ],
@@ -11757,7 +11837,7 @@ window.SL = {
     "Cube",
     "Snowflake Semantic Views"
    ],
-   "nl2sqlPath": "Publish clean tables to the Library, add metrics, measures, and glossary terms, then set Metabot to curated content only. For your own agent, enable the MCP server and let the client supply the model. Keep a warehouse semantic layer if you need joins or synonyms.",
+   "nl2sqlPath": "Publish clean tables to the Library. Add metrics, measures, and glossary terms. Then set Metabot to curated content only. For your own agent, enable the MCP server and let the client supply the model. Keep a warehouse semantic layer if you need joins or synonyms.",
    "snippet": {
     "lang": "other",
     "title": "Measure formula for Net Promoter Score, from the Measures doc",
@@ -11787,7 +11867,7 @@ window.SL = {
    "worksWithUrl": "https://github.com/metabase/metabase/blob/master/docs/databases/connecting.md",
    "openToOtherTools": {
     "l": 3,
-    "n": "Official MCP server (Streamable HTTP, OAuth 2.0) searches and queries metrics and tables within user permissions. No OSI export.",
+    "n": "The official MCP server (Streamable HTTP, OAuth 2.0) searches and queries metrics and tables within user permissions. No OSI export exists.",
     "u": "https://github.com/metabase/metabase/blob/master/docs/ai/mcp.md"
    },
    "sources": [
@@ -11904,7 +11984,7 @@ window.SL = {
      "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/metabot.md"
     }
    ],
-   "enrichHowTo": "Edit table and field descriptions in Data Studio, Connected data, and ask Metabot to draft them. To write descriptions at scale, run a script or the dbt-metabase package after each dbt run, calling PUT /api/table/{id} and PUT /api/field/{id}. Define business terms in the Glossary, which Metabot reads.",
+   "enrichHowTo": "Edit table and field descriptions in Data Studio, Connected data. Ask Metabot to draft them. To write descriptions at scale, run a script or the dbt-metabase package after each dbt run. Call PUT /api/table/{id} and PUT /api/field/{id}. Define business terms in the Glossary. Metabot reads the Glossary.",
    "bulkSnippet": {
     "lang": "python",
     "code": "for column in node[\"columns\"].values():\n    field_id = fields.get(column[\"name\"].lower())\n    if field_id and column.get(\"description\"):\n        requests.put(\n            f\"{MB_URL}/api/field/{field_id}\",\n            json={\"description\": column[\"description\"]},\n            headers=HEADERS,\n        ).raise_for_status()",
@@ -12058,9 +12138,9 @@ window.SL = {
      "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/omni/README.md"
     },
     "aiDescriptions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "The Modeling Agent and Learn from conversation write field descriptions as YAML. A user reviews each change first.",
+     "u": "https://docs.omni.co/ai/learn-from-conversation.md"
     },
     "bulkMetadata": {
      "l": 3,
@@ -12068,9 +12148,9 @@ window.SL = {
      "u": "https://docs.omni.co/guides/api/bulk-update-model-yaml.md"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The docs name no PII or sensitivity classifier. The query history skill only suggests dimension, measure, or time types.",
+     "u": "https://docs.omni.co/ai/model-assistant.md"
     },
     "sampleValues": {
      "l": 3,
@@ -12078,9 +12158,9 @@ window.SL = {
      "u": "https://docs.omni.co/modeling/develop/ai-optimization.md"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "The Suggest model from query history skill reads Snowflake or Postgres query history. It suggests views, measures, joins, and query views.",
+     "u": "https://docs.omni.co/ai/model-assistant.md"
     },
     "lineage": {
      "l": 1,
@@ -12237,6 +12317,14 @@ window.SL = {
     {
      "t": "Apache Ossie converters repo",
      "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+    },
+    {
+     "t": "Learn from conversation (Omni)",
+     "u": "https://docs.omni.co/ai/learn-from-conversation.md"
+    },
+    {
+     "t": "Modeling Agent (Omni)",
+     "u": "https://docs.omni.co/ai/model-assistant.md"
     }
    ],
    "verified": "2026-10-24",
@@ -12248,7 +12336,7 @@ window.SL = {
    "category": "bi",
    "tagline": "Oracle BI platform with a code-based semantic model, AI Assistant, and an MCP server in Preview.",
    "verdict": "native",
-   "verdictNote": "The semantic model (Semantic Modeler, SMML JSON, Git) feeds the AI Assistant through indexing, synonyms and AI Descriptions, while the MCP server is still Preview.",
+   "verdictNote": "The semantic model (Semantic Modeler, SMML JSON, Git) feeds the AI Assistant through indexing, synonyms and AI Descriptions. The MCP server is still Preview.",
    "artifacts": [
     {
      "name": "Semantic Modeler (SMML JSON, Git)",
@@ -12302,7 +12390,7 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Logical columns carry aggregation rules, and the logical layer holds measures, level-based measures and calculations.",
+     "n": "Logical columns carry aggregation rules. The logical layer holds measures, level-based measures and calculations.",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsmm/smml-elements-logical-table.html"
     },
     "dimensions": {
@@ -12312,7 +12400,7 @@ window.SL = {
     },
     "relationships": {
      "l": 3,
-     "n": "The physical layer holds joins and aliases, and logical tables carry joins with mapped table sources.",
+     "n": "The physical layer holds joins and aliases. Logical tables carry joins with mapped table sources.",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/semantic-models-architecture.html"
     },
     "synonyms": {
@@ -12322,7 +12410,7 @@ window.SL = {
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No verified-query object. AI Descriptions add business context per column instead.",
+     "n": "No verified-query object exists. AI Descriptions add business context per column instead.",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/managing-data-model-indexing-synonyms-ai-descriptions-using-csv-file.html"
     },
     "nl2sql": {
@@ -12332,47 +12420,47 @@ window.SL = {
     },
     "ontology": {
      "l": 0,
-     "n": "None in the semantic model.",
+     "n": "The semantic model has none.",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/semantic-models-architecture.html"
     },
     "graph": {
      "l": 0,
-     "n": "None in the semantic model.",
+     "n": "The semantic model has none.",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/semantic-models-architecture.html"
     },
     "vector": {
      "l": 0,
-     "n": "No vector search documented. The AI Assistant uses a metadata and value index.",
+     "n": "The docs show no vector search. The AI Assistant uses a metadata and value index.",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/managing-data-model-indexing-synonyms-ai-descriptions-using-csv-file.html"
     },
     "mcp": {
      "l": 2,
-     "n": "OAC MCP server is Preview, with tools to search the catalog, describe data and run ANSI or Logical SQL. First listed Nov 2025.",
+     "n": "The OAC MCP server is Preview. It has tools to search the catalog, describe data and run ANSI or Logical SQL. It was first listed in Nov 2025.",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/access-oracle-analytics-cloud-mcp-server-preview.html"
     },
     "governance": {
      "l": 3,
-     "n": "MCP tools run with the permissions of the token's user. Sensitive Data indexing limits values to users with column access.",
+     "n": "MCP tools run with the permissions of the user of the token. Sensitive Data indexing limits values to users with column access.",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/access-oracle-analytics-cloud-mcp-server-preview.html"
     },
     "openStandard": {
      "l": 0,
-     "n": "The model is JSON (SMML) with Git support. No Ossie or OSI export from Semantic Modeler.",
+     "n": "The model is JSON (SMML) with Git support. Semantic Modeler has no Ossie or OSI export.",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/what-is-oracle-analytics-semantic-modeler.html"
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "Catalog Descriptions drafts dataset descriptions. Semantic Modeler Assistant suggests names and writes presentation table and column descriptions.",
+     "n": "Catalog Descriptions drafts dataset descriptions. Semantic Modeler Assistant suggests names. It also writes presentation table and column descriptions.",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/oracle-analytics-ai-assistants-features.html"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "Export the data model index to CSV in Console, edit synonyms, AI Descriptions and index type, and import it. Last import wins per column.",
+     "n": "Export the data model index to CSV in Console. Edit synonyms, AI Descriptions and index type, and import it. The last import wins per column.",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/export-import-csv-file-containing-synonyms-ai-descriptions-data-model-columns.html"
     },
     "autoClassify": {
      "l": 3,
-     "n": "Dataset profiling detects semantic types and recommends enrichments. Sensitive columns are flagged by hand with the DataSecurity setting.",
+     "n": "Dataset profiling detects semantic types and recommends enrichments. Users flag sensitive columns by hand with the DataSecurity setting.",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/tutorial-apply-custom-semantic-types-to-data/index.html"
     },
     "sampleValues": {
@@ -12382,38 +12470,38 @@ window.SL = {
     },
     "queryHistory": {
      "l": 1,
-     "n": "Usage Tracking logs logical and physical queries to a database you specify. Analyzing it is up to the team.",
+     "n": "Usage Tracking logs logical and physical queries to a database that you specify. The team must analyze the logs.",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/usage-tracking-database.html"
     },
     "lineage": {
      "l": 3,
-     "n": "Semantic Modeler lineage viewer and Export Lineage CSV map presentation columns to logical and physical columns. Scope is the semantic model.",
+     "n": "The Semantic Modeler lineage viewer and Export Lineage CSV map presentation columns to logical and physical columns. The scope is the semantic model.",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/generate-document-repository-mappings.html"
     },
     "evals": {
      "l": 1,
-     "n": "AI Assistant feedback is written to OCI logs with category and details. Docs do not say it improves future answers.",
+     "n": "AI Assistant feedback goes to OCI logs with category and details. The docs do not say it improves future answers.",
      "u": "https://docs.oracle.com/en-us/iaas/analytics-cloud/doc/audit-and-diagnostic-logs-oracle-analytics-cloud.html"
     }
    },
    "offers": [
-    "The Search Index lets admins choose which attributes the AI Assistant sees, with synonyms, AI Descriptions and metadata-only or value indexing.",
+    "The Search Index lets admins choose which attributes the AI Assistant sees. It has synonyms, AI Descriptions and metadata-only or value indexing.",
     "Semantic Modeler stores models as JSON (SMML) files with Git integration.",
     "MCP tools search the catalog, find matching data sources for a question, describe columns and run ANSI SQL or Logical SQL.",
     "AI Descriptions state units, formats and aggregation rules for the assistant (Sep 2026).",
     "Semantic Modeler supports Snowflake, BigQuery, Redshift, Oracle databases and Analytic Views."
    ],
    "gaps": [
-    "The MCP server is Preview, Oracle warns its behavior may change, and a tool (discover_data) is already deprecated.",
-    "No verified-query object for the AI Assistant.",
+    "The MCP server is Preview. Oracle warns that its behavior may change. A tool (discover_data) is already deprecated.",
+    "The AI Assistant has no verified-query object.",
     "Databricks is not in the Semantic Modeler data source table.",
-    "No Ossie or OSI converter or open export."
+    "No Ossie or OSI converter or open export exists."
    ],
    "fillWith": [
     "Cube",
     "dbt Semantic Layer"
    ],
-   "nl2sqlPath": "Build the model in Semantic Modeler, then enable attributes, synonyms and AI Descriptions in the Search Index so the AI Assistant can use them. For outside agents, use the Preview MCP server and keep its permissions narrow. Do not depend on it for production until it is GA.",
+   "nl2sqlPath": "Build the model in Semantic Modeler. Then enable attributes, synonyms and AI Descriptions in the Search Index so the AI Assistant can use them. For outside agents, use the Preview MCP server and keep its permissions narrow. Do not depend on it for production until it is GA.",
    "snippet": {
     "lang": "json",
     "title": "OAC MCP tools/call arguments for oracle_analytics-search_catalog (from Oracle docs)",
@@ -12515,7 +12603,7 @@ window.SL = {
    "worksWithUrl": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/data-sources-supported-semantic-models.html",
    "openToOtherTools": {
     "l": 2,
-    "n": "OAC MCP server is Preview: AI clients search the catalog, describe data and run ANSI SQL or Logical SQL as the token's user.",
+    "n": "The OAC MCP server is Preview. AI clients search the catalog, describe data and run ANSI SQL or Logical SQL as the user of the token.",
     "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acsdv/access-oracle-analytics-cloud-mcp-server-preview.html"
    },
    "verified": "2026-10-24",
@@ -12541,7 +12629,7 @@ window.SL = {
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/oracle-analytics-ai-assistant.html"
     }
    ],
-   "enrichHowTo": "In Console, open Search Index, select the data model and Export a CSV. Fill the Synonyms and AI Description columns, then Import it. Indexing restarts on import, and the file also moves AI-ready metadata between environments."
+   "enrichHowTo": "In Console, open Search Index, select the data model and Export a CSV. Fill the Synonyms and AI Description columns. Then Import it. Indexing restarts on import. The file also moves AI-ready metadata between environments."
   },
   {
    "id": "powerbi",
@@ -12667,9 +12755,9 @@ window.SL = {
      "u": "https://learn.microsoft.com/en-us/fabric/graph/overview"
     },
     "vector": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Copilot search finds reports and semantic models by meaning, using item metadata. Eventhouse in Fabric stores vectors for your own data.",
+     "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-search-new-content"
     },
     "mcp": {
      "l": 3,
@@ -12868,6 +12956,10 @@ window.SL = {
     {
      "t": "Retirement of Power BI Q&A (Message Center MC1218421)",
      "u": "https://mc.merill.net/message/MC1218421"
+    },
+    {
+     "t": "Find content using Power BI Copilot search",
+     "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-search-new-content"
     }
    ],
    "askData": [
@@ -12917,7 +13009,7 @@ window.SL = {
    "category": "bi",
    "tagline": "Associative analytics platform with logical models, Qlik Answers, and an MCP server.",
    "verdict": "native",
-   "verdictNote": "Logical models, business logic synonyms, glossary links and Qlik Answers feed AI, and the Qlik MCP server reached GA in Feb 2026.",
+   "verdictNote": "Logical models, business logic synonyms, glossary links and Qlik Answers feed AI. The Qlik MCP server reached GA in Feb 2026.",
    "artifacts": [
     {
      "name": "Logical model and business logic (vocabulary, synonyms)",
@@ -12971,12 +13063,12 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Master measures are indexed first by Qlik Answers and used by Fast Mode. MCP tools create and update them.",
+     "n": "Qlik Answers indexes master measures first. Fast Mode uses them. MCP tools create and update them.",
      "u": "https://community.qlik.com/t5/Support-Updates/Introducing-Fast-Mode-A-New-Gear-for-Qlik-Answers/ba-p/2552881"
     },
     "dimensions": {
      "l": 3,
-     "n": "Master dimensions are used by Fast Mode. The logical model adds groups, hierarchies and calendar periods.",
+     "n": "Fast Mode uses master dimensions. The logical model adds groups, hierarchies and calendar periods.",
      "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business-logic-logical-models.htm"
     },
     "relationships": {
@@ -12986,12 +13078,12 @@ window.SL = {
     },
     "synonyms": {
      "l": 3,
-     "n": "Business logic vocabulary maps alternate terms, and Answers generates field descriptions you can edit. Glossary terms link to master items.",
+     "n": "Business logic vocabulary maps alternate terms. Answers generates field descriptions that you can edit. Glossary terms link to master items.",
      "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business_logic.htm"
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No verified-query store. Vocabulary custom analyses and example questions are the closest match.",
+     "n": "No verified-query store exists. Vocabulary custom analyses and example questions are the closest match.",
      "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business_logic.htm"
     },
     "nl2sql": {
@@ -13001,42 +13093,42 @@ window.SL = {
     },
     "ontology": {
      "l": 0,
-     "n": "None. Business glossary terms and data products exist, but no ontology layer.",
+     "n": "None exists. Business glossary terms and data products exist, but no ontology layer.",
      "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikMCP/Qlik-MCP-server.htm"
     },
     "graph": {
      "l": 0,
-     "n": "None.",
+     "n": "None exists.",
      "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikMCP/Qlik-MCP-server.htm"
     },
     "vector": {
      "l": 0,
-     "n": "Knowledge base search exists for documents. No vector search over app data or metadata is documented.",
+     "n": "Knowledge base search exists for documents. The docs show no vector search over app data or metadata.",
      "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikMCP/Qlik-MCP-server-tools.htm"
     },
     "mcp": {
      "l": 3,
-     "n": "Qlik MCP server GA Feb 2026. Needs the Qlik MCP: Allowed permission, and tools can be enabled per tenant.",
+     "n": "Qlik MCP server GA Feb 2026. It needs the Qlik MCP: Allowed permission. Admins can enable tools per tenant.",
      "u": "https://www.qlik.com/us/news/company/press-room/press-releases/qlik-brings-agentic-analytics-to-general-availability-and-launches-mcp-server-for-third-party-assistants"
     },
     "governance": {
      "l": 3,
-     "n": "Qlik Answers respects Section Access, and MCP tools run as the connecting user with a lineage tool.",
+     "n": "Qlik Answers respects Section Access. MCP tools run as the connecting user. A lineage tool exists.",
      "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikAnswers/working-with-apps-in-qlik-answers.htm"
     },
     "openStandard": {
      "l": 0,
-     "n": "Qlik joined the Open Semantic Interchange effort. No Qlik export of the logical model is documented.",
+     "n": "Qlik joined the Open Semantic Interchange effort. The docs show no Qlik export of the logical model.",
      "u": "https://ossie.apache.org/updates/qlik-joins-snowflake-to-support-open-semantic-interchange/"
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "Generates descriptions for a data product, its datasets and fields from names and native types. Premium tiers, English only, editable.",
+     "n": "It generates descriptions for a data product, its datasets and fields from names and native types. It is for Premium tiers and English only. Users can edit the text.",
      "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/DataIntegration/DataProducts/Generating-AI-based-description.htm"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "Data sets API PATCH /api/v1/data-sets/{id} updates dataset metadata. Glossaries API can import terms. No API for vocabulary or logical model.",
+     "n": "The Data sets API PATCH /api/v1/data-sets/{id} updates dataset metadata. The Glossaries API can import terms. No API exists for vocabulary or logical model.",
      "u": "https://qlik.dev/apis/rest/data-sets/"
     },
     "autoClassify": {
@@ -13046,43 +13138,43 @@ window.SL = {
     },
     "sampleValues": {
      "l": 3,
-     "n": "Business logic vocabulary adds alternative names for fields and values and names for coded values. Logical model sets which fields are value searchable.",
+     "n": "Business logic vocabulary adds alternative names for fields and values, and names for coded values. The logical model sets which fields are value searchable.",
      "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/InsightAdvisorBestPractices/best-practice-create-business-logic.htm"
     },
     "queryHistory": {
      "l": 3,
-     "n": "Default logical model learns from charts users add or edit. Precedents are per user and unavailable once business logic is on.",
+     "n": "The default logical model learns from charts that users add or edit. Precedents are per user. They are unavailable once business logic is on.",
      "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/insight-advisor-create-visualizations.htm"
     },
     "lineage": {
      "l": 3,
-     "n": "Field-level lineage and impact analysis for cataloged data across apps, scripts and datasets. Also available through the Lineage graphs API.",
+     "n": "Field-level lineage and impact analysis cover cataloged data across apps, scripts and datasets. The Lineage graphs API also provides them.",
      "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Catalog/lineage.htm"
     },
     "evals": {
      "l": 1,
-     "n": "Feedback and questions are logged for audit admins via the Natural Language API; docs point to manual model fixes.",
+     "n": "The Natural Language API logs feedback and questions for audit admins. The docs point to manual model fixes.",
      "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/insight-advisor-usage-metrics.htm"
     }
    },
    "offers": [
-    "Logical model and vocabulary supply synonyms and custom analyses to Insight Advisor.",
+    "The logical model and vocabulary supply synonyms and custom analyses to Insight Advisor.",
     "Qlik Answers generates field and master item descriptions you can review and edit.",
     "The Qlik MCP server lets outside assistants search apps, read fields, apply selections and run ad hoc calculations.",
     "MCP tools cover glossary, data products, lineage, master items and selections.",
     "Section Access limits what Qlik Answers returns."
    ],
    "gaps": [
-    "No verified-query or example-SQL object.",
+    "No verified-query or example-SQL object exists.",
     "Each app has a single logical model, so it is not a shared governed model across apps.",
-    "No Qlik export of the logical model to Ossie, although Qlik joined the standard.",
-    "Discovery Agent and Data Products for Analytics were announced for after Feb 2026, and their current status is not confirmed."
+    "Qlik joined the standard but has no export of the logical model to Ossie.",
+    "Qlik announced Discovery Agent and Data Products for Analytics for after Feb 2026. Their current status is not confirmed."
    ],
    "fillWith": [
     "Cube",
     "dbt Semantic Layer"
    ],
-   "nl2sqlPath": "Define master measures and dimensions, set up the logical model and vocabulary, then let Qlik Answers index the app. For your own agents, connect to the Qlik MCP server and enable only the tools you need. Plan for one logical model per app when you think about reuse.",
+   "nl2sqlPath": "Define master measures and dimensions. Set up the logical model and vocabulary. Then let Qlik Answers index the app. For your own agents, connect to the Qlik MCP server and enable only the tools you need. Plan for one logical model per app when you think about reuse.",
    "snippet": {
     "lang": "other",
     "title": "Qlik MCP app discovery tools (names from the tools page)",
@@ -13188,7 +13280,7 @@ window.SL = {
    "worksWithUrl": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Helpsites/Connectors_SaaS.htm",
    "openToOtherTools": {
     "l": 3,
-    "n": "Qlik MCP server GA Feb 2026 exposes app discovery, fields, ad hoc calculations and glossary to third-party assistants.",
+    "n": "The Qlik MCP server (GA Feb 2026) exposes app discovery, fields, ad hoc calculations and glossary to third-party assistants.",
     "u": "https://www.qlik.com/us/news/company/press-room/press-releases/qlik-brings-agentic-analytics-to-general-availability-and-launches-mcp-server-for-third-party-assistants"
    },
    "verified": "2026-10-24",
@@ -13212,15 +13304,15 @@ window.SL = {
      "u": "https://help.qlik.com/en-us/cloud-services/Subsystems/Hub/Content/Sense_Hub/QlikAnswers/working-with-apps-in-qlik-answers.htm"
     }
    ],
-   "enrichHowTo": "Write dataset descriptions and tags with PATCH /api/v1/data-sets/{id} in the Data sets API, and load business terms with the Glossaries API import. Insight Advisor synonyms are edited by hand in each app's Vocabulary, because the REST API list has no vocabulary or logical model endpoint."
+   "enrichHowTo": "Write dataset descriptions and tags with PATCH /api/v1/data-sets/{id} in the Data sets API. Load business terms with the Glossaries API import. Edit Insight Advisor synonyms by hand in the Vocabulary of each app. The REST API list has no vocabulary or logical model endpoint."
   },
   {
    "id": "businessobjects",
    "name": "SAP BusinessObjects BI",
    "category": "bi",
-   "tagline": "SAP's long-running enterprise BI suite with universes as its semantic layer.",
+   "tagline": "The long-running enterprise BI suite from SAP. Universes are its semantic layer.",
    "verdict": "partial",
-   "verdictNote": "Universes (.unx) are a classic governed semantic layer, but BusinessObjects has no first-party NL-to-SQL, synonym or MCP feature, and SAP puts its AI work into Business Data Cloud.",
+   "verdictNote": "Universes (.unx) are a classic governed semantic layer. BusinessObjects has no first-party NL-to-SQL, synonym or MCP feature. SAP puts its AI work into Business Data Cloud.",
    "artifacts": [
     {
      "name": "Universe (.unx) built in Information Design Tool",
@@ -13266,7 +13358,7 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "The business layer of a universe holds measures that map to SQL expressions on the data foundation.",
+     "n": "The business layer of a universe holds measures. They map to SQL expressions on the data foundation.",
      "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
     },
     "dimensions": {
@@ -13276,7 +13368,7 @@ window.SL = {
     },
     "relationships": {
      "l": 3,
-     "n": "Joins are declared in the data foundation, and the tool can detect or set join cardinality.",
+     "n": "The data foundation declares joins. The tool can detect or set join cardinality.",
      "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
     },
     "synonyms": {
@@ -13286,91 +13378,91 @@ window.SL = {
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No example query or trusted question store in universes. Teams keep curated Web Intelligence documents instead.",
+     "n": "Universes have no example query or trusted question store. Teams keep curated Web Intelligence documents instead.",
      "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
     },
     "nl2sql": {
      "l": 0,
-     "n": "No first-party NL-to-SQL in BusinessObjects. SAP's Joule agents are tied to Business Data Cloud.",
+     "n": "BusinessObjects has no first-party NL-to-SQL. SAP Joule agents depend on Business Data Cloud.",
      "u": "https://barc.com/sap-data-analytics-2026/"
     },
     "ontology": {
      "l": 0,
-     "n": "None in BusinessObjects. SAP's knowledge graph engine sits in HANA Cloud and Business Data Cloud.",
+     "n": "BusinessObjects has none. The SAP knowledge graph engine sits in HANA Cloud and Business Data Cloud.",
      "u": "https://barc.com/sap-data-analytics-2026/"
     },
     "graph": {
      "l": 0,
-     "n": "None in BusinessObjects.",
+     "n": "BusinessObjects has none.",
      "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
     },
     "vector": {
      "l": 0,
-     "n": "None in BusinessObjects.",
+     "n": "BusinessObjects has none.",
      "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
     },
     "mcp": {
      "l": 1,
-     "n": "No SAP MCP server. CData sells a third-party MCP server for BusinessObjects BI built on its JDBC driver.",
+     "n": "SAP has no MCP server. CData sells a third-party MCP server for BusinessObjects BI. It uses the JDBC driver of CData.",
      "u": "https://cdn.cdata.com/help/GJN/mcp"
     },
     "governance": {
      "l": 3,
-     "n": "Universes can be secured with data and business security profiles set in the Information Design Tool.",
+     "n": "Admins can secure universes with data and business security profiles. They set the profiles in the Information Design Tool.",
      "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
     },
     "openStandard": {
      "l": 0,
-     "n": "No OSI or Ossie export. Universes (.unx) are a proprietary format; other tools write them only through SAP's Semantic Layer Java SDK.",
+     "n": "No OSI or Ossie export exists. Universes (.unx) are a proprietary format. Other tools write them only through the Semantic Layer Java SDK of SAP.",
      "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/Cloud/Content/Bridges/MIRBoInformationDesignToolUnxExport.htm"
     },
     "aiDescriptions": {
      "l": 0,
-     "n": "No AI description generation. Universe object descriptions are written by hand in the Information Design Tool.",
+     "n": "No AI description generation exists. Users write universe object descriptions by hand in the Information Design Tool.",
      "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
     },
     "bulkMetadata": {
      "l": 1,
-     "n": "The Semantic Layer Java SDK ships with the BI client tools. Third-party catalog bridges use it to read and write .unx universes. No first-party bulk tool seen.",
+     "n": "The Semantic Layer Java SDK ships with the BI client tools. Third-party catalog bridges use it to read and write .unx universes. The docs show no first-party bulk tool.",
      "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/8.0/Content/MIRBoInformationDesignToolUnxExport.htm"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic classification or PII tagging. Sensitivity is handled with manual security profiles.",
+     "n": "No automatic classification or PII tagging exists. Manual security profiles handle sensitivity.",
      "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
     },
     "sampleValues": {
      "l": 0,
-     "n": "No NL-to-SQL literal matching. Universe objects have lists of values for query prompts only.",
+     "n": "No NL-to-SQL literal matching exists. Universe objects have lists of values for query prompts only.",
      "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
     },
     "queryHistory": {
      "l": 1,
-     "n": "Data Federation Administration Tool browses executed queries for monitoring. Any mining for joins or metrics is DIY.",
+     "n": "Data Federation Administration Tool browses executed queries for monitoring. Users must build any mining for joins or metrics themselves.",
      "u": "https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/f43f4d90c5ee4858ac5c8817d6aff803/459f99766e041014910aba7db0e91070.html?locale=en-US&state=PRODUCTION&version=2025"
     },
     "lineage": {
      "l": 1,
-     "n": "No lineage view inside BI in the docs. Talend Data Catalog, a separate product, imports universes (.unx) with transformation lineage.",
+     "n": "The docs show no lineage view inside BI. Talend Data Catalog, a separate product, imports universes (.unx) with transformation lineage.",
      "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/8.1/Content/Bridges/MIRBoInformationDesignToolUnxImport.htm"
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL, so no accuracy tests or feedback loop.",
+     "n": "There is no NL-to-SQL, so there are no accuracy tests or feedback loop.",
      "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
     }
    },
    "offers": [
-    "Single-source .unx universes with dimensions, measures and joins stay supported in BI 2025.",
+    "BI 2025 still supports single-source .unx universes with dimensions, measures and joins.",
     "Web Intelligence builds queries on a universe, so business users avoid raw SQL.",
     "Security profiles restrict universe data and objects per user or group.",
     "BI platform REST services list universes and Web Intelligence documents.",
-    "BI 4.3 mainstream maintenance ends in 2026, then Customer Specific Maintenance starts."
+    "BI 4.3 mainstream maintenance ends in 2026. Then Customer Specific Maintenance starts."
    ],
    "gaps": [
-    "No first-party NL-to-SQL, synonyms, verified queries or MCP server for BusinessObjects.",
-    "Universe Design Tool and .unv universes are not delivered in BI 2025. Only .unx from Information Design Tool continues.",
-    "Multi-source universes are also not delivered in BI 2025, per SAP's statement of direction.",
+    "BusinessObjects has no first-party NL-to-SQL, synonyms, verified queries or MCP server.",
+    "BI 2025 does not deliver the Universe Design Tool and .unv universes. Only .unx from Information Design Tool continues.",
+    "BI 2025 also does not deliver multi-source universes, per the SAP statement of direction.",
     "SAP puts its AI and semantic investment into Business Data Cloud, not the BusinessObjects universe."
    ],
    "fillWith": [
@@ -13378,7 +13470,7 @@ window.SL = {
     "dbt Semantic Layer",
     "SAP Business Data Cloud"
    ],
-   "nl2sqlPath": "BusinessObjects has no native NL-to-SQL. Teams that need an AI agent usually read the warehouse or an outside semantic layer instead of the universe. If the data is in SAP, look at Business Data Cloud and Joule, which are separate products.",
+   "nl2sqlPath": "BusinessObjects has no native NL-to-SQL. Teams that need an AI agent usually read the warehouse or an outside semantic layer instead of the universe. If the data is in SAP, look at Business Data Cloud and Joule. They are separate products.",
    "snippet": {
     "lang": "other",
     "title": "List universes over the BI platform REST API (third-party tutorial)",
@@ -13449,7 +13541,7 @@ window.SL = {
    "worksWithUrl": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf",
    "openToOtherTools": {
     "l": 1,
-    "n": "REST services list universes and documents. A third-party MCP server exists. No SAP MCP or OSI export.",
+    "n": "REST services list universes and documents. A third-party MCP server exists. There is no SAP MCP and no OSI export.",
     "u": "https://hackernoon.com/how-to-fetch-sap-business-objects-universes-using-python"
    },
    "verified": "2026-10-24",
@@ -13462,7 +13554,7 @@ window.SL = {
     "BusinessObjects BI"
    ],
    "askData": [],
-   "enrichHowTo": "The Semantic Layer Java SDK ships with the BI client tools and reads universes (.unx). Third-party catalog bridges use it to import and export universe metadata."
+   "enrichHowTo": "The Semantic Layer Java SDK ships with the BI client tools. It reads universes (.unx). Third-party catalog bridges use it to import and export universe metadata."
   },
   {
    "id": "sigma",
@@ -13470,7 +13562,7 @@ window.SL = {
    "category": "bi",
    "tagline": "Cloud analytics workbook tool that queries the warehouse live, with data models and an MCP server.",
    "verdict": "native",
-   "verdictNote": "Data models hold relationships, metrics, descriptions, and row-level security, and feed Sigma Assistant and a GA MCP server; AI context for data models is Beta.",
+   "verdictNote": "Data models hold relationships, metrics, descriptions, and row-level security. They feed Sigma Assistant and a GA MCP server. AI context for data models is Beta.",
    "artifacts": [
     {
      "name": "Data models (tables, relationships, metrics)",
@@ -13532,7 +13624,7 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Metrics in a data model are used by Sigma Assistant for aggregate calculations. Docs advise a default timeline and description.",
+     "n": "Sigma Assistant uses metrics in a data model for aggregate calculations. The docs advise a default timeline and description.",
      "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices"
     },
     "dimensions": {
@@ -13542,7 +13634,7 @@ window.SL = {
     },
     "relationships": {
      "l": 3,
-     "n": "Relationships define join logic between data model tables. Many-to-one or one-to-one only. Not created automatically.",
+     "n": "Relationships define join logic between data model tables. Only many-to-one or one-to-one is allowed. Sigma does not create them automatically.",
      "u": "https://help.sigmacomputing.com/docs/define-relationships-in-data-models.md"
     },
     "synonyms": {
@@ -13552,62 +13644,62 @@ window.SL = {
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No saved question-SQL pairs found in the docs. Teams use AI context text, metric definitions and endorsed badges.",
+     "n": "The docs show no saved question-SQL pairs. Teams use AI context text, metric definitions and endorsed badges.",
      "u": "https://help.sigmacomputing.com/docs/manage-ai-context-for-data-models.md"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Sigma Assistant answers natural-language questions on data models using relationships, metrics, descriptions, and AI context.",
+     "n": "Sigma Assistant answers natural-language questions on data models. It uses relationships, metrics, descriptions, and AI context.",
      "u": "https://help.sigmacomputing.com/docs/ask-natural-language-queries-with-assistant.md"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology object in the Sigma docs index. Teams use data models with relationships and AI context.",
+     "n": "The Sigma docs index shows no ontology object. Teams use data models with relationships and AI context.",
      "u": "https://help.sigmacomputing.com/docs/get-started-with-data-modeling.md"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query feature in the Sigma docs index.",
+     "n": "The Sigma docs index shows no graph query feature.",
      "u": ""
     },
     "vector": {
      "l": 3,
-     "n": "Assistant uses a semantic search index over data model metadata to pick sources. No vector search on row data found.",
+     "n": "The Assistant uses a semantic search index over data model metadata to pick sources. The docs show no vector search on row data.",
      "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices"
     },
     "mcp": {
      "l": 3,
-     "n": "Sigma MCP server queries connections, data models, and workbooks without SQL. Needs the Use Sigma MCP with OAuth permission.",
+     "n": "The Sigma MCP server queries connections, data models, and workbooks without SQL. It needs the Use Sigma MCP with OAuth permission.",
      "u": "https://help.sigmacomputing.com/docs/use-sigma-mcp-server"
     },
     "governance": {
      "l": 3,
-     "n": "Row-level and column-level security on data model tables, certification badges, and lineage for data models.",
+     "n": "Data model tables have row-level and column-level security. Data models also have certification badges and lineage.",
      "u": "https://help.sigmacomputing.com/docs/set-up-row-level-security.md"
     },
     "openStandard": {
      "l": 1,
-     "n": "Apache Ossie converters repo has a Sigma directory. Data models also export as JSON or YAML through the API.",
+     "n": "The Apache Ossie converters repo has a Sigma directory. Data models also export as JSON or YAML through the API.",
      "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
     },
     "aiDescriptions": {
      "l": 0,
-     "n": "No description generator found. The Assistant index builds its own descriptions from column names and does not write them back.",
+     "n": "The docs show no description generator. The Assistant index builds its own descriptions from column names. It does not write them back.",
      "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices.md"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "Data model spec API replaces whole models as JSON or YAML, with column descriptions. dbt persist_docs also feeds them.",
+     "n": "The Data model spec API replaces whole models as JSON or YAML, with column descriptions. dbt persist_docs also feeds them.",
      "u": "https://help.sigmacomputing.com/reference/update-data-model-spec.md"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic column classification in the docs. Column-level security rules are set by hand.",
+     "n": "The docs show no automatic column classification. Users set column-level security rules by hand.",
      "u": "https://help.sigmacomputing.com/docs/column-level-security.md"
     },
     "sampleValues": {
      "l": 0,
-     "n": "Docs describe the Assistant index as built from names, descriptions and generated synonyms. No sampled values documented.",
+     "n": "The docs describe the Assistant index as built from names, descriptions and generated synonyms. The docs describe no sampled values.",
      "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices.md"
     },
     "queryHistory": {
@@ -13617,26 +13709,26 @@ window.SL = {
     },
     "lineage": {
      "l": 0,
-     "n": "Lineage graph and lineage API are element level: tables, joins, charts, controls. Column-level lineage is not described in the docs.",
+     "n": "The lineage graph and lineage API are element level: tables, joins, charts, controls. The docs do not describe column-level lineage.",
      "u": "https://help.sigmacomputing.com/docs/workbook-data-lineage.md"
     },
     "evals": {
      "l": 3,
-     "n": "Agent evaluation suites run from input tables or the REST API, using AI_USAGE records. Assistant has response feedback.",
+     "n": "Agent evaluation suites run from input tables or the REST API, using AI_USAGE records. The Assistant has response feedback.",
      "u": "https://help.sigmacomputing.com/docs/build-agent-evaluation-suite.md"
     }
    },
    "offers": [
-    "Data model metrics, relationships, and descriptions are read by Sigma Assistant.",
-    "Data models can be created and updated as JSON or YAML through the API, with an example library.",
-    "Sigma MCP server (Dec 2025) lets Claude, ChatGPT, Cursor, and other clients query data models and workbooks.",
+    "Sigma Assistant reads data model metrics, relationships, and descriptions.",
+    "The API can create and update data models as JSON or YAML. An example library exists.",
+    "The Sigma MCP server (Dec 2025) lets Claude, ChatGPT, Cursor, and other clients query data models and workbooks.",
     "Sigma agents can call other MCP servers through MCP connectors.",
     "Warehouse connections include Snowflake, BigQuery, Redshift, Databricks, and PostgreSQL."
    ],
    "gaps": [
-    "AI context for data models is Beta, and it is the main place for aliases and usage rules.",
-    "Relationships must be created by hand and support only many-to-one or one-to-one joins.",
-    "No SQL interface for outside tools found.",
+    "AI context for data models is Beta. It is the main place for aliases and usage rules.",
+    "Users must create relationships by hand. They support only many-to-one or one-to-one joins.",
+    "No SQL interface for outside tools exists.",
     "MCP use needs an OAuth permission on the account type."
    ],
    "fillWith": [
@@ -13644,7 +13736,7 @@ window.SL = {
     "dbt Semantic Layer",
     "Cube"
    ],
-   "nl2sqlPath": "Build data models with relationships, metrics, descriptions, and a default timeline, add AI context, then use Sigma Assistant. For external agents, use the Sigma MCP server so questions run against data models. Keep warehouse-level semantics in the warehouse if you need them outside Sigma.",
+   "nl2sqlPath": "Build data models with relationships, metrics, descriptions, and a default timeline. Add AI context. Then use Sigma Assistant. For external agents, use the Sigma MCP server so questions run against data models. Keep warehouse-level semantics in the warehouse if you need them outside Sigma.",
    "snippet": {
     "lang": "json",
     "title": "Metric in the code representation of a data model (Sigma API example)",
@@ -13667,7 +13759,7 @@ window.SL = {
    "worksWithUrl": "https://help.sigmacomputing.com/docs/region-warehouse-and-feature-support.md",
    "openToOtherTools": {
     "l": 3,
-    "n": "Hosted Sigma MCP server queries data models and workbooks. Needs OAuth permission. Data models export as JSON or YAML by API.",
+    "n": "The hosted Sigma MCP server queries data models and workbooks. It needs OAuth permission. Data models export as JSON or YAML by API.",
     "u": "https://help.sigmacomputing.com/docs/use-sigma-mcp-server"
    },
    "sources": [
@@ -13804,7 +13896,7 @@ window.SL = {
      "u": "https://help.sigmacomputing.com/docs/ask-natural-language-queries-with-assistant.md"
     }
    ],
-   "enrichHowTo": "Get the data model with GET /v2/dataModels/{id}/spec, edit table, column and metric descriptions in the JSON or YAML, then send the full spec back with PUT /v2/dataModels/{id}/spec, since partial updates are not supported. Descriptions can also come from warehouse comments or dbt with persist_docs. Add AI context (Beta) for Assistant instructions.",
+   "enrichHowTo": "Get the data model with GET /v2/dataModels/{id}/spec. Edit table, column and metric descriptions in the JSON or YAML. Then send the full spec back with PUT /v2/dataModels/{id}/spec. The API does not support partial updates. Warehouse comments or dbt with persist_docs can also supply descriptions. Add AI context (Beta) for Assistant instructions.",
    "bulkSnippet": {
     "lang": "bash",
     "code": "curl --request PUT \\\n --url <base_url>/v2/dataModels/<dataModelId>/spec \\\n --header 'Authorization: Bearer <access_token>' \\\n --header 'content-type:application/json' \\\n --data '<json_representation>'",
@@ -13881,7 +13973,7 @@ window.SL = {
     },
     "relationships": {
      "l": 3,
-     "n": "Hierarchy and relationship definitions are part of the model, and Mosaic models can be linked to each other.",
+     "n": "Hierarchy and relationship definitions are part of the model. Users can link Mosaic models to each other.",
      "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_yaml_overview.htm"
     },
     "synonyms": {
@@ -13891,62 +13983,62 @@ window.SL = {
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No verified-query object. Agents use custom instructions with SQL examples and column descriptions instead.",
+     "n": "No verified-query object exists. Agents use custom instructions with SQL examples and column descriptions instead.",
      "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/agent_bestpractices.htm"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Agents answer questions on AI-enabled Mosaic models from the metrics and relationships in the model. GA since Dec 2025.",
+     "n": "Agents answer questions on AI-enabled Mosaic models. They use the metrics and relationships in the model. GA since Dec 2025.",
      "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_agent_from_model.htm"
     },
     "ontology": {
      "l": 0,
-     "n": "AI-generated ontologies were announced at Strategy World in Feb 2026 and are not released.",
+     "n": "Strategy announced AI-generated ontologies at Strategy World in Feb 2026. They are not released.",
      "u": "https://www.strategy.com/press/strategy-world-2026-declares-a-new-era-for-enterprise-ai-honors-customer-and-partner-innovation_02-25-2026"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language in Mosaic or agent docs.",
+     "n": "The Mosaic and agent docs show no graph query language.",
      "u": "https://www2.strategy.com/producthelp/current/readme/en-us/content/whats_new.htm"
     },
     "vector": {
      "l": 0,
-     "n": "No vector search over data or metadata in the release notes.",
+     "n": "The release notes show no vector search over data or metadata.",
      "u": "https://www2.strategy.com/producthelp/current/readme/en-us/content/whats_new.htm"
     },
     "mcp": {
      "l": 3,
-     "n": "Mosaic models are in the MCP server out of the box from March 2026, replacing a Feb 2026 preview. Models must be certified.",
+     "n": "Mosaic models are in the MCP server out of the box from March 2026. This replaces a Feb 2026 preview. Models must be certified.",
      "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/agent_mcpserverintegration.htm"
     },
     "governance": {
      "l": 3,
-     "n": "Mosaic YAML carries security filters and ACLs, and MCP queries use only published, certified models the user can view.",
+     "n": "Mosaic YAML carries security filters and ACLs. MCP queries use only published, certified models that the user can view.",
      "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_yaml_overview.htm"
     },
     "openStandard": {
      "l": 3,
-     "n": "Mosaic imports and exports Apache Ossie YAML. Preview in Jun 2026, available out of the box from Jul 2026.",
+     "n": "Mosaic imports and exports Apache Ossie YAML. It was Preview in Jun 2026 and is available out of the box from Jul 2026.",
      "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_osi_import.htm"
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "Enable for AI generates a dataset description and a description per column from column name and sample values. Editable. Since March 2025.",
+     "n": "Enable for AI generates a dataset description and a description per column from column name and sample values. Users can edit them. It exists since March 2025.",
      "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_bots_new_data.htm"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "Since June 2026, download an agent's tuning file (JSON) with column descriptions and custom instructions, and upload it to another agent.",
+     "n": "Since June 2026, users can download the tuning file (JSON) of an agent. It has column descriptions and custom instructions. Users can upload it to another agent.",
      "u": "https://www2.strategy.com/producthelp/2021/NextGenAI/en-us/Content/agent_tuning.htm"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No column classification or sensitivity tagging in the Agent docs or What's New. Mosaic Sentinel tracks usage and audit events.",
+     "n": "The Agent docs and What's New show no column classification or sensitivity tagging. Mosaic Sentinel tracks usage and audit events.",
      "u": "https://www2.strategy.com/producthelp/Current/Readme/en-us/content/whats_new.htm"
     },
     "sampleValues": {
      "l": 3,
-     "n": "Agent auto complete lists matching columns and attribute elements as users type, so a typed value picks the exact element.",
+     "n": "Agent auto complete lists matching columns and attribute elements as users type. A typed value then picks the exact element.",
      "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_bots_new_general.htm"
     },
     "queryHistory": {
@@ -13956,33 +14048,33 @@ window.SL = {
     },
     "lineage": {
      "l": 0,
-     "n": "Components and Dependents views show object-level links between reports, attributes, metrics and tables. No column-level lineage view documented.",
+     "n": "Components and Dependents views show object-level links between reports, attributes, metrics and tables. The docs describe no column-level lineage view.",
      "u": "https://www2.strategy.com/producthelp/Current/Workstation/en-us/Content/view_component_dependent_objects.htm"
     },
     "evals": {
      "l": 1,
-     "n": "Thumbs feedback and reasons are stored in Platform Analytics tables. Clarifications become per-user learnings. No eval runner or shared verified examples seen.",
+     "n": "Platform Analytics tables store thumbs feedback and reasons. Clarifications become per-user learnings. No eval runner or shared verified examples exist.",
      "u": "https://www2.strategy.com/producthelp/Current/PlatformAnalytics/en-us/Content/auto_assistant_schema.htm"
     }
    },
    "offers": [
-    "Mosaic serves JDBC, XMLA and DAX for Power BI, REST and Python, with a Tableau connector.",
+    "Mosaic serves JDBC, XMLA and DAX for Power BI, REST and Python. It also has a Tableau connector.",
     "The Mosaic MCP endpoint returns projects, models, semantic definitions and read-only SQL results (Trino dialect).",
-    "Models can be exchanged as Apache Ossie YAML and versioned in GitHub.",
-    "Agents read column descriptions and custom instructions, with tuning files that can be reused across agents.",
-    "Mosaic Studio can import Databricks Unity Catalog and BigQuery descriptions and generate business-friendly names."
+    "Users can exchange models as Apache Ossie YAML and version them in GitHub.",
+    "Agents read column descriptions and custom instructions. Tuning files can be reused across agents.",
+    "Mosaic Studio can import Databricks Unity Catalog and BigQuery descriptions. It can generate business-friendly names."
    ],
    "gaps": [
     "AI-generated ontologies are announced only.",
-    "Git support starts with GitHub only and one integration per environment.",
-    "Ossie import keeps only ANSI SQL expressions, assumes one-to-many relationships and loses time granularity on round trips.",
-    "No verified-query object. Agent tuning versions that test custom instructions are Preview."
+    "Git support starts with GitHub only. It allows one integration per environment.",
+    "Ossie import keeps only ANSI SQL expressions and assumes one-to-many relationships. It loses time granularity on round trips.",
+    "No verified-query object exists. Agent tuning versions that test custom instructions are Preview."
    ],
    "fillWith": [
     "dbt Semantic Layer",
     "Cube"
    ],
-   "nl2sqlPath": "Build the model in Mosaic, certify it, turn on AI for it, and let agents answer in Strategy tools. For outside agents, connect Claude, ChatGPT or Copilot to the Mosaic MCP endpoint. Use the Ossie YAML export when you need to move definitions elsewhere.",
+   "nl2sqlPath": "Build the model in Mosaic. Certify it. Turn on AI for it. Let agents answer in Strategy tools. For outside agents, connect Claude, ChatGPT or Copilot to the Mosaic MCP endpoint. Use the Ossie YAML export when you need to move definitions elsewhere.",
    "snippet": {
     "lang": "other",
     "title": "MCP endpoint paths for a custom connector (from product help)",
@@ -14088,7 +14180,7 @@ window.SL = {
    "worksWithUrl": "https://www2.strategy.com/producthelp/current/readme/en-us/content/whats_new.htm",
    "openToOtherTools": {
     "l": 3,
-    "n": "JDBC, XMLA and DAX, REST, Python, an MCP server for Mosaic models (Mar 2026) and Ossie YAML export (Jul 2026).",
+    "n": "Mosaic exposes JDBC, XMLA and DAX, REST, Python, an MCP server for Mosaic models (Mar 2026) and Ossie YAML export (Jul 2026).",
     "u": "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_connector.htm"
    },
    "verified": "2026-10-24",
@@ -14112,7 +14204,7 @@ window.SL = {
      "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_agent_from_model.htm"
     }
    ],
-   "enrichHowTo": "Enable the dataset for AI in Workstation or Library to generate dataset and column descriptions. Edit them in the agent data panel, then download the agent tuning file (JSON) to reuse column descriptions in other agents."
+   "enrichHowTo": "Enable the dataset for AI in Workstation or Library. This generates dataset and column descriptions. Edit them in the agent data panel. Then download the agent tuning file (JSON). Use it to reuse column descriptions in other agents."
   },
   {
    "id": "tableau",
@@ -14120,7 +14212,7 @@ window.SL = {
    "category": "bi",
    "tagline": "Salesforce BI with Tableau Semantics, a semantic layer on Data 360, and an MCP server.",
    "verdict": "native",
-   "verdictNote": "Tableau Semantics holds metrics, calculated fields, and relationships in Tableau Next and Data 360, and agents reach it through a GA MCP server (Apr 2026).",
+   "verdictNote": "Tableau Semantics holds metrics, calculated fields, and relationships in Tableau Next and Data 360. Agents reach it through a GA MCP server (Apr 2026).",
    "artifacts": [
     {
      "name": "Tableau Semantics (semantic layer in Tableau Next, on Data 360)",
@@ -14187,22 +14279,22 @@ window.SL = {
     },
     "dimensions": {
      "l": 3,
-     "n": "Calculated dimensions and measures are built in the model. Hierarchies and time grains not described in the docs.",
+     "n": "Users build calculated dimensions and measures in the model. The docs do not describe hierarchies and time grains.",
      "u": "https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/create-calculated-fields-and-metrics"
     },
     "relationships": {
      "l": 3,
-     "n": "Canvas shows relationships between data objects. Einstein can suggest relationships when the toggle is on.",
+     "n": "The canvas shows relationships between data objects. Einstein can suggest relationships when the toggle is on.",
      "u": "https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/learn-the-basics-of-tableau-semantics"
     },
     "synonyms": {
      "l": 3,
-     "n": "Agents read field labels and descriptions (255 characters). Docs also name Business Preferences. No synonym field found.",
+     "n": "Agents read field labels and descriptions (255 characters). The docs also name Business Preferences. The docs show no synonym field.",
      "u": "https://trailhead.salesforce.com/content/learn/modules/semantic-models-in-tableau-next-quick-look/design-your-semantic-model-for-analysis"
     },
     "verifiedQueries": {
      "l": 2,
-     "n": "Q&A Calibration is Beta in the April 2026 notes and still Beta in June 2026. Not shown as question-SQL pairs.",
+     "n": "Q&A Calibration is Beta in the April 2026 notes and still Beta in June 2026. It does not use question-SQL pairs.",
      "u": "https://www.tableau.com/2026-1-april-features"
     },
     "nl2sql": {
@@ -14212,32 +14304,32 @@ window.SL = {
     },
     "ontology": {
      "l": 0,
-     "n": "Semantic Model Builder elements are metrics, calculated fields, parameters, logical views, and data objects. No ontology object.",
+     "n": "Semantic Model Builder elements are metrics, calculated fields, parameters, logical views, and data objects. No ontology object exists.",
      "u": "https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/learn-the-basics-of-tableau-semantics"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language. The Knowledge Graph REST API (Cloud+, Sept 2026) returns nodes, lineage and impact over Tableau content metadata only.",
+     "n": "No graph query language exists. The Knowledge Graph REST API (Cloud+, Sept 2026) returns nodes, lineage and impact over Tableau content metadata only.",
      "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_tableau_knowledge_graph.htm"
     },
     "vector": {
      "l": 3,
-     "n": "Tableau Knowledge Graph API has a natural-language semantic search over graph nodes. Cloud+ only, not on Tableau Server.",
+     "n": "The Tableau Knowledge Graph API has a natural-language semantic search over graph nodes. It is Cloud+ only, not on Tableau Server.",
      "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_tableau_knowledge_graph.htm"
     },
     "mcp": {
      "l": 3,
-     "n": "April 2026 notes: Tableau Next MCP is generally available. Open-source Tableau MCP covers Cloud and Server.",
+     "n": "April 2026 notes: Tableau Next MCP is generally available. The open-source Tableau MCP covers Cloud and Server.",
      "u": "https://www.tableau.com/2026-1-april-features"
     },
     "governance": {
      "l": 3,
-     "n": "Admins set which semantic models an agent may use. Hosted Tableau MCP enforces each user's existing permissions.",
+     "n": "Admins set which semantic models an agent may use. Hosted Tableau MCP enforces the existing permissions of each user.",
      "u": "https://www.tableau.com/2026-1-april-features"
     },
     "openStandard": {
      "l": 1,
-     "n": "Apache Ossie converters repo has a two-way Salesforce converter, described as the Salesforce / Tableau semantic layer.",
+     "n": "The Apache Ossie converters repo has a two-way Salesforce converter. It is described as the Salesforce / Tableau semantic layer.",
      "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
     },
     "aiDescriptions": {
@@ -14247,17 +14339,17 @@ window.SL = {
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "REST: Update Column, Batch Add Tags, and from API 3.30 field descriptions on a work copy. Needs Data Management.",
+     "n": "REST methods: Update Column, Batch Add Tags, and from API 3.30 field descriptions on a work copy. These methods need Data Management.",
      "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_data_sources.htm"
     },
     "autoClassify": {
      "l": 0,
-     "n": "Sensitivity labels and tags are set by hand or via REST. No automatic column classification found.",
+     "n": "Users set sensitivity labels and tags by hand or via REST. The docs show no automatic column classification.",
      "u": "https://help.tableau.com/current/server/en-us/dm_labels.htm"
     },
     "sampleValues": {
      "l": 3,
-     "n": "Tableau Agent sends up to 1000 unique sampled values from the data source to the model when authoring vizzes.",
+     "n": "Tableau Agent sends up to 1000 unique sampled values from the data source to the model when users author vizzes.",
      "u": "https://help.tableau.com/current/tableau/en-us/tableau_gai_data.htm"
     },
     "queryHistory": {
@@ -14267,33 +14359,33 @@ window.SL = {
     },
     "lineage": {
      "l": 3,
-     "n": "Catalog lineage filters to a selected field or column, upstream or downstream. No columns for custom SQL tables. Cubes unsupported.",
+     "n": "Catalog lineage filters to a selected field or column, upstream or downstream. Custom SQL tables have no columns. Cubes are unsupported.",
      "u": "https://help.tableau.com/current/online/en-us/dm_lineage.htm"
     },
     "evals": {
      "l": 2,
-     "n": "Q&A Calibration (Beta) in Tableau Next tests questions in Concierge, then lets you verify and calibrate results.",
+     "n": "Q&A Calibration (Beta) in Tableau Next tests questions in Concierge. Then users verify and calibrate the results.",
      "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
     }
    },
    "offers": [
-    "Tableau Next MCP server (GA Apr 2026) lets agents query Tableau's analytics engine with semantic context.",
-    "Open-source tableau-mcp works with Tableau Cloud and Server, hosted at mcp.tableau.com or self-hosted.",
+    "The Tableau Next MCP server (GA Apr 2026) lets agents query the analytics engine of Tableau with semantic context.",
+    "Open-source tableau-mcp works with Tableau Cloud and Server. It is hosted at mcp.tableau.com or self-hosted.",
     "Semantic Model Scope in Concierge limits which semantic models an agent may use.",
     "Data 360 connectors cover Snowflake, BigQuery, Redshift, Databricks, PostgreSQL, and MySQL."
    ],
    "gaps": [
     "Q&A Calibration and auto-generated semantic models are Beta.",
     "The semantic layer lives in Salesforce Data 360, so definitions sit inside one vendor cloud.",
-    "No synonym field found. Descriptions and Business Preferences carry business wording.",
-    "Salesforce lists opening the semantic layer to other semantic layers as roadmap work, not shipped."
+    "No synonym field exists. Descriptions and Business Preferences carry business wording.",
+    "Salesforce lists opening the semantic layer to other semantic layers as roadmap work. It is not shipped."
    ],
    "fillWith": [
     "Snowflake Semantic Views",
     "dbt Semantic Layer",
     "Cube"
    ],
-   "nl2sqlPath": "Build a semantic model in Tableau Next on Data 360, then use Concierge or the Tableau Next MCP server to ask questions. Calls go through the semantic model, so the agent does not write raw SQL. Write clear field labels and descriptions first.",
+   "nl2sqlPath": "Build a semantic model in Tableau Next on Data 360. Then use Concierge or the Tableau Next MCP server to ask questions. Calls go through the semantic model, so the agent does not write raw SQL. Write clear field labels and descriptions first.",
    "snippet": {
     "lang": "other",
     "title": "Hosted Tableau MCP endpoint named in the tableau-mcp README",
@@ -14311,7 +14403,7 @@ window.SL = {
    "worksWithUrl": "https://www.salesforce.com/analytics/tableau-next/",
    "openToOtherTools": {
     "l": 3,
-    "n": "Tableau Next MCP is GA (Apr 2026) and open-source tableau-mcp is available. No SQL interface found. Ossie converter exists.",
+    "n": "Tableau Next MCP is GA (Apr 2026) and open-source tableau-mcp is available. No SQL interface exists. An Ossie converter exists.",
     "u": "https://www.tableau.com/2026-1-april-features"
    },
    "sources": [
@@ -14424,7 +14516,7 @@ window.SL = {
      "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
     }
    ],
-   "enrichHowTo": "With a Data Management license, call Update Column to set one column description at a time, or use the REST API 3.30 data source methods to create a work copy, add FieldDescription and TableDescription elements, then publish it. Batch Add Tags tags many assets in one call. In Tableau Next, turn on the Semantic Description Generator (Beta) and review each draft.",
+   "enrichHowTo": "With a Data Management license, call Update Column to set one column description at a time. Or use the REST API 3.30 data source methods. These methods create a work copy. Add FieldDescription and TableDescription elements to it, then publish it. Batch Add Tags tags many assets in one call. In Tableau Next, turn on the Semantic Description Generator (Beta). Review each draft.",
    "bulkSnippet": {
     "lang": "json",
     "code": "{\n \"tdsElementList\": [\n {\"elementType\": \"FieldDescription\", \"name\": \"Sales\", \"description\": \"Total sales amount.\"},\n {\"elementType\": \"TableDescription\", \"name\": \"Orders\", \"description\": \"Order line items.\"}\n ]\n}",
@@ -14437,7 +14529,7 @@ window.SL = {
    "category": "bi",
    "tagline": "Search and AI analytics platform with Models, TML, Spotter agents, and an MCP server.",
    "verdict": "native",
-   "verdictNote": "Models with joins, formulas, synonyms, coaching, and TML are GA and feed Spotter, which agents reach through a dated-version MCP server.",
+   "verdictNote": "Models with joins, formulas, synonyms, coaching, and TML are GA. They feed Spotter. Agents reach Spotter through a dated-version MCP server.",
    "artifacts": [
     {
      "name": "Models (replaced Worksheets)",
@@ -14515,22 +14607,22 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Models hold formulas and measures. Spotter Semantics docs describe metrics defined once and applied everywhere.",
+     "n": "Models hold formulas and measures. The Spotter Semantics docs describe metrics defined once and applied everywhere.",
      "u": "https://docs.thoughtspot.com/cloud/26.6.0.cl/semantic-layer"
     },
     "dimensions": {
      "l": 3,
-     "n": "Model columns are typed ATTRIBUTE or MEASURE. Docs also cover custom calendars and a default metric time grain; no hierarchy object found.",
+     "n": "Model columns are typed ATTRIBUTE or MEASURE. The docs also cover custom calendars and a default metric time grain. The docs show no hierarchy object.",
      "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/data-modeling-column-basics.md"
     },
     "relationships": {
      "l": 3,
-     "n": "Model editor creates joins between tables. SpotterModel suggests joins (Beta).",
+     "n": "The model editor creates joins between tables. SpotterModel suggests joins (Beta).",
      "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/models.md"
     },
     "synonyms": {
      "l": 3,
-     "n": "Column synonyms, descriptions, and Spotter instructions are read by Spotter. Model-level AI synonym generation was removed in 26.6.0.cl.",
+     "n": "Spotter reads column synonyms, descriptions, and Spotter instructions. ThoughtSpot removed model-level AI synonym generation in 26.6.0.cl.",
      "u": "https://docs.thoughtspot.com/cloud/26.9.0.cl/deprecation"
     },
     "verifiedQueries": {
@@ -14540,57 +14632,57 @@ window.SL = {
     },
     "nl2sql": {
      "l": 3,
-     "n": "Spotter is the AI analyst. Sage and Ask Sage were removed in December 2025 and replaced by Spotter.",
+     "n": "Spotter is the AI analyst. ThoughtSpot removed Sage and Ask Sage in December 2025 and replaced them with Spotter.",
      "u": "https://developers.thoughtspot.com/docs/deprecated-features"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology object in the documentation index. Teams use Models with column descriptions, synonyms and Spotter instructions.",
+     "n": "The documentation index shows no ontology object. Teams use Models with column descriptions, synonyms and Spotter instructions.",
      "u": "https://docs.thoughtspot.com/llms-full.txt"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query feature in the documentation index.",
+     "n": "The documentation index shows no graph query feature.",
      "u": "https://docs.thoughtspot.com/llms-full.txt"
     },
     "vector": {
      "l": 0,
-     "n": "No vector search feature in the documentation index. Spotter uses a value index for column values.",
+     "n": "The documentation index shows no vector search feature. Spotter uses a value index for column values.",
      "u": "https://docs.thoughtspot.com/llms-full.txt"
     },
     "mcp": {
      "l": 3,
-     "n": "Dated MCP versions. The 2026-05-01 version switched to Spotter 3 session tools and deprecated the old URLs.",
+     "n": "MCP versions carry dates. The 2026-05-01 version switched to Spotter 3 session tools and deprecated the old URLs.",
      "u": "https://developers.thoughtspot.com/docs/mcp-server-changelog"
     },
     "governance": {
      "l": 3,
-     "n": "Row-level security rules on tables apply to Models and Answers. Docs say RLS and CLS apply during query generation.",
+     "n": "Row-level security rules on tables apply to Models and Answers. The docs say RLS and CLS apply during query generation.",
      "u": "https://docs.thoughtspot.com/cloud/26.9.0.cl/security-rls"
     },
     "openStandard": {
      "l": 1,
-     "n": "Apache Ossie converters repo has a ThoughtSpot converter (TML Model and Table/SQL View). Snowflake Semantic Views import is Early Access.",
+     "n": "The Apache Ossie converters repo has a ThoughtSpot converter (TML Model and Table/SQL View). Snowflake Semantic Views import is Early Access.",
      "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
     },
     "aiDescriptions": {
      "l": 2,
-     "n": "SpotterModel drafts column descriptions from a chat prompt; autonomous build is Beta. AI synonyms are Early Access.",
+     "n": "SpotterModel drafts column descriptions from a chat prompt. Autonomous build is Beta. AI synonyms are Early Access.",
      "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-model-create.md"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "TML API exports and imports Model TML in bulk, with column descriptions and synonyms. Column property sync is Early Access.",
+     "n": "The TML API exports and imports Model TML in bulk, with column descriptions and synonyms. Column property sync is Early Access.",
      "u": "https://developers.thoughtspot.com/docs/tml"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic PII tagging found. Docs advise excluding PII columns from indexing by hand.",
+     "n": "The docs show no automatic PII tagging. The docs advise users to exclude PII columns from indexing by hand.",
      "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-make-ai-ready.md"
     },
     "sampleValues": {
      "l": 3,
-     "n": "Indexing samples 1,000 values per column and powers Spotter value suggestions and column sample values. Secure suggestions fetch values live.",
+     "n": "Indexing samples 1,000 values per column. It powers Spotter value suggestions and column sample values. Secure suggestions fetch values live.",
      "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/data-modeling-index.md"
     },
     "queryHistory": {
@@ -14605,21 +14697,21 @@ window.SL = {
     },
     "evals": {
      "l": 3,
-     "n": "Add to Coaching saves verified question and answer pairs. The Spotter Conversations Liveboard shows feedback. No benchmark runner found.",
+     "n": "Add to Coaching saves verified question and answer pairs. The Spotter Conversations Liveboard shows feedback. The docs show no benchmark runner.",
      "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-reference-questions.md"
     }
    },
    "offers": [
-    "Models and TML give a code form for the semantic layer. Worksheets were migrated to Models.",
-    "Spotter MCP server (2026-05-01 version) gives agents session tools: create_analysis_session, send_session_message, get_session_updates.",
-    "Spotter agent conversation APIs let your app start and continue conversations; the older converse endpoints are deprecated.",
+    "Models and TML give a code form for the semantic layer. ThoughtSpot migrated Worksheets to Models.",
+    "The Spotter MCP server (2026-05-01 version) gives agents session tools: create_analysis_session, send_session_message, get_session_updates.",
+    "Spotter agent conversation APIs let your app start and continue conversations. The older converse endpoints are deprecated.",
     "An Ossie converter for TML exists in the Apache repo.",
     "Live connections to Snowflake, Redshift, BigQuery, Databricks, and more."
    ],
    "gaps": [
-    "The metrics catalog named in the March 2026 launch release is not described in the product docs.",
+    "The product docs do not describe the metrics catalog from the March 2026 launch release.",
     "The 2026-05-01 MCP version replaced the legacy tools. Older integrations must migrate or pin an earlier version date.",
-    "Model-level Generate AI Synonyms was removed in 26.6.0.cl. Spotter Model (Early Access) is the named replacement.",
+    "ThoughtSpot removed model-level Generate AI Synonyms in 26.6.0.cl. Spotter Model (Early Access) is the named replacement.",
     "Snowflake Semantic Views import is Early Access and SpotterModel Model generation is Beta."
    ],
    "fillWith": [
@@ -14627,7 +14719,7 @@ window.SL = {
     "Databricks Metric Views",
     "dbt Semantic Layer"
    ],
-   "nl2sqlPath": "Model data in ThoughtSpot Models (TML), add synonyms, descriptions, and reference questions, then use Spotter in the UI. For your own agent, call the Spotter MCP server or the Spotter agent APIs. Pin an MCP version date, because the May 2026 change replaced older tool names.",
+   "nl2sqlPath": "Model data in ThoughtSpot Models (TML). Add synonyms, descriptions, and reference questions. Then use Spotter in the UI. For your own agent, call the Spotter MCP server or the Spotter agent APIs. Pin an MCP version date, because the May 2026 change replaced older tool names.",
    "snippet": {
     "lang": "other",
     "title": "Pin the Spotter MCP server version in the URL (query parameter)",
@@ -14650,7 +14742,7 @@ window.SL = {
    "worksWithUrl": "https://docs.thoughtspot.com/cloud/26.10.0.cl/connections.md",
    "openToOtherTools": {
     "l": 3,
-    "n": "Spotter MCP server and Spotter agent REST APIs let outside agents query. An Ossie converter for TML exists in the Apache repo.",
+    "n": "The Spotter MCP server and Spotter agent REST APIs let outside agents query. An Ossie converter for TML exists in the Apache repo.",
     "u": "https://developers.thoughtspot.com/docs/mcp-server-changelog"
    },
    "sources": [
@@ -14804,7 +14896,7 @@ window.SL = {
      "u": "https://developers.thoughtspot.com/docs/spotter-agent-conversation-apis"
     }
    ],
-   "enrichHowTo": "Export the Model as TML with the TML API, edit column descriptions, synonyms and AI context in the file, then import it back with the import API. Use Generate under Spotter optimization to draft AI context per column, review it, and use the Spotter diagnose prompts to find confusing columns.",
+   "enrichHowTo": "Export the Model as TML with the TML API. Edit column descriptions, synonyms and AI context in the file. Then import it back with the import API. Use Generate under Spotter optimization to draft AI context per column. Review it. Use the Spotter diagnose prompts to find confusing columns.",
    "bulkSnippet": {
     "lang": "json",
     "code": "{\n \"metadata_tmls\": [\n \"guid: <model_guid>\\nmodel:\\n  name: <model_name>\\n  columns:\\n  - name: <column_name_1>\\n    description: <column_description>\\n    properties:\\n      synonyms:\\n      - <synonym>\\n\"\n ],\n \"import_policy\": \"PARTIAL\",\n \"create_new\": false\n}",
@@ -14817,7 +14909,7 @@ window.SL = {
    "category": "catalog",
    "tagline": "Enterprise data catalog with data products, Agent Studio and a remote MCP server.",
    "verdict": "native",
-   "verdictNote": "Alation data products hold metrics, dimensions, joins, synonyms and verified queries, with chat, evaluations and OSI export, on Alation Cloud Service only.",
+   "verdictNote": "Alation data products hold metrics, dimensions, joins, synonyms and verified queries. They offer chat, evaluations and OSI export. They run on Alation Cloud Service only.",
    "artifacts": [
     {
      "name": "Data product semantic model (YAML)",
@@ -14879,42 +14971,42 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Data products hold metrics as aggregate expressions and sync with Snowflake semantic views and Databricks metric views.",
+     "n": "Data products hold metrics as aggregate expressions. They sync with Snowflake semantic views and Databricks metric views.",
      "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ExportDataProductsToSource.md"
     },
     "dimensions": {
      "l": 3,
-     "n": "Dimensions, time dimensions and facts are imported from semantic views and exported back.",
+     "n": "Alation imports dimensions, time dimensions and facts from semantic views. It exports them back.",
      "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/CreateDataProductsFromSemanticModel.md"
     },
     "relationships": {
      "l": 3,
-     "n": "Joins are declared per data product, with join recommendations. They feed AI chat answers.",
+     "n": "Users declare joins per data product, with join recommendations. The joins feed AI chat answers.",
      "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/AddJoinsToDataProduct.md"
     },
     "synonyms": {
      "l": 3,
-     "n": "Synonyms are imported from semantic views. Linked Document Hubs content gives chat definitions and rules.",
+     "n": "Alation imports synonyms from semantic views. Linked Document Hubs content gives chat definitions and rules.",
      "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/CreateDataProductsFromSemanticModel.md"
     },
     "verifiedQueries": {
      "l": 3,
-     "n": "Verified question and SQL pairs are kept as evaluation cases and exported to Snowflake semantic views.",
+     "n": "Alation keeps verified question and SQL pairs as evaluation cases. It exports them to Snowflake semantic views.",
      "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/CreateDataProductsFromSemanticModel.md"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Chat with Data Product writes and runs SQL under the user's credentials and shows the generated SQL.",
+     "n": "Chat with Data Product writes and runs SQL under the credentials of the user. It shows the generated SQL.",
      "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ChatWithDataProduct.md"
     },
     "ontology": {
      "l": 0,
-     "n": "No ontology or class model in the docs index. Teams use glossary terms and data products.",
+     "n": "The docs index shows no ontology or class model. Teams use glossary terms and data products.",
      "u": "https://documentation.alation.com/llms.txt"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language in the docs index.",
+     "n": "The docs index shows no graph query language.",
      "u": "https://documentation.alation.com/llms.txt"
     },
     "vector": {
@@ -14929,17 +15021,17 @@ window.SL = {
     },
     "governance": {
      "l": 3,
-     "n": "Chat runs under the user's own warehouse credentials. Agents inherit catalog access controls and lineage.",
+     "n": "Chat runs under the own warehouse credentials of the user. Agents inherit catalog access controls and lineage.",
      "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ChatWithDataProduct.md"
     },
     "openStandard": {
      "l": 3,
-     "n": "Data products import and export OSI spec YAML, and sync with Snowflake semantic views and Databricks metric views.",
+     "n": "Data products import and export OSI spec YAML. They sync with Snowflake semantic views and Databricks metric views.",
      "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ExportDataProductsToSource.md"
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "ALLIE drafts table descriptions, generally available since June 2024. Curation Automation fills titles and descriptions by rule.",
+     "n": "ALLIE drafts table descriptions. It is generally available since June 2024. Curation Automation fills titles and descriptions by rule.",
      "u": "https://docs.alation.com/en/latest/steward/AISuggestedDescriptions/AISuggestedDescriptions.html"
     },
     "bulkMetadata": {
@@ -14949,44 +15041,44 @@ window.SL = {
     },
     "autoClassify": {
      "l": 1,
-     "n": "Curation Automation can fill custom fields by rule. No built-in PII detector found in the docs index.",
+     "n": "Curation Automation can fill custom fields by rule. The docs index shows no built-in PII detector.",
      "u": "https://documentation.alation.com/en/latest/governance/OutcomeBasedGovernance/CurationAutomation/index.md"
     },
     "sampleValues": {
      "l": 0,
-     "n": "No sample-value matching is described for Chat with Data Product. Linked Document Hubs content supplies definitions instead.",
+     "n": "The docs describe no sample-value matching for Chat with Data Product. Linked Document Hubs content supplies definitions instead.",
      "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ChatWithDataProduct.md"
     },
     "queryHistory": {
      "l": 2,
-     "n": "Beta flow suggests data products from query logs. Evaluation questions can be generated from query log data.",
+     "n": "A Beta flow suggests data products from query logs. The system can generate evaluation questions from query log data.",
      "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/CreateDataProductsFromQueryLogs.md"
     },
     "lineage": {
      "l": 3,
-     "n": "Auto lineage from query log ingestion and metadata extraction. Column level depends on the source.",
+     "n": "Auto lineage comes from query log ingestion and metadata extraction. Column level depends on the source.",
      "u": "https://docs.alation.com/en/latest/analyst/Lineage/LineageGlossary.html"
     },
     "evals": {
      "l": 3,
-     "n": "Evaluate Data Product Chat runs questions against expected SQL in bulk. Thumbs feedback is reviewed by admins.",
+     "n": "Evaluate Data Product Chat runs questions against expected SQL in bulk. Admins review thumbs feedback.",
      "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/EvaluateDataProduct.md"
     }
    },
    "offers": [
     "Data product semantic model with metrics, dimensions, joins, synonyms and verified queries.",
-    "Chat with Data Product that writes SQL and runs it under the user's credentials.",
+    "Chat with Data Product writes SQL and runs it under the credentials of the user.",
     "Evaluation of chat accuracy against expected SQL, plus a feedback tab.",
     "OSI import and export, and sync with Snowflake semantic views and Databricks metric views.",
     "Remote MCP server and Agent Studio for custom agents.",
     "ALLIE and Curation Automation for descriptions at scale."
    ],
    "gaps": [
-    "Data products, chat and MCP are Alation Cloud Service features; customer-managed instances differ.",
-    "AI features are metered in Alation Consumption Units.",
-    "Export to a source overwrites changes made directly on the semantic view.",
+    "Data products, chat and MCP are Alation Cloud Service features. Customer-managed instances differ.",
+    "Alation Consumption Units meter AI features.",
+    "Export to a source overwrites changes that users made directly on the semantic view.",
     "Custom field APIs cannot set titles or descriptions on tables and columns.",
-    "No built-in PII classification found."
+    "The docs show no built-in PII classification."
    ],
    "fillWith": [
     "Snowflake Semantic Views",
@@ -14994,14 +15086,14 @@ window.SL = {
     "dbt Semantic Layer",
     "Cube"
    ],
-   "nl2sqlPath": "Build a data product for the tables an agent needs, add joins, metrics and verified queries, then run Evaluate Data Product Chat before enabling chat. Use the remote MCP server to give outside agents the same catalog context. Sync the model to Snowflake or Databricks if you also use their native tools.",
+   "nl2sqlPath": "Build a data product for the tables an agent needs. Add joins, metrics and verified queries. Then run Evaluate Data Product Chat before you enable chat. Use the remote MCP server to give outside agents the same catalog context. Sync the model to Snowflake or Databricks if you also use their native tools.",
    "snippet": {
     "lang": "other",
     "title": "Alation remote MCP server URL",
     "code": "https://<your-tenant>.alationcloud.com/ai/mcp/",
     "u": "https://documentation.alation.com/en/latest/agentstudio/integrations/mcp/using-the-mcp-server.md"
    },
-   "enrichHowTo": "Use ALLIE or Curation Automation to draft descriptions. For scripted writes of table titles and descriptions, call PATCH /integration/v2/table/ in the Relational Integration API with ds_id. The Custom Field Values API cannot set titles or descriptions on data objects, and the older Upload Logical Metadata API carries a deprecation notice.",
+   "enrichHowTo": "Use ALLIE or Curation Automation to draft descriptions. For scripted writes of table titles and descriptions, call PATCH /integration/v2/table/ in the Relational Integration API with ds_id. The Custom Field Values API cannot set titles or descriptions on data objects. The older Upload Logical Metadata API carries a deprecation notice.",
    "bulkSnippet": {
     "lang": "bash",
     "code": "curl -X PATCH \"https://<base_url>/integration/v2/table/?ds_id=7\" \\\n  -H \"TOKEN: $API_TOKEN\" -H \"Content-Type: application/json\" \\\n  -d '[{\"key\":\"7.Human_Resources.Employees\",\"title\":\"Employees\",\"description\":\"One row per employee.\"}]'\n# returns 202 with a job_id; poll GET /api/v1/bulk_metadata/job/?id={job_id}",
@@ -15428,7 +15520,7 @@ window.SL = {
    "category": "catalog",
    "tagline": "Active metadata catalog with context agents, a hosted MCP server and a context studio.",
    "verdict": "partial",
-   "verdictNote": "Atlan serves glossary, descriptions and lineage over a hosted MCP server, and its Context Engineering Studio models metrics and joins, but that studio is enabled on request and still gated.",
+   "verdictNote": "Atlan serves glossary, descriptions and lineage over a hosted MCP server. Its Context Engineering Studio models metrics and joins. Atlan enables the studio on request, and it is still gated.",
    "artifacts": [
     {
      "name": "Atlan MCP server",
@@ -15482,62 +15574,62 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 2,
-     "n": "Context Engineering Studio keeps derived metrics in a context repository. Studio is gated; engines may not accept every metric.",
+     "n": "Context Engineering Studio keeps derived metrics in a context repository. The studio is gated. Engines may not accept every metric.",
      "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/concepts/whats-in-a-context-repository.md"
     },
     "dimensions": {
      "l": 2,
-     "n": "Repository model lists dimensions, time dimensions and facts per table. Same gated studio.",
+     "n": "The repository model lists dimensions, time dimensions and facts per table. The same gated studio applies.",
      "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/concepts/whats-in-a-context-repository.md"
     },
     "relationships": {
      "l": 2,
-     "n": "Studio model holds table relationships. SQL Intelligence mines joins and foreign keys from query history.",
+     "n": "The studio model holds table relationships. SQL Intelligence mines joins and foreign keys from query history.",
      "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/concepts/whats-in-a-context-repository.md"
     },
     "synonyms": {
      "l": 3,
-     "n": "Descriptions, READMEs and glossary terms are returned to agents through the MCP server.",
+     "n": "The MCP server returns descriptions, READMEs and glossary terms to agents.",
      "u": "https://docs.atlan.com/product/capabilities/atlan-ai/how-tos/atlan-mcp-overview"
     },
     "verifiedQueries": {
      "l": 2,
-     "n": "Studio repositories hold verified question and SQL pairs. Studio is gated.",
+     "n": "Studio repositories hold verified question and SQL pairs. The studio is gated.",
      "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/concepts/whats-in-a-context-repository.md"
     },
     "nl2sql": {
      "l": 2,
-     "n": "Conversational AI can write SQL grounded in catalog metadata. Access is per tenant; no stage label in docs.",
+     "n": "Conversational AI can write SQL grounded in catalog metadata. Access is per tenant. The docs show no stage label.",
      "u": "https://docs.atlan.com/llms/platform/conversational-ai/use-conversational-ai/llms.txt"
     },
     "ontology": {
      "l": 1,
-     "n": "Glossary terms, domains and linked assets. No object, link or action model found.",
+     "n": "Glossary terms, domains and linked assets exist. The docs show no object, link or action model.",
      "u": "https://docs.atlan.com/product/capabilities/atlan-ai/concepts/what-is-atlan-ai"
     },
     "graph": {
      "l": 0,
-     "n": "No graph query language in the docs. Agents reach lineage and metadata through MCP search and lineage tools.",
+     "n": "The docs show no graph query language. Agents reach lineage and metadata through MCP search and lineage tools.",
      "u": "https://docs.atlan.com/llms/platform/atlan-mcp-overview/mcp-tools/llms.txt"
     },
     "vector": {
      "l": 0,
-     "n": "No vector search feature documented. Docs position context repositories as distinct from vector databases.",
+     "n": "The docs show no vector search feature. They position context repositories as distinct from vector databases.",
      "u": "https://docs.atlan.com/llms/platform/agents/memory-layer/llms.txt"
     },
     "mcp": {
      "l": 3,
-     "n": "Hosted MCP server on every tenant with search, lineage, glossary, metadata and data quality tools.",
+     "n": "Every tenant has a hosted MCP server with search, lineage, glossary, metadata and data quality tools.",
      "u": "https://docs.atlan.com/product/capabilities/atlan-ai/how-tos/atlan-mcp-overview"
     },
     "governance": {
      "l": 3,
-     "n": "MCP calls use the caller's personas and policies. Write tools show a preview and wait for approval.",
+     "n": "MCP calls use the personas and policies of the caller. Write tools show a preview and wait for approval.",
      "u": "https://docs.atlan.com/llms/platform/atlan-mcp-overview/mcp-security/llms.txt"
     },
     "openStandard": {
      "l": 2,
-     "n": "Studio renders Snowflake semantic views, Databricks metric views and dbt MetricFlow models. No OSI support found.",
+     "n": "The studio renders Snowflake semantic views, Databricks metric views and dbt MetricFlow models. The docs show no OSI support.",
      "u": "https://docs.atlan.com/llms/platform/context-engineering-studio/portability-targets/llms.txt"
     },
     "aiDescriptions": {
@@ -15547,47 +15639,47 @@ window.SL = {
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "Spreadsheet export and sync, CSV import, and Python SDK batch save in one API call.",
+     "n": "Atlan supports spreadsheet export and sync, CSV import, and Python SDK batch save in one API call.",
      "u": "https://docs.atlan.com/product/capabilities/build-apps/sdks/python/how-tos/bulk-updates/update-multiple-assets"
     },
     "autoClassify": {
      "l": 1,
-     "n": "Playbooks apply tags by rule. Cyera and ALTR integrations import classification results. No built-in PII detector found.",
+     "n": "Playbooks apply tags by rule. Cyera and ALTR integrations import classification results. The docs show no built-in PII detector.",
      "u": "https://docs.atlan.com/llms/governance/playbooks/llms.txt"
     },
     "sampleValues": {
      "l": 2,
-     "n": "Studio takes sample values from column top values written by a profiling playbook. Studio is gated.",
+     "n": "The studio takes sample values from column top values that a profiling playbook writes. The studio is gated.",
      "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/how-tos/get-started.md"
     },
     "queryHistory": {
      "l": 3,
-     "n": "SQL Intelligence agent derives common joins, filters, business questions and foreign keys from warehouse query history.",
+     "n": "The SQL Intelligence agent derives common joins, filters, business questions and foreign keys from warehouse query history.",
      "u": "https://docs.atlan.com/product/capabilities/governance/context-agents-studio/concepts/agents"
     },
     "lineage": {
      "l": 3,
-     "n": "Column-level lineage for Snowflake, Redshift, BigQuery and others, mined from query history.",
+     "n": "Atlan mines column-level lineage for Snowflake, Redshift, BigQuery and others from query history.",
      "u": "https://docs.atlan.com/product/capabilities/lineage/faq/sql-dump-lineage-support"
     },
     "evals": {
      "l": 2,
-     "n": "Atlan's product page describes auto-generated eval suites and a feedback loop for the studio. The docs pages do not cover it.",
+     "n": "The product page of Atlan describes auto-generated eval suites and a feedback loop for the studio. The docs pages do not cover it.",
      "u": "https://atlan.com/context-engineering-studio/"
     }
    },
    "offers": [
     "Hosted MCP server with 41 tools for search, lineage, glossary and metadata.",
-    "Description and README agents that draft from lineage, query history and glossary.",
-    "SQL Intelligence that mines joins, filters and foreign keys from query history.",
-    "Context Engineering Studio that builds a semantic model and deploys it to Cortex Analyst or Genie.",
-    "Bulk metadata writes by spreadsheet, CSV and Python SDK."
+    "Description and README agents draft from lineage, query history and glossary.",
+    "SQL Intelligence mines joins, filters and foreign keys from query history.",
+    "Context Engineering Studio builds a semantic model and deploys it to Cortex Analyst or Genie.",
+    "Bulk metadata writes work by spreadsheet, CSV and Python SDK."
    ],
    "gaps": [
-    "Context Engineering Studio is not self-serve; access goes through the Atlan account team.",
+    "Context Engineering Studio is not self-serve. Access goes through the Atlan account team.",
     "Context agent templates are private preview.",
     "Agents never overwrite an existing description, including a crawled source comment.",
-    "No built-in PII detector found; classification relies on playbooks or partner integrations."
+    "The docs show no built-in PII detector. Classification relies on playbooks or partner integrations."
    ],
    "fillWith": [
     "dbt Semantic Layer",
@@ -15595,14 +15687,14 @@ window.SL = {
     "Snowflake Semantic Views",
     "Databricks Metric Views"
    ],
-   "nl2sqlPath": "Use Atlan as the metadata and context source and serve it to your own SQL agent over the Atlan MCP server. If you have studio access, build a context repository and deploy it to Cortex Analyst or Genie. Otherwise keep metrics and joins in a warehouse or semantic layer tool.",
+   "nl2sqlPath": "Use Atlan as the metadata and context source. Serve it to your own SQL agent over the Atlan MCP server. If you have studio access, build a context repository and deploy it to Cortex Analyst or Genie. Otherwise keep metrics and joins in a warehouse or semantic layer tool.",
    "snippet": {
     "lang": "other",
     "title": "",
     "code": "",
     "u": ""
    },
-   "enrichHowTo": "Run the Description agent from Context Agents Studio on a collection of assets, then review the drafts. For scripted writes, build objects with updater() in pyatlan and send the list with client.asset.save in one call. Agents skip assets that already hold a description, so clear crawled source comments first if you want them replaced.",
+   "enrichHowTo": "Run the Description agent from Context Agents Studio on a collection of assets. Then review the drafts. For scripted writes, build objects with updater() in pyatlan. Send the list with client.asset.save in one call. Agents skip assets that already hold a description. Clear crawled source comments first if you want them replaced.",
    "bulkSnippet": {
     "lang": "python",
     "code": "from pyatlan.client.atlan import AtlanClient\nfrom pyatlan.model.assets import AtlasGlossaryTerm\nfrom pyatlan.model.enums import CertificateStatus\nclient = AtlanClient()\nterm_1 = AtlasGlossaryTerm.updater(qualified_name=\"z9mfCRg6tItxcEyaJRNB3@reqKq68ZTSzuf7ezoZoGS\", name=\"Example Term\", glossary_guid=\"37e50bf7-abcb-4509-8155-c4894c05c9b9\")\nterm_1.certificate_status = CertificateStatus.DEPRECATED\nresponse = client.asset.save([term_1])  # one call for the whole list",
@@ -15707,7 +15799,7 @@ window.SL = {
    "category": "catalog",
    "tagline": "Data governance catalog with AI descriptions, classification, lineage and an MCP server.",
    "verdict": "partial",
-   "verdictNote": "Collibra offers glossary, measure and attribute assets, lineage, classification and an MCP server, but no queryable metric or join objects and no SQL generation; its assistant is moving to Maestro in preview.",
+   "verdictNote": "Collibra offers glossary, measure and attribute assets, lineage, classification and an MCP server. It has no queryable metric or join objects and no SQL generation. Its assistant is moving to Maestro in preview.",
    "artifacts": [
     {
      "name": "Collibra MCP server",
@@ -15761,52 +15853,52 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Measure assets link to columns, and MCP tools trace a measure to its tables. Catalog objects, not query definitions.",
+     "n": "Measure assets link to columns, and MCP tools trace a measure to its tables. They are catalog objects, not query definitions.",
      "u": "https://marketplace.collibra.com/listings/collibra-mcp-server-local-version/"
     },
     "dimensions": {
      "l": 0,
-     "n": "Data attribute assets exist. No dimension or time-grain objects found.",
+     "n": "Data attribute assets exist. The docs show no dimension or time-grain objects.",
      "u": "https://marketplace.collibra.com/listings/collibra-mcp-server-local-version/"
     },
     "relationships": {
      "l": 1,
-     "n": "Asset relations and lineage link assets. No declared join paths for AI in the docs.",
+     "n": "Asset relations and lineage link assets. The docs show no declared join paths for AI.",
      "u": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraDataLineage/co_collibra-data-lineage.htm"
     },
     "synonyms": {
      "l": 3,
-     "n": "Business terms, definitions and asset descriptions are returned by MCP read tools such as get_table_semantics.",
+     "n": "MCP read tools such as get_table_semantics return business terms, definitions and asset descriptions.",
      "u": "https://marketplace.collibra.com/listings/collibra-mcp-server-local-version/"
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No verified question and SQL pair feature found in the docs.",
+     "n": "The docs show no verified question and SQL pair feature.",
      "u": ""
     },
     "nl2sql": {
      "l": 0,
-     "n": "Copilot and Maestro find data and answer questions. SQL generation is not described.",
+     "n": "Copilot and Maestro find data and answer questions. The docs do not describe SQL generation.",
      "u": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraAI/maestro/co_maestro.htm"
     },
     "ontology": {
      "l": 0,
-     "n": "Business glossary and asset types only. No ontology model found.",
+     "n": "Only business glossary and asset types exist. The docs show no ontology model.",
      "u": ""
     },
     "graph": {
      "l": 0,
-     "n": "Knowledge Graph API is GraphQL over assets, not a graph query language.",
+     "n": "The Knowledge Graph API is GraphQL over assets. It is not a graph query language.",
      "u": "https://developer.collibra.com/llms.txt"
     },
     "vector": {
      "l": 0,
-     "n": "No vector search feature found in the docs.",
+     "n": "The docs show no vector search feature.",
      "u": ""
     },
     "mcp": {
      "l": 3,
-     "n": "Production-ready MCP server with 25+ tools for search, lineage, classification and asset edits. Some tools use Collibra Units.",
+     "n": "The production-ready MCP server has 25+ tools for search, lineage, classification and asset edits. Some tools use Collibra Units.",
      "u": "https://www.collibra.com/products/mcp-server"
     },
     "governance": {
@@ -15816,12 +15908,12 @@ window.SL = {
     },
     "openStandard": {
      "l": 2,
-     "n": "MCP write tool can push data contract manifests in Open Data Contract Standard format (Data Contracts private preview). No semantic spec.",
+     "n": "An MCP write tool can push data contract manifests in Open Data Contract Standard format (Data Contracts private preview). It is not a semantic spec.",
      "u": "https://marketplace.collibra.com/listings/collibra-mcp-server-local-version/"
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "Drafts descriptions for Column, Table, Database View and Data Set assets; a Table can draft all its columns. Existing descriptions are kept.",
+     "n": "The AI drafts descriptions for Column, Table, Database View and Data Set assets. A Table can draft all its columns. It keeps existing descriptions.",
      "u": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraAI/ta_auto-desc.htm"
     },
     "bulkMetadata": {
@@ -15836,12 +15928,12 @@ window.SL = {
     },
     "sampleValues": {
      "l": 1,
-     "n": "Sample data is shown to permitted users on asset pages. No NL-to-SQL value matching found.",
+     "n": "Asset pages show sample data to permitted users. The docs show no NL-to-SQL value matching.",
      "u": "https://productresources.collibra.com/docs/collibra/latest/Content/Catalog/SampleData/co_sample-data.htm"
     },
     "queryHistory": {
      "l": 0,
-     "n": "No query-history mining for join or metric suggestions found in the docs.",
+     "n": "The docs show no query-history mining for join or metric suggestions.",
      "u": ""
     },
     "lineage": {
@@ -15851,22 +15943,22 @@ window.SL = {
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL eval tooling found in the docs.",
+     "n": "The docs show no NL-to-SQL eval tooling.",
      "u": ""
     }
    },
    "offers": [
-    "AI-drafted descriptions for tables and all their columns, with review before saving.",
-    "Glossary, measure and attribute assets served over an MCP server.",
-    "Data classification of columns with data classes.",
-    "Import API v2 for bulk asset edits by JSON, CSV or Excel.",
-    "Technical and business lineage with column assets."
+    "The AI drafts descriptions for tables and all their columns. A user reviews them before saving.",
+    "Collibra serves glossary, measure and attribute assets over an MCP server.",
+    "Data classification of columns uses data classes.",
+    "Import API v2 supports bulk asset edits by JSON, CSV or Excel.",
+    "Technical and business lineage exist with column assets."
    ],
    "gaps": [
-    "No queryable metric, dimension or join objects.",
-    "Copilot is deprecated and its replacement, Maestro, is in preview and cloud only.",
-    "AI descriptions are suggestions; an existing description must be removed first.",
-    "No SQL generation, query-history mining or eval tooling found."
+    "No queryable metric, dimension or join objects exist.",
+    "Copilot is deprecated. Its replacement, Maestro, is in preview and cloud only.",
+    "AI descriptions are suggestions. A user must remove an existing description first.",
+    "No SQL generation, query-history mining or eval tooling exists."
    ],
    "fillWith": [
     "dbt Semantic Layer",
@@ -15874,14 +15966,14 @@ window.SL = {
     "Snowflake Semantic Views",
     "Databricks Metric Views"
    ],
-   "nl2sqlPath": "Treat Collibra as the governed glossary and lineage source and feed it to your SQL agent through the Collibra MCP server. Keep metrics and joins in a separate semantic layer. Use Maestro agents only after checking the preview limits.",
+   "nl2sqlPath": "Treat Collibra as the governed glossary and lineage source. Feed it to your SQL agent through the Collibra MCP server. Keep metrics and joins in a separate semantic layer. Use Maestro agents only after you check the preview limits.",
    "snippet": {
     "lang": "other",
     "title": "Import API v2 job endpoints",
     "code": "POST /import/json-job\nPOST /import/csv-job\nPOST /import/excel-job\n# send either fileId (a file uploaded earlier) or file\n# CSV and Excel also need a JSON template",
     "u": "https://developer.collibra.com/api/guides/import-api.md"
    },
-   "enrichHowTo": "Open a Table asset and use Collibra AI to draft all column descriptions, then accept each one. For bulk writes, send a JSON, CSV or Excel job to the Import API v2 (/import/json-job). Existing descriptions are not replaced by AI, so remove them first if you want new drafts.",
+   "enrichHowTo": "Open a Table asset and use Collibra AI to draft all column descriptions. Then accept each one. For bulk writes, send a JSON, CSV or Excel job to the Import API v2 (/import/json-job). AI does not replace existing descriptions, so remove them first if you want new drafts.",
    "bulkSnippet": {
     "lang": "json",
     "code": "[{\n  \"resourceType\": \"Asset\",\n  \"identifier\": {\"name\": \"Asset 1\", \"domain\": {\"name\": \"Business Data Domain 1\", \"community\": {\"name\": \"Data Community\"}}},\n  \"attributes\": {\"<attributeTypeId>\": [{\"value\": \"New description text\"}]}\n}]\n// POST to /import/json-job; replace <attributeTypeId> with your Description attribute type name or id",
@@ -15947,9 +16039,9 @@ window.SL = {
    "id": "datahub",
    "name": "DataHub",
    "category": "catalog",
-   "tagline": "Open-source metadata platform; DataHub Cloud adds Ask DataHub and AI documentation.",
+   "tagline": "Open-source metadata platform. DataHub Cloud adds Ask DataHub and AI documentation.",
    "verdict": "partial",
-   "verdictNote": "DataHub gives an open MCP server, an open-source analytics agent, lineage and query context, but no metric or join authoring; Ask DataHub and AI documentation are Cloud only.",
+   "verdictNote": "DataHub gives an open MCP server, an open-source analytics agent, lineage and query context. It has no metric or join authoring. Ask DataHub and AI documentation are Cloud only.",
    "artifacts": [
     {
      "name": "DataHub MCP server (open source)",
@@ -16011,27 +16103,27 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 1,
-     "n": "Semantic Model and metric entities can be ingested, for example from Snowflake semantic views, with metric lineage. DataHub does not author metrics.",
+     "n": "DataHub can ingest Semantic Model and metric entities, for example from Snowflake semantic views, with metric lineage. DataHub does not author metrics.",
      "u": "https://docs.datahub.com/docs/managed-datahub/release-notes/v_2_2_0"
     },
     "dimensions": {
      "l": 0,
-     "n": "No dimension or time-grain objects found in the docs.",
+     "n": "The docs show no dimension or time-grain objects.",
      "u": ""
     },
     "relationships": {
      "l": 1,
-     "n": "Lineage and entity relationships exist. v2.2 adds relationship APIs. No declared join paths for AI in the docs.",
+     "n": "Lineage and entity relationships exist. Version 2.2 adds relationship APIs. The docs show no declared join paths for AI.",
      "u": "https://docs.datahub.com/docs/managed-datahub/release-notes/v_2_2_0"
     },
     "synonyms": {
      "l": 3,
-     "n": "Descriptions, glossary terms, domains and structured properties are returned by MCP tools. Glossary terms can link related terms.",
+     "n": "MCP tools return descriptions, glossary terms, domains and structured properties. Glossary terms can link related terms.",
      "u": "https://docs.datahub.com/docs/features/feature-guides/mcp"
     },
     "verifiedQueries": {
      "l": 1,
-     "n": "MCP get_dataset_queries and find_sql_context return real queries as context. No curated question and SQL pairs.",
+     "n": "MCP get_dataset_queries and find_sql_context return real queries as context. No curated question and SQL pairs exist.",
      "u": "https://docs.datahub.com/docs/features/feature-guides/mcp"
     },
     "nl2sql": {
@@ -16051,12 +16143,12 @@ window.SL = {
     },
     "vector": {
      "l": 3,
-     "n": "Opt-in semantic search embeds documents via a configured embedding provider on OpenSearch or Elasticsearch. Documents are the default vectorized type.",
+     "n": "Opt-in semantic search embeds documents through a configured embedding provider on OpenSearch or Elasticsearch. Documents are the default vectorized type.",
      "u": "https://docs.datahub.com/docs/how/updating-datahub"
     },
     "mcp": {
      "l": 3,
-     "n": "Open-source server for Core and managed server on Cloud. Writes need TOOLS_IS_MUTATION_ENABLED=true.",
+     "n": "The open-source server serves Core. A managed server serves Cloud. Writes need TOOLS_IS_MUTATION_ENABLED=true.",
      "u": "https://docs.datahub.com/docs/features/feature-guides/mcp"
     },
     "governance": {
@@ -16071,22 +16163,22 @@ window.SL = {
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "Cloud Generate button uses name, columns, sample values and lineage. GA as of Cloud v0.3.17. Tables over 3000 columns are skipped.",
+     "n": "The Cloud Generate button uses name, columns, sample values and lineage. It is GA as of Cloud v0.3.17. It skips tables over 3000 columns.",
      "u": "https://docs.datahub.com/docs/automations/ai-docs"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "MCP tools add tags, terms, owners and descriptions in bulk; Python SDK and GraphQL write descriptions. Limits not documented.",
+     "n": "MCP tools add tags, terms, owners and descriptions in bulk. The Python SDK and GraphQL write descriptions. The docs do not state limits.",
      "u": "https://docs.datahub.com/docs/features/feature-guides/mcp"
     },
     "autoClassify": {
      "l": 3,
-     "n": "Opt-in classification at ingestion predicts info types and applies them as glossary terms. Open source.",
+     "n": "Opt-in classification at ingestion predicts info types and applies them as glossary terms. It is open source.",
      "u": "https://docs.datahub.com/docs/metadata-ingestion/docs/dev_guides/classification"
     },
     "sampleValues": {
      "l": 1,
-     "n": "AI documentation reads column sample values. Use for NL-to-SQL value matching is not documented.",
+     "n": "AI documentation reads column sample values. The docs do not describe use for NL-to-SQL value matching.",
      "u": "https://docs.datahub.com/docs/automations/ai-docs"
     },
     "queryHistory": {
@@ -16096,12 +16188,12 @@ window.SL = {
     },
     "lineage": {
      "l": 3,
-     "n": "Lineage with column-level paths in the UI; Python SDK and GraphQL add and read column lineage.",
+     "n": "The UI shows lineage with column-level paths. The Python SDK and GraphQL add and read column lineage.",
      "u": "https://docs.datahub.com/docs/features/feature-guides/lineage"
     },
     "evals": {
      "l": 1,
-     "n": "Analytics Agent shows a context quality score per answer and /improve-context suggests doc fixes. No eval set tooling found.",
+     "n": "Analytics Agent shows a context quality score per answer. /improve-context suggests doc fixes. The docs show no eval set tooling.",
      "u": "https://docs.datahub.com/docs/features/feature-guides/analytics-agent"
     }
    },
@@ -16109,16 +16201,16 @@ window.SL = {
     "Open-source MCP server with search, lineage, dataset query and SQL drafting tools.",
     "Opt-in MCP write tools for descriptions, tags, terms, owners and proposals.",
     "Open-source Analytics Agent for question to SQL to chart, grounded in the catalog.",
-    "Cloud AI documentation using lineage and sample values, with custom instructions.",
-    "Classification at ingestion that proposes glossary terms.",
-    "Ask DataHub chat over metadata and context documents (Cloud)."
+    "Cloud AI documentation uses lineage and sample values, with custom instructions.",
+    "Classification at ingestion proposes glossary terms.",
+    "Ask DataHub chats over metadata and context documents (Cloud)."
    ],
    "gaps": [
-    "No metric, dimension or join authoring; semantic models are ingested, not defined.",
+    "No metric, dimension or join authoring exists. DataHub ingests semantic models. It does not define them.",
     "Ask DataHub and AI documentation are Cloud only.",
-    "Ask DataHub is labeled Public Beta on its feature page and GA in v2.2.0 notes.",
+    "The feature page labels Ask DataHub Public Beta. The v2.2.0 notes say GA.",
     "SPARQL, custom relationships and Agents are private beta in Cloud v2.2.",
-    "No NL-to-SQL eval set tooling found."
+    "No NL-to-SQL eval set tooling exists."
    ],
    "fillWith": [
     "dbt Semantic Layer",
@@ -16126,14 +16218,14 @@ window.SL = {
     "Snowflake Semantic Views",
     "Databricks Metric Views"
    ],
-   "nl2sqlPath": "Run the DataHub MCP server or the Analytics Agent next to your warehouse so the agent reads descriptions, lineage and past queries. Keep metrics and joins in a semantic layer. Use DataHub Cloud for Ask DataHub and AI documentation if you want hosted features.",
+   "nl2sqlPath": "Run the DataHub MCP server or the Analytics Agent next to your warehouse. The agent then reads descriptions, lineage and past queries. Keep metrics and joins in a semantic layer. Use DataHub Cloud for Ask DataHub and AI documentation if you want hosted features.",
    "snippet": {
     "lang": "bash",
     "title": "Add the DataHub Cloud MCP server to Claude Code",
     "code": "claude mcp add --transport http datahub https://mcp.datahub.com/mcp\n# then run /mcp in Claude Code and choose Authenticate",
     "u": "https://docs.datahub.com/docs/features/feature-guides/mcp"
    },
-   "enrichHowTo": "On Cloud, click Generate on a table or column, and add custom instructions under Settings > AI. For scripted writes, use the Python SDK set_description call, or enable the MCP mutation tools and call update_description. Review AI-generated text, which carries a sparkle icon until a person confirms it.",
+   "enrichHowTo": "On Cloud, click Generate on a table or column. Add custom instructions under Settings > AI. For scripted writes, use the Python SDK set_description call. Or enable the MCP mutation tools and call update_description. Review AI-generated text. It carries a sparkle icon until a person confirms it.",
    "bulkSnippet": {
     "lang": "python",
     "code": "from datahub.sdk import DataHubClient, DatasetUrn\nclient = DataHubClient.from_env()\ndataset = client.entities.get(DatasetUrn(platform=\"hive\", name=\"realestate_db.sales\"))\ndataset.set_description(\"## The Real Estate Sales Dataset\\nSales organized by address.\")\nclient.entities.update(dataset)",
@@ -16801,27 +16893,27 @@ window.SL = {
     {
      "name": "Informatica MCP servers (CDGC Metadata Search)",
      "kind": "mcp",
-     "status": "Preview",
-     "since": "2025-07",
+     "status": "GA",
+     "since": "",
      "format": "MCP 2025-06-18 over streamable HTTP; tools get_asset_details and search_metadata",
      "url": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
     }
    ],
    "caps": {
     "metrics": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "The Glossary Metric asset holds a description, business logic text, format type and alias names. The logic is text, not executable.",
+     "u": "https://onlinehelp.informatica.com/IICS/prod/DGC/en/ab-understanding-businessassets/Glossary_Metric.html"
     },
     "dimensions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Metric assets have no dimension fields. Glossary parents and business terms give context, but they do not declare dimensions.",
+     "u": "https://onlinehelp.informatica.com/IICS/prod/DGC/en/ab-understanding-businessassets/Glossary_Metric.html"
     },
     "relationships": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Relationship Discovery finds similar columns and relations between tables in scanned sources. It does not declare join paths for an agent.",
+     "u": "https://success.informatica.com/learning-path/cloud-data-governance-and-catalog/discover.html"
     },
     "synonyms": {
      "l": 2,
@@ -16829,9 +16921,9 @@ window.SL = {
      "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
     },
     "verifiedQueries": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No store of approved question and SQL pairs appears in the CLAIRE GPT or CDGC docs.",
+     "u": "https://onlinehelp.informatica.com/IICS/prod/clairegpt/en/ab-using-claire-gpt/Using_CLAIRE_GPT.html"
     },
     "nl2sql": {
      "l": 2,
@@ -16839,14 +16931,14 @@ window.SL = {
      "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
     },
     "ontology": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Business terms link to each other, and admins can add custom asset types and relationship types. There are no action objects.",
+     "u": "https://aws.amazon.com/blogs/database/how-informatica-cloud-data-governance-and-catalog-uses-amazon-neptune-for-knowledge-graphs/"
     },
     "graph": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No graph query language for users. The catalog stores metadata in a graph store, but users do not query it with Cypher, GQL or SPARQL.",
+     "u": "https://aws.amazon.com/blogs/database/how-informatica-cloud-data-governance-and-catalog-uses-amazon-neptune-for-knowledge-graphs/"
     },
     "vector": {
      "l": null,
@@ -16854,8 +16946,8 @@ window.SL = {
      "u": ""
     },
     "mcp": {
-     "l": 2,
-     "n": "Informatica MCP servers include a CDGC Metadata Search server. An earlier release note shows private preview; GA is not confirmed.",
+     "l": 3,
+     "n": "Informatica MCP servers include a CDGC Metadata Search server with get_asset_details and search_metadata tools. The docs page shows no preview label.",
      "u": "https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html"
     },
     "governance": {
@@ -16889,9 +16981,9 @@ window.SL = {
      "u": "https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "The CLAIRE GPT and CDGC docs do not show a feature that mines query history to suggest joins, metrics or examples.",
+     "u": "https://onlinehelp.informatica.com/IICS/prod/clairegpt/en/ab-using-claire-gpt/Using_CLAIRE_GPT.html"
     },
     "lineage": {
      "l": 3,
@@ -16973,6 +17065,26 @@ window.SL = {
     {
      "t": "Salesforce completes acquisition of Informatica",
      "u": "https://www.salesforce.com/news/press-releases/2025/11/18/salesforce-completes-acquisition-of-informatica/"
+    },
+    {
+     "t": "Informatica Glossary Metric asset",
+     "u": "https://onlinehelp.informatica.com/IICS/prod/DGC/en/ab-understanding-businessassets/Glossary_Metric.html"
+    },
+    {
+     "t": "Informatica CDGC Discover learning path",
+     "u": "https://success.informatica.com/learning-path/cloud-data-governance-and-catalog/discover.html"
+    },
+    {
+     "t": "Informatica Using CLAIRE GPT",
+     "u": "https://onlinehelp.informatica.com/IICS/prod/clairegpt/en/ab-using-claire-gpt/Using_CLAIRE_GPT.html"
+    },
+    {
+     "t": "AWS: how CDGC uses Amazon Neptune for knowledge graphs",
+     "u": "https://aws.amazon.com/blogs/database/how-informatica-cloud-data-governance-and-catalog-uses-amazon-neptune-for-knowledge-graphs/"
+    },
+    {
+     "t": "Informatica CLAIRE GPT Enablement deck",
+     "u": "https://www.informatica.com/content/dam/informatica-cxp/success_accelerators/CLAIRE%20GPT%20Enablement%20-%20Apr.2024%20v1.1.pdf"
     }
    ],
    "verified": "2026-10-24",
@@ -17240,9 +17352,9 @@ window.SL = {
    "id": "openmetadata",
    "name": "OpenMetadata (and Collate)",
    "category": "catalog",
-   "tagline": "Open-source metadata platform; Collate is the managed product with AI chat and automations.",
+   "tagline": "Open-source metadata platform. Collate is the managed product with AI chat and automations.",
    "verdict": "partial",
-   "verdictNote": "OpenMetadata has an MCP server with semantic search, a metric entity, lineage, auto classification and a beta RDF graph, but no dimension or join objects; description AI and chat are Collate only.",
+   "verdictNote": "OpenMetadata has an MCP server with semantic search, a metric entity, lineage, auto classification and a beta RDF graph. It has no dimension or join objects. Description AI and chat are Collate only.",
    "artifacts": [
     {
      "name": "OpenMetadata MCP server",
@@ -17328,17 +17440,17 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 3,
-     "n": "Metric entity stores expression, granularity, type and unit, with lineage. It is a catalog object, not a query engine.",
+     "n": "The metric entity stores expression, granularity, type and unit, with lineage. It is a catalog object, not a query engine.",
      "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/metrics.md"
     },
     "dimensions": {
      "l": 0,
-     "n": "No dimension or time-grain objects found in the docs.",
+     "n": "The docs show no dimension or time-grain objects.",
      "u": ""
     },
     "relationships": {
      "l": 1,
-     "n": "Lineage and entity links exist. No declared join paths for AI in the docs.",
+     "n": "Lineage and entity links exist. The docs show no declared join paths for AI.",
      "u": "https://docs.open-metadata.org/v2.0.x/developers/contribute/codebase-deep-dives/lineage-ingestion.md"
     },
     "synonyms": {
@@ -17348,32 +17460,32 @@ window.SL = {
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No verified question and SQL pair feature found in the docs.",
+     "n": "The docs show no verified question and SQL pair feature.",
      "u": ""
     },
     "nl2sql": {
      "l": 3,
-     "n": "Collate AI Chat runs read-only SQL on connected sources, grounded in the knowledge graph. Collate only.",
+     "n": "Collate AI Chat runs read-only SQL on connected sources, grounded in the knowledge graph. It is Collate only.",
      "u": "https://docs.getcollate.io/ai-2-0/collate-ai/collate-ai-chat.md"
     },
     "ontology": {
      "l": 2,
-     "n": "Ontology Explorer is Beta and OWL or SKOS ontologies import into glossaries.",
+     "n": "Ontology Explorer is Beta. OWL or SKOS ontologies import into glossaries.",
      "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/ontology/index.md"
     },
     "graph": {
      "l": 2,
-     "n": "Beta RDF knowledge graph with a SPARQL endpoint, backed by Apache Jena Fuseki.",
+     "n": "The Beta RDF knowledge graph has a SPARQL endpoint. Apache Jena Fuseki backs it.",
      "u": "https://docs.getcollate.io/ai-2-0/admin-guide/applications/rdf-indexing-overview.md"
     },
     "vector": {
      "l": 3,
-     "n": "Semantic search tool uses embeddings and kNN search. Needs OpenSearch or Elasticsearch and an embedding provider.",
+     "n": "The semantic search tool uses embeddings and kNN search. It needs OpenSearch or Elasticsearch and an embedding provider.",
      "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp/semantic-search.md"
     },
     "mcp": {
      "l": 3,
-     "n": "Built-in MCP server with read and write tools, installed by default. Collate announced MCP in July 2025.",
+     "n": "The built-in MCP server has read and write tools. It installs by default. Collate announced MCP in July 2025.",
      "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp.md"
     },
     "governance": {
@@ -17388,54 +17500,54 @@ window.SL = {
     },
     "aiDescriptions": {
      "l": 3,
-     "n": "Collate AI Automations documentation template drafts or writes descriptions. No open-source equivalent found.",
+     "n": "The Collate AI Automations documentation template drafts or writes descriptions. The docs show no open-source equivalent.",
      "u": "https://docs.getcollate.io/ai-2-0/collate-ai/ai-automations.md"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "MCP patch_entity; CSV import for databases, schemas and tables; glossary CSV import; Column Bulk Operations across same-named columns.",
+     "n": "Bulk edit tools: MCP patch_entity, CSV import for databases, schemas and tables, glossary CSV import, and Column Bulk Operations across same-named columns.",
      "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/column-bulk-operations.md"
     },
     "autoClassify": {
      "l": 3,
-     "n": "Auto classification uses column-name rules and optional sample-data recognition. Confidence threshold defaults to 80.",
+     "n": "Auto classification uses column-name rules and optional sample-data recognition. The confidence threshold defaults to 80.",
      "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/classification/auto-classification.md"
     },
     "sampleValues": {
      "l": 1,
-     "n": "Sample data feeds classification. No NL-to-SQL value matching found.",
+     "n": "Sample data feeds classification. The docs show no NL-to-SQL value matching.",
      "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/classification/auto-classification.md"
     },
     "queryHistory": {
      "l": 1,
-     "n": "Query logs feed lineage and usage counts. No join or metric suggestions found.",
+     "n": "Query logs feed lineage and usage counts. The docs show no join or metric suggestions.",
      "u": "https://docs.open-metadata.org/v2.0.x/developers/contribute/codebase-deep-dives/usage-ingestion.md"
     },
     "lineage": {
      "l": 3,
-     "n": "Column-level lineage from query logs, view definitions and stored procedures.",
+     "n": "Column-level lineage comes from query logs, view definitions and stored procedures.",
      "u": "https://docs.open-metadata.org/v2.0.x/developers/contribute/codebase-deep-dives/lineage-ingestion.md"
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL eval tooling found in OpenMetadata or Collate docs indexes.",
+     "n": "The OpenMetadata and Collate docs indexes show no NL-to-SQL eval tooling.",
      "u": ""
     }
    },
    "offers": [
-    "MCP server with search, semantic search, entity details, lineage and patch tools.",
-    "Metric entity with expression and lineage, and glossary terms with synonyms.",
-    "Collate AI Chat for question to SQL to chart, and AI Automations for descriptions.",
-    "Auto classification of PII with a confidence threshold.",
-    "Column-level lineage from query logs.",
-    "CSV bulk import and Column Bulk Operations."
+    "The MCP server has search, semantic search, entity details, lineage and patch tools.",
+    "The metric entity has expression and lineage. Glossary terms have synonyms.",
+    "Collate AI Chat turns questions into SQL and charts. AI Automations draft descriptions.",
+    "Auto classification of PII uses a confidence threshold.",
+    "Column-level lineage comes from query logs.",
+    "CSV bulk import and Column Bulk Operations exist."
    ],
    "gaps": [
-    "No dimension, join or verified query objects.",
+    "No dimension, join or verified query objects exist.",
     "AI chat, description automations and AI Studio are Collate only.",
     "Ontology Explorer and the RDF knowledge graph are Beta.",
-    "MCP write tools can change metadata; limit agents to read tools.",
-    "No NL-to-SQL eval tooling found."
+    "MCP write tools can change metadata. Limit agents to read tools.",
+    "No NL-to-SQL eval tooling exists."
    ],
    "fillWith": [
     "dbt Semantic Layer",
@@ -17443,14 +17555,14 @@ window.SL = {
     "Snowflake Semantic Views",
     "Databricks Metric Views"
    ],
-   "nl2sqlPath": "Connect your SQL agent to the OpenMetadata MCP server for descriptions, glossary, metrics and lineage, and turn on semantic search if you need concept lookup. Use tool filtering to keep the agent read-only. Keep dimensions and joins in a semantic layer, or use Collate AI Chat for hosted question answering.",
+   "nl2sqlPath": "Connect your SQL agent to the OpenMetadata MCP server for descriptions, glossary, metrics and lineage. Turn on semantic search if you need concept lookup. Use tool filtering to keep the agent read-only. Keep dimensions and joins in a semantic layer. Or use Collate AI Chat for hosted question answering.",
    "snippet": {
     "lang": "json",
     "title": "MCP search_metadata call (semantic search)",
     "code": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/call\",\"params\":{\"name\":\"search_metadata\",\"arguments\":{\"query\":\"customer purchase behavior and transaction history\",\"entity_type\":\"table\"}}}",
     "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp/semantic-search.md"
    },
-   "enrichHowTo": "On Collate, create an AI Automation from the Documentation template and review the output. On open source, call the MCP patch_entity tool with a JSON Patch, or use CSV import for tables and Column Bulk Operations for repeated column names. Glossary terms load by CSV import.",
+   "enrichHowTo": "On Collate, create an AI Automation from the Documentation template and review the output. On open source, call the MCP patch_entity tool with a JSON Patch. Or use CSV import for tables and Column Bulk Operations for repeated column names. Glossary terms load by CSV import.",
    "bulkSnippet": {
     "lang": "json",
     "code": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/call\",\"params\":{\"name\":\"patch_entity\",\"arguments\":{\"entityType\":\"table\",\"fqn\":\"mysql_prod.ecommerce.public.customer_orders\",\"patch\":\"[{\\\"op\\\":\\\"replace\\\",\\\"path\\\":\\\"/description\\\",\\\"value\\\":\\\"Updated description for customer orders table.\\\"}]\"}}}",
@@ -17634,9 +17746,9 @@ window.SL = {
      "u": "https://docs.secoda.co/features/ai-assistant.md"
     },
     "verifiedQueries": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Query blocks save SQL in documents. The docs do not say Secoda AI uses them as approved question and SQL examples.",
+     "u": "https://docs.secoda.co/features/queries.md"
     },
     "nl2sql": {
      "l": 3,
@@ -17654,9 +17766,9 @@ window.SL = {
      "u": "https://docs.secoda.co/llms.txt"
     },
     "vector": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Search ranks by title, description match and popularity. The docs show no vector index.",
+     "u": "https://docs.secoda.co/features/search.md"
     },
     "mcp": {
      "l": 3,
@@ -17689,9 +17801,9 @@ window.SL = {
      "u": "https://docs.secoda.co/features/automations/ai-powered-automations.md"
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Column profiling stores counts, minimum, maximum and distribution. The docs do not say Secoda AI uses them to match literals.",
+     "u": "https://docs.secoda.co/features/column-profiling.md"
     },
     "queryHistory": {
      "l": 1,
@@ -17704,9 +17816,9 @@ window.SL = {
      "u": "https://docs.secoda.co/features/data-lineage.md"
     },
     "evals": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 2,
+     "n": "Thumbs ratings and Advanced Memory help Secoda AI learn from past answers. No test set or benchmark tool appears.",
+     "u": "https://docs.secoda.co/features/ai-assistant.md"
     }
    },
    "offers": [
@@ -17782,6 +17894,22 @@ window.SL = {
     {
      "t": "Atlassian acquires Secoda",
      "u": "https://www.secoda.co/blog/atlassian-acquires-secoda"
+    },
+    {
+     "t": "Secoda queries",
+     "u": "https://docs.secoda.co/features/queries.md"
+    },
+    {
+     "t": "Secoda column profiling",
+     "u": "https://docs.secoda.co/features/column-profiling.md"
+    },
+    {
+     "t": "Secoda search",
+     "u": "https://docs.secoda.co/features/search.md"
+    },
+    {
+     "t": "Secoda AI user guide",
+     "u": "https://docs.secoda.co/features/ai-assistant/best-practices.md"
     }
    ],
    "verified": "2026-10-24",
@@ -17883,9 +18011,9 @@ window.SL = {
      "u": "https://docs.selectstar.com/llms.txt"
     },
     "vector": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Embeddings back Ask AI and natural language search. The system refreshes them once a day. Other searches use keywords.",
+     "u": "https://docs.selectstar.com/features/ai-features-and-settings.md"
     },
     "mcp": {
      "l": 3,
@@ -17918,9 +18046,9 @@ window.SL = {
      "u": "https://docs.selectstar.com/data-management/automated-pii-detection-beta.md"
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 2,
+     "n": "Semantic model YAML has a sample_values field. Auto-generation from BI dashboards fills sample values. The feature is Beta.",
+     "u": "https://docs.selectstar.com/features/semantic-models.md"
     },
     "queryHistory": {
      "l": 3,
@@ -18015,6 +18143,18 @@ window.SL = {
     {
      "t": "Snowflake to acquire Select Star",
      "u": "https://www.snowflake.com/en/blog/snowflake-acquire-select-star/"
+    },
+    {
+     "t": "Select Star Search",
+     "u": "https://docs.selectstar.com/features/search.md"
+    },
+    {
+     "t": "Select Star AI Settings",
+     "u": "https://docs.selectstar.com/features/ai-features-and-settings.md"
+    },
+    {
+     "t": "Select Star changelog, June 2025",
+     "u": "https://docs.selectstar.com/changelog/june-18-2025-auto-cortex-models-llm-search-tableau-metric-extraction-and-more.md"
     }
    ],
    "verified": "2026-10-24",
@@ -18684,9 +18824,9 @@ window.SL = {
    "id": "dataworld",
    "name": "data.world (ServiceNow)",
    "category": "knowledge-graph",
-   "tagline": "Knowledge-graph-based data catalog and governance platform, owned by ServiceNow since July 2025.",
+   "tagline": "Knowledge-graph-based data catalog and governance platform. ServiceNow acquired it in July 2025.",
    "verdict": "partial",
-   "verdictNote": "The catalog graph supplies glossary, lineage, and metadata context to AI, but it has no governed metric layer and no warehouse query execution.",
+   "verdictNote": "The catalog graph supplies glossary, lineage, and metadata context to AI. It has no governed metric layer and no warehouse query execution.",
    "worksWith": [
     "snowflake",
     "databricks"
@@ -18736,52 +18876,52 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 0,
-     "n": "No governed business-metric objects found in the docs. Teams use a warehouse semantic layer for metrics.",
+     "n": "The docs show no governed business-metric objects. Teams use a warehouse semantic layer for metrics.",
      "u": ""
     },
     "dimensions": {
      "l": 0,
-     "n": "None found in the docs.",
+     "n": "The docs show none.",
      "u": ""
     },
     "relationships": {
      "l": 3,
-     "n": "The catalog graph stores asset relationships and lineage; docs describe custom relationship types in Eureka Explorer.",
+     "n": "The catalog graph stores asset relationships and lineage. The docs describe custom relationship types in Eureka Explorer.",
      "u": "https://docs.data.world/"
     },
     "synonyms": {
      "l": 3,
-     "n": "Business glossary and metadata enrichment give assets descriptions an AI can read; Archie enrichment is Public Preview.",
+     "n": "Business glossary and metadata enrichment give assets descriptions that an AI can read. Archie enrichment is Public Preview.",
      "u": "https://docs.data.world/en/160498-using-archie.html"
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "None found in the docs.",
+     "n": "The docs show none.",
      "u": ""
     },
     "nl2sql": {
      "l": 2,
-     "n": "Archie chat is Public Preview for Enterprise customers; SQL generation is a beta feature of Archie.",
+     "n": "Archie chat is Public Preview for Enterprise customers. SQL generation is a beta feature of Archie.",
      "u": "https://docs.data.world/en/160498-using-archie.html"
     },
     "ontology": {
      "l": 1,
-     "n": "Catalog graph is the model; no domain ontology authoring found in the docs.",
+     "n": "The catalog graph is the model. The docs show no domain ontology authoring.",
      "u": "https://data.world/product/"
     },
     "graph": {
      "l": 3,
-     "n": "Docs describe querying the catalog graph with SQL and SPARQL (only navigation titles were readable).",
+     "n": "The docs describe querying the catalog graph with SQL and SPARQL. The docs give only navigation titles for this.",
      "u": "https://docs.data.world/en/114326-sql,-sparql,-and-markdown.html"
     },
     "vector": {
      "l": 0,
-     "n": "Not confirmed. A June 2025 blog title mentions semantic search, but the body was unavailable.",
+     "n": "This is not confirmed. A June 2025 blog title mentions semantic search. The blog body is unavailable.",
      "u": ""
     },
     "mcp": {
      "l": 2,
-     "n": "Hosted data.world MCP server reads and writes catalog content; docs show no GA label, so counted as Preview-level.",
+     "n": "The hosted data.world MCP server reads and writes catalog content. The docs show no GA label, so this report counts it as Preview-level.",
      "u": "https://docs.data.world/en/413220-data-world-mcp-server-for-ai-assistants.html"
     },
     "governance": {
@@ -18791,64 +18931,64 @@ window.SL = {
     },
     "openStandard": {
      "l": 1,
-     "n": "SPARQL access to the catalog graph; MCP is an open standard. Not named in OSI partner lists read.",
+     "n": "SPARQL gives access to the catalog graph. MCP is an open standard. OSI partner lists do not name data.world.",
      "u": "https://ossie.apache.org/updates/"
     },
     "aiDescriptions": {
      "l": 2,
-     "n": "Archie Enrich drafts descriptions for tables, columns, glossary terms and collections. Public Preview, Enterprise only.",
+     "n": "Archie Enrich drafts descriptions for tables, columns, glossary terms and collections. It is in Public Preview. It is for Enterprise only.",
      "u": "https://docs.data.world/en/160498-using-archie.html"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "REST bulk endpoints update up to 25 catalog resources per call. Excel bulk upload and MCP updates also exist.",
+     "n": "REST bulk endpoints update up to 25 catalog resources per call. Excel bulk upload exists. MCP updates also exist.",
      "u": "https://developer.data.world/reference/bulkupdate-1.md"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic classification or PII tagging found in the catalog and governance pages.",
+     "n": "The catalog and governance pages show no automatic classification or PII tagging.",
      "u": "https://data.world/product/catalog"
     },
     "sampleValues": {
      "l": 0,
-     "n": "No value sampling found. Archie SQL generation is a beta feature.",
+     "n": "The docs show no value sampling. Archie SQL generation is a beta feature.",
      "u": "https://docs.data.world/en/329793-archie-beta-features.html"
     },
     "queryHistory": {
      "l": 0,
-     "n": "No query-history mining found in the docs.",
+     "n": "The docs show no query-history mining.",
      "u": ""
     },
     "lineage": {
      "l": 0,
-     "n": "Collectors build lineage from supported systems; manual relationships fill gaps. Column-level lineage not confirmed in the docs.",
+     "n": "Collectors build lineage from supported systems. Manual relationships fill gaps. The docs do not confirm column-level lineage.",
      "u": "https://docs.data.world/en/360706-creating-custom-relationships-for-lineage-in-eureka-explorer--ctk-.html"
     },
     "evals": {
      "l": 0,
-     "n": "No customer eval tooling found. The vendor tests Archie with in-app feedback and its own benchmark metadata.",
+     "n": "The docs show no customer eval tooling. The vendor tests Archie with in-app feedback and its own benchmark metadata.",
      "u": "https://docs.data.world/en/277381-archie-faq.html"
     }
    },
    "offers": [
-    "Catalog built on a knowledge graph; vendor claims answers 4.2x more accurate than a traditional catalog (marketing figure).",
-    "Business glossary, governance automations, lineage, and a marketplace appear in the docs navigation.",
-    "Hosted MCP server lets Claude, Cursor, and VS Code Copilot search and update the catalog under your permissions.",
-    "Archie assistant (Public Preview) chats over catalog metadata and enriches assets; SQL generation is beta.",
-    "Integrations listed on the product page include Snowflake, Databricks, dbt, Power BI, Tableau, and Looker."
+    "The catalog is built on a knowledge graph. The vendor claims answers are 4.2x more accurate than a traditional catalog (marketing figure).",
+    "The docs navigation shows a business glossary, governance automations, lineage, and a marketplace.",
+    "The hosted MCP server lets Claude, Cursor, and VS Code Copilot search and update the catalog under your permissions.",
+    "The Archie assistant (Public Preview) chats over catalog metadata and enriches assets. SQL generation is beta.",
+    "Integrations on the product page include Snowflake, Databricks, dbt, Power BI, Tableau, and Looker."
    ],
    "gaps": [
-    "No metric, dimension, or verified-query objects found; the catalog describes data but does not define KPIs.",
-    "Archie is Public Preview, SQL generation is beta, and the MCP server shows no GA label.",
-    "An 'AI Context Engine' name was not found in docs, product pages, or ServiceNow filings read; treat as unverified.",
-    "Public docs seen give little syntax for catalog graph queries or MCP tool lists."
+    "The docs show no metric, dimension, or verified-query objects. The catalog describes data but does not define KPIs.",
+    "Archie is Public Preview. SQL generation is beta. The MCP server shows no GA label.",
+    "The docs, product pages, and ServiceNow filings show no 'AI Context Engine' name. Treat it as unverified.",
+    "The public docs give little syntax for catalog graph queries or MCP tool lists."
    ],
    "fillWith": [
     "Snowflake semantic views",
     "dbt Semantic Layer",
     "Databricks metric views"
    ],
-   "nl2sqlPath": "Use data.world as the business context source: glossary terms, lineage, and asset metadata that an agent reads through the hosted MCP server. Run NL-to-SQL and governed metrics on the warehouse semantic layer. Treat Archie SQL generation as beta.",
+   "nl2sqlPath": "Use data.world as the business context source: glossary terms, lineage, and asset metadata. An agent reads them through the hosted MCP server. Run NL-to-SQL and governed metrics on the warehouse semantic layer. Treat Archie SQL generation as beta.",
    "snippet": null,
    "sources": [
     {
@@ -18944,7 +19084,7 @@ window.SL = {
      "u": "https://docs.data.world/en/160498-using-archie.html"
     }
    ],
-   "enrichHowTo": "Use Archie Enrich to draft descriptions, up to 50 at a time per collection, then review each item marked [Archie suggestion]. For scripted writes, call PATCH /v0/metadata/resources/bulk/{owner}, which updates up to 25 resources per call. Archie needs an Enterprise plan and activation through your Customer Success Director.",
+   "enrichHowTo": "Use Archie Enrich to draft descriptions, up to 50 at a time per collection. Then review each item marked [Archie suggestion]. For scripted writes, call PATCH /v0/metadata/resources/bulk/{owner}. It updates up to 25 resources per call. Archie needs an Enterprise plan. Activate it through your Customer Success Director.",
    "bulkSnippet": {
     "lang": "bash",
     "code": "# placeholders: OWNER, resource IRI, description property IRI\ncurl -X PATCH \"https://api.data.world/v0/metadata/resources/bulk/OWNER?updateListBy=ADD\" \\\n  -H \"Authorization: Bearer $DW_TOKEN\" -H \"Content-Type: application/json\" \\\n  -d '{\"resources\":{\"<resource-iri>\":{\"properties\":{\"<description-property-iri>\":\"Updated quarterly sales dataset\"}}}}'",
@@ -18957,7 +19097,7 @@ window.SL = {
    "category": "knowledge-graph",
    "tagline": "Native graph database with GraphRAG libraries, Aura Agent, and MCP servers.",
    "verdict": "partial",
-   "verdictNote": "Neo4j gives a graph model, Cypher, vector search, and agents, but no governed metric or dimension objects over warehouse tables.",
+   "verdictNote": "Neo4j gives a graph model, Cypher, vector search, and agents. It has no governed metric or dimension objects over warehouse tables.",
    "worksWith": [
     "snowflake",
     "databricks",
@@ -19042,114 +19182,114 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 0,
-     "n": "No metric object type. Aggregates are written as Cypher; Aura Agent Cypher templates can pin a parameterized query.",
+     "n": "No metric object type exists. Users write aggregates as Cypher. Aura Agent Cypher templates can pin a parameterized query.",
      "u": "https://neo4j.com/developer/genai-ecosystem/aura-agent/"
     },
     "dimensions": {
      "l": 0,
-     "n": "No dimension or time-grain objects. Teams model categories as node labels or properties.",
+     "n": "No dimension or time-grain objects exist. Teams model categories as node labels or properties.",
      "u": ""
     },
     "relationships": {
      "l": 3,
-     "n": "Relationships are first-class typed edges with properties. Virtual Graph maps foreign keys to relationships (Preview).",
+     "n": "Relationships are first-class typed edges with properties. Virtual Graph (Preview) maps foreign keys to relationships.",
      "u": "https://neo4j.com/blog/developer/zero-copy-graph-reasoning-on-snowflake-getting-started-with-neo4j-virtual-graph/"
     },
     "synonyms": {
      "l": 3,
-     "n": "Aura Agent holds agent instructions and tool descriptions that the LLM reads. No synonym object type.",
+     "n": "Aura Agent holds agent instructions and tool descriptions that the LLM reads. No synonym object type exists.",
      "u": "https://neo4j.com/blog/agentic-ai/neo4j-launches-aura-agent/"
     },
     "verifiedQueries": {
      "l": 3,
-     "n": "Aura Agent Cypher templates are predefined, parameterized queries the agent calls as tools. They are not question-query pairs.",
+     "n": "Aura Agent Cypher templates are predefined, parameterized queries. The agent calls them as tools. They are not question-query pairs.",
      "u": "https://neo4j.com/developer/genai-ecosystem/aura-agent/"
     },
     "nl2sql": {
      "l": 3,
-     "n": "Aura Agent Text2Cypher tool (GA Feb 2026) writes Cypher, not SQL. Neo4j's EAP guide calls it a fallback to templates.",
+     "n": "The Aura Agent Text2Cypher tool (GA Feb 2026) writes Cypher, not SQL. The Neo4j EAP guide calls it a fallback to templates.",
      "u": "https://neo4j.com/blog/genai/build-context-aware-graphrag-agent/"
     },
     "ontology": {
      "l": 2,
-     "n": "Business ontology is in Neo4j Context Engine, private preview (Oct 2026). Graph schema works as an ontology by convention.",
+     "n": "Business ontology is in Neo4j Context Engine, private preview (Oct 2026). The graph schema works as an ontology by convention.",
      "u": "https://neo4j.com/blog/news/neo4j-context-engine/"
     },
     "graph": {
      "l": 3,
-     "n": "Cypher property graph queries plus Graph Data Science algorithms. Cypher over Snowflake tables via Virtual Graph (Preview).",
+     "n": "Cypher property graph queries plus Graph Data Science algorithms. Virtual Graph (Preview) runs Cypher over Snowflake tables.",
      "u": "https://neo4j.com/docs/cypher-manual/current/introduction/cypher_overview/"
     },
     "vector": {
      "l": 3,
-     "n": "Vector indexes and similarity search; the neo4j-graphrag library and Aura Agent both use them.",
+     "n": "Vector indexes and similarity search exist. The neo4j-graphrag library and Aura Agent both use them.",
      "u": "https://neo4j.com/docs/neo4j-graphrag-python/current/"
     },
     "mcp": {
      "l": 3,
-     "n": "Official Neo4j MCP server (GA announced Dec 2025) and Aura Agent hosted MCP endpoints with OAuth.",
+     "n": "Neo4j has an official MCP server (GA announced Dec 2025). Aura Agent has hosted MCP endpoints with OAuth.",
      "u": "https://github.com/neo4j/mcp"
     },
     "governance": {
      "l": 2,
-     "n": "Virtual Graph runs queries under a read-only Snowflake user, so source RBAC applies (Preview). Context Engine adds governance (private preview).",
+     "n": "Virtual Graph (Preview) runs queries under a read-only Snowflake user, so source RBAC applies. Context Engine adds governance (private preview).",
      "u": "https://neo4j.com/blog/developer/zero-copy-graph-reasoning-on-snowflake-getting-started-with-neo4j-virtual-graph/"
     },
     "openStandard": {
      "l": 1,
-     "n": "No OSI listing found. Labs MCP servers are MIT licensed. Aura Agent exposes standard MCP and REST endpoints.",
+     "n": "The docs show no OSI listing. Labs MCP servers are MIT licensed. Aura Agent exposes standard MCP and REST endpoints.",
      "u": "https://github.com/neo4j-contrib/mcp-neo4j"
     },
     "aiDescriptions": {
      "l": 0,
-     "n": "No schema or column description generator found. KG Builder (Labs) suggests a schema from pasted text only.",
+     "n": "The docs show no generator for schema or column descriptions. KG Builder (Labs) suggests a schema from pasted text only.",
      "u": "https://neo4j.com/labs/genai-ecosystem/llm-graph-builder-features/"
     },
     "bulkMetadata": {
      "l": 0,
-     "n": "No native schema comment or tag store found. Aura Agent tool descriptions are edited in a low-code UI.",
+     "n": "The docs show no native schema comment or tag store. Users edit Aura Agent tool descriptions in a low-code UI.",
      "u": "https://neo4j.com/docs/aura/aura-agent/"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic classification of properties found in the docs.",
+     "n": "The docs show no automatic classification of properties.",
      "u": ""
     },
     "sampleValues": {
      "l": 1,
-     "n": "No native feature. The langchain-neo4j package can scan the database for example values (enhanced_schema, default off).",
+     "n": "No native feature exists. The langchain-neo4j package can scan the database for example values (enhanced_schema, default off).",
      "u": "https://raw.githubusercontent.com/langchain-ai/langchain-neo4j/main/libs/neo4j/langchain_neo4j/graphs/neo4j_graph.py"
     },
     "queryHistory": {
      "l": 0,
-     "n": "No query-history mining for schema, examples or suggestions found in the docs.",
+     "n": "The docs show no query-history mining for schema, examples or suggestions.",
      "u": ""
     },
     "lineage": {
      "l": 1,
-     "n": "No lineage feature. Neo4j pages show lineage as a graph modeling pattern that customers and partners build.",
+     "n": "Neo4j has no lineage feature. Neo4j pages show lineage as a graph modeling pattern. Customers and partners build it.",
      "u": "https://neo4j.com/use-cases/master-data-management/"
     },
     "evals": {
      "l": 3,
-     "n": "Aura Agent evaluations: datasets of up to 50 questions, five metrics. Docs show no preview label; start date unknown.",
+     "n": "Aura Agent evaluations use datasets of up to 50 questions and five metrics. The docs show no preview label. The start date is unknown.",
      "u": "https://neo4j.com/docs/aura/aura-agent/"
     }
    },
    "offers": [
-    "Aura Agent builds an agent from the graph schema, with Cypher template, similarity search, and Text2Cypher tools (GA Feb 2026).",
-    "Hosted MCP and REST endpoints for agents; MCP is read-only. Public agents bill per agent-hour from March 2026.",
-    "Official MCP server tools: get-schema, read-cypher, write-cypher, list-gds-procedures. Read-only mode available; latest release v1.6.1 (Oct 2026).",
-    "neo4j-graphrag Python library: vector retrieval, Text2CypherRetriever, and a knowledge graph builder pipeline (some parts experimental).",
+    "Aura Agent builds an agent from the graph schema. It has Cypher template, similarity search, and Text2Cypher tools (GA Feb 2026).",
+    "Aura Agent has hosted MCP and REST endpoints for agents. MCP is read-only. Public agents bill per agent-hour from March 2026.",
+    "Official MCP server tools: get-schema, read-cypher, write-cypher, list-gds-procedures. Read-only mode is available. The latest release is v1.6.1 (Oct 2026).",
+    "The neo4j-graphrag Python library has vector retrieval, Text2CypherRetriever, and a knowledge graph builder pipeline. Some parts are experimental.",
     "Warehouse links: Graph Analytics for Snowflake (Marketplace), Spark connector for Databricks, Dataflow templates for BigQuery, Aura Data Importer.",
-    "Virtual Graph (Preview, Jun 2026) translates Cypher to Snowflake SQL in place, with no copy; the translation is rule-based."
+    "Virtual Graph (Preview, Jun 2026) translates Cypher to Snowflake SQL in place, with no copy. The translation is rule-based."
    ],
    "gaps": [
-    "No metric, dimension, or time-grain objects, so governed KPIs stay in a warehouse semantic layer.",
-    "Text2Cypher writes Cypher, not SQL. Warehouse data must be loaded, mapped through Virtual Graph (Preview), or queried separately.",
+    "No metric, dimension, or time-grain objects exist, so governed KPIs stay in a warehouse semantic layer.",
+    "Text2Cypher writes Cypher, not SQL. Users must load warehouse data, map it through Virtual Graph (Preview), or query it separately.",
     "The Virtual Graph article covers Snowflake only. The Unity Catalog connector for Databricks is listed as coming soon to Labs.",
-    "MCP read-only mode relies on EXPLAIN query classification. The README warns misclassified custom procedures may bypass it.",
-    "Business ontology (Context Engine) is private preview. Neo4j is not named in OSI partner lists."
+    "MCP read-only mode relies on EXPLAIN query classification. The README warns that misclassified custom procedures may bypass it.",
+    "Business ontology (Context Engine) is private preview. OSI partner lists do not name Neo4j."
    ],
    "fillWith": [
     "dbt Semantic Layer",
@@ -19157,7 +19297,7 @@ window.SL = {
     "Snowflake semantic views",
     "Databricks metric views"
    ],
-   "nl2sqlPath": "Keep NL-to-SQL on the warehouse semantic layer. Use Neo4j for multi-hop and relationship questions, with Cypher templates first and Text2Cypher as fallback. To reach warehouse data, import with Aura Data Importer or the Spark connector, or try Virtual Graph (Preview) for Snowflake.",
+   "nl2sqlPath": "Keep NL-to-SQL on the warehouse semantic layer. Use Neo4j for multi-hop and relationship questions. Use Cypher templates first and Text2Cypher as fallback. To reach warehouse data, import with Aura Data Importer or the Spark connector. Or try Virtual Graph (Preview) for Snowflake.",
    "snippet": {
     "lang": "other",
     "title": "Cypher: property filter and relationship pattern (Cypher manual overview)",
@@ -19298,7 +19438,7 @@ window.SL = {
      "u": "https://neo4j.com/docs/aura/aura-agent/"
     }
    ],
-   "enrichHowTo": "Neo4j has no table or column comment object, so there is no bulk description statement. Put business meaning in Aura Agent tool descriptions and in few-shot examples for Text2CypherRetriever. Build an Aura Agent evaluation dataset with expected answers to test changes.",
+   "enrichHowTo": "Neo4j has no table or column comment object. So no bulk description statement exists. Put business meaning in Aura Agent tool descriptions. Also put it in few-shot examples for Text2CypherRetriever. Build an Aura Agent evaluation dataset with expected answers. Use it to test changes.",
    "bulkSnippet": {
     "lang": "python",
     "code": "# Few-shot examples for Text2CypherRetriever (not a schema comment; Neo4j has none)\nexamples = [\n  \"USER INPUT: 'Which actors starred in the Matrix?' \"\n  \"QUERY: MATCH (p:Person)-[:ACTED_IN]->(m:Movie) WHERE m.title = 'The Matrix' RETURN p.name\"\n]\nretriever = Text2CypherRetriever(driver=driver, llm=llm,\n  neo4j_schema=neo4j_schema, examples=examples)",
@@ -19309,9 +19449,9 @@ window.SL = {
    "id": "palantir",
    "name": "Palantir Foundry and AIP",
    "category": "knowledge-graph",
-   "tagline": "Data platform whose Ontology models objects, links, and actions above source data.",
+   "tagline": "Palantir is a data platform. Its Ontology models objects, links and actions above source data.",
    "verdict": "native",
-   "verdictNote": "The Ontology is a native, permissioned object model that AIP agents and external agents use through tools; it is not a SQL metric layer.",
+   "verdictNote": "The Ontology is a native, permissioned object model. AIP agents and external agents use it through tools. It is not a SQL metric layer.",
    "artifacts": [
     {
      "name": "Foundry Ontology (object types, properties, link types, interfaces)",
@@ -19381,27 +19521,27 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 1,
-     "n": "No governed metric object found in the docs. Business logic lives in Functions and applications.",
+     "n": "The docs show no governed metric object. Business logic lives in Functions and applications.",
      "u": "https://www.palantir.com/docs/foundry/functions/overview/"
     },
     "dimensions": {
      "l": 1,
-     "n": "Properties on object types describe attributes. No hierarchy or time-grain feature found in the docs.",
+     "n": "Properties on object types describe attributes. The docs show no hierarchy or time-grain feature.",
      "u": "https://www.palantir.com/docs/foundry/ontology/core-concepts/"
     },
     "relationships": {
      "l": 3,
-     "n": "Link types define bidirectional relationships between object types; many-to-many links are backed by datasources.",
+     "n": "Link types define bidirectional relationships between object types. Datasources back many-to-many links.",
      "u": "https://www.palantir.com/docs/foundry/object-link-types/link-types-overview/"
     },
     "synonyms": {
      "l": 1,
-     "n": "The Ontology adds metadata for fields. A synonym field, and prompt use of it, were not found in the docs.",
+     "n": "The Ontology adds metadata for fields. The docs show no synonym field and no prompt use of synonyms.",
      "u": "https://www.palantir.com/docs/foundry/ontology/overview/"
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "No verified question-to-SQL pairs found. AIP Evals tests LLM-based functions and prompts instead.",
+     "n": "The docs show no verified question-to-SQL pairs. AIP Evals tests LLM-based functions and prompts instead.",
      "u": "https://www.palantir.com/docs/foundry/aip/aip-features/"
     },
     "nl2sql": {
@@ -19411,12 +19551,12 @@ window.SL = {
     },
     "ontology": {
      "l": 3,
-     "n": "Object types, properties, link types, action types, functions, interfaces. Semantic and kinetic elements.",
+     "n": "Object types, properties, link types, action types, functions and interfaces. Semantic and kinetic elements.",
      "u": "https://www.palantir.com/docs/foundry/ontology/overview/"
     },
     "graph": {
      "l": 0,
-     "n": "Link traversal exists in object sets and Functions. No SQL/PGQ, GQL, Cypher, or SPARQL found in the docs.",
+     "n": "Link traversal exists in object sets and Functions. The docs show no SQL/PGQ, GQL, Cypher or SPARQL.",
      "u": "https://www.palantir.com/docs/foundry/functions/overview/"
     },
     "vector": {
@@ -19426,67 +19566,67 @@ window.SL = {
     },
     "mcp": {
      "l": 2,
-     "n": "Ontology MCP exposes object types, actions, and query functions as MCP tools. Status not stated in docs; treated as Preview.",
+     "n": "Ontology MCP exposes object types, actions and query functions as MCP tools. The docs do not state its status. This file treats it as Preview.",
      "u": "https://www.palantir.com/docs/foundry/ontology-mcp/overview/"
     },
     "governance": {
      "l": 3,
-     "n": "Ontology roles control resource access. In AIP Logic the model only sees data the user may read.",
+     "n": "Ontology roles control resource access. In AIP Logic the model sees only data that the user may read.",
      "u": "https://www.palantir.com/docs/foundry/logic/overview/"
     },
     "openStandard": {
      "l": 0,
-     "n": "Proprietary Ontology. OSDK generates TypeScript, Python, Java clients and an OpenAPI spec; no open semantic spec found.",
+     "n": "The Ontology is proprietary. The OSDK generates TypeScript, Python and Java clients and an OpenAPI spec. The docs show no open semantic spec.",
      "u": "https://www.palantir.com/docs/foundry/ontology-sdk/overview/"
     },
     "aiDescriptions": {
      "l": 0,
-     "n": "No AI description generator documented. AI FDE edits ontology objects, links and actions by chat; descriptions and status not stated.",
+     "n": "The docs show no AI description generator. AI FDE edits ontology objects, links and actions by chat. The docs do not state descriptions or status.",
      "u": "https://www.palantir.com/docs/foundry/ai-fde/overview/"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "Export, edit and import Ontology schema as JSON. Python transforms set column descriptions in code. JSON format may change.",
+     "n": "Export the Ontology schema as JSON, edit it and import it. Python transforms set column descriptions in code. The JSON format may change.",
      "u": "https://www.palantir.com/docs/foundry/ontology-manager/export-import/"
     },
     "autoClassify": {
      "l": 3,
-     "n": "Sensitive Data Scanner matches user-defined conditions, then applies markings, opens issues or obfuscates data. An admin must enable it.",
+     "n": "Sensitive Data Scanner matches user-defined conditions. Then it applies markings, opens issues or obfuscates data. An admin must enable it.",
      "u": "https://www.palantir.com/docs/foundry/sensitive-data-scanner/create-match-actions/"
     },
     "sampleValues": {
      "l": 0,
-     "n": "Not documented in the docs.",
+     "n": "The docs do not describe sample values.",
      "u": ""
     },
     "queryHistory": {
      "l": 0,
-     "n": "Not documented in the docs.",
+     "n": "The docs do not describe query history.",
      "u": ""
     },
     "lineage": {
      "l": 0,
-     "n": "Data Lineage shows dataset graphs, with column search only. Workflow Lineage tracks property usage. Column-level lineage not found.",
+     "n": "Data Lineage shows dataset graphs, with column search only. Workflow Lineage tracks property usage. The docs show no column-level lineage.",
      "u": "https://www.palantir.com/docs/foundry/data-lineage/overview/"
     },
     "evals": {
      "l": 3,
-     "n": "AIP Evals tests Logic, Chatbot and code functions with built-in, LLM-judge and custom evaluators. Not SQL-specific; no status label.",
+     "n": "AIP Evals tests Logic, Chatbot and code functions. It uses built-in, LLM-judge and custom evaluators. It is not SQL-specific. It has no status label.",
      "u": "https://www.palantir.com/docs/foundry/aip-evals/create-suite/"
     }
    },
    "offers": [
-    "Object types map datasets, virtual tables, and models to business entities with properties and links.",
-    "Action types bundle governed edits and side effects, so agents can write back with permission checks.",
-    "AIP Logic LLM blocks read Ontology data through tools such as Query objects; permissions apply at read time.",
-    "Ontology MCP and the OSDK expose objects, actions, and query functions to external agents and applications.",
-    "Virtual tables point at Databricks, Snowflake, and BigQuery tables without copying data; objects can sit on them."
+    "Object types map datasets, virtual tables and models to business entities with properties and links.",
+    "Action types bundle governed edits and side effects. Agents can write back with permission checks.",
+    "AIP Logic LLM blocks read Ontology data through tools such as Query objects. Permissions apply at read time.",
+    "Ontology MCP and the OSDK expose objects, actions and query functions to external agents and applications.",
+    "Virtual tables point at Databricks, Snowflake and BigQuery tables without copying data. Objects can sit on them."
    ],
    "gaps": [
-    "No NL-to-SQL feature found in the docs; AI queries objects through tools, not SQL against the warehouse.",
-    "No governed metric definitions, synonyms, or verified-query store found in the docs.",
-    "The Ontology is proprietary; access is through OSDK, OpenAPI, or Ontology MCP, not an open semantic spec.",
-    "The docs do not say whether Ontology objects can be queried with SQL; ODBC and JDBC drivers cover datasets.",
+    "The docs show no NL-to-SQL feature. AI queries objects through tools. It does not run SQL against the warehouse.",
+    "The docs show no governed metric definitions, synonyms or verified-query store.",
+    "The Ontology is proprietary. Access is through OSDK, OpenAPI or Ontology MCP. There is no open semantic spec.",
+    "The docs do not say whether SQL can query Ontology objects. ODBC and JDBC drivers cover datasets.",
     "Warehouse tables become objects only after you model them in Ontology Manager or Pipeline Builder."
    ],
    "fillWith": [
@@ -19494,7 +19634,7 @@ window.SL = {
     "Snowflake (virtual table source)",
     "BigQuery (virtual table source)"
    ],
-   "nl2sqlPath": "Palantir is not an NL-to-SQL product. Teams map warehouse tables to object types through virtual tables, then let AIP Logic or Chatbot Studio query objects and call actions. For outside agents, enable Ontology MCP or use the OSDK.",
+   "nl2sqlPath": "Palantir is not an NL-to-SQL product. Teams map warehouse tables to object types through virtual tables. Then they let AIP Logic or Chatbot Studio query objects and call actions. For outside agents, enable Ontology MCP or use the OSDK.",
    "snippet": null,
    "sources": [
     {
@@ -19634,7 +19774,7 @@ window.SL = {
      "u": "https://www.palantir.com/docs/foundry/chatbot-studio/overview"
     }
    ],
-   "enrichHowTo": "Set descriptions where the data is built: pass column_descriptions to write_dataframe() in a Python transform (800 characters per column). For the Ontology, export it as JSON from Ontology Manager Advanced settings, edit it, and import it. Test agent functions with AIP Evals object-set test cases.",
+   "enrichHowTo": "Set descriptions where the data is built. Pass column_descriptions to write_dataframe() in a Python transform (800 characters per column). To describe the Ontology, export it as JSON from Ontology Manager Advanced settings. Edit it and import it. Test agent functions with AIP Evals object-set test cases.",
    "bulkSnippet": {
     "lang": "python",
     "code": "my_output.write_dataframe(\n    my_input.dataframe(),\n    column_descriptions={\n        \"col_1\": \"col 1 description\"\n    }\n)",
@@ -19645,9 +19785,9 @@ window.SL = {
    "id": "relationalai",
    "name": "RelationalAI",
    "category": "knowledge-graph",
-   "tagline": "Decision intelligence platform with Python semantic models and reasoners, built as a Snowflake Native App.",
+   "tagline": "Decision intelligence platform with Python semantic models and reasoners. It is a Snowflake Native App.",
    "verdict": "partial",
-   "verdictNote": "PyRel gives an ontology-style semantic model and reasoners on Snowflake, but no metric layer, MCP server, or other platforms.",
+   "verdictNote": "PyRel gives an ontology-style semantic model and reasoners on Snowflake. It has no metric layer, MCP server, or other platforms.",
    "worksWith": [
     "snowflake"
    ],
@@ -19704,112 +19844,112 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 0,
-     "n": "No metric object found in docs or posts read. Metrics would sit in Snowflake semantic views.",
+     "n": "The docs and posts show no metric object. Metrics would sit in Snowflake semantic views.",
      "u": ""
     },
     "dimensions": {
      "l": 0,
-     "n": "No dimension or hierarchy object found. Concept subtypes cover entity classes only.",
+     "n": "No dimension or hierarchy object exists. Concept subtypes cover entity classes only.",
      "u": "https://docs.relational.ai/build/guides/modeling/index.md"
     },
     "relationships": {
      "l": 3,
-     "n": "PyRel models concepts, properties, and relationships; the Jun 2026 post adds roles, multiplicity, and constraints.",
+     "n": "PyRel models concepts, properties, and relationships. The Jun 2026 post adds roles, multiplicity, and constraints.",
      "u": "https://www.relational.ai/post/from-dimensions-to-decisions-what-ontologies-give-ai-agents-and-how-osi-makes-them-portable"
     },
     "synonyms": {
      "l": 0,
-     "n": "None found in the docs. Rel App lets users ask questions over the model (announced Jun 2026).",
+     "n": "The docs show none. Rel App lets users ask questions over the model (announced Jun 2026).",
      "u": ""
     },
     "verifiedQueries": {
      "l": 0,
-     "n": "None found in the docs.",
+     "n": "The docs show none.",
      "u": ""
     },
     "nl2sql": {
      "l": 1,
-     "n": "Rel App and Snowflake CoWork take natural-language questions (announced Jun 2026); answers come from reasoners. Availability status not stated.",
+     "n": "Rel App and Snowflake CoWork take natural-language questions (announced Jun 2026). Reasoners produce the answers. The availability status is not stated.",
      "u": "https://www.relational.ai/post/relationalai-closes-the-ai-value-gap-with-new-agentic-decision-intelligence-capabilities-for-the-snowflake-ai-data-cloud"
     },
     "ontology": {
      "l": 3,
-     "n": "PyRel semantic model holds concepts, relationships, and constraints. The Rel App is the governed model UI (announced Jun 2026).",
+     "n": "The PyRel semantic model holds concepts, relationships, and constraints. The Rel App is the governed model UI (announced Jun 2026).",
      "u": "https://docs.relational.ai/build/guides/modeling/index.md"
     },
     "graph": {
      "l": 3,
-     "n": "Graph analytics reasoner runs inside Snowflake. No Cypher, SPARQL, or GQL; queries are PyRel Python.",
+     "n": "The graph analytics reasoner runs inside Snowflake. The product has no Cypher, SPARQL, or GQL. Queries are PyRel Python.",
      "u": "https://docs.relational.ai/"
     },
     "vector": {
      "l": 0,
-     "n": "None found in the docs.",
+     "n": "The docs show none.",
      "u": ""
     },
     "mcp": {
      "l": 0,
-     "n": "No MCP server or reference found in docs or posts read. Agents generate PyRel and use coding-agent skills.",
+     "n": "The docs and posts show no MCP server or reference. Agents generate PyRel and use coding-agent skills.",
      "u": "https://www.relational.ai/post/answer-questions-beyond-sql"
     },
     "governance": {
      "l": 1,
-     "n": "Data stays in the Snowflake account perimeter and admins control app access. Inheritance of row or column policies not confirmed.",
+     "n": "Data stays in the Snowflake account perimeter. Admins control app access. The docs do not confirm inheritance of row or column policies.",
      "u": "https://docs.relational.ai/"
     },
     "openStandard": {
      "l": 2,
-     "n": "OSI launch partner (Sep 2025), active in the Ontology Representation working group. Spec support for ontologies is a proposal.",
+     "n": "RelationalAI is an OSI launch partner (Sep 2025) and is active in the Ontology Representation working group. Spec support for ontologies is a proposal.",
      "u": "https://www.relational.ai/post/bringing-ontological-semantics-to-open-semantic-interchange-osi"
     },
     "aiDescriptions": {
      "l": 0,
-     "n": "No LLM description generator found. Verbalizers return model structure and relationship text, not AI-written descriptions.",
+     "n": "The docs show no LLM description generator. Verbalizers return model structure and relationship text. They do not return AI-written descriptions.",
      "u": "https://docs.relational.ai/api/python/v1.37/agent/cortex/index.md"
     },
     "bulkMetadata": {
      "l": 0,
-     "n": "No metadata import found. Models are PyRel Python code. Description fields on concepts are not documented.",
+     "n": "The docs show no metadata import. Models are PyRel Python code. The docs do not describe description fields on concepts.",
      "u": "https://docs.relational.ai/build/guides/modeling/index.md"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No classification feature found in the docs.",
+     "n": "The docs show no classification feature.",
      "u": ""
     },
     "sampleValues": {
      "l": 0,
-     "n": "Not documented for the Cortex agent tools in the docs.",
+     "n": "The docs do not describe sample values for the Cortex agent tools.",
      "u": "https://docs.relational.ai/api/python/v1.37/agent/cortex/index.md"
     },
     "queryHistory": {
      "l": 0,
-     "n": "No query-history mining found. Catalog queries are pre-defined by the modeler.",
+     "n": "The docs show no query-history mining. The modeler pre-defines the catalog queries.",
      "u": "https://docs.relational.ai/api/python/v1.37/agent/cortex/index.md"
     },
     "lineage": {
      "l": 0,
-     "n": "No lineage feature found in the RelationalAI docs.",
+     "n": "The RelationalAI docs show no lineage feature.",
      "u": ""
     },
     "evals": {
      "l": 0,
-     "n": "No NL-to-SQL eval tooling found. The dynamic query tool RAI_QUERY_MODEL is Preview.",
+     "n": "The docs show no NL-to-SQL eval tooling. The dynamic query tool RAI_QUERY_MODEL is Preview.",
      "u": "https://docs.relational.ai/api/python/v1.37/agent/cortex/index.md"
     }
    },
    "offers": [
-    "PyRel Python SDK builds a semantic model of concepts, relationships, and rules, then queries it with where and select.",
-    "Runs as a Snowflake Native App (GA Nov 2024); queries execute against data inside the Snowflake account.",
-    "Reasoners cover graph analytics, prescriptive optimization (GA, Jun 2026), and predictive analysis; predictive status not stated.",
-    "Docs list 53 templates, including one for a Snowflake Intelligence agent over the RelationalAI knowledge graph.",
+    "The PyRel Python SDK builds a semantic model of concepts, relationships, and rules. It then queries the model with where and select.",
+    "PyRel runs as a Snowflake Native App (GA Nov 2024). Queries run against data inside the Snowflake account.",
+    "Reasoners cover graph analytics, prescriptive optimization (GA, Jun 2026), and predictive analysis. The predictive status is not stated.",
+    "The docs list 53 templates. One template is for a Snowflake Intelligence agent over the RelationalAI knowledge graph.",
     "Coding-agent skills for Snowflake CoCo, Claude Code, OpenAI Codex, and GitHub Copilot help agents extend models (Jun 2026)."
    ],
    "gaps": [
-    "No metric, dimension, synonym, or verified-query objects found; it is a reasoning layer, not a BI metric layer.",
-    "Snowflake only: a May 2026 post says Snowflake is the currently supported platform.",
-    "No MCP server found. Natural-language access is via Rel App or Snowflake CoWork, status not stated.",
-    "Positioning moved from knowledge graph coprocessor (Nov 2024) to decision intelligence; Rel now also names the decision agent.",
+    "The docs show no metric, dimension, synonym, or verified-query objects. PyRel is a reasoning layer, not a BI metric layer.",
+    "Snowflake only. A May 2026 post says Snowflake is the currently supported platform.",
+    "No MCP server exists. Natural-language access is through Rel App or Snowflake CoWork. The status is not stated.",
+    "RelationalAI moved its positioning from knowledge graph coprocessor (Nov 2024) to decision intelligence. Rel now also names the decision agent.",
     "Ontology support in OSI is a proposal, so portability of PyRel models through OSI is not yet standard."
    ],
    "fillWith": [
@@ -19817,7 +19957,7 @@ window.SL = {
     "Cortex Analyst",
     "Snowflake Intelligence"
    ],
-   "nl2sqlPath": "For NL-to-SQL on Snowflake, use Snowflake semantic views and Cortex Analyst for metrics. Add RelationalAI when questions need rules, graph analysis, or optimization that SQL does not express; reasoner outputs return as tables that Snowflake Intelligence and agents can read.",
+   "nl2sqlPath": "For NL-to-SQL on Snowflake, use Snowflake semantic views and Cortex Analyst for metrics. Add RelationalAI when questions need rules, graph analysis, or optimization that SQL does not express. Reasoner outputs return as tables. Snowflake Intelligence and agents can read them.",
    "snippet": {
     "lang": "other",
     "title": "PyRel (Python): concept, property, subtype rule, query (comments trimmed)",
@@ -19916,7 +20056,7 @@ window.SL = {
      "u": "https://www.relational.ai/post/relationalai-closes-the-ai-value-gap-with-new-agentic-decision-intelligence-capabilities-for-the-snowflake-ai-data-cloud"
     }
    ],
-   "enrichHowTo": "RelationalAI keeps meaning in PyRel code, not in table comments. Install RelationalAI Agent Skills in a coding agent and run the rai-ontology skill to draft concepts from Snowflake tables. Review every generated file in model/, because the tutorial says the output needs human review."
+   "enrichHowTo": "RelationalAI keeps meaning in PyRel code, not in table comments. Install RelationalAI Agent Skills in a coding agent. Run the rai-ontology skill to draft concepts from Snowflake tables. Review every generated file in model/. The tutorial says the output needs human review."
   },
   {
    "id": "stardog",
@@ -19924,7 +20064,7 @@ window.SL = {
    "category": "knowledge-graph",
    "tagline": "Knowledge graph platform with virtual graphs over SQL sources and Voicebox natural-language query.",
    "verdict": "native",
-   "verdictNote": "Ontology, mappings, and Voicebox form a semantic layer over SQL sources, but without first-class metric objects.",
+   "verdictNote": "Ontology, mappings, and Voicebox form a semantic layer over SQL sources. Stardog has no first-class metric objects.",
    "worksWith": [
     "snowflake",
     "databricks",
@@ -19989,12 +20129,12 @@ window.SL = {
    "caps": {
     "metrics": {
      "l": 1,
-     "n": "No metric object found in docs. A Big Spender segment is encoded once in the ontology (AWS post).",
+     "n": "The docs show no metric object. The ontology encodes a Big Spender segment once (AWS post).",
      "u": "https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-stardog-and-amazon-bedrock-agentcore/"
     },
     "dimensions": {
      "l": 0,
-     "n": "No dimension or time-grain objects found in docs. Class hierarchies in the ontology are the closest equivalent.",
+     "n": "The docs show no dimension or time-grain objects. Class hierarchies in the ontology are the closest equivalent.",
      "u": ""
     },
     "relationships": {
@@ -20004,7 +20144,7 @@ window.SL = {
     },
     "synonyms": {
      "l": 3,
-     "n": "Voicebox matches question concepts to the ontology by vector search. Dedicated synonym objects not confirmed in docs.",
+     "n": "Voicebox matches question concepts to the ontology by vector search. The docs do not confirm dedicated synonym objects.",
      "u": "https://docs.stardog.com/voicebox/"
     },
     "verifiedQueries": {
@@ -20014,7 +20154,7 @@ window.SL = {
     },
     "nl2sql": {
      "l": 3,
-     "n": "Voicebox writes SPARQL; Stardog compiles it into a multi-SQL query plan from mappings. SPARQL is the intermediate language.",
+     "n": "Voicebox writes SPARQL. Stardog compiles it into a multi-SQL query plan from mappings. SPARQL is the intermediate language.",
      "u": "https://docs.stardog.com/voicebox/"
     },
     "ontology": {
@@ -20024,78 +20164,78 @@ window.SL = {
     },
     "graph": {
      "l": 3,
-     "n": "SPARQL over RDF knowledge graphs. Virtual graphs rewrite SPARQL into each source's native query language.",
+     "n": "SPARQL runs over RDF knowledge graphs. Virtual graphs rewrite SPARQL into the native query language of each source.",
      "u": "https://docs.stardog.com/virtual-graphs/"
     },
     "vector": {
      "l": 3,
-     "n": "Built-in vector store for concept matching and for RAG over PDF and DOCX files indexed by a Spark pipeline.",
+     "n": "A built-in vector store matches concepts. It also supports RAG over PDF and DOCX files that a Spark pipeline indexes.",
      "u": "https://docs.stardog.com/voicebox/"
     },
     "mcp": {
      "l": 3,
-     "n": "Official stardog-cloud-mcp exposes Voicebox tools. Local mode stable, remote mode beta; needs a Voicebox API token.",
+     "n": "The official stardog-cloud-mcp exposes Voicebox tools. Local mode is stable. Remote mode is beta. It needs a Voicebox API token.",
      "u": "https://github.com/stardog-union/stardog-cloud-mcp"
     },
     "governance": {
      "l": 3,
-     "n": "Named-graph security by role, lineage per answer, and exportable audit logs of questions and generated SPARQL.",
+     "n": "Named-graph security works by role. Lineage exists per answer. Audit logs of questions and generated SPARQL are exportable.",
      "u": "https://docs.stardog.com/voicebox/"
     },
     "openStandard": {
      "l": 3,
-     "n": "RDF, SPARQL, and R2RML supported; SMS2 is Stardog-specific. Stardog is not named in OSI partner lists.",
+     "n": "Stardog supports RDF, SPARQL, and R2RML. SMS2 is Stardog-specific. OSI partner lists do not name Stardog.",
      "u": "https://docs.stardog.com/virtual-graphs/"
     },
     "aiDescriptions": {
      "l": 0,
-     "n": "Voicebox in Designer drafts classes, relationships and mappings. AI-written descriptions are not documented; bulk description edits are manual.",
+     "n": "Voicebox in Designer drafts classes, relationships and mappings. The docs do not describe AI-written descriptions. Bulk description edits are manual.",
      "u": "https://docs.stardog.com/stardog-applications/designer/"
     },
     "bulkMetadata": {
      "l": 3,
-     "n": "Descriptions are rdfs:comment triples. Load Turtle with stardog data add, or upload a data model as Turtle in Designer.",
+     "n": "Descriptions are rdfs:comment triples. Load Turtle with stardog data add. Or upload a data model as Turtle in Designer.",
      "u": "https://docs.stardog.com/operating-stardog/database-administration/adding-data"
     },
     "autoClassify": {
      "l": 0,
-     "n": "No automatic classification of columns or entities found in the docs.",
+     "n": "The docs show no automatic classification of columns or entities.",
      "u": ""
     },
     "sampleValues": {
      "l": 3,
-     "n": "Voicebox finds entities in questions by full-text search on labels; stardog:label can match fuzzily. No sample-value feature.",
+     "n": "Voicebox finds entities in questions by full-text search on labels. The stardog:label property can match fuzzily. No sample-value feature exists.",
      "u": "https://docs.stardog.com/voicebox/voicebox-dev-guide/"
     },
     "queryHistory": {
      "l": 0,
-     "n": "Voicebox Reporting exports queries and feedback for manual review. No automatic suggestion of joins, metrics or examples found.",
+     "n": "Voicebox Reporting exports queries and feedback for manual review. The docs show no automatic suggestion of joins, metrics or examples.",
      "u": "https://docs.stardog.com/voicebox/"
     },
     "lineage": {
      "l": 0,
-     "n": "Voicebox lineage traces the data behind each answer. No column-level catalog lineage found in the docs.",
+     "n": "Voicebox lineage traces the data behind each answer. The docs show no column-level catalog lineage.",
      "u": "https://docs.stardog.com/voicebox/"
     },
     "evals": {
      "l": 1,
-     "n": "Thumbs up/down feedback and exportable reporting exist. Stored queries are added by hand; no benchmark runner found.",
+     "n": "Thumbs up and down feedback and exportable reporting exist. Users add stored queries by hand. The docs show no benchmark runner.",
      "u": "https://docs.stardog.com/voicebox/"
     }
    },
    "offers": [
-    "Virtual graphs query SQL sources in place by rewriting SPARQL to native SQL; optional materialization with virtual import.",
+    "Virtual graphs query SQL sources in place by rewriting SPARQL to native SQL. Virtual import gives optional materialization.",
     "Mapping sources include Snowflake, Databricks SQL, BigQuery, Redshift, PostgreSQL, Oracle, SQL Server, and Synapse.",
-    "Voicebox: natural language to SPARQL to SQL, with few-shot examples, lineage, answer provenance, and CSV audit reports.",
+    "Voicebox turns natural language into SPARQL and then SQL. It has few-shot examples, lineage, answer provenance, and CSV audit reports.",
     "Stardog Cloud MCP server exposes voicebox_ask, voicebox_generate_query, and voicebox_settings to agents.",
-    "AWS reference design (Jul 2026) uses Bedrock AgentCore and shared IRIs to join Aurora and Redshift without ETL."
+    "The AWS reference design (Jul 2026) uses Bedrock AgentCore and shared IRIs to join Aurora and Redshift without ETL."
    ],
    "gaps": [
-    "No first-party metric or measure object found; metrics must be modeled in the ontology or SPARQL.",
-    "The NL path runs through SPARQL, so SQL teams learn mappings (SMS2, R2RML) and ontology modeling.",
-    "Docs state External LLM agent answers may contain hallucinations; the product page says hallucination-managed.",
-    "MCP needs a Voicebox API token limited to certain accounts; multi-agent orchestration is private preview.",
-    "Stardog does not appear in OSI partner lists, and SMS2 mappings are not portable to other tools."
+    "The docs show no first-party metric or measure object. Teams must model metrics in the ontology or SPARQL.",
+    "The NL path runs through SPARQL, so SQL teams must learn mappings (SMS2, R2RML) and ontology modeling.",
+    "The docs state that External LLM agent answers may contain hallucinations. The product page says hallucination-managed.",
+    "MCP needs a Voicebox API token that is limited to certain accounts. Multi-agent orchestration is private preview.",
+    "OSI partner lists do not name Stardog. SMS2 mappings are not portable to other tools."
    ],
    "fillWith": [
     "dbt Semantic Layer",
@@ -20103,10 +20243,10 @@ window.SL = {
     "Databricks metric views",
     "Cube"
    ],
-   "nl2sqlPath": "Model the ontology, map warehouse tables with virtual graphs, and ask through Voicebox, which writes SPARQL that Stardog turns into SQL. Agents can reach Voicebox through the Stardog Cloud MCP server, or call SPARQL directly (AWS Bedrock AgentCore reference, Jul 2026). Keep governed metrics in a warehouse semantic layer.",
+   "nl2sqlPath": "Model the ontology. Map warehouse tables with virtual graphs. Ask through Voicebox, which writes SPARQL that Stardog turns into SQL. Agents can reach Voicebox through the Stardog Cloud MCP server. They can also call SPARQL directly (AWS Bedrock AgentCore reference, Jul 2026). Keep governed metrics in a warehouse semantic layer.",
    "snippet": {
     "lang": "other",
-    "title": "SMS2 mapping from Stardog docs (JSON source; trailing comma removed)",
+    "title": "SMS2 mapping from Stardog docs (JSON source, trailing comma removed)",
     "code": "PREFIX : <http://stardog.com/movies/>\nMAPPING <urn:movies>\nFROM JSON {\n  \"movie\":{\n    \"_id\":\"?movieId\",\n    \"name\":\"?name\"\n  }\n}\nTO {\n  ?movie a :Movie ;\n    :name ?name .\n}\nWHERE {\n  BIND (template(\"http://stardog.com/movies/Title_{movieId}\") AS ?movie)\n}",
     "u": "https://docs.stardog.com/virtual-graphs/mapping-data-sources"
    },
@@ -20197,7 +20337,7 @@ window.SL = {
      "u": "https://docs.stardog.com/voicebox/"
     }
    ],
-   "enrichHowTo": "Write rdfs:label and rdfs:comment on classes and properties, because Voicebox reads them. Load them in bulk with stardog data add and a Turtle file. Add 5 to 50 stored queries, each with a system:voiceboxQuestion field, as few-shot examples.",
+   "enrichHowTo": "Write rdfs:label and rdfs:comment on classes and properties. Voicebox reads them. Load them in bulk with stardog data add and a Turtle file. Add 5 to 50 stored queries as few-shot examples. Give each query a system:voiceboxQuestion field.",
    "bulkSnippet": {
     "lang": "bash",
     "code": "# descriptions.ttl holds rdfs:label and rdfs:comment triples for classes and properties\nstardog data add --format turtle myDatabase descriptions.ttl",
@@ -20208,7 +20348,7 @@ window.SL = {
  "notes": [
   {
    "topic": "Redshift has no native semantic layer object",
-   "text": "No metric, dimension, relationship or ontology object appears on the Redshift data types page or the Redshift product page read on 2026-10-24. AWS ML blog posts show partners (AtScale, Denodo, Strategy Mosaic, Stardog) supplying the layer. Absence cannot be proven, so treat this as 'none found'.",
+   "text": "The Redshift data types page and the Redshift product page, read on 2026-10-24, show no metric, dimension, relationship or ontology object. AWS ML blog posts show partners (AtScale, Denodo, Strategy Mosaic, Stardog) supplying the layer. Absence cannot be proven, so treat this as 'none found'.",
    "sources": [
     {
      "t": "Redshift supported data types",
@@ -20239,7 +20379,7 @@ window.SL = {
   },
   {
    "topic": "QuickSight to Quick Suite to Quick (renames)",
-   "text": "AWS launched Amazon Quick Suite on 2025-10-09 as an agentic workspace. The docs now say Amazon Quick, write the BI part as Quick Sight, and list the rebrand under 2025-10-09; docs URLs moved from quicksuite to quick. A Feb 2026 third-party post found no official rename notice, and AWS posts from Sep 2026 use 'Amazon Quick'.",
+   "text": "AWS launched Amazon Quick Suite on 2025-10-09 as an agentic workspace. The docs now say Amazon Quick and write the BI part as Quick Sight. They list the rebrand under 2025-10-09. Docs URLs moved from quicksuite to quick. A Feb 2026 third-party post found no official rename notice. AWS posts from Sep 2026 use 'Amazon Quick'.",
    "sources": [
     {
      "t": "Introducing Amazon Quick Suite",
@@ -20262,7 +20402,7 @@ window.SL = {
   },
   {
    "topic": "Quick Topics were redesigned in 2026",
-   "text": "New Topics are a multi-dataset semantic layer: up to 12 datasets, join keys, custom instructions, runtime joins, with RLS and CLS reused from datasets. An AWS blog dated 2026-07-07 calls it public preview, and GA was announced 2026-08-06; older Topics are now called legacy and stay single-dataset. The preview post says SPICE and Direct Query datasets cannot be mixed in one Topic and lists Redshift among Direct Query sources.",
+   "text": "New Topics are a multi-dataset semantic layer. They take up to 12 datasets, join keys, custom instructions and runtime joins, with RLS and CLS reused from datasets. An AWS blog dated 2026-07-07 calls it public preview. AWS announced GA on 2026-08-06. Older Topics are now called legacy and stay single-dataset. The preview post says SPICE and Direct Query datasets cannot be mixed in one Topic. It lists Redshift among Direct Query sources.",
    "sources": [
     {
      "t": "Multi-dataset topics GA, 2026-08-06",
@@ -20285,7 +20425,7 @@ window.SL = {
   },
   {
    "topic": "Amazon Q generative SQL scope and limits",
-   "text": "GA on 2024-09-16 in Redshift Query Editor v2. It is off by default, needs an admin switch, works in notebooks, accepts English only, and cannot reference external schemas. The custom context JSON takes three-part table names and holds annotations, curated queries, documents and prompt text.",
+   "text": "Amazon Q generative SQL became GA on 2024-09-16 in Redshift Query Editor v2. It is off by default and needs an admin switch. It works in notebooks and accepts English only. It cannot reference external schemas. The custom context JSON takes three-part table names. It holds annotations, curated queries, documents and prompt text.",
    "sources": [
     {
      "t": "Interacting with Amazon Q generative SQL",
@@ -20304,7 +20444,7 @@ window.SL = {
   },
   {
    "topic": "Bedrock Knowledge Bases structured retrieval",
-   "text": "Announced 2024-12-04 for Amazon Redshift and SageMaker Lakehouse in all commercial regions where Bedrock Knowledge Bases runs. The docs say the generation context is non-deterministic and meant only to improve accuracy. Graph retrieval (GraphRAG with Neptune Analytics) works on ingested documents, not on Redshift tables.",
+   "text": "AWS announced structured retrieval on 2024-12-04 for Amazon Redshift and SageMaker Lakehouse. It runs in all commercial regions where Bedrock Knowledge Bases runs. The docs say the generation context is non-deterministic and meant only to improve accuracy. Graph retrieval (GraphRAG with Neptune Analytics) works on ingested documents, not on Redshift tables.",
    "sources": [
     {
      "t": "Structured data retrieval announcement",
@@ -20323,7 +20463,7 @@ window.SL = {
   },
   {
    "topic": "SageMaker naming and Data Agent",
-   "text": "The next-generation Amazon SageMaker combines Unified Studio and governance; the original service is now SageMaker AI. Unified Studio reached GA on 2025-03-13, and SageMaker Catalog is built on Amazon DataZone. The SageMaker Data Agent (2026-03-30) generates SQL for Redshift and Athena, but the announcement gives no GA or preview label.",
+   "text": "The next-generation Amazon SageMaker combines Unified Studio and governance. The original service is now SageMaker AI. Unified Studio reached GA on 2025-03-13. SageMaker Catalog is built on Amazon DataZone. The SageMaker Data Agent (2026-03-30) generates SQL for Redshift and Athena. The announcement gives no GA or preview label.",
    "sources": [
     {
      "t": "What is Amazon SageMaker (next generation)",
@@ -20350,7 +20490,7 @@ window.SL = {
   },
   {
    "topic": "AWS Labs MCP servers and the Agent Toolkit",
-   "text": "The Agent Toolkit for AWS (2026-05-06) is the successor to the AWS Labs MCP servers; the old servers stay available. The Redshift server has 7 tools, is read-only by default, and returns schema metadata only. The AWS Labs README still labels the managed AWS MCP Server 'in preview', while the May 2026 announcement calls it GA.",
+   "text": "The Agent Toolkit for AWS (2026-05-06) is the successor to the AWS Labs MCP servers. The old servers stay available. The Redshift server has 7 tools. It is read-only by default and returns schema metadata only. The AWS Labs README still labels the managed AWS MCP Server 'in preview'. The May 2026 announcement calls it GA.",
    "sources": [
     {
      "t": "AWS Labs MCP repository",
@@ -20377,7 +20517,7 @@ window.SL = {
   },
   {
    "topic": "Vector support on AWS data stores",
-   "text": "The current Redshift data types page lists no vector type, and a mid-2024 re:Post article says Redshift had no vector search. Vector search appears in Neptune Analytics (inside graph traversals) and in SageMaker Catalog semantic search over metadata. Redshift also calls Bedrock models from SQL through CREATE EXTERNAL MODEL (Oct 2024).",
+   "text": "The current Redshift data types page lists no vector type. A mid-2024 re:Post article says Redshift had no vector search. Vector search appears in Neptune Analytics (inside graph traversals) and in SageMaker Catalog semantic search over metadata. Redshift also calls Bedrock models from SQL through CREATE EXTERNAL MODEL (Oct 2024).",
    "sources": [
     {
      "t": "Redshift supported data types",
@@ -20404,7 +20544,7 @@ window.SL = {
   },
   {
    "topic": "Open Semantic Interchange is now Apache Ossie",
-   "text": "The OSI repository README says Apache Ossie (incubating) was formerly known as Open Semantic Interchange. The README names neither AWS nor SAP as participants. No AWS or SAP support for it found in the docs.",
+   "text": "The OSI repository README says Apache Ossie (incubating) was formerly known as Open Semantic Interchange. The README names neither AWS nor SAP as participants. The docs show no AWS or SAP support for it.",
    "sources": [
     {
      "t": "open-semantic-interchange/OSI repository",
@@ -20419,7 +20559,7 @@ window.SL = {
   },
   {
    "topic": "SAP product naming and structure",
-   "text": "SAP Data Warehouse Cloud became SAP Datasphere in 2023. SAP announced Business Data Cloud on 2025-02-13, with Datasphere as a key component; SAP says existing Datasphere and Analytics Cloud customers keep their service and may move over time.",
+   "text": "SAP Data Warehouse Cloud became SAP Datasphere in 2023. SAP announced Business Data Cloud on 2025-02-13, with Datasphere as a key component. SAP says existing Datasphere and Analytics Cloud customers keep their service and may move over time.",
    "sources": [
     {
      "t": "SAP Datasphere launch post, 2023-03-08 (seen in SAP News search)",
@@ -20446,7 +20586,7 @@ window.SL = {
   },
   {
    "topic": "SAP uses 'knowledge graph' for three things",
-   "text": "The Datasphere knowledge graph (preview signup in March 2024; a DW Metadata Graph Consumer role exists in current docs), the SAP Knowledge Graph that grounds Joule agents in BDC, and the SAP HANA Cloud knowledge graph engine (RDF and SPARQL). No GA statement found for any of them in the docs.",
+   "text": "The first is the Datasphere knowledge graph (preview signup in March 2024, and a DW Metadata Graph Consumer role exists in current docs). The second is the SAP Knowledge Graph that grounds Joule agents in BDC. The third is the SAP HANA Cloud knowledge graph engine (RDF and SPARQL). The docs show no GA statement for any of them.",
    "sources": [
     {
      "t": "SAP Data Unleashed 2024",
@@ -20473,7 +20613,7 @@ window.SL = {
   },
   {
    "topic": "SAP MCP status",
-   "text": "SAP's TechEd post (2025-11-17) says MCP support for SAP HANA Cloud is now generally available, while the 2025-11-05 post only says SAP is expanding HANA Cloud with MCP. SAP's June 2026 architecture post lists MCP and A2A as supported open standards. No MCP server for Datasphere analytic models was found.",
+   "text": "SAP's TechEd post (2025-11-17) says MCP support for SAP HANA Cloud is now generally available. The 2025-11-05 post only says SAP is expanding HANA Cloud with MCP. SAP's June 2026 architecture post lists MCP and A2A as supported open standards. The docs show no MCP server for Datasphere analytic models.",
    "sources": [
     {
      "t": "Business AI innovation at SAP TechEd",
@@ -20496,7 +20636,7 @@ window.SL = {
   },
   {
    "topic": "SAP openness to Databricks, Snowflake and others",
-   "text": "BDC Connect for Databricks was GA by 2025-10-08; BigQuery was in public preview then; Snowflake GA was planned for H1 2026 and Fabric was announced as planned. In May 2026 SAP lists Snowflake, Databricks, BigQuery and Fabric as existing partners and plans BDC Connect for Amazon Athena for H2 2026. SAP announced it would acquire Dremio (2026-05-04) and completed the acquisition on 2026-07-06, to make BDC Iceberg-native.",
+   "text": "BDC Connect for Databricks was GA by 2025-10-08. BigQuery was in public preview then. Snowflake GA was planned for H1 2026. Fabric was announced as planned. In May 2026 SAP lists Snowflake, Databricks, BigQuery and Fabric as existing partners. SAP plans BDC Connect for Amazon Athena for H2 2026. SAP announced it would acquire Dremio (2026-05-04) and completed the acquisition on 2026-07-06. The goal is to make BDC Iceberg-native.",
    "sources": [
     {
      "t": "BDC Connect for Databricks GA",
@@ -20534,8 +20674,8 @@ window.SL = {
    "from": "aws-sap.json"
   },
   {
-   "topic": "How SAP Datasphere feature status was set",
-   "text": "SAP's Datasphere docs on GitHub print no GA or preview labels. I marked analytic models, Business Builder, catalog, Generate Semantics and Generate SQL as GA because they sit in the current docs (updated 2026-10-20) with no preview note; Joule in Datasphere has an explicit GA statement.",
+   "topic": "How SAP Datasphere feature status is set",
+   "text": "SAP's Datasphere docs on GitHub print no GA or preview labels. The status values mark analytic models, Business Builder, catalog, Generate Semantics and Generate SQL as GA. These features sit in the current docs (updated 2026-10-20) with no preview note. Joule in Datasphere has an explicit GA statement.",
    "sources": [
     {
      "t": "SAP Datasphere documentation source (SAP-docs on GitHub)",
@@ -20550,7 +20690,7 @@ window.SL = {
   },
   {
    "topic": "SAP Datasphere AI features need licensing and enablement",
-   "text": "Datasphere lists AI features for catalog content, natural language search, semantic generation, SQL view generation and pipeline summaries. An admin enables them per tenant, and users need the Data Warehouse AI Consumer privilege. Joule needs separate activation and a Joule consumption privilege.",
+   "text": "Datasphere lists AI features for catalog content, natural language search, semantic generation, SQL view generation and pipeline summaries. An admin enables them per tenant. Users need the Data Warehouse AI Consumer privilege. Joule needs separate activation and a Joule consumption privilege.",
    "sources": [
     {
      "t": "Enable SAP Business AI for SAP Datasphere",
@@ -20573,7 +20713,7 @@ window.SL = {
   },
   {
    "topic": "SAP BusinessObjects roadmap",
-   "text": "SAP's May 2024 statement of direction says BI 2025 does not deliver Universe Design Tool, .unv universes or multi-source universes, and planned BI 2027 for Q4 2026. Wiiisdom (Feb 2026) says BI 4.3 mainstream maintenance ends in 2026, followed by Customer Specific Maintenance with security fixes in the first 12 months. The status of BI 2027 is not confirmed.",
+   "text": "The May 2024 statement of direction from SAP says BI 2025 does not deliver Universe Design Tool, .unv universes or multi-source universes. It planned BI 2027 for Q4 2026. Wiiisdom (Feb 2026) says BI 4.3 mainstream maintenance ends in 2026. Customer Specific Maintenance follows, with security fixes in the first 12 months. The status of BI 2027 is not confirmed.",
    "sources": [
     {
      "t": "SAP statement of direction, May 2024",
@@ -20588,7 +20728,7 @@ window.SL = {
   },
   {
    "topic": "BusinessObjects .unv end of support",
-   "text": "SAP's 2021 addendum tied the end of .unv and Universe Design Tool support to the end of BI 4.3 maintenance, end of 2027. SAP's 2024 direction says .unx universes cover all .unv use cases and that SAP tools support migration to .unx. Wiiisdom says .unv is not supported after BI 4.3.",
+   "text": "The 2021 addendum from SAP tied the end of .unv and Universe Design Tool support to the end of BI 4.3 maintenance, end of 2027. The 2024 direction from SAP says .unx universes cover all .unv use cases. It also says SAP tools support migration to .unx. Wiiisdom says .unv is not supported after BI 4.3.",
    "sources": [
     {
      "t": "SAP 2021 addendum",
@@ -20607,7 +20747,7 @@ window.SL = {
   },
   {
    "topic": "BusinessObjects data platforms",
-   "text": "The list shown comes from the connections named in SAP's Information Design Tool guide. SAP's full list is in its Product Availability Matrix, which needs an SAP login.",
+   "text": "The list shown comes from the connections named in the Information Design Tool guide of SAP. The full list is in the Product Availability Matrix of SAP. That matrix needs an SAP login.",
    "sources": [
     {
      "t": "Information Design Tool User Guide",
@@ -20618,7 +20758,7 @@ window.SL = {
   },
   {
    "topic": "Cognos latest release",
-   "text": "IBM's product page calls 12.1.3 the latest release and says reporting agents and conversational data interaction arrive with it. GenAI agents were Preview in 12.1.1 (Oct 2025). IBM docs pages were not readable, so several data module details rely on IBM Community posts.",
+   "text": "The IBM product page calls 12.1.3 the latest release. It says reporting agents and conversational data interaction arrive with it. GenAI agents were Preview in 12.1.1 (Oct 2025). The IBM docs pages were not readable, so several data module details rely on IBM Community posts.",
    "sources": [
     {
      "t": "IBM Cognos Analytics",
@@ -20633,7 +20773,7 @@ window.SL = {
   },
   {
    "topic": "Cognos MCP",
-   "text": "No IBM MCP server exists. A third-party Activepieces MCP server (updated Sep 2026) exposes data source and content object actions, and an IBM Ideas request from Jun 2026 asks for an official server.",
+   "text": "No IBM MCP server exists. A third-party Activepieces MCP server (updated Sep 2026) exposes data source and content object actions. An IBM Ideas request from Jun 2026 asks for an official server.",
    "sources": [
     {
      "t": "Activepieces",
@@ -20667,7 +20807,7 @@ window.SL = {
   },
   {
    "topic": "Strategy rename and Mosaic timeline",
-   "text": "MicroStrategy is now Strategy. Mosaic went GA Jun 24, 2025. Mosaic in the MCP server shipped out of the box on Mar 20, 2026, replacing a Feb 2026 preview, and the MCP server itself is enabled once per environment by an admin. From Sep 2026 separate privileges control the Agent and Mosaic MCP servers, and Use Mosaic MCP Server is off by default after an upgrade.",
+   "text": "MicroStrategy is now Strategy. Mosaic went GA Jun 24, 2025. Mosaic in the MCP server shipped out of the box on Mar 20, 2026. This replaced a Feb 2026 preview. An admin enables the MCP server itself once per environment. From Sep 2026 separate privileges control the Agent and Mosaic MCP servers. Use Mosaic MCP Server is off by default after an upgrade.",
    "sources": [
     {
      "t": "MCP server (product help)",
@@ -20686,7 +20826,7 @@ window.SL = {
   },
   {
    "topic": "Strategy Ossie import and export",
-   "text": "Import and export of Apache Ossie YAML was a Preview in Strategy One June 2026 and is available out of the box from the July 2026 release (release note dated Jul 17, 2026). Limits: only ANSI SQL expressions import, relationships import as one-to-many, and time granularity is lost on a round trip. October 2026 converts unknown database functions to pass-through expressions.",
+   "text": "Import and export of Apache Ossie YAML was a Preview in Strategy One June 2026. It is available out of the box from the July 2026 release (release note dated Jul 17, 2026). Only ANSI SQL expressions import. Relationships import as one-to-many. Time granularity is lost on a round trip. October 2026 converts unknown database functions to pass-through expressions.",
    "sources": [
     {
      "t": "Ossie import and export (product help)",
@@ -20701,7 +20841,7 @@ window.SL = {
   },
   {
    "topic": "Open Semantic Interchange rename",
-   "text": "OSI is now Apache Ossie (Incubating). The Ossie ecosystem page describes Strategy's Mosaic import and export, and also lists Qlik and Oracle among participants. No Qlik or Oracle export was found in their docs.",
+   "text": "OSI is now Apache Ossie (Incubating). The Ossie ecosystem page describes Strategy Mosaic import and export. It also lists Qlik and Oracle among participants. The Qlik and Oracle docs show no export.",
    "sources": [
     {
      "t": "Apache Ossie ecosystem",
@@ -20735,7 +20875,7 @@ window.SL = {
   },
   {
    "topic": "Oracle MCP stage and tool names",
-   "text": "Oracle's Sep 2026 developer guide still labels the OAC MCP server Preview. It first appeared in the Nov 2025 update. Tool names changed: oracle_analytics-discover_data is deprecated in favor of search_catalog, and ANSI SQL execution was added.",
+   "text": "The Sep 2026 developer guide from Oracle still labels the OAC MCP server Preview. It first appeared in the Nov 2025 update. Tool names changed. The oracle_analytics-discover_data tool is deprecated, and search_catalog replaces it. Oracle added ANSI SQL execution.",
    "sources": [
     {
      "t": "MCP tools (Preview)",
@@ -20754,7 +20894,7 @@ window.SL = {
   },
   {
    "topic": "Oracle Analytic Views in Semantic Modeler",
-   "text": "The Jan 2026 update added Analytic Views to Semantic Modeler, and the supported data source table now lists Oracle Analytic Views as supported in both Semantic Modeler and the Model Administration Tool.",
+   "text": "The Jan 2026 update added Analytic Views to Semantic Modeler. The supported data source table now lists Oracle Analytic Views as supported in both Semantic Modeler and the Model Administration Tool.",
    "sources": [
     {
      "t": "What's New",
@@ -20769,7 +20909,7 @@ window.SL = {
   },
   {
    "topic": "Oracle AI Assistant and AI Descriptions",
-   "text": "The AI Assistant docs carry no preview label. AI Descriptions for datasets and subject area columns appear in the Sep 2026 What's New. Oracle's docs list Databricks as a remote data source through Data Gateway but not in the Semantic Modeler table.",
+   "text": "The AI Assistant docs carry no preview label. AI Descriptions for datasets and subject area columns appear in the Sep 2026 What's New. The Oracle docs list Databricks as a remote data source through Data Gateway. They do not list it in the Semantic Modeler table.",
    "sources": [
     {
      "t": "About Oracle Analytics AI Assistant",
@@ -20784,7 +20924,7 @@ window.SL = {
   },
   {
    "topic": "Product renames",
-   "text": "ThoughtSpot Worksheets were deprecated in Nov 2024 and replaced by Models. Sage and Ask Sage were removed in Dec 2025 and replaced by Spotter. Sigma's Ask Sigma is now Sigma Assistant.",
+   "text": "ThoughtSpot deprecated Worksheets in Nov 2024 and replaced them with Models. ThoughtSpot removed Sage and Ask Sage in Dec 2025 and replaced them with Spotter. Ask Sigma is now Sigma Assistant.",
    "sources": [
     {
      "t": "Deprecation announcements",
@@ -20799,7 +20939,7 @@ window.SL = {
   },
   {
    "topic": "Tableau MCP stage",
-   "text": "Tableau's April 2026 notes say Tableau Next MCP is generally available with Tableau Next. Q&A Calibration and Data Pro auto-generated semantic models are Beta in the same notes. The open-source Tableau MCP is a separate project.",
+   "text": "The April 2026 notes from Tableau say Tableau Next MCP is generally available with Tableau Next. Q&A Calibration and Data Pro auto-generated semantic models are Beta in the same notes. The open-source Tableau MCP is a separate project.",
    "sources": [
     {
      "t": "Tableau April 2026 New Features",
@@ -20814,7 +20954,7 @@ window.SL = {
   },
   {
    "topic": "ThoughtSpot MCP May 2026 release",
-   "text": "The 2026-05-01 MCP version moved the main URL to Spotter 3 tools and replaced the legacy tools, which is a breaking change. Pin an earlier api-version date to keep old tools. August 2026 added search_objects.",
+   "text": "The 2026-05-01 MCP version moved the main URL to Spotter 3 tools and replaced the legacy tools. This is a breaking change. Pin an earlier api-version date to keep old tools. August 2026 added search_objects.",
    "sources": [
     {
      "t": "ThoughtSpot Spotter MCP Server changelog",
@@ -20825,7 +20965,7 @@ window.SL = {
   },
   {
    "topic": "ThoughtSpot AI synonyms removed",
-   "text": "Generate AI Synonyms at the model level was removed in 26.6.0.cl. Synonyms already generated stay in place. Spotter Model (Early Access) is the named replacement.",
+   "text": "ThoughtSpot removed Generate AI Synonyms at the model level in 26.6.0.cl. Synonyms that users already generated stay in place. Spotter Model (Early Access) is the named replacement.",
    "sources": [
     {
      "t": "Deprecated and removed features (26.9.0.cl)",
@@ -20836,7 +20976,7 @@ window.SL = {
   },
   {
    "topic": "ThoughtSpot Spotter Semantics",
-   "text": "Announced Mar 12, 2026. Product docs describe it as the governed semantic foundation built on Models and AI context. The metrics catalog from the press release is not described in the docs.",
+   "text": "ThoughtSpot announced it on Mar 12, 2026. The product docs describe it as the governed semantic foundation built on Models and AI context. The docs do not describe the metrics catalog from the press release.",
    "sources": [
     {
      "t": "Semantic layer docs",
@@ -20851,7 +20991,7 @@ window.SL = {
   },
   {
    "topic": "Domo semantic and MCP status",
-   "text": "Domo's Sep 2026 notes list Data Modeling Builder integration, Semantic View Integration, and new MCP toolkits under Beta Features. The May 2026 notes list Domo Essentials MCP and the AI Library as Beta. Domo's Beta Features page dates from March 2025 and does not list a semantic layer.",
+   "text": "The Sep 2026 notes from Domo list Data Modeling Builder integration, Semantic View Integration, and new MCP toolkits under Beta Features. The May 2026 notes list Domo Essentials MCP and the AI Library as Beta. The Beta Features page of Domo dates from March 2025. It does not list a semantic layer.",
    "sources": [
     {
      "t": "September 2026 Release Notes",
@@ -20870,7 +21010,7 @@ window.SL = {
   },
   {
    "topic": "Metabase MCP and Metabot",
-   "text": "The official MCP server arrived in Metabase 60 (Apr 16, 2026) and was improved in Metabase 64 (Oct 2026). The client supplies the model, so no Metabase AI provider is needed for MCP.",
+   "text": "The official MCP server arrived in Metabase 60 (Apr 16, 2026). Metabase 64 (Oct 2026) improved it. The client supplies the model, so MCP needs no Metabase AI provider.",
    "sources": [
     {
      "t": "Metabase MCP docs (GitHub)",
@@ -20885,7 +21025,7 @@ window.SL = {
   },
   {
    "topic": "Superset SEMANTIC_LAYERS flag",
-   "text": "SEMANTIC_LAYERS defaults to False and is listed in the Development stage of the feature flag docs, in both the current and 6.1.0 pages. The docs do not name a release that makes it stable.",
+   "text": "SEMANTIC_LAYERS defaults to False. The feature flag docs list it in the Development stage, in both the current and 6.1.0 pages. The docs do not name a release that makes it stable.",
    "sources": [
     {
      "t": "Feature Flags - Apache Superset",
@@ -20900,7 +21040,7 @@ window.SL = {
   },
   {
    "topic": "DataHub AI documentation status",
-   "text": "Current docs and the 1.6.0 archive both say AI documentation is GA as of Cloud v0.3.17. The closed beta wording now appears only in the 1.5.0 archive for glossary term suggestion, which is gone from current docs.",
+   "text": "The current docs and the 1.6.0 archive both say AI documentation is GA as of Cloud v0.3.17. The closed beta wording now appears only in the 1.5.0 archive for glossary term suggestion. The current docs no longer have that feature.",
    "sources": [
     {
      "t": "AI documentation",
@@ -20915,7 +21055,7 @@ window.SL = {
   },
   {
    "topic": "DataHub Ask DataHub status",
-   "text": "The Ask DataHub feature page says Public Beta in the UI. Cloud v2.2.0 release notes say Ask DataHub is GA and remove the beta label setting. The page is listed as GA here.",
+   "text": "The Ask DataHub feature page says Public Beta in the UI. The Cloud v2.2.0 release notes say Ask DataHub is GA and remove the beta label setting. This report lists the page as GA.",
    "sources": [
     {
      "t": "Ask DataHub",
@@ -20930,7 +21070,7 @@ window.SL = {
   },
   {
    "topic": "Atlan Context Engineering Studio stage",
-   "text": "Current docs no longer show a Private Preview label. They say the studio is not self-serve and is enabled from Labs through the Atlan account team. Context agent templates are still labeled private preview.",
+   "text": "The current docs no longer show a Private Preview label. They say the studio is not self-serve and that the Atlan account team enables it from Labs. Context agent templates are still labeled private preview.",
    "sources": [
     {
      "t": "Enable Context Engineering Studio",
@@ -20945,7 +21085,7 @@ window.SL = {
   },
   {
    "topic": "Alation Upload Logical Metadata API",
-   "text": "The Upload Logical Metadata API page carries a deprecation notice. The Custom Field Values API cannot set title or description (field ids 3 and 4) on data, schema, table or attribute objects, so the Relational Integration API covers those.",
+   "text": "The Upload Logical Metadata API page carries a deprecation notice. The Custom Field Values API cannot set title or description (field ids 3 and 4) on data, schema, table or attribute objects. The Relational Integration API covers those.",
    "sources": [
     {
      "t": "ULM Overview",
@@ -20960,7 +21100,7 @@ window.SL = {
   },
   {
    "topic": "MCP server status",
-   "text": "Atlan, Alation, Collibra, DataHub and OpenMetadata all ship a first-party MCP server. Atlan, Alation and OpenMetadata host it for customers; DataHub has an open-source and a managed one; Collibra has a hosted product and an open-source local version.",
+   "text": "Atlan, Alation, Collibra, DataHub and OpenMetadata all ship a first-party MCP server. Atlan, Alation and OpenMetadata host it for customers. DataHub has an open-source one and a managed one. Collibra has a hosted product and an open-source local version.",
    "sources": [
     {
      "t": "Atlan MCP",
@@ -20987,7 +21127,7 @@ window.SL = {
   },
   {
    "topic": "Collibra Copilot replaced by Maestro",
-   "text": "Collibra AI Copilot is marked Deprecated and is upgraded to Collibra Maestro with the 2026.10 release. Maestro is labeled in preview.",
+   "text": "Collibra AI Copilot is marked Deprecated. The 2026.10 release upgrades it to Collibra Maestro. Maestro is labeled in preview.",
    "sources": [
     {
      "t": "About Collibra AI Copilot",
@@ -21012,8 +21152,8 @@ window.SL = {
    "from": "catalogs.json"
   },
   {
-   "topic": "Does Databricks have an ontology with Genie? (answer: yes by name, but not a Palantir-style schema)",
-   "text": "Databricks announced a product called Genie Ontology on 2026-06-16. Docs mark it Public Preview, enabled by default since 2026-08-06 and open to all customers since 2026-08-13. The docs describe it as a context layer that combines Unity Catalog semantics (metric views, domains, Pages) with snippets Genie infers from dashboards, queries, and Genie Agents. The docs do not mention object types, link types, or actions.",
+   "topic": "Does Databricks have an ontology with Genie? Answer: yes by name, but not a Palantir-style schema",
+   "text": "Databricks announced a product called Genie Ontology on 2026-06-16. The docs mark it Public Preview. It was enabled by default since 2026-08-06. It has been open to all customers since 2026-08-13. The docs describe it as a context layer. The layer combines Unity Catalog semantics (metric views, domains, Pages) with snippets that Genie infers from dashboards, queries and Genie Agents. The docs do not mention object types, link types or actions.",
    "sources": [
     {
      "t": "Genie Ontology (docs)",
@@ -21032,7 +21172,7 @@ window.SL = {
   },
   {
    "topic": "How Genie Ontology works",
-   "text": "The launch blog says it extracts knowledge from tables, queries, dashboards, pipelines, and connected apps into a 'living graph', and ranks sources with a PageRank-like method (OntoRank). It enforces source permissions. The blog gives no GA or Preview label; the docs do.",
+   "text": "The launch blog says Genie Ontology extracts knowledge from tables, queries, dashboards, pipelines and connected apps into a 'living graph'. It ranks sources with a PageRank-like method (OntoRank). It enforces source permissions. The blog gives no GA or Preview label. The docs give one.",
    "sources": [
     {
      "t": "Introducing Genie One, Genie Agents, and Genie Ontology",
@@ -21047,7 +21187,7 @@ window.SL = {
   },
   {
    "topic": "Vendor-run benchmark for Genie Ontology",
-   "text": "Databricks reports 84.5% first-attempt accuracy against 52.4% for the strongest coding agent on an internal 28-question benchmark. This is a vendor-run test and has no independent check.",
+   "text": "Databricks reports 84.5% first-attempt accuracy against 52.4% for the strongest coding agent on an internal 28-question benchmark. Databricks ran this test. It has no independent check.",
    "sources": [
     {
      "t": "Introducing Genie One, Genie Agents, and Genie Ontology",
@@ -21058,7 +21198,7 @@ window.SL = {
   },
   {
    "topic": "Databricks product renames in 2026",
-   "text": "Databricks One was renamed to Genie on 2026-04-27, and Genie was renamed to Genie One on 2026-06-09. Genie Spaces became Genie Agents on 2026-07-09. Vector Search is now AI Search, and Agent Bricks Multi-Agent Supervisor became Supervisor Agent on 2026-02-05. Metric view 'Dimensions' became 'Fields' in the Genie authoring UI on 2026-05-21; YAML still accepts 'dimensions' as an alias.",
+   "text": "Databricks One was renamed to Genie on 2026-04-27. Genie was renamed to Genie One on 2026-06-09. Genie Spaces became Genie Agents on 2026-07-09. Vector Search is now AI Search. Agent Bricks Multi-Agent Supervisor became Supervisor Agent on 2026-02-05. Metric view 'Dimensions' became 'Fields' in the Genie authoring UI on 2026-05-21. YAML still accepts 'dimensions' as an alias.",
    "sources": [
     {
      "t": "AI/BI and Genie One release notes 2026",
@@ -21081,7 +21221,7 @@ window.SL = {
   },
   {
    "topic": "Metric view status timeline",
-   "text": "Public Preview began 2025-05-29 (needs DBR 16.4 or a Preview-channel warehouse). Databricks announced 'Unity Catalog Business Semantics is now GA' on 2026-04-02, with metric views as the core; the point-and-click UI was Public Preview and materialization was Preview at that time. Later GA items: window measures (Oct 2026), sharing metric views through OpenSharing (Sept 2026), local metric views in dashboards (Aug 2026). Metric view parameters were Public Preview in June 2026. No separate 'metric views GA' release note found.",
+   "text": "Public Preview began on 2025-05-29. It needs DBR 16.4 or a Preview-channel warehouse. Databricks announced 'Unity Catalog Business Semantics is now GA' on 2026-04-02, with metric views as the core. At that time the point-and-click UI was Public Preview and materialization was Preview. Later GA items: window measures (Oct 2026), sharing metric views through OpenSharing (Sept 2026), local metric views in dashboards (Aug 2026). Metric view parameters were Public Preview in June 2026. There is no separate 'metric views GA' release note.",
    "sources": [
     {
      "t": "AI/BI release notes 2025",
@@ -21104,7 +21244,7 @@ window.SL = {
   },
   {
    "topic": "Metric view YAML and join support",
-   "text": "YAML top-level keys: version, comment, source, parameters, filter, joins, fields (alias dimensions), measures, materialization. Joins support star and snowflake schemas; snowflake joins need DBR 17.3 per the feature table, and one-to-many joins need DBR 18.1. Agent metadata (comments, synonyms, display names, formats) needs YAML 1.1 and DBR 17.3. Docs also mention the join option rely.at_most_one_match.",
+   "text": "YAML top-level keys: version, comment, source, parameters, filter, joins, fields (alias dimensions), measures, materialization. Joins support star and snowflake schemas. Snowflake joins need DBR 17.3 per the feature table. One-to-many joins need DBR 18.1. Agent metadata (comments, synonyms, display names, formats) needs YAML 1.1 and DBR 17.3. The docs also mention the join option rely.at_most_one_match.",
    "sources": [
     {
      "t": "Metric view YAML syntax reference",
@@ -21118,8 +21258,8 @@ window.SL = {
    "from": "databricks.json"
   },
   {
-   "topic": "Are metric views queryable from BI tools? (yes, with caveats)",
-   "text": "Docs list Power BI, Tableau, Sigma, and other JDBC/ODBC tools, using MEASURE() through custom or native SQL. Tableau can also use BI compatibility mode from the Initial SQL field. The Power BI connector option for BI compatibility mode was removed (release note dated 2026-04-17). The Google Sheets connector (GA 2026-04-16) can query metric views.",
+   "topic": "Are metric views queryable from BI tools? Yes, with caveats",
+   "text": "The docs list Power BI, Tableau, Sigma and other JDBC/ODBC tools. These tools use MEASURE() through custom or native SQL. Tableau can also use BI compatibility mode from the Initial SQL field. The release note dated 2026-04-17 removed the Power BI connector option for BI compatibility mode. The Google Sheets connector (GA 2026-04-16) can query metric views.",
    "sources": [
     {
      "t": "Use metric views with external BI tools",
@@ -21138,7 +21278,7 @@ window.SL = {
   },
   {
    "topic": "Query limits for metric views",
-   "text": "Every measure needs the MEASURE aggregate (agg is also allowed on DBR 18.1+). SELECT * is not allowed, and a metric view cannot be joined to other tables at query time; wrap it in a CTE first.",
+   "text": "Every measure needs the MEASURE aggregate. The agg aggregate is also allowed on DBR 18.1+. SELECT * is not allowed. A metric view cannot be joined to other tables at query time. Wrap it in a CTE first.",
    "sources": [
     {
      "t": "Query metric views",
@@ -21149,7 +21289,7 @@ window.SL = {
   },
   {
    "topic": "Business semantics, tags, and certification",
-   "text": "Docs list metric views, domains, Pages, and certification/deprecation as Unity Catalog semantics components. The June 2026 summit blog calls Business Glossary 'Preview coming soon' and Domains Public Preview, and says tag propagation is Private Preview. Governed tags reached GA on 2026-04-02 and ABAC policies on governed tags are GA. The docs do not say whether Pages is the same thing as the Business Glossary.",
+   "text": "The docs list metric views, domains, Pages, and certification and deprecation as Unity Catalog semantics components. The June 2026 summit blog calls Business Glossary 'Preview coming soon' and Domains Public Preview. It says tag propagation is Private Preview. Governed tags reached GA on 2026-04-02. ABAC policies on governed tags are GA. The docs do not say whether Pages is the same thing as the Business Glossary.",
    "sources": [
     {
      "t": "Unity Catalog semantics (docs)",
@@ -21168,7 +21308,7 @@ window.SL = {
   },
   {
    "topic": "Genie Agent curation features and limits",
-   "text": "A Genie Agent takes up to 50 tables, views, or metric views. It holds up to 100 instructions (general text block, example SQL queries, SQL functions) and up to 200 knowledge store snippets (table descriptions, join relationships, SQL expressions). Trusted assets are example SQL queries and SQL functions that give verified answers; Benchmark APIs were Beta in March 2026.",
+   "text": "A Genie Agent takes up to 50 tables, views or metric views. It holds up to 100 instructions (general text block, example SQL queries, SQL functions). It holds up to 200 knowledge store snippets (table descriptions, join relationships, SQL expressions). Trusted assets are example SQL queries and SQL functions that give verified answers. Benchmark APIs were Beta in March 2026.",
    "sources": [
     {
      "t": "Create and manage a Genie Agent",
@@ -21187,7 +21327,7 @@ window.SL = {
   },
   {
    "topic": "Databricks managed MCP servers",
-   "text": "Managed MCP servers live in the system.ai schema and run through Unity Gateway, at https://<workspace-hostname>/ai-gateway/mcp-services/<mcp-name>. Genie One MCP is GA (2026-09-22). The dbsql, sandbox, and web_search servers need the Unity Gateway beta. Older /api/2.0/mcp endpoints for AI Search, SQL, and UC functions bypass Unity Gateway.",
+   "text": "Managed MCP servers live in the system.ai schema and run through Unity Gateway. The URL is https://<workspace-hostname>/ai-gateway/mcp-services/<mcp-name>. Genie One MCP is GA (2026-09-22). The dbsql, sandbox and web_search servers need the Unity Gateway beta. Older /api/2.0/mcp endpoints for AI Search, SQL and UC functions bypass Unity Gateway.",
    "sources": [
     {
      "t": "Managed MCP servers",
@@ -21202,7 +21342,7 @@ window.SL = {
   },
   {
    "topic": "Agent Bricks, AI Search, Lakebase",
-   "text": "Agent Bricks is now an umbrella page for Databricks AI capabilities (2026-03-27); Supervisor Agent is GA in select US regions (2026-02-10). AI Search reranker is GA (2025-12-08) and storage-optimized endpoints are GA (May 2026). Lakebase is described as managed Postgres with Unity Catalog synced tables and pgvector support; No GA statement found, so its status is Unverified.",
+   "text": "Agent Bricks is now an umbrella page for Databricks AI capabilities (2026-03-27). Supervisor Agent is GA in select US regions (2026-02-10). AI Search reranker is GA (2025-12-08). Storage-optimized endpoints are GA (May 2026). Lakebase is described as managed Postgres with Unity Catalog synced tables and pgvector support. No GA statement exists for Lakebase, so its status is Unverified.",
    "sources": [
     {
      "t": "Databricks platform release notes, March 2026",
@@ -21229,7 +21369,7 @@ window.SL = {
   },
   {
    "topic": "Claims not used",
-   "text": "Third-party blogs (for example Atlan and consultancies) call Genie Ontology a 'self-improving knowledge graph' and describe 'gated public preview'. Only Databricks docs and blogs are cited. The summit blog heading says 'Open Semantic Interchange' but the body names Apache Ossie (incubating), so only Ossie is recorded.",
+   "text": "Third-party blogs (for example Atlan and consultancies) call Genie Ontology a 'self-improving knowledge graph'. They describe 'gated public preview'. This file cites only Databricks docs and blogs. The summit blog heading says 'Open Semantic Interchange' but the body names Apache Ossie (incubating). This file records only Ossie.",
    "sources": [
     {
      "t": "Unity Catalog Business Semantics: Now GA and Open Source",
@@ -21240,7 +21380,7 @@ window.SL = {
   },
   {
    "topic": "Palantir Ontology structure",
-   "text": "The Ontology has semantic elements (objects, properties, links) and kinetic elements (actions, functions, dynamic security). An object type is the schema of a real-world entity; a link type is a bidirectional relationship between two object types; an action type bundles edits and side effects. Interfaces add polymorphism over object types with a shared shape.",
+   "text": "The Ontology has semantic elements (objects, properties, links) and kinetic elements (actions, functions, dynamic security). An object type is the schema of a real-world entity. A link type is a bidirectional relationship between two object types. An action type bundles edits and side effects. Interfaces add polymorphism over object types with a shared shape.",
    "sources": [
     {
      "t": "Foundry Ontology overview",
@@ -21259,7 +21399,7 @@ window.SL = {
   },
   {
    "topic": "How LLMs use the Palantir Ontology",
-   "text": "AIP Logic is a no-code place to build LLM-powered functions; its Use LLM block reads Ontology data through tools such as Query objects, and Ontology edits can be applied automatically or staged for human review. AIP Chatbot Studio (previously AIP Agent Studio) builds chatbots on Ontology data and tools. Ontology MCP exposes object types, action types, and query functions to external agents as MCP tools. No public page on 'Ontology augmented generation' found.",
+   "text": "AIP Logic is a no-code place to build LLM-powered functions. Its Use LLM block reads Ontology data through tools such as Query objects. Ontology edits can be applied automatically or staged for human review. AIP Chatbot Studio (previously AIP Agent Studio) builds chatbots on Ontology data and tools. Ontology MCP exposes object types, action types and query functions to external agents as MCP tools. No public page on 'Ontology augmented generation' exists.",
    "sources": [
     {
      "t": "AIP Logic overview",
@@ -21282,7 +21422,7 @@ window.SL = {
   },
   {
    "topic": "Palantir Ontology and SQL warehouses",
-   "text": "The Ontology sits on datasets, virtual tables, and models. Virtual tables point at tables in Databricks, Snowflake, BigQuery, S3, ADLS, and GCS (GA) without copying data, and objects can be created from them in Ontology Manager and Pipeline Builder. Databricks and Snowflake support compute pushdown in Python and Pipeline Builder. Ontology semantics are not stored in the warehouse.",
+   "text": "The Ontology sits on datasets, virtual tables and models. Virtual tables point at tables in Databricks, Snowflake, BigQuery, S3, ADLS and GCS (GA) without copying data. Users can create objects from them in Ontology Manager and Pipeline Builder. Databricks and Snowflake support compute pushdown in Python and Pipeline Builder. Ontology semantics are not stored in the warehouse.",
    "sources": [
     {
      "t": "Virtual tables",
@@ -21297,7 +21437,7 @@ window.SL = {
   },
   {
    "topic": "Palantir syntax and status gaps",
-   "text": "No public text syntax for defining the Ontology found; it is built in Ontology Manager, so the snippet is null. The docs do not state GA status for Ontology MCP; It is marked Unverified. Core Ontology, AIP Logic, and Chatbot Studio are marked GA because the docs show no preview label, not because a page says GA.",
+   "text": "No public text syntax for defining the Ontology exists. Users build it in Ontology Manager, so the snippet is null. The docs do not state GA status for Ontology MCP. It is marked Unverified. Core Ontology, AIP Logic and Chatbot Studio are marked GA because the docs show no preview label. No page says GA.",
    "sources": [
     {
      "t": "Ontology MCP overview",
@@ -21312,7 +21452,7 @@ window.SL = {
   },
   {
    "topic": "Does BigQuery have a native semantic or metrics object in 2026?",
-   "text": "Not found. The closest object is MEASURE inside a property graph (Preview, Apr 22, 2026), queried through GRAPH_EXPAND and AGG, and Looker's derived_analytic_model targets BigQuery Graph (Preview, May 2026). No semantic view or metric view object appears in the BigQuery release notes or docs I fetched.",
+   "text": "No. The closest object is MEASURE inside a property graph (Preview, Apr 22, 2026). Users query it through GRAPH_EXPAND and AGG. Looker's derived_analytic_model targets BigQuery Graph (Preview, May 2026). The BigQuery release notes and docs show no semantic view or metric view object.",
    "sources": [
     {
      "t": "Graph measures",
@@ -21331,7 +21471,7 @@ window.SL = {
   },
   {
    "topic": "Graph measures stage",
-   "text": "Release notes label graph measures Preview on Apr 22, 2026. BigQuery Graph itself went GA on Aug 31, 2026, but no note says measures are GA, so treat measures as Preview.",
+   "text": "Release notes label graph measures Preview on Apr 22, 2026. BigQuery Graph itself went GA on Aug 31, 2026. No note says measures are GA, so treat measures as Preview.",
    "sources": [
     {
      "t": "BigQuery release notes",
@@ -21342,7 +21482,7 @@ window.SL = {
   },
   {
    "topic": "Product renames",
-   "text": "Dataplex Universal Catalog became Knowledge Catalog on Apr 10, 2026 (API, CLI, and IAM names unchanged). Golden queries are now called verified queries. Looker Studio is now Data Studio and BigLake is now Google Cloud Lakehouse (Apr 2026). Gen AI Toolbox for Databases is now MCP Toolbox for Databases (repo mcp-toolbox). Open Semantic Interchange is now Apache Ossie (incubating).",
+   "text": "Dataplex Universal Catalog became Knowledge Catalog on Apr 10, 2026. API, CLI and IAM names are unchanged. Golden queries are now called verified queries. Looker Studio is now Data Studio. BigLake is now Google Cloud Lakehouse (Apr 2026). Gen AI Toolbox for Databases is now MCP Toolbox for Databases (repo mcp-toolbox). Open Semantic Interchange is now Apache Ossie (incubating).",
    "sources": [
     {
      "t": "About metadata in Knowledge Catalog",
@@ -21369,7 +21509,7 @@ window.SL = {
   },
   {
    "topic": "Conversational Analytics API timeline",
-   "text": "Private Preview Jun 5, 2025, Public Preview Aug 25, 2025 (BigQuery structured context with example question and SQL pairs), GA for BigQuery and Looker Jun 23, 2026. Database sources (AlloyDB, Cloud SQL, Spanner) were Preview as of Mar 2026. The API release notes list no MCP entry.",
+   "text": "Private Preview began Jun 5, 2025. Public Preview began Aug 25, 2025 (BigQuery structured context with example question and SQL pairs). GA for BigQuery and Looker came Jun 23, 2026. Database sources (AlloyDB, Cloud SQL, Spanner) were Preview as of Mar 2026. The API release notes list no MCP entry.",
    "sources": [
     {
      "t": "Conversational Analytics API release notes",
@@ -21384,7 +21524,7 @@ window.SL = {
   },
   {
    "topic": "Agent context limits and glossary use",
-   "text": "A BigQuery data agent holds up to 100 knowledge sources (tables, views, graphs, UDFs), per the current doc. A Google codelab says 50, so the codelab is older. With a Knowledge Catalog glossary, an agent imports up to 10 terms per table.",
+   "text": "According to the current doc, a BigQuery data agent holds up to 100 knowledge sources (tables, views, graphs, UDFs). A Google codelab says 50, so the codelab is older. With a Knowledge Catalog glossary, an agent imports up to 10 terms per table.",
    "sources": [
     {
      "t": "Conversational analytics in BigQuery",
@@ -21399,7 +21539,7 @@ window.SL = {
   },
   {
    "topic": "Knowledge Catalog glossary stage is unverified",
-   "text": "Release notes list the business glossary as Preview on Jan 30, 2023 and no GA entry is listed. The glossary doc page shows no stage label. Custom glossary terms and Knowledge Catalog term import for BigQuery agents were Preview on Feb 24, 2026.",
+   "text": "Release notes list the business glossary as Preview on Jan 30, 2023. They list no GA entry. The glossary doc page shows no stage label. Custom glossary terms and Knowledge Catalog term import for BigQuery agents were Preview on Feb 24, 2026.",
    "sources": [
     {
      "t": "Knowledge Catalog release notes",
@@ -21440,7 +21580,7 @@ window.SL = {
   },
   {
    "topic": "Vector search stage detail",
-   "text": "The VECTOR_SEARCH reference marks the single-query syntax and hybrid search as Preview and does not label the batch syntax. Release notes list TreeAH vector indexes GA (May 2025). Hybrid search was disabled on Jul 9, 2026 and restored Aug 3, 2026.",
+   "text": "The VECTOR_SEARCH reference marks the single-query syntax and hybrid search as Preview. It does not label the batch syntax. Release notes list TreeAH vector indexes as GA (May 2025). Hybrid search was disabled on Jul 9, 2026 and restored on Aug 3, 2026.",
    "sources": [
     {
      "t": "BigQuery search functions",
@@ -21455,7 +21595,7 @@ window.SL = {
   },
   {
    "topic": "Looker MCP: managed server versus MCP Toolbox",
-   "text": "The Looker-managed MCP server entered Preview on May 27, 2026 for Looker-hosted instances only, with OAuth 2.1 and no fine-grained scopes. For customer-hosted Looker, Google points to the open-source MCP Toolbox, which Google describes as as-is and not a supported Google Cloud product.",
+   "text": "The Looker-managed MCP server entered Preview on May 27, 2026. It works for Looker-hosted instances only. It uses OAuth 2.1 and has no fine-grained scopes. For customer-hosted Looker, Google points to the open-source MCP Toolbox. Google describes the Toolbox as as-is and not a supported Google Cloud product.",
    "sources": [
     {
      "t": "Looker-managed MCP server",
@@ -21474,7 +21614,7 @@ window.SL = {
   },
   {
    "topic": "Looker Conversational Analytics timeline",
-   "text": "Preview Feb 24, 2025. GA Nov 12, 2025 for Looker 25.18 and later. Verified queries Preview Jul 30, 2026 and GA Aug 28, 2026. Dashboard data agents GA Oct 8, 2026. Agentic workflows (triggered and scheduled) and publishing to Gemini Enterprise are Preview.",
+   "text": "Preview began Feb 24, 2025. GA came Nov 12, 2025 for Looker 25.18 and later. Verified queries were Preview on Jul 30, 2026 and GA on Aug 28, 2026. Dashboard data agents are GA since Oct 8, 2026. Agentic workflows (triggered and scheduled) and publishing to Gemini Enterprise are Preview.",
    "sources": [
     {
      "t": "Looker release notes",
@@ -21489,7 +21629,7 @@ window.SL = {
   },
   {
    "topic": "How Looker agents read LookML",
-   "text": "Agents read field labels, descriptions, and synonyms from Explores and ignore hidden fields. Looker, not the model, composes the SQL, and access grants and user attributes apply. The synonyms parameter page shows no stage label and requires the legacy LookML runtime to be off.",
+   "text": "Agents read field labels, descriptions and synonyms from Explores. They ignore hidden fields. Looker, not the model, composes the SQL. Access grants and user attributes apply. The synonyms parameter page shows no stage label. It requires the legacy LookML runtime to be off.",
    "sources": [
     {
      "t": "Best practices for configuring Conversational Analytics with Looker",
@@ -21508,7 +21648,7 @@ window.SL = {
   },
   {
    "topic": "Looker semantic layer opened to other tools",
-   "text": "The Open SQL Interface was GA on Aug 14, 2024 and backs the Tableau connector (GA Aug 14, 2024; Tableau Cloud Dec 2025). The Power BI connector was GA on Jun 14, 2023. Connected Sheets and Data Studio also read Looker. The current status of Looker Modeler is unconfirmed; it does not appear in the Looker release notes or the Next '26 post.",
+   "text": "The Open SQL Interface was GA on Aug 14, 2024. It backs the Tableau connector (GA Aug 14, 2024, Tableau Cloud Dec 2025). The Power BI connector was GA on Jun 14, 2023. Connected Sheets and Data Studio also read Looker. The current status of Looker Modeler is unconfirmed. It does not appear in the Looker release notes or the Next '26 post.",
    "sources": [
     {
      "t": "Looker release notes",
@@ -21527,7 +21667,7 @@ window.SL = {
   },
   {
    "topic": "In-database analytic models link Looker to BigQuery Graph",
-   "text": "Since May 27, 2026 (Preview) Looker can reference BigQuery Graph or Snowflake semantic views, or generate them from an Explore with derived_analytic_model. Views become node tables, foreign_key joins become edge tables, and dimensions and measures become node properties. Needs BigQuery or Snowflake, primary keys, and acyclic joins.",
+   "text": "Since May 27, 2026 (Preview), Looker can reference BigQuery Graph or Snowflake semantic views. It can also generate them from an Explore with derived_analytic_model. Views become node tables. foreign_key joins become edge tables. Dimensions and measures become node properties. The feature needs BigQuery or Snowflake, primary keys and acyclic joins.",
    "sources": [
     {
      "t": "In-database analytic models",
@@ -21542,7 +21682,7 @@ window.SL = {
   },
   {
    "topic": "Looker and open semantic standards",
-   "text": "The Apache Ossie README does not mention Google, Looker, or LookML, and the apache/ossie-converters directory list has no LookML or BigQuery converter (it lists Cube, Databricks, dbt, Hex, Omni, Salesforce, Snowflake, ThoughtSpot and others). The Next '26 post mentions MCP but not OSI.",
+   "text": "The Apache Ossie README does not mention Google, Looker or LookML. The apache/ossie-converters directory list has no LookML or BigQuery converter. It lists Cube, Databricks, dbt, Hex, Omni, Salesforce, Snowflake, ThoughtSpot and others. The Next '26 post mentions MCP but not OSI.",
    "sources": [
     {
      "t": "Apache Ossie repo",
@@ -21561,7 +21701,7 @@ window.SL = {
   },
   {
    "topic": "Looker BI agents and Next '26 announcements",
-   "text": "At Next '26 (Apr 23, 2026) Google announced Dashboard Agents, agentic workflows, a managed MCP server, a VS Code extension with a LookML AI agent, and Knowledge Catalog integration. Later release notes show dashboard agents GA (Oct 8, 2026) and the VS Code extension GA (Sep 10, 2026), while agentic workflows and the MCP server are still Preview.",
+   "text": "At Next '26 (Apr 23, 2026) Google announced Dashboard Agents, agentic workflows and a managed MCP server. It also announced a VS Code extension with a LookML AI agent and Knowledge Catalog integration. Later release notes show dashboard agents GA (Oct 8, 2026) and the VS Code extension GA (Sep 10, 2026). Agentic workflows and the MCP server are still Preview.",
    "sources": [
     {
      "t": "Looker updates for agentic BI at Next '26",
@@ -21576,7 +21716,7 @@ window.SL = {
   },
   {
    "topic": "Items not verified",
-   "text": "MCP Toolbox for Databases support status (README gives v1.x, Google docs say as-is). BigQuery data canvas stage (page labels only the chat assistant Preview, Apr 2025). Looker Modeler status. The VECTOR_SEARCH original GA date. Web search quota ran out partway, so these were not chased further.",
+   "text": "MCP Toolbox for Databases support status (the README gives v1.x, Google docs say as-is). BigQuery data canvas stage (the page labels only the chat assistant Preview, Apr 2025). Looker Modeler status. The VECTOR_SEARCH original GA date.",
    "sources": [
     {
      "t": "MCP Toolbox for Databases (GitHub)",
@@ -21591,7 +21731,7 @@ window.SL = {
   },
   {
    "topic": "semantic layer",
-   "text": "A business-facing layer over physical data that names tables and columns as business terms; Business Objects filed a patent for the idea in 1991. In 2026 vendors use it for governed metrics, dimensions, and joins (dbt Semantic Layer, Snowflake semantic views), or, at Stardog, for an ontology of concepts, rules, and constraints. It is the broad umbrella; metrics layer, semantic model, and ontology are narrower or alternative parts of it.",
+   "text": "A business-facing layer over physical data that names tables and columns as business terms. Business Objects filed a patent for the idea in 1991. In 2026 vendors use it for governed metrics, dimensions, and joins (dbt Semantic Layer, Snowflake semantic views). At Stardog, it means an ontology of concepts, rules, and constraints. It is the broad umbrella. Metrics layer, semantic model, and ontology are narrower or alternative parts of it.",
    "sources": [
     {
      "t": "Wikipedia: Semantic layer",
@@ -21614,7 +21754,7 @@ window.SL = {
   },
   {
    "topic": "metrics layer (metrics store)",
-   "text": "A central definition of how each metric is calculated, placed between the warehouse and BI tools, that returns SQL for a metric request (Benn Stancil, April 2021). It covers measures and the dimensions to slice them, not entities, rules, or glossary terms, so it is narrower than a semantic layer. Today it ships inside products such as dbt MetricFlow and Databricks metric views; No primary source that defines the label 'metrics store' was found.",
+   "text": "A central definition of how each metric is calculated (Benn Stancil, April 2021). It sits between the warehouse and BI tools. It returns SQL for a metric request. It covers measures and the dimensions to slice them. It does not cover entities, rules, or glossary terms, so it is narrower than a semantic layer. Today it ships inside products such as dbt MetricFlow and Databricks metric views. No primary source defines the label 'metrics store'.",
    "sources": [
     {
      "t": "Benn Stancil: The metrics layer (Apr 22, 2021)",
@@ -21637,7 +21777,7 @@ window.SL = {
   },
   {
    "topic": "ontology",
-   "text": "A formal, explicit specification of a shared conceptualization of a domain: classes, properties, relations, and constraints (Gruber, 1993). W3C describes OWL 2 ontologies as formalized vocabularies of terms. It is the schema level, while a knowledge graph is the data that uses it; RelationalAI says ontologies add entity identity, relationships with multiplicity, and constraints beyond the dimensional semantics of metrics.",
+   "text": "A formal, explicit specification of a shared conceptualization of a domain (Gruber, 1993). It has classes, properties, relations, and constraints. W3C describes OWL 2 ontologies as formalized vocabularies of terms. An ontology is the schema level. A knowledge graph is the data that uses it. RelationalAI says ontologies add entity identity, relationships with multiplicity, and constraints beyond the dimensional semantics of metrics.",
    "sources": [
     {
      "t": "Wikipedia: Ontology (information science)",
@@ -21656,7 +21796,7 @@ window.SL = {
   },
   {
    "topic": "knowledge graph",
-   "text": "A graph of data meant to accumulate and convey knowledge of the real world, with nodes for entities and edges for relations (Hogan et al., ACM Computing Surveys 2021); Google popularized the term in 2012 as 'things, not strings'. Neo4j adds that a knowledge graph is a graph plus meaning and organizing principles such as taxonomies or ontologies. It models entities and facts rather than metric definitions, and it holds instance data where an ontology holds the schema.",
+   "text": "A graph of data meant to accumulate and convey knowledge of the real world. It has nodes for entities and edges for relations (Hogan et al., ACM Computing Surveys 2021). Google popularized the term in 2012 as 'things, not strings'. Neo4j adds that a knowledge graph is a graph plus meaning and organizing principles such as taxonomies or ontologies. It models entities and facts, not metric definitions. It holds instance data, where an ontology holds the schema.",
    "sources": [
     {
      "t": "Hogan et al.: Knowledge Graphs (arXiv 2003.02320)",
@@ -21679,7 +21819,7 @@ window.SL = {
   },
   {
    "topic": "context graph",
-   "text": "Current usage comes from the Foundation Capital essay 'AI's trillion-dollar opportunity: Context graphs' by Jaya Gupta and Ashu Garg. It defines a context graph as 'a living record of decision traces stitched across entities and time so precedent becomes searchable', not the model's chain-of-thought, and never mentions knowledge graphs or ontologies. Exact original date is unverified: the page metadata shows Oct 23, 2026, and the essay cites a post whose URL carries 121225, so it was written after mid-December 2025.",
+   "text": "Current usage comes from the Foundation Capital essay 'AI's trillion-dollar opportunity: Context graphs' by Jaya Gupta and Ashu Garg. It defines a context graph as 'a living record of decision traces stitched across entities and time so precedent becomes searchable'. This is not the chain-of-thought of the model. The essay never mentions knowledge graphs or ontologies. The exact original date is unverified. The page metadata shows Oct 23, 2026. The essay cites a post whose URL carries 121225, so the essay is from after mid-December 2025.",
    "sources": [
     {
      "t": "Foundation Capital: AI's trillion-dollar opportunity: Context graphs",
@@ -21698,7 +21838,7 @@ window.SL = {
   },
   {
    "topic": "context graph (vendor usage in 2026)",
-   "text": "Vendors use the term in different ways. Atlan and Neo4j follow the decision-trace idea (Atlan: 'a specialized knowledge graph that captures decision traces'; Neo4j: a knowledge graph plus the agent's conversations, tool calls, decisions, and outcomes), while Google's Knowledge Catalog (renamed from Dataplex Universal Catalog on 10 Apr 2026) calls its metadata metamodel an 'active context graph'. RelationalAI and Stardog prefer 'context layer'.",
+   "text": "Vendors use the term in different ways. Atlan and Neo4j follow the decision-trace idea. Atlan says 'a specialized knowledge graph that captures decision traces'. Neo4j defines it as a knowledge graph plus the agent's conversations, tool calls, decisions, and outcomes. Google's Knowledge Catalog calls its metadata metamodel an 'active context graph'. Google renamed Dataplex Universal Catalog to Knowledge Catalog on 10 Apr 2026. RelationalAI and Stardog prefer 'context layer'.",
    "sources": [
     {
      "t": "Atlan: context graph",
@@ -21725,7 +21865,7 @@ window.SL = {
   },
   {
    "topic": "data catalog",
-   "text": "An inventory of an organization's data assets with metadata that helps people find, understand, manage, and access data (IBM). It is a discovery and governance tool: it holds descriptions, lineage, and glossary links, but it does not define queryable metrics like a semantic layer. Catalogs now add AI context; Google renamed Dataplex Universal Catalog to Knowledge Catalog in April 2026, and data.world builds its catalog on a knowledge graph.",
+   "text": "An inventory of the data assets of an organization with metadata that helps people find, understand, manage, and access data (IBM). It is a discovery and governance tool. It holds descriptions, lineage, and glossary links. It does not define queryable metrics like a semantic layer. Catalogs now add AI context. Google renamed Dataplex Universal Catalog to Knowledge Catalog in April 2026. data.world builds its catalog on a knowledge graph.",
    "sources": [
     {
      "t": "IBM: What is a data catalog",
@@ -21744,7 +21884,7 @@ window.SL = {
   },
   {
    "topic": "business glossary",
-   "text": "A governed vocabulary of business terms, grouped in categories, with owners and relations such as synonym and related term, that can link to data assets and columns (Google Knowledge Catalog docs). It records meaning, not query logic, so it differs from a semantic layer. It is also business-facing, where a data dictionary describes dataset fields, types, and allowed values (IBM).",
+   "text": "A governed vocabulary of business terms, grouped in categories, with owners and relations such as synonym and related term (Google Knowledge Catalog docs). It can link to data assets and columns. It records meaning, not query logic, so it differs from a semantic layer. It is also business-facing. A data dictionary describes dataset fields, types, and allowed values (IBM).",
    "sources": [
     {
      "t": "Google Cloud docs: create a business glossary",
@@ -21759,7 +21899,7 @@ window.SL = {
   },
   {
    "topic": "semantic model",
-   "text": "The artifact that stores a semantic layer's definitions, and the word has no single meaning. A Power BI semantic model is an Analysis Services tabular model with data preparation queries, relationships, and calculations; Snowflake used 'semantic model' for stage-based YAML files, now called legacy and replaced by schema-level semantic views. Stardog uses 'semantic models (ontologies)'.",
+   "text": "The artifact that stores the definitions of a semantic layer. The word has no single meaning. A Power BI semantic model is an Analysis Services tabular model with data preparation queries, relationships, and calculations. Snowflake used 'semantic model' for stage-based YAML files. Snowflake now calls them legacy and replaces them with schema-level semantic views. Stardog uses 'semantic models (ontologies)'.",
    "sources": [
     {
      "t": "Microsoft Learn: Semantic models in the Power BI service",
@@ -21778,7 +21918,7 @@ window.SL = {
   },
   {
    "topic": "GraphRAG",
-   "text": "Retrieval-augmented generation that connects facts in a graph instead of scattering them across isolated text chunks, so answers can follow relationships. Neo4j's agentic variant lets an AI agent choose between vector search, graph traversal, and schema inspection at each step.",
+   "text": "Retrieval-augmented generation that connects facts in a graph instead of scattering them across isolated text chunks. Answers can then follow relationships. The agentic variant of Neo4j lets an AI agent choose between vector search, graph traversal, and schema inspection at each step.",
    "sources": [
     {
      "t": "Neo4j: Agentic GraphRAG (Oct 2026)",
@@ -21793,7 +21933,7 @@ window.SL = {
   },
   {
    "topic": "Open Semantic Interchange (OSI) / Apache Ossie",
-   "text": "A vendor-neutral JSON and YAML spec for semantic layer constructs (datasets, metrics, dimensions, relationships, context), launched by Snowflake and partners on 23 Sep 2025; v0.1 went live under Apache 2.0 on 27 Jan 2026. It entered the Apache Incubator on 22 Jun 2026 and the rename to Apache Ossie (incubating) was announced on 8 to 10 Jul 2026. RelationalAI is a launch partner; Stardog, Neo4j, and data.world do not appear on the partner lists I read.",
+   "text": "A vendor-neutral JSON and YAML spec for semantic layer constructs (datasets, metrics, dimensions, relationships, context). Snowflake and partners launched it on 23 Sep 2025. Version 0.1 went live under Apache 2.0 on 27 Jan 2026. It entered the Apache Incubator on 22 Jun 2026. The project announced the rename to Apache Ossie (incubating) on 8 to 10 Jul 2026. RelationalAI is a launch partner. Stardog, Neo4j, and data.world do not appear on the partner lists.",
    "sources": [
     {
      "t": "Apache Ossie (OSI) updates",
@@ -21824,7 +21964,7 @@ window.SL = {
   },
   {
    "topic": "data.world acquisition by ServiceNow",
-   "text": "ServiceNow signed a definitive agreement to buy data.world in May 2025 (reported 7 May at Knowledge 2025), and its quarterly filing says it completed the acquisition in July 2025. The exact closing day and price are not disclosed; ServiceNow calls the deal not material. data.world's site says 'data.world is now part of ServiceNow!' and that data.world Enterprise continues unchanged.",
+   "text": "ServiceNow signed a definitive agreement to buy data.world in May 2025 (reported 7 May at Knowledge 2025). Its quarterly filing says it completed the acquisition in July 2025. ServiceNow does not disclose the exact closing day and price. ServiceNow calls the deal not material. The data.world site says 'data.world is now part of ServiceNow!'. It also says that data.world Enterprise continues unchanged.",
    "sources": [
     {
      "t": "ServiceNow Form 10-Q, quarter ended Sep 30, 2025",
@@ -21843,7 +21983,7 @@ window.SL = {
   },
   {
    "topic": "Fabric IQ and ontology: existence, announcement, status",
-   "text": "Fabric IQ and its Ontology item were announced at Ignite in November 2025, with ontology in public preview. Microsoft Learn (pages updated 2026-07 to 2026-10) still labels the IQ workload and ontology Preview, and says the old ontology experience retires on 2027-01-31. Microsoft Fabric blog posts from Build (June 2026) describe Fabric IQ, Graph and Operations agents as GA with ontology still in Preview.",
+   "text": "Microsoft announced Fabric IQ and its Ontology item at Ignite in November 2025, with ontology in public preview. Microsoft Learn (pages updated 2026-07 to 2026-10) still labels the IQ workload and ontology Preview. It says the old ontology experience retires on 2027-01-31. Microsoft Fabric blog posts from Build (June 2026) describe Fabric IQ, Graph and Operations agents as GA. They describe ontology as still in Preview.",
    "sources": [
     {
      "t": "What is Fabric IQ?",
@@ -21870,7 +22010,7 @@ window.SL = {
   },
   {
    "topic": "Ontology details that matter for NL-to-SQL builders",
-   "text": "Ontology stores definitions and bindings; it is not a query engine, and the bound source (semantic model, lakehouse, eventhouse, warehouse, SQL database, mirrored database) runs the query. DAX measures from a semantic model appear as metrics, rules are natural-language text, and graph execution is an opt-in materialization. A data agent can mount an ontology (Preview) and then writes source-native SQL, KQL or DAX.",
+   "text": "The ontology stores definitions and bindings. It is not a query engine. The bound source runs the query. The source can be a semantic model, lakehouse, eventhouse, warehouse, SQL database or mirrored database. DAX measures from a semantic model appear as metrics. Rules are natural-language text. Graph execution is an opt-in materialization. A data agent can mount an ontology (Preview). It then writes source-native SQL, KQL or DAX.",
    "sources": [
     {
      "t": "What is ontology (preview)?",
@@ -21885,7 +22025,7 @@ window.SL = {
   },
   {
    "topic": "Three meanings of Fabric IQ",
-   "text": "Fabric IQ names the workload (ontology, semantic model, graph, data agent, operations agent, plan), a remote MCP server for Power BI reports and semantic models, and a Copilot mode in the Power BI report viewer. Fabric IQ MCP does not support ontologies or data agents; a separate Ontology MCP server (Preview) and a data-agent MCP endpoint exist. In the report viewer, Copilot does not return verified answers when Fabric IQ is on.",
+   "text": "Fabric IQ names the workload (ontology, semantic model, graph, data agent, operations agent, plan). It also names a remote MCP server for Power BI reports and semantic models. It also names a Copilot mode in the Power BI report viewer. Fabric IQ MCP does not support ontologies or data agents. A separate Ontology MCP server (Preview) and a data-agent MCP endpoint exist. In the report viewer, Copilot does not return verified answers when Fabric IQ is on.",
    "sources": [
     {
      "t": "Get started with the Fabric IQ MCP server",
@@ -21904,7 +22044,7 @@ window.SL = {
   },
   {
    "topic": "Power BI MCP servers: renames and replacements",
-   "text": "Current docs describe one Power BI Authoring MCP server with hosted (Preview) and local (GA) options; earlier coverage called the local server the Power BI Modeling MCP server, and the npm package is still named powerbi-modeling-mcp. The earlier hosted query endpoint (api.fabric.microsoft.com/v1/mcp/powerbi) is now called the Power BI Consumption MCP server and is kept only for existing integrations; Microsoft points consumption to Fabric IQ MCP (https://fabriciq.svc.cloud.microsoft/v1/mcp/fabriciq). Fabric also lists remote MCP servers for Core, Data Warehouse (T-SQL), Eventhouse (KQL), Activator and operations agent, plus local servers for development and Real-Time Intelligence; status labels for each are not listed here.",
+   "text": "Current docs describe one Power BI Authoring MCP server with hosted (Preview) and local (GA) options. Earlier coverage called the local server the Power BI Modeling MCP server. The npm package is still named powerbi-modeling-mcp. The earlier hosted query endpoint (api.fabric.microsoft.com/v1/mcp/powerbi) is now called the Power BI Consumption MCP server. Microsoft keeps it only for existing integrations. Microsoft points consumption to Fabric IQ MCP (https://fabriciq.svc.cloud.microsoft/v1/mcp/fabriciq). Fabric also lists remote MCP servers for Core, Data Warehouse (T-SQL), Eventhouse (KQL), Activator and operations agent. It also lists local servers for development and Real-Time Intelligence. This note lists no status label for them.",
    "sources": [
     {
      "t": "Overview of the Power BI MCP servers",
@@ -21923,7 +22063,7 @@ window.SL = {
   },
   {
    "topic": "Power BI Q&A retirement and linguistic schema",
-   "text": "Q&A experiences retire in February 2027 (Power BI Learn, updated 2026-06-02). One Fabric data agent page, dated January 2026, still says December 2026. Prep data for AI and Copilot data questions still require Q&A enabled on the model, and the data agent value-index feature needs the same setting until a replacement ships. Synonyms and linguistic relationships are stored in the model's linguistic metadata (a cultures file in TMDL).",
+   "text": "Q&A experiences retire in February 2027 (Power BI Learn, updated 2026-06-02). One Fabric data agent page, dated January 2026, still says December 2026. Prep data for AI and Copilot data questions still require Q&A enabled on the model. The data agent value-index feature needs the same setting until a replacement ships. The model's linguistic metadata stores synonyms and linguistic relationships. In TMDL this metadata is a cultures file.",
    "sources": [
     {
      "t": "Intro to Q&A tooling to train Power BI Q&A (preview)",
@@ -21942,7 +22082,7 @@ window.SL = {
   },
   {
    "topic": "Fabric data agent: status conflict and what it reads",
-   "text": "The data agent concept page (updated 2026-10-21) calls it generally available, but the Release status table (updated 2026-07) lists Data agent under Data Science as Preview; a secondary source puts GA at FabCon in March 2026, (unconfirmed). Sources can be up to five lakehouses, warehouses, KQL databases, semantic models, mirrored databases, ontologies or (Preview) graph and Azure AI Search. For semantic models, the DAX tool uses only model metadata and Prep data for AI settings and ignores data agent level instructions; Topics and schema object descriptions for SQL sources are Preview on the preview runtime.",
+   "text": "The data agent concept page (updated 2026-10-21) calls it generally available. The Release status table (updated 2026-07) lists Data agent under Data Science as Preview. A secondary source puts GA at FabCon in March 2026 (unconfirmed). Sources can be up to five lakehouses, warehouses, KQL databases, semantic models, mirrored databases, ontologies or (Preview) graph and Azure AI Search. For semantic models, the DAX tool uses only model metadata and Prep data for AI settings. It ignores data agent level instructions. Topics and schema object descriptions for SQL sources are Preview on the preview runtime.",
    "sources": [
     {
      "t": "Fabric data agent concepts",
@@ -21965,7 +22105,7 @@ window.SL = {
   },
   {
    "topic": "Copilot in Fabric: NL-to-SQL status by workload",
-   "text": "The Release status table lists Copilot for Data Warehouse SQL generation as Preview, Copilot for SQL database in Fabric as GA, and Power BI Copilot items (ask questions about your data, DAX help, suggest linguistic synonyms, measure descriptions) as GA. The Azure SQL AI page still labels Copilot in Fabric SQL database as preview, so the two pages disagree. The Copilot overview also says Fabric data agents are 'formerly known as Data agent'; what the rename covers is unclear.",
+   "text": "The Release status table lists Copilot for Data Warehouse SQL generation as Preview. It lists Copilot for SQL database in Fabric as GA. It lists Power BI Copilot items (ask questions about your data, DAX help, suggest linguistic synonyms, measure descriptions) as GA. The Azure SQL AI page still labels Copilot in Fabric SQL database as preview, so the two pages disagree. The Copilot overview also says Fabric data agents are 'formerly known as Data agent'. What the rename covers is unclear.",
    "sources": [
     {
      "t": "Release status of AI and Copilot in Fabric",
@@ -21984,7 +22124,7 @@ window.SL = {
   },
   {
    "topic": "Graph in Microsoft Fabric",
-   "text": "Learn has an overview of graph in Microsoft Fabric, but no Learn page found states its release status. A Fabric blog post titled 'Graph in Fabric (Generally Available)' announces GA around Build 2026. Learn describes a labeled property graph over OneLake with GQL (ISO/IEC 39075) and says RDF is not supported. The graph as a data agent source (NL2GQL) is labeled Preview, and the GQL Query HTTP API reference uses a beta flag in its endpoint.",
+   "text": "Learn has an overview of graph in Microsoft Fabric. No Learn page states its release status. A Fabric blog post titled 'Graph in Fabric (Generally Available)' announces GA around Build 2026. Learn describes a labeled property graph over OneLake with GQL (ISO/IEC 39075). It says RDF is not supported. The graph as a data agent source (NL2GQL) is labeled Preview. The GQL Query HTTP API reference uses a beta flag in its endpoint.",
    "sources": [
     {
      "t": "What is graph in Microsoft Fabric?",
@@ -22007,7 +22147,7 @@ window.SL = {
   },
   {
    "topic": "Purview Unified Catalog business glossary",
-   "text": "Unified Catalog glossary terms sit under governance domains, can carry synonyms, acronyms and related terms, and can carry policies that follow the term to data products and assets. Linking terms to assets and columns is labeled preview, and asset curation requires migrating classic terms first. No Microsoft doc says Copilot in Power BI, the data agent or the ontology reads Unified Catalog terms, so treat the glossary as governance metadata, not AI context.",
+   "text": "Unified Catalog glossary terms sit under governance domains. They can carry synonyms, acronyms and related terms. They can carry policies that follow the term to data products and assets. Linking terms to assets and columns is labeled preview. Asset curation requires migrating classic terms first. No Microsoft doc says Copilot in Power BI, the data agent or the ontology reads Unified Catalog terms. Treat the glossary as governance metadata, not AI context.",
    "sources": [
     {
      "t": "Glossary terms in Unified Catalog",
@@ -22026,7 +22166,7 @@ window.SL = {
   },
   {
    "topic": "Open Semantic Interchange renamed Apache Ossie",
-   "text": "The Open Semantic Interchange (OSI) effort now appears as Apache Ossie (incubating). A Snowflake engineering blog dated 2026-09-30 describes an initial open source converter between Power BI/Fabric semantic models and Ossie, with DAX added as a recognized expression language; the post does not state a preview or GA status. A Fabric community post titled 'Microsoft + Snowflake's commitment to Apache Ossie' exists.",
+   "text": "The Open Semantic Interchange (OSI) effort now appears as Apache Ossie (incubating). A Snowflake engineering blog dated 2026-09-30 describes an initial open source converter between Power BI/Fabric semantic models and Ossie. DAX is added as a recognized expression language. The post does not state a preview or GA status. A Fabric community post titled 'Microsoft + Snowflake's commitment to Apache Ossie' exists.",
    "sources": [
     {
      "t": "Breaking Down Semantic Silos: Microsoft Ecosystem Support Comes to Apache Ossie",
@@ -22045,7 +22185,7 @@ window.SL = {
   },
   {
    "topic": "SQL Server 2025: no native semantic layer object",
-   "text": "SQL Server 2025 went generally available on 2025-11-18 with the vector type, text chunking, embeddings through CREATE EXTERNAL MODEL, and DiskANN indexing. No semantic model, metric, dimension or ontology object appears in the SQL Server 2025 or Azure SQL docs; this is an absence in the docs, not a proof. The closest native items are the AGENTS.md and CONSTITUTION.md extended properties, which only GitHub Copilot in SSMS is documented to read.",
+   "text": "SQL Server 2025 went generally available on 2025-11-18. It has the vector type, text chunking, embeddings through CREATE EXTERNAL MODEL, and DiskANN indexing. The SQL Server 2025 and Azure SQL docs show no semantic model, metric, dimension or ontology object. This is an absence in the docs, not a proof. The closest native items are the AGENTS.md and CONSTITUTION.md extended properties. Only GitHub Copilot in SSMS is documented to read them.",
    "sources": [
     {
      "t": "SQL Server 2025 is Now Generally Available",
@@ -22064,7 +22204,7 @@ window.SL = {
   },
   {
    "topic": "GitHub Copilot in SSMS: name, status and dates",
-   "text": "SSMS release notes show GitHub Copilot in SSMS GA in 22.4.1 (2026-03-18), database instructions introduced as Preview in 22.3.0 (2026-02-10), Agent mode Preview in 22.7.0 (2026-06-09) and GA in 22.10.2 (2026-09-28). Doc paths moved from /ssms/copilot/ to /ssms/github-copilot/, and older page titles say 'Copilot in SQL Server Management Studio'. The database instructions page has no preview label now, but no release note states a separate GA for that feature.",
+   "text": "SSMS release notes show these dates. GitHub Copilot in SSMS was GA in 22.4.1 (2026-03-18). Database instructions were introduced as Preview in 22.3.0 (2026-02-10). Agent mode was Preview in 22.7.0 (2026-06-09) and GA in 22.10.2 (2026-09-28). Doc paths moved from /ssms/copilot/ to /ssms/github-copilot/. Older page titles say 'Copilot in SQL Server Management Studio'. The database instructions page has no preview label now. No release note states a separate GA for that feature.",
    "sources": [
     {
      "t": "Release Notes for SQL Server Management Studio 22",
@@ -22083,7 +22223,7 @@ window.SL = {
   },
   {
    "topic": "Copilot in Azure SQL Database: status conflict",
-   "text": "The Azure SQL AI page says Copilot skills in Azure SQL Database are in preview for a limited number of early adopters, while a Tech Community post titled 'Announcing General Availability of Azure SQL Database Capabilities for Microsoft Copilot in Azure' exists (only its title is cited). The Copilot in Azure overview lists generating T-SQL from questions as a developer use case without a status label. Whether NL-to-T-SQL is available in the portal today is unconfirmed.",
+   "text": "The Azure SQL AI page says Copilot skills in Azure SQL Database are in preview for a limited number of early adopters. A Tech Community post titled 'Announcing General Availability of Azure SQL Database Capabilities for Microsoft Copilot in Azure' exists (only its title is cited). The Copilot in Azure overview lists generating T-SQL from questions as a developer use case without a status label. Whether NL-to-T-SQL is available in the portal today is unconfirmed.",
    "sources": [
     {
      "t": "Intelligent Applications and AI - Azure SQL Database",
@@ -22102,7 +22242,7 @@ window.SL = {
   },
   {
    "topic": "SQL MCP Server design choice",
-   "text": "SQL MCP Server is part of open source Data API builder (version 1.7 and later; 2.0 is current), is self-hosted, and states that it intentionally does not support NL2SQL. It exposes seven DML tools over configured entities, so entity description text is the only semantic context an agent gets, and it covers data operations rather than schema changes. The docs carry no preview or GA label.",
+   "text": "SQL MCP Server is part of open source Data API builder (version 1.7 and later, and 2.0 is current). It is self-hosted. It states that it intentionally does not support NL2SQL. It exposes seven DML tools over configured entities. So entity description text is the only semantic context an agent gets. It covers data operations, not schema changes. The docs carry no preview or GA label.",
    "sources": [
     {
      "t": "SQL MCP Server overview",
@@ -22113,7 +22253,7 @@ window.SL = {
   },
   {
    "topic": "Oracle and analytic views in Select AI",
-   "text": "Select AI docs list comments, annotations and constraints as prompt metadata. They do not mention analytic views, so whether Select AI uses analytic view definitions is unconfirmed.",
+   "text": "Select AI docs list comments, annotations and constraints as prompt metadata. They do not mention analytic views. Whether Select AI uses analytic view definitions is unconfirmed.",
    "sources": [
     {
      "t": "DBMS_CLOUD_AI package",
@@ -22128,7 +22268,7 @@ window.SL = {
   },
   {
    "topic": "Oracle MCP server date",
-   "text": "Oracle's product page lists the MCP server GA announcement under December 2025. Docs cover Autonomous AI Database 26ai and 19c on Serverless, Dedicated Region and multicloud.",
+   "text": "Oracle's product page lists the MCP server GA announcement under December 2025. The docs cover Autonomous AI Database 26ai and 19c on Serverless, Dedicated Region and multicloud.",
    "sources": [
     {
      "t": "Autonomous AI Database MCP Server",
@@ -22154,7 +22294,7 @@ window.SL = {
   },
   {
    "topic": "Teradata platform GA",
-   "text": "Teradata announced the Autonomous Knowledge Platform on 2026-05-07 and general availability on 2026-07-15. Teradata Cloud is on AWS, AI Studio is on AWS and Teradata Factory, and Tera is not in the availability list.",
+   "text": "Teradata announced the Autonomous Knowledge Platform on 2026-05-07. It announced general availability on 2026-07-15. Teradata Cloud is on AWS. AI Studio is on AWS and Teradata Factory. Tera is not in the availability list.",
    "sources": [
     {
      "t": "Introducing the Autonomous Knowledge Platform",
@@ -22169,7 +22309,7 @@ window.SL = {
   },
   {
    "topic": "Teradata MCP server status",
-   "text": "The repo is under the Teradata GitHub organization with an MIT license and 0.x PyPI releases starting August 2025. The pages read do not state GA, support terms or an SLA.",
+   "text": "The repo is under the Teradata GitHub organization with an MIT license. PyPI releases are 0.x and start in August 2025. The repo pages do not state GA, support terms or an SLA.",
    "sources": [
     {
      "t": "teradata-mcp-server on PyPI",
@@ -22184,7 +22324,7 @@ window.SL = {
   },
   {
    "topic": "Apache Ossie",
-   "text": "Oracle appears in the April 2026 list of new Ossie working group participants. Ossie reference converters listed in its README cover dbt, GoodData, Polaris and Salesforce, not Oracle or Teradata.",
+   "text": "Oracle appears in the April 2026 list of new Ossie working group participants. The Ossie README lists reference converters for dbt, GoodData, Polaris and Salesforce. It lists none for Oracle or Teradata.",
    "sources": [
     {
      "t": "Open Semantic Interchange community update",
@@ -22199,13 +22339,13 @@ window.SL = {
   },
   {
    "topic": "Status convention used in this file",
-   "text": "Unverified in an artifact means the vendor docs give no status label for a hosted feature. Open-source projects with versioned releases and no pre-release marker are marked GA.",
+   "text": "Unverified in an artifact means that the vendor docs give no status label for a hosted feature. Open-source projects with versioned releases and no pre-release marker are marked GA.",
    "sources": [],
    "from": "postgres-clickhouse-duckdb.json"
   },
   {
    "topic": "SQL/PGQ is not in PostgreSQL 19",
-   "text": "Peter Eisentraut committed SQL/PGQ on 2026-03-16. After a pgsql-hackers thread, he reverted it from master and REL_19_STABLE on 2026-09-07. PostgreSQL 19 RC1 shipped on 2026-10-15 and its release notes do not mention property graphs; third-party posts expect PostgreSQL 20 at the earliest, which is not confirmed by the project.",
+   "text": "Peter Eisentraut committed SQL/PGQ on 2026-03-16. After a pgsql-hackers thread, he reverted it from master and REL_19_STABLE on 2026-09-07. PostgreSQL 19 RC1 shipped on 2026-10-15. Its release notes do not mention property graphs. Third-party posts expect PostgreSQL 20 at the earliest. The project does not confirm this.",
    "sources": [
     {
      "t": "Commit: SQL/PGQ, 2026-03-16",
@@ -22232,7 +22372,7 @@ window.SL = {
   },
   {
    "topic": "PostgreSQL 19 release state",
-   "text": "On 2026-10-24 the PostgreSQL versioning page lists 18 as the newest release and shows a banner for PostgreSQL 19 RC 1 dated 2026-10-15. The beta 1 announcement of 2026-06 had listed SQL/PGQ as a headline feature before the revert.",
+   "text": "On 2026-10-24 the PostgreSQL versioning page lists 18 as the newest release. It shows a banner for PostgreSQL 19 RC 1 dated 2026-10-15. The beta 1 announcement of 2026-06 had listed SQL/PGQ as a headline feature before the revert.",
    "sources": [
     {
      "t": "PostgreSQL versioning policy page",
@@ -22247,7 +22387,7 @@ window.SL = {
   },
   {
    "topic": "AlloyDB: alloydb_ai_nl versus QueryData",
-   "text": "alloydb_ai_nl is labeled Pre-GA, and Google docs now recommend QueryData for new text-to-SQL work. QueryData launched in Preview in April 2026 for AlloyDB, Cloud SQL (MySQL and PostgreSQL), and Spanner; its near-100% accuracy claim is a vendor claim with no published method.",
+   "text": "alloydb_ai_nl is labeled Pre-GA. Google docs now recommend QueryData for new text-to-SQL work. QueryData launched in Preview in April 2026 for AlloyDB, Cloud SQL (MySQL and PostgreSQL), and Spanner. Its near-100% accuracy claim is a vendor claim with no published method.",
    "sources": [
     {
      "t": "AlloyDB AI natural language overview",
@@ -22266,7 +22406,7 @@ window.SL = {
   },
   {
    "topic": "Azure Database for PostgreSQL: azure_ai has no NL-to-SQL function",
-   "text": "The azure_ai extension went GA on 2024-05-21. Its docs list embeddings, azure_ai.generate, is_true, extract, and rank (marked Preview), plus Azure language and ML calls. No natural-language-to-SQL function appears in the docs.",
+   "text": "The azure_ai extension went GA on 2024-05-21. Its docs list embeddings, azure_ai.generate, is_true, extract, and rank (marked Preview). They also list Azure language and ML calls. No natural-language-to-SQL function appears in the docs.",
    "sources": [
     {
      "t": "azure_ai extension overview",
@@ -22285,7 +22425,7 @@ window.SL = {
   },
   {
    "topic": "Postgres MCP landscape",
-   "text": "The reference Postgres MCP server was archived on 2025-05-29 with no security guarantees. Common replacements are Postgres MCP Pro (MIT), the hosted Supabase and Neon servers, and Google's MCP Toolbox for Databases (renamed from Gen AI Toolbox for Databases). Supabase and Neon docs both warn about prompt injection and broad permissions, and Neon advises development and testing use only.",
+   "text": "The reference Postgres MCP server was archived on 2025-05-29 with no security guarantees. Common replacements are Postgres MCP Pro (MIT), the hosted Supabase and Neon servers, and Google's MCP Toolbox for Databases. Google renamed it from Gen AI Toolbox for Databases. Supabase and Neon docs both warn about prompt injection and broad permissions. Neon advises development and testing use only.",
    "sources": [
     {
      "t": "Archived MCP reference servers",
@@ -22312,7 +22452,7 @@ window.SL = {
   },
   {
    "topic": "Neon and Databricks",
-   "text": "Databricks announced on 2025-05-14 that it would acquire Neon. Whether the deal closed, and the Lakebase product facts, were not checked against Databricks sources. The Neon MCP docs still use the Neon name; they deprecate the /sse endpoint, which stops working on or after 2026-10-01.",
+   "text": "Databricks announced on 2025-05-14 that it would acquire Neon. This note does not confirm whether the deal closed. It does not confirm the Lakebase product facts. The Neon MCP docs still use the Neon name. They deprecate the /sse endpoint, which stops working on or after 2026-10-01.",
    "sources": [
     {
      "t": "Databricks press release",
@@ -22327,7 +22467,7 @@ window.SL = {
   },
   {
    "topic": "pg_graphql is a GraphQL API, not a semantic layer",
-   "text": "pg_graphql builds a GraphQL schema from the SQL schema inside Postgres, derives relationships from foreign keys, and reads settings from SQL comment directives. The repo page showed no deprecation notice and no release version.",
+   "text": "pg_graphql builds a GraphQL schema from the SQL schema inside Postgres. It derives relationships from foreign keys. It reads settings from SQL comment directives. The repo page showed no deprecation notice and no release version.",
    "sources": [
     {
      "t": "pg_graphql README",
@@ -22349,7 +22489,7 @@ window.SL = {
   },
   {
    "topic": "External semantic layers with Postgres",
-   "text": "Cube lists Postgres, ClickHouse, DuckDB, and MotherDuck as data sources, and MetricFlow (Apache-2.0) lists Postgres among its adapters with a dbt v1 caveat. The hosted dbt Semantic Layer needs a Starter, Enterprise, or Enterprise+ account and offers a dbt MCP server. Wren AI lists PostgreSQL, ClickHouse, and DuckDB; its engine is Apache-2.0 while some features are commercial.",
+   "text": "Cube lists Postgres, ClickHouse, DuckDB and MotherDuck as data sources. MetricFlow (Apache-2.0) lists Postgres among its adapters with a dbt v1 caveat. The hosted dbt Semantic Layer needs a Starter, Enterprise or Enterprise+ account. It offers a dbt MCP server. Wren AI lists PostgreSQL, ClickHouse and DuckDB. Its engine is Apache-2.0 and some features are commercial.",
    "sources": [
     {
      "t": "Cube docs: data sources",
@@ -22372,7 +22512,7 @@ window.SL = {
   },
   {
    "topic": "ClickHouse has no native semantic layer (absence not proven)",
-   "text": "The Cloud AI/ML overview lists ClickHouse Agents, ClickHouse Assistant, and the remote MCP server; none is a semantic layer. The Agentic Data Stack post does not mention a semantic layer and says LLMs reach good SQL quality when grounded with schema metadata, table comments, and a system prompt. A negative finding from docs search cannot be fully proven.",
+   "text": "The Cloud AI/ML overview lists ClickHouse Agents, ClickHouse Assistant and the remote MCP server. None is a semantic layer. The Agentic Data Stack post does not mention a semantic layer. It says LLMs reach good SQL quality when grounded with schema metadata, table comments and a system prompt. A docs search cannot fully prove absence.",
    "sources": [
     {
      "t": "ClickHouse docs: Cloud AI/ML features",
@@ -22387,7 +22527,7 @@ window.SL = {
   },
   {
    "topic": "ClickHouse naming: Ask AI, Assistant, Agents",
-   "text": "Current docs call the Cloud console panel ClickHouse Assistant, with Agent mode and Docs AI (Ask) mode. ClickHouse Agents is a separate product in Public Beta since 2026-06-03, with Scheduled Chats added 2026-10-19. A rename from an earlier Ask AI feature is not confirmed in any page reviewed.",
+   "text": "Current docs call the Cloud console panel ClickHouse Assistant, with Agent mode and Docs AI (Ask) mode. ClickHouse Agents is a separate product in Public Beta since 2026-06-03. Scheduled Chats were added 2026-10-19. No page confirms a rename from an earlier Ask AI feature.",
    "sources": [
     {
      "t": "ClickHouse docs: ClickHouse Assistant",
@@ -22406,7 +22546,7 @@ window.SL = {
   },
   {
    "topic": "Agentic Data Stack and acquisitions",
-   "text": "The post by Dustin Healy (2026-03-03) names LibreChat, ClickHouse with its MCP server, and Langfuse. It states ClickHouse acquired Langfuse in January 2026. A LibreChat acquisition is implied only by a link slug and is not confirmed.",
+   "text": "The post by Dustin Healy (2026-03-03) names LibreChat, ClickHouse with its MCP server, and Langfuse. It states that ClickHouse acquired Langfuse in January 2026. Only a link slug implies a LibreChat acquisition. Nothing confirms it.",
    "sources": [
     {
      "t": "ClickHouse blog: The Agentic Data Stack",
@@ -22417,7 +22557,7 @@ window.SL = {
   },
   {
    "topic": "ClickHouse MCP servers",
-   "text": "mcp-clickhouse 0.7.0 was released on 2026-09-21 (first release 2025-02-12, Apache-2.0). It is read-only by default; write and destructive operations need explicit environment flags, and the README says real enforcement comes from ClickHouse grants. The Cloud remote MCP server is at mcp.clickhouse.cloud/mcp with 13 read-only tools; its docs give no status label.",
+   "text": "mcp-clickhouse 0.7.0 was released on 2026-09-21 (first release 2025-02-12, Apache-2.0). It is read-only by default. Write and destructive operations need explicit environment flags. The README says real enforcement comes from ClickHouse grants. The Cloud remote MCP server is at mcp.clickhouse.cloud/mcp with 13 read-only tools. Its docs give no status label.",
    "sources": [
     {
      "t": "mcp-clickhouse README",
@@ -22436,7 +22576,7 @@ window.SL = {
   },
   {
    "topic": "ClickHouse vector search status",
-   "text": "Docs state vector similarity indexes are available in 25.8 and later, with HNSW as the only method. The page gives no beta or GA label, and the quantized codec is marked experimental. The 2026 Cloud changelog lists index sharding in private preview (2026-04-25) and names vector search as a main beneficiary.",
+   "text": "Docs state vector similarity indexes are available in 25.8 and later, with HNSW as the only method. The page gives no beta or GA label. The quantized codec is marked experimental. The 2026 Cloud changelog lists index sharding in private preview (2026-04-25). It names vector search as a main beneficiary.",
    "sources": [
     {
      "t": "ClickHouse docs: Vector similarity indexes",
@@ -22451,7 +22591,7 @@ window.SL = {
   },
   {
    "topic": "ClickHouse with dbt, Rill, Cube, Boring Semantic Layer",
-   "text": "dbt-clickhouse covers materializations, tests, and docs, but its page mentions no semantic layer; the MetricFlow page lists no ClickHouse adapter and the dbt v2 adapter table shows ClickHouse as Private beta. Rill uses ClickHouse as OLAP engine through a live connector (v22.7 or newer) but says modeling with ClickHouse is not officially supported and sits behind a feature flag. Boring Semantic Layer runs on Ibis, which has a ClickHouse backend, though the BSL README does not name ClickHouse.",
+   "text": "dbt-clickhouse covers materializations, tests and docs. Its page mentions no semantic layer. The MetricFlow page lists no ClickHouse adapter. The dbt v2 adapter table shows ClickHouse as Private beta. Rill uses ClickHouse as OLAP engine through a live connector (v22.7 or newer). Rill says modeling with ClickHouse is not officially supported and sits behind a feature flag. Boring Semantic Layer runs on Ibis, which has a ClickHouse backend. The BSL README does not name ClickHouse.",
    "sources": [
     {
      "t": "ClickHouse docs: dbt",
@@ -22482,7 +22622,7 @@ window.SL = {
   },
   {
    "topic": "MotherDuck Guides as AI context",
-   "text": "Guides are markdown documents with a title, description, optional topic, content, and access level (user or organization). Agents read them through MCP tools such as get_query_guide, get_guide, list_guides, and search_catalog. The docs give no Preview or Beta label.",
+   "text": "Guides are markdown documents with a title, description, optional topic, content and access level (user or organization). Agents read them through MCP tools such as get_query_guide, get_guide, list_guides and search_catalog. The docs give no Preview or Beta label.",
    "sources": [
     {
      "t": "MotherDuck docs: Guides",
@@ -22501,7 +22641,7 @@ window.SL = {
   },
   {
    "topic": "MotherDuck FixIt not confirmed",
-   "text": "The docs document prompt_fix_line for fixing SQL errors but do not mention a feature named FixIt. FixIt status is Unverified. The PROMPT function lists models such as gpt-4o-mini (default) and gpt-5 and has no status label.",
+   "text": "The docs document prompt_fix_line for fixing SQL errors. They do not mention a feature named FixIt. FixIt status is Unverified. The PROMPT function lists models such as gpt-4o-mini (default) and gpt-5. It has no status label.",
    "sources": [
     {
      "t": "MotherDuck docs: SQL assistant functions",
@@ -22516,7 +22656,7 @@ window.SL = {
   },
   {
    "topic": "DuckPGQ and vss maturity",
-   "text": "DuckPGQ is a community extension described by its maintainers as a research project and work in progress; from DuckDB v2.0 a grammar setting is also required. The core vss extension is experimental, and the docs advise against on-disk HNSW indexes in production.",
+   "text": "DuckPGQ is a community extension. Its maintainers describe it as a research project and work in progress. From DuckDB v2.0 a grammar setting is also required. The core vss extension is experimental. The docs advise against on-disk HNSW indexes in production.",
    "sources": [
     {
      "t": "DuckDB community extension: duckpgq",
@@ -22535,7 +22675,7 @@ window.SL = {
   },
   {
    "topic": "MotherDuck MCP servers",
-   "text": "The hosted remote server (api.motherduck.com/mcp) exposes read-only and read-write tools, so it is not read-only by default. The local server is MIT licensed and read-only by default, but its README says read-only mode alone is not enough for third-party access.",
+   "text": "The hosted remote server (api.motherduck.com/mcp) exposes read-only and read-write tools, so it is not read-only by default. The local server is MIT licensed and read-only by default. Its README says read-only mode alone is not enough for third-party access.",
    "sources": [
     {
      "t": "MotherDuck docs: MCP server reference",
@@ -22569,7 +22709,7 @@ window.SL = {
   },
   {
    "topic": "Hex naming",
-   "text": "Current Hex docs call the AI features Threads, the Notebook agent, and Context Studio. The docs read do not use the name Hex Magic, so it is not an alias here.",
+   "text": "Current Hex docs call the AI features Threads, the Notebook agent, and Context Studio. The docs do not use the name Hex Magic, so it is not an alias here.",
    "sources": [
     {
      "t": "Hex llms.txt",
@@ -22856,7 +22996,7 @@ window.SL = {
   },
   {
    "topic": "Informatica MCP stage",
-   "text": "An Informatica MCP server page lists a CDGC Metadata Search server. A search summary of a different doc version showed private preview from the November 2025 release. TechTarget reported MCP support in the July 2025 release.",
+   "text": "An Informatica MCP server page lists a CDGC Metadata Search server. The page shows no preview label. TechTarget reported MCP support in the July 2025 release.",
    "sources": [
     {
      "t": "Introduction to Informatica MCP servers",
@@ -23061,7 +23201,7 @@ window.SL = {
   },
   {
    "topic": "benchmark: dbt",
-   "text": "Vendor-run by dbt Labs, blog dated 7 Apr 2026. Dataset: ACME Insurance (from data.world), 11 questions run 20 times each. On the original schema (all 11 questions), text-to-SQL scored 64.5% and the Semantic Layer 72.7% with both Sonnet 4.6 and GPT-5.3 Codex. After 3 dbt models were added, the Semantic Layer scored 98.2% (Sonnet 4.6) and 100.0% (GPT-5.3 Codex), and text-to-SQL scored 90.0% and 84.1%. Bodo (Sep 2026) reported 220 of 220 correct with its own PyDough pipeline on a local SQLite replica, which is not the dbt setup.",
+   "text": "Vendor-run by dbt Labs. The blog is dated 7 Apr 2026. The dataset is ACME Insurance (from data.world), with 11 questions run 20 times each. On the original schema (all 11 questions), text-to-SQL scored 64.5% and the Semantic Layer scored 72.7%. Sonnet 4.6 and GPT-5.3 Codex both gave these scores. After dbt added 3 models, the Semantic Layer scored 98.2% (Sonnet 4.6) and 100.0% (GPT-5.3 Codex). Text-to-SQL scored 90.0% and 84.1%. Bodo (Sep 2026) reported 220 of 220 correct with its own PyDough pipeline on a local SQLite replica. That setup is not the dbt setup.",
    "sources": [
     {
      "t": "Semantic Layer vs. Text-to-SQL: 2026 Benchmark Update (dbt)",
@@ -23080,7 +23220,7 @@ window.SL = {
   },
   {
    "topic": "benchmark: cube",
-   "text": "Vendor-run by Cube staff, blog and arXiv paper dated 28 Apr 2026. Dataset: Cleaned Contoso Retail in ClickHouse, 100 questions, single-shot. Adding a 4 KB hand-written markdown semantic document to the schema raised accuracy: Opus 4.7 50.5% to 67.7%, Sonnet 4.6 46.5% to 68.7%, GPT-5.4 45.5% to 68.7%. The semantic layer in this test was the markdown file, not a running Cube deployment.",
+   "text": "Vendor-run by Cube staff. The blog and arXiv paper are dated 28 Apr 2026. The dataset is Cleaned Contoso Retail in ClickHouse, with 100 questions, single-shot. A 4 KB hand-written markdown semantic document added to the schema raised accuracy. Opus 4.7 rose from 50.5% to 67.7%. Sonnet 4.6 rose from 46.5% to 68.7%. GPT-5.4 rose from 45.5% to 68.7%. The semantic layer in this test was the markdown file. It was not a running Cube deployment.",
    "sources": [
     {
      "t": "Cube blog: paired benchmark across three frontier models",
@@ -23095,7 +23235,7 @@ window.SL = {
   },
   {
    "topic": "benchmark: atscale",
-   "text": "Vendor-run by AtScale, white paper blog dated 8 Aug 2024. Dataset: TPC-DS, 40 questions, with 3 retries allowed on SQL syntax errors. A control given only table schemas and primary and foreign keys scored 20%, and the AtScale semantic layer with its query engine scored 92.5%. The blog does not name the LLM. AtScale launched a public text-to-SQL leaderboard on 6 Nov 2024.",
+   "text": "Vendor-run by AtScale. The white paper blog is dated 8 Aug 2024. The dataset is TPC-DS, with 40 questions and 3 retries allowed on SQL syntax errors. A control that had only table schemas and primary and foreign keys scored 20%. The AtScale semantic layer with its query engine scored 92.5%. The blog does not name the LLM. AtScale launched a public text-to-SQL leaderboard on 6 Nov 2024.",
    "sources": [
     {
      "t": "AtScale: natural language prompting with semantic layer and GenAI",
@@ -23110,7 +23250,7 @@ window.SL = {
   },
   {
    "topic": "Apache Ossie status for these vendors",
-   "text": "OSI is renamed Apache Ossie (incubating). dbt v1.12 reads Ossie JSON documents, Wren and Honeydew document import and export, and Cube documents conversion as Preview (changelog 16 Oct 2026). AtScale joined OSI on 27 Jan 2026. No Ossie support was found in the Malloy docs.",
+   "text": "OSI has a new name: Apache Ossie (incubating). dbt v1.12 reads Ossie JSON documents. Wren and Honeydew document import and export. Cube documents conversion as Preview (changelog 16 Oct 2026). AtScale joined OSI on 27 Jan 2026. The Malloy docs show no Ossie support.",
    "sources": [
     {
      "t": "dbt: Apache Ossie semantic layer documents",
@@ -23141,7 +23281,7 @@ window.SL = {
   },
   {
    "topic": "Cube MCP naming",
-   "text": "Cube hosts a remote MCP server at cubecloud.dev/mcp with OAuth. The earlier local npm package is deprecated in favor of it, per its README.",
+   "text": "Cube hosts a remote MCP server at cubecloud.dev/mcp with OAuth. The README says the remote server replaces the earlier local npm package, which is deprecated.",
    "sources": [
     {
      "t": "Cube MCP server docs",
@@ -23156,7 +23296,7 @@ window.SL = {
   },
   {
    "topic": "Honeydew data platform support",
-   "text": "Honeydew docs mark Snowflake as the supported platform and label Databricks and Google BigQuery support as Beta, available through support.",
+   "text": "Honeydew docs mark Snowflake as the supported platform. They label Databricks and Google BigQuery support as Beta, available through support.",
    "sources": [
     {
      "t": "Honeydew Databricks setup",
@@ -23182,7 +23322,7 @@ window.SL = {
   },
   {
    "topic": "OSI: who started it and when",
-   "text": "Snowflake announced Open Semantic Interchange (OSI) on 2025-09-23 as an open source initiative for a vendor-neutral semantic model spec. Snowflake leads it. The press release names Salesforce (with Tableau), BlackRock, dbt Labs and RelationalAI as launch partners.",
+   "text": "Snowflake announced Open Semantic Interchange (OSI) on 2025-09-23. OSI is an open source initiative for a vendor-neutral semantic model spec. Snowflake leads it. The press release names Salesforce (with Tableau), BlackRock, dbt Labs and RelationalAI as launch partners.",
    "sources": [
     {
      "t": "Snowflake press release: Open Semantic Interchange Initiative",
@@ -23193,7 +23333,7 @@ window.SL = {
   },
   {
    "topic": "OSI origins and early members",
-   "text": "The Sep 2025 coalition also listed Alation, Atlan, Blue Yonder, Cube, Elementum AI, Hex, Honeydew, Mistral AI, Omni, Select Star, Sigma and ThoughtSpot. The Snowflake Jul 2026 post says 17 launch partners but does not name them, and now counts more than 50 organizations. The press release does not use the term founding members.",
+   "text": "The Sep 2025 coalition also listed Alation, Atlan, Blue Yonder, Cube, Elementum AI, Hex, Honeydew, Mistral AI, Omni, Select Star, Sigma and ThoughtSpot. The Snowflake Jul 2026 post says 17 launch partners. It does not name them. It now counts more than 50 organizations. The press release does not use the term founding members.",
    "sources": [
     {
      "t": "Snowflake press release: Open Semantic Interchange Initiative",
@@ -23208,7 +23348,7 @@ window.SL = {
   },
   {
    "topic": "OSI working group growth",
-   "text": "Nov 2025 additions: AWS, Collibra, DataHub, Domo, Firebolt, Informatica, Instacart, JPMC, Preset, Starburst Data, Strategy. Jan 2026 additions: AtScale, Coalesce, Collate, Credible, Databricks, JetBrains, Lightdash, Qlik. Denodo joined in Mar 2026 and Kyvos in Aug 2026.",
+   "text": "Nov 2025 additions: AWS, Collibra, DataHub, Domo, Firebolt, Informatica, Instacart, JPMC, Preset, Starburst Data, Strategy. Jan 2026 additions: AtScale, Coalesce, Collate, Credible, Databricks, JetBrains, Lightdash, Qlik. Denodo joined in Mar 2026. Kyvos joined in Aug 2026.",
    "sources": [
     {
      "t": "Snowflake blog: OSI initiative expands partners (2025-11-13)",
@@ -23227,7 +23367,7 @@ window.SL = {
   },
   {
    "topic": "OSI spec status, version and license in 2026",
-   "text": "The spec is under Apache License 2.0, and the spec file lists release 0.1.1 dated 2025-12-11 (Snowflake announced the first version on 2026-01-27). On 2026-10-24 the main branch shows 0.2.0.dev0, marked draft and unreleased, with osi-0.1.1-rc1 as the only git tag. A v1.0 target was named in Nov 2025 with no date.",
+   "text": "The spec is under Apache License 2.0. The spec file lists release 0.1.1 dated 2025-12-11. Snowflake announced the first version on 2026-01-27. On 2026-10-24 the main branch shows 0.2.0.dev0, marked draft and unreleased. The only git tag is osi-0.1.1-rc1. A v1.0 target was named in Nov 2025 with no date.",
    "sources": [
     {
      "t": "Apache Ossie core spec (spec.md)",
@@ -23250,7 +23390,7 @@ window.SL = {
   },
   {
    "topic": "OSI renamed Apache Ossie (incubating)",
-   "text": "Open Semantic Interchange entered the Apache Incubator on 2026-06-22 and was renamed Apache Ossie (incubating), to avoid confusion with the Open Source Initiative acronym. The rename was announced on 2026-07-08 (Snowflake blog) and 2026-07-10 (ossie.apache.org). Spec, community and mission are unchanged, and the code lives at github.com/apache/ossie. The ASF notes that incubation does not mean the code is complete or stable.",
+   "text": "Open Semantic Interchange entered the Apache Incubator on 2026-06-22. It was renamed Apache Ossie (incubating) to avoid confusion with the Open Source Initiative acronym. The Snowflake blog announced the rename on 2026-07-08. ossie.apache.org announced it on 2026-07-10. Spec, community and mission are unchanged. The code lives at github.com/apache/ossie. The ASF notes that incubation does not mean the code is complete or stable.",
    "sources": [
     {
      "t": "Apache Ossie enters the Apache Incubator",
@@ -23277,7 +23417,7 @@ window.SL = {
   },
   {
    "topic": "Snowflake support for Ossie and OSI YAML",
-   "text": "Snowflake documents SYSTEM$CREATE_SEMANTIC_VIEW_FROM_OSSIE_YAML and SYSTEM$READ_OSSIE_YAML_FROM_SEMANTIC_VIEW, with Snowflake-only features kept in vendor extensions. The older OSI-named procedure is marked deprecated. The Preview features list shows OSI YAML for semantic views as Preview since Jun 2026, and the docs example uses spec version 0.1.1.",
+   "text": "Snowflake documents SYSTEM$CREATE_SEMANTIC_VIEW_FROM_OSSIE_YAML and SYSTEM$READ_OSSIE_YAML_FROM_SEMANTIC_VIEW. Snowflake-only features stay in vendor extensions. The older OSI-named procedure is marked deprecated. The Preview features list shows OSI YAML for semantic views as Preview since Jun 2026. The docs example uses spec version 0.1.1.",
    "sources": [
     {
      "t": "SYSTEM$CREATE_SEMANTIC_VIEW_FROM_OSSIE_YAML",
@@ -23300,7 +23440,7 @@ window.SL = {
   },
   {
    "topic": "Product rename: Snowflake Intelligence to Snowflake CoWork",
-   "text": "Snowflake Intelligence became Snowflake CoWork and Cortex Code became CoCo, announced at Snowflake Summit on 2026-06-02. Current Snowflake docs use the CoWork and CoCo names, and the 2025 GA release note for Snowflake Intelligence now points to the CoWork overview.",
+   "text": "Snowflake Intelligence became Snowflake CoWork. Cortex Code became CoCo. Snowflake announced both changes at Snowflake Summit on 2026-06-02. Current Snowflake docs use the CoWork and CoCo names. The 2025 GA release note for Snowflake Intelligence now points to the CoWork overview.",
    "sources": [
     {
      "t": "Snowflake press release: Snowflake CoWork (formerly Snowflake Intelligence), 2026-06-02",
@@ -23315,7 +23455,7 @@ window.SL = {
   },
   {
    "topic": "Is the semantic model YAML file path legacy?",
-   "text": "Yes for the stage file. Snowflake calls stage-based semantic model YAML the legacy stage API: it still works with Cortex Analyst, but semantic views are recommended for new work and stage files lack SQL querying and native sharing. YAML is still a valid way to author a semantic view through SYSTEM$CREATE_SEMANTIC_VIEW_FROM_YAML and Semantic Studio.",
+   "text": "Yes for the stage file. Snowflake calls stage-based semantic model YAML the legacy stage API. It still works with Cortex Analyst. Snowflake recommends semantic views for new work. Stage files lack SQL querying and native sharing. YAML is still a valid way to author a semantic view through SYSTEM$CREATE_SEMANTIC_VIEW_FROM_YAML and Semantic Studio.",
    "sources": [
     {
      "t": "Migrating from the legacy stage API to semantic views",
@@ -23338,7 +23478,7 @@ window.SL = {
   },
   {
    "topic": "Cortex Analyst versus Cortex Agents",
-   "text": "On 2026-08-28 Snowflake recommended moving from Cortex Analyst to Cortex Agents; the Cortex Analyst REST API stays available. Since 2026-04-13 agents generate SQL directly from semantic views, and the response block type changed from cortex_analyst_text_to_sql to system_execute_sql.",
+   "text": "On 2026-08-28 Snowflake recommended moving from Cortex Analyst to Cortex Agents. The Cortex Analyst REST API stays available. Since 2026-04-13 agents generate SQL directly from semantic views. The response block type changed from cortex_analyst_text_to_sql to system_execute_sql.",
    "sources": [
     {
      "t": "Aug 28 2026 release note: transition to Cortex Agents",
@@ -23353,7 +23493,7 @@ window.SL = {
   },
   {
    "topic": "Semantic view status and dates",
-   "text": "Semantic views: Preview 2025-04-17, defining them GA at Summit in June 2025, querying GA in Aug 2025. Standard SQL clauses on semantic views GA 2026-03-02, Semantic Studio GA 2026-09-30, Cortex Agents and managed MCP server GA 2025-11-04. Preview items: USING relationship paths, range joins, materializations, TDS export, Horizon Context (2026-10-12).",
+   "text": "Semantic views entered Preview on 2025-04-17. Defining them became GA at Summit in June 2025. Querying them became GA in Aug 2025. Standard SQL clauses on semantic views became GA on 2026-03-02. Semantic Studio became GA on 2026-09-30. Cortex Agents and the managed MCP server became GA on 2025-11-04. Preview items: USING relationship paths, range joins, materializations, TDS export and Horizon Context (2026-10-12).",
    "sources": [
     {
      "t": "Apr 17 2025 release note: Semantic views (Preview)",
@@ -23388,7 +23528,7 @@ window.SL = {
   },
   {
    "topic": "How semantic views inherit governance",
-   "text": "A semantic view is a schema-level object, so you grant SELECT on the view and need no SELECT on its base tables, as with standard views. Snowflake docs say masking and row access policies are enforced at the query engine when agents query data. Tags work on semantic views and their members since May 2026, and lineage links table, semantic view and agent since Sep 2026.",
+   "text": "A semantic view is a schema-level object. As with standard views, you grant SELECT on the view and need no SELECT on its base tables. Snowflake docs say the query engine enforces masking and row access policies when agents query data. Tags work on semantic views and their members since May 2026. Lineage links the table, semantic view and agent since Sep 2026.",
    "sources": [
     {
      "t": "Querying semantic views",
@@ -23411,7 +23551,7 @@ window.SL = {
   },
   {
    "topic": "BI tool support for semantic views",
-   "text": "Inbound: Autopilot builds a semantic view from a Power BI file (GA 2026-08-18; DAX measures become metrics) or a Tableau file. Outbound: SYSTEM$EXPORT_TDS_FROM_SEMANTIC_VIEW makes a Tableau data source (Preview, Mar 2026). Native semantic view support inside other BI tools is unverified.",
+   "text": "Inbound: Autopilot builds a semantic view from a Power BI file (GA 2026-08-18) or a Tableau file. DAX measures become metrics. Outbound: SYSTEM$EXPORT_TDS_FROM_SEMANTIC_VIEW makes a Tableau data source (Preview, Mar 2026). Native semantic view support inside other BI tools is unverified.",
    "sources": [
     {
      "t": "Power BI ingestion feature support",
@@ -23438,7 +23578,7 @@ window.SL = {
   },
   {
    "topic": "Graph features",
-   "text": "No property graph, SQL/PGQ or Cypher feature appears in the Snowflake SQL command and function indexes. Neo4j documents Graph Analytics for Snowflake (graph algorithms on Snowpark Container Services), and RelationalAI lists a Snowflake Native App with graph reasoning.",
+   "text": "The Snowflake SQL command and function indexes show no property graph, SQL/PGQ or Cypher feature. Neo4j documents Graph Analytics for Snowflake (graph algorithms on Snowpark Container Services). RelationalAI lists a Snowflake Native App with graph reasoning.",
    "sources": [
     {
      "t": "Neo4j Graph Analytics for Snowflake",
@@ -23468,7 +23608,7 @@ window.SL = {
   },
   {
    "topic": "Claims not fully verified",
-   "text": "Semantic View Autopilot has no Preview label in docs and Power BI ingestion for it is GA, but no GA release note was found; Flexera (third party) says GA since Feb 2026. Tableau ingestion status, Cortex Analyst exact GA date (Preview Aug 2024), and third-party BI tools reading semantic views are unverified.",
+   "text": "Semantic View Autopilot has no Preview label in the docs. Power BI ingestion for it is GA. The docs list no GA release note for it. Flexera (third party) says GA since Feb 2026. These items are unverified: Tableau ingestion status, the exact GA date of Cortex Analyst (Preview Aug 2024), and third-party BI tools that read semantic views.",
    "sources": [
     {
      "t": "Semantic View Autopilot",
@@ -23487,7 +23627,7 @@ window.SL = {
   },
   {
    "topic": "Open Semantic Interchange is now Apache Ossie (incubating)",
-   "text": "The OSI project is renamed Apache Ossie and is in the Apache Incubator. The Ossie ecosystem page lists Denodo, Dremio, and Starburst Data. It does not list Timbr, and it shows no converter for any of the four.",
+   "text": "The OSI project has a new name: Apache Ossie. It is in the Apache Incubator. The Ossie ecosystem page lists Denodo, Dremio, and Starburst Data. It does not list Timbr. It shows no converter for any of the four.",
    "sources": [
     {
      "t": "Apache Ossie ecosystem",
@@ -23506,7 +23646,7 @@ window.SL = {
   },
   {
    "topic": "Dremio is now part of SAP",
-   "text": "SAP announced completion of the Dremio acquisition on 6 July 2026. Dremio docs and press pages still use the Dremio name, and a site banner reads 'Dremio is now part of SAP'. No rename was announced in the docs.",
+   "text": "SAP announced completion of the Dremio acquisition on 6 July 2026. Dremio docs and press pages still use the Dremio name. A site banner reads 'Dremio is now part of SAP'. The docs announce no rename.",
    "sources": [
     {
      "t": "SAP completes Dremio acquisition",
@@ -23521,7 +23661,7 @@ window.SL = {
   },
   {
    "topic": "Dremio docs split and agentic lakehouse timeline",
-   "text": "Dremio Cloud (launched 13 Nov 2025 as the agentic lakehouse) and self-managed Dremio have separate doc trees. The current/ tree is the self-managed 26.x docs. The Nov 2025 launch named the AI Semantic Layer, AI Agent, and MCP support but gave no per-feature GA label.",
+   "text": "Dremio Cloud and self-managed Dremio have separate doc trees. Dremio Cloud launched on 13 Nov 2025 as the agentic lakehouse. The current/ tree is the self-managed 26.x docs. The Nov 2025 launch named the AI Semantic Layer, AI Agent, and MCP support. It gave no per-feature GA label.",
    "sources": [
     {
      "t": "Dremio unveils the agentic lakehouse (13 Nov 2025)",
@@ -23536,7 +23676,7 @@ window.SL = {
   },
   {
    "topic": "Denodo renames",
-   "text": "Data Catalog became Data Marketplace in 9.3. Embedded MPP became Lakehouse Accelerator and Cache Engine became Materialization Engine by 9.4. Reference Lineage became 360 Graph in 9.5.",
+   "text": "Data Catalog became Data Marketplace in 9.3. Embedded MPP became Lakehouse Accelerator by 9.4. Cache Engine became Materialization Engine by 9.4. Reference Lineage became 360 Graph in 9.5.",
    "sources": [
     {
      "t": "What is new in Denodo 9.4",
@@ -23551,7 +23691,7 @@ window.SL = {
   },
   {
    "topic": "Denodo release timeline",
-   "text": "9.3 shipped 16 Sep 2025 with DeepQuery. 9.4 (March 2026, vector data type) and 9.5 (July 2026, metric views, LLM-agent Denodo Assistant) dates come from press coverage, not Denodo docs.",
+   "text": "9.3 shipped on 16 Sep 2025 with DeepQuery. Press coverage gives the dates of 9.4 (March 2026, vector data type) and 9.5 (July 2026, metric views, LLM-agent Denodo Assistant). Denodo docs do not give them.",
    "sources": [
     {
      "t": "Denodo Platform 9.3 press release",
@@ -23566,7 +23706,7 @@ window.SL = {
   },
   {
    "topic": "Status labels used in this file",
-   "text": "Vendors in this set label Preview features in their docs (Dremio wiki generation, Starburst skills, Timbr Solomon). Features with no label in their own doc page are marked GA here. Where a release note or press release states GA, the artifact says so; otherwise treat GA as inferred from the missing Preview label.",
+   "text": "Vendors in this set label Preview features in their docs. These are Dremio wiki generation, Starburst skills, and Timbr Solomon. Features with no label in their own doc page are marked GA here. Where a release note or press release states GA, the artifact says so. Otherwise, treat GA as inferred from the missing Preview label.",
    "sources": [
     {
      "t": "Starburst Enterprise release 477-e (explicit GA list)",
@@ -23581,7 +23721,7 @@ window.SL = {
   },
   {
    "topic": "Starburst editions",
-   "text": "The docs cover mostly Starburst Enterprise 483-e. Starburst Galaxy also documents AIDA, AI data product enrichment, and an MCP server, but its release status is unverified. Open-source Trino views accept a COMMENT clause and nothing else for semantic context.",
+   "text": "The docs cover mostly Starburst Enterprise 483-e. Starburst Galaxy also documents AIDA, AI data product enrichment, and an MCP server. Its release status is unverified. Open-source Trino views accept a COMMENT clause and nothing else for semantic context.",
    "sources": [
     {
      "t": "Starburst Galaxy: AIDA",
@@ -23596,7 +23736,7 @@ window.SL = {
   },
   {
    "topic": "Timbr MCP and Knowledge Base timing",
-   "text": "The Timbr changelog shows MCP OAuth and Dynamic Client Registration in release 2.55.1 (23 Mar 2026). It shows a new Knowledge Base management page in the 14 Jul 2026 release. The first MCP release date was not found.",
+   "text": "The Timbr changelog shows MCP OAuth and Dynamic Client Registration in release 2.55.1 (23 Mar 2026). It shows a new Knowledge Base management page in the 14 Jul 2026 release. The date of the first MCP release is unknown.",
    "sources": [
     {
      "t": "Timbr platform changelog",
@@ -23607,7 +23747,7 @@ window.SL = {
   },
   {
    "topic": "Dremio MCP support scope",
-   "text": "The Dremio docs say the open-source MCP server is not covered by Dremio Support Policies. The hosted server needs a Dremio Cloud project and, for clients other than Claude.ai and ChatGPT, a Native OAuth application.",
+   "text": "The Dremio docs say Dremio Support Policies do not cover the open-source MCP server. The hosted server needs a Dremio Cloud project. For clients other than Claude.ai and ChatGPT, it also needs a Native OAuth application.",
    "sources": [
     {
      "t": "Connect AI agents to Dremio with MCP",
@@ -23618,7 +23758,7 @@ window.SL = {
   },
   {
    "topic": "Redshift enrichment path",
-   "text": "Redshift has COMMENT ON for comments, and Amazon Q generative SQL in Query Editor v2 takes an admin-uploaded custom context with table and column annotations and curated queries. AI-drafted descriptions and glossary terms come from SageMaker Catalog, a separate product that supports Redshift assets.",
+   "text": "Redshift has COMMENT ON for comments. Amazon Q generative SQL in Query Editor v2 takes an admin-uploaded custom context with table and column annotations and curated queries. AI-drafted descriptions and glossary terms come from SageMaker Catalog. SageMaker Catalog is a separate product that supports Redshift assets.",
    "sources": [
     {
      "t": "Redshift COMMENT",
@@ -23637,7 +23777,7 @@ window.SL = {
   },
   {
    "topic": "SageMaker Catalog AI descriptions",
-   "text": "The DataZone StartMetadataGenerationRun API takes types BUSINESS_DESCRIPTIONS, BUSINESS_NAMES and BUSINESS_GLOSSARY_ASSOCIATIONS, at most 2 per call. The older single type field is still listed. Default quotas are 10K description runs, 50K business name runs and 10K glossary term runs a month.",
+   "text": "The DataZone StartMetadataGenerationRun API takes types BUSINESS_DESCRIPTIONS, BUSINESS_NAMES and BUSINESS_GLOSSARY_ASSOCIATIONS, at most 2 per call. The API still lists the older single type field. Default quotas are 10K description runs, 50K business name runs and 10K glossary term runs a month.",
    "sources": [
     {
      "t": "AWS CLI: start-metadata-generation-run",
@@ -23652,7 +23792,7 @@ window.SL = {
   },
   {
    "topic": "Redshift lineage scope",
-   "text": "The Dec 2024 GA announcement says lineage covers columns from Glue, Redshift and Spark. The July 2026 update for IAM-based domains names Spark jobs on EMR and Glue, Visual ETL and notebooks, and does not mention Redshift.",
+   "text": "The Dec 2024 GA announcement says lineage covers columns from Glue, Redshift and Spark. The July 2026 update for IAM-based domains names Spark jobs on EMR and Glue, Visual ETL and notebooks. It does not mention Redshift.",
    "sources": [
     {
      "t": "Data lineage is GA in Amazon DataZone and next generation SageMaker",
@@ -23667,7 +23807,7 @@ window.SL = {
   },
   {
    "topic": "Redshift query history use",
-   "text": "Amazon Q generative SQL can use query history shared across users in the account to improve recommendations. An admin grants SYS:MONITOR to allow it. Free tier allows 1,000 prompts a month per account, Pro tier 1,000 per user.",
+   "text": "Amazon Q generative SQL can use query history shared across users in the account to improve recommendations. An admin grants SYS:MONITOR to allow it. The free tier allows 1,000 prompts a month per account. The Pro tier allows 1,000 per user.",
    "sources": [
     {
      "t": "Interacting with Amazon Q generative SQL",
@@ -23682,7 +23822,7 @@ window.SL = {
   },
   {
    "topic": "Fabric data agent status",
-   "text": "The data agent concept page calls the feature generally available, and the runtime page says the standard runtime is GA. The release status table (updated 2026-06-19) still lists Data agent as Preview. Features on the preview runtime are Preview: schema object descriptions, topics, Advanced NL2SQL. The evaluation SDK, Python SDK and Copilot feedback pages are labeled Preview.",
+   "text": "The data agent concept page calls the feature generally available. The runtime page says the standard runtime is GA. The release status table (updated 2026-06-19) still lists Data agent as Preview. Features on the preview runtime are Preview: schema object descriptions, topics, Advanced NL2SQL. The evaluation SDK, Python SDK and Copilot feedback pages are labeled Preview.",
    "sources": [
     {
      "t": "Fabric data agent concepts",
@@ -23701,7 +23841,7 @@ window.SL = {
   },
   {
    "topic": "Power BI Prep data for AI",
-   "text": "The Learn article is titled 'Prepare your data for AI to improve Copilot results (preview)'. It covers AI data schema, verified answers and AI instructions, saved to the semantic model.",
+   "text": "The Learn article is titled 'Prepare your data for AI to improve Copilot results (preview)'. It covers AI data schema, verified answers and AI instructions. Power BI saves them to the semantic model.",
    "sources": [
     {
      "t": "Prepare your data for AI (preview)",
@@ -23712,7 +23852,7 @@ window.SL = {
   },
   {
    "topic": "Fabric feedback loop",
-   "text": "Users rate data agent answers in Microsoft 365 Copilot (Preview), and the creator reads them with list_feedback in a notebook. The article does not say feedback becomes example queries, so that step is manual.",
+   "text": "Users rate data agent answers in Microsoft 365 Copilot (Preview). The creator reads the ratings with list_feedback in a notebook. The article does not say feedback becomes example queries, so that step is manual.",
    "sources": [
     {
      "t": "Data agent feedback in Microsoft Copilot",
@@ -23723,7 +23863,7 @@ window.SL = {
   },
   {
    "topic": "SAP Datasphere AI and CLI status",
-   "text": "SAP docs print no GA or Preview labels for the AI services, so these are rated 3 with that caveat. The CLI import and export page only points to the datasphere command line and shows no commands, so bulkSnippet code is empty.",
+   "text": "SAP docs print no GA or Preview labels for the AI services, so these are rated 3 with that caveat. The CLI import and export page only points to the datasphere command line. It shows no commands, so bulkSnippet code is empty.",
    "sources": [
     {
      "t": "Enable SAP Business AI for SAP Datasphere",
@@ -23738,7 +23878,7 @@ window.SL = {
   },
   {
    "topic": "SQL Server descriptions and Copilot instructions",
-   "text": "T-SQL stores descriptions only as extended properties. GitHub Copilot in SSMS 22.3 and later reads instructions from extended properties named AGENTS.md (per object) and CONSTITUTION.md (per database).",
+   "text": "T-SQL stores descriptions only as extended properties. GitHub Copilot in SSMS 22.3 and later reads instructions from extended properties. The names are AGENTS.md (per object) and CONSTITUTION.md (per database).",
    "sources": [
     {
      "t": "sp_addextendedproperty",
@@ -23753,7 +23893,7 @@ window.SL = {
   },
   {
    "topic": "Strategy bots are now agents",
-   "text": "Strategy One renamed enhanced bots to agents in September 2025. A dataset must be enabled for AI before an agent can use it, which generates the dataset and column descriptions.",
+   "text": "Strategy One renamed enhanced bots to agents in September 2025. A dataset must be enabled for AI before an agent can use it. This generates the dataset and column descriptions.",
    "sources": [
     {
      "t": "Enable a Dataset for Agents",
@@ -23779,7 +23919,7 @@ window.SL = {
   },
   {
    "topic": "Qlik business logic turns off precedent learning",
-   "text": "When business logic is enabled in a Qlik app, precedent-based learning is disabled for that app, so Insight Advisor relies on the logical model and vocabulary you maintain.",
+   "text": "When business logic is enabled in a Qlik app, Qlik disables precedent-based learning for that app. Insight Advisor then relies on the logical model and vocabulary that you maintain.",
    "sources": [
     {
      "t": "Building logical models for Insight Advisor with Business logic",
@@ -23790,7 +23930,7 @@ window.SL = {
   },
   {
    "topic": "Sigma AI context is Beta",
-   "text": "The page for AI context on data models says it describes public beta features that may change. Sigma datasets can no longer be used as a data source since 2026-09-15, so use data models.",
+   "text": "The page for AI context on data models says it describes public beta features. These features may change. Sigma datasets are no longer a data source since 2026-09-15. Use data models.",
    "sources": [
     {
      "t": "Manage AI context for a data model (Beta)",
@@ -23805,7 +23945,7 @@ window.SL = {
   },
   {
    "topic": "ThoughtSpot Worksheets",
-   "text": "ThoughtSpot deprecated Worksheets in 10.4.0.cl (Nov 2024) and removed them in 10.12.0.cl (Aug 2025). Existing Worksheets were migrated to Models, so edit Model TML.",
+   "text": "ThoughtSpot deprecated Worksheets in 10.4.0.cl (Nov 2024). It removed them in 10.12.0.cl (Aug 2025). ThoughtSpot migrated existing Worksheets to Models. Edit Model TML.",
    "sources": [
     {
      "t": "Deprecated and removed features",
@@ -23831,7 +23971,7 @@ window.SL = {
   },
   {
    "topic": "Neo4j LLM Knowledge Graph Builder (lead: schema and descriptions from documents)",
-   "text": "Partly confirmed. It is a Neo4j Labs project (Apache-2.0, not in the supported product lineup) that extracts an entity graph from documents with LLMs; its 'Get Schema From Text' option suggests a schema from pasted text, RDF ontologies or a Cypher/GQL schema. The pages describe no description generation and no evaluation.",
+   "text": "Partly confirmed. It is a Neo4j Labs project. It uses Apache-2.0 and is not in the supported product lineup. It extracts an entity graph from documents with LLMs. Its 'Get Schema From Text' option suggests a schema from pasted text, RDF ontologies or a Cypher/GQL schema. The pages describe no description generation. The pages describe no evaluation.",
    "sources": [
     {
      "t": "LLM Knowledge Graph Builder features",
@@ -23846,7 +23986,7 @@ window.SL = {
   },
   {
    "topic": "Neo4j text2cypher evaluation datasets (lead)",
-   "text": "Confirmed as an experimental Labs repo with datasets, evaluation notebooks and fine-tuning notebooks (folders: functional_cypher and synthetic_*_demodbs). The Hugging Face dataset neo4j/text2cypher-2025v1 is Apache-2.0 with 10K to 100K rows, and its card gives no source or intended use. These are datasets and notebooks, not an eval service.",
+   "text": "Confirmed as an experimental Labs repo. It has datasets, evaluation notebooks and fine-tuning notebooks. The folders are functional_cypher and synthetic_*_demodbs. The Hugging Face dataset neo4j/text2cypher-2025v1 is Apache-2.0 with 10K to 100K rows. Its card gives no source or intended use. These are datasets and notebooks. They are not an eval service.",
    "sources": [
     {
      "t": "neo4j-labs/text2cypher (GitHub)",
@@ -23865,7 +24005,7 @@ window.SL = {
   },
   {
    "topic": "Neo4j lineage use cases (lead)",
-   "text": "Refuted as a product feature. The use-case index has no lineage or catalog page. The Metadata Management page mentions lineage only in customer and partner videos (University of Washington, Adaptive), as a modeling pattern.",
+   "text": "Refuted as a product feature. The use-case index has no lineage or catalog page. The Metadata Management page mentions lineage only in customer and partner videos (University of Washington, Adaptive). The videos show lineage as a modeling pattern.",
    "sources": [
     {
      "t": "Neo4j use cases",
@@ -23879,8 +24019,8 @@ window.SL = {
    "from": "enrich-kg.json"
   },
   {
-   "topic": "Neo4j Aura Agent (not in leads, found during check)",
-   "text": "Aura Agent was announced generally available on 2026-02-03, with Cypher Template, Similarity Search and Text2Cypher tools, a REST endpoint and a read-only MCP server. The docs describe agent evaluations (datasets up to 50 questions, five metrics) with no preview label; the GA blog does not mention them.",
+   "topic": "Neo4j Aura Agent",
+   "text": "Neo4j announced Aura Agent as generally available on 2026-02-03. It has Cypher Template, Similarity Search and Text2Cypher tools. It also has a REST endpoint and a read-only MCP server. The docs describe agent evaluations with datasets of up to 50 questions and five metrics. The docs show no preview label. The GA blog does not mention evaluations.",
    "sources": [
     {
      "t": "Aura Agent docs",
@@ -23895,7 +24035,7 @@ window.SL = {
   },
   {
    "topic": "Stardog Voicebox generating mappings and descriptions (lead)",
-   "text": "Partly confirmed. Voicebox for Designer needs a Voicebox-enabled endpoint and lists 'Automated Ontology Generation' that maps data sources to ontology concepts with human review. AI-written descriptions are not documented; the Designer bulk description edit is manual, and the dev guide says Voicebox API access is limited.",
+   "text": "Partly confirmed. Voicebox for Designer needs a Voicebox-enabled endpoint. It lists 'Automated Ontology Generation', which maps data sources to ontology concepts with human review. The docs do not describe AI-written descriptions. The Designer bulk description edit is manual. The dev guide says Voicebox API access is limited.",
    "sources": [
     {
      "t": "Voicebox: Ontology Maintenance and Data Mapping",
@@ -23918,7 +24058,7 @@ window.SL = {
   },
   {
    "topic": "Stardog virtual graph mapping import (lead)",
-   "text": "Refined. 'virtual add' registers a mapping file and 'virtual import' copies mapped data into Stardog; neither imports mapping files as metadata. Relational sources with a built-in schema get automatic R2RML direct mapping, SMS2 is the recommended syntax, and release notes say SMS1 support was removed in 11.0.0 (2025-01-22) although the virtual graphs page still names SMS as the default.",
+   "text": "Refined. 'virtual add' registers a mapping file. 'virtual import' copies mapped data into Stardog. Neither command imports mapping files as metadata. Relational sources with a built-in schema get automatic R2RML direct mapping. SMS2 is the recommended syntax. The release notes say Stardog removed SMS1 support in 11.0.0 (2025-01-22). The virtual graphs page still names SMS as the default.",
    "sources": [
     {
      "t": "Virtual Graphs",
@@ -23937,7 +24077,7 @@ window.SL = {
   },
   {
    "topic": "RelationalAI model generation (lead)",
-   "text": "Partly confirmed, through coding agents and not an in-product generator. The 12 RelationalAI Agent Skills include rai-ontology, which builds ontologies from Snowflake tables or local data, and the tutorial tells you to review the generated files in model/. The docs home calls the product a 'decision intelligence platform'; RAI_QUERY_MODEL is Preview and Cortex agent deployment is early access.",
+   "text": "Partly confirmed, through coding agents. It is not an in-product generator. The 12 RelationalAI Agent Skills include rai-ontology. It builds ontologies from Snowflake tables or local data. The tutorial tells you to review the generated files in model/. The docs home calls the product a 'decision intelligence platform'. RAI_QUERY_MODEL is Preview. Cortex agent deployment is early access.",
    "sources": [
     {
      "t": "RelationalAI Agent Skills",
@@ -23960,7 +24100,7 @@ window.SL = {
   },
   {
    "topic": "data.world ownership and AI Context Engine (lead)",
-   "text": "The data.world home page shows the banner 'data.world is now part of ServiceNow!' with no date. The name 'AI Context Engine' appears nowhere on the data.world pages and docs fetched, so it is Unverified. The docs name the AI assistant Archie.",
+   "text": "The data.world home page shows the banner 'data.world is now part of ServiceNow!' with no date. The name 'AI Context Engine' appears on no data.world page or doc, so it is Unverified. The docs name the AI assistant Archie.",
    "sources": [
     {
      "t": "data.world home",
@@ -23975,7 +24115,7 @@ window.SL = {
   },
   {
    "topic": "data.world AI-generated metadata (lead)",
-   "text": "Confirmed as Archie Enrich, in Public Preview for Enterprise customers. It drafts descriptions for tables, columns, glossary terms and collections, marks output '[Archie suggestion]', and generates up to 50 descriptions at once in bulk mode. SQL generation and research-question generation are beta, and the FAQ says customer data is not used to train the model.",
+   "text": "Confirmed as Archie Enrich, in Public Preview for Enterprise customers. It drafts descriptions for tables, columns, glossary terms and collections. It marks output '[Archie suggestion]'. In bulk mode it generates up to 50 descriptions at once. SQL generation and research-question generation are beta. The FAQ says the vendor does not use customer data to train the model.",
    "sources": [
     {
      "t": "Using Archie AI Assistant",
@@ -24002,7 +24142,7 @@ window.SL = {
   },
   {
    "topic": "data.world bulk import APIs (lead)",
-   "text": "Confirmed. PATCH /v0/metadata/resources/bulk/{owner} updates up to 25 resources per call, and the bulk create endpoint has the same limit; the reference lists no rate limits. The MCP server can edit descriptions, tags and custom properties, and Excel bulk upload exists in the Catalog Toolkit.",
+   "text": "Confirmed. PATCH /v0/metadata/resources/bulk/{owner} updates up to 25 resources per call. The bulk create endpoint has the same limit. The reference lists no rate limits. The MCP server can edit descriptions, tags and custom properties. Excel bulk upload exists in the Catalog Toolkit.",
    "sources": [
     {
      "t": "data.world developer docs",
@@ -24025,7 +24165,7 @@ window.SL = {
   },
   {
    "topic": "data.world lineage (lead)",
-   "text": "Partly confirmed. The system collects lineage automatically from supported systems through collectors, and users can add manual relationships. The docs do not say whether lineage is column-level, so the lineage level is 0 under the column-level definition.",
+   "text": "Partly confirmed. The system collects lineage automatically from supported systems through collectors. Users can add manual relationships. The docs do not say if lineage is column-level. So the lineage level is 0 under the column-level definition.",
    "sources": [
     {
      "t": "Custom relationships for lineage (CTK)",
@@ -24036,7 +24176,7 @@ window.SL = {
   },
   {
    "topic": "Palantir AI-assisted ontology creation (lead)",
-   "text": "Partly confirmed. AI FDE has an Ontology editing mode for 'creating or updating the objects, links, and actions', needs AIP enabled, and recommends Global Branching. The docs show no beta or GA label and do not name object types or descriptions.",
+   "text": "Partly confirmed. AI FDE has an Ontology editing mode for 'creating or updating the objects, links, and actions'. It needs AIP enabled. It recommends Global Branching. The docs show no beta or GA label. The docs do not name object types or descriptions.",
    "sources": [
     {
      "t": "AI FDE overview",
@@ -24051,7 +24191,7 @@ window.SL = {
   },
   {
    "topic": "Palantir AIP Evals (lead)",
-   "text": "Confirmed. AIP Evals tests AIP Logic, AIP Chatbot and code-authored functions with built-in, LLM-as-judge or custom evaluators, and test cases come from manual entry or Ontology object sets. A 'Generate evals' button exists for eligible Logic functions, and the docs show no status label; AIP Chatbot Studio is the new name of AIP Agent Studio.",
+   "text": "Confirmed. AIP Evals tests AIP Logic, AIP Chatbot and code-authored functions. It uses built-in, LLM-as-judge or custom evaluators. Test cases come from manual entry or Ontology object sets. A 'Generate evals' button exists for eligible Logic functions. The docs show no status label. AIP Chatbot Studio is the new name of AIP Agent Studio.",
    "sources": [
     {
      "t": "AIP Evals overview",
@@ -24074,7 +24214,7 @@ window.SL = {
   },
   {
    "topic": "Palantir Foundry data lineage (lead)",
-   "text": "Partly confirmed. Data Lineage is a dataset graph with ancestors and descendants, and its column feature only finds datasets that share a column name. Workflow Lineage adds property provenance across Ontology objects, functions, actions and apps; No column-level lineage found in the docs.",
+   "text": "Partly confirmed. Data Lineage is a dataset graph with ancestors and descendants. Its column feature only finds datasets that share a column name. Workflow Lineage adds property provenance across Ontology objects, functions, actions and apps. The docs show no column-level lineage.",
    "sources": [
     {
      "t": "Data Lineage overview",
@@ -24093,7 +24233,7 @@ window.SL = {
   },
   {
    "topic": "Palantir Sensitive Data Scanner rename",
-   "text": "The page says Sensitive Data Scanner was formerly called Foundry Inference. It may not be enabled by default on an enrollment.",
+   "text": "The page says Sensitive Data Scanner was formerly called Foundry Inference. An enrollment may not enable it by default.",
    "sources": [
     {
      "t": "Sensitive Data Scanner overview",
@@ -24104,13 +24244,13 @@ window.SL = {
   },
   {
    "topic": "What level 0 means here",
-   "text": "A level 0 means the docs pages listed for that vendor do not show the feature. Pages without a source URL were searched but returned nothing.",
+   "text": "A level 0 means the docs pages listed for that vendor do not show the feature. A level 0 item without a source URL has no page that shows it.",
    "sources": [],
    "from": "enrich-oracle-teradata-postgres-clickhouse.json"
   },
   {
    "topic": "Oracle annotations version",
-   "text": "The 26ai SQL reference documents the annotations clause, and the 19c application development guide has a schema annotations chapter with the same DDL. The Select AI annotations profile attribute is described as a 26ai feature.",
+   "text": "The 26ai SQL reference documents the annotations clause. The 19c application development guide has a schema annotations chapter with the same DDL. The docs describe the Select AI annotations profile attribute as a 26ai feature.",
    "sources": [
     {
      "t": "Annotations clause (26ai)",
@@ -24129,7 +24269,7 @@ window.SL = {
   },
   {
    "topic": "Oracle Select AI feedback as evals",
-   "text": "The docs say feedback works only on 26ai with an NL2SQL profile and creates a vector index named <profile>_FEEDBACK_VECINDEX. Positive feedback stores the confirmed SQL. Negative feedback is refined by an LLM and stored as a hint. The page carries no preview label.",
+   "text": "The docs say feedback works only on 26ai with an NL2SQL profile. It creates a vector index named <profile>_FEEDBACK_VECINDEX. Positive feedback stores the confirmed SQL. An LLM refines negative feedback and stores it as a hint. The page carries no preview label.",
    "sources": [
     {
      "t": "Select AI feedback",
@@ -24140,7 +24280,7 @@ window.SL = {
   },
   {
    "topic": "Teradata comment limits",
-   "text": "The Teradata COMMENT statement stores up to 255 characters per object and replaces any existing comment. Teradata items marked not checked have no confirmed answer yet.",
+   "text": "The Teradata COMMENT statement stores up to 255 characters per object. It replaces any existing comment. Teradata items marked not checked have no confirmed answer yet.",
    "sources": [
     {
      "t": "COMMENT syntax elements",
@@ -24151,7 +24291,7 @@ window.SL = {
   },
   {
    "topic": "Teradata MCP server",
-   "text": "The Teradata MCP server is MIT licensed and loads tools, prompts, cubes and glossary terms from YAML. It is a separate open-source project, not a Vantage feature.",
+   "text": "The Teradata MCP server is MIT licensed. It loads tools, prompts, cubes and glossary terms from YAML. It is a separate open-source project, not a Vantage feature.",
    "sources": [
     {
      "t": "Teradata MCP Server README",
@@ -24162,7 +24302,7 @@ window.SL = {
   },
   {
    "topic": "Databricks Data Classification status",
-   "text": "Release notes show GA on 2026-04-20. Scanning views reached Beta on 2026-09-15, the API went GA on 2026-10-14, and auto-tag configuration in the API remains Public Preview.",
+   "text": "Release notes show GA on 2026-04-20. Scanning views reached Beta on 2026-09-15. The API went GA on 2026-10-14. Auto-tag configuration in the API remains Public Preview.",
    "sources": [
     {
      "t": "Data Classification release notes",
@@ -24173,7 +24313,7 @@ window.SL = {
   },
   {
    "topic": "Databricks bulk comments",
-   "text": "ALTER TABLE ... ALTER COLUMN accepts several column changes in one statement on Runtime 16.3 and above, separated by commas.",
+   "text": "On Runtime 16.3 and above, ALTER TABLE ... ALTER COLUMN accepts several column changes in one statement. Commas separate the changes.",
    "sources": [
     {
      "t": "ALTER TABLE ... COLUMN clause",
@@ -24184,7 +24324,7 @@ window.SL = {
   },
   {
    "topic": "Genie naming",
-   "text": "Genie Spaces are now called Genie Agents, and docs moved to the genie-agents path. Benchmarks and value sampling pages carry no status label.",
+   "text": "Genie Spaces are now called Genie Agents. The docs moved to the genie-agents path. The Benchmarks and value sampling pages carry no status label.",
    "sources": [
     {
      "t": "Tune Genie Agent quality",
@@ -24210,7 +24350,7 @@ window.SL = {
   },
   {
    "topic": "BigQuery naming",
-   "text": "Dataplex Universal Catalog is now called Knowledge Catalog. Conversational Analytics API is GA for BigQuery and Looker as of 2026-06-23, and verified queries were formerly golden queries.",
+   "text": "Dataplex Universal Catalog is now called Knowledge Catalog. Conversational Analytics API is GA for BigQuery and Looker as of 2026-06-23. Verified queries were formerly golden queries.",
    "sources": [
     {
      "t": "Conversational Analytics API release notes",
@@ -24221,7 +24361,7 @@ window.SL = {
   },
   {
    "topic": "Snowflake sample values",
-   "text": "SAMPLE_VALUES and IS_ENUM are supported in semantic view YAML and DDL. IS_ENUM marks the listed values as the full set and is valid on dimensions only.",
+   "text": "Semantic view YAML and DDL support SAMPLE_VALUES and IS_ENUM. IS_ENUM marks the listed values as the full set. IS_ENUM is valid on dimensions only.",
    "sources": [
     {
      "t": "YAML vs DDL authoring for semantic views",
@@ -24232,7 +24372,7 @@ window.SL = {
   },
   {
    "topic": "Looker scored none",
-   "text": "AI descriptions, auto classification, query history, column lineage and evals were checked against Looker docs and are not offered natively. Descriptions are written as LookML.",
+   "text": "Looker does not offer AI descriptions, auto classification, query history, column lineage or evals natively. The Looker docs support this. Descriptions are written as LookML.",
    "sources": [
     {
      "t": "Conversational Analytics in Looker overview",
@@ -24247,7 +24387,7 @@ window.SL = {
   },
   {
    "topic": "Dremio AI wiki and label status",
-   "text": "Dremio docs mark Generate wiki and Generate labels as Preview. The Catalog API manages wikis and tags per dataset; column descriptions have no documented API.",
+   "text": "Dremio docs mark Generate wiki and Generate labels as Preview. The Catalog API manages wikis and tags per dataset. Column descriptions have no documented API.",
    "sources": [
     {
      "t": "Wikis and Labels",
@@ -24258,7 +24398,7 @@ window.SL = {
   },
   {
    "topic": "Starburst enrichment and AIDA",
-   "text": "A May 2026 release announces AIDA and Automatic Metadata Enrichment as GA. Data sampling inside enrichment and Galaxy column lineage are public preview.",
+   "text": "A May 2026 release announces AIDA and Automatic Metadata Enrichment as GA. Data sampling inside enrichment is public preview. Galaxy column lineage is public preview.",
    "sources": [
     {
      "t": "Starburst Enterprise Intelligence Platform release",
@@ -24273,7 +24413,7 @@ window.SL = {
   },
   {
    "topic": "Denodo licensing",
-   "text": "Denodo Assistant features sit in the AI & Denodo Assistant FeaturePack, which is a separately licensed add-on to the Enterprise Plus bundle.",
+   "text": "Denodo Assistant features sit in the AI & Denodo Assistant FeaturePack. It is a separately licensed add-on to the Enterprise Plus bundle.",
    "sources": [
     {
      "t": "Denodo Platform feature packs",
@@ -24284,7 +24424,7 @@ window.SL = {
   },
   {
    "topic": "dbt AI products",
-   "text": "dbt Labs now recommends dbt Wizard over dbt Copilot. Copilot remains in Canvas and Insights, and Copilot in Insights is Beta.",
+   "text": "dbt Labs now recommends dbt Wizard over dbt Copilot. Copilot remains in Canvas and Insights. Copilot in Insights is Beta.",
    "sources": [
     {
      "t": "dbt AI FAQs",
@@ -24299,7 +24439,7 @@ window.SL = {
   },
   {
    "topic": "Wren AI roadmap items",
-   "text": "Wren docs list the operational and behavioral context layers as in active development, and value profiling and a golden eval runner as next. Treat them as not shipped.",
+   "text": "Wren docs list the operational and behavioral context layers as in active development. They list value profiling and a golden eval runner as next. Treat them as not shipped.",
    "sources": [
     {
      "t": "What is context (Wren docs)",
@@ -24314,7 +24454,7 @@ window.SL = {
   },
   {
    "topic": "Cube Apache Ossie status",
-   "text": "Cube's Apache Ossie conversion page says it is in preview and needs activation by support.",
+   "text": "The Apache Ossie conversion page of Cube says it is in preview. It needs activation by support.",
    "sources": [
     {
      "t": "Cube Apache Ossie",

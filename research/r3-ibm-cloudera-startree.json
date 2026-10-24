@@ -112,7 +112,7 @@
         },
         "graph": {
           "l": 0,
-          "n": "No graph query language appears in the watsonx.data intelligence docs read. Lineage graphs exist in the catalog.",
+          "n": "No graph query language appears in the watsonx.data intelligence docs. Lineage graphs exist in the catalog.",
           "u": "https://www.ibm.com/docs/en/watsonx/wdi/saas?topic=intelligence-getting-started-watsonxdata-mcp-server"
         },
         "vector": {
@@ -132,7 +132,7 @@
         },
         "openStandard": {
           "l": 0,
-          "n": "IBM does not appear in the Apache Ossie working group lists read. No semantic model export appears in the docs read.",
+          "n": "IBM does not appear in the Apache Ossie working group lists. No semantic model export appears in the docs.",
           "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
         },
         "aiDescriptions": {
@@ -157,7 +157,7 @@
         },
         "queryHistory": {
           "l": 0,
-          "n": "The Text-to-SQL and MCP tool docs read show no mining of query history. Context comes from enrichment and vectors.",
+          "n": "The Text-to-SQL and MCP tool docs show no mining of query history. Context comes from enrichment and vectors.",
           "u": "https://raw.githubusercontent.com/IBM/data-intelligence-mcp-server/main/TOOLS_PROMPTS.md"
         },
         "lineage": {
@@ -167,7 +167,7 @@
         },
         "evals": {
           "l": 0,
-          "n": "IBM certifies models for Text-to-SQL, but no customer test set or rating loop appears in the docs read.",
+          "n": "IBM certifies models for Text-to-SQL, but no customer test set or rating loop appears in the docs.",
           "u": "https://www.ibm.com/docs/SSNFH6_5.4.x/svc-wxd-intell/wxd-intell-prep-install.html"
         }
       },
@@ -370,7 +370,7 @@
         },
         "dimensions": {
           "l": 0,
-          "n": "No dimension or hierarchy objects found in the lakehouse docs read.",
+          "n": "No dimension or hierarchy objects found in the lakehouse docs.",
           "u": "https://docs.cloudera.com/cdw-runtime/cloud/administering-hue/topics/dw-hue-sql-ai-assistant-setup.html"
         },
         "relationships": {
@@ -400,7 +400,7 @@
         },
         "graph": {
           "l": 0,
-          "n": "Atlas keeps metadata in JanusGraph and shows lineage graphs. The docs read show no graph query language for users.",
+          "n": "Atlas keeps metadata in JanusGraph and shows lineage graphs. The docs show no graph query language for users.",
           "u": "https://docs.cloudera.com/runtime/7.3.1/cdp-governance-overview/atlas-concepts.pdf"
         },
         "vector": {
@@ -420,7 +420,7 @@
         },
         "openStandard": {
           "l": 0,
-          "n": "Cloudera joined the Apache Ossie working group in 2026. The docs read show no Ossie import or export in a product.",
+          "n": "Cloudera joined the Apache Ossie working group in 2026. The docs show no Ossie import or export in a product.",
           "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
         },
         "aiDescriptions": {
@@ -445,7 +445,7 @@
         },
         "queryHistory": {
           "l": 0,
-          "n": "Hue shows query history to users. The docs read do not say the SQL AI Assistant mines it for context.",
+          "n": "Hue shows query history to users. The docs do not say the SQL AI Assistant mines it for context.",
           "u": "https://docs.cloudera.com/runtime/7.3.1/administering-hue/topics/dw-hue-sql-ai-assistant-overview.html"
         },
         "lineage": {
@@ -476,7 +476,7 @@
         "No semantic model, metric definitions, or declared join paths exist for AI to read.",
         "The assistant cannot exclude chosen tables from its context, according to the 2024 launch blog.",
         "The MCP server and Semantic Search are in preview. The MCP server gives only two tools.",
-        "No evals, verified queries, or query history mining were found in the docs read."
+        "No evals, verified queries, or query history mining were found in the docs."
       ],
       "fillWith": [
         "Cube",
@@ -663,7 +663,7 @@
         },
         "ontology": {
           "l": 0,
-          "n": "No entity, link, or action model in the CosmiQ or MCP docs read. Teams use Spaces.",
+          "n": "No entity, link, or action model in the CosmiQ or MCP docs. Teams use Spaces.",
           "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
         },
         "graph": {
@@ -703,7 +703,7 @@
         },
         "autoClassify": {
           "l": 0,
-          "n": "An author can flag columns as do_not_use by hand. The docs read show no automatic PII or sensitivity tagging.",
+          "n": "An author can flag columns as do_not_use by hand. The docs show no automatic PII or sensitivity tagging.",
           "u": "https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md"
         },
         "sampleValues": {
@@ -744,7 +744,7 @@
         "Spaces are free text rules, not typed metrics or dimensions, and no export format was found.",
         "CosmiQ docs show no stage label and no launch date. It runs on Claude through AWS Bedrock.",
         "The StarTree MCP server is installed through StarTree, and the custom context and guardrails features were listed as coming soon.",
-        "No lineage, classification, or catalog feature was found in the docs read."
+        "No lineage, classification, or catalog feature was found in the docs."
       ],
       "fillWith": [
         "Cube",

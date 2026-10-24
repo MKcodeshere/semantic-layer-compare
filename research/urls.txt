@@ -21,6 +21,7 @@ https://aws.amazon.com/blogs/aws/collaborate-and-build-faster-with-amazon-sagema
 https://aws.amazon.com/blogs/aws/new-business-metadata-features-in-amazon-sagemaker-catalog-to-improve-discoverability-across-organizations
 https://aws.amazon.com/blogs/big-data/automating-data-classification-in-amazon-sagemaker-catalog-using-an-ai-agent/
 https://aws.amazon.com/blogs/big-data/secure-generative-sql-with-amazon-q
+https://aws.amazon.com/blogs/database/how-informatica-cloud-data-governance-and-catalog-uses-amazon-neptune-for-knowledge-graphs/
 https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-atscale-and-amazon-bedrock-agentcore/
 https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-denodo-and-amazon-bedrock-agentcore/
 https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-stardog-and-amazon-bedrock-agentcore/
@@ -101,6 +102,7 @@ https://data.world/
 https://data.world/ai-context-engine/
 https://data.world/product/
 https://data.world/product/catalog
+https://dev.mysql.com/doc/heatwave/en/mys-hw-metadata-queries-query-history.html
 https://developer.collibra.com/api/guides/import-api.md
 https://developer.collibra.com/api/guides/import-api/import-commands/importing-assets.md
 https://developer.collibra.com/llms.txt
@@ -225,6 +227,8 @@ https://docs.cloudera.com/data-visualization/8/howto-visuals/topics/viz-create-a
 https://docs.cloudera.com/data-visualization/8/howto-visuals/topics/viz-visual-ai-assistant.html
 https://docs.cloudera.com/octopai/latest/release-notes/topics/oct-product-release-notes-jan-2026.html
 https://docs.cloudera.com/runtime/7.1.1/atlas-managing-business-terms-with-glossaries/topics/atlas-terms-bulk-import.html
+https://docs.cloudera.com/runtime/7.3.1/administering-hue/topics/dw-hue-sql-ai-assistant-overview.html
+https://docs.cloudera.com/runtime/7.3.1/cdp-governance-overview/atlas-concepts.pdf
 https://docs.cloudera.com/runtime/7.3.2/css-overview/css-overview.pdf
 https://docs.cube.dev/admin/ai
 https://docs.cube.dev/admin/ai/certified-queries
@@ -361,10 +365,13 @@ https://docs.getwren.ai/oss/concepts/what_is_context
 https://docs.lightdash.com/agents.md
 https://docs.lightdash.com/agents/agent-context.md
 https://docs.lightdash.com/agents/ai-writeback.md
+https://docs.lightdash.com/agents/autopilot.md
 https://docs.lightdash.com/agents/create-evaluation-suites.md
+https://docs.lightdash.com/agents/data-access.md
 https://docs.lightdash.com/agents/lightdash-mcp.md
 https://docs.lightdash.com/agents/verified-answers.md
 https://docs.lightdash.com/explore/metrics-catalog/build-saved-trees.md
+https://docs.lightdash.com/explore/metrics-catalog/drivers.md
 https://docs.lightdash.com/integrations/apache-ossie.md
 https://docs.lightdash.com/integrations/connect-project.md
 https://docs.lightdash.com/integrations/dbt/metricflow.md
@@ -385,8 +392,10 @@ https://docs.malloydata.dev/documentation/user_guides/publishing/publishing
 https://docs.omni.co/ai/chat.md
 https://docs.omni.co/ai/evals.md
 https://docs.omni.co/ai/index.md
+https://docs.omni.co/ai/learn-from-conversation.md
 https://docs.omni.co/ai/mcp/index.md
 https://docs.omni.co/ai/mcp/tools.md
+https://docs.omni.co/ai/model-assistant.md
 https://docs.omni.co/ai/queries.md
 https://docs.omni.co/ai/suggestions.md
 https://docs.omni.co/api/models/create-or-update-yaml-files.md
@@ -416,6 +425,7 @@ https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/ontology/ind
 https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp.md
 https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp/reference.md
 https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp/semantic-search.md
+https://docs.oracle.com/cd/E17952_01/heatwave-en/
 https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-ml-retrieve-schema-metadata.html
 https://docs.oracle.com/cd/E17952_01/heatwave-en/mys-hwgenai-nl-sql.html
 https://docs.oracle.com/cd/E17952_01/mysql-ai-9.7-en/mys-ai-nl-sql.html
@@ -465,15 +475,20 @@ https://docs.rilldata.com/developers/build/metrics-view/what-are-metrics-views
 https://docs.secoda.co/api.md
 https://docs.secoda.co/api/authentication.md
 https://docs.secoda.co/features/ai-assistant.md
+https://docs.secoda.co/features/ai-assistant/best-practices.md
 https://docs.secoda.co/features/ai-assistant/secoda-ai-agents.md
 https://docs.secoda.co/features/ai-assistant/secoda-ai-capabilities.md
 https://docs.secoda.co/features/ai-assistant/secoda-mcp-server.md
 https://docs.secoda.co/features/automations/ai-powered-automations.md
+https://docs.secoda.co/features/column-profiling.md
 https://docs.secoda.co/features/data-lineage.md
 https://docs.secoda.co/features/glossary.md
+https://docs.secoda.co/features/queries.md
+https://docs.secoda.co/features/search.md
 https://docs.secoda.co/llms.txt
 https://docs.secoda.co/resource-and-metadata-management/add-documentation/ai-description-editor.md
 https://docs.secoda.co/resource-and-metadata-management/import-and-export-data.md
+https://docs.selectstar.com/changelog/june-18-2025-auto-cortex-models-llm-search-tableau-metric-extraction-and-more.md
 https://docs.selectstar.com/data-management/add-documentation/csv-metadata-upload.md
 https://docs.selectstar.com/data-management/automated-pii-detection-beta.md
 https://docs.selectstar.com/features/ai-features-and-settings.md
@@ -483,6 +498,7 @@ https://docs.selectstar.com/features/auto-documentation.md
 https://docs.selectstar.com/features/documents/metrics/metrics-generation.md
 https://docs.selectstar.com/features/lineage.md
 https://docs.selectstar.com/features/mcp-server.md
+https://docs.selectstar.com/features/search.md
 https://docs.selectstar.com/features/semantic-models.md
 https://docs.selectstar.com/integrations/snowflake/cortex-analyst.md
 https://docs.selectstar.com/llms.txt
@@ -491,6 +507,9 @@ https://docs.singlestore.com/cloud/ai/analyst.md
 https://docs.singlestore.com/cloud/ai/analyst/analyst-api.md
 https://docs.singlestore.com/cloud/ai/singlestore-mcp-server.md
 https://docs.singlestore.com/cloud/developer-resources/functional-extensions/working-with-vector-data.md
+https://docs.singlestore.com/cloud/query-data/query-tuning/query-history.md
+https://docs.singlestore.com/cloud/reference/sql-reference/data-definition-language-ddl/alter-table.md
+https://docs.singlestore.com/llms.txt
 https://docs.snowflake.com/en/guides-overview-govern.md
 https://docs.snowflake.com/en/release-notes/2025/9_25
 https://docs.snowflake.com/en/release-notes/2025/june-summit
@@ -575,6 +594,7 @@ https://docs.stardog.com/virtual-graphs/mapping-data-sources
 https://docs.stardog.com/voicebox/
 https://docs.stardog.com/voicebox/guided-ontology-creation-and-mapping/
 https://docs.stardog.com/voicebox/voicebox-dev-guide/
+https://docs.startree.ai/_llms/star-tree-cloud.txt
 https://docs.startree.ai/corecapabilities/ai/cosmiq/api-reference.md
 https://docs.startree.ai/corecapabilities/ai/cosmiq/overview.md
 https://docs.startree.ai/corecapabilities/ai/cosmiq/usage.md
@@ -785,6 +805,7 @@ https://honeydew.ai/docs/monitoring/question-history.md
 https://honeydew.ai/docs/release-notes.md
 https://honeydew.ai/docs/security/row-level-security.md
 https://honeydew.ai/docs/tpch-example.md
+https://huggingface.co/datasets/mongodb-eai/natural-language-to-mongosh
 https://huggingface.co/datasets/neo4j/text2cypher-2025v1
 https://ibis-project.org/backends/clickhouse
 https://ibm-data-and-ai.ideas.ibm.com/ideas/CA-I-4846
@@ -806,6 +827,7 @@ https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/
 https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/ossie
 https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/snowflake-semantic-views
 https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/unity-catalog-metric-views
+https://learn.hex.tech/docs/explore-data/data-browser
 https://learn.hex.tech/docs/explore-data/notebook-view/notebook-agent
 https://learn.hex.tech/docs/explore-data/threads
 https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview
@@ -851,6 +873,7 @@ https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-a
 https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-data-schema
 https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-instructions
 https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-verified-answers
+https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-search-new-content
 https://learn.microsoft.com/en-us/power-bi/developer/mcp/mcp-servers-overview
 https://learn.microsoft.com/en-us/power-bi/developer/mcp/power-bi-authoring-mcp
 https://learn.microsoft.com/en-us/power-bi/natural-language/q-and-a-tooling-intro
@@ -947,7 +970,9 @@ https://news.sap.com/2026/05/sap-to-acquire-dremio-unify-sap-and-non-sap-data-po
 https://news.sap.com/2026/06/sap-ai-native-north-star-architecture-technical-backbone-autonomous-enterprise/
 https://news.sap.com/2026/07/sap-completes-dremio-acquisition/
 https://nowben.com/servicenow-acquires-data-world-just-months-after-logik-ai-and-moveworks-purchases/
+https://onlinehelp.informatica.com/IICS/prod/DGC/en/ab-understanding-businessassets/Glossary_Metric.html
 https://onlinehelp.informatica.com/IICS/prod/agentic-ui/en/cc-aiae-gs-mcp-servers/Introduction_to_Informatica_MCP_servers.html
+https://onlinehelp.informatica.com/IICS/prod/clairegpt/en/ab-using-claire-gpt/Using_CLAIRE_GPT.html
 https://ossie.apache.org/
 https://ossie.apache.org/ecosystem/
 https://ossie.apache.org/updates/
@@ -1085,6 +1110,7 @@ https://snowflake.com/en/blog/osi-initiative-expands-partners/
 https://snowflake.com/en/news/press-releases/snowflake-salesforce-dbt-labs-and-more-revolutionize-data-readiness-for-ai-with-open-semantic-interchange-initiative
 https://startree.ai/resources/startree-mcp-server-for-apache-pinot/
 https://success.informatica.com/content/dam/informatica-cxp/techtuesdays-slides-pdf/AI%20for%20the%20Catalog,%20Catalog%20for%20the%20AI.pdf
+https://success.informatica.com/learning-path/cloud-data-governance-and-catalog/discover.html
 https://supabase.com/blog/supabase-ai-assistant-v2
 https://supabase.com/docs/guides/getting-started/mcp
 https://superset.apache.org/admin-docs/6.1.0/configuration/feature-flags/
@@ -1168,16 +1194,19 @@ https://www.getdbt.com/blog/what-s-shipped-in-dbt-may-2026
 https://www.getwren.ai/oss
 https://www.getwren.ai/post/wren-ai-2024-year-in-review-a-fruitful-journey-and-exciting-plans-ahead
 https://www.ibm.com/blog/announcements/watsonx-data-think
+https://www.ibm.com/docs/SSNFH6_5.4.x/svc-wxd-intell/wxd-intell-prep-install.html
 https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_gtstd.pdf
 https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_manage.pdf
 https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_mdlg.pdf
 https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ca_new.pdf
 https://www.ibm.com/docs/en/SSEP7J_12.1.0/pdf/ug_cr_rptstd.pdf
+https://www.ibm.com/docs/en/watsonx/wdi/saas?topic=intelligence-getting-started-watsonxdata-mcp-server
 https://www.ibm.com/new/announcements/ibm-launches-ai-powered-text2sql-to-democratize-and-accelerate-data-access
 https://www.ibm.com/products/cognos-analytics
 https://www.ibm.com/support/pages/node/6326069
 https://www.ibm.com/support/pages/node/737555
 https://www.ibm.com/think/topics/data-catalog
+https://www.informatica.com/content/dam/informatica-cxp/success_accelerators/CLAIRE%20GPT%20Enablement%20-%20Apr.2024%20v1.1.pdf
 https://www.informatica.com/products/data-governance/cloud-data-governance-and-catalog.html
 https://www.metabase.com/articles/metabase-on-dbt
 https://www.metabase.com/docs/latest/data-modeling/data-studio
@@ -1187,6 +1216,9 @@ https://www.metabase.com/releases/metabase-60
 https://www.metabase.com/releases/metabase-64
 https://www.mongodb.com/docs/atlas/atlas-ui/query-with-natural-language.md
 https://www.mongodb.com/docs/compass/query-with-natural-language.md
+https://www.mongodb.com/docs/llms.txt
+https://www.mongodb.com/docs/manual/core/queryable-encryption.md
+https://www.mongodb.com/docs/manual/core/schema-validation.md
 https://www.mongodb.com/docs/manual/natural-language-to-mongodb.md
 https://www.mongodb.com/docs/mcp-server/local-mcp/security-best-practices.md
 https://www.mongodb.com/docs/mcp-server/overview.md
