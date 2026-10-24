@@ -17,11 +17,11 @@ const CAP_GROUPS = [
 
 const CAPS = [
   { key: 'metrics', group: 'model', label: 'Metrics', long: 'Governed metric and measure definitions stored as code or objects' },
-  { key: 'dimensions', group: 'model', label: 'Dimensions', long: 'Declared dimensions, hierarchies, time grains' },
+  { key: 'dimensions', group: 'model', label: 'Dimensions', short: 'Dims', long: 'Declared dimensions, hierarchies, time grains' },
   { key: 'relationships', group: 'model', label: 'Joins', long: 'Declared join paths or entity relationships' },
   { key: 'synonyms', group: 'model', label: 'Synonyms', long: 'Business descriptions, synonyms, AI instructions' },
   { key: 'verifiedQueries', group: 'model', label: 'Verified SQL', long: 'Verified question-to-SQL pairs or trusted examples' },
-  { key: 'aiDescriptions', group: 'enrich', label: 'AI descriptions', long: 'Generates table and column descriptions or business names with AI' },
+  { key: 'aiDescriptions', group: 'enrich', label: 'AI descriptions', short: 'AI desc', long: 'Generates table and column descriptions or business names with AI' },
   { key: 'bulkMetadata', group: 'enrich', label: 'Bulk metadata', long: 'Writes descriptions, tags, business names in bulk by SQL, API, SDK or import' },
   { key: 'autoClassify', group: 'enrich', label: 'Auto classify', long: 'Tags PII, semantic types and sensitivity automatically' },
   { key: 'sampleValues', group: 'enrich', label: 'Value matching', long: 'Samples values or matches literals, so NY maps to New York' },
@@ -33,7 +33,7 @@ const CAPS = [
   { key: 'nl2sql', group: 'access', label: 'NL to SQL', long: 'First-party natural-language-to-SQL or chat analytics' },
   { key: 'mcp', group: 'access', label: 'MCP', long: 'First-party MCP server for agents' },
   { key: 'evals', group: 'access', label: 'Evals', long: 'Tests NL-to-SQL accuracy, or turns feedback into verified examples' },
-  { key: 'governance', group: 'trust', label: 'Governance', long: 'Semantic objects inherit security, lineage, certification' },
+  { key: 'governance', group: 'trust', label: 'Governance', short: 'Govern', long: 'Semantic objects inherit security, lineage, certification' },
   { key: 'openStandard', group: 'trust', label: 'Open spec', long: 'Portable spec: OSI, open-source format, import or export' },
 ];
 

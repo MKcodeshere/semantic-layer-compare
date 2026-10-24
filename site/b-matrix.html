@@ -55,16 +55,16 @@
 
   .wrap { border: 1px solid var(--line); border-radius: var(--r); overflow: auto; max-height: calc(100dvh - 140px); background: var(--surface); }
   table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 1180px; table-layout: fixed; }
-  thead tr:not(.g) th:first-child { width: 250px; }
-  thead th { position: sticky; top: 0; z-index: 3; background: var(--raise); font-weight: 500; font-size: 12px; color: var(--ink2); padding: 10px 4px; border-bottom: 1px solid var(--line2); text-align: center; line-height: 1.2; }
-  thead th button { all: unset; cursor: pointer; display: block; width: 100%; padding: 2px 0; }
+  thead tr th:first-child { width: 230px; }
+  thead th { position: sticky; top: 0; z-index: 3; background: var(--raise); font-weight: 500; font-size: 12px; color: var(--ink2); padding: 10px 1px; border-bottom: 1px solid var(--line2); text-align: center; line-height: 1.2; }
+  thead th button { all: unset; cursor: pointer; display: block; width: 100%; padding: 2px 0; font-size: 10.5px; letter-spacing: -0.01em; }
   thead th button:hover, thead th.sorted button { color: var(--ink); }
   thead th.sorted { box-shadow: inset 0 -2px 0 var(--accent); }
   thead th:first-child { left: 0; z-index: 4; text-align: left; padding-left: 16px; }
-  tbody th { position: sticky; left: 0; z-index: 2; background: var(--surface); text-align: left; font-weight: 500; padding: 0 12px 0 16px; border-bottom: 1px solid var(--line); width: 250px; min-width: 230px; }
+  tbody th { position: sticky; left: 0; z-index: 2; background: var(--surface); text-align: left; font-weight: 500; padding: 0 12px 0 16px; border-bottom: 1px solid var(--line); width: 230px; min-width: 230px; }
   tbody tr:hover th, tbody tr:hover td { background: var(--raise); }
   .vrow { display: flex; align-items: center; gap: 10px; height: 44px; cursor: pointer; }
-  .vname { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px; }
+  .vname { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px; }
   .vtag { font-size: 11px; color: var(--muted); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 170px; }
   .verdict { margin-left: auto; font-size: 11px; font-family: 'Geist Mono', monospace; padding: 1px 6px; border-radius: 4px; border: 1px solid currentColor; white-space: nowrap; }
   .verdict.native { color: var(--native); } .verdict.partial { color: var(--partial); } .verdict.none { color: var(--none); }
@@ -136,7 +136,7 @@
     main { padding: 24px 16px 60px; }
     .intro { grid-template-columns: 1fr; gap: 20px; }
     .sort { margin-left: 0; }
-    tbody th { width: 170px; min-width: 170px; } .vtag, .verdict { display: none; }
+    thead tr th:first-child, tbody th { width: 170px; min-width: 170px; } .vtag, .verdict { display: none; }
   }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
@@ -223,7 +223,7 @@ function renderGrid() {
   const list = visible();
   const groups = SL.capGroups.map((g) => [g, SL.caps.filter((c) => c.group === g.id).length]).filter(([, n]) => n);
   const head = `<thead><tr class="g"><th></th>${groups.map(([g, n]) => `<th colspan="${n}" class="gh">${esc(g.label)}</th>`).join('')}</tr><tr><th>Platform</th>${SL.caps.map((c) =>
-    `<th class="${state.capSort === c.key ? 'sorted' : ''}" title="${esc(c.long)}"><button data-sortcap="${c.key}">${esc(c.label)}</button></th>`).join('')}</tr></thead>`;
+    `<th class="${state.capSort === c.key ? 'sorted' : ''}" title="${esc(c.long)}"><button data-sortcap="${c.key}" aria-label="Sort by ${esc(c.label)}">${esc(c.short || c.label)}</button></th>`).join('')}</tr></thead>`;
   let body = '';
   if (!list.length) body = `<tr><td colspan="${SL.caps.length + 1}"><div class="empty">No platform matches "${esc(state.q)}". Clear the search or pick another category.</div></td></tr>`;
   else if (state.sort === 'cat' && !state.capSort) {

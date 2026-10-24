@@ -5,18 +5,18 @@
       "caps": {
         "aiDescriptions": {
           "l": 1,
-          "n": "SageMaker Catalog (separate product) drafts table and column descriptions with Bedrock. Docs name Glue tables; Redshift table support not confirmed.",
+          "n": "SageMaker Catalog (separate product) drafts descriptions, business names and glossary terms with Bedrock for Glue and Redshift assets. Default quota 10K description runs a month.",
           "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
         },
         "bulkMetadata": {
           "l": 3,
-          "n": "Redshift COMMENT ON is native SQL (doc page unreachable, Unverified). Catalog API CreateAssetRevision updates one asset per call.",
-          "u": "https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/datazone/2018-05-10/service-2.json"
+          "n": "COMMENT ON sets table, column and view comments in SQL. Not supported on external tables or late binding view columns. Q generative SQL also takes admin-uploaded JSON custom context.",
+          "u": "https://docs.aws.amazon.com/redshift/latest/dg/r_COMMENT.html"
         },
         "autoClassify": {
-          "l": null,
-          "n": "No classification feature for Redshift columns found in the sources I could reach. Unverified.",
-          "u": ""
+          "l": 1,
+          "n": "No Redshift-native column classifier found. SageMaker Catalog (separate product) suggests glossary terms, including PII and PHI, from column names and schema at publish time.",
+          "u": "https://aws.amazon.com/blogs/big-data/automating-data-classification-in-amazon-sagemaker-catalog-using-an-ai-agent/"
         },
         "sampleValues": {
           "l": 1,
@@ -24,26 +24,26 @@
           "u": "https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/quicksight/2018-04-01/service-2.json"
         },
         "queryHistory": {
-          "l": null,
-          "n": "No query-history mining for joins, metrics or examples found. Query Editor v2 doc was unreachable. Unverified.",
-          "u": ""
+          "l": 3,
+          "n": "Q generative SQL in Query Editor v2 can use other users' query history to improve SQL. Admin grants SYS:MONITOR. Not documented as suggesting joins or metrics.",
+          "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
         },
         "lineage": {
           "l": 3,
-          "n": "SageMaker Catalog captures column-level lineage from Redshift, Glue and Spark (GA Dec 2024). Redshift is named as a source.",
+          "n": "SageMaker Catalog captures column-level lineage from Redshift, Glue and Spark (GA Dec 2024, OpenLineage compatible). Redshift is named as a source.",
           "u": "https://aws.amazon.com/about-aws/whats-new/2024/12/data-lineage-amazon-datazone-next-generation-sagemaker"
         },
         "evals": {
-          "l": null,
-          "n": "No NL-to-SQL eval tooling or feedback-to-example loop found for Q generative SQL or Quick Topics. Unverified.",
-          "u": ""
+          "l": 1,
+          "n": "Query Editor v2 has helpful and not helpful feedback with error categories. No eval set tooling. Curated question and SQL pairs go in custom context by hand.",
+          "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai-interact.html"
         }
       },
-      "enrichHowTo": "Write table and column comments in Redshift with COMMENT ON, then publish the tables to SageMaker Catalog. There, run the DataZone StartMetadataGenerationRun API with types BUSINESS_DESCRIPTIONS and BUSINESS_NAMES, and review the drafts. The API takes at most 2 types per call, and the asset type must be supported.",
+      "enrichHowTo": "Write table and column comments in Redshift with COMMENT ON, and add TableAnnotations, ColumnAnnotations and CuratedQueries to the Q generative SQL custom context JSON. To draft descriptions and business names, publish the tables to SageMaker Catalog and run the DataZone StartMetadataGenerationRun API with types BUSINESS_DESCRIPTIONS and BUSINESS_NAMES, then review the drafts. The API takes at most 2 types per call and one asset per call.",
       "bulkSnippet": {
         "lang": "bash",
         "code": "# One asset per call. types accepts at most 2 values.\naws datazone start-metadata-generation-run \\\n  --domain-identifier $DOMAIN_ID \\\n  --owning-project-identifier $PROJECT_ID \\\n  --target type=ASSET,identifier=$ASSET_ID \\\n  --types BUSINESS_DESCRIPTIONS BUSINESS_NAMES",
-        "u": "https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/datazone/2018-05-10/service-2.json"
+        "u": "https://docs.aws.amazon.com/cli/latest/reference/datazone/start-metadata-generation-run.html"
       },
       "sources": [
         {
@@ -51,8 +51,24 @@
           "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
         },
         {
-          "t": "botocore DataZone API model (StartMetadataGenerationRun, CreateAssetRevision)",
-          "u": "https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/datazone/2018-05-10/service-2.json"
+          "t": "Redshift COMMENT",
+          "u": "https://docs.aws.amazon.com/redshift/latest/dg/r_COMMENT.html"
+        },
+        {
+          "t": "Interacting with Amazon Q generative SQL",
+          "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
+        },
+        {
+          "t": "Using generative SQL (feedback)",
+          "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai-interact.html"
+        },
+        {
+          "t": "Automating data classification in SageMaker Catalog using an AI agent",
+          "u": "https://aws.amazon.com/blogs/big-data/automating-data-classification-in-amazon-sagemaker-catalog-using-an-ai-agent/"
+        },
+        {
+          "t": "AWS CLI: start-metadata-generation-run",
+          "u": "https://docs.aws.amazon.com/cli/latest/reference/datazone/start-metadata-generation-run.html"
         },
         {
           "t": "botocore Quick Sight API model (TopicColumn)",
@@ -67,21 +83,18 @@
           "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/datazone-data-lineage.html"
         },
         {
-          "t": "AWS Labs Redshift MCP server README",
-          "u": "https://raw.githubusercontent.com/awslabs/mcp/main/src/redshift-mcp-server/README.md"
-        },
-        {
           "t": "Amazon SageMaker now supports data lineage in IAM-based domains",
           "u": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-data-lineage-iam-domain"
         }
-      ]
+      ],
+      "verified": "2026-10-24"
     },
     {
       "id": "sap",
       "caps": {
         "aiDescriptions": {
           "l": 3,
-          "n": "AI-assisted catalog content generation drafts asset summaries and descriptions and assigns tags. Needs AI Units and tenant enablement. No status label in docs.",
+          "n": "AI-assisted catalog content generation drafts asset summaries and descriptions and assigns tags. Needs AI Units and tenant enablement. Docs show no status label.",
           "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Administering/Creating-and-Configuring-Your-Tenant/enable-sap-business-ai-for-sap-datasphere-1b3fe45.md"
         },
         "bulkMetadata": {
@@ -101,8 +114,8 @@
         },
         "queryHistory": {
           "l": 0,
-          "n": "No query-history mining for joins, measures or examples found in the docs reviewed.",
-          "u": ""
+          "n": "No query-history mining for joins, measures or examples in the docs read. Teams model these by hand.",
+          "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/generate-sql-code-with-ai-d153065.md"
         },
         "lineage": {
           "l": 3,
@@ -125,10 +138,6 @@
         {
           "t": "Enable SAP Business AI for SAP Datasphere",
           "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Administering/Creating-and-Configuring-Your-Tenant/enable-sap-business-ai-for-sap-datasphere-1b3fe45.md"
-        },
-        {
-          "t": "SAP Datasphere, content generation for catalog (search result)",
-          "u": "https://www.sap.com/products/data-cloud/datasphere-content-generation-for-catalog.html"
         },
         {
           "t": "Generate semantic information (Generate Semantics)",
@@ -170,52 +179,53 @@
           "t": "Creating an analytic model",
           "u": "https://raw.githubusercontent.com/SAP-docs/sap-datasphere/main/docs/Acquiring-Preparing-Modeling-Data/Modeling-Data-in-the-Data-Builder/creating-an-analytic-model-e5fbe9e.md"
         }
-      ]
+      ],
+      "verified": "2026-10-24"
     },
     {
       "id": "fabric",
       "caps": {
         "aiDescriptions": {
           "l": 3,
-          "n": "Copilot suggests measure descriptions (listed GA, updated 2026-06-19). Measures only. Open-source semantic-link-labs can also generate them in bulk.",
-          "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/fundamentals/copilot-ai-feature-state.md"
+          "n": "Copilot creates measure descriptions from the DAX formula in Power BI Desktop or web modeling (GA). Measures only. Needs Fabric capacity. semantic-link-labs can batch them.",
+          "u": "https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-measure-copilot-descriptions"
         },
         "bulkMetadata": {
-          "l": 1,
-          "n": "semantic-link-labs (open source) edits models in code. Data agent SDK sets schema descriptions (Preview). TMDL file edits not re-verified.",
-          "u": "https://github.com/microsoft/semantic-link-labs/wiki/Code-Examples"
+          "l": 2,
+          "n": "Data agent Python SDK update_description sets table and column descriptions for a data agent (Preview, preview runtime). semantic-link-labs edits semantic models in code.",
+          "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/data-agent-schema-object-descriptions.md"
         },
         "autoClassify": {
           "l": 1,
-          "n": "Purview is a separate product. Labels inherit at item level from Azure SQL, Synapse or Excel sources. Column-level classification not stated.",
+          "n": "Microsoft Purview (separate product) classifies and labels. Fabric labels inherit at item level from Azure SQL or Synapse sources. Column-level classification not stated.",
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/governance/service-security-sensitivity-label-inheritance-from-data-sources.md"
         },
         "sampleValues": {
           "l": 2,
-          "n": "Instance value indexing (Preview) searches semantic model column values to build filters. Needs Q&A enabled, which is being retired.",
+          "n": "Instance value indexing (Preview runtime) searches semantic model column values to build DAX filters. Needs the Q&A setting, which retires in December 2026.",
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/semantic-model-best-practices.md"
         },
         "queryHistory": {
           "l": 0,
-          "n": "No query-history mining found. The data agent SQL doc states no history use. It retrieves from your example query library.",
+          "n": "No query-history mining found. NL2SQL retrieves from your example query library, not from past queries.",
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/data-agent-sql-sources.md"
         },
         "lineage": {
           "l": 0,
-          "n": "Fabric lineage view is item-level only. Column-level lineage not found in the docs reviewed. Purview lineage not checked.",
-          "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/governance/lineage.md"
+          "n": "Fabric lineage view is item level. Purview scans of Fabric items give item-level lineage, and sub-item lineage is not supported.",
+          "u": "https://learn.microsoft.com/en-us/purview/data-map-lineage-fabric"
         },
         "evals": {
           "l": 2,
-          "n": "Data agent evaluation SDK (Preview): ground truth CSV, evaluate_data_agent, critic prompt. evaluate_few_shots checks SQL examples.",
+          "n": "Data agent evaluation SDK (Preview): ground truth DataFrame, evaluate_data_agent, results logging. evaluate_few_shots checks example SQL pairs. Feedback in Copilot (Preview) is read with list_feedback.",
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/evaluate-data-agent.md"
         }
       },
-      "enrichHowTo": "Add descriptions and synonyms to tables, columns and measures in the semantic model. Draft measure descriptions with Copilot or with generate_measure_descriptions in semantic-link-labs, then review them. Keep AI instructions in Prep data for AI (Preview) and add few-shot examples to the data agent with add_fewshots.",
+      "enrichHowTo": "Add descriptions and synonyms to tables, columns and measures in the semantic model. Draft measure descriptions with Copilot or with generate_measure_descriptions in semantic-link-labs (needs F64 or higher), then review them. For SQL sources, set schema descriptions with update_description and add example queries with add_fewshots in the data agent SDK.",
       "bulkSnippet": {
         "lang": "python",
-        "code": "from sempy_labs.tom import connect_semantic_model\n\n# readonly=False overwrites existing descriptions\nwith connect_semantic_model(dataset=dataset, workspace=workspace, readonly=False) as tom:\n    x = tom.generate_measure_descriptions()",
-        "u": "https://github.com/microsoft/semantic-link-labs/wiki/Code-Examples"
+        "code": "from fabric.dataagent.client import FabricDataAgentManagement\n\nagent = FabricDataAgentManagement(\"<data-agent-name>\")\ndatasource = agent.get_datasources()[0]\ntable_path = (\"Schemas\", \"dbo\", \"Tables\", \"adoptions\")\ndatasource.update_description({\n    table_path: \"Contains one row for each pet adoption transaction.\"\n})",
+        "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/data-agent-schema-object-descriptions.md"
       },
       "sources": [
         {
@@ -223,12 +233,12 @@
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/fundamentals/copilot-ai-feature-state.md"
         },
         {
-          "t": "semantic-link-labs code examples (wiki)",
-          "u": "https://github.com/microsoft/semantic-link-labs/wiki/Code-Examples"
+          "t": "Use Copilot to create measure descriptions",
+          "u": "https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-measure-copilot-descriptions"
         },
         {
-          "t": "semantic-link-labs (GitHub)",
-          "u": "https://github.com/microsoft/semantic-link-labs"
+          "t": "semantic-link-labs code examples",
+          "u": "https://raw.githubusercontent.com/wiki/microsoft/semantic-link-labs/Code-Examples.md"
         },
         {
           "t": "Semantic model best practices for data agent",
@@ -237,6 +247,10 @@
         {
           "t": "Fabric data agent concepts",
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/concept-data-agent.md"
+        },
+        {
+          "t": "Fabric data agent runtime",
+          "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/data-agent-runtime.md"
         },
         {
           "t": "Data agent schema object descriptions",
@@ -267,6 +281,10 @@
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/governance/lineage.md"
         },
         {
+          "t": "How to get lineage from Fabric items into Microsoft Purview",
+          "u": "https://learn.microsoft.com/en-us/purview/data-map-lineage-fabric"
+        },
+        {
           "t": "Sensitivity label inheritance from data sources",
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/governance/service-security-sensitivity-label-inheritance-from-data-sources.md"
         },
@@ -275,18 +293,19 @@
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/governance/microsoft-purview-fabric.md"
         },
         {
-          "t": "Prepare your data for AI (search result)",
-          "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-data-schema"
+          "t": "Prepare your data for AI (preview)",
+          "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai"
         }
-      ]
+      ],
+      "verified": "2026-10-24"
     },
     {
       "id": "sqlserver",
       "caps": {
         "aiDescriptions": {
-          "l": null,
-          "n": "No description generator found in the sources I could reach. GitHub Copilot in SSMS docs were unreachable. Unverified.",
-          "u": ""
+          "l": 1,
+          "n": "GitHub Copilot in SSMS (separate product, SSMS 22.3+) writes database instructions as T-SQL you run to save as extended properties. No dedicated description generator.",
+          "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/database-instructions"
         },
         "bulkMetadata": {
           "l": 3,
@@ -299,27 +318,27 @@
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/sql-docs/live/docs/relational-databases/security/sql-data-discovery-and-classification.md"
         },
         "sampleValues": {
-          "l": null,
-          "n": "No value sampling or literal matching found in SQL Server or Azure SQL docs reviewed. Unverified for Copilot features.",
-          "u": ""
+          "l": 0,
+          "n": "No value sampling or literal matching documented. Copilot in SSMS Agent mode can run queries you approve, but that is not a sampling feature.",
+          "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/overview"
         },
         "queryHistory": {
           "l": 0,
-          "n": "No mining of query history for semantic suggestions found. Query Store is not documented as an AI input.",
-          "u": ""
+          "n": "No mining of query history for semantic suggestions documented. Query Store is not described as an AI input.",
+          "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/overview"
         },
         "lineage": {
           "l": 0,
-          "n": "No native column lineage found. Mirroring into Fabric gives item-level lineage only. Purview scanning not checked.",
+          "n": "No built-in column lineage in SQL Server. Mirroring into Fabric gives item-level lineage only.",
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/governance/lineage.md"
         },
         "evals": {
           "l": 0,
-          "n": "No NL-to-SQL eval tooling found for SQL Server or Azure SQL. Fabric data agent eval needs Fabric items.",
-          "u": ""
+          "n": "No NL-to-SQL eval tooling for SQL Server or Azure SQL. Fabric data agent evaluation needs Fabric items.",
+          "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/overview"
         }
       },
-      "enrichHowTo": "Store business meaning as extended properties with sys.sp_addextendedproperty and the name MS_Description, and loop over a metadata table to write many. Update existing ones with sys.sp_updateextendedproperty. Run Data Discovery and Classification in SSMS to tag sensitive columns.",
+      "enrichHowTo": "Store business meaning as extended properties with sys.sp_addextendedproperty and the name MS_Description, and loop over a metadata table to write many. Update existing ones with sys.sp_updateextendedproperty. For GitHub Copilot in SSMS, store instructions as extended properties named AGENTS.md per object or CONSTITUTION.md per database. Run Data Discovery and Classification in SSMS to tag sensitive columns.",
       "bulkSnippet": {
         "lang": "sql",
         "code": "EXECUTE sys.sp_addextendedproperty\n    @name = N'MS_Description',\n    @value = N'Postal code for the customer address.',\n    @level0type = 'SCHEMA', @level0name = N'Person',\n    @level1type = 'TABLE', @level1name = N'Address',\n    @level2type = 'COLUMN', @level2name = N'PostalCode';",
@@ -345,38 +364,55 @@
         {
           "t": "Fabric lineage",
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/governance/lineage.md"
+        },
+        {
+          "t": "Database instructions for GitHub Copilot in SSMS",
+          "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/database-instructions"
+        },
+        {
+          "t": "GitHub Copilot in SSMS overview",
+          "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/overview"
         }
-      ]
+      ],
+      "verified": "2026-10-24"
     }
   ],
   "notes": [
     {
-      "topic": "Method and limits",
-      "text": "The shared WebSearch budget ran out early. docs.aws.amazon.com, aws.amazon.com and learn.microsoft.com could not be fetched. Most facts come from raw GitHub doc sources (MicrosoftDocs, SAP-docs, botocore) that I fetched, so 'not found' means not found in what I reached.",
-      "sources": []
-    },
-    {
-      "topic": "Redshift claims not verified",
-      "text": "I could not confirm Redshift COMMENT ON syntax, Query Editor v2 generative SQL use of query history or sample values, Quick Topics sampling, or any classification feature. Levels for those caps are 0 or based on a related API only.",
-      "sources": []
-    },
-    {
-      "topic": "SageMaker Catalog AI descriptions",
-      "text": "Search results say the feature drafts business descriptions and column descriptions with Bedrock for custom structured assets, and in May 2026 it reached IAM-based domains. The DataZone API StartMetadataGenerationRun takes types BUSINESS_DESCRIPTIONS, BUSINESS_NAMES and BUSINESS_GLOSSARY_ASSOCIATIONS, max 2 per call, and the older single type field is deprecated since 2025-11-21. Docs require a supported asset type such as a Glue table; I did not confirm Redshift tables.",
+      "topic": "Redshift enrichment path",
+      "text": "Redshift has COMMENT ON for comments, and Amazon Q generative SQL in Query Editor v2 takes an admin-uploaded custom context with table and column annotations and curated queries. AI-drafted descriptions and glossary terms come from SageMaker Catalog, a separate product that supports Redshift assets.",
       "sources": [
+        {
+          "t": "Redshift COMMENT",
+          "u": "https://docs.aws.amazon.com/redshift/latest/dg/r_COMMENT.html"
+        },
+        {
+          "t": "Interacting with Amazon Q generative SQL",
+          "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
+        },
         {
           "t": "SageMaker Unified Studio: autodoc",
           "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
+        }
+      ]
+    },
+    {
+      "topic": "SageMaker Catalog AI descriptions",
+      "text": "The DataZone StartMetadataGenerationRun API takes types BUSINESS_DESCRIPTIONS, BUSINESS_NAMES and BUSINESS_GLOSSARY_ASSOCIATIONS, at most 2 per call. The older single type field is still listed. Default quotas are 10K description runs, 50K business name runs and 10K glossary term runs a month.",
+      "sources": [
+        {
+          "t": "AWS CLI: start-metadata-generation-run",
+          "u": "https://docs.aws.amazon.com/cli/latest/reference/datazone/start-metadata-generation-run.html"
         },
         {
-          "t": "botocore DataZone API model",
-          "u": "https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/datazone/2018-05-10/service-2.json"
+          "t": "SageMaker Unified Studio: autodoc",
+          "u": "https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/autodoc.html"
         }
       ]
     },
     {
       "topic": "Redshift lineage scope",
-      "text": "The Dec 2024 GA announcement says lineage covers columns from Glue, Redshift and Spark. The July 2026 update for IAM-based domains names Spark jobs on EMR and Glue and does not mention Redshift.",
+      "text": "The Dec 2024 GA announcement says lineage covers columns from Glue, Redshift and Spark. The July 2026 update for IAM-based domains names Spark jobs on EMR and Glue, Visual ETL and notebooks, and does not mention Redshift.",
       "sources": [
         {
           "t": "Data lineage is GA in Amazon DataZone and next generation SageMaker",
@@ -389,12 +425,30 @@
       ]
     },
     {
-      "topic": "Fabric data agent status conflict",
-      "text": "The concept page calls the data agent generally available. The Fabric release status table (updated 2026-06-19) lists Data agent as Preview. Schema object descriptions, the evaluation SDK and the Python SDK are each labeled Preview.",
+      "topic": "Redshift query history use",
+      "text": "Amazon Q generative SQL can use query history shared across users in the account to improve recommendations. An admin grants SYS:MONITOR to allow it. Free tier allows 1,000 prompts a month per account, Pro tier 1,000 per user.",
+      "sources": [
+        {
+          "t": "Interacting with Amazon Q generative SQL",
+          "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai.html"
+        },
+        {
+          "t": "Updating generative SQL settings",
+          "u": "https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-generative-ai-settings.html"
+        }
+      ]
+    },
+    {
+      "topic": "Fabric data agent status",
+      "text": "The data agent concept page calls the feature generally available, and the runtime page says the standard runtime is GA. The release status table (updated 2026-06-19) still lists Data agent as Preview. Features on the preview runtime are Preview: schema object descriptions, topics, Advanced NL2SQL. The evaluation SDK, Python SDK and Copilot feedback pages are labeled Preview.",
       "sources": [
         {
           "t": "Fabric data agent concepts",
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/concept-data-agent.md"
+        },
+        {
+          "t": "Fabric data agent runtime",
+          "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/data-agent-runtime.md"
         },
         {
           "t": "Release status of AI and Copilot in Fabric",
@@ -404,17 +458,17 @@
     },
     {
       "topic": "Power BI Prep data for AI",
-      "text": "A search result titles the Learn article 'Prepare your data for AI to improve Copilot results (preview)'. I could not fetch the Power BI docs repo or Learn, so verified-answer limits and authoring location come from search and the data agent best-practice page only.",
+      "text": "The Learn article is titled 'Prepare your data for AI to improve Copilot results (preview)'. It covers AI data schema, verified answers and AI instructions, saved to the semantic model.",
       "sources": [
         {
-          "t": "Semantic model best practices for data agent",
-          "u": "https://raw.githubusercontent.com/MicrosoftDocs/fabric-docs/main/docs/data-science/semantic-model-best-practices.md"
+          "t": "Prepare your data for AI (preview)",
+          "u": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai"
         }
       ]
     },
     {
       "topic": "Fabric feedback loop",
-      "text": "Users rate data agent answers in Microsoft 365 Copilot, and the creator reads them with list_feedback in a notebook. The article does not say feedback becomes example queries, so that part is manual.",
+      "text": "Users rate data agent answers in Microsoft 365 Copilot (Preview), and the creator reads them with list_feedback in a notebook. The article does not say feedback becomes example queries, so that step is manual.",
       "sources": [
         {
           "t": "Data agent feedback in Microsoft Copilot",
@@ -424,7 +478,7 @@
     },
     {
       "topic": "SAP Datasphere AI and CLI status",
-      "text": "SAP docs print no GA or Preview labels for the five AI services, so levels follow the earlier convention of 3 when no preview note exists. The CLI import and export page has no commands, so bulkSnippet code is empty.",
+      "text": "SAP docs print no GA or Preview labels for the AI services, so these are rated 3 with that caveat. The CLI import and export page only points to the datasphere command line and shows no commands, so bulkSnippet code is empty.",
       "sources": [
         {
           "t": "Enable SAP Business AI for SAP Datasphere",
@@ -437,12 +491,16 @@
       ]
     },
     {
-      "topic": "SQL Server: extended properties as the only description store",
-      "text": "T-SQL has no description object beyond extended properties. SSMS 'database instructions' stored as extended properties (from earlier research) could not be re-verified here because the SSMS docs were unreachable.",
+      "topic": "SQL Server descriptions and Copilot instructions",
+      "text": "T-SQL stores descriptions only as extended properties. GitHub Copilot in SSMS 22.3 and later reads instructions from extended properties named AGENTS.md (per object) and CONSTITUTION.md (per database).",
       "sources": [
         {
           "t": "sp_addextendedproperty",
           "u": "https://raw.githubusercontent.com/MicrosoftDocs/sql-docs/live/docs/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql.md"
+        },
+        {
+          "t": "Database instructions for GitHub Copilot in SSMS",
+          "u": "https://learn.microsoft.com/en-us/ssms/github-copilot/database-instructions"
         }
       ]
     }
