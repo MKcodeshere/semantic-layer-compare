@@ -1,0 +1,578 @@
+{
+  "vendors": [
+    {
+      "id": "tableau",
+      "caps": {
+        "aiDescriptions": {
+          "l": 3,
+          "n": "Tableau Agent drafts descriptions for data sources, workbooks and tables in Catalog (Tableau Cloud). Tableau Next has a Beta description generator.",
+          "u": "https://help.tableau.com/current/tableau/en-us/tableau_gai_solutions.htm"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "REST: Update Column, Batch Add Tags, and from API 3.30 field descriptions on a data source work copy. Data Management license needed.",
+          "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_data_sources.htm"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "Sensitivity labels and tags are set by hand or through the label and tag REST methods. No automatic column classification found.",
+          "u": "https://help.tableau.com/current/server/en-us/dm_labels.htm"
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Tableau Agent sends up to 1000 unique sampled values from the data source to the model when authoring vizzes.",
+          "u": "https://help.tableau.com/current/tableau/en-us/tableau_gai_data.htm"
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 3,
+          "n": "Catalog lineage filters to a selected field or column, upstream or downstream. No columns for custom SQL tables. Cubes unsupported.",
+          "u": "https://help.tableau.com/current/online/en-us/dm_lineage.htm"
+        },
+        "evals": {
+          "l": 2,
+          "n": "Q&A Calibration (Beta) in Tableau Next tests questions in Concierge, then lets you verify and calibrate results.",
+          "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
+        }
+      },
+      "enrichHowTo": "With a Data Management license, call Update Column to set one column description at a time, or use the REST API 3.30 data source methods to create a work copy, add FieldDescription and TableDescription elements, then publish it. Batch Add Tags tags many assets in one call. In Tableau Next, turn on the Semantic Description Generator (Beta) and review each draft.",
+      "bulkSnippet": {
+        "lang": "json",
+        "code": "{\n \"tdsElementList\": [\n {\"elementType\": \"FieldDescription\", \"name\": \"Sales\", \"description\": \"Total sales amount.\"},\n {\"elementType\": \"TableDescription\", \"name\": \"Orders\", \"description\": \"Order line items.\"}\n ]\n}",
+        "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_data_sources.htm"
+      },
+      "sources": [
+        {
+          "t": "Metadata Methods (REST API)",
+          "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_metadata.htm"
+        },
+        {
+          "t": "Data Sources Methods (REST API)",
+          "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_data_sources.htm"
+        },
+        {
+          "t": "What's New in the REST API",
+          "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_whats_new.htm"
+        },
+        {
+          "t": "Use Lineage for Impact Analysis",
+          "u": "https://help.tableau.com/current/online/en-us/dm_lineage.htm"
+        },
+        {
+          "t": "Data Labels",
+          "u": "https://help.tableau.com/current/server/en-us/dm_labels.htm"
+        },
+        {
+          "t": "AI in Tableau Features",
+          "u": "https://help.tableau.com/current/tableau/en-us/tableau_gai_solutions.htm"
+        },
+        {
+          "t": "AI in Tableau and Data Usage",
+          "u": "https://help.tableau.com/current/tableau/en-us/tableau_gai_data.htm"
+        },
+        {
+          "t": "Step 4: Enable Tableau Next AI Features",
+          "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
+        },
+        {
+          "t": "Introduction to Tableau Metadata API",
+          "u": "https://help.tableau.com/current/api/metadata_api/en-us/index.html"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "thoughtspot",
+      "caps": {
+        "aiDescriptions": {
+          "l": 2,
+          "n": "SpotterModel can draft column descriptions from a chat prompt; autonomous model build is Beta. AI synonyms are Early Access, off by default.",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-model-create.md"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "TML API exports, edits and imports Model TML in bulk, including column descriptions and synonyms. Column property sync is Early Access.",
+          "u": "https://developers.thoughtspot.com/docs/tml"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "No automatic PII or sensitivity tagging found in the Spotter and modeling docs. Docs advise excluding PII columns from indexing by hand.",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-make-ai-ready.md"
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Indexing samples 1,000 values per column and powers Spotter value suggestions and column sample values. Secure suggestions fetch values live.",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/data-modeling-index.md"
+        },
+        "queryHistory": {
+          "l": 0,
+          "n": "No feature builds models, joins or examples from warehouse query logs. Memory can be generated from Liveboards and conversations (Early Access).",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-liveboard-learn.md"
+        },
+        "lineage": {
+          "l": 1,
+          "n": "Tables list dependent Models, Liveboards and Answers and the columns they use. Column lineage graphs come from catalogs such as DataHub.",
+          "u": "https://docs.datahub.com/docs/generated/ingestion/sources/thoughtspot.md"
+        },
+        "evals": {
+          "l": 3,
+          "n": "Add to Coaching saves verified question and answer pairs. The Spotter Conversations Liveboard shows feedback. No benchmark runner found.",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-reference-questions.md"
+        }
+      },
+      "enrichHowTo": "Export the Model as TML with the TML API, edit column descriptions, synonyms and AI context in the file, then import it back with the import API. Use Generate under Spotter optimization to draft AI context per column, review it, and use the Spotter diagnose prompts to find confusing columns.",
+      "bulkSnippet": {
+        "lang": "json",
+        "code": "{\n \"metadata_tmls\": [\n \"guid: <model_guid>\\nmodel:\\n  name: <model_name>\\n  columns:\\n  - name: <column_name_1>\\n    description: <column_description>\\n    properties:\\n      synonyms:\\n      - <synonym>\\n\"\n ],\n \"import_policy\": \"PARTIAL\",\n \"create_new\": false\n}",
+        "u": "https://developers.thoughtspot.com/docs/tml"
+      },
+      "sources": [
+        {
+          "t": "ThoughtSpot TML API",
+          "u": "https://developers.thoughtspot.com/docs/tml"
+        },
+        {
+          "t": "TML for Models",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/tml-models.md"
+        },
+        {
+          "t": "Hide a column or define a synonym",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/data-modeling-visibility.md"
+        },
+        {
+          "t": "Manage suggestion indexing",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/data-modeling-index.md"
+        },
+        {
+          "t": "SpotterModel",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-model-create.md"
+        },
+        {
+          "t": "AI Context",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-ai-context.md"
+        },
+        {
+          "t": "Make your data model AI-ready",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-make-ai-ready.md"
+        },
+        {
+          "t": "Diagnose problems with Spotter",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-diagnose.md"
+        },
+        {
+          "t": "Reference questions",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-reference-questions.md"
+        },
+        {
+          "t": "Spotter Conversations Liveboard",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-conversations-liveboard.md"
+        },
+        {
+          "t": "Add memory from Liveboards",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-liveboard-learn.md"
+        },
+        {
+          "t": "Delete a table with dependent objects (Snowflake)",
+          "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/connections-snowflake-delete-table-dependencies.md"
+        },
+        {
+          "t": "DataHub ThoughtSpot source",
+          "u": "https://docs.datahub.com/docs/generated/ingestion/sources/thoughtspot.md"
+        },
+        {
+          "t": "Deprecated and removed features",
+          "u": "https://docs.thoughtspot.com/cloud/latest/deprecation"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "sigma",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "No description generator found. The Assistant search index builds its own descriptions and synonyms from column names, and does not write them back.",
+          "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices.md"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "Data model spec API reads and replaces whole models as JSON or YAML, with table, column and metric descriptions. dbt persist_docs also feeds descriptions.",
+          "u": "https://help.sigmacomputing.com/reference/update-data-model-spec.md"
+        },
+        "autoClassify": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 0,
+          "n": "Lineage graph and lineage API are element level: tables, joins, charts, controls. Column-level lineage is not described in the docs.",
+          "u": "https://help.sigmacomputing.com/docs/workbook-data-lineage.md"
+        },
+        "evals": {
+          "l": 3,
+          "n": "Build an agent evaluation suite with input tables or the REST API, using AI_USAGE records. Assistant has good and bad response feedback.",
+          "u": "https://help.sigmacomputing.com/docs/build-agent-evaluation-suite.md"
+        }
+      },
+      "enrichHowTo": "Get the data model with GET /v2/dataModels/{id}/spec, edit table, column and metric descriptions in the JSON or YAML, then send the full spec back with PUT /v2/dataModels/{id}/spec, since partial updates are not supported. Descriptions can also come from warehouse comments or dbt with persist_docs. Add AI context (Beta) for Assistant instructions.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "curl --request PUT \\\n --url <base_url>/v2/dataModels/<dataModelId>/spec \\\n --header 'Authorization: Bearer <access_token>' \\\n --header 'content-type:application/json' \\\n --data '<json_representation>'",
+        "u": "https://help.sigmacomputing.com/docs/update-a-data-model-from-a-code-representation.md"
+      },
+      "sources": [
+        {
+          "t": "Update a data model from a code representation",
+          "u": "https://help.sigmacomputing.com/docs/update-a-data-model-from-a-code-representation.md"
+        },
+        {
+          "t": "Update a data model spec (API reference)",
+          "u": "https://help.sigmacomputing.com/reference/update-data-model-spec.md"
+        },
+        {
+          "t": "Manage data models as code",
+          "u": "https://help.sigmacomputing.com/docs/manage-data-models-as-code.md"
+        },
+        {
+          "t": "Data modeling best practices",
+          "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices.md"
+        },
+        {
+          "t": "Manage AI context for a data model (Beta)",
+          "u": "https://help.sigmacomputing.com/docs/manage-ai-context-for-data-models.md"
+        },
+        {
+          "t": "Review and manage your data catalog",
+          "u": "https://help.sigmacomputing.com/docs/manage-data-catalog.md"
+        },
+        {
+          "t": "Manage dbt integration",
+          "u": "https://help.sigmacomputing.com/docs/manage-dbt-integration.md"
+        },
+        {
+          "t": "View workbook and data model data lineage",
+          "u": "https://help.sigmacomputing.com/docs/workbook-data-lineage.md"
+        },
+        {
+          "t": "List lineage for a data model (API)",
+          "u": "https://help.sigmacomputing.com/reference/list-data-model-lineage-tree.md"
+        },
+        {
+          "t": "Build an evaluation suite for your agents",
+          "u": "https://help.sigmacomputing.com/docs/build-agent-evaluation-suite.md"
+        },
+        {
+          "t": "Ask natural language queries with Sigma Assistant",
+          "u": "https://help.sigmacomputing.com/docs/ask-natural-language-queries-with-assistant.md"
+        },
+        {
+          "t": "Create and manage datasets (Deprecated)",
+          "u": "https://help.sigmacomputing.com/docs/create-and-manage-datasets.md"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "domo",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "No AI description generator found. Synonyms, column context and DataSet context in AI Readiness are written by hand.",
+          "u": "https://www.domo.com/docs/s/article/000005561.md"
+        },
+        "bulkMetadata": {
+          "l": 1,
+          "n": "API sets DataSet description and tags; column descriptions are edited per DataSet in the UI. Snowflake column descriptions can sync in.",
+          "u": "https://www.domo.com/docs/s/article/6814561223959.md"
+        },
+        "autoClassify": {
+          "l": 0,
+          "n": "No column classification found. PII Vault, a partner product with Anonomatic, redacts PII at upload.",
+          "u": "https://www.domo.com/docs/s/article/4409199658263.md"
+        },
+        "sampleValues": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 1,
+          "n": "Native lineage and impact analysis are DataSet, DataFlow, card and alert level. A column-level lineage agent app is listed on Domo's site.",
+          "u": "https://www.domo.com/ai/apps/lineage-impact-analysis-agent"
+        },
+        "evals": {
+          "l": 0,
+          "n": "No eval set tooling found. AI Playground tests prompts against a DataSet, and AI Chat has a feedback option.",
+          "u": "https://www.domo.com/docs/s/article/000005236.md"
+        }
+      },
+      "enrichHowTo": "Open the AI Readiness tab on each DataSet, add DataSet context, synonyms and column context, and switch on AI Enabled for the columns Domo AI should use. If column descriptions live in Snowflake, ask your Domo account team to turn on Schema tab metadata sync. Governance Toolkit Tag Management jobs apply tags to many DataSets at once.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": [
+        {
+          "t": "AI Readiness",
+          "u": "https://www.domo.com/docs/s/article/000005561.md"
+        },
+        {
+          "t": "Schema Management",
+          "u": "https://www.domo.com/docs/s/article/6814561223959.md"
+        },
+        {
+          "t": "Tag Management",
+          "u": "https://www.domo.com/docs/s/article/4415839139863.md"
+        },
+        {
+          "t": "September 2026 Release Notes",
+          "u": "https://www.domo.com/docs/s/article/Current-Release-Notes.md"
+        },
+        {
+          "t": "AI Chat",
+          "u": "https://www.domo.com/docs/s/article/AI-Chat-v2.md"
+        },
+        {
+          "t": "Domo AI Playground",
+          "u": "https://www.domo.com/docs/s/article/000005236.md"
+        },
+        {
+          "t": "PII Vault Protection and Compliance",
+          "u": "https://www.domo.com/docs/s/article/4409199658263.md"
+        },
+        {
+          "t": "Viewing the Impact of Changes to DataSets",
+          "u": "https://www.domo.com/docs/s/article/360042926234.md"
+        },
+        {
+          "t": "Viewing the Lineage of a DataSet in Analyzer",
+          "u": "https://www.domo.com/docs/s/article/360043428853.md"
+        },
+        {
+          "t": "Map Column-Level Lineage and Flag Breakage Before Deployment",
+          "u": "https://www.domo.com/ai/apps/lineage-impact-analysis-agent"
+        },
+        {
+          "t": "DataSet API",
+          "u": "https://www.domo.com/docs/portal/3b1e3a7d5f420-data-set-api.md"
+        },
+        {
+          "t": "Alter Dataset Schema",
+          "u": "https://www.domo.com/docs/api-reference/datasets-api/alter-dataset-schema.md"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "metabase",
+      "caps": {
+        "aiDescriptions": {
+          "l": 3,
+          "n": "Ask Metabot in chat to write table or field descriptions. It only sees database content, so it cannot supply business context.",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/settings.md"
+        },
+        "bulkMetadata": {
+          "l": 1,
+          "n": "No native bulk edit. Scripts call PUT /api/table/{id} and PUT /api/field/{id}; the community dbt-metabase package does this from dbt.",
+          "u": "https://www.metabase.com/articles/metabase-on-dbt"
+        },
+        "autoClassify": {
+          "l": 3,
+          "n": "Sync and fingerprinting assign semantic types to columns automatically. No PII or sensitivity tagging found.",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/databases/sync-scan.md"
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Metabase sends a sampling of field values to the AI, so Metabot can check whether a state is stored as WI or Wisconsin.",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/privacy.md"
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 0,
+          "n": "Dependency graph links questions, models, metrics, dashboards, transforms and their source tables. No column-level lineage is described.",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/data-modeling/tools/graph.md"
+        },
+        "evals": {
+          "l": 0,
+          "n": "Thumbs feedback on Metabot answers goes to Metabase, not into verified examples. No eval set tooling found.",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/metabot.md"
+        }
+      },
+      "enrichHowTo": "Edit table and field descriptions in Data Studio, Connected data, and ask Metabot to draft them. To write descriptions at scale, run a script or the dbt-metabase package after each dbt run, calling PUT /api/table/{id} and PUT /api/field/{id}. Define business terms in the Glossary, which Metabot reads.",
+      "bulkSnippet": {
+        "lang": "python",
+        "code": "for column in node[\"columns\"].values():\n    field_id = fields.get(column[\"name\"].lower())\n    if field_id and column.get(\"description\"):\n        requests.put(\n            f\"{MB_URL}/api/field/{field_id}\",\n            json={\"description\": column[\"description\"]},\n            headers=HEADERS,\n        ).raise_for_status()",
+        "u": "https://www.metabase.com/articles/metabase-on-dbt"
+      },
+      "sources": [
+        {
+          "t": "Metabase on a dbt project",
+          "u": "https://www.metabase.com/articles/metabase-on-dbt"
+        },
+        {
+          "t": "Metabase AI settings",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/settings.md"
+        },
+        {
+          "t": "Metabase AI privacy",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/privacy.md"
+        },
+        {
+          "t": "Metabot",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/metabot.md"
+        },
+        {
+          "t": "Syncing and scanning databases",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/databases/sync-scan.md"
+        },
+        {
+          "t": "Table metadata editing",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/data-modeling/metadata/metadata-editing.md"
+        },
+        {
+          "t": "Dependency graph",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/data-modeling/tools/graph.md"
+        },
+        {
+          "t": "Data modeling overview",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/data-modeling/start.md"
+        },
+        {
+          "t": "Metabase serialization",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/installation-and-operation/serialization.md"
+        }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "superset",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "No built-in AI description feature found. The MCP service added in 6.1 lets an external agent work with Superset.",
+          "u": "https://preset.io/blog/apache-superset-6-1-release/"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "superset export_datasources and import_datasources move datasets as YAML, with column and metric descriptions. Docs are for Superset Next.",
+          "u": "https://superset.apache.org/admin-docs/configuration/importing-exporting-datasources"
+        },
+        "autoClassify": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": 0,
+          "n": "No built-in NL-to-SQL feature found in the docs or 6.1 notes, so no value matching. An MCP client brings its own model.",
+          "u": "https://preset.io/blog/apache-superset-6-1-release/"
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not checked yet.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 0,
+          "n": "Dataset related-objects lists the charts and dashboards that use a dataset. No column-level lineage found.",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/superset/datasets/schemas.py"
+        },
+        "evals": {
+          "l": 0,
+          "n": "No NL-to-SQL feature, so no eval tooling found.",
+          "u": "https://preset.io/blog/apache-superset-6-1-release/"
+        }
+      },
+      "enrichHowTo": "Export datasets with superset export_datasources, edit the column and metric description fields in the YAML, and import them back with superset import_datasources. The same data model is available over the REST API. Superset has no AI description feature, so draft descriptions elsewhere and load them this way.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "superset export_datasources -f datasources.zip\n# edit column descriptions in the exported YAML, then rezip\nsuperset import_datasources -p datasources.zip",
+        "u": "https://superset.apache.org/admin-docs/configuration/importing-exporting-datasources"
+      },
+      "sources": [
+        {
+          "t": "Importing and Exporting Datasources",
+          "u": "https://superset.apache.org/admin-docs/configuration/importing-exporting-datasources"
+        },
+        {
+          "t": "Superset dataset schemas (source code)",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/superset/datasets/schemas.py"
+        },
+        {
+          "t": "Apache Superset 6.1 Release",
+          "u": "https://preset.io/blog/apache-superset-6-1-release/"
+        },
+        {
+          "t": "Apache Superset docs index",
+          "u": "https://superset.apache.org/llms.txt"
+        }
+      ],
+      "verified": "2026-10-24"
+    }
+  ],
+  "notes": [
+    {
+      "topic": "Sigma AI context is Beta",
+      "text": "The page for AI context on data models says it describes public beta features that may change. Sigma datasets can no longer be used as a data source since 2026-09-15, so use data models.",
+      "sources": [
+        {
+          "t": "Manage AI context for a data model (Beta)",
+          "u": "https://help.sigmacomputing.com/docs/manage-ai-context-for-data-models.md"
+        },
+        {
+          "t": "Create and manage datasets (Deprecated)",
+          "u": "https://help.sigmacomputing.com/docs/create-and-manage-datasets.md"
+        }
+      ]
+    },
+    {
+      "topic": "ThoughtSpot Worksheets",
+      "text": "ThoughtSpot deprecated Worksheets in 10.4.0.cl (Nov 2024) and removed them in 10.12.0.cl (Aug 2025). Existing Worksheets were migrated to Models, so edit Model TML.",
+      "sources": [
+        {
+          "t": "Deprecated and removed features",
+          "u": "https://docs.thoughtspot.com/cloud/latest/deprecation"
+        }
+      ]
+    },
+    {
+      "topic": "Tableau AI names",
+      "text": "Tableau Cloud help calls the assistant Tableau Agent. Tableau Next setup pages still use Agentforce for Analytics, with Concierge, Data Pro and Semantic Model Curation.",
+      "sources": [
+        {
+          "t": "AI in Tableau Features",
+          "u": "https://help.tableau.com/current/tableau/en-us/tableau_gai_solutions.htm"
+        },
+        {
+          "t": "Step 4: Enable Tableau Next AI Features",
+          "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
+        }
+      ]
+    }
+  ]
+}
