@@ -1,0 +1,307 @@
+{
+  "vendors": [
+    {
+      "id": "databricks",
+      "name": "Databricks",
+      "category": "lakehouse",
+      "tagline": "Lakehouse platform with Unity Catalog governance, metric views, Genie conversational analytics, and managed MCP.",
+      "verdict": "native",
+      "verdictNote": "Metric views, agent metadata, and Genie are GA; Genie Ontology is Public Preview and is inferred context, not a user-modeled schema.",
+      "artifacts": [
+        { "name": "Unity Catalog metric views (part of Unity Catalog Business Semantics)", "kind": "metric-view", "status": "GA", "since": "2026-04", "format": "YAML inside SQL DDL (CREATE VIEW ... WITH METRICS LANGUAGE YAML)", "url": "https://docs.databricks.com/aws/en/metric-views/" },
+        { "name": "Agent metadata in metric views (comment, display_name, synonyms, format)", "kind": "annotations", "status": "GA", "since": "2026-04", "format": "YAML (spec 1.1, DBR 17.3+)", "url": "https://docs.databricks.com/aws/en/uc-semantics/agent-metadata" },
+        { "name": "Genie Agents (formerly Genie spaces, originally AI/BI Genie)", "kind": "nl2sql", "status": "GA", "since": "2026-06", "format": "GUI and API (instructions, example SQL, SQL expressions, join relationships, benchmarks)", "url": "https://docs.databricks.com/aws/en/genie-agents/set-up" },
+        { "name": "Genie One (formerly Databricks One, then Genie)", "kind": "agent", "status": "GA", "since": "2026-06", "format": "GUI, mobile apps, MCP", "url": "https://docs.databricks.com/aws/en/genie-one/chat" },
+        { "name": "Genie Ontology", "kind": "ontology", "status": "Preview", "since": "2026-06", "format": "Automatic extraction plus Unity Catalog semantics; no user-authored schema documented", "url": "https://docs.databricks.com/aws/en/genie/genie-ontology" },
+        { "name": "Unity Catalog Domains", "kind": "glossary", "status": "Preview", "since": "2026-06", "format": "GUI", "url": "https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026" },
+        { "name": "Unity Catalog Pages (governed business definitions) and certification/deprecation", "kind": "glossary", "status": "Unverified", "since": "", "format": "GUI", "url": "https://docs.databricks.com/aws/en/uc-semantics/" },
+        { "name": "Unity Catalog Business Glossary", "kind": "glossary", "status": "Announced", "since": "2026-06", "format": "GUI", "url": "https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026" },
+        { "name": "Governed tags (used by ABAC policies)", "kind": "annotations", "status": "GA", "since": "2026-04", "format": "SQL and GUI", "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/april" },
+        { "name": "Genie One MCP server (managed, in Unity Gateway)", "kind": "mcp", "status": "GA", "since": "2026-09", "format": "MCP over HTTP", "url": "https://www.databricks.com/blog/genie-one-mcp-now-generally-available" },
+        { "name": "Other managed MCP servers (dbsql, sandbox, web_search)", "kind": "mcp", "status": "Preview", "since": "", "format": "MCP over HTTP; needs Unity Gateway beta enabled by an account admin", "url": "https://docs.databricks.com/aws/en/generative-ai/mcp/managed-mcp" },
+        { "name": "AI Search (formerly Vector Search)", "kind": "vector", "status": "GA", "since": "", "format": "Delta Sync and Direct Vector Access indexes; API and SQL", "url": "https://docs.databricks.com/aws/en/vector-search/vector-search" },
+        { "name": "Agent Bricks Supervisor Agent (formerly Multi-Agent Supervisor)", "kind": "agent", "status": "GA", "since": "2026-02", "format": "GUI and API; GA in select US regions", "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/february" },
+        { "name": "Lakebase (managed Postgres, agent state and synced tables)", "kind": "agent", "status": "Unverified", "since": "", "format": "Postgres", "url": "https://docs.databricks.com/aws/en/oltp/" }
+      ],
+      "caps": {
+        "metrics":         { "l": 3, "n": "Metric views are GA via Unity Catalog Business Semantics (April 2026). YAML spec 1.1; base support from DBR 16.4.", "u": "https://www.databricks.com/blog/redefining-semantics-data-layer-future-bi-and-ai" },
+        "dimensions":      { "l": 3, "n": "Fields declared in YAML; 'dimensions' is accepted as an alias. Hierarchies and time grains are not documented in pages read.", "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/yaml-reference" },
+        "relationships":   { "l": 3, "n": "Star and snowflake joins in YAML; one-to-many needs DBR 18.1. Genie also stores join relationships in its knowledge store.", "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/yaml-reference" },
+        "synonyms":        { "l": 3, "n": "Agent metadata: comment, display_name, synonyms, format. Needs DBR 17.3 and YAML 1.1. Genie imports synonyms automatically.", "u": "https://docs.databricks.com/aws/en/uc-semantics/agent-metadata" },
+        "verifiedQueries": { "l": 3, "n": "Genie example SQL, parameterized queries, SQL functions as trusted assets, and benchmarks (limit raised to 500 questions in Oct 2025).", "u": "https://docs.databricks.com/aws/en/genie-agents/tune-quality" },
+        "nl2sql":          { "l": 3, "n": "Genie One, Genie Agents, and Genie Code are GA per the June 2026 launch FAQ.", "u": "https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents" },
+        "ontology":        { "l": 2, "n": "Genie Ontology is Public Preview. It is inferred context plus Unity Catalog semantics; no user-defined object or link types documented.", "u": "https://docs.databricks.com/aws/en/genie/genie-ontology" },
+        "graph":           { "l": 0, "n": "No graph query language documented. Genie Ontology docs describe a map of snippets, not a queryable graph.", "u": "https://docs.databricks.com/aws/en/genie/genie-ontology" },
+        "vector":          { "l": 3, "n": "AI Search (formerly Vector Search): hybrid search, reranker GA Dec 2025. Full-text keyword search is Beta.", "u": "https://docs.databricks.com/aws/en/vector-search/vector-search" },
+        "mcp":             { "l": 3, "n": "Genie One MCP server GA Sept 2026, grounded in Genie Ontology. Some managed servers need the Unity Gateway beta.", "u": "https://docs.databricks.com/aws/en/generative-ai/mcp/managed-mcp" },
+        "governance":      { "l": 3, "n": "Metric views are Unity Catalog securables with standard privileges. Governed tags and ABAC GA April 2026. Certification flags trusted assets.", "u": "https://docs.databricks.com/aws/en/release-notes/product/2026/april" },
+        "openStandard":    { "l": 2, "n": "Metric views open-sourced in Apache Spark (SPARK-54119, fix 4.2.0). Joined Apache Ossie (incubating). Spark 4.2.0 release not checked.", "u": "https://issues.apache.org/jira/browse/SPARK-54119" }
+      },
+      "offers": [
+        "Metric views: governed measures, joins, and filters in YAML, queried with MEASURE() under Unity Catalog privileges.",
+        "Agent metadata gives synonyms, display names, and formats that Genie reads automatically.",
+        "Genie Agents take up to 50 tables or metric views, example SQL, SQL expressions, join relationships, and benchmarks.",
+        "Genie One MCP server exposes governed analytics to outside agents, with Unity Gateway policies and audit logging.",
+        "Metric views run in Power BI, Tableau, Sigma, Excel, and Google Sheets through MEASURE() or BI compatibility mode.",
+        "AI Search (formerly Vector Search) is GA for retrieval over documents next to structured data."
+      ],
+      "gaps": [
+        "Genie Ontology is Public Preview and inferred; no user-defined object types, link types, or actions are documented.",
+        "Business Glossary was announced as coming soon in June 2026; the status of Pages is not stated.",
+        "Metric views cannot be joined directly at query time; every measure needs MEASURE(); SELECT * is not allowed.",
+        "Genie Agent limits: 50 tables, 100 instructions, 200 knowledge store snippets.",
+        "BI integration is thin: Power BI and Tableau need pass-through SQL; Tableau delegated semantics is planned for late 2026."
+      ],
+      "fillWith": ["Cube", "dbt Semantic Layer", "Atlan", "Collibra"],
+      "nl2sqlPath": "Model data in Unity Catalog with table and column comments, then define metric views with synonyms and display names. Add those metric views and key tables to a Genie Agent with example SQL, SQL expressions, and benchmarks. Expose it to outside agents through the Genie One MCP server, and treat Genie Ontology as Preview.",
+      "snippet": {
+        "lang": "yaml",
+        "title": "Metric view YAML body (wrapped in CREATE VIEW ... WITH METRICS LANGUAGE YAML AS $$ ... $$)",
+        "code": "version: 1.1\nsource: samples.tpch.orders\njoins:\n  - name: customer\n    source: samples.tpch.customer\n    'on': source.o_custkey = customer.c_custkey\nfields:\n  - name: customer_segment\n    expr: customer.c_mktsegment\n    synonyms: ['segment']\nmeasures:\n  - name: total_revenue\n    expr: SUM(o_totalprice)\n    display_name: 'Total Revenue'\n    synonyms: ['revenue', 'total sales']",
+        "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/yaml-reference"
+      },
+      "sources": [
+        { "t": "Unity Catalog metric views", "u": "https://docs.databricks.com/aws/en/metric-views/" },
+        { "t": "Metric view YAML syntax reference", "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/yaml-reference" },
+        { "t": "Agent metadata in metric views", "u": "https://docs.databricks.com/aws/en/uc-semantics/agent-metadata" },
+        { "t": "Query metric views", "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/query" },
+        { "t": "Use metric views with external BI tools", "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/bi-tools" },
+        { "t": "Metric view feature availability", "u": "https://docs.databricks.com/aws/en/business-semantics/metric-views/feature-availability" },
+        { "t": "Unity Catalog Business Semantics: Now GA and Open Source (Apr 2, 2026)", "u": "https://www.databricks.com/blog/redefining-semantics-data-layer-future-bi-and-ai" },
+        { "t": "Unity Catalog semantics (docs)", "u": "https://docs.databricks.com/aws/en/uc-semantics/" },
+        { "t": "What's new with Unity Catalog at Data + AI Summit 2026 (Jun 16, 2026)", "u": "https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026" },
+        { "t": "Introducing Genie One, Genie Agents, and Genie Ontology (Jun 16, 2026)", "u": "https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents" },
+        { "t": "How Genie Ontology powers product development at Databricks (Oct 5, 2026)", "u": "https://www.databricks.com/blog/how-genie-ontology-powers-product-development-databricks" },
+        { "t": "Genie Ontology (docs)", "u": "https://docs.databricks.com/aws/en/genie/genie-ontology" },
+        { "t": "AI/BI and Genie One release notes 2026", "u": "https://docs.databricks.com/gcp/en/ai-bi/release-notes/2026" },
+        { "t": "AI/BI release notes 2025", "u": "https://docs.databricks.com/aws/en/ai-bi/release-notes/2025" },
+        { "t": "Create and manage a Genie Agent", "u": "https://docs.databricks.com/aws/en/genie-agents/set-up" },
+        { "t": "Tune Genie Agent quality", "u": "https://docs.databricks.com/aws/en/genie-agents/tune-quality" },
+        { "t": "Chat in Genie One", "u": "https://docs.databricks.com/aws/en/genie-one/chat" },
+        { "t": "The Genie One MCP is now Generally Available (Sep 22, 2026)", "u": "https://www.databricks.com/blog/genie-one-mcp-now-generally-available" },
+        { "t": "Managed MCP servers", "u": "https://docs.databricks.com/aws/en/generative-ai/mcp/managed-mcp" },
+        { "t": "AI Search (formerly Vector Search)", "u": "https://docs.databricks.com/aws/en/vector-search/vector-search" },
+        { "t": "Agent Bricks", "u": "https://docs.databricks.com/aws/en/generative-ai/agent-bricks/" },
+        { "t": "Lakebase Postgres", "u": "https://docs.databricks.com/aws/en/oltp/" },
+        { "t": "Databricks platform release notes, April 2026", "u": "https://docs.databricks.com/aws/en/release-notes/product/2026/april" },
+        { "t": "Apache Spark SPARK-54119: Metrics & semantic modeling in Spark", "u": "https://issues.apache.org/jira/browse/SPARK-54119" }
+      ],
+      "verified": "2026-10-24"
+    },
+    {
+      "id": "palantir",
+      "name": "Palantir Foundry and AIP",
+      "category": "knowledge-graph",
+      "tagline": "Data platform whose Ontology models objects, links, and actions above source data.",
+      "verdict": "native",
+      "verdictNote": "The Ontology is a native, permissioned object model that AIP agents and external agents use through tools; it is not a SQL metric layer.",
+      "artifacts": [
+        { "name": "Foundry Ontology (object types, properties, link types, interfaces)", "kind": "ontology", "status": "GA", "since": "", "format": "GUI (Ontology Manager) and API", "url": "https://www.palantir.com/docs/foundry/ontology/overview/" },
+        { "name": "Action types", "kind": "ontology", "status": "GA", "since": "", "format": "GUI and API", "url": "https://www.palantir.com/docs/foundry/action-types/overview/" },
+        { "name": "Functions (TypeScript and Python)", "kind": "ontology", "status": "GA", "since": "", "format": "Code", "url": "https://www.palantir.com/docs/foundry/functions/overview/" },
+        { "name": "AIP Logic", "kind": "agent", "status": "GA", "since": "", "format": "No-code GUI", "url": "https://www.palantir.com/docs/foundry/logic/overview/" },
+        { "name": "AIP Chatbot Studio (formerly AIP Agent Studio)", "kind": "agent", "status": "GA", "since": "", "format": "GUI", "url": "https://www.palantir.com/docs/foundry/agent-studio/overview/" },
+        { "name": "Ontology MCP (Developer Console)", "kind": "mcp", "status": "Unverified", "since": "", "format": "MCP tools generated from Ontology resources", "url": "https://www.palantir.com/docs/foundry/ontology-mcp/overview/" },
+        { "name": "Ontology SDK (OSDK)", "kind": "ontology", "status": "GA", "since": "", "format": "TypeScript, Python, Java, OpenAPI", "url": "https://www.palantir.com/docs/foundry/ontology-sdk/overview/" },
+        { "name": "Virtual tables (Databricks, Snowflake, BigQuery, S3, ADLS, GCS)", "kind": "annotations", "status": "GA", "since": "", "format": "Source connection plus table locator", "url": "https://www.palantir.com/docs/foundry/data-integration/virtual-tables/" }
+      ],
+      "caps": {
+        "metrics":         { "l": 1, "n": "No governed metric object found in docs read. Business logic lives in Functions and applications.", "u": "https://www.palantir.com/docs/foundry/functions/overview/" },
+        "dimensions":      { "l": 1, "n": "Properties on object types describe attributes. No hierarchy or time-grain feature found in docs read.", "u": "https://www.palantir.com/docs/foundry/ontology/core-concepts/" },
+        "relationships":   { "l": 3, "n": "Link types define bidirectional relationships between object types; many-to-many links are backed by datasources.", "u": "https://www.palantir.com/docs/foundry/object-link-types/link-types-overview/" },
+        "synonyms":        { "l": 1, "n": "The Ontology adds metadata for fields. A synonym field, and prompt use of it, were not found in docs read.", "u": "https://www.palantir.com/docs/foundry/ontology/overview/" },
+        "verifiedQueries": { "l": 0, "n": "No verified question-to-SQL pairs found. AIP Evals tests LLM-based functions and prompts instead.", "u": "https://www.palantir.com/docs/foundry/aip/aip-features/" },
+        "nl2sql":          { "l": 3, "n": "AIP Chatbot Studio and AIP Logic answer over Ontology objects through tools. This is not SQL generation.", "u": "https://www.palantir.com/docs/foundry/logic/overview/" },
+        "ontology":        { "l": 3, "n": "Object types, properties, link types, action types, functions, interfaces. Semantic and kinetic elements.", "u": "https://www.palantir.com/docs/foundry/ontology/overview/" },
+        "graph":           { "l": 0, "n": "Link traversal exists in object sets and Functions. No SQL/PGQ, GQL, Cypher, or SPARQL found in docs read.", "u": "https://www.palantir.com/docs/foundry/functions/overview/" },
+        "vector":          { "l": 0, "n": "Not verified. Docs read do not cover vector or semantic search.", "u": "" },
+        "mcp":             { "l": 2, "n": "Ontology MCP exposes object types, actions, and query functions as MCP tools. Status not stated in docs; treated as Preview.", "u": "https://www.palantir.com/docs/foundry/ontology-mcp/overview/" },
+        "governance":      { "l": 3, "n": "Ontology roles control resource access. In AIP Logic the model only sees data the user may read.", "u": "https://www.palantir.com/docs/foundry/logic/overview/" },
+        "openStandard":    { "l": 0, "n": "Proprietary Ontology. OSDK generates TypeScript, Python, Java clients and an OpenAPI spec; no open semantic spec found.", "u": "https://www.palantir.com/docs/foundry/ontology-sdk/overview/" }
+      },
+      "offers": [
+        "Object types map datasets, virtual tables, and models to business entities with properties and links.",
+        "Action types bundle governed edits and side effects, so agents can write back with permission checks.",
+        "AIP Logic LLM blocks read Ontology data through tools such as Query objects; permissions apply at read time.",
+        "Ontology MCP and the OSDK expose objects, actions, and query functions to external agents and applications.",
+        "Virtual tables point at Databricks, Snowflake, and BigQuery tables without copying data; objects can sit on them."
+      ],
+      "gaps": [
+        "No NL-to-SQL feature found in docs read; AI queries objects through tools, not SQL against the warehouse.",
+        "No governed metric definitions, synonyms, or verified-query store found in docs read.",
+        "The Ontology is proprietary; access is through OSDK, OpenAPI, or Ontology MCP, not an open semantic spec.",
+        "Docs read do not say whether Ontology objects can be queried with SQL; ODBC and JDBC drivers cover datasets.",
+        "Warehouse tables become objects only after you model them in Ontology Manager or Pipeline Builder."
+      ],
+      "fillWith": ["Databricks (virtual table source)", "Snowflake (virtual table source)", "BigQuery (virtual table source)"],
+      "nl2sqlPath": "Palantir is not an NL-to-SQL product. Teams map warehouse tables to object types through virtual tables, then let AIP Logic or Chatbot Studio query objects and call actions. For outside agents, enable Ontology MCP or use the OSDK.",
+      "snippet": null,
+      "sources": [
+        { "t": "Foundry Ontology overview", "u": "https://www.palantir.com/docs/foundry/ontology/overview/" },
+        { "t": "Core Ontology concepts", "u": "https://www.palantir.com/docs/foundry/ontology/core-concepts/" },
+        { "t": "Object types overview", "u": "https://www.palantir.com/docs/foundry/object-link-types/object-types-overview/" },
+        { "t": "Link types overview", "u": "https://www.palantir.com/docs/foundry/object-link-types/link-types-overview/" },
+        { "t": "Action types overview", "u": "https://www.palantir.com/docs/foundry/action-types/overview/" },
+        { "t": "Functions overview", "u": "https://www.palantir.com/docs/foundry/functions/overview/" },
+        { "t": "AIP overview", "u": "https://www.palantir.com/docs/foundry/aip/overview/" },
+        { "t": "AIP features", "u": "https://www.palantir.com/docs/foundry/aip/aip-features/" },
+        { "t": "AIP Logic overview", "u": "https://www.palantir.com/docs/foundry/logic/overview/" },
+        { "t": "AIP Chatbot Studio overview", "u": "https://www.palantir.com/docs/foundry/agent-studio/overview/" },
+        { "t": "Ontology MCP overview", "u": "https://www.palantir.com/docs/foundry/ontology-mcp/overview/" },
+        { "t": "Ontology SDK overview", "u": "https://www.palantir.com/docs/foundry/ontology-sdk/overview/" },
+        { "t": "Virtual tables", "u": "https://www.palantir.com/docs/foundry/data-integration/virtual-tables/" },
+        { "t": "Analytics connectivity overview", "u": "https://www.palantir.com/docs/foundry/analytics-connectivity/overview/" }
+      ],
+      "verified": "2026-10-24"
+    }
+  ],
+  "notes": [
+    {
+      "topic": "Does Databricks have an ontology with Genie? (answer: yes by name, but not a Palantir-style schema)",
+      "text": "Databricks announced a product called Genie Ontology on 2026-06-16. Docs mark it Public Preview, enabled by default since 2026-08-06 and open to all customers since 2026-08-13. The docs describe it as a context layer that combines Unity Catalog semantics (metric views, domains, Pages) with snippets Genie infers from dashboards, queries, and Genie Agents. The docs read do not mention object types, link types, or actions.",
+      "sources": [
+        { "t": "Genie Ontology (docs)", "u": "https://docs.databricks.com/aws/en/genie/genie-ontology" },
+        { "t": "Introducing Genie One, Genie Agents, and Genie Ontology", "u": "https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents" },
+        { "t": "AI/BI and Genie One release notes 2026", "u": "https://docs.databricks.com/gcp/en/ai-bi/release-notes/2026" }
+      ]
+    },
+    {
+      "topic": "How Genie Ontology works",
+      "text": "The launch blog says it extracts knowledge from tables, queries, dashboards, pipelines, and connected apps into a 'living graph', and ranks sources with a PageRank-like method (OntoRank). It enforces source permissions. The blog gives no GA or Preview label; the docs do.",
+      "sources": [
+        { "t": "Introducing Genie One, Genie Agents, and Genie Ontology", "u": "https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents" },
+        { "t": "How Genie Ontology powers product development at Databricks", "u": "https://www.databricks.com/blog/how-genie-ontology-powers-product-development-databricks" }
+      ]
+    },
+    {
+      "topic": "Vendor-run benchmark for Genie Ontology",
+      "text": "Databricks reports 84.5% first-attempt accuracy against 52.4% for the strongest coding agent on an internal 28-question benchmark. This is a vendor-run test and has no independent check.",
+      "sources": [
+        { "t": "Introducing Genie One, Genie Agents, and Genie Ontology", "u": "https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents" }
+      ]
+    },
+    {
+      "topic": "Databricks product renames in 2026",
+      "text": "Databricks One was renamed to Genie on 2026-04-27, and Genie was renamed to Genie One on 2026-06-09. Genie Spaces became Genie Agents on 2026-07-09. Vector Search is now AI Search, and Agent Bricks Multi-Agent Supervisor became Supervisor Agent on 2026-02-05. Metric view 'Dimensions' became 'Fields' in the Genie authoring UI on 2026-05-21; YAML still accepts 'dimensions' as an alias.",
+      "sources": [
+        { "t": "AI/BI and Genie One release notes 2026", "u": "https://docs.databricks.com/gcp/en/ai-bi/release-notes/2026" },
+        { "t": "AI Search (formerly Vector Search)", "u": "https://docs.databricks.com/aws/en/vector-search/vector-search" },
+        { "t": "Databricks platform release notes, February 2026", "u": "https://docs.databricks.com/aws/en/release-notes/product/2026/february" },
+        { "t": "Metric view YAML syntax reference", "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/yaml-reference" }
+      ]
+    },
+    {
+      "topic": "Metric view status timeline",
+      "text": "Public Preview began 2025-05-29 (needs DBR 16.4 or a Preview-channel warehouse). Databricks announced 'Unity Catalog Business Semantics is now GA' on 2026-04-02, with metric views as the core; the point-and-click UI was Public Preview and materialization was Preview at that time. Later GA items: window measures (Oct 2026), sharing metric views through OpenSharing (Sept 2026), local metric views in dashboards (Aug 2026). Metric view parameters were Public Preview in June 2026. I found no separate 'metric views GA' release note.",
+      "sources": [
+        { "t": "AI/BI release notes 2025", "u": "https://docs.databricks.com/aws/en/ai-bi/release-notes/2025" },
+        { "t": "Unity Catalog Business Semantics: Now GA and Open Source", "u": "https://www.databricks.com/blog/redefining-semantics-data-layer-future-bi-and-ai" },
+        { "t": "Databricks platform release notes", "u": "https://docs.databricks.com/aws/en/release-notes/product" },
+        { "t": "AI/BI and Genie One release notes 2026", "u": "https://docs.databricks.com/gcp/en/ai-bi/release-notes/2026" }
+      ]
+    },
+    {
+      "topic": "Metric view YAML and join support",
+      "text": "YAML top-level keys: version, comment, source, parameters, filter, joins, fields (alias dimensions), measures, materialization. Joins support star and snowflake schemas; snowflake joins need DBR 17.3 per the feature table, and one-to-many joins need DBR 18.1. Agent metadata (comments, synonyms, display names, formats) needs YAML 1.1 and DBR 17.3. Docs also mention the join option rely.at_most_one_match.",
+      "sources": [
+        { "t": "Metric view YAML syntax reference", "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/yaml-reference" },
+        { "t": "Metric view feature availability", "u": "https://docs.databricks.com/aws/en/business-semantics/metric-views/feature-availability" }
+      ]
+    },
+    {
+      "topic": "Are metric views queryable from BI tools? (yes, with caveats)",
+      "text": "Docs list Power BI, Tableau, Sigma, and other JDBC/ODBC tools, using MEASURE() through custom or native SQL. Tableau can also use BI compatibility mode from the Initial SQL field. The Power BI connector option for BI compatibility mode was removed (release note dated 2026-04-17). The Google Sheets connector (GA 2026-04-16) can query metric views.",
+      "sources": [
+        { "t": "Use metric views with external BI tools", "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/bi-tools" },
+        { "t": "Query metric views", "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/query" },
+        { "t": "Databricks platform release notes, April 2026", "u": "https://docs.databricks.com/aws/en/release-notes/product/2026/april" }
+      ]
+    },
+    {
+      "topic": "Query limits for metric views",
+      "text": "Every measure needs the MEASURE aggregate (agg is also allowed on DBR 18.1+). SELECT * is not allowed, and a metric view cannot be joined to other tables at query time; wrap it in a CTE first.",
+      "sources": [
+        { "t": "Query metric views", "u": "https://docs.databricks.com/aws/en/uc-semantics/metric-views/query" }
+      ]
+    },
+    {
+      "topic": "Business semantics, tags, and certification",
+      "text": "Docs list metric views, domains, Pages, and certification/deprecation as Unity Catalog semantics components. The June 2026 summit blog calls Business Glossary 'Preview coming soon' and Domains Public Preview, and says tag propagation is Private Preview. Governed tags reached GA on 2026-04-02 and ABAC policies on governed tags are GA. The docs read do not say whether Pages is the same thing as the Business Glossary.",
+      "sources": [
+        { "t": "Unity Catalog semantics (docs)", "u": "https://docs.databricks.com/aws/en/uc-semantics/" },
+        { "t": "What's new with Unity Catalog at Data + AI Summit 2026", "u": "https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026" },
+        { "t": "Databricks platform release notes, April 2026", "u": "https://docs.databricks.com/aws/en/release-notes/product/2026/april" }
+      ]
+    },
+    {
+      "topic": "Genie Agent curation features and limits",
+      "text": "A Genie Agent takes up to 50 tables, views, or metric views. It holds up to 100 instructions (general text block, example SQL queries, SQL functions) and up to 200 knowledge store snippets (table descriptions, join relationships, SQL expressions). Trusted assets are example SQL queries and SQL functions that give verified answers; Benchmark APIs were Beta in March 2026.",
+      "sources": [
+        { "t": "Create and manage a Genie Agent", "u": "https://docs.databricks.com/aws/en/genie-agents/set-up" },
+        { "t": "Tune Genie Agent quality", "u": "https://docs.databricks.com/aws/en/genie-agents/tune-quality" },
+        { "t": "AI/BI and Genie One release notes 2026", "u": "https://docs.databricks.com/gcp/en/ai-bi/release-notes/2026" }
+      ]
+    },
+    {
+      "topic": "Databricks managed MCP servers",
+      "text": "Managed MCP servers live in the system.ai schema and run through Unity Gateway, at https://<workspace-hostname>/ai-gateway/mcp-services/<mcp-name>. Genie One MCP is GA (2026-09-22). The dbsql, sandbox, and web_search servers need the Unity Gateway beta. Older /api/2.0/mcp endpoints for AI Search, SQL, and UC functions bypass Unity Gateway.",
+      "sources": [
+        { "t": "Managed MCP servers", "u": "https://docs.databricks.com/aws/en/generative-ai/mcp/managed-mcp" },
+        { "t": "The Genie One MCP is now Generally Available", "u": "https://www.databricks.com/blog/genie-one-mcp-now-generally-available" }
+      ]
+    },
+    {
+      "topic": "Agent Bricks, AI Search, Lakebase",
+      "text": "Agent Bricks is now an umbrella page for Databricks AI capabilities (2026-03-27); Supervisor Agent is GA in select US regions (2026-02-10). AI Search reranker is GA (2025-12-08) and storage-optimized endpoints are GA (May 2026). Lakebase is described as managed Postgres with Unity Catalog synced tables and pgvector support; I found no GA statement, so its status is Unverified.",
+      "sources": [
+        { "t": "Databricks platform release notes, March 2026", "u": "https://docs.databricks.com/aws/en/release-notes/product/2026/march" },
+        { "t": "Databricks platform release notes, February 2026", "u": "https://docs.databricks.com/aws/en/release-notes/product/2026/february" },
+        { "t": "Databricks platform release notes, December 2025", "u": "https://docs.databricks.com/aws/en/release-notes/product/2025/december" },
+        { "t": "Lakebase Postgres", "u": "https://docs.databricks.com/aws/en/oltp/" },
+        { "t": "Lakebase product page", "u": "https://www.databricks.com/product/lakebase" }
+      ]
+    },
+    {
+      "topic": "Claims not used",
+      "text": "Third-party blogs (for example Atlan and consultancies) call Genie Ontology a 'self-improving knowledge graph' and describe 'gated public preview'. I did not use them; only Databricks docs and blogs are cited. The summit blog heading says 'Open Semantic Interchange' but the body names Apache Ossie (incubating), so I recorded Ossie only.",
+      "sources": [
+        { "t": "Unity Catalog Business Semantics: Now GA and Open Source", "u": "https://www.databricks.com/blog/redefining-semantics-data-layer-future-bi-and-ai" }
+      ]
+    },
+    {
+      "topic": "Palantir Ontology structure",
+      "text": "The Ontology has semantic elements (objects, properties, links) and kinetic elements (actions, functions, dynamic security). An object type is the schema of a real-world entity; a link type is a bidirectional relationship between two object types; an action type bundles edits and side effects. Interfaces add polymorphism over object types with a shared shape.",
+      "sources": [
+        { "t": "Foundry Ontology overview", "u": "https://www.palantir.com/docs/foundry/ontology/overview/" },
+        { "t": "Core Ontology concepts", "u": "https://www.palantir.com/docs/foundry/ontology/core-concepts/" },
+        { "t": "Link types overview", "u": "https://www.palantir.com/docs/foundry/object-link-types/link-types-overview/" }
+      ]
+    },
+    {
+      "topic": "How LLMs use the Palantir Ontology",
+      "text": "AIP Logic is a no-code place to build LLM-powered functions; its Use LLM block reads Ontology data through tools such as Query objects, and Ontology edits can be applied automatically or staged for human review. AIP Chatbot Studio (previously AIP Agent Studio) builds chatbots on Ontology data and tools. Ontology MCP exposes object types, action types, and query functions to external agents as MCP tools. I did not find a public page on 'Ontology augmented generation'.",
+      "sources": [
+        { "t": "AIP Logic overview", "u": "https://www.palantir.com/docs/foundry/logic/overview/" },
+        { "t": "AIP Chatbot Studio overview", "u": "https://www.palantir.com/docs/foundry/agent-studio/overview/" },
+        { "t": "AIP features", "u": "https://www.palantir.com/docs/foundry/aip/aip-features/" },
+        { "t": "Ontology MCP overview", "u": "https://www.palantir.com/docs/foundry/ontology-mcp/overview/" }
+      ]
+    },
+    {
+      "topic": "Palantir Ontology and SQL warehouses",
+      "text": "The Ontology sits on datasets, virtual tables, and models. Virtual tables point at tables in Databricks, Snowflake, BigQuery, S3, ADLS, and GCS (GA) without copying data, and objects can be created from them in Ontology Manager and Pipeline Builder. Databricks and Snowflake support compute pushdown in Python and Pipeline Builder. Ontology semantics are not stored in the warehouse.",
+      "sources": [
+        { "t": "Virtual tables", "u": "https://www.palantir.com/docs/foundry/data-integration/virtual-tables/" },
+        { "t": "Foundry Ontology overview", "u": "https://www.palantir.com/docs/foundry/ontology/overview/" }
+      ]
+    },
+    {
+      "topic": "Palantir syntax and status gaps",
+      "text": "I found no public text syntax for defining the Ontology; it is built in Ontology Manager, so the snippet is null. Docs read do not state GA status for Ontology MCP; I marked it Unverified. Core Ontology, AIP Logic, and Chatbot Studio are marked GA because the docs show no preview label, not because a page says GA.",
+      "sources": [
+        { "t": "Ontology MCP overview", "u": "https://www.palantir.com/docs/foundry/ontology-mcp/overview/" },
+        { "t": "Foundry Ontology overview", "u": "https://www.palantir.com/docs/foundry/ontology/overview/" }
+      ]
+    }
+  ]
+}
