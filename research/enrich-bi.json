@@ -1,0 +1,666 @@
+{
+  "vendors": [
+    {
+      "id": "businessobjects",
+      "caps": {
+        "aiDescriptions": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "bulkMetadata": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "autoClassify": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "lineage": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "evals": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        }
+      },
+      "enrichHowTo": "Not verified. Vendor docs could not be fetched and the search budget ran out, so no supported bulk method is claimed here.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": []
+    },
+    {
+      "id": "cognos",
+      "caps": {
+        "aiDescriptions": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "bulkMetadata": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "autoClassify": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "lineage": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "evals": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        }
+      },
+      "enrichHowTo": "Not verified. Vendor docs could not be fetched and the search budget ran out, so no supported bulk method is claimed here.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": []
+    },
+    {
+      "id": "strategy",
+      "caps": {
+        "aiDescriptions": {
+          "l": null,
+          "n": "Not verified. Search found Auto Answers, Auto Dashboard and Auto SQL on product pages; no description generator confirmed.",
+          "u": "https://www.strategy.com/it/software/strategyone/ai-analytics"
+        },
+        "bulkMetadata": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "autoClassify": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "lineage": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "evals": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        }
+      },
+      "enrichHowTo": "Not verified. Vendor docs could not be fetched and the search budget ran out, so no supported bulk method is claimed here.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": [
+        {
+          "t": "Strategy One AI analytics (Italian page, seen in search)",
+          "u": "https://www.strategy.com/it/software/strategyone/ai-analytics"
+        }
+      ]
+    },
+    {
+      "id": "qlik",
+      "caps": {
+        "aiDescriptions": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "bulkMetadata": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "autoClassify": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": null,
+          "n": "Not verified. Insight Advisor business logic sets fields, groups and vocabulary by hand; no sample-value feature confirmed.",
+          "u": "https://help.qlik.com/en-US/sense/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business-logic-logical-models.htm"
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "lineage": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "evals": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        }
+      },
+      "enrichHowTo": "Qlik Insight Advisor reads a logical model that you edit by hand under Business logic. Bulk edit by API or file was not verified.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": [
+        {
+          "t": "Building logical models for Insight Advisor with Business logic",
+          "u": "https://help.qlik.com/en-US/sense/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business-logic-logical-models.htm"
+        }
+      ]
+    },
+    {
+      "id": "oracleanalytics",
+      "caps": {
+        "aiDescriptions": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "bulkMetadata": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "autoClassify": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "lineage": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "evals": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        }
+      },
+      "enrichHowTo": "Not verified. Vendor docs could not be fetched and the search budget ran out, so no supported bulk method is claimed here.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": []
+    },
+    {
+      "id": "tableau",
+      "caps": {
+        "aiDescriptions": {
+          "l": 3,
+          "n": "2024 reports say Tableau Agent drafts data source descriptions in Catalog. Column level and current status Unverified.",
+          "u": "https://atrium.ai/resources/6-frequently-asked-questions-about-einstein-copilot-for-tableau"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "REST API can update a column description on external assets. Some write methods need the Data Management add-on.",
+          "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_metadata.htm"
+        },
+        "autoClassify": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 3,
+          "n": "Catalog lineage filters to a selected field or column, up or downstream. No columns for custom SQL tables. Cube sources unsupported.",
+          "u": "https://help.tableau.com/current/online/en-us/dm_lineage.htm"
+        },
+        "evals": {
+          "l": null,
+          "n": "Not verified. Tableau Next has an Analytics Agent Readiness pane with guidelines; no eval tooling confirmed.",
+          "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
+        }
+      },
+      "enrichHowTo": "Write column descriptions with the Tableau REST API metadata methods, which update a column description on a table. A Data Management license is needed for some of them. The Metadata API (GraphQL) is for reading.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": [
+        {
+          "t": "Metadata Methods (REST API)",
+          "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_metadata.htm"
+        },
+        {
+          "t": "Use Lineage for Impact Analysis",
+          "u": "https://help.tableau.com/current/online/en-us/dm_lineage.htm"
+        },
+        {
+          "t": "Introduction to Tableau Metadata API",
+          "u": "https://help.tableau.com/current/api/metadata_api/en-us/index.html"
+        },
+        {
+          "t": "FAQs About Tableau Agent (Atrium)",
+          "u": "https://atrium.ai/resources/6-frequently-asked-questions-about-einstein-copilot-for-tableau"
+        },
+        {
+          "t": "Step 4: Enable Tableau Next AI Features",
+          "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
+        }
+      ]
+    },
+    {
+      "id": "thoughtspot",
+      "caps": {
+        "aiDescriptions": {
+          "l": 3,
+          "n": "Admin-enabled option generates synonyms for model columns, off by default. No description generator found.",
+          "u": "https://docs.thoughtspot.com/cloud/latest/data-modeling-visibility"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "TML API exports, validates and imports Model TML in bulk. Models need export_schema_version v2.",
+          "u": "https://developers.thoughtspot.com/docs/tml"
+        },
+        "autoClassify": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Readiness guide advises indexing columns. Spotter shows sample values on hover. Data values go to the LLM only if an admin allows.",
+          "u": "https://docs.thoughtspot.com/cloud/latest/spotter-worksheet-model"
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 1,
+          "n": "No ThoughtSpot lineage doc found. DataHub says worksheet column sources come from the metadata search API.",
+          "u": "https://docs.datahub.com/docs/generated/ingestion/sources/thoughtspot"
+        },
+        "evals": {
+          "l": 3,
+          "n": "Analysts add reference questions and business terms. Users mark answers incorrect and edit the search. No benchmark runner found.",
+          "u": "https://docs.thoughtspot.com/cloud/latest/spotter-training-options"
+        }
+      },
+      "enrichHowTo": "Export the Model as TML with the TML API, edit column descriptions, synonyms and AI context in the file, then import it back. Add reference questions only after the model is clean.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": [
+        {
+          "t": "Hide a column or define a synonym",
+          "u": "https://docs.thoughtspot.com/cloud/latest/data-modeling-visibility"
+        },
+        {
+          "t": "Spotter Worksheet/Model readiness",
+          "u": "https://docs.thoughtspot.com/cloud/latest/spotter-worksheet-model"
+        },
+        {
+          "t": "Understanding training options for Spotter",
+          "u": "https://docs.thoughtspot.com/cloud/latest/spotter-training-options"
+        },
+        {
+          "t": "ThoughtSpot TML API",
+          "u": "https://developers.thoughtspot.com/docs/tml"
+        },
+        {
+          "t": "DataHub ThoughtSpot source",
+          "u": "https://docs.datahub.com/docs/generated/ingestion/sources/thoughtspot"
+        },
+        {
+          "t": "Coaching best practices",
+          "u": "https://docs.thoughtspot.com/cloud/26.2.0.cl/spotter-coach-not-coach"
+        }
+      ]
+    },
+    {
+      "id": "sigma",
+      "caps": {
+        "aiDescriptions": {
+          "l": 0,
+          "n": "Without metadata, the AI search index builds its own descriptions from column names. Not written back. AI columns are a different feature.",
+          "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices"
+        },
+        "bulkMetadata": {
+          "l": 3,
+          "n": "PUT /v2/dataModels/{id}/spec replaces the pages array of a data model and makes a new version. Descriptions can also import from dbt.",
+          "u": "https://help.sigmacomputing.com/docs/update-a-data-model-from-a-code-representation.md"
+        },
+        "autoClassify": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "lineage": {
+          "l": 0,
+          "n": "No Sigma lineage doc found. Third parties report warehouse to data model links; DataHub says it does not emit column lineage.",
+          "u": "https://docs.datahub.com/docs/generated/ingestion/sources/sigma.md"
+        },
+        "evals": {
+          "l": 0,
+          "n": "Assistant response feedback added in April 2026 release notes. AI context for data models is Beta. No eval runner found.",
+          "u": "https://help.sigmacomputing.com/docs/manage-ai-context-for-data-models"
+        }
+      },
+      "enrichHowTo": "Get the data model with GET /v2/dataModels/{id}/spec, edit descriptions in the JSON or YAML, then send it with PUT /v2/dataModels/{id}/spec. Each update needs schemaVersion. Descriptions can also be inherited from the warehouse or imported from dbt.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "# Edit descriptions in spec.json (keep schemaVersion), then replace the data model pages\ncurl -X PUT \"$SIGMA_API_URL/v2/dataModels/$DATA_MODEL_ID/spec\" \\\n  -H \"Content-Type: application/json\" \\\n  -d @spec.json\n# add your API token header as shown in the Sigma API docs",
+        "u": "https://help.sigmacomputing.com/docs/update-a-data-model-from-a-code-representation.md"
+      },
+      "sources": [
+        {
+          "t": "Update a data model from a code representation",
+          "u": "https://help.sigmacomputing.com/docs/update-a-data-model-from-a-code-representation.md"
+        },
+        {
+          "t": "Data modeling best practices",
+          "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices"
+        },
+        {
+          "t": "Manage AI context for a data model (Beta)",
+          "u": "https://help.sigmacomputing.com/docs/manage-ai-context-for-data-models"
+        },
+        {
+          "t": "What's new in Sigma, 2026-04-17",
+          "u": "https://help.sigmacomputing.com/changelog/2026-04-17"
+        },
+        {
+          "t": "DataHub Sigma source",
+          "u": "https://docs.datahub.com/docs/generated/ingestion/sources/sigma.md"
+        }
+      ]
+    },
+    {
+      "id": "domo",
+      "caps": {
+        "aiDescriptions": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "bulkMetadata": {
+          "l": null,
+          "n": "Not verified. A forum thread says pydomo returns only column names and types; column descriptions may come from Governance reports.",
+          "u": "https://community-forums.domo.com/main/discussion/comment/69603"
+        },
+        "autoClassify": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "lineage": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "evals": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        }
+      },
+      "enrichHowTo": "Not verified. Vendor docs could not be fetched and the search budget ran out, so no supported bulk method is claimed here.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": [
+        {
+          "t": "Metadata through API (Domo forum)",
+          "u": "https://community-forums.domo.com/main/discussion/comment/69603"
+        }
+      ]
+    },
+    {
+      "id": "metabase",
+      "caps": {
+        "aiDescriptions": {
+          "l": 3,
+          "n": "You can ask Metabot to write descriptions. It sees only database content, so it cannot supply business context. Plan not stated.",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/settings.md"
+        },
+        "bulkMetadata": {
+          "l": null,
+          "n": "Serialization (Pro and Enterprise) exports YAML for tables and fields. Whether descriptions are included was not confirmed.",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/installation-and-operation/serialization.md"
+        },
+        "autoClassify": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": 3,
+          "n": "Metabase sends a sampling of field values to the AI, so Metabot can check if a state is stored as WI or Wisconsin.",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/privacy.md"
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "lineage": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "evals": {
+          "l": 0,
+          "n": "Feedback can be sent to Metabase, but no eval tooling or verified-example loop was found.",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/privacy.md"
+        }
+      },
+      "enrichHowTo": "Edit table and field descriptions in the Data Model admin page, or ask Metabot to draft them. Add business meaning by hand. A supported bulk write was not confirmed.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": [
+        {
+          "t": "Metabase AI settings (docs source)",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/settings.md"
+        },
+        {
+          "t": "Metabase AI privacy (docs source)",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/privacy.md"
+        },
+        {
+          "t": "Metabase serialization (docs source)",
+          "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/installation-and-operation/serialization.md"
+        }
+      ]
+    },
+    {
+      "id": "superset",
+      "caps": {
+        "aiDescriptions": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "bulkMetadata": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "autoClassify": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "sampleValues": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "queryHistory": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "lineage": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        },
+        "evals": {
+          "l": null,
+          "n": "Not verified. Vendor docs could not be fetched in this session.",
+          "u": ""
+        }
+      },
+      "enrichHowTo": "Not verified. Superset README lists a REST API and a lightweight semantic layer; no bulk metadata method was confirmed.",
+      "bulkSnippet": {
+        "lang": "bash",
+        "code": "",
+        "u": ""
+      },
+      "sources": [
+        {
+          "t": "Apache Superset README",
+          "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "topic": "Method and limits",
+      "text": "Most vendor doc hosts were blocked, WebFetch failed with DNS errors, and the search budget ran out. Facts come from search result summaries and a few GitHub raw pages. Caps scored 0 with the note 'Not verified' mean unknown, not absent.",
+      "sources": []
+    },
+    {
+      "topic": "Sigma AI context is Beta",
+      "text": "The page for AI context on data models says it describes public beta features that may change. Sigma datasets stop working as a data source on 2026-09-15, so use data models.",
+      "sources": [
+        {
+          "t": "Manage AI context for a data model (Beta)",
+          "u": "https://help.sigmacomputing.com/docs/manage-ai-context-for-data-models"
+        },
+        {
+          "t": "Data modeling best practices",
+          "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices"
+        }
+      ]
+    },
+    {
+      "topic": "ThoughtSpot Worksheets",
+      "text": "ThoughtSpot developer docs say Worksheets are deprecated and replaced by Models from 10.12.0.cl.",
+      "sources": [
+        {
+          "t": "ThoughtSpot TML API",
+          "u": "https://developers.thoughtspot.com/docs/tml"
+        }
+      ]
+    },
+    {
+      "topic": "Tableau Agent rename",
+      "text": "Search results say Einstein Copilot for Tableau was renamed Tableau Agent. Tableau Next uses Agentforce for Analytics, with Concierge and Data Pro.",
+      "sources": [
+        {
+          "t": "FAQs About Tableau Agent (Atrium)",
+          "u": "https://atrium.ai/resources/6-frequently-asked-questions-about-einstein-copilot-for-tableau"
+        },
+        {
+          "t": "Step 4: Enable Tableau Next AI Features",
+          "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
+        }
+      ]
+    }
+  ]
+}
