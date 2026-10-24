@@ -2665,9 +2665,9 @@ window.SL = {
      "u": ""
     },
     "graph": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "PageRank and shortest-path functions run in the separate Machine Learning Engine (SQL-GR). Function-based, not a graph query language.",
+     "u": "https://docs.teradata.com/r/Machine-Learning-Engine-Analytic-Function-Reference/February-2022/Graph-Analysis"
     },
     "vector": {
      "l": 3,
@@ -2690,9 +2690,9 @@ window.SL = {
      "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
     },
     "aiDescriptions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "AI Studio Enterprise MCP ships prompts for table and database descriptions. An agent drafts text, then COMMENT writes it.",
+     "u": "https://docs.teradata.com/r/Teradata-AI-Studio-Release-Notes/AI-Studio-Release-Notes/New-Features"
     },
     "bulkMetadata": {
      "l": 3,
@@ -2700,9 +2700,9 @@ window.SL = {
      "u": "https://docs.teradata.com/r/SQL-Data-Definition-Language-Syntax-and-Examples/July-2021/Comment-Help-and-Show-Statements/COMMENT-Comment-Placing-Form/COMMENT-Syntax-Elements-Comment-Placing-Form"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "Teradata Package for Generative AI offers recognize_pii_entities and mask_pii to detect PII in a DataFrame column, called from Python.",
+     "u": "https://docs.teradata.com/r/VMware/Teradata-Package-for-Generative-AI-Function-Reference/text_analytics/teradatagenai.TextAnalyticsAI.recognize_pii_entities.html"
     },
     "sampleValues": {
      "l": 1,
@@ -2710,9 +2710,9 @@ window.SL = {
      "u": "https://raw.githubusercontent.com/Teradata/teradata-mcp-server/main/src/teradata_mcp_server/tools/qlty/README.md"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "DBQL logs queries with SQL text and objects once BEGIN QUERY LOGGING is set. Teams mine it themselves.",
+     "u": "https://docs.teradata.com/r/Lake-Database-Reference/Database-Administration/Setting-Up-Database-Query-Logging"
     },
     "lineage": {
      "l": 1,
@@ -2790,6 +2790,10 @@ window.SL = {
      "u": "https://ossie.apache.org/updates/osi-april-2026-community-update/"
     },
     {
+     "t": "Machine Learning Engine: Graph Analysis (Feb 2022)",
+     "u": "https://docs.teradata.com/r/Machine-Learning-Engine-Analytic-Function-Reference/February-2022/Graph-Analysis"
+    },
+    {
      "t": "COMMENT syntax, placing form",
      "u": "https://docs.teradata.com/r/SQL-Data-Definition-Language-Syntax-and-Examples/July-2021/Comment-Help-and-Show-Statements/COMMENT-Comment-Placing-Form/COMMENT-Syntax-Comment-Placing-Form"
     },
@@ -2808,6 +2812,18 @@ window.SL = {
     {
      "t": "DataHub Teradata source",
      "u": "https://docs.datahub.com/docs/generated/ingestion/sources/teradata.md"
+    },
+    {
+     "t": "Teradata AI Studio release notes: New Features",
+     "u": "https://docs.teradata.com/r/Teradata-AI-Studio-Release-Notes/AI-Studio-Release-Notes/New-Features"
+    },
+    {
+     "t": "Teradata Package for Generative AI: recognize_pii_entities",
+     "u": "https://docs.teradata.com/r/VMware/Teradata-Package-for-Generative-AI-Function-Reference/text_analytics/teradatagenai.TextAnalyticsAI.recognize_pii_entities.html"
+    },
+    {
+     "t": "Setting Up Database Query Logging (DBQL)",
+     "u": "https://docs.teradata.com/r/Lake-Database-Reference/Database-Administration/Setting-Up-Database-Query-Logging"
     }
    ],
    "verified": "2026-10-24",
@@ -5384,9 +5400,9 @@ window.SL = {
      "u": "https://docs.timbr.ai/doc/docs/platform/modeling/ontology-explorer/"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No query-log mining. Benchmarks import questions from agent conversation history, and Knowledge Base suggestions come from user feedback.",
+     "u": "https://docs.timbr.ai/doc/docs/platform/managing/benchmarks/"
     },
     "lineage": {
      "l": 3,
@@ -7457,14 +7473,14 @@ window.SL = {
      "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
     },
     "relationships": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No declared joins or relationships between datasets. Teams join tables in a SQL virtual dataset.",
+     "u": "https://preset.io/blog/understanding-superset-semantic-layer/"
     },
     "synonyms": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Datasets, columns and metrics carry verbose_name and description fields. No separate synonym field.",
+     "u": "https://raw.githubusercontent.com/apache/superset/master/superset/datasets/schemas.py"
     },
     "verifiedQueries": {
      "l": 0,
@@ -7517,9 +7533,9 @@ window.SL = {
      "u": "https://superset.apache.org/admin-docs/configuration/importing-exporting-datasources"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No automatic column classification in the README feature list.",
+     "u": "https://raw.githubusercontent.com/apache/superset/master/README.md"
     },
     "sampleValues": {
      "l": 0,
@@ -7527,9 +7543,9 @@ window.SL = {
      "u": "https://preset.io/blog/apache-superset-6-1-release/"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No feature mines query history to suggest joins, metrics or examples in the README or MCP docs.",
+     "u": "https://raw.githubusercontent.com/apache/superset/master/docs/admin_docs/configuration/mcp-server.mdx"
     },
     "lineage": {
      "l": 0,
@@ -7628,12 +7644,16 @@ window.SL = {
      "u": "https://raw.githubusercontent.com/apache/superset/master/UPDATING.md"
     },
     {
-     "t": "Importing and Exporting Datasources",
-     "u": "https://superset.apache.org/admin-docs/configuration/importing-exporting-datasources"
+     "t": "Preset: Understanding the Superset Semantic Layer",
+     "u": "https://preset.io/blog/understanding-superset-semantic-layer/"
     },
     {
-     "t": "Superset dataset schemas (source code)",
+     "t": "Superset datasets schemas.py",
      "u": "https://raw.githubusercontent.com/apache/superset/master/superset/datasets/schemas.py"
+    },
+    {
+     "t": "Importing and Exporting Datasources",
+     "u": "https://superset.apache.org/admin-docs/configuration/importing-exporting-datasources"
     },
     {
      "t": "Apache Superset 6.1 Release",
@@ -7736,14 +7756,14 @@ window.SL = {
    ],
    "caps": {
     "metrics": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Beast Mode calculations can be saved to a DataSet and managed in Beast Mode Manager. AI Readiness lists them as columns for AI.",
+     "u": "https://www.domo.com/docs/s/article/360042925474.md"
     },
     "dimensions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "No declared dimension or hierarchy object in Data Models. Teams build date and bucket fields with Beast Mode calculated fields.",
+     "u": "https://www.domo.com/docs/s/article/360043429913.md"
     },
     "relationships": {
      "l": 2,
@@ -7756,9 +7776,9 @@ window.SL = {
      "u": "https://www.domo.com/docs/s/article/Create-and-Use-Data-Models"
     },
     "verifiedQueries": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No saved question-SQL pairs. AI Readiness takes DataSet context, synonyms and column context instead.",
+     "u": "https://www.domo.com/docs/s/article/000005561.md"
     },
     "nl2sql": {
      "l": 3,
@@ -7771,14 +7791,14 @@ window.SL = {
      "u": "https://research.isg-one.com/analyst-perspectives/domo-adds-context-to-platform-for-analytics-and-ai"
     },
     "graph": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No graph query feature in the Domo Knowledge Base index.",
+     "u": "https://www.domo.com/docs/_llms/en/knowledge-base.txt"
     },
     "vector": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No vector search feature in the Domo Knowledge Base index.",
+     "u": "https://www.domo.com/docs/_llms/en/knowledge-base.txt"
     },
     "mcp": {
      "l": 2,
@@ -7786,9 +7806,9 @@ window.SL = {
      "u": "https://www.domo.com/docs/s/article/May-2026-Release.md"
     },
     "governance": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Company and department certification badges for cards and DataSets. AI Chat keeps the same security settings as the rest of Domo.",
+     "u": "https://www.domo.com/docs/s/article/360043430613.md"
     },
     "openStandard": {
      "l": 0,
@@ -7811,14 +7831,14 @@ window.SL = {
      "u": "https://www.domo.com/docs/s/article/4409199658263.md"
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "AI Readiness uses descriptions, synonyms and column context you write. No value sampling documented; the Beast Mode assistant sends only schema.",
+     "u": "https://www.domo.com/docs/s/article/000005561.md"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Activity Log records usage for admins. No feature mines it to suggest models or examples.",
+     "u": "https://www.domo.com/docs/s/article/360042934574.md"
     },
     "lineage": {
      "l": 1,
@@ -7921,8 +7941,28 @@ window.SL = {
      "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
     },
     {
-     "t": "AI Readiness",
+     "t": "Domo: Beast Mode Manager",
+     "u": "https://www.domo.com/docs/s/article/360042925474.md"
+    },
+    {
+     "t": "Domo: Create a Beast Mode Calculation",
+     "u": "https://www.domo.com/docs/s/article/360043429913.md"
+    },
+    {
+     "t": "Domo: AI Readiness",
      "u": "https://www.domo.com/docs/s/article/000005561.md"
+    },
+    {
+     "t": "Domo: Certify Cards and DataSets",
+     "u": "https://www.domo.com/docs/s/article/360043430613.md"
+    },
+    {
+     "t": "Domo: AI Chat",
+     "u": "https://www.domo.com/docs/s/article/AI-Chat-v2.md"
+    },
+    {
+     "t": "Domo Knowledge Base index",
+     "u": "https://www.domo.com/docs/_llms/en/knowledge-base.txt"
     },
     {
      "t": "Schema Management",
@@ -7935,10 +7975,6 @@ window.SL = {
     {
      "t": "September 2026 Release Notes",
      "u": "https://www.domo.com/docs/s/article/Current-Release-Notes.md"
-    },
-    {
-     "t": "AI Chat",
-     "u": "https://www.domo.com/docs/s/article/AI-Chat-v2.md"
     },
     {
      "t": "Domo AI Playground",
@@ -7967,6 +8003,10 @@ window.SL = {
     {
      "t": "Alter Dataset Schema",
      "u": "https://www.domo.com/docs/api-reference/datasets-api/alter-dataset-schema.md"
+    },
+    {
+     "t": "Domo: Activity Log",
+     "u": "https://www.domo.com/docs/s/article/360042934574.md"
     }
    ],
    "verified": "2026-10-24",
@@ -8016,9 +8056,9 @@ window.SL = {
    ],
    "caps": {
     "metrics": {
-     "l": 3,
-     "n": "Data modules hold measures and calculations, including relative-time measures generated from a lookup reference.",
-     "u": "https://community.ibm.com/community/user/discussion/relative-time-logic-lookup-reference-generated-measures-in-enterprise-model-1"
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
     },
     "dimensions": {
      "l": 3,
@@ -8031,9 +8071,9 @@ window.SL = {
      "u": "https://community.ibm.com:443/community/user/blogs/shaveta-srivastava/2025/10/30/cognos-1211-smarter-reporting-faster-dashboards-an?hlmlt=VT"
     },
     "synonyms": {
-     "l": 3,
-     "n": "Community posts report the AI Assistant uses synonyms defined in the model. Sharing synonyms across modules was reported as unsupported in 11.2.3.",
-     "u": "https://community.ibm.com/community/user/discussion/your-experiences-with-cognos-analytics-ai-assistant"
+     "l": null,
+     "n": "Not checked yet.",
+     "u": ""
     },
     "verifiedQueries": {
      "l": null,
@@ -8341,9 +8381,9 @@ window.SL = {
      "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/privacy.md"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Metabot keeps only the current conversation. Nothing mines past queries to suggest models or examples.",
+     "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/metabot.md"
     },
     "lineage": {
      "l": 0,
@@ -8650,19 +8690,19 @@ window.SL = {
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/managing-data-model-indexing-synonyms-ai-descriptions-using-csv-file.html"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "Usage Tracking logs logical and physical queries to a database you specify. Analyzing it is up to the team.",
+     "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/usage-tracking-database.html"
     },
     "lineage": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Semantic Modeler lineage viewer and Export Lineage CSV map presentation columns to logical and physical columns. Scope is the semantic model.",
+     "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/generate-document-repository-mappings.html"
     },
     "evals": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "AI Assistant feedback is written to OCI logs with category and details. Docs do not say it improves future answers.",
+     "u": "https://docs.oracle.com/en-us/iaas/analytics-cloud/doc/audit-and-diagnostic-logs-oracle-analytics-cloud.html"
     }
    },
    "offers": [
@@ -8757,6 +8797,18 @@ window.SL = {
     {
      "t": "What's New for Oracle Analytics Cloud",
      "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acswn/"
+    },
+    {
+     "t": "About the Usage Tracking Database",
+     "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acabi/usage-tracking-database.html"
+    },
+    {
+     "t": "Generate a Document of Semantic Model Mappings",
+     "u": "https://docs.oracle.com/en/cloud/paas/analytics-cloud/acmdg/generate-document-repository-mappings.html"
+    },
+    {
+     "t": "Audit and diagnostic logs for Oracle Analytics Cloud",
+     "u": "https://docs.oracle.com/en-us/iaas/analytics-cloud/doc/audit-and-diagnostic-logs-oracle-analytics-cloud.html"
     }
    ],
    "worksWith": [
@@ -8918,9 +8970,9 @@ window.SL = {
      "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/InsightAdvisorBestPractices/best-practice-create-business-logic.htm"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Default logical model learns from charts users add or edit. Precedents are per user and unavailable once business logic is on.",
+     "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/insight-advisor-create-visualizations.htm"
     },
     "lineage": {
      "l": 3,
@@ -8928,9 +8980,9 @@ window.SL = {
      "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Catalog/lineage.htm"
     },
     "evals": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "Feedback and questions are logged for audit admins via the Natural Language API; docs point to manual model fixes.",
+     "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/insight-advisor-usage-metrics.htm"
     }
    },
    "offers": [
@@ -9033,6 +9085,14 @@ window.SL = {
     {
      "t": "Building logical models for Insight Advisor with Business logic",
      "u": "https://help.qlik.com/en-US/sense/May2026/Subsystems/Hub/Content/Sense_Hub/BusinessLogic/business-logic-logical-models.htm"
+    },
+    {
+     "t": "Creating visualizations with Insight Advisor",
+     "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/insight-advisor-create-visualizations.htm"
+    },
+    {
+     "t": "Using feedback and usage metrics to improve application usability",
+     "u": "https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Insights/insight-advisor-usage-metrics.htm"
     }
    ],
    "worksWith": [
@@ -9166,9 +9226,9 @@ window.SL = {
      "u": ""
     },
     "aiDescriptions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No AI description generation. Universe object descriptions are written by hand in the Information Design Tool.",
+     "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
     },
     "bulkMetadata": {
      "l": 1,
@@ -9176,19 +9236,19 @@ window.SL = {
      "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/8.0/Content/MIRBoInformationDesignToolUnxExport.htm"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No automatic classification or PII tagging. Sensitivity is handled with manual security profiles.",
+     "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No NL-to-SQL literal matching. Universe objects have lists of values for query prompts only.",
+     "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 1,
+     "n": "Data Federation Administration Tool browses executed queries for monitoring. Any mining for joins or metrics is DIY.",
+     "u": "https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/f43f4d90c5ee4858ac5c8817d6aff803/459f99766e041014910aba7db0e91070.html?locale=en-US&state=PRODUCTION&version=2025"
     },
     "lineage": {
      "l": 1,
@@ -9196,9 +9256,9 @@ window.SL = {
      "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/8.1/Content/Bridges/MIRBoInformationDesignToolUnxImport.htm"
     },
     "evals": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No NL-to-SQL, so no accuracy tests or feedback loop.",
+     "u": "https://help.sap.com/doc/4667b9486e041014910aba7db0e91070/4.3.4/en-US/sbo43sp2_info_design_tool_en.pdf"
     }
    },
    "offers": [
@@ -9274,6 +9334,10 @@ window.SL = {
     {
      "t": "Talend Data Catalog: SAP BusinessObjects IDT (File) export",
      "u": "https://help.qlik.com/talend/en-US/talend-data-catalog/8.0/Content/MIRBoInformationDesignToolUnxExport.htm"
+    },
+    {
+     "t": "Browsing the query history (SAP Help, BI platform 2025)",
+     "u": "https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/f43f4d90c5ee4858ac5c8817d6aff803/459f99766e041014910aba7db0e91070.html?locale=en-US&state=PRODUCTION&version=2025"
     }
    ],
    "worksWith": [
@@ -9365,9 +9429,9 @@ window.SL = {
      "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices"
     },
     "dimensions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Data model metrics set a default timeline with a date column and truncation. Hierarchies exist only in workbooks, not data models.",
+     "u": "https://help.sigmacomputing.com/docs/create-and-manage-metrics.md"
     },
     "relationships": {
      "l": 3,
@@ -9380,9 +9444,9 @@ window.SL = {
      "u": "https://help.sigmacomputing.com/docs/manage-ai-context-for-data-models.md"
     },
     "verifiedQueries": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No saved question-SQL pairs found in the docs. Teams use AI context text, metric definitions and endorsed badges.",
+     "u": "https://help.sigmacomputing.com/docs/manage-ai-context-for-data-models.md"
     },
     "nl2sql": {
      "l": 3,
@@ -9430,19 +9494,19 @@ window.SL = {
      "u": "https://help.sigmacomputing.com/reference/update-data-model-spec.md"
     },
     "autoClassify": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No automatic column classification in the docs. Column-level security rules are set by hand.",
+     "u": "https://help.sigmacomputing.com/docs/column-level-security.md"
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Docs describe the Assistant index as built from names, descriptions and generated synonyms. No sampled values documented.",
+     "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices.md"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "Usage dashboards report query statistics for admins. No feature turns them into models or examples.",
+     "u": "https://help.sigmacomputing.com/docs/usage-overview.md"
     },
     "lineage": {
      "l": 0,
@@ -9561,6 +9625,14 @@ window.SL = {
      "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
     },
     {
+     "t": "Sigma: Create and manage metrics",
+     "u": "https://help.sigmacomputing.com/docs/create-and-manage-metrics.md"
+    },
+    {
+     "t": "Sigma: Work with hierarchies",
+     "u": "https://help.sigmacomputing.com/docs/hierarchies.md"
+    },
+    {
      "t": "Update a data model from a code representation",
      "u": "https://help.sigmacomputing.com/docs/update-a-data-model-from-a-code-representation.md"
     },
@@ -9595,6 +9667,14 @@ window.SL = {
     {
      "t": "Create and manage datasets (Deprecated)",
      "u": "https://help.sigmacomputing.com/docs/create-and-manage-datasets.md"
+    },
+    {
+     "t": "Sigma: Configure column-level security",
+     "u": "https://help.sigmacomputing.com/docs/column-level-security.md"
+    },
+    {
+     "t": "Sigma: Usage overview",
+     "u": "https://help.sigmacomputing.com/docs/usage-overview.md"
     }
    ],
    "verified": "2026-10-24",
@@ -9740,9 +9820,9 @@ window.SL = {
      "u": ""
     },
     "sampleValues": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Agent auto complete lists matching columns and attribute elements as users type, so a typed value picks the exact element.",
+     "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_bots_new_general.htm"
     },
     "queryHistory": {
      "l": null,
@@ -9864,6 +9944,10 @@ window.SL = {
     {
      "t": "Use Suggestions",
      "u": "https://www2.strategy.com/producthelp/Current/Library/en-us/Content/auto_answers_use_suggestions.htm"
+    },
+    {
+     "t": "Customize Agent Display Using the General Panel",
+     "u": "https://www2.strategy.com/producthelp/Current/NextGenAI/en-us/Content/auto_bots_new_general.htm"
     }
    ],
    "worksWith": [
@@ -9920,7 +10004,7 @@ window.SL = {
      "status": "GA",
      "since": "",
      "format": "GUI, Agentforce",
-     "url": "https://hex.tech/blog/tableau-next/"
+     "url": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
     },
     {
      "name": "Semantic Model Scope and Page Filters in Concierge",
@@ -9984,14 +10068,14 @@ window.SL = {
      "u": "https://trailhead.salesforce.com/content/learn/modules/tableau-semantics/learn-the-basics-of-tableau-semantics"
     },
     "graph": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Tableau Knowledge Graph REST API (Cloud+, Sept 2026): nodes, edges, lineage and impact calls. No Cypher, GQL or SPARQL query language.",
+     "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_tableau_knowledge_graph.htm"
     },
     "vector": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Tableau Knowledge Graph API has a natural-language semantic search over graph nodes. Cloud+ only, not on Tableau Server.",
+     "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_tableau_knowledge_graph.htm"
     },
     "mcp": {
      "l": 3,
@@ -10029,9 +10113,9 @@ window.SL = {
      "u": "https://help.tableau.com/current/tableau/en-us/tableau_gai_data.htm"
     },
     "queryHistory": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No feature mines usage or query logs to suggest models or metrics. Tableau Agent drafts descriptions from the data source.",
+     "u": "https://help.tableau.com/current/tableau/en-us/tableau_gai_solutions.htm"
     },
     "lineage": {
      "l": 3,
@@ -10112,16 +10196,20 @@ window.SL = {
      "u": "https://trailhead.salesforce.com/content/learn/modules/semantic-models-in-tableau-next-quick-look/design-your-semantic-model-for-analysis"
     },
     {
-     "t": "What You Need to Know About Tableau Next in 2026 (Hex)",
-     "u": "https://hex.tech/blog/tableau-next/"
-    },
-    {
      "t": "Apache Ossie converters repo",
      "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
     },
     {
      "t": "Tableau Next MCP Server (Salesforce Help)",
      "u": "https://help.salesforce.com/s/articleView?id=analytics.tua_data_sdm_mcp.htm&language=en_US&type=5"
+    },
+    {
+     "t": "Tableau Help: Step 4, Enable Tableau Next AI Features",
+     "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
+    },
+    {
+     "t": "Tableau Help: Tableau Knowledge Graph Methods",
+     "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_tableau_knowledge_graph.htm"
     },
     {
      "t": "Metadata Methods (REST API)",
@@ -10150,10 +10238,6 @@ window.SL = {
     {
      "t": "AI in Tableau and Data Usage",
      "u": "https://help.tableau.com/current/tableau/en-us/tableau_gai_data.htm"
-    },
-    {
-     "t": "Step 4: Enable Tableau Next AI Features",
-     "u": "https://help.tableau.com/current/tableau-next/en-us/tableau_next_setup_guide_enable_tua_ai.htm"
     },
     {
      "t": "Introduction to Tableau Metadata API",
@@ -10257,9 +10341,9 @@ window.SL = {
      "u": "https://docs.thoughtspot.com/cloud/26.6.0.cl/semantic-layer"
     },
     "dimensions": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Model columns are typed ATTRIBUTE or MEASURE. Docs also cover custom calendars and a default metric time grain; no hierarchy object found.",
+     "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/data-modeling-column-basics.md"
     },
     "relationships": {
      "l": 3,
@@ -10282,19 +10366,19 @@ window.SL = {
      "u": "https://developers.thoughtspot.com/docs/deprecated-features"
     },
     "ontology": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No ontology object in the documentation index. Teams use Models with column descriptions, synonyms and Spotter instructions.",
+     "u": "https://docs.thoughtspot.com/llms-full.txt"
     },
     "graph": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No graph query feature in the documentation index.",
+     "u": "https://docs.thoughtspot.com/llms-full.txt"
     },
     "vector": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 0,
+     "n": "No vector search feature in the documentation index. Spotter uses a value index for column values.",
+     "u": "https://docs.thoughtspot.com/llms-full.txt"
     },
     "mcp": {
      "l": 3,
@@ -10451,6 +10535,14 @@ window.SL = {
     {
      "t": "Apache Ossie converters repo",
      "u": "https://raw.githubusercontent.com/apache/ossie-converters/main/README.md"
+    },
+    {
+     "t": "ThoughtSpot: Set column name, description, and type",
+     "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/data-modeling-column-basics.md"
+    },
+    {
+     "t": "ThoughtSpot documentation index (llms-full)",
+     "u": "https://docs.thoughtspot.com/llms-full.txt"
     },
     {
      "t": "ThoughtSpot TML API",
@@ -11391,9 +11483,9 @@ window.SL = {
      "u": "https://docs.datahub.com/docs/managed-datahub/release-notes/v_2_2_0"
     },
     "vector": {
-     "l": null,
-     "n": "Not checked yet.",
-     "u": ""
+     "l": 3,
+     "n": "Opt-in semantic search embeds documents via a configured embedding provider on OpenSearch or Elasticsearch. Documents are the default vectorized type.",
+     "u": "https://docs.datahub.com/docs/how/updating-datahub"
     },
     "mcp": {
      "l": 3,
@@ -11528,6 +11620,10 @@ window.SL = {
     {
      "t": "DataHub docs index",
      "u": "https://docs.datahub.com/llms.txt"
+    },
+    {
+     "t": "DataHub updating notes (semantic search and embeddings)",
+     "u": "https://docs.datahub.com/docs/how/updating-datahub"
     }
    ],
    "verified": "2026-10-24",
