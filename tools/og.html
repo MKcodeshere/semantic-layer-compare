@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OG image template</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  /* Rendered to site/og.png at 1200x630 by tools/make-og.mjs */
+  :root { --bg: #0d1415; --ink: #e3ebeb; --ink2: #b3c1c2; --muted: #879799; --accent: #4db5bf; --t3: #4db5bf; --t2: #2a7880; --t1: #36494b; --t0: #182426; --tx: #26393b; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: var(--bg); color: var(--ink); }
+  .frame { display: grid; grid-template-columns: 600px 1fr; gap: 40px; padding: 50px 60px; height: 100%; box-sizing: border-box; }
+  .eyebrow { font: 500 18px 'IBM Plex Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0 0 18px; }
+  h1 { font: 700 62px/1.0 'IBM Plex Sans Condensed', sans-serif; letter-spacing: -0.02em; margin: 0 0 22px; }
+  p { font: 400 23px/1.38 'IBM Plex Sans', sans-serif; color: var(--ink2); margin: 0 0 28px; }
+  .stats { display: flex; gap: 34px; margin-top: auto; }
+  .stats b { display: block; font: 700 42px/1 'IBM Plex Sans Condensed', sans-serif; }
+  .stats span { font: 500 16px 'IBM Plex Mono', monospace; color: var(--muted); }
+  .left { display: flex; flex-direction: column; }
+  .foot { font: 500 16px 'IBM Plex Mono', monospace; color: var(--muted); margin-top: 26px; }
+  .grid { align-self: center; justify-self: center; display: grid; gap: 3px; }
+  .grid i { display: block; width: 100%; aspect-ratio: 1; border-radius: 2px; }
+  .l3 { background: var(--t3); } .l2 { background: var(--t2); } .l1 { background: var(--t1); } .l0 { background: var(--t0); } .lx { background: var(--tx); }
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="left">
+    <p class="eyebrow">Semantic Context Index</p>
+    <h1>Which data products give AI agents business meaning?</h1>
+    <p>Semantic layers, metric views, catalogs and natural language query, compared with a source for each cell.</p>
+    <div class="stats" id="stats"></div>
+    <div class="foot" id="foot"></div>
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+<script src="../site/data.js"></script>
+<script>
+  const SL = window.SL;
+  const nlq = SL.vendors.filter((v) => (v.askData || []).length).length;
+  document.getElementById('stats').innerHTML = [[SL.vendors.length, 'products'], [SL.caps.length, 'capabilities'], [nlq, 'with NLQ']].map(([n, l]) => `<div><b>${n}</b><span>${l}</span></div>`).join('');
+  document.getElementById('foot').textContent = 'Checked ' + SL.built + ' · every cell links to the vendor source';
+  const g = document.getElementById('grid');
+  g.style.gridTemplateColumns = `repeat(${SL.caps.length}, 1fr)`;
+  g.style.width = Math.round((518 * SL.caps.length) / SL.vendors.length) + 'px';
+  g.innerHTML = SL.vendors.map((v) => SL.caps.map((c) => { const l = v.caps[c.key].l; return `<i class="${l === null ? 'lx' : 'l' + l}"></i>`; }).join('')).join('');
+</script>
+</body>
+</html>

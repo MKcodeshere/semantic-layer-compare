@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mkcodeshere.github.io/semantic-layer-compare/sitemap.xml
