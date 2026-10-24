@@ -4,160 +4,168 @@
       "id": "atlan",
       "name": "Atlan",
       "category": "catalog",
-      "tagline": "Active metadata catalog with AI context agents and an MCP server.",
+      "tagline": "Active metadata catalog with context agents, a hosted MCP server and a context studio.",
       "verdict": "partial",
-      "verdictNote": "Atlan stores glossary, descriptions and lineage and serves them over MCP, but has no metric or join objects; its context studio is Private Preview.",
+      "verdictNote": "Atlan serves glossary, descriptions and lineage over a hosted MCP server, and its Context Engineering Studio models metrics and joins, but that studio is enabled on request and still gated.",
       "artifacts": [
         {
           "name": "Atlan MCP server",
           "kind": "mcp",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
-          "format": "MCP (local bridge or remote)",
-          "url": "https://docs.atlan.com/product/capabilities/atlan-ai/how-tos/implement-the-atlan-mcp-server"
+          "format": "Hosted remote MCP on every tenant; OAuth or API key; 41 tools in nine categories",
+          "url": "https://docs.atlan.com/product/capabilities/atlan-ai/how-tos/atlan-mcp-overview"
         },
         {
-          "name": "Atlan AI (descriptions, data exploration)",
+          "name": "Atlan AI and conversational AI",
           "kind": "nl2sql",
           "status": "Unverified",
           "since": "",
-          "format": "UI; Enterprise and Business-Critical editions; enabled by admin under Labs",
+          "format": "UI; admin turns it on under Labs; conversational AI access can need Atlan support. No stage label in docs",
           "url": "https://docs.atlan.com/product/capabilities/atlan-ai/concepts/what-is-atlan-ai"
         },
         {
           "name": "Context Agents Studio (Description, README, SQL Intelligence agents)",
           "kind": "agent",
-          "status": "Preview",
+          "status": "GA",
           "since": "",
-          "format": "UI; agent templates labeled Private Preview",
+          "format": "UI; billed in Flexi Credits; agents fill only assets that lack the attribute",
           "url": "https://docs.atlan.com/product/capabilities/governance/context-agents-studio/concepts/agents"
         },
         {
-          "name": "Context Engineering Studio",
-          "kind": "ontology",
+          "name": "Context agent templates (Asset to Term Linker)",
+          "kind": "agent",
           "status": "Preview",
           "since": "",
-          "format": "UI; docs label it Private Preview",
-          "url": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio"
+          "format": "UI; docs state private preview, enabled per tenant on request",
+          "url": "https://docs.atlan.com/llms/platform/context-agents-studio/faq-agent-templates/llms.txt"
+        },
+        {
+          "name": "Context Engineering Studio",
+          "kind": "semantic-model",
+          "status": "Preview",
+          "since": "",
+          "format": "UI; enabled in Labs through the Atlan account team (not self-serve); deploys to Snowflake Cortex Analyst and Databricks Genie, renders dbt MetricFlow",
+          "url": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/concepts/what-is-context-engineering-studio.md"
         },
         {
           "name": "Business glossary",
           "kind": "glossary",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
-          "format": "UI, API, SDK",
+          "format": "UI, API, SDK; AI-generated overviews and completeness checks",
           "url": "https://docs.atlan.com/product/capabilities/atlan-ai/concepts/what-is-atlan-ai"
         }
       ],
       "caps": {
         "metrics": {
-          "l": null,
-          "n": "No governed metric object found. Context Engineering Studio may hold context for metrics; not confirmed.",
-          "u": ""
+          "l": 2,
+          "n": "Context Engineering Studio keeps derived metrics in a context repository. Studio is gated; engines may not accept every metric.",
+          "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/concepts/whats-in-a-context-repository.md"
         },
         "dimensions": {
-          "l": 0,
-          "n": "No dimension or time-grain objects found in sources reviewed.",
-          "u": ""
+          "l": 2,
+          "n": "Repository model lists dimensions, time dimensions and facts per table. Same gated studio.",
+          "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/concepts/whats-in-a-context-repository.md"
         },
         "relationships": {
-          "l": 1,
-          "n": "Catalog links assets by lineage. No declared join paths for AI found; Context Studio may add them (Private Preview).",
-          "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio"
+          "l": 2,
+          "n": "Studio model holds table relationships. SQL Intelligence mines joins and foreign keys from query history.",
+          "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/concepts/whats-in-a-context-repository.md"
         },
         "synonyms": {
           "l": 3,
-          "n": "Descriptions, READMEs and glossary terms on assets are read by agents through the MCP server.",
-          "u": "https://atlan.com/mcp/"
+          "n": "Descriptions, READMEs and glossary terms are returned to agents through the MCP server.",
+          "u": "https://docs.atlan.com/product/capabilities/atlan-ai/how-tos/atlan-mcp-overview"
         },
         "verifiedQueries": {
           "l": 2,
-          "n": "Context Engineering Studio builds test questions and SQL Intelligence reuses past queries. Studio is Private Preview.",
-          "u": "https://atlan.com/context-engineering-studio/"
+          "n": "Studio repositories hold verified question and SQL pairs. Studio is gated.",
+          "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/concepts/whats-in-a-context-repository.md"
         },
         "nl2sql": {
           "l": 2,
-          "n": "Atlan AI supports data exploration questions. GA status not stated in sources seen; no confirmed first-party SQL agent.",
-          "u": "https://docs.atlan.com/product/capabilities/atlan-ai/how-tos/how-to-use-atlan-ai-for-data-exploration"
+          "n": "Conversational AI can write SQL grounded in catalog metadata. Access is per tenant; no stage label in docs.",
+          "u": "https://docs.atlan.com/llms/platform/conversational-ai/use-conversational-ai/llms.txt"
         },
         "ontology": {
-          "l": 2,
-          "n": "Context Engineering Studio keeps a context repository for agents. Docs label it Private Preview.",
-          "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/concepts/whats-in-a-context-repository"
+          "l": 1,
+          "n": "Glossary terms, domains and linked assets. No object, link or action model found.",
+          "u": "https://docs.atlan.com/product/capabilities/atlan-ai/concepts/what-is-atlan-ai"
         },
         "graph": {
           "l": 0,
-          "n": "No graph query language found. Teams query lineage through API and MCP.",
-          "u": ""
+          "n": "No graph query language in the docs reviewed. Agents reach lineage and metadata through MCP search and lineage tools.",
+          "u": "https://docs.atlan.com/llms/platform/atlan-mcp-overview/mcp-tools/llms.txt"
         },
         "vector": {
           "l": 0,
-          "n": "No native vector search over data or metadata confirmed.",
-          "u": ""
+          "n": "No vector search feature documented. Docs position context repositories as distinct from vector databases.",
+          "u": "https://docs.atlan.com/llms/platform/agents/memory-layer/llms.txt"
         },
         "mcp": {
           "l": 3,
-          "n": "First-party MCP server searches assets, traces lineage and updates metadata. Docs seen show no preview label; GA date unknown.",
-          "u": "https://docs.atlan.com/product/capabilities/atlan-ai/how-tos/implement-the-atlan-mcp-server"
+          "n": "Hosted MCP server on every tenant with search, lineage, glossary, metadata and data quality tools.",
+          "u": "https://docs.atlan.com/product/capabilities/atlan-ai/how-tos/atlan-mcp-overview"
         },
         "governance": {
           "l": 3,
-          "n": "Tags, certification, access policies and lineage live on assets. Sample data is hashed or redacted by policy.",
-          "u": "https://atlan.com/data-asset-360/"
+          "n": "MCP calls use the caller's personas and policies. Write tools show a preview and wait for approval.",
+          "u": "https://docs.atlan.com/llms/platform/atlan-mcp-overview/mcp-security/llms.txt"
         },
         "openStandard": {
-          "l": 0,
-          "n": "No open semantic spec found. Open SDKs and REST APIs exist.",
-          "u": ""
+          "l": 2,
+          "n": "Studio renders Snowflake semantic views, Databricks metric views and dbt MetricFlow models. No OSI support found.",
+          "u": "https://docs.atlan.com/llms/platform/context-engineering-studio/portability-targets/llms.txt"
         },
         "aiDescriptions": {
-          "l": 2,
-          "n": "Atlan AI drafts descriptions; admin enables it under Labs. Context Agents Description agent is a Private Preview template.",
-          "u": "https://docs.atlan.com/product/capabilities/atlan-ai/concepts/what-is-atlan-ai"
+          "l": 3,
+          "n": "Description and README agents draft from lineage, query history and glossary. They skip assets that already have a description.",
+          "u": "https://docs.atlan.com/product/capabilities/governance/context-agents-studio/concepts/agents"
         },
         "bulkMetadata": {
           "l": 3,
-          "n": "CSV import app, Google Sheets or Excel sync, and Python SDK batch save in one API call.",
-          "u": "https://docs.atlan.com/product/integrations/collaboration/spreadsheets/how-tos/bulk-enrich-metadata"
+          "n": "Spreadsheet export and sync, CSV import, and Python SDK batch save in one API call.",
+          "u": "https://docs.atlan.com/product/capabilities/build-apps/sdks/python/how-tos/bulk-updates/update-multiple-assets"
         },
         "autoClassify": {
           "l": 1,
-          "n": "Playbooks apply tags by rule. An Atlan article says it does not auto-detect PII. Tag propagation is off by default.",
-          "u": "https://atlan.com/know/data-governance/automated-pii-classification/"
+          "n": "Playbooks apply tags by rule. Cyera and ALTR integrations import classification results. No built-in PII detector found.",
+          "u": "https://docs.atlan.com/llms/governance/playbooks/llms.txt"
         },
         "sampleValues": {
-          "l": 1,
-          "n": "Sample data preview exists for people. No NL-to-SQL value matching confirmed.",
-          "u": "https://atlan.com/data-asset-360/"
+          "l": 2,
+          "n": "Studio takes sample values from column top values written by a profiling playbook. Studio is gated.",
+          "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/how-tos/get-started.md"
         },
         "queryHistory": {
-          "l": 2,
-          "n": "Context Agents read query history and lineage; SQL Intelligence turns past queries into evals. Status is Private Preview or unclear.",
-          "u": "https://atlan.com/demos/context-agents-how-atlan-bootstraps-descriptions-readmes-and-sql-intelligence-across-your-entire-data-estate"
+          "l": 3,
+          "n": "SQL Intelligence agent derives common joins, filters, business questions and foreign keys from warehouse query history.",
+          "u": "https://docs.atlan.com/product/capabilities/governance/context-agents-studio/concepts/agents"
         },
         "lineage": {
           "l": 3,
-          "n": "Column-level lineage for Snowflake, Redshift, BigQuery and more, mined from query history. Not all columns are guaranteed.",
+          "n": "Column-level lineage for Snowflake, Redshift, BigQuery and others, mined from query history.",
           "u": "https://docs.atlan.com/product/capabilities/lineage/faq/sql-dump-lineage-support"
         },
         "evals": {
           "l": 2,
-          "n": "Context Engineering Studio simulates questions and reports eval scores with fix suggestions. Private Preview.",
-          "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/how-tos/build.md"
+          "n": "Atlan's product page describes auto-generated eval suites and a feedback loop for the studio. The docs pages do not cover it.",
+          "u": "https://atlan.com/context-engineering-studio/"
         }
       },
       "offers": [
-        "Descriptions, READMEs, glossary terms and certification that agents read over MCP.",
-        "Column-level lineage from warehouse query history.",
-        "Bulk metadata writes by CSV, spreadsheet sync and Python SDK.",
-        "Context Agents that draft descriptions from query history and lineage.",
-        "Private Preview studio to build and test agent context."
+        "Hosted MCP server with 41 tools for search, lineage, glossary and metadata.",
+        "Description and README agents that draft from lineage, query history and glossary.",
+        "SQL Intelligence that mines joins, filters and foreign keys from query history.",
+        "Context Engineering Studio that builds a semantic model and deploys it to Cortex Analyst or Genie.",
+        "Bulk metadata writes by spreadsheet, CSV and Python SDK."
       ],
       "gaps": [
-        "No metric, dimension or join objects found.",
-        "Context Studio and agent templates are Private Preview.",
-        "No confirmed first-party text-to-SQL engine.",
-        "PII auto-detection is unclear; propagation is off by default."
+        "Context Engineering Studio is not self-serve; access goes through the Atlan account team.",
+        "Context agent templates are private preview.",
+        "Agents never overwrite an existing description, including a crawled source comment.",
+        "No built-in PII detector found; classification relies on playbooks or partner integrations."
       ],
       "fillWith": [
         "dbt Semantic Layer",
@@ -165,35 +173,67 @@
         "Snowflake Semantic Views",
         "Databricks Metric Views"
       ],
-      "nl2sqlPath": "Use Atlan as the metadata and context source. Serve it to your own SQL agent over the Atlan MCP server. Keep metrics and joins in a warehouse or semantic layer tool.",
+      "nl2sqlPath": "Use Atlan as the metadata and context source and serve it to your own SQL agent over the Atlan MCP server. If you have studio access, build a context repository and deploy it to Cortex Analyst or Genie. Otherwise keep metrics and joins in a warehouse or semantic layer tool.",
       "snippet": {
         "lang": "other",
-        "title": "Atlan MCP: Claude Desktop uses a local bridge (needs Node.js 18+)",
-        "code": "# No semantic-model syntax. Atlan MCP reads and updates metadata.\n# Updatable per agent toolkit: user descriptions, certificate status,\n# README, glossary term assignments.\n# See the linked setup page for the current client config.",
-        "u": "https://docs.atlan.com/product/capabilities/atlan-ai/how-tos/implement-the-atlan-mcp-server"
+        "title": "",
+        "code": "",
+        "u": ""
       },
-      "enrichHowTo": "Batch updates with the Python SDK: build stubs with updater() and send the list to client.asset.save in one call. For people-led edits, use the CSV import app or Google Sheets sync. Description attribute name was not confirmed here.",
+      "enrichHowTo": "Run the Description agent from Context Agents Studio on a collection of assets, then review the drafts. For scripted writes, build objects with updater() in pyatlan and send the list with client.asset.save in one call. Agents skip assets that already hold a description, so clear crawled source comments first if you want them replaced.",
       "bulkSnippet": {
         "lang": "python",
-        "code": "# Pattern from Atlan docs: one API call for many assets\nassets = []\nfor q, n in rows:\n    a = Table.updater(qualified_name=q, name=n)\n    # set attributes to change here (docs example sets certificate status)\n    assets.append(a)\nclient.asset.save(assets)",
+        "code": "from pyatlan.client.atlan import AtlanClient\nfrom pyatlan.model.assets import AtlasGlossaryTerm\nfrom pyatlan.model.enums import CertificateStatus\nclient = AtlanClient()\nterm_1 = AtlasGlossaryTerm.updater(qualified_name=\"z9mfCRg6tItxcEyaJRNB3@reqKq68ZTSzuf7ezoZoGS\", name=\"Example Term\", glossary_guid=\"37e50bf7-abcb-4509-8155-c4894c05c9b9\")\nterm_1.certificate_status = CertificateStatus.DEPRECATED\nresponse = client.asset.save([term_1])  # one call for the whole list",
         "u": "https://docs.atlan.com/product/capabilities/build-apps/sdks/python/how-tos/bulk-updates/update-multiple-assets"
       },
       "sources": [
         {
-          "t": "Implement Atlan MCP Server",
-          "u": "https://docs.atlan.com/product/capabilities/atlan-ai/how-tos/implement-the-atlan-mcp-server"
+          "t": "Atlan MCP",
+          "u": "https://docs.atlan.com/product/capabilities/atlan-ai/how-tos/atlan-mcp-overview"
         },
         {
-          "t": "What is Atlan AI",
+          "t": "Atlan MCP tools",
+          "u": "https://docs.atlan.com/llms/platform/atlan-mcp-overview/mcp-tools/llms.txt"
+        },
+        {
+          "t": "Atlan MCP security",
+          "u": "https://docs.atlan.com/llms/platform/atlan-mcp-overview/mcp-security/llms.txt"
+        },
+        {
+          "t": "Atlan AI",
           "u": "https://docs.atlan.com/product/capabilities/atlan-ai/concepts/what-is-atlan-ai"
-        },
-        {
-          "t": "Context Engineering Studio (Private Preview)",
-          "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio"
         },
         {
           "t": "Understand context agents",
           "u": "https://docs.atlan.com/product/capabilities/governance/context-agents-studio/concepts/agents"
+        },
+        {
+          "t": "FAQ agent templates",
+          "u": "https://docs.atlan.com/llms/platform/context-agents-studio/faq-agent-templates/llms.txt"
+        },
+        {
+          "t": "What is Context Engineering Studio?",
+          "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/concepts/what-is-context-engineering-studio.md"
+        },
+        {
+          "t": "What's in a context repository",
+          "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/concepts/whats-in-a-context-repository.md"
+        },
+        {
+          "t": "Enable Context Engineering Studio",
+          "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/how-tos/get-started.md"
+        },
+        {
+          "t": "Portability targets",
+          "u": "https://docs.atlan.com/llms/platform/context-engineering-studio/portability-targets/llms.txt"
+        },
+        {
+          "t": "Product release stages",
+          "u": "https://docs.atlan.com/llms/platform/get-started/product-release-stages/llms.txt"
+        },
+        {
+          "t": "Example conversational AI prompts",
+          "u": "https://docs.atlan.com/llms/platform/conversational-ai/use-conversational-ai/llms.txt"
         },
         {
           "t": "Bulk enrich metadata with spreadsheets",
@@ -208,12 +248,12 @@
           "u": "https://docs.atlan.com/product/capabilities/lineage/faq/sql-dump-lineage-support"
         },
         {
-          "t": "Atlan MCP",
-          "u": "https://atlan.com/mcp/"
+          "t": "Playbooks",
+          "u": "https://docs.atlan.com/llms/governance/playbooks/llms.txt"
         },
         {
-          "t": "Automated PII classification (Atlan)",
-          "u": "https://atlan.com/know/data-governance/automated-pii-classification/"
+          "t": "Context Engineering Studio product page",
+          "u": "https://atlan.com/context-engineering-studio/"
         }
       ],
       "verified": "2026-10-24"
@@ -222,195 +262,266 @@
       "id": "alation",
       "name": "Alation",
       "category": "catalog",
-      "tagline": "Enterprise data catalog with stewardship, lineage and an Agent SDK.",
-      "verdict": "partial",
-      "verdictNote": "Alation offers descriptions, lineage and an SDK with MCP for agents, but no metric or join objects and no confirmed first-party text-to-SQL.",
+      "tagline": "Enterprise data catalog with data products, Agent Studio and a remote MCP server.",
+      "verdict": "native",
+      "verdictNote": "Alation data products hold metrics, dimensions, joins, synonyms and verified queries, with chat, evaluations and OSI export, on Alation Cloud Service only.",
       "artifacts": [
         {
-          "name": "Alation AI Agent SDK (Core, MCP, LangChain)",
+          "name": "Data product semantic model (YAML)",
+          "kind": "semantic-model",
+          "status": "GA",
+          "since": "",
+          "format": "Data product YAML; imports Snowflake semantic views, Databricks metric views or OSI YAML; exports back to the source; Alation Cloud Service",
+          "url": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ExportDataProductsToSource.md"
+        },
+        {
+          "name": "Chat with Data Product",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "",
+          "format": "Natural-language SQL over a data product using the user's own warehouse credentials; metered in ACUs",
+          "url": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ChatWithDataProduct.md"
+        },
+        {
+          "name": "Alation MCP server (Agent Studio)",
           "kind": "mcp",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
-          "format": "Python SDK; MCP over STDIO or HTTP; release candidate 1.0.0rc3 per package listings",
-          "url": "https://www.alation.com/blog/alation-ai-agent-sdk-smarter-ai-models/"
+          "format": "Remote MCP at <tenant>/ai/mcp/; built-in and published agent tools; custom curated servers",
+          "url": "https://documentation.alation.com/en/latest/agentstudio/integrations/mcp/using-the-mcp-server.md"
         },
         {
-          "name": "Alation Agent Studio",
+          "name": "Agent Studio",
           "kind": "agent",
-          "status": "Unverified",
-          "since": "2026-07",
-          "format": "SDK or no-code builder; deploy via MCP or REST. Launch date from a third-party article",
-          "url": "https://www.alation.com/product/agent-studio/"
+          "status": "GA",
+          "since": "",
+          "format": "SDK or no-code builder; deploy through MCP or REST; metered in ACUs",
+          "url": "https://documentation.alation.com/en/latest/welcome/About/AlationAIFeatures.md"
         },
         {
-          "name": "AI Suggested Descriptions (ALLIE)",
-          "kind": "annotations",
-          "status": "Unverified",
+          "name": "Create data products from query logs (Beta)",
+          "kind": "semantic-model",
+          "status": "Preview",
           "since": "",
-          "format": "UI; cloud instances with New User Experience",
+          "format": "UI; needs query log ingestion; suggests co-queried tables",
+          "url": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/CreateDataProductsFromQueryLogs.md"
+        },
+        {
+          "name": "ALLIE AI Suggested Descriptions",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "2024-06",
+          "format": "UI; drafts table descriptions; steward reviews",
           "url": "https://docs.alation.com/en/latest/steward/AISuggestedDescriptions/AISuggestedDescriptions.html"
+        },
+        {
+          "name": "Curation Automation",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "Rules that fill titles, descriptions and custom fields at scale; AI or fixed values; metered in ACUs",
+          "url": "https://documentation.alation.com/en/latest/governance/OutcomeBasedGovernance/CurationAutomation/index.md"
         }
       ],
       "caps": {
         "metrics": {
-          "l": 0,
-          "n": "No governed metric object found in sources reviewed.",
-          "u": ""
+          "l": 3,
+          "n": "Data products hold metrics as aggregate expressions and sync with Snowflake semantic views and Databricks metric views.",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ExportDataProductsToSource.md"
         },
         "dimensions": {
-          "l": 0,
-          "n": "No dimension or time-grain objects found.",
-          "u": ""
+          "l": 3,
+          "n": "Dimensions, time dimensions and facts are imported from semantic views and exported back.",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/CreateDataProductsFromSemanticModel.md"
         },
         "relationships": {
-          "l": 1,
-          "n": "Lineage links assets. No declared join paths for AI found.",
-          "u": "https://docs.alation.com/en/latest/analyst/Lineage/index.html"
+          "l": 3,
+          "n": "Joins are declared per data product, with join recommendations. They feed AI chat answers.",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/AddJoinsToDataProduct.md"
         },
         "synonyms": {
           "l": 3,
-          "n": "Titles, descriptions and custom fields are cataloged and returned to agents by the SDK context tool.",
-          "u": "https://www.alation.com/blog/alation-ai-agent-sdk-smarter-ai-models/"
+          "n": "Synonyms are imported from semantic views. Linked Document Hubs content gives chat definitions and rules.",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/CreateDataProductsFromSemanticModel.md"
         },
         "verifiedQueries": {
-          "l": 0,
-          "n": "No verified question-to-SQL pair feature found in sources reviewed.",
-          "u": ""
+          "l": 3,
+          "n": "Verified question and SQL pairs are kept as evaluation cases and exported to Snowflake semantic views.",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/CreateDataProductsFromSemanticModel.md"
         },
         "nl2sql": {
-          "l": 1,
-          "n": "Agent Studio lets you build your own agents. A first-party text-to-SQL agent was not confirmed.",
-          "u": "https://www.alation.com/product/agent-studio/"
+          "l": 3,
+          "n": "Chat with Data Product writes and runs SQL under the user's credentials and shows the generated SQL.",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ChatWithDataProduct.md"
         },
         "ontology": {
           "l": 0,
-          "n": "No ontology or class model found.",
-          "u": ""
+          "n": "No ontology or class model in the docs index. Teams use glossary terms and data products.",
+          "u": "https://documentation.alation.com/llms.txt"
         },
         "graph": {
           "l": 0,
-          "n": "No graph query capability found.",
-          "u": ""
+          "n": "No graph query language in the docs index.",
+          "u": "https://documentation.alation.com/llms.txt"
         },
         "vector": {
-          "l": 0,
-          "n": "No native vector search confirmed.",
-          "u": ""
+          "l": 3,
+          "n": "The Data Products Marketplace includes AI-powered semantic search.",
+          "u": "https://documentation.alation.com/en/latest/welcome/About/AlationAIFeatures.md"
         },
         "mcp": {
-          "l": 2,
-          "n": "SDK ships an MCP server. One listing calls it a preview; the SDK was at 1.0.0rc3. Status unverified.",
-          "u": "https://www.alation.com/blog/alation-ai-agent-sdk-smarter-ai-models/"
+          "l": 3,
+          "n": "Remote MCP server on Alation Cloud Service exposes catalog search, context, SQL execution, lineage and data quality tools.",
+          "u": "https://documentation.alation.com/en/latest/agentstudio/integrations/mcp/using-the-mcp-server.md"
         },
         "governance": {
           "l": 3,
-          "n": "Stewardship workbench, bulk custom fields, and lineage live in the catalog.",
-          "u": "https://docs.alation.com/en/latest/steward/StewardshipWorkbench/BulkCustomFields.html"
+          "n": "Chat runs under the user's own warehouse credentials. Agents inherit catalog access controls and lineage.",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ChatWithDataProduct.md"
         },
         "openStandard": {
-          "l": 0,
-          "n": "No open semantic spec found. REST APIs and an open SDK exist.",
-          "u": ""
+          "l": 3,
+          "n": "Data products import and export OSI spec YAML, and sync with Snowflake semantic views and Databricks metric views.",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ExportDataProductsToSource.md"
         },
         "aiDescriptions": {
           "l": 3,
-          "n": "ALLIE drafts table descriptions from names, columns, linked queries and joins. Steward reviews. Preview label not seen.",
+          "n": "ALLIE drafts table descriptions, generally available since June 2024. Curation Automation fills titles and descriptions by rule.",
           "u": "https://docs.alation.com/en/latest/steward/AISuggestedDescriptions/AISuggestedDescriptions.html"
         },
         "bulkMetadata": {
           "l": 3,
-          "n": "Custom Field Value APIs, async above 6000 objects, sync max 10000. They cannot set titles or descriptions on data objects. Upload Logical Metadata is deprecated.",
-          "u": "https://developer.alation.com/dev/v2024.1/reference/custom-field-values-overview"
+          "n": "Custom Field Values API: 10000 objects per request, async for more. Titles and descriptions of tables need the Relational Integration API.",
+          "u": "https://documentation.alation.com/api-reference/alation-cloud-service-latest/custom-field-values-api/custom-field-value/putcustomfieldvalues.md"
         },
         "autoClassify": {
-          "l": 0,
-          "n": "No automatic column classification found in sources reviewed.",
-          "u": ""
+          "l": 1,
+          "n": "Curation Automation can fill custom fields by rule. No built-in PII detector found in the docs index.",
+          "u": "https://documentation.alation.com/en/latest/governance/OutcomeBasedGovernance/CurationAutomation/index.md"
         },
         "sampleValues": {
           "l": 0,
-          "n": "No sample-value matching for NL-to-SQL found.",
-          "u": ""
+          "n": "No sample-value matching is described for Chat with Data Product. Linked Document Hubs content supplies definitions instead.",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ChatWithDataProduct.md"
         },
         "queryHistory": {
-          "l": 0,
-          "n": "Query log ingestion feeds lineage and usage. No join or metric suggestions from it found.",
-          "u": "https://docs.alation.com/en/latest/sources/Lineage"
+          "l": 2,
+          "n": "Beta flow suggests data products from query logs. Evaluation questions can be generated from query log data.",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/CreateDataProductsFromQueryLogs.md"
         },
         "lineage": {
           "l": 3,
-          "n": "Auto lineage from query log ingestion and metadata extraction. Column-level depends on the connector.",
+          "n": "Auto lineage from query log ingestion and metadata extraction. Column level depends on the source.",
           "u": "https://docs.alation.com/en/latest/analyst/Lineage/LineageGlossary.html"
         },
         "evals": {
-          "l": 0,
-          "n": "No NL-to-SQL eval tooling found in sources reviewed.",
-          "u": ""
+          "l": 3,
+          "n": "Evaluate Data Product Chat runs questions against expected SQL in bulk. Thumbs feedback is reviewed by admins.",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/EvaluateDataProduct.md"
         }
       },
       "offers": [
-        "AI-suggested table descriptions with steward review.",
-        "Agent SDK with an MCP server exposing catalog context and lineage tools.",
-        "Bulk custom field APIs for stewardship at scale.",
-        "Lineage built from query log ingestion."
+        "Data product semantic model with metrics, dimensions, joins, synonyms and verified queries.",
+        "Chat with Data Product that writes SQL and runs it under the user's credentials.",
+        "Evaluation of chat accuracy against expected SQL, plus a feedback tab.",
+        "OSI import and export, and sync with Snowflake semantic views and Databricks metric views.",
+        "Remote MCP server and Agent Studio for custom agents.",
+        "ALLIE and Curation Automation for descriptions at scale."
       ],
       "gaps": [
-        "No metric, dimension or join objects found.",
-        "Agent SDK and MCP at release candidate; status unverified.",
-        "Bulk APIs cannot set titles or descriptions on data objects.",
-        "No eval tooling or classification found."
+        "Data products, chat and MCP are Alation Cloud Service features; customer-managed instances differ.",
+        "AI features are metered in Alation Consumption Units.",
+        "Export to a source overwrites changes made directly on the semantic view.",
+        "Custom field APIs cannot set titles or descriptions on tables and columns.",
+        "No built-in PII classification found."
       ],
       "fillWith": [
-        "dbt Semantic Layer",
-        "Cube",
         "Snowflake Semantic Views",
-        "Databricks Metric Views"
+        "Databricks Metric Views",
+        "dbt Semantic Layer",
+        "Cube"
       ],
-      "nl2sqlPath": "Use Alation as the context source for your own agent through the Agent SDK or its MCP server. Keep metric and join logic in a semantic layer tool. Check SDK status before production use.",
+      "nl2sqlPath": "Build a data product for the tables an agent needs, add joins, metrics and verified queries, then run Evaluate Data Product Chat before enabling chat. Use the remote MCP server to give outside agents the same catalog context. Sync the model to Snowflake or Databricks if you also use their native tools.",
       "snippet": {
         "lang": "other",
-        "title": "Alation MCP remote URL pattern (from a third-party listing)",
-        "code": "# Add to the MCP client after one-time authorization:\n# https://<your_instance>/ai/mcp\n# Tools listed: alation_context, bulk_retrieval, lineage,\n# data_quality_tool, get_data_products",
-        "u": "https://mcp.so/servers/alation-ai-agent-sdk"
+        "title": "Alation remote MCP server URL",
+        "code": "https://<your-tenant>.alationcloud.com/ai/mcp/",
+        "u": "https://documentation.alation.com/en/latest/agentstudio/integrations/mcp/using-the-mcp-server.md"
       },
-      "enrichHowTo": "Draft descriptions with ALLIE AI Suggested Descriptions. For bulk writes of custom fields, use the PUT Custom Field Values API. Use the Relational Integration API for titles and descriptions, because custom field APIs cannot set them.",
+      "enrichHowTo": "Use ALLIE or Curation Automation to draft descriptions. For scripted writes of table titles and descriptions, call PATCH /integration/v2/table/ in the Relational Integration API with ds_id. The Custom Field Values API cannot set titles or descriptions on data objects, and the older Upload Logical Metadata API carries a deprecation notice.",
       "bulkSnippet": {
         "lang": "bash",
-        "code": "# Alation bulk rules from developer docs (no payload shown here)\n# Custom Field Values PUT: max 10000 objects per request\n# Use the async endpoint above 6000 objects\n# Titles and descriptions: Relational Integration API instead",
-        "u": "https://developer.alation.com/dev/v2024.1/reference/custom-field-values-overview"
+        "code": "curl -X PATCH \"https://<base_url>/integration/v2/table/?ds_id=7\" \\\n  -H \"TOKEN: $API_TOKEN\" -H \"Content-Type: application/json\" \\\n  -d '[{\"key\":\"7.Human_Resources.Employees\",\"title\":\"Employees\",\"description\":\"One row per employee.\"}]'\n# returns 202 with a job_id; poll GET /api/v1/bulk_metadata/job/?id={job_id}",
+        "u": "https://documentation.alation.com/api-reference/alation-cloud-service-latest/relational-integration-api/table/patchtables.md"
       },
       "sources": [
         {
-          "t": "Alation AI Agent SDK blog",
-          "u": "https://www.alation.com/blog/alation-ai-agent-sdk-smarter-ai-models/"
+          "t": "Export Data Products to the Source System",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ExportDataProductsToSource.md"
         },
         {
-          "t": "Alation Agent Studio",
-          "u": "https://www.alation.com/product/agent-studio/"
+          "t": "Create Data Products from a Semantic Model",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/CreateDataProductsFromSemanticModel.md"
+        },
+        {
+          "t": "Add Joins to Data Products",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/AddJoinsToDataProduct.md"
+        },
+        {
+          "t": "Configure Chat with Data Product",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ChatWithDataProduct.md"
+        },
+        {
+          "t": "Evaluate Data Product Chat",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/EvaluateDataProduct.md"
+        },
+        {
+          "t": "Create Data Products from Query Logs",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/CreateDataProductsFromQueryLogs.md"
+        },
+        {
+          "t": "Manage Chat Feedback",
+          "u": "https://documentation.alation.com/en/latest/DataProductsandMarketplace/ManageDataProducts/ManageChatFeedback.md"
+        },
+        {
+          "t": "Using the MCP Server",
+          "u": "https://documentation.alation.com/en/latest/agentstudio/integrations/mcp/using-the-mcp-server.md"
+        },
+        {
+          "t": "Agent Studio release notes",
+          "u": "https://documentation.alation.com/en/latest/agentstudio/releases/overview.md"
+        },
+        {
+          "t": "AI Features overview",
+          "u": "https://documentation.alation.com/en/latest/welcome/About/AlationAIFeatures.md"
+        },
+        {
+          "t": "Curation Automation",
+          "u": "https://documentation.alation.com/en/latest/governance/OutcomeBasedGovernance/CurationAutomation/index.md"
         },
         {
           "t": "ALLIE AI Suggested Descriptions",
           "u": "https://docs.alation.com/en/latest/steward/AISuggestedDescriptions/AISuggestedDescriptions.html"
         },
         {
-          "t": "Bulk Update Custom Fields",
-          "u": "https://docs.alation.com/en/latest/steward/StewardshipWorkbench/BulkCustomFields.html"
+          "t": "PUT multiple Custom Field Values",
+          "u": "https://documentation.alation.com/api-reference/alation-cloud-service-latest/custom-field-values-api/custom-field-value/putcustomfieldvalues.md"
         },
         {
-          "t": "Custom field values overview",
-          "u": "https://developer.alation.com/dev/v2024.1/reference/custom-field-values-overview"
+          "t": "Update tables (Relational Integration API)",
+          "u": "https://documentation.alation.com/api-reference/alation-cloud-service-latest/relational-integration-api/table/patchtables.md"
         },
         {
-          "t": "Discover Lineage",
-          "u": "https://docs.alation.com/en/latest/sources/Lineage"
+          "t": "ULM Overview (deprecation notice)",
+          "u": "https://documentation.alation.com/api-reference/alation-cloud-service-latest/upload-logical-metadata-api/upload-logical-metadata.md"
         },
         {
           "t": "Lineage Glossary",
           "u": "https://docs.alation.com/en/latest/analyst/Lineage/LineageGlossary.html"
         },
         {
-          "t": "Alation AI Agent SDK (mcp.so)",
-          "u": "https://mcp.so/servers/alation-ai-agent-sdk"
+          "t": "Alation documentation index",
+          "u": "https://documentation.alation.com/llms.txt"
         }
       ],
       "verified": "2026-10-24"
@@ -419,16 +530,16 @@
       "id": "collibra",
       "name": "Collibra",
       "category": "catalog",
-      "tagline": "Data governance catalog with AI descriptions, lineage and an MCP server.",
+      "tagline": "Data governance catalog with AI descriptions, classification, lineage and an MCP server.",
       "verdict": "partial",
-      "verdictNote": "Collibra offers glossary, lineage, classification and MCP, but no metric or join objects, and its Copilot is in preview.",
+      "verdictNote": "Collibra offers glossary, measure and attribute assets, lineage, classification and an MCP server, but no queryable metric or join objects and no SQL generation; its assistant is moving to Maestro in preview.",
       "artifacts": [
         {
           "name": "Collibra MCP server",
           "kind": "mcp",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
-          "format": "MCP; product page calls it production-ready; local open-source version is community supported",
+          "format": "Product page calls it production-ready; 25+ tools; local open-source version is community supported",
           "url": "https://www.collibra.com/products/mcp-server"
         },
         {
@@ -436,143 +547,151 @@
           "kind": "annotations",
           "status": "GA",
           "since": "",
-          "format": "UI; cloud only; suggestions never saved automatically",
-          "url": "https://docs.collibra.com/Content/CollibraAI/to_auto-descr.htm"
+          "format": "UI; cloud only; suggestions need review; metered in Collibra Units",
+          "url": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraAI/ta_auto-desc.htm"
         },
         {
           "name": "Collibra AI Copilot",
           "kind": "agent",
+          "status": "Deprecated",
+          "since": "",
+          "format": "Docs title says Deprecated; upgraded to Maestro with the 2026.10 release",
+          "url": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraAI/co_cai-co-pilot.htm"
+        },
+        {
+          "name": "Collibra Maestro (Studio and Assistant)",
+          "kind": "agent",
           "status": "Preview",
           "since": "",
-          "format": "UI chat to find data; not on Government or Self-Hosted",
-          "url": "https://docs.collibra.com/Content/CollibraAI/co_cai-co-pilot.htm"
+          "format": "Cloud only; custom agents with search and action tools; metered in Collibra Units",
+          "url": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraAI/maestro/co_maestro.htm"
         },
         {
           "name": "Unified Data Classification",
           "kind": "annotations",
           "status": "GA",
           "since": "",
-          "format": "UI and REST APIs",
-          "url": "https://docs.collibra.com/Content/Catalog/DataClassification/co_about-data-classification.htm"
+          "format": "UI and REST APIs; assigns data classes to Column assets",
+          "url": "https://productresources.collibra.com/docs/collibra/latest/Content/Catalog/DataClassification/co_about-data-classification.htm"
         },
         {
           "name": "Collibra Data Lineage",
           "kind": "graph-query",
           "status": "GA",
           "since": "",
-          "format": "Cloud only; technical lineage with column assets",
-          "url": "https://productresources.collibra.com/docs/collibra/latest/Content/to_data-lineage.htm"
+          "format": "Cloud only; technical and business lineage",
+          "url": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraDataLineage/co_collibra-data-lineage.htm"
         }
       ],
       "caps": {
         "metrics": {
-          "l": 0,
-          "n": "No governed metric object found in sources reviewed.",
-          "u": ""
+          "l": 3,
+          "n": "Measure assets link to columns, and MCP tools trace a measure to its tables. Catalog objects, not query definitions.",
+          "u": "https://marketplace.collibra.com/listings/collibra-mcp-server-local-version/"
         },
         "dimensions": {
           "l": 0,
-          "n": "No dimension or time-grain objects found.",
-          "u": ""
+          "n": "Data attribute assets exist. No dimension or time-grain objects found.",
+          "u": "https://marketplace.collibra.com/listings/collibra-mcp-server-local-version/"
         },
         "relationships": {
           "l": 1,
-          "n": "Asset relations and lineage exist. No declared join paths for AI found.",
-          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/to_data-lineage.htm"
+          "n": "Asset relations and lineage link assets. No declared join paths for AI found.",
+          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraDataLineage/co_collibra-data-lineage.htm"
         },
         "synonyms": {
           "l": 3,
-          "n": "Business glossary and asset descriptions are read by agents. Copilot discovery tools need Copilot preview enabled.",
+          "n": "Business terms, definitions and asset descriptions are returned by MCP read tools such as get_table_semantics.",
           "u": "https://marketplace.collibra.com/listings/collibra-mcp-server-local-version/"
         },
         "verifiedQueries": {
           "l": 0,
-          "n": "No verified question-to-SQL pair feature found.",
+          "n": "No verified question and SQL pair feature found in the docs reviewed.",
           "u": ""
         },
         "nl2sql": {
           "l": 0,
-          "n": "Copilot helps find data. Docs seen do not describe SQL generation.",
-          "u": "https://docs.collibra.com/Content/CollibraAI/co_cai-co-pilot.htm"
+          "n": "Copilot and Maestro find data and answer questions. SQL generation is not described.",
+          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraAI/maestro/co_maestro.htm"
         },
         "ontology": {
           "l": 0,
-          "n": "No ontology or class model found.",
+          "n": "Business glossary and asset types only. No ontology model found.",
           "u": ""
         },
         "graph": {
           "l": 0,
-          "n": "No graph query capability found. Lineage is viewed in the UI.",
-          "u": ""
+          "n": "Knowledge Graph API is GraphQL over assets, not a graph query language.",
+          "u": "https://developer.collibra.com/llms.txt"
         },
         "vector": {
           "l": 0,
-          "n": "No native vector search confirmed.",
+          "n": "No vector search feature found in the docs reviewed.",
           "u": ""
         },
         "mcp": {
           "l": 3,
-          "n": "Product page calls the server production-ready. Local version is open source and community supported; some tools use Collibra Units.",
+          "n": "Production-ready MCP server with 25+ tools for search, lineage, classification and asset edits. Some tools use Collibra Units.",
           "u": "https://www.collibra.com/products/mcp-server"
         },
         "governance": {
           "l": 3,
-          "n": "Data classification, lineage and governance workflows are core catalog features.",
-          "u": "https://docs.collibra.com/Content/Catalog/DataClassification/co_about-data-classification.htm"
+          "n": "Data classification, lineage and role-based permissions apply to catalog assets and MCP writes.",
+          "u": "https://www.collibra.com/products/mcp-server"
         },
         "openStandard": {
-          "l": 0,
-          "n": "No open semantic spec found. Local MCP server is open source (chip on GitHub).",
-          "u": "https://pkg.go.dev/github.com/collibra/chip"
+          "l": 2,
+          "n": "MCP write tool can push data contract manifests in Open Data Contract Standard format (Data Contracts private preview). No semantic spec.",
+          "u": "https://marketplace.collibra.com/listings/collibra-mcp-server-local-version/"
         },
         "aiDescriptions": {
           "l": 3,
-          "n": "Drafts descriptions for Column, Table, View and Data Set; a Table can draft all columns. Limit 20 requests per minute.",
+          "n": "Drafts descriptions for Column, Table, Database View and Data Set assets; a Table can draft all its columns. Existing descriptions are kept.",
           "u": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraAI/ta_auto-desc.htm"
         },
         "bulkMetadata": {
           "l": 3,
-          "n": "Import API v2 takes JSON, CSV and Excel jobs for assets and relations. Bulk import of column classifications has no native path.",
-          "u": "https://developer.collibra.com/api/rest/import-api"
+          "n": "Import API v2 takes JSON, CSV and Excel jobs for assets, attributes and relations.",
+          "u": "https://developer.collibra.com/api/guides/import-api.md"
         },
         "autoClassify": {
           "l": 3,
-          "n": "Automatic classification analyzes a subset of structured data and suggests a data class.",
-          "u": "https://docs.collibra.com/Content/Catalog/DataClassification/co_about-data-classification.htm"
+          "n": "Unified Data Classification assigns data classes to columns. Guided Stewardship links columns to data categories such as PII.",
+          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/Catalog/DataClassification/co_about-data-classification.htm"
         },
         "sampleValues": {
           "l": 1,
-          "n": "Sample data is cached on Edge for permitted users. No NL-to-SQL value matching found.",
-          "u": "https://docs.collibra.com/Content/Catalog/SampleData/co_sample-data.htm"
+          "n": "Sample data is shown to permitted users on asset pages. No NL-to-SQL value matching found.",
+          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/Catalog/SampleData/co_sample-data.htm"
         },
         "queryHistory": {
           "l": 0,
-          "n": "No query-history mining for suggestions found in sources reviewed.",
+          "n": "No query-history mining for join or metric suggestions found in the docs reviewed.",
           "u": ""
         },
         "lineage": {
           "l": 3,
-          "n": "Cloud-only Collibra Data Lineage shows technical lineage including column assets. Custom lineage by JSON.",
-          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/to_data-lineage.htm"
+          "n": "Cloud-only Collibra Data Lineage shows technical lineage down to column assets, plus business lineage.",
+          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraDataLineage/co_collibra-data-lineage.htm"
         },
         "evals": {
           "l": 0,
-          "n": "No NL-to-SQL eval tooling found.",
+          "n": "No NL-to-SQL eval tooling found in the docs reviewed.",
           "u": ""
         }
       },
       "offers": [
-        "AI-drafted descriptions for tables and all their columns.",
-        "Glossary and asset metadata served over an MCP server.",
-        "Automatic data classification of structured data.",
-        "Import API v2 for bulk asset edits by CSV or Excel.",
-        "Technical lineage with column assets."
+        "AI-drafted descriptions for tables and all their columns, with review before saving.",
+        "Glossary, measure and attribute assets served over an MCP server.",
+        "Data classification of columns with data classes.",
+        "Import API v2 for bulk asset edits by JSON, CSV or Excel.",
+        "Technical and business lineage with column assets."
       ],
       "gaps": [
-        "No metric, dimension or join objects found.",
-        "Copilot is in preview and cloud only.",
-        "AI descriptions are suggestions; existing ones must be removed first.",
-        "No confirmed text-to-SQL or eval tooling."
+        "No queryable metric, dimension or join objects.",
+        "Copilot is deprecated and its replacement, Maestro, is in preview and cloud only.",
+        "AI descriptions are suggestions; an existing description must be removed first.",
+        "No SQL generation, query-history mining or eval tooling found."
       ],
       "fillWith": [
         "dbt Semantic Layer",
@@ -580,18 +699,18 @@
         "Snowflake Semantic Views",
         "Databricks Metric Views"
       ],
-      "nl2sqlPath": "Treat Collibra as the governed glossary and lineage source. Feed it to your SQL agent through the Collibra MCP server. Keep metrics and joins in a separate semantic layer.",
+      "nl2sqlPath": "Treat Collibra as the governed glossary and lineage source and feed it to your SQL agent through the Collibra MCP server. Keep metrics and joins in a separate semantic layer. Use Maestro agents only after checking the preview limits.",
       "snippet": {
         "lang": "other",
-        "title": "Import API v2 job endpoints (names only, from search results)",
-        "code": "# POST /import/json-job\n# POST /import/csv-job\n# POST /import/excel-job\n# Each job needs a file id from a prior file upload.",
-        "u": "https://developer.collibra.com/api/rest/import-api"
+        "title": "Import API v2 job endpoints",
+        "code": "POST /import/json-job\nPOST /import/csv-job\nPOST /import/excel-job\n# send either fileId (a file uploaded earlier) or file\n# CSV and Excel also need a JSON template",
+        "u": "https://developer.collibra.com/api/guides/import-api.md"
       },
-      "enrichHowTo": "Use Collibra AI for asset descriptions on a Table to draft all column descriptions, then accept each. For bulk writes, send a CSV job to the Import API v2 /import/csv-job endpoint. Mind the 20 requests per minute AI limit.",
+      "enrichHowTo": "Open a Table asset and use Collibra AI to draft all column descriptions, then accept each one. For bulk writes, send a JSON, CSV or Excel job to the Import API v2 (/import/json-job). Existing descriptions are not replaced by AI, so remove them first if you want new drafts.",
       "bulkSnippet": {
-        "lang": "bash",
-        "code": "# Collibra Import API v2 (endpoints from docs, payload not verified)\n# 1) upload the file, get a file id\n# 2) start the job:\n#    POST /import/csv-job  (file id plus the file)",
-        "u": "https://developer.collibra.com/api/rest/import-api"
+        "lang": "json",
+        "code": "[{\n  \"resourceType\": \"Asset\",\n  \"identifier\": {\"name\": \"Asset 1\", \"domain\": {\"name\": \"Business Data Domain 1\", \"community\": {\"name\": \"Data Community\"}}},\n  \"attributes\": {\"<attributeTypeId>\": [{\"value\": \"New description text\"}]}\n}]\n// POST to /import/json-job; replace <attributeTypeId> with your Description attribute type name or id",
+        "u": "https://developer.collibra.com/api/guides/import-api/import-commands/importing-assets.md"
       },
       "sources": [
         {
@@ -599,40 +718,44 @@
           "u": "https://www.collibra.com/products/mcp-server"
         },
         {
-          "t": "Collibra MCP server local version (Marketplace)",
+          "t": "Collibra MCP Server local version (Marketplace)",
           "u": "https://marketplace.collibra.com/listings/collibra-mcp-server-local-version/"
         },
         {
-          "t": "Collibra chip on pkg.go.dev",
-          "u": "https://pkg.go.dev/github.com/collibra/chip"
-        },
-        {
-          "t": "Collibra AI for asset descriptions",
-          "u": "https://docs.collibra.com/Content/CollibraAI/to_auto-descr.htm"
-        },
-        {
-          "t": "Create a description for one asset with Collibra AI",
+          "t": "Create a description with Collibra AI",
           "u": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraAI/ta_auto-desc.htm"
         },
         {
-          "t": "About Collibra AI Copilot (in preview)",
-          "u": "https://docs.collibra.com/Content/CollibraAI/co_cai-co-pilot.htm"
+          "t": "About Collibra AI Copilot (Deprecated)",
+          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraAI/co_cai-co-pilot.htm"
+        },
+        {
+          "t": "About Collibra Maestro (in preview)",
+          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraAI/maestro/co_maestro.htm"
         },
         {
           "t": "About Data Classification",
-          "u": "https://docs.collibra.com/Content/Catalog/DataClassification/co_about-data-classification.htm"
-        },
-        {
-          "t": "Working with the Import API v2",
-          "u": "https://developer.collibra.com/api/rest/import-api"
+          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/Catalog/DataClassification/co_about-data-classification.htm"
         },
         {
           "t": "About sample data",
-          "u": "https://docs.collibra.com/Content/Catalog/SampleData/co_sample-data.htm"
+          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/Catalog/SampleData/co_sample-data.htm"
         },
         {
           "t": "About Collibra Data Lineage",
-          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/to_data-lineage.htm"
+          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraDataLineage/co_collibra-data-lineage.htm"
+        },
+        {
+          "t": "Working with the Import API v2",
+          "u": "https://developer.collibra.com/api/guides/import-api.md"
+        },
+        {
+          "t": "Importing assets",
+          "u": "https://developer.collibra.com/api/guides/import-api/import-commands/importing-assets.md"
+        },
+        {
+          "t": "Collibra developer portal index",
+          "u": "https://developer.collibra.com/llms.txt"
         }
       ],
       "verified": "2026-10-24"
@@ -643,166 +766,176 @@
       "category": "catalog",
       "tagline": "Open-source metadata platform; DataHub Cloud adds Ask DataHub and AI documentation.",
       "verdict": "partial",
-      "verdictNote": "DataHub gives an open MCP server, lineage and glossary, but no metric or join objects; its AI features are Cloud only.",
+      "verdictNote": "DataHub gives an open MCP server, an open-source analytics agent, lineage and query context, but no metric or join authoring; Ask DataHub and AI documentation are Cloud only.",
       "artifacts": [
         {
           "name": "DataHub MCP server (open source)",
           "kind": "mcp",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
-          "format": "MCP; Apache-2.0; read tools plus opt-in mutation tools. No maturity label on the repo page",
-          "url": "https://github.com/acryldata/mcp-server-datahub"
+          "format": "Self-hosted; read tools plus opt-in mutation tools (TOOLS_IS_MUTATION_ENABLED); no maturity label in the README",
+          "url": "https://raw.githubusercontent.com/acryldata/mcp-server-datahub/main/README.md"
         },
         {
           "name": "Managed MCP server (DataHub Cloud)",
           "kind": "mcp",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
-          "format": "Cloud v0.3.12 or later per search snippet",
+          "format": "Cloud v0.3.12 or later; OAuth with dynamic client registration from v1.0.2; scoped custom servers are private beta",
           "url": "https://docs.datahub.com/docs/features/feature-guides/mcp"
         },
         {
           "name": "Ask DataHub",
           "kind": "agent",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
-          "format": "DataHub Cloud only; chat in UI, Slack, Teams",
-          "url": "https://datahub.com/blog/ask-datahub/"
+          "format": "DataHub Cloud only; chat in UI, Slack and Teams; drafts SQL. Feature page says Public Beta, v2.2.0 notes say GA",
+          "url": "https://docs.datahub.com/docs/features/feature-guides/ask-datahub"
+        },
+        {
+          "name": "Analytics Agent",
+          "kind": "nl2sql",
+          "status": "Unverified",
+          "since": "2026-04",
+          "format": "Open source, Apache 2.0, bring your own LLM; question to SQL, results and chart grounded in the catalog; no maturity label in docs",
+          "url": "https://docs.datahub.com/docs/features/feature-guides/analytics-agent"
         },
         {
           "name": "AI documentation generation",
           "kind": "annotations",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
-          "format": "DataHub Cloud. Current docs say closed beta; 1.6.0 archive says GA in Cloud v0.3.17",
+          "format": "DataHub Cloud; GA as of Cloud v0.3.17 per current docs and the 1.6.0 archive; custom instructions since v0.3.15",
           "url": "https://docs.datahub.com/docs/automations/ai-docs"
         },
         {
-          "name": "AI glossary term suggestion",
-          "kind": "annotations",
-          "status": "Preview",
-          "since": "",
-          "format": "DataHub Cloud; closed beta per 1.5.0 docs",
-          "url": "https://archive.docs.datahub.com/docs/1.5.0/automations/ai-term-suggestion"
-        },
-        {
-          "name": "Context Documents",
+          "name": "Context documents and Context Generation",
           "kind": "glossary",
           "status": "Unverified",
           "since": "",
-          "format": "DataHub Cloud; runbooks and FAQs that Ask DataHub searches",
+          "format": "Context documents for Ask DataHub; Context Generation from query history and BI is DataHub Cloud",
           "url": "https://docs.datahub.com/docs/features/feature-guides/context/context-documents"
+        },
+        {
+          "name": "Classification at ingestion",
+          "kind": "annotations",
+          "status": "GA",
+          "since": "",
+          "format": "Open source; opt-in per source recipe; predicts info types and applies glossary terms",
+          "url": "https://docs.datahub.com/docs/metadata-ingestion/docs/dev_guides/classification"
         }
       ],
       "caps": {
         "metrics": {
-          "l": 0,
-          "n": "No governed metric object found in sources reviewed.",
-          "u": ""
+          "l": 1,
+          "n": "Semantic Model and metric entities can be ingested, for example from Snowflake semantic views, with metric lineage. DataHub does not author metrics.",
+          "u": "https://docs.datahub.com/docs/managed-datahub/release-notes/v_2_2_0"
         },
         "dimensions": {
           "l": 0,
-          "n": "No dimension or time-grain objects found.",
+          "n": "No dimension or time-grain objects found in the docs reviewed.",
           "u": ""
         },
         "relationships": {
           "l": 1,
-          "n": "Lineage and entity links exist. No declared join paths for AI found.",
-          "u": "https://github.com/acryldata/mcp-server-datahub"
+          "n": "Lineage and entity relationships exist. v2.2 adds relationship APIs. No declared join paths for AI found.",
+          "u": "https://docs.datahub.com/docs/managed-datahub/release-notes/v_2_2_0"
         },
         "synonyms": {
           "l": 3,
-          "n": "Descriptions, glossary terms, domains and structured properties are returned by MCP tools.",
-          "u": "https://github.com/acryldata/mcp-server-datahub"
+          "n": "Descriptions, glossary terms, domains and structured properties are returned by MCP tools. Glossary terms can link related terms.",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/mcp"
         },
         "verifiedQueries": {
           "l": 1,
-          "n": "MCP get_dataset_queries returns real queries on a dataset as context. No curated question-SQL pairs.",
-          "u": "https://github.com/acryldata/mcp-server-datahub"
+          "n": "MCP get_dataset_queries and find_sql_context return real queries as context. No curated question and SQL pairs.",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/mcp"
         },
         "nl2sql": {
-          "l": 2,
-          "n": "Ask DataHub is Cloud only. Vendor page says it uses glossary, lineage, sample rows and past queries. Status unverified.",
-          "u": "https://datahub.com/blog/ask-datahub/"
+          "l": 3,
+          "n": "Ask DataHub drafts SQL on Cloud. The open-source Analytics Agent turns questions into SQL grounded in the catalog.",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/analytics-agent"
         },
         "ontology": {
-          "l": 0,
-          "n": "No ontology model found. Glossary and domains only.",
-          "u": ""
+          "l": 2,
+          "n": "Ontology Explorer shows how glossary terms relate, with custom relationships. Custom relationships and SPARQL are private beta.",
+          "u": "https://docs.datahub.com/docs/managed-datahub/release-notes/v_2_2_0"
         },
         "graph": {
-          "l": 0,
-          "n": "No user graph query language found. Lineage via GraphQL and SDK.",
-          "u": "https://docs.datahub.com/docs/api/tutorials/lineage"
+          "l": 2,
+          "n": "Cloud v2.2 adds relationship traversal and SPARQL endpoints. The SPARQL engine is private beta.",
+          "u": "https://docs.datahub.com/docs/managed-datahub/release-notes/v_2_2_0"
         },
         "vector": {
-          "l": 0,
-          "n": "No native vector search confirmed.",
+          "l": null,
+          "n": "Not checked yet.",
           "u": ""
         },
         "mcp": {
           "l": 3,
-          "n": "Open-source server for Core, managed server on Cloud. Read tools by default; writes need TOOLS_IS_MUTATION_ENABLED=true.",
-          "u": "https://github.com/acryldata/mcp-server-datahub"
+          "n": "Open-source server for Core and managed server on Cloud. Writes need TOOLS_IS_MUTATION_ENABLED=true.",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/mcp"
         },
         "governance": {
           "l": 3,
-          "n": "Tags, terms, owners, domains and lineage are metadata aspects exposed over MCP.",
-          "u": "https://github.com/acryldata/mcp-server-datahub"
+          "n": "Tags, terms, owners, domains and lineage are metadata aspects. MCP can submit proposals for review instead of writing directly.",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/mcp"
         },
         "openStandard": {
           "l": 3,
-          "n": "DataHub Core and the MCP server are open source (MCP server is Apache-2.0).",
-          "u": "https://github.com/acryldata/mcp-server-datahub"
+          "n": "DataHub Core and the MCP server are open source under Apache 2.0.",
+          "u": "https://raw.githubusercontent.com/acryldata/mcp-server-datahub/main/README.md"
         },
         "aiDescriptions": {
-          "l": 2,
-          "n": "Cloud Generate button uses name, columns, sample values and lineage. Status conflicts: closed beta in current docs, GA in 1.6.0 docs.",
+          "l": 3,
+          "n": "Cloud Generate button uses name, columns, sample values and lineage. GA as of Cloud v0.3.17. Tables over 3000 columns are skipped.",
           "u": "https://docs.datahub.com/docs/automations/ai-docs"
         },
         "bulkMetadata": {
           "l": 3,
-          "n": "MCP mutation tools update descriptions, tags, terms, owners; Python SDK and emitters write aspects. Limits not checked.",
-          "u": "https://github.com/acryldata/mcp-server-datahub"
+          "n": "MCP tools add tags, terms, owners and descriptions in bulk; Python SDK and GraphQL write descriptions. Limits not documented.",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/mcp"
         },
         "autoClassify": {
           "l": 3,
-          "n": "Opt-in PII detection at ingestion proposes glossary terms by confidence score. Source is a DataHub blog.",
-          "u": "https://datahub.com/?p=2693"
+          "n": "Opt-in classification at ingestion predicts info types and applies them as glossary terms. Open source.",
+          "u": "https://docs.datahub.com/docs/metadata-ingestion/docs/dev_guides/classification"
         },
         "sampleValues": {
-          "l": 2,
-          "n": "Vendor page says Ask DataHub uses sample rows; AI docs use sample values. Not confirmed in docs for NL-to-SQL.",
-          "u": "https://datahub.com/blog/ask-datahub/"
+          "l": 1,
+          "n": "AI documentation reads column sample values. Use for NL-to-SQL value matching is not documented.",
+          "u": "https://docs.datahub.com/docs/automations/ai-docs"
         },
         "queryHistory": {
           "l": 3,
-          "n": "get_dataset_queries returns real SQL for a dataset or column; search sorts by usage. No automatic join or metric suggestions.",
-          "u": "https://github.com/acryldata/mcp-server-datahub"
+          "n": "get_dataset_queries returns real SQL per dataset or column. Cloud Context Generation writes documents from query history.",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/context/context-documents"
         },
         "lineage": {
           "l": 3,
-          "n": "Lineage tool with hop control and column paths; Python SDK adds column lineage.",
-          "u": "https://docs.datahub.com/docs/api/tutorials/lineage"
+          "n": "Lineage with column-level paths in the UI; Python SDK and GraphQL add and read column lineage.",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/lineage"
         },
         "evals": {
-          "l": 0,
-          "n": "No NL-to-SQL eval tooling found. Cloud v2.2.0 has Agents in private beta.",
-          "u": "https://docs.datahub.com/docs/managed-datahub/release-notes/v_2_2_0"
+          "l": 1,
+          "n": "Analytics Agent shows a context quality score per answer and /improve-context suggests doc fixes. No eval set tooling found.",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/analytics-agent"
         }
       },
       "offers": [
-        "Open-source MCP server with search, lineage and dataset query tools.",
-        "Opt-in MCP write tools for descriptions, tags, terms and owners.",
-        "Cloud AI documentation using lineage and sample values.",
-        "PII detection at ingestion that proposes glossary terms.",
+        "Open-source MCP server with search, lineage, dataset query and SQL drafting tools.",
+        "Opt-in MCP write tools for descriptions, tags, terms, owners and proposals.",
+        "Open-source Analytics Agent for question to SQL to chart, grounded in the catalog.",
+        "Cloud AI documentation using lineage and sample values, with custom instructions.",
+        "Classification at ingestion that proposes glossary terms.",
         "Ask DataHub chat over metadata and context documents (Cloud)."
       ],
       "gaps": [
-        "No metric, dimension or join objects found.",
-        "AI documentation status conflicts between doc versions.",
-        "Ask DataHub and AI docs are Cloud only.",
-        "No eval tooling found."
+        "No metric, dimension or join authoring; semantic models are ingested, not defined.",
+        "Ask DataHub and AI documentation are Cloud only.",
+        "Ask DataHub is labeled Public Beta on its feature page and GA in v2.2.0 notes.",
+        "SPARQL, custom relationships and Agents are private beta in Cloud v2.2.",
+        "No NL-to-SQL eval set tooling found."
       ],
       "fillWith": [
         "dbt Semantic Layer",
@@ -810,59 +943,67 @@
         "Snowflake Semantic Views",
         "Databricks Metric Views"
       ],
-      "nl2sqlPath": "Run the DataHub MCP server next to your SQL agent so it can read descriptions, lineage and past queries. Keep metrics and joins in a semantic layer. Use Cloud for Ask DataHub if you want a hosted chat.",
+      "nl2sqlPath": "Run the DataHub MCP server or the Analytics Agent next to your warehouse so the agent reads descriptions, lineage and past queries. Keep metrics and joins in a semantic layer. Use DataHub Cloud for Ask DataHub and AI documentation if you want hosted features.",
       "snippet": {
         "lang": "bash",
-        "title": "Run the DataHub MCP server with writes enabled (names from the repo page)",
-        "code": "export TOOLS_IS_MUTATION_ENABLED=true\n# plus your GMS URL and token variables per the README\nuvx mcp-server-datahub\n# Mutation tools include update_description (update, append, remove)",
-        "u": "https://github.com/acryldata/mcp-server-datahub"
+        "title": "Add the DataHub Cloud MCP server to Claude Code",
+        "code": "claude mcp add --transport http datahub https://mcp.datahub.com/mcp\n# then run /mcp in Claude Code and choose Authenticate",
+        "u": "https://docs.datahub.com/docs/features/feature-guides/mcp"
       },
-      "enrichHowTo": "On Cloud, click Generate on a table or column; admins can add custom instructions under Settings > AI. For scripted writes, enable the MCP mutation tools and call update_description. Status of AI generation is unverified.",
+      "enrichHowTo": "On Cloud, click Generate on a table or column, and add custom instructions under Settings > AI. For scripted writes, use the Python SDK set_description call, or enable the MCP mutation tools and call update_description. Review AI-generated text, which carries a sparkle icon until a person confirms it.",
       "bulkSnippet": {
-        "lang": "bash",
-        "code": "# Mutation tools are off by default\nexport TOOLS_IS_MUTATION_ENABLED=true\nuvx mcp-server-datahub\n# then call the update_description tool from your MCP client",
-        "u": "https://github.com/acryldata/mcp-server-datahub"
+        "lang": "python",
+        "code": "from datahub.sdk import DataHubClient, DatasetUrn\nclient = DataHubClient.from_env()\ndataset = client.entities.get(DatasetUrn(platform=\"hive\", name=\"realestate_db.sales\"))\ndataset.set_description(\"## The Real Estate Sales Dataset\\nSales organized by address.\")\nclient.entities.update(dataset)",
+        "u": "https://docs.datahub.com/docs/api/tutorials/descriptions"
       },
       "sources": [
         {
-          "t": "mcp-server-datahub (GitHub)",
-          "u": "https://github.com/acryldata/mcp-server-datahub"
+          "t": "DataHub MCP Server README",
+          "u": "https://raw.githubusercontent.com/acryldata/mcp-server-datahub/main/README.md"
         },
         {
           "t": "DataHub MCP Server docs",
           "u": "https://docs.datahub.com/docs/features/feature-guides/mcp"
         },
         {
-          "t": "AI docs automation",
+          "t": "AI documentation",
           "u": "https://docs.datahub.com/docs/automations/ai-docs"
         },
         {
-          "t": "AI docs (1.6.0 archive)",
+          "t": "AI documentation (1.6.0 archive)",
           "u": "https://archive.docs.datahub.com/docs/1.6.0/automations/ai-docs"
         },
         {
-          "t": "AI term suggestion (1.5.0 archive)",
-          "u": "https://archive.docs.datahub.com/docs/1.5.0/automations/ai-term-suggestion"
+          "t": "Ask DataHub",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/ask-datahub"
+        },
+        {
+          "t": "Analytics Agent",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/analytics-agent"
         },
         {
           "t": "Context documents",
           "u": "https://docs.datahub.com/docs/features/feature-guides/context/context-documents"
         },
         {
-          "t": "Ask DataHub",
-          "u": "https://datahub.com/blog/ask-datahub/"
-        },
-        {
           "t": "DataHub Cloud v2.2.0 release notes",
           "u": "https://docs.datahub.com/docs/managed-datahub/release-notes/v_2_2_0"
         },
         {
-          "t": "Data Lineage tutorial",
-          "u": "https://docs.datahub.com/docs/api/tutorials/lineage"
+          "t": "Classification",
+          "u": "https://docs.datahub.com/docs/metadata-ingestion/docs/dev_guides/classification"
         },
         {
-          "t": "PII Classification just got easier with DataHub",
-          "u": "https://datahub.com/?p=2693"
+          "t": "Lineage feature guide",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/lineage"
+        },
+        {
+          "t": "Descriptions API tutorial",
+          "u": "https://docs.datahub.com/docs/api/tutorials/descriptions"
+        },
+        {
+          "t": "DataHub docs index",
+          "u": "https://docs.datahub.com/llms.txt"
         }
       ],
       "verified": "2026-10-24"
@@ -871,168 +1012,202 @@
       "id": "openmetadata",
       "name": "OpenMetadata (and Collate)",
       "category": "catalog",
-      "tagline": "Open-source metadata platform; Collate is the managed product with AI agents.",
+      "tagline": "Open-source metadata platform; Collate is the managed product with AI chat and automations.",
       "verdict": "partial",
-      "verdictNote": "OpenMetadata has an MCP server, lineage and auto classification, but no join or dimension objects; description AI is Collate only.",
+      "verdictNote": "OpenMetadata has an MCP server with semantic search, a metric entity, lineage, auto classification and a beta RDF graph, but no dimension or join objects; description AI and chat are Collate only.",
       "artifacts": [
         {
           "name": "OpenMetadata MCP server",
           "kind": "mcp",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
-          "format": "JSON-RPC at POST {OMURL}/mcp; bot JWT; in 1.12, 1.13, 2.0 docs",
-          "url": "https://docs.open-metadata.org/v1.13.x/sdk/ai-sdk"
+          "format": "Installed and enabled by default; OAuth 2.0 or personal access token; read and write tools",
+          "url": "https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp.md"
         },
         {
-          "name": "Metadata AI SDK (Python, TypeScript, Java)",
+          "name": "Semantic search MCP tool",
+          "kind": "vector",
+          "status": "GA",
+          "since": "",
+          "format": "Needs OpenSearch or Elasticsearch with semantic search enabled and an embedding provider",
+          "url": "https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp/semantic-search.md"
+        },
+        {
+          "name": "AI SDK (Python, TypeScript, Java)",
           "kind": "mcp",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
-          "format": "SDK wrapping the MCP tools; packages data-ai-sdk and @openmetadata/ai-sdk",
-          "url": "https://docs.open-metadata.org/v1.13.x/sdk/ai-sdk"
+          "format": "SDK wrapping the MCP tools; Collate adds AI Studio agents",
+          "url": "https://docs.open-metadata.org/v1.13.x/api-reference/sdk/ai-sdk"
         },
         {
-          "name": "Collate Documentation Agent",
-          "kind": "agent",
-          "status": "Unverified",
+          "name": "Metrics",
+          "kind": "semantic-model",
+          "status": "GA",
           "since": "",
-          "format": "Collate; writes or suggests descriptions; user approves",
-          "url": "https://docs.getcollate.io/collate-ai/documentation-agent.md"
+          "format": "Metric entity with expression, granularity, type and unit; shown in lineage",
+          "url": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/metrics.md"
         },
         {
-          "name": "Collate AI Studio (custom agents and prompts)",
-          "kind": "agent",
+          "name": "Ontology Explorer and OWL/SKOS import",
+          "kind": "ontology",
           "status": "Preview",
-          "since": "2026",
-          "format": "Collate; release notes label it Beta in 1.12",
-          "url": "https://docs.getcollate.io/collateai"
+          "since": "",
+          "format": "Docs label Ontology Explorer Beta; imports OWL or SKOS ontologies into a glossary",
+          "url": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/ontology/index.md"
         },
         {
-          "name": "Collate AutoPilot agents",
-          "kind": "agent",
-          "status": "Unverified",
+          "name": "RDF Knowledge Graph (SPARQL)",
+          "kind": "graph-query",
+          "status": "Preview",
           "since": "",
-          "format": "Collate 1.7 per vendor blog; onboarding and operations agents",
-          "url": "https://www.getcollate.io/blog/announcing-collate-17"
+          "format": "Beta in deployment docs; needs Apache Jena Fuseki",
+          "url": "https://docs.open-metadata.org/v2.0.x/deployment/rdf-knowledge-graph.md"
+        },
+        {
+          "name": "Collate AI Chat",
+          "kind": "nl2sql",
+          "status": "GA",
+          "since": "",
+          "format": "Collate only; runs read-only SQL on connected sources and answers with charts",
+          "url": "https://docs.getcollate.io/ai-2-0/collate-ai/collate-ai-chat.md"
+        },
+        {
+          "name": "Collate AI Automations (Documentation, Quality, Governance templates)",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "Collate 2.0; replaced the Documentation, Tier and Quality agent apps",
+          "url": "https://docs.getcollate.io/ai-2-0/collate-ai/ai-automations.md"
+        },
+        {
+          "name": "Collate AI Studio",
+          "kind": "agent",
+          "status": "GA",
+          "since": "",
+          "format": "Collate only; agents, workers, plugins and skills",
+          "url": "https://docs.getcollate.io/ai-2-0/collate-ai/ai-studio/index.md"
         },
         {
           "name": "Auto Classification agent",
           "kind": "annotations",
-          "status": "Unverified",
+          "status": "GA",
           "since": "",
-          "format": "OpenMetadata and Collate; PII tags",
-          "url": "https://docs.getcollate.io/how-to-guides/data-governance/classification/auto-classification"
+          "format": "Open source and Collate; column name rules plus optional sample-data recognition",
+          "url": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/classification/auto-classification.md"
         }
       ],
       "caps": {
         "metrics": {
           "l": 3,
-          "n": "A metric entity exists; MCP has a create-metric tool. It is a catalog object, not a query engine.",
-          "u": "https://docs.open-metadata.org/latest/releases/all-releases"
+          "n": "Metric entity stores expression, granularity, type and unit, with lineage. It is a catalog object, not a query engine.",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/metrics.md"
         },
         "dimensions": {
           "l": 0,
-          "n": "No dimension or time-grain objects found.",
+          "n": "No dimension or time-grain objects found in the docs reviewed.",
           "u": ""
         },
         "relationships": {
           "l": 1,
           "n": "Lineage and entity links exist. No declared join paths for AI found.",
-          "u": "https://docs.open-metadata.org/v1.12.x/developers/contribute/codebase-deep-dives/lineage-ingestion"
+          "u": "https://docs.open-metadata.org/v2.0.x/developers/contribute/codebase-deep-dives/lineage-ingestion.md"
         },
         "synonyms": {
           "l": 3,
-          "n": "Descriptions, tags and glossary terms are returned by MCP search and entity tools.",
-          "u": "https://docs.open-metadata.org/v1.13.x/sdk/ai-sdk"
+          "n": "Glossary terms carry definitions and synonyms. MCP search and entity tools return descriptions, tags and terms.",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/glossary/import.md"
         },
         "verifiedQueries": {
           "l": 0,
-          "n": "No verified question-to-SQL pair feature found.",
+          "n": "No verified question and SQL pair feature found in the docs reviewed.",
           "u": ""
         },
         "nl2sql": {
-          "l": 1,
-          "n": "Collate AI Studio lets you build agents; a first-party text-to-SQL agent was not confirmed.",
-          "u": "https://docs.getcollate.io/collateai"
+          "l": 3,
+          "n": "Collate AI Chat runs read-only SQL on connected sources, grounded in the knowledge graph. Collate only.",
+          "u": "https://docs.getcollate.io/ai-2-0/collate-ai/collate-ai-chat.md"
         },
         "ontology": {
-          "l": 0,
-          "n": "No ontology model found. Glossary and classifications only.",
-          "u": ""
+          "l": 2,
+          "n": "Ontology Explorer is Beta and OWL or SKOS ontologies import into glossaries.",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/ontology/index.md"
         },
         "graph": {
-          "l": 0,
-          "n": "No user graph query language found.",
-          "u": ""
+          "l": 2,
+          "n": "Beta RDF knowledge graph with a SPARQL endpoint, backed by Apache Jena Fuseki.",
+          "u": "https://docs.getcollate.io/ai-2-0/admin-guide/applications/rdf-indexing-overview.md"
         },
         "vector": {
           "l": 3,
-          "n": "MCP lists a semantic_search tool and search returns similarityScore. Setup needs were not checked.",
-          "u": "https://docs.open-metadata.org/latest/releases/all-releases"
+          "n": "Semantic search tool uses embeddings and kNN search. Needs OpenSearch or Elasticsearch and an embedding provider.",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp/semantic-search.md"
         },
         "mcp": {
           "l": 3,
-          "n": "Built-in MCP server with read and write tools. Collate announced MCP in July 2025.",
-          "u": "https://www.getcollate.io/blog/introducing-the-model-context-protocol-mcp-in-collate"
+          "n": "Built-in MCP server with read and write tools, installed by default. Collate announced MCP in July 2025.",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp.md"
         },
         "governance": {
           "l": 3,
-          "n": "Tags, owners, glossary, classification and lineage are entities exposed over MCP.",
-          "u": "https://docs.open-metadata.org/v1.13.x/sdk/ai-sdk"
+          "n": "Tags, owners, glossary, classification and lineage are entities. MCP uses OAuth 2.0 with your existing SSO.",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp.md"
         },
         "openStandard": {
           "l": 3,
-          "n": "OpenMetadata is open source; metadata is available through REST, SDKs and MCP.",
-          "u": "https://docs.open-metadata.org/v1.13.x/sdk/ai-sdk"
+          "n": "Open source. OpenMetadata Standards publish JSON Schemas and RDF/OWL models.",
+          "u": "https://docs.open-metadata.org/v2.0.x/api-reference/sdk/openmetadata-standards.md"
         },
         "aiDescriptions": {
           "l": 3,
-          "n": "Collate Documentation Agent scans schemas and writes or suggests descriptions. Collate only; no open-source equivalent found.",
-          "u": "https://docs.getcollate.io/collate-ai/documentation-agent.md"
+          "n": "Collate AI Automations documentation template drafts or writes descriptions. No open-source equivalent found.",
+          "u": "https://docs.getcollate.io/ai-2-0/collate-ai/ai-automations.md"
         },
         "bulkMetadata": {
           "l": 3,
-          "n": "MCP patch_entity updates description, tags and owners; glossary CSV import. Table CSV import not confirmed.",
-          "u": "https://docs.open-metadata.org/latest/how-to-guides/data-governance/glossary/import"
+          "n": "MCP patch_entity; CSV import for databases, schemas and tables; glossary CSV import; Column Bulk Operations across same-named columns.",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/column-bulk-operations.md"
         },
         "autoClassify": {
           "l": 3,
-          "n": "Auto classification uses column-name rules and optional sample-data recognition with a confidence threshold, default 80.",
-          "u": "https://docs.getcollate.io/how-to-guides/data-governance/classification/auto-classification"
+          "n": "Auto classification uses column-name rules and optional sample-data recognition. Confidence threshold defaults to 80.",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/classification/auto-classification.md"
         },
         "sampleValues": {
           "l": 1,
           "n": "Sample data feeds classification. No NL-to-SQL value matching found.",
-          "u": "https://docs.getcollate.io/how-to-guides/data-governance/classification/auto-classification"
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/classification/auto-classification.md"
         },
         "queryHistory": {
           "l": 1,
-          "n": "Query logs feed lineage and usage ingestion. No join or metric suggestions found.",
-          "u": "https://docs.open-metadata.org/v1.12.x/developers/contribute/codebase-deep-dives/lineage-ingestion"
+          "n": "Query logs feed lineage and usage counts. No join or metric suggestions found.",
+          "u": "https://docs.open-metadata.org/v2.0.x/developers/contribute/codebase-deep-dives/usage-ingestion.md"
         },
         "lineage": {
           "l": 3,
-          "n": "Column-level lineage from SQL query logs, views and stored procedures. Edge detail shows SQL.",
-          "u": "https://docs.open-metadata.org/v1.12.x/developers/contribute/codebase-deep-dives/lineage-ingestion"
+          "n": "Column-level lineage from query logs, view definitions and stored procedures.",
+          "u": "https://docs.open-metadata.org/v2.0.x/developers/contribute/codebase-deep-dives/lineage-ingestion.md"
         },
         "evals": {
           "l": 0,
-          "n": "No NL-to-SQL eval tooling found.",
+          "n": "No NL-to-SQL eval tooling found in OpenMetadata or Collate docs indexes.",
           "u": ""
         }
       },
       "offers": [
-        "MCP server with search, entity, lineage and patch tools.",
-        "Metadata AI SDK for Python, TypeScript and Java.",
-        "Collate Documentation Agent for descriptions.",
-        "Auto classification of PII with confidence threshold.",
-        "Column-level lineage from query logs."
+        "MCP server with search, semantic search, entity details, lineage and patch tools.",
+        "Metric entity with expression and lineage, and glossary terms with synonyms.",
+        "Collate AI Chat for question to SQL to chart, and AI Automations for descriptions.",
+        "Auto classification of PII with a confidence threshold.",
+        "Column-level lineage from query logs.",
+        "CSV bulk import and Column Bulk Operations."
       ],
       "gaps": [
-        "No dimension or join objects found.",
-        "Description AI and AI Studio are Collate only; AI Studio is Beta.",
-        "MCP write tools need care; filter to read-only for agents.",
-        "No eval tooling found."
+        "No dimension, join or verified query objects.",
+        "AI chat, description automations and AI Studio are Collate only.",
+        "Ontology Explorer and the RDF knowledge graph are Beta.",
+        "MCP write tools can change metadata; limit agents to read tools.",
+        "No NL-to-SQL eval tooling found."
       ],
       "fillWith": [
         "dbt Semantic Layer",
@@ -1040,51 +1215,95 @@
         "Snowflake Semantic Views",
         "Databricks Metric Views"
       ],
-      "nl2sqlPath": "Connect your SQL agent to the OpenMetadata MCP server for descriptions, glossary and lineage. Use tool filtering to keep it read-only. Keep metrics and joins in a semantic layer.",
+      "nl2sqlPath": "Connect your SQL agent to the OpenMetadata MCP server for descriptions, glossary, metrics and lineage, and turn on semantic search if you need concept lookup. Use tool filtering to keep the agent read-only. Keep dimensions and joins in a semantic layer, or use Collate AI Chat for hosted question answering.",
       "snippet": {
         "lang": "json",
-        "title": "List MCP tools (JSON-RPC at POST {OMURL}/mcp, bearer JWT)",
-        "code": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/list\"}",
-        "u": "https://docs.open-metadata.org/v1.13.x/sdk/ai-sdk"
+        "title": "MCP search_metadata call (semantic search)",
+        "code": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/call\",\"params\":{\"name\":\"search_metadata\",\"arguments\":{\"query\":\"customer purchase behavior and transaction history\",\"entity_type\":\"table\"}}}",
+        "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp/semantic-search.md"
       },
-      "enrichHowTo": "On Collate, run the Documentation Agent and approve its suggestions. On open source, call the MCP patch_entity tool to update descriptions, tags and owners. Glossary terms can be bulk loaded by CSV import.",
+      "enrichHowTo": "On Collate, create an AI Automation from the Documentation template and review the output. On open source, call the MCP patch_entity tool with a JSON Patch, or use CSV import for tables and Column Bulk Operations for repeated column names. Glossary terms load by CSV import.",
       "bulkSnippet": {
-        "lang": "bash",
-        "code": "# Authorization: Bearer <bot JWT from Settings > Bots>\ncurl -X POST \"$OMURL/mcp\" \\\n  -H \"Authorization: Bearer $JWT\" -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/list\"}'\n# patch_entity updates description, tags, owners (arguments not verified)",
-        "u": "https://docs.open-metadata.org/v1.13.x/sdk/ai-sdk"
+        "lang": "json",
+        "code": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/call\",\"params\":{\"name\":\"patch_entity\",\"arguments\":{\"entityType\":\"table\",\"fqn\":\"mysql_prod.ecommerce.public.customer_orders\",\"patch\":\"[{\\\"op\\\":\\\"replace\\\",\\\"path\\\":\\\"/description\\\",\\\"value\\\":\\\"Updated description for customer orders table.\\\"}]\"}}}",
+        "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp/reference.md"
       },
       "sources": [
         {
-          "t": "OpenMetadata AI SDK (1.13)",
-          "u": "https://docs.open-metadata.org/v1.13.x/sdk/ai-sdk"
+          "t": "MCP Server",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp.md"
         },
         {
-          "t": "OpenMetadata all releases",
-          "u": "https://docs.open-metadata.org/latest/releases/all-releases"
+          "t": "MCP Tools Reference",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp/reference.md"
+        },
+        {
+          "t": "Semantic Search MCP Tool",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp/semantic-search.md"
+        },
+        {
+          "t": "AI SDK",
+          "u": "https://docs.open-metadata.org/v1.13.x/api-reference/sdk/ai-sdk"
+        },
+        {
+          "t": "Metrics",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/metrics.md"
+        },
+        {
+          "t": "Column Bulk Operations",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/column-bulk-operations.md"
+        },
+        {
+          "t": "Bulk Upload Data Assets with CSV",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-discovery/bulk-upload.md"
         },
         {
           "t": "Glossary import",
-          "u": "https://docs.open-metadata.org/latest/how-to-guides/data-governance/glossary/import"
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/glossary/import.md"
         },
         {
-          "t": "Lineage ingestion (1.12)",
-          "u": "https://docs.open-metadata.org/v1.12.x/developers/contribute/codebase-deep-dives/lineage-ingestion"
+          "t": "Auto-Classification",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/classification/auto-classification.md"
         },
         {
-          "t": "Collate Documentation Agent",
-          "u": "https://docs.getcollate.io/collate-ai/documentation-agent.md"
+          "t": "Ontology Explorer",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/data-governance/ontology/index.md"
         },
         {
-          "t": "Collate AI",
-          "u": "https://docs.getcollate.io/collateai"
+          "t": "OpenMetadata Standards",
+          "u": "https://docs.open-metadata.org/v2.0.x/api-reference/sdk/openmetadata-standards.md"
         },
         {
-          "t": "Collate auto classification",
-          "u": "https://docs.getcollate.io/how-to-guides/data-governance/classification/auto-classification"
+          "t": "Lineage ingestion",
+          "u": "https://docs.open-metadata.org/v2.0.x/developers/contribute/codebase-deep-dives/lineage-ingestion.md"
         },
         {
-          "t": "Announcing Collate 1.7",
-          "u": "https://www.getcollate.io/blog/announcing-collate-17"
+          "t": "Usage ingestion",
+          "u": "https://docs.open-metadata.org/v2.0.x/developers/contribute/codebase-deep-dives/usage-ingestion.md"
+        },
+        {
+          "t": "OpenMetadata v2.0.x documentation index",
+          "u": "https://docs.open-metadata.org/_llms/v2-0-x.txt"
+        },
+        {
+          "t": "Enable RDF Knowledge Graph (deployment docs index)",
+          "u": "https://docs.open-metadata.org/_llms/v2-0-x/deployment.txt"
+        },
+        {
+          "t": "Collate AI Chat",
+          "u": "https://docs.getcollate.io/ai-2-0/collate-ai/collate-ai-chat.md"
+        },
+        {
+          "t": "Collate AI Automations",
+          "u": "https://docs.getcollate.io/ai-2-0/collate-ai/ai-automations.md"
+        },
+        {
+          "t": "Collate AI Studio",
+          "u": "https://docs.getcollate.io/ai-2-0/collate-ai/ai-studio/index.md"
+        },
+        {
+          "t": "Collate RDF Knowledge Graph Indexing",
+          "u": "https://docs.getcollate.io/ai-2-0/admin-guide/applications/rdf-indexing-overview.md"
         },
         {
           "t": "Introducing MCP in Collate",
@@ -1096,36 +1315,108 @@
   ],
   "notes": [
     {
-      "topic": "Research limits",
-      "text": "WebFetch could not reach vendor doc hosts through the proxy and the search budget ran out. Facts come from search-result snippets and one GitHub page fetch, so many statuses are Unverified.",
+      "topic": "DataHub AI documentation status",
+      "text": "Current docs and the 1.6.0 archive both say AI documentation is GA as of Cloud v0.3.17. The closed beta wording now appears only in the 1.5.0 archive for glossary term suggestion, which is gone from current docs.",
       "sources": [
         {
-          "t": "mcp-server-datahub (GitHub)",
-          "u": "https://github.com/acryldata/mcp-server-datahub"
-        }
-      ]
-    },
-    {
-      "topic": "DataHub AI docs status conflict",
-      "text": "Current docs say closed beta. The 1.6.0 archive says GA in Cloud v0.3.17.",
-      "sources": [
-        {
-          "t": "AI docs",
+          "t": "AI documentation",
           "u": "https://docs.datahub.com/docs/automations/ai-docs"
         },
         {
-          "t": "AI docs 1.6.0",
+          "t": "AI documentation 1.6.0",
           "u": "https://archive.docs.datahub.com/docs/1.6.0/automations/ai-docs"
         }
       ]
     },
     {
-      "topic": "Atlan benchmark claim",
-      "text": "Atlan reports a 38 percent SQL accuracy lift from governed metadata. No independent source found, so it is not used on the page.",
+      "topic": "DataHub Ask DataHub status",
+      "text": "The Ask DataHub feature page says Public Beta in the UI. Cloud v2.2.0 release notes say Ask DataHub is GA and remove the beta label setting. The page is listed as GA here.",
+      "sources": [
+        {
+          "t": "Ask DataHub",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/ask-datahub"
+        },
+        {
+          "t": "DataHub Cloud v2.2.0",
+          "u": "https://docs.datahub.com/docs/managed-datahub/release-notes/v_2_2_0"
+        }
+      ]
+    },
+    {
+      "topic": "Atlan Context Engineering Studio stage",
+      "text": "Current docs no longer show a Private Preview label. They say the studio is not self-serve and is enabled from Labs through the Atlan account team. Context agent templates are still labeled private preview.",
+      "sources": [
+        {
+          "t": "Enable Context Engineering Studio",
+          "u": "https://docs.atlan.com/product/capabilities/governance/context-engineering-studio/how-tos/get-started.md"
+        },
+        {
+          "t": "FAQ agent templates",
+          "u": "https://docs.atlan.com/llms/platform/context-agents-studio/faq-agent-templates/llms.txt"
+        }
+      ]
+    },
+    {
+      "topic": "Alation Upload Logical Metadata API",
+      "text": "The Upload Logical Metadata API page carries a deprecation notice. The Custom Field Values API cannot set title or description (field ids 3 and 4) on data, schema, table or attribute objects, so the Relational Integration API covers those.",
+      "sources": [
+        {
+          "t": "ULM Overview",
+          "u": "https://documentation.alation.com/api-reference/alation-cloud-service-latest/upload-logical-metadata-api/upload-logical-metadata.md"
+        },
+        {
+          "t": "PUT multiple Custom Field Values",
+          "u": "https://documentation.alation.com/api-reference/alation-cloud-service-latest/custom-field-values-api/custom-field-value/putcustomfieldvalues.md"
+        }
+      ]
+    },
+    {
+      "topic": "MCP server status",
+      "text": "Atlan, Alation, Collibra, DataHub and OpenMetadata all ship a first-party MCP server. Atlan, Alation and OpenMetadata host it for customers; DataHub has an open-source and a managed one; Collibra has a hosted product and an open-source local version.",
       "sources": [
         {
           "t": "Atlan MCP",
-          "u": "https://atlan.com/mcp/"
+          "u": "https://docs.atlan.com/product/capabilities/atlan-ai/how-tos/atlan-mcp-overview"
+        },
+        {
+          "t": "Alation MCP",
+          "u": "https://documentation.alation.com/en/latest/agentstudio/integrations/mcp/using-the-mcp-server.md"
+        },
+        {
+          "t": "Collibra MCP",
+          "u": "https://www.collibra.com/products/mcp-server"
+        },
+        {
+          "t": "DataHub MCP",
+          "u": "https://docs.datahub.com/docs/features/feature-guides/mcp"
+        },
+        {
+          "t": "OpenMetadata MCP",
+          "u": "https://docs.open-metadata.org/v2.0.x/how-to-guides/mcp.md"
+        }
+      ]
+    },
+    {
+      "topic": "Collibra Copilot replaced by Maestro",
+      "text": "Collibra AI Copilot is marked Deprecated and is upgraded to Collibra Maestro with the 2026.10 release. Maestro is labeled in preview.",
+      "sources": [
+        {
+          "t": "About Collibra AI Copilot",
+          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraAI/co_cai-co-pilot.htm"
+        },
+        {
+          "t": "About Collibra Maestro",
+          "u": "https://productresources.collibra.com/docs/collibra/latest/Content/CollibraAI/maestro/co_maestro.htm"
+        }
+      ]
+    },
+    {
+      "topic": "How stages were read",
+      "text": "A feature is listed GA when vendor docs present it without a preview or beta label. Labeled or request-gated features are Preview.",
+      "sources": [
+        {
+          "t": "Atlan release stages",
+          "u": "https://docs.atlan.com/llms/platform/get-started/product-release-stages/llms.txt"
         }
       ]
     }
