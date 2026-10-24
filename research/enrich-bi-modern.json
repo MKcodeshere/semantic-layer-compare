@@ -5,17 +5,17 @@
       "caps": {
         "aiDescriptions": {
           "l": 3,
-          "n": "Tableau Agent drafts descriptions for data sources, workbooks and tables in Catalog (Tableau Cloud). Tableau Next has a Beta description generator.",
+          "n": "Tableau Agent drafts descriptions for data sources, workbooks and tables in Catalog (Cloud). Tableau Next has a Beta generator.",
           "u": "https://help.tableau.com/current/tableau/en-us/tableau_gai_solutions.htm"
         },
         "bulkMetadata": {
           "l": 3,
-          "n": "REST: Update Column, Batch Add Tags, and from API 3.30 field descriptions on a data source work copy. Data Management license needed.",
+          "n": "REST: Update Column, Batch Add Tags, and from API 3.30 field descriptions on a work copy. Needs Data Management.",
           "u": "https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref_data_sources.htm"
         },
         "autoClassify": {
           "l": 0,
-          "n": "Sensitivity labels and tags are set by hand or through the label and tag REST methods. No automatic column classification found.",
+          "n": "Sensitivity labels and tags are set by hand or via REST. No automatic column classification found.",
           "u": "https://help.tableau.com/current/server/en-us/dm_labels.htm"
         },
         "sampleValues": {
@@ -90,17 +90,17 @@
       "caps": {
         "aiDescriptions": {
           "l": 2,
-          "n": "SpotterModel can draft column descriptions from a chat prompt; autonomous model build is Beta. AI synonyms are Early Access, off by default.",
+          "n": "SpotterModel drafts column descriptions from a chat prompt; autonomous build is Beta. AI synonyms are Early Access.",
           "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-model-create.md"
         },
         "bulkMetadata": {
           "l": 3,
-          "n": "TML API exports, edits and imports Model TML in bulk, including column descriptions and synonyms. Column property sync is Early Access.",
+          "n": "TML API exports and imports Model TML in bulk, with column descriptions and synonyms. Column property sync is Early Access.",
           "u": "https://developers.thoughtspot.com/docs/tml"
         },
         "autoClassify": {
           "l": 0,
-          "n": "No automatic PII or sensitivity tagging found in the Spotter and modeling docs. Docs advise excluding PII columns from indexing by hand.",
+          "n": "No automatic PII tagging found. Docs advise excluding PII columns from indexing by hand.",
           "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-make-ai-ready.md"
         },
         "sampleValues": {
@@ -110,12 +110,12 @@
         },
         "queryHistory": {
           "l": 0,
-          "n": "No feature builds models, joins or examples from warehouse query logs. Memory can be generated from Liveboards and conversations (Early Access).",
+          "n": "No feature builds models or examples from warehouse query logs. Memory comes from Liveboards and conversations (Early Access).",
           "u": "https://docs.thoughtspot.com/cloud/26.10.0.cl/spotter-liveboard-learn.md"
         },
         "lineage": {
           "l": 1,
-          "n": "Tables list dependent Models, Liveboards and Answers and the columns they use. Column lineage graphs come from catalogs such as DataHub.",
+          "n": "Tables list dependent Models, Liveboards and Answers and the columns they use. DataHub builds column lineage.",
           "u": "https://docs.datahub.com/docs/generated/ingestion/sources/thoughtspot.md"
         },
         "evals": {
@@ -195,12 +195,12 @@
       "caps": {
         "aiDescriptions": {
           "l": 0,
-          "n": "No description generator found. The Assistant search index builds its own descriptions and synonyms from column names, and does not write them back.",
+          "n": "No description generator found. The Assistant index builds its own descriptions from column names and does not write them back.",
           "u": "https://help.sigmacomputing.com/docs/data-modeling-best-practices.md"
         },
         "bulkMetadata": {
           "l": 3,
-          "n": "Data model spec API reads and replaces whole models as JSON or YAML, with table, column and metric descriptions. dbt persist_docs also feeds descriptions.",
+          "n": "Data model spec API replaces whole models as JSON or YAML, with column descriptions. dbt persist_docs also feeds them.",
           "u": "https://help.sigmacomputing.com/reference/update-data-model-spec.md"
         },
         "autoClassify": {
@@ -225,7 +225,7 @@
         },
         "evals": {
           "l": 3,
-          "n": "Build an agent evaluation suite with input tables or the REST API, using AI_USAGE records. Assistant has good and bad response feedback.",
+          "n": "Agent evaluation suites run from input tables or the REST API, using AI_USAGE records. Assistant has response feedback.",
           "u": "https://help.sigmacomputing.com/docs/build-agent-evaluation-suite.md"
         }
       },
@@ -297,7 +297,7 @@
         },
         "bulkMetadata": {
           "l": 1,
-          "n": "API sets DataSet description and tags; column descriptions are edited per DataSet in the UI. Snowflake column descriptions can sync in.",
+          "n": "API sets DataSet description and tags. Column descriptions are edited per DataSet in the UI or synced from Snowflake.",
           "u": "https://www.domo.com/docs/s/article/6814561223959.md"
         },
         "autoClassify": {
@@ -317,7 +317,7 @@
         },
         "lineage": {
           "l": 1,
-          "n": "Native lineage and impact analysis are DataSet, DataFlow, card and alert level. A column-level lineage agent app is listed on Domo's site.",
+          "n": "Native lineage is DataSet, DataFlow, card and alert level. A column-level lineage agent app is listed on Domo's site.",
           "u": "https://www.domo.com/ai/apps/lineage-impact-analysis-agent"
         },
         "evals": {
@@ -389,7 +389,7 @@
       "caps": {
         "aiDescriptions": {
           "l": 3,
-          "n": "Ask Metabot in chat to write table or field descriptions. It only sees database content, so it cannot supply business context.",
+          "n": "Ask Metabot in chat to write descriptions. It only sees database content, so it cannot supply business context.",
           "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/settings.md"
         },
         "bulkMetadata": {
@@ -404,7 +404,7 @@
         },
         "sampleValues": {
           "l": 3,
-          "n": "Metabase sends a sampling of field values to the AI, so Metabot can check whether a state is stored as WI or Wisconsin.",
+          "n": "Metabase sends sampled field values to the AI, so Metabot can check if a state is WI or Wisconsin.",
           "u": "https://raw.githubusercontent.com/metabase/metabase/master/docs/ai/privacy.md"
         },
         "queryHistory": {
@@ -489,7 +489,7 @@
         },
         "sampleValues": {
           "l": 0,
-          "n": "No built-in NL-to-SQL feature found in the docs or 6.1 notes, so no value matching. An MCP client brings its own model.",
+          "n": "No built-in NL-to-SQL found in the docs or 6.1 notes, so no value matching. MCP clients bring their own model.",
           "u": "https://preset.io/blog/apache-superset-6-1-release/"
         },
         "queryHistory": {
